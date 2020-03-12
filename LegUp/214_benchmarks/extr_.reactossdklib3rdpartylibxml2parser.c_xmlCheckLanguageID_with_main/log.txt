@@ -1,0 +1,35 @@
+# annotate loop labels
+../../../mark_labels.pl extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.c > extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main_labeled.c
+# produces pre-link time optimization binary bitcode: extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.bc
+clang extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main_labeled.c -emit-llvm -c -fno-builtin -m32 -I ../../../lib/include/ -I /usr/include/i386-linux-gnu -O3 -o extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.1.bc
+../../../../llvm/Release+Asserts/bin/llvm-dis extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.1.bc
+cp -f extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.1.bc extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.cv.bc
+../../../../llvm/Release+Asserts/bin/opt -mem2reg -loops -loop-simplify < extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.cv.bc > extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.2.bc
+# linking may produce llvm mem-family intrinsics
+../../../../llvm/Release+Asserts/bin/llvm-ld  extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.2.bc -b=extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.linked.bc
+While deleting: label %
+Use still stuck around after Def is destroyed:  br label <badref>
+llvm-ld: Value.cpp:75: virtual llvm::Value::~Value(): Assertion `use_empty() && "Uses remain when a value is destroyed!"' failed.
+0  llvm-ld   0x0857d8c8
+1  llvm-ld   0x0857de34
+2            0x40022400 __kernel_sigreturn + 0
+3            0x40022424 __kernel_vsyscall + 16
+4  libc.so.6 0x401b51df gsignal + 79
+5  libc.so.6 0x401b8825 abort + 373
+6  libc.so.6 0x401ae085
+7  libc.so.6 0x401ae137
+8  llvm-ld   0x0851a2d4 llvm::Value::~Value() + 772
+9  llvm-ld   0x08469300 llvm::BasicBlock::~BasicBlock() + 304
+10 llvm-ld   0x08469412 llvm::BasicBlock::~BasicBlock() + 34
+11 llvm-ld   0x081d8fd6
+12 llvm-ld   0x085082a0 llvm::MPPassManager::runOnModule(llvm::Module&) + 592
+13 llvm-ld   0x08509048 llvm::PassManagerImpl::run(llvm::Module&) + 184
+14 llvm-ld   0x08509196 llvm::PassManager::run(llvm::Module&) + 38
+15 llvm-ld   0x080f7c8a llvm::Optimize(llvm::Module*) + 506
+16 llvm-ld   0x080f1624 main + 1396
+17 libc.so.6 0x401a04d3 __libc_start_main + 243
+18 llvm-ld   0x080f79f9
+Stack dump:
+0.	Program arguments: ../../../../llvm/Release+Asserts/bin/llvm-ld extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.2.bc -b=extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.prelto.linked.bc 
+1.	Running pass 'Interprocedural Sparse Conditional Constant Propagation' on module 'a.out'.
+make: *** [all] Aborted (core dumped)

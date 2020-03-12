@@ -1,0 +1,12 @@
+# annotate loop labels
+../../../mark_labels.pl extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main.c > extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main_labeled.c
+# produces pre-link time optimization binary bitcode: extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main.prelto.bc
+clang extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main_labeled.c -emit-llvm -c -fno-builtin -m32 -I ../../../lib/include/ -I /usr/include/i386-linux-gnu -O3 -o extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main.prelto.1.bc
+extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main_labeled.c:220:9: error: expected identifier or '('
+  int (*)[8] bits;
+        ^
+extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main_labeled.c:221:32: error: use of undeclared identifier 'bits'
+  ff_sbc_calculate_bits(frame, bits);
+                               ^
+2 errors generated.
+make: *** [all] Error 1
