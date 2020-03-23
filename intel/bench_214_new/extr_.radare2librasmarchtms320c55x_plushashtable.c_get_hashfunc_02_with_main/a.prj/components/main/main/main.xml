@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2020.03.23.14:43:05"
+ outputDirectory="/home/canesche/HLStools/intel/a.prj/components/main/main/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Arria 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10AX115U1F45I1SG"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clock" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="resetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="call" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="start" direction="input" role="valid" width="1" />
+   <port name="busy" direction="output" role="stall" width="1" />
+  </interface>
+  <interface name="return" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="done" direction="output" role="valid" width="1" />
+   <port name="stall" direction="input" role="stall" width="1" />
+  </interface>
+  <interface name="returndata" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="returndata" direction="output" role="data" width="32" />
+  </interface>
+ </perimeter>
+ <entity kind="main" version="1.0" name="main">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLOCK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="10AX115U1F45I1SG" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria 10" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="1" />
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/synth/main.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/synth/main.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="/home/canesche/HLStools/intel/a.prj/components/main/main.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main_internal_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="main">"Generating: main"</message>
+   <message level="Info" culprit="main">"Generating: main_internal"</message>
+  </messages>
+ </entity>
+ <entity kind="main_internal" version="1.0" name="main_internal">
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_iord_bl_call_unnamed_main2_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_iowr_bl_return_unnamed_main3_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_sfc_s_c0_in_wt_entry_s_c0_enter1_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_internal.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_iord_bl_call_unnamed_main2_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_iowr_bl_return_unnamed_main3_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_sfc_s_c0_in_wt_entry_s_c0_enter1_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_main0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main/main_internal_10/synth/main_internal.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/main/main_internal_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="main" as="main_internal_inst" />
+  <messages>
+   <message level="Info" culprit="main">"Generating: main_internal"</message>
+  </messages>
+ </entity>
+</deploy>
