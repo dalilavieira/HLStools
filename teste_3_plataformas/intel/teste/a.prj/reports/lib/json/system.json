@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"sum_vector"
+      , "id":1942853528
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Read"
+          , "id":1943008504
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"sum_vector.B1.start"
+              , "Width":"256 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"teste/teste.c"
+                , "line":4
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Write"
+          , "id":1943076360
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"sum_vector.B2"
+              , "Width":"1 bit"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"teste/teste.c"
+                , "line":9
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"return.sum_vector"
+      , "id":1942832248
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"1 bit"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"1 bit"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"call.sum_vector"
+      , "id":1942853368
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"256 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"256 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":1943076360
+      , "to":1942832248
+    }
+    , {
+      "from":1942853368
+      , "to":1943008504
+    }
+    , {
+      "from":1943008504
+      , "to":1943076360
+    }
+  ]
+}
