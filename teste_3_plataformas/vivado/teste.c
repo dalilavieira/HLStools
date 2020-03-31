@@ -9,9 +9,10 @@ void sum_vector(int *a, int *b, int *c, int n) {
 
 int main(){
     int n = 100;
+    int i;
 
     int a[n], b[n], c[n];
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         a[i] = i;
         b[i] = n-i;
         c[i] = 0;
@@ -19,7 +20,7 @@ int main(){
 
     sum_vector(a, b, c, n);
 
-    for (int i = 0; i < n; ++i) {
+    for (i = 0; i < n; ++i) {
         printf("%d + %d = %d\n", a[i], b[i], c[i]);
     }
 
