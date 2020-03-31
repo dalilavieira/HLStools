@@ -1,11 +1,11 @@
 
-set TopModule "main"
+set TopModule "sum_vector"
 set ClockPeriod 10
-set ClockList {}
+set ClockList ap_clk
 set HasVivadoClockPeriod 0
-set CombLogicFlag 1
+set CombLogicFlag 0
 set PipelineFlag 0
-set DataflowTaskPipelineFlag 0
+set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
@@ -41,7 +41,7 @@ set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
 set SourceFiles {sc {} c ../../teste.c}
-set SourceFlags {sc {} c {{ } {}}}
+set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/vivado/ultimaHora/projeto/sol/sol.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C

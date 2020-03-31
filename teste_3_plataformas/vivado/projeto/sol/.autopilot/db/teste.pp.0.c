@@ -933,27 +933,27 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ )) ;
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 # 2 "teste.c" 2
 
-void sum_vector(int *a, int *b, int *c, int n) {
 
-    for (int i = 0; i < n; ++i) {
+void sum_vector(__int32_t a[100], __int32_t b[100], __int32_t c[100]) {_ssdm_SpecArrayDimSize(a, 100);_ssdm_SpecArrayDimSize(b, 100);_ssdm_SpecArrayDimSize(c, 100);
+
+    for (int i = 0; i < 100; ++i) {
         c[i] = a[i] + b[i];
     }
 }
 
 int main(){
-    int n = 100;
     int i;
 
-    int a[n], b[n], c[n];
-    for (i = 0; i < n; i++) {
+    int a[100], b[100], c[100];
+    for (i = 0; i < 100; i++) {
         a[i] = i;
-        b[i] = n-i;
+        b[i] = 100 -i;
         c[i] = 0;
     }
 
-    sum_vector(a, b, c, n);
+    sum_vector(a, b, c);
 
-    for (i = 0; i < n; ++i) {
+    for (i = 0; i < 100; ++i) {
         printf("%d + %d = %d\n", a[i], b[i], c[i]);
     }
 

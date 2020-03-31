@@ -1,6 +1,7 @@
 #include <stdio.h>
+#define n 100
 
-void sum_vector(int *a, int *b, int *c, int n) {
+void sum_vector(int *a,int *b,int *c) {
 
     for (int i = 0; i < n; ++i) {
         c[i] = a[i] + b[i];
@@ -8,7 +9,6 @@ void sum_vector(int *a, int *b, int *c, int n) {
 }
 
 int main(){
-    int n = 100;
     int i;
 
     int a[n], b[n], c[n];
@@ -18,7 +18,7 @@ int main(){
         c[i] = 0;
     }
 
-    sum_vector(a, b, c, n);
+    sum_vector(a, b, c);
 
     for (i = 0; i < n; ++i) {
         printf("%d + %d = %d\n", a[i], b[i], c[i]);
