@@ -1,0 +1,150 @@
+
+
+================================================================
+== Vivado HLS Report for 'nfs_open_file_remove_open_find'
+================================================================
+* Date:           Wed Apr  1 02:49:15 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.398|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     184|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       0|     184|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|       0|   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |and_ln75_1_fu_191_p2   |    and   |      0|  0|   6|           1|           1|
+    |and_ln75_2_fu_203_p2   |    and   |      0|  0|   6|           1|           1|
+    |and_ln75_fu_179_p2     |    and   |      0|  0|   6|           1|           1|
+    |and_ln84_fu_167_p2     |    and   |      0|  0|   6|           1|           1|
+    |icmp_ln74_fu_125_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln75_1_fu_173_p2  |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln75_fu_155_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln76_fu_137_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln84_fu_131_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln94_fu_143_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |or_ln75_1_fu_197_p2    |    or    |      0|  0|   6|           1|           1|
+    |or_ln75_fu_149_p2      |    or    |      0|  0|  32|          32|          32|
+    |select_ln75_fu_209_p3  |  select  |      0|  0|   2|           1|           1|
+    |xor_ln74_fu_161_p2     |    xor   |      0|  0|   6|           1|           2|
+    |xor_ln75_fu_185_p2     |    xor   |      0|  0|   6|           2|           1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 184|         233|          47|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_start              |  in |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_done               | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|nofp_nof_access       |  in |   32|   ap_none  |         nofp_nof_access        |    pointer   |
+|nofp_nof_deny         |  in |   32|   ap_none  |          nofp_nof_deny         |    pointer   |
+|nofp_nof_r            |  in |   32|   ap_none  |           nofp_nof_r           |    pointer   |
+|nofp_nof_d_r          |  in |   32|   ap_none  |          nofp_nof_d_r          |    pointer   |
+|nofp_nof_rw           |  in |   32|   ap_none  |           nofp_nof_rw          |    pointer   |
+|nofp_nof_d_rw         |  in |   32|   ap_none  |          nofp_nof_d_rw         |    pointer   |
+|nofp_nof_r_dw         |  in |   32|   ap_none  |          nofp_nof_r_dw         |    pointer   |
+|nofp_nof_d_r_dw       |  in |   32|   ap_none  |         nofp_nof_d_r_dw        |    pointer   |
+|nofp_nof_rw_dw        |  in |   32|   ap_none  |         nofp_nof_rw_dw         |    pointer   |
+|nofp_nof_d_rw_dw      |  in |   32|   ap_none  |        nofp_nof_d_rw_dw        |    pointer   |
+|nofp_nof_r_drw        |  in |   32|   ap_none  |         nofp_nof_r_drw         |    pointer   |
+|nofp_nof_d_r_drw      |  in |   32|   ap_none  |        nofp_nof_d_r_drw        |    pointer   |
+|nofp_nof_w            |  in |   32|   ap_none  |           nofp_nof_w           |    pointer   |
+|nofp_nof_d_w          |  in |   32|   ap_none  |          nofp_nof_d_w          |    pointer   |
+|nofp_nof_w_dw         |  in |   32|   ap_none  |          nofp_nof_w_dw         |    pointer   |
+|nofp_nof_d_w_dw       |  in |   32|   ap_none  |         nofp_nof_d_w_dw        |    pointer   |
+|nofp_nof_w_drw        |  in |   32|   ap_none  |         nofp_nof_w_drw         |    pointer   |
+|nofp_nof_d_w_drw      |  in |   32|   ap_none  |        nofp_nof_d_w_drw        |    pointer   |
+|nofp_nof_rw_drw       |  in |   32|   ap_none  |         nofp_nof_rw_drw        |    pointer   |
+|nofp_nof_d_rw_drw     |  in |   32|   ap_none  |        nofp_nof_d_rw_drw       |    pointer   |
+|accessMode            |  in |   32|   ap_none  |           accessMode           |    scalar    |
+|denyMode              |  in |   32|   ap_none  |            denyMode            |    scalar    |
+|newAccessMode         | out |   32|   ap_vld   |          newAccessMode         |    pointer   |
+|newAccessMode_ap_vld  | out |    1|   ap_vld   |          newAccessMode         |    pointer   |
+|newDenyMode           | out |   32|   ap_vld   |           newDenyMode          |    pointer   |
+|newDenyMode_ap_vld    | out |    1|   ap_vld   |           newDenyMode          |    pointer   |
+|delegated             | out |   32|   ap_vld   |            delegated           |    pointer   |
+|delegated_ap_vld      | out |    1|   ap_vld   |            delegated           |    pointer   |
++----------------------+-----+-----+------------+--------------------------------+--------------+
+
