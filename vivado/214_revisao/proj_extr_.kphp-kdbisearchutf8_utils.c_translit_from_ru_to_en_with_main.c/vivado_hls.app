@@ -1,9 +1,10 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.kphp-kdbisearchutf8_utils.c_translit_from_ru_to_en_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.kphp-kdbisearchutf8_utils.c_translit_from_ru_to_en_with_main.c" top="translit_from_ru_to_en">
     <files>
         <file name="extr_.kphp-kdbisearchutf8_utils.c_translit_from_ru_to_en_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>
     <solutions>
         <solution name="solution1" status=""/>
+        <solution name="sol" status=""/>
     </solutions>
 </AutoPilot:project>
 

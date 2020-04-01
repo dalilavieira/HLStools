@@ -1,0 +1,354 @@
+
+
+================================================================
+== Vivado HLS Report for 'p_eia608_from_utf8'
+================================================================
+* Date:           Wed Apr  1 18:51:18 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.817|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    1|    1|    1|    1|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.81>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %s) nounwind, !map !13"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @p_eia608_from_utf8_st) nounwind"   --->   Operation 5 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%s_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %s) nounwind" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:27]   --->   Operation 6 'read' 's_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%yych = trunc i32 %s_read to i8" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:27]   --->   Operation 7 'trunc' 'yych' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.22ns)   --->   "%icmp_ln28 = icmp ult i8 %yych, 97" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:28]   --->   Operation 8 'icmp' 'icmp_ln28' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "br i1 %icmp_ln28, label %1, label %11" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:28]   --->   Operation 9 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %s_read, i32 7)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:50]   --->   Operation 10 'bitselect' 'tmp' <Predicate = (!icmp_ln28)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %tmp, label %17, label %12" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:50]   --->   Operation 11 'br' <Predicate = (!icmp_ln28)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (1.22ns)   --->   "%icmp_ln51 = icmp ult i8 %yych, 125" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:51]   --->   Operation 12 'icmp' 'icmp_ln51' <Predicate = (!icmp_ln28 & !tmp)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln51, label %13, label %15" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:51]   --->   Operation 13 'br' <Predicate = (!icmp_ln28 & !tmp)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (1.22ns)   --->   "%icmp_ln56 = icmp ult i8 %yych, 126" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:56]   --->   Operation 14 'icmp' 'icmp_ln56' <Predicate = (!icmp_ln28 & !tmp & !icmp_ln51)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (2.59ns)   --->   "br i1 %icmp_ln56, label %UnifiedReturnBlock, label %16" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:56]   --->   Operation 15 'br' <Predicate = (!icmp_ln28 & !tmp & !icmp_ln51)> <Delay = 2.59>
+ST_1 : Operation 16 [1/1] (1.22ns)   --->   "%icmp_ln57 = icmp ult i8 %yych, 127" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:57]   --->   Operation 16 'icmp' 'icmp_ln57' <Predicate = (!icmp_ln28 & !tmp & !icmp_ln51 & !icmp_ln56)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.88ns)   --->   "%select_ln57 = select i1 %icmp_ln57, i16 4911, i16 0" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:57]   --->   Operation 17 'select' 'select_ln57' <Predicate = (!icmp_ln28 & !tmp & !icmp_ln51 & !icmp_ln56)> <Delay = 0.88> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:57]   --->   Operation 18 'br' <Predicate = (!icmp_ln28 & !tmp & !icmp_ln51 & !icmp_ln56)> <Delay = 2.59>
+ST_1 : Operation 19 [1/1] (1.22ns)   --->   "%icmp_ln52 = icmp ult i8 %yych, 123" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:52]   --->   Operation 19 'icmp' 'icmp_ln52' <Predicate = (!icmp_ln28 & !tmp & icmp_ln51)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %icmp_ln52, label %._crit_edge5, label %14" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:52]   --->   Operation 20 'br' <Predicate = (!icmp_ln28 & !tmp & icmp_ln51)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (1.22ns)   --->   "%icmp_ln53 = icmp ult i8 %yych, 124" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:53]   --->   Operation 21 'icmp' 'icmp_ln53' <Predicate = (!icmp_ln28 & !tmp & icmp_ln51 & !icmp_ln52)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.88ns)   --->   "%select_ln53 = select i1 %icmp_ln53, i16 4905, i16 4910" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:53]   --->   Operation 22 'select' 'select_ln53' <Predicate = (!icmp_ln28 & !tmp & icmp_ln51 & !icmp_ln52)> <Delay = 0.88> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:53]   --->   Operation 23 'br' <Predicate = (!icmp_ln28 & !tmp & icmp_ln51 & !icmp_ln52)> <Delay = 2.59>
+ST_1 : Operation 24 [1/1] (1.22ns)   --->   "%icmp_ln61 = icmp ult i8 %yych, -60" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:61]   --->   Operation 24 'icmp' 'icmp_ln61' <Predicate = (!icmp_ln28 & tmp)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "br i1 %icmp_ln61, label %18, label %20" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:61]   --->   Operation 25 'br' <Predicate = (!icmp_ln28 & tmp)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.22ns)   --->   "%icmp_ln66 = icmp eq i8 %yych, -30" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:66]   --->   Operation 26 'icmp' 'icmp_ln66' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln66, label %23, label %._crit_edge4" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:66]   --->   Operation 27 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%yych_1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 8, i32 15)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:193]   --->   Operation 28 'partselect' 'yych_1' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (1.08ns)   --->   "switch i8 %yych_1, label %._crit_edge16 [
+    i8 -128, label %90
+    i8 -124, label %91
+    i8 -108, label %93
+    i8 -106, label %94
+    i8 -103, label %95
+  ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:194]   --->   Operation 29 'switch' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66)> <Delay = 1.08>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%yych_7 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 16, i32 23)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:439]   --->   Operation 30 'partselect' 'yych_7' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 153)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (1.22ns)   --->   "%icmp_ln440 = icmp eq i8 %yych_7, -86" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:440]   --->   Operation 31 'icmp' 'icmp_ln440' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 153)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (2.59ns)   --->   "br i1 %icmp_ln440, label %UnifiedReturnBlock, label %._crit_edge21" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:440]   --->   Operation 32 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 153)> <Delay = 2.59>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%yych_6 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 16, i32 23)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:435]   --->   Operation 33 'partselect' 'yych_6' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 150)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (1.22ns)   --->   "%icmp_ln436 = icmp eq i8 %yych_6, -120" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:436]   --->   Operation 34 'icmp' 'icmp_ln436' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 150)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (2.59ns)   --->   "br i1 %icmp_ln436, label %UnifiedReturnBlock, label %._crit_edge21" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:436]   --->   Operation 35 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 150)> <Delay = 2.59>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%yych_5 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 16, i32 23)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:426]   --->   Operation 36 'partselect' 'yych_5' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 148)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (2.59ns)   --->   "switch i8 %yych_5, label %._crit_edge21 [
+    i8 -116, label %UnifiedReturnBlock
+    i8 -112, label %101
+    i8 -108, label %102
+    i8 -104, label %103
+  ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:427]   --->   Operation 37 'switch' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 148)> <Delay = 2.59>
+ST_1 : Operation 38 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:477]   --->   Operation 38 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 148 & yych_5 == 152)> <Delay = 2.59>
+ST_1 : Operation 39 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:474]   --->   Operation 39 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 148 & yych_5 == 148)> <Delay = 2.59>
+ST_1 : Operation 40 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:471]   --->   Operation 40 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 148 & yych_5 == 144)> <Delay = 2.59>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%yych_4 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 16, i32 23)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:421]   --->   Operation 41 'partselect' 'yych_4' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 132)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (1.22ns)   --->   "%icmp_ln422 = icmp eq i8 %yych_4, -96" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:422]   --->   Operation 42 'icmp' 'icmp_ln422' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 132)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 43 [1/1] (2.59ns)   --->   "br i1 %icmp_ln422, label %UnifiedReturnBlock, label %92" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:422]   --->   Operation 43 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 132)> <Delay = 2.59>
+ST_1 : Operation 44 [1/1] (1.22ns)   --->   "%icmp_ln423 = icmp eq i8 %yych_4, -94" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:423]   --->   Operation 44 'icmp' 'icmp_ln423' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 132 & !icmp_ln422)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (2.59ns)   --->   "br i1 %icmp_ln423, label %UnifiedReturnBlock, label %._crit_edge21" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:423]   --->   Operation 45 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 132 & !icmp_ln422)> <Delay = 2.59>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%yych_3 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 16, i32 23)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:407]   --->   Operation 46 'partselect' 'yych_3' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (2.59ns)   --->   "switch i8 %yych_3, label %._crit_edge21 [
+    i8 -108, label %UnifiedReturnBlock
+    i8 -104, label %96
+    i8 -103, label %97
+    i8 -100, label %98
+    i8 -99, label %99
+    i8 -94, label %100
+  ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:408]   --->   Operation 47 'switch' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128)> <Delay = 2.59>
+ST_1 : Operation 48 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:459]   --->   Operation 48 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 == 162)> <Delay = 2.59>
+ST_1 : Operation 49 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:456]   --->   Operation 49 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 == 157)> <Delay = 2.59>
+ST_1 : Operation 50 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:453]   --->   Operation 50 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 == 156)> <Delay = 2.59>
+ST_1 : Operation 51 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:450]   --->   Operation 51 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 == 153)> <Delay = 2.59>
+ST_1 : Operation 52 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:447]   --->   Operation 52 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 == 152)> <Delay = 2.59>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "br label %._crit_edge16" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:419]   --->   Operation 53 'br' <Predicate = (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 != 128 & yych_1 != 132 & yych_1 != 148 & yych_1 != 150 & yych_1 == 153 & !icmp_ln440) | (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 != 128 & yych_1 != 132 & yych_1 != 148 & yych_1 == 150 & !icmp_ln436) | (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 != 128 & yych_1 != 132 & yych_1 == 148 & yych_5 != 140 & yych_5 != 144 & yych_5 != 148 & yych_5 != 152) | (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 != 128 & yych_1 == 132 & !icmp_ln422 & !icmp_ln423) | (!icmp_ln28 & tmp & !icmp_ln61 & icmp_ln66 & yych_1 == 128 & yych_3 != 148 & yych_3 != 152 & yych_3 != 153 & yych_3 != 156 & yych_3 != 157 & yych_3 != 162)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (1.22ns)   --->   "%icmp_ln62 = icmp ult i8 %yych, -62" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:62]   --->   Operation 54 'icmp' 'icmp_ln62' <Predicate = (!icmp_ln28 & tmp & icmp_ln61)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %icmp_ln62, label %._crit_edge4, label %19" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:62]   --->   Operation 55 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (1.22ns)   --->   "%icmp_ln63 = icmp ult i8 %yych, -61" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:63]   --->   Operation 56 'icmp' 'icmp_ln63' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%yych_2 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %s_read, i32 8, i32 15)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:115]   --->   Operation 57 'partselect' 'yych_2' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "br i1 %icmp_ln63, label %21, label %22" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:63]   --->   Operation 58 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62)> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (2.59ns)   --->   "switch i8 %yych_2, label %._crit_edge16 [
+    i8 -128, label %UnifiedReturnBlock
+    i8 -127, label %37
+    i8 -126, label %38
+    i8 -125, label %39
+    i8 -124, label %40
+    i8 -123, label %41
+    i8 -121, label %42
+    i8 -120, label %43
+    i8 -119, label %44
+    i8 -118, label %45
+    i8 -117, label %46
+    i8 -116, label %47
+    i8 -115, label %48
+    i8 -114, label %49
+    i8 -113, label %50
+    i8 -111, label %51
+    i8 -110, label %52
+    i8 -109, label %53
+    i8 -108, label %54
+    i8 -107, label %55
+    i8 -106, label %56
+    i8 -104, label %57
+    i8 -103, label %58
+    i8 -102, label %59
+    i8 -101, label %60
+    i8 -100, label %61
+    i8 -97, label %62
+    i8 -96, label %63
+    i8 -95, label %64
+    i8 -94, label %65
+    i8 -93, label %66
+    i8 -92, label %67
+    i8 -91, label %68
+    i8 -89, label %69
+    i8 -88, label %70
+    i8 -87, label %71
+    i8 -86, label %72
+    i8 -85, label %73
+    i8 -84, label %74
+    i8 -83, label %75
+    i8 -82, label %76
+    i8 -81, label %77
+    i8 -79, label %78
+    i8 -78, label %79
+    i8 -77, label %80
+    i8 -76, label %81
+    i8 -75, label %82
+    i8 -74, label %83
+    i8 -73, label %84
+    i8 -72, label %85
+    i8 -71, label %86
+    i8 -70, label %87
+    i8 -69, label %88
+    i8 -68, label %89
+  ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:135]   --->   Operation 59 'switch' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63)> <Delay = 2.59>
+ST_1 : Operation 60 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:405]   --->   Operation 60 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 188)> <Delay = 2.59>
+ST_1 : Operation 61 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:402]   --->   Operation 61 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 187)> <Delay = 2.59>
+ST_1 : Operation 62 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:399]   --->   Operation 62 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 186)> <Delay = 2.59>
+ST_1 : Operation 63 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:396]   --->   Operation 63 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 185)> <Delay = 2.59>
+ST_1 : Operation 64 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:393]   --->   Operation 64 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 184)> <Delay = 2.59>
+ST_1 : Operation 65 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:390]   --->   Operation 65 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 183)> <Delay = 2.59>
+ST_1 : Operation 66 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:387]   --->   Operation 66 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 182)> <Delay = 2.59>
+ST_1 : Operation 67 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:384]   --->   Operation 67 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 181)> <Delay = 2.59>
+ST_1 : Operation 68 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:381]   --->   Operation 68 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 180)> <Delay = 2.59>
+ST_1 : Operation 69 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:378]   --->   Operation 69 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 179)> <Delay = 2.59>
+ST_1 : Operation 70 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:375]   --->   Operation 70 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 178)> <Delay = 2.59>
+ST_1 : Operation 71 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:372]   --->   Operation 71 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 177)> <Delay = 2.59>
+ST_1 : Operation 72 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:369]   --->   Operation 72 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 175)> <Delay = 2.59>
+ST_1 : Operation 73 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:366]   --->   Operation 73 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 174)> <Delay = 2.59>
+ST_1 : Operation 74 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:363]   --->   Operation 74 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 173)> <Delay = 2.59>
+ST_1 : Operation 75 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:360]   --->   Operation 75 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 172)> <Delay = 2.59>
+ST_1 : Operation 76 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:357]   --->   Operation 76 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 171)> <Delay = 2.59>
+ST_1 : Operation 77 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:354]   --->   Operation 77 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 170)> <Delay = 2.59>
+ST_1 : Operation 78 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:351]   --->   Operation 78 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 169)> <Delay = 2.59>
+ST_1 : Operation 79 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:348]   --->   Operation 79 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 168)> <Delay = 2.59>
+ST_1 : Operation 80 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:345]   --->   Operation 80 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 167)> <Delay = 2.59>
+ST_1 : Operation 81 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:342]   --->   Operation 81 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 165)> <Delay = 2.59>
+ST_1 : Operation 82 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:339]   --->   Operation 82 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 164)> <Delay = 2.59>
+ST_1 : Operation 83 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:336]   --->   Operation 83 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 163)> <Delay = 2.59>
+ST_1 : Operation 84 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:333]   --->   Operation 84 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 162)> <Delay = 2.59>
+ST_1 : Operation 85 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:330]   --->   Operation 85 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 161)> <Delay = 2.59>
+ST_1 : Operation 86 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:327]   --->   Operation 86 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 160)> <Delay = 2.59>
+ST_1 : Operation 87 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:324]   --->   Operation 87 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 159)> <Delay = 2.59>
+ST_1 : Operation 88 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:321]   --->   Operation 88 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 156)> <Delay = 2.59>
+ST_1 : Operation 89 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:318]   --->   Operation 89 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 155)> <Delay = 2.59>
+ST_1 : Operation 90 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:315]   --->   Operation 90 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 154)> <Delay = 2.59>
+ST_1 : Operation 91 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:312]   --->   Operation 91 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 153)> <Delay = 2.59>
+ST_1 : Operation 92 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:309]   --->   Operation 92 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 152)> <Delay = 2.59>
+ST_1 : Operation 93 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:306]   --->   Operation 93 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 150)> <Delay = 2.59>
+ST_1 : Operation 94 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:303]   --->   Operation 94 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 149)> <Delay = 2.59>
+ST_1 : Operation 95 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:300]   --->   Operation 95 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 148)> <Delay = 2.59>
+ST_1 : Operation 96 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:297]   --->   Operation 96 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 147)> <Delay = 2.59>
+ST_1 : Operation 97 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:294]   --->   Operation 97 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 146)> <Delay = 2.59>
+ST_1 : Operation 98 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:291]   --->   Operation 98 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 145)> <Delay = 2.59>
+ST_1 : Operation 99 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:288]   --->   Operation 99 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 143)> <Delay = 2.59>
+ST_1 : Operation 100 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:285]   --->   Operation 100 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 142)> <Delay = 2.59>
+ST_1 : Operation 101 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:282]   --->   Operation 101 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 141)> <Delay = 2.59>
+ST_1 : Operation 102 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:279]   --->   Operation 102 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 140)> <Delay = 2.59>
+ST_1 : Operation 103 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:276]   --->   Operation 103 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 139)> <Delay = 2.59>
+ST_1 : Operation 104 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:273]   --->   Operation 104 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 138)> <Delay = 2.59>
+ST_1 : Operation 105 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:270]   --->   Operation 105 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 137)> <Delay = 2.59>
+ST_1 : Operation 106 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:267]   --->   Operation 106 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 136)> <Delay = 2.59>
+ST_1 : Operation 107 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:264]   --->   Operation 107 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 135)> <Delay = 2.59>
+ST_1 : Operation 108 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:261]   --->   Operation 108 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 133)> <Delay = 2.59>
+ST_1 : Operation 109 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:258]   --->   Operation 109 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 132)> <Delay = 2.59>
+ST_1 : Operation 110 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:255]   --->   Operation 110 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 131)> <Delay = 2.59>
+ST_1 : Operation 111 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:252]   --->   Operation 111 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 130)> <Delay = 2.59>
+ST_1 : Operation 112 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:249]   --->   Operation 112 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & !icmp_ln63 & yych_2 == 129)> <Delay = 2.59>
+ST_1 : Operation 113 [1/1] (2.59ns)   --->   "switch i8 %yych_2, label %._crit_edge16 [
+    i8 -96, label %UnifiedReturnBlock
+    i8 -95, label %24
+    i8 -94, label %25
+    i8 -93, label %26
+    i8 -92, label %27
+    i8 -91, label %28
+    i8 -90, label %29
+    i8 -87, label %30
+    i8 -85, label %31
+    i8 -82, label %32
+    i8 -80, label %33
+    i8 -69, label %34
+    i8 -67, label %35
+    i8 -65, label %36
+  ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:116]   --->   Operation 113 'switch' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63)> <Delay = 2.59>
+ST_1 : Operation 114 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:243]   --->   Operation 114 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 191)> <Delay = 2.59>
+ST_1 : Operation 115 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:240]   --->   Operation 115 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 189)> <Delay = 2.59>
+ST_1 : Operation 116 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:237]   --->   Operation 116 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 187)> <Delay = 2.59>
+ST_1 : Operation 117 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:234]   --->   Operation 117 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 176)> <Delay = 2.59>
+ST_1 : Operation 118 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:231]   --->   Operation 118 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 174)> <Delay = 2.59>
+ST_1 : Operation 119 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:228]   --->   Operation 119 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 171)> <Delay = 2.59>
+ST_1 : Operation 120 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:225]   --->   Operation 120 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 169)> <Delay = 2.59>
+ST_1 : Operation 121 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:222]   --->   Operation 121 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 166)> <Delay = 2.59>
+ST_1 : Operation 122 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:219]   --->   Operation 122 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 165)> <Delay = 2.59>
+ST_1 : Operation 123 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:216]   --->   Operation 123 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 164)> <Delay = 2.59>
+ST_1 : Operation 124 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:213]   --->   Operation 124 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 163)> <Delay = 2.59>
+ST_1 : Operation 125 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:210]   --->   Operation 125 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 162)> <Delay = 2.59>
+ST_1 : Operation 126 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:207]   --->   Operation 126 'br' <Predicate = (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln62 & icmp_ln63 & yych_2 == 161)> <Delay = 2.59>
+ST_1 : Operation 127 [1/1] (1.22ns)   --->   "%icmp_ln29 = icmp ult i8 %yych, 43" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:29]   --->   Operation 127 'icmp' 'icmp_ln29' <Predicate = (icmp_ln28)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 128 [1/1] (0.00ns)   --->   "br i1 %icmp_ln29, label %2, label %7" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:29]   --->   Operation 128 'br' <Predicate = (icmp_ln28)> <Delay = 0.00>
+ST_1 : Operation 129 [1/1] (1.22ns)   --->   "%icmp_ln40 = icmp ult i8 %yych, 94" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:40]   --->   Operation 129 'icmp' 'icmp_ln40' <Predicate = (icmp_ln28 & !icmp_ln29)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 130 [1/1] (0.00ns)   --->   "br i1 %icmp_ln40, label %8, label %9" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:40]   --->   Operation 130 'br' <Predicate = (icmp_ln28 & !icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 131 [1/1] (1.22ns)   --->   "%icmp_ln44 = icmp ult i8 %yych, 95" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:44]   --->   Operation 131 'icmp' 'icmp_ln44' <Predicate = (icmp_ln28 & !icmp_ln29 & !icmp_ln40)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 132 [1/1] (2.59ns)   --->   "br i1 %icmp_ln44, label %UnifiedReturnBlock, label %10" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:44]   --->   Operation 132 'br' <Predicate = (icmp_ln28 & !icmp_ln29 & !icmp_ln40)> <Delay = 2.59>
+ST_1 : Operation 133 [1/1] (1.22ns)   --->   "%icmp_ln45 = icmp ult i8 %yych, 96" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:45]   --->   Operation 133 'icmp' 'icmp_ln45' <Predicate = (icmp_ln28 & !icmp_ln29 & !icmp_ln40 & !icmp_ln44)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 134 [1/1] (0.88ns)   --->   "%select_ln45 = select i1 %icmp_ln45, i16 4909, i16 4646" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:45]   --->   Operation 134 'select' 'select_ln45' <Predicate = (icmp_ln28 & !icmp_ln29 & !icmp_ln40 & !icmp_ln44)> <Delay = 0.88> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 135 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:486]   --->   Operation 135 'br' <Predicate = (icmp_ln28 & !icmp_ln29 & !icmp_ln40 & !icmp_ln44)> <Delay = 2.59>
+ST_1 : Operation 136 [1/1] (1.22ns)   --->   "%icmp_ln41 = icmp eq i8 %yych, 92" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:41]   --->   Operation 136 'icmp' 'icmp_ln41' <Predicate = (icmp_ln28 & !icmp_ln29 & icmp_ln40)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 137 [1/1] (2.59ns)   --->   "br i1 %icmp_ln41, label %UnifiedReturnBlock, label %._crit_edge5" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:41]   --->   Operation 137 'br' <Predicate = (icmp_ln28 & !icmp_ln29 & icmp_ln40)> <Delay = 2.59>
+ST_1 : Operation 138 [1/1] (1.22ns)   --->   "%icmp_ln30 = icmp ult i8 %yych, 39" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:30]   --->   Operation 138 'icmp' 'icmp_ln30' <Predicate = (icmp_ln28 & icmp_ln29)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 139 [1/1] (0.00ns)   --->   "br i1 %icmp_ln30, label %3, label %5" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:30]   --->   Operation 139 'br' <Predicate = (icmp_ln28 & icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 140 [1/1] (1.22ns)   --->   "%icmp_ln35 = icmp ult i8 %yych, 40" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:35]   --->   Operation 140 'icmp' 'icmp_ln35' <Predicate = (icmp_ln28 & icmp_ln29 & !icmp_ln30)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 141 [1/1] (2.59ns)   --->   "br i1 %icmp_ln35, label %UnifiedReturnBlock, label %6" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:35]   --->   Operation 141 'br' <Predicate = (icmp_ln28 & icmp_ln29 & !icmp_ln30)> <Delay = 2.59>
+ST_1 : Operation 142 [1/1] (1.22ns)   --->   "%icmp_ln36 = icmp ult i8 %yych, 42" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:36]   --->   Operation 142 'icmp' 'icmp_ln36' <Predicate = (icmp_ln28 & icmp_ln29 & !icmp_ln30 & !icmp_ln35)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 143 [1/1] (2.59ns)   --->   "br i1 %icmp_ln36, label %._crit_edge5, label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:36]   --->   Operation 143 'br' <Predicate = (icmp_ln28 & icmp_ln29 & !icmp_ln30 & !icmp_ln35)> <Delay = 2.59>
+ST_1 : Operation 144 [1/1] (1.22ns)   --->   "%icmp_ln31 = icmp eq i8 %yych, 0" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:31]   --->   Operation 144 'icmp' 'icmp_ln31' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 145 [1/1] (2.59ns)   --->   "br i1 %icmp_ln31, label %UnifiedReturnBlock, label %4" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:31]   --->   Operation 145 'br' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30)> <Delay = 2.59>
+ST_1 : Operation 146 [1/1] (0.00ns)   --->   "%tmp_1 = call i3 @_ssdm_op_PartSelect.i3.i32.i32.i32(i32 %s_read, i32 5, i32 7)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:32]   --->   Operation 146 'partselect' 'tmp_1' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 147 [1/1] (0.86ns)   --->   "%icmp_ln32 = icmp eq i3 %tmp_1, 0" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:32]   --->   Operation 147 'icmp' 'icmp_ln32' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 148 [1/1] (0.00ns)   --->   "br i1 %icmp_ln32, label %._crit_edge4, label %._crit_edge5" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:32]   --->   Operation 148 'br' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 149 [1/1] (0.00ns)   --->   "%shl_ln = call i16 @_ssdm_op_BitConcatenate.i16.i8.i8(i8 %yych, i8 0)" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:80]   --->   Operation 149 'bitconcatenate' 'shl_ln' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31 & !icmp_ln32) | (icmp_ln28 & icmp_ln29 & !icmp_ln30 & !icmp_ln35 & icmp_ln36) | (icmp_ln28 & !icmp_ln29 & icmp_ln40 & !icmp_ln41) | (!icmp_ln28 & !tmp & icmp_ln51 & icmp_ln52)> <Delay = 0.00>
+ST_1 : Operation 150 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:80]   --->   Operation 150 'br' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31 & !icmp_ln32) | (icmp_ln28 & icmp_ln29 & !icmp_ln30 & !icmp_ln35 & icmp_ln36) | (icmp_ln28 & !icmp_ln29 & icmp_ln40 & !icmp_ln41) | (!icmp_ln28 & !tmp & icmp_ln51 & icmp_ln52)> <Delay = 2.59>
+ST_1 : Operation 151 [1/1] (0.00ns)   --->   "br label %._crit_edge16" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:75]   --->   Operation 151 'br' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31 & icmp_ln32) | (!icmp_ln28 & tmp & icmp_ln61 & icmp_ln62) | (!icmp_ln28 & tmp & !icmp_ln61 & !icmp_ln66)> <Delay = 0.00>
+ST_1 : Operation 152 [1/1] (2.59ns)   --->   "br label %UnifiedReturnBlock" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:77]   --->   Operation 152 'br' <Predicate = (icmp_ln28 & icmp_ln29 & icmp_ln30 & !icmp_ln31 & icmp_ln32) | (!icmp_ln28 & tmp & icmp_ln61 & icmp_ln63 & yych_2 != 160 & yych_2 != 161 & yych_2 != 162 & yych_2 != 163 & yych_2 != 164 & yych_2 != 165 & yych_2 != 169 & yych_2 != 171 & yych_2 != 174 & yych_2 != 187 & yych_2 != 166 & yych_2 != 176 & yych_2 != 189 & yych_2 != 191) | (!icmp_ln28 & tmp & icmp_ln61 & !icmp_ln63 & yych_2 != 128 & yych_2 != 129 & yych_2 != 130 & yych_2 != 131 & yych_2 != 132 & yych_2 != 133 & yych_2 != 135 & yych_2 != 136 & yych_2 != 137 & yych_2 != 138 & yych_2 != 139 & yych_2 != 140 & yych_2 != 141 & yych_2 != 142 & yych_2 != 143 & yych_2 != 145 & yych_2 != 146 & yych_2 != 147 & yych_2 != 148 & yych_2 != 149 & yych_2 != 150 & yych_2 != 152 & yych_2 != 153 & yych_2 != 154 & yych_2 != 155 & yych_2 != 156 & yych_2 != 159 & yych_2 != 160 & yych_2 != 161 & yych_2 != 162 & yych_2 != 163 & yych_2 != 164 & yych_2 != 165 & yych_2 != 167 & yych_2 != 168 & yych_2 != 169 & yych_2 != 170 & yych_2 != 171 & yych_2 != 172 & yych_2 != 173 & yych_2 != 174 & yych_2 != 175 & yych_2 != 177 & yych_2 != 178 & yych_2 != 179 & yych_2 != 180 & yych_2 != 181 & yych_2 != 182 & yych_2 != 183 & yych_2 != 184 & yych_2 != 185 & yych_2 != 186 & yych_2 != 187 & yych_2 != 188) | (!icmp_ln28 & tmp & icmp_ln61 & icmp_ln62) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 != 128 & yych_1 != 132 & yych_1 != 148 & yych_1 != 150 & !icmp_ln440) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 != 128 & yych_1 != 132 & yych_1 != 148 & yych_1 != 150 & yych_1 != 153) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 != 128 & yych_1 != 132 & yych_1 != 148 & yych_1 == 150 & !icmp_ln436) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 != 128 & yych_1 != 132 & yych_1 == 148 & yych_5 != 140 & yych_5 != 144 & yych_5 != 148 & yych_5 != 152) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 != 128 & yych_1 == 132 & !icmp_ln422 & !icmp_ln423) | (!icmp_ln28 & tmp & !icmp_ln61 & yych_1 == 128 & yych_3 != 148 & yych_3 != 152 & yych_3 != 153 & yych_3 != 156 & yych_3 != 157 & yych_3 != 162) | (!icmp_ln28 & tmp & !icmp_ln61 & !icmp_ln66)> <Delay = 2.59>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 153 [1/1] (0.00ns)   --->   "%UnifiedRetVal = phi i16 [ %select_ln45, %10 ], [ 0, %._crit_edge16 ], [ %shl_ln, %._crit_edge5 ], [ 4403, %36 ], [ 4402, %35 ], [ 4671, %34 ], [ 4401, %33 ], [ 4400, %32 ], [ 4670, %31 ], [ 4651, %30 ], [ 4919, %29 ], [ 4917, %28 ], [ 4918, %27 ], [ 4406, %26 ], [ 4405, %25 ], [ 4647, %24 ], [ 4645, %89 ], [ 4415, %88 ], [ 24576, %87 ], [ 4668, %86 ], [ 4923, %85 ], [ 31744, %84 ], [ 4915, %83 ], [ 4904, %82 ], [ 4414, %81 ], [ 24320, %80 ], [ 4902, %79 ], [ 32256, %78 ], [ 4665, %77 ], [ 4413, %76 ], [ 24064, %75 ], [ 4900, %74 ], [ 4662, %73 ], [ 4412, %72 ], [ 23552, %71 ], [ 4410, %70 ], [ 31488, %69 ], [ 4921, %68 ], [ 4913, %67 ], [ 4897, %66 ], [ 4411, %65 ], [ 10752, %64 ], [ 4408, %63 ], [ 4916, %62 ], [ 4644, %61 ], [ 4669, %60 ], [ 4643, %59 ], [ 4667, %58 ], [ 4922, %57 ], [ 4914, %56 ], [ 4903, %55 ], [ 4666, %54 ], [ 4642, %53 ], [ 4901, %52 ], [ 32000, %51 ], [ 4664, %50 ], [ 4663, %49 ], [ 4898, %48 ], [ 4899, %47 ], [ 4661, %46 ], [ 4660, %45 ], [ 4641, %44 ], [ 4659, %43 ], [ 4658, %42 ], [ 4920, %41 ], [ 4912, %40 ], [ 4896, %39 ], [ 4657, %38 ], [ 4640, %37 ], [ 4927, %103 ], [ 4926, %102 ], [ 4925, %101 ], [ 4653, %100 ], [ 4655, %99 ], [ 4654, %98 ], [ 9984, %97 ], [ 4646, %96 ], [ %select_ln53, %14 ], [ %select_ln57, %16 ], [ 0, %3 ], [ 4649, %5 ], [ 4648, %6 ], [ 4907, %8 ], [ 4908, %9 ], [ 4906, %15 ], [ 4409, %21 ], [ 4656, %22 ], [ 4650, %90 ], [ 4652, %91 ], [ 4404, %92 ], [ 4924, %93 ], [ 32512, %94 ], [ 4407, %95 ]" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:45]   --->   Operation 153 'phi' 'UnifiedRetVal' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 154 [1/1] (0.00ns)   --->   "%zext_ln486 = zext i16 %UnifiedRetVal to i32" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:486]   --->   Operation 154 'zext' 'zext_ln486' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 155 [1/1] (0.00ns)   --->   "ret i32 %zext_ln486" [extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:486]   --->   Operation 155 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.82ns
+The critical path consists of the following:
+	wire read on port 's' (extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:27) [5]  (0 ns)
+	'icmp' operation ('icmp_ln35', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:35) [240]  (1.22 ns)
+	multiplexor before 'phi' operation ('UnifiedRetVal', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:45) with incoming values : ('select_ln57', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:57) ('select_ln53', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:53) ('select_ln45', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:45) ('shl_ln', extr_.obs-studiodepslibcaptionsrceia608_from_utf8.c__eia608_from_utf8_with_main.c:80) [260]  (2.59 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
