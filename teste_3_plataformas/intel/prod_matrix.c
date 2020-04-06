@@ -1,3 +1,4 @@
+#include <HLS/hls.h>
 #include <stdlib.h>
 #include <stdio.h>
 
