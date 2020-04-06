@@ -1,53 +1,20 @@
 {
-  "3855992400":
+  "3692889680":
   {
     "nodes":
     [
       {
-        "name":"FFwd Dest"
-        , "id":3859216304
+        "name":"Ptr. Comp."
+        , "id":3696113696
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"FFwd Destination"
+            , "Instruction":"Pointer Computation"
             , "Start Cycle":"2"
             , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Loop Input"
-        , "id":3859789952
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Input"
-            , "Preceding Blocks":"bubbleSort.B4, bubbleSort.B3"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"LD"
-        , "id":3859835728
-        , "start":"2"
-        , "end":"34"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Load"
-            , "Width":"32 bits"
-            , "LSU Style":"Pipelined"
-            , "Stall-free":"No"
-            , "Global Memory":"Yes"
-            , "Start Cycle":"2"
-            , "Latency":"32"
           }
         ]
         , "debug":
@@ -62,15 +29,20 @@
         , "type":"inst"
       }
       , {
-        "name":"Loop Orch"
-        , "id":3859944464
-        , "start":"95"
-        , "end":"96"
+        "name":"Feedback"
+        , "id":3696733216
+        , "start":"96"
+        , "end":"97"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"2"
+            , "Feedback FIFO Width":"1"
+            , "Start Cycle":"96"
+            , "Latency":"1"
           }
         ]
         , "debug":
@@ -85,8 +57,21 @@
         , "type":"inst"
       }
       , {
+        "name":"Loop Input"
+        , "id":3697559664
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Input"
+            , "Preceding Blocks":"bubbleSort.B4, bubbleSort.B3"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Compare"
-        , "id":3861058416
+        , "id":3697915008
         , "start":"34"
         , "end":"34"
         , "details":
@@ -110,8 +95,59 @@
         , "type":"inst"
       }
       , {
+        "name":"Or"
+        , "id":3698677520
+        , "start":"34"
+        , "end":"34"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Or"
+            , "Start Cycle":"34"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":8
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":3699326704
+        , "start":"34"
+        , "end":"34"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"34"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":8
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":3861080896
+        , "id":3699540416
         , "start":"2"
         , "end":"2"
         , "details":
@@ -137,7 +173,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":3861081232
+        , "id":3699540752
         , "start":"96"
         , "end":"97"
         , "details":
@@ -164,17 +200,21 @@
         , "type":"inst"
       }
       , {
-        "name":"Or"
-        , "id":3861337584
-        , "start":"34"
-        , "end":"34"
+        "name":"ST"
+        , "id":3699964800
+        , "start":"65"
+        , "end":"96"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"1-bit Or"
-            , "Start Cycle":"34"
-            , "Latency":"0"
+            , "Instruction":"Store"
+            , "Width":"32 bits"
+            , "LSU Style":"Pipelined"
+            , "Stall-free":"No"
+            , "Global Memory":"Yes"
+            , "Start Cycle":"65"
+            , "Latency":"31"
           }
         ]
         , "debug":
@@ -182,32 +222,7 @@
           [
             {
               "filename":"bubblesort/bubblesort.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"And"
-        , "id":3861418864
-        , "start":"34"
-        , "end":"34"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit And"
-            , "Start Cycle":"34"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":8
+              , "line":12
             }
           ]
         ]
@@ -215,7 +230,7 @@
       }
       , {
         "name":"ST"
-        , "id":3861660960
+        , "id":3700037904
         , "start":"34"
         , "end":"65"
         , "details":
@@ -243,8 +258,37 @@
         , "type":"inst"
       }
       , {
+        "name":"LD"
+        , "id":3701396432
+        , "start":"2"
+        , "end":"34"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Load"
+            , "Width":"32 bits"
+            , "LSU Style":"Pipelined"
+            , "Stall-free":"No"
+            , "Global Memory":"Yes"
+            , "Start Cycle":"2"
+            , "Latency":"32"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":9
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Ptr. Comp."
-        , "id":3861826720
+        , "id":3701414640
         , "start":"2"
         , "end":"2"
         , "details":
@@ -268,8 +312,101 @@
         , "type":"inst"
       }
       , {
+        "name":"'j'"
+        , "id":3701422720
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'j'"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":6
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Or"
+        , "id":3701430784
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Or"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":8
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":3701463488
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":8
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":3701505264
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"LD"
-        , "id":3863260800
+        , "id":3701529808
         , "start":"2"
         , "end":"34"
         , "details":
@@ -298,179 +435,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":3864482112
-        , "start":"96"
-        , "end":"97"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"Unknown variable"
-            , "Feedback FIFO Depth":"2"
-            , "Feedback FIFO Width":"1"
-            , "Start Cycle":"96"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'j'"
-        , "id":3864506480
-        , "start":"1"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'j'"
-            , "Start Cycle":"1"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":6
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":3864565856
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":3864673104
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"?"
-        , "id":3864797248
-        , "start":"1"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"1"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Ptr. Comp."
-        , "id":3864840816
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":9
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Or"
-        , "id":3864848448
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Or"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":3864890432
+        , "id":3701587376
         , "start":"96"
         , "end":"97"
         , "details":
@@ -498,7 +463,7 @@
       }
       , {
         "name":"?"
-        , "id":3864996096
+        , "id":3701637184
         , "start":"1"
         , "end":"2"
         , "details":
@@ -523,17 +488,59 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":3701739696
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":3701828432
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":8
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Xor"
-        , "id":3865349824
-        , "start":"34"
-        , "end":"34"
+        , "id":3701902144
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
             , "Instruction":"1-bit Xor"
             , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"34"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
         ]
@@ -549,21 +556,17 @@
         , "type":"inst"
       }
       , {
-        "name":"ST"
-        , "id":3877880688
-        , "start":"65"
-        , "end":"96"
+        "name":"And"
+        , "id":3714823056
+        , "start":"34"
+        , "end":"34"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Store"
-            , "Width":"32 bits"
-            , "LSU Style":"Pipelined"
-            , "Stall-free":"No"
-            , "Global Memory":"Yes"
-            , "Start Cycle":"65"
-            , "Latency":"31"
+            , "Instruction":"1-bit And"
+            , "Start Cycle":"34"
+            , "Latency":"0"
           }
         ]
         , "debug":
@@ -571,7 +574,7 @@
           [
             {
               "filename":"bubblesort/bubblesort.c"
-              , "line":12
+              , "line":8
             }
           ]
         ]
@@ -581,8 +584,8 @@
     , "links":
     [
       {
-        "from":3859216304
-        , "to":3861826720
+        "from":3696113696
+        , "to":3700037904
         , "details":
         [
           {
@@ -592,275 +595,8 @@
         ]
       }
       , {
-        "from":3859789952
-        , "to":3859944464
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859835728
-        , "to":3861058416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3859835728
-        , "to":3877880688
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3859835728
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3861081232
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3861337584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3861418864
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3861660960
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3863260800
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864482112
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864506480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864797248
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864848448
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864890432
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3859944464
-        , "to":3864996096
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861058416
-        , "to":3861418864
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861080896
-        , "to":3861081232
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3861081232
-        , "to":3864506480
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3861337584
-        , "to":3861660960
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861337584
-        , "to":3877880688
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861418864
-        , "to":3865349824
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861660960
-        , "to":3859835728
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861660960
-        , "to":3863260800
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861660960
-        , "to":3877880688
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861826720
-        , "to":3863260800
+        "from":3696113696
+        , "to":3701396432
         , "details":
         [
           {
@@ -870,8 +606,323 @@
         ]
       }
       , {
-        "from":3861826720
-        , "to":3877880688
+        "from":3696733216
+        , "to":3701828432
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701422720
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3697915008
+        , "to":3714823056
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3698677520
+        , "to":3699964800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3698677520
+        , "to":3700037904
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3697559664
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3699326704
+        , "to":3698677520
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3699540416
+        , "to":3699540752
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3699540752
+        , "to":3701422720
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3699964800
+        , "to":3700037904
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3699964800
+        , "to":3701396432
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3699964800
+        , "to":3701529808
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3700037904
+        , "to":3699964800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3700037904
+        , "to":3701396432
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3700037904
+        , "to":3701529808
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3696733216
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3699540752
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3700037904
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701396432
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701422720
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701529808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701587376
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701637184
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701828432
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701902144
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3714823056
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3701396432
+        , "to":3697915008
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701396432
+        , "to":3699964800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701414640
+        , "to":3699964800
         , "details":
         [
           {
@@ -881,64 +932,8 @@
         ]
       }
       , {
-        "from":3863260800
-        , "to":3861058416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3863260800
-        , "to":3861660960
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3864482112
-        , "to":3864797248
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3864506480
-        , "to":3861080896
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3864506480
-        , "to":3861826720
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3864565856
-        , "to":3864840816
+        "from":3701414640
+        , "to":3701529808
         , "details":
         [
           {
@@ -948,8 +943,30 @@
         ]
       }
       , {
-        "from":3864673104
-        , "to":3864848448
+        "from":3701422720
+        , "to":3699540416
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701422720
+        , "to":3701414640
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701430784
+        , "to":3701396432
         , "details":
         [
           {
@@ -959,8 +976,8 @@
         ]
       }
       , {
-        "from":3864797248
-        , "to":3864482112
+        "from":3701430784
+        , "to":3701529808
         , "details":
         [
           {
@@ -970,8 +987,8 @@
         ]
       }
       , {
-        "from":3864797248
-        , "to":3864673104
+        "from":3701463488
+        , "to":3701430784
         , "details":
         [
           {
@@ -981,8 +998,8 @@
         ]
       }
       , {
-        "from":3864840816
-        , "to":3859835728
+        "from":3701505264
+        , "to":3701414640
         , "details":
         [
           {
@@ -992,8 +1009,64 @@
         ]
       }
       , {
-        "from":3864840816
-        , "to":3861660960
+        "from":3701529808
+        , "to":3697915008
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701529808
+        , "to":3700037904
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701587376
+        , "to":3701637184
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701637184
+        , "to":3696113696
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701637184
+        , "to":3701587376
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3701739696
+        , "to":3696113696
         , "details":
         [
           {
@@ -1003,8 +1076,8 @@
         ]
       }
       , {
-        "from":3864848448
-        , "to":3859835728
+        "from":3701828432
+        , "to":3696733216
         , "details":
         [
           {
@@ -1014,8 +1087,8 @@
         ]
       }
       , {
-        "from":3864848448
-        , "to":3863260800
+        "from":3701828432
+        , "to":3701463488
         , "details":
         [
           {
@@ -1025,42 +1098,8 @@
         ]
       }
       , {
-        "from":3864890432
-        , "to":3864996096
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3864996096
-        , "to":3864840816
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3864996096
-        , "to":3864890432
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3865349824
-        , "to":3861337584
+        "from":3701902144
+        , "to":3696733216
         , "details":
         [
           {
@@ -1070,8 +1109,8 @@
         ]
       }
       , {
-        "from":3859789952
-        , "to":3864797248
+        "from":3701902144
+        , "to":3698677520
         , "details":
         [
           {
@@ -1081,19 +1120,30 @@
         ]
       }
       , {
-        "from":3859789952
-        , "to":3864506480
+        "from":3701902144
+        , "to":3699540752
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":3877880688
-        , "to":3859835728
+        "from":3701902144
+        , "to":3700037904
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3701902144
+        , "to":3697559664
         , "reverse":1
         , "details":
         [
@@ -1104,9 +1154,8 @@
         ]
       }
       , {
-        "from":3877880688
-        , "to":3861660960
-        , "reverse":1
+        "from":3701902144
+        , "to":3701396432
         , "details":
         [
           {
@@ -1116,9 +1165,8 @@
         ]
       }
       , {
-        "from":3877880688
-        , "to":3863260800
-        , "reverse":1
+        "from":3701902144
+        , "to":3701430784
         , "details":
         [
           {
@@ -1128,25 +1176,91 @@
         ]
       }
       , {
-        "from":3859789952
-        , "to":3864996096
+        "from":3701902144
+        , "to":3701529808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3701902144
+        , "to":3701587376
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3701902144
+        , "to":3701902144
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3701902144
+        , "to":3714823056
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701828432
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":3697559664
+        , "to":3701637184
         , "details":
         [
           {
             "type":"table"
             , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":3714823056
+        , "to":3699326704
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
           }
         ]
       }
     ]
   }
-  , "3855992480":
+  , "3692889760":
   {
     "nodes":
     [
       {
         "name":"WR"
-        , "id":3877699824
+        , "id":3702074016
         , "start":"0"
         , "end":"1.2e-38"
         , "details":
@@ -1178,13 +1292,13 @@
     [
     ]
   }
-  , "3856183664":
+  , "3693080944":
   {
     "nodes":
     [
       {
         "name":"Cluster 0"
-        , "id":3859334704
+        , "id":3696232080
         , "start":"1"
         , "end":"1"
         , "details":
@@ -1202,7 +1316,7 @@
         [
           {
             "name":"Logic"
-            , "id":3859341600
+            , "id":3696238976
             , "details":
             [
               {
@@ -1216,24 +1330,8 @@
         ]
       }
       , {
-        "name":"FFwd Src"
-        , "id":3864406208
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Compare"
-        , "id":3865209968
+        , "id":3696478880
         , "start":"2"
         , "end":"3"
         , "details":
@@ -1257,8 +1355,99 @@
         , "type":"inst"
       }
       , {
+        "name":"Compare"
+        , "id":3697791616
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Compare"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":7
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Src"
+        , "id":3699105120
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":7
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Src"
+        , "id":3699288080
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Src"
+        , "id":3701110480
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":7
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":3868007120
+        , "id":3701520128
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1284,7 +1473,7 @@
       }
       , {
         "name":"Select"
-        , "id":3868202800
+        , "id":3702605136
         , "start":"2"
         , "end":"3"
         , "details":
@@ -1308,16 +1497,17 @@
         , "type":"inst"
       }
       , {
-        "name":"Compare"
-        , "id":3868579888
-        , "start":"2"
-        , "end":"2"
+        "name":"+"
+        , "id":3704003984
+        , "start":"3"
+        , "end":"3"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Integer Compare"
-            , "Start Cycle":"2"
+            , "Instruction":"33-bit Integer Add"
+            , "Constant Operand":"-1 (0x1FFFFFFFF)"
+            , "Start Cycle":"3"
             , "Latency":"0"
           }
         ]
@@ -1333,8 +1523,24 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Src"
+        , "id":3714552352
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"RD"
-        , "id":3869180912
+        , "id":3715364272
         , "start":"2"
         , "end":"2"
         , "details":
@@ -1361,104 +1567,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"FFwd Src"
-        , "id":3870586496
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Src"
-        , "id":3870588000
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":7
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":3878042176
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"33-bit Integer Add"
-            , "Constant Operand":"-1 (0x1FFFFFFFF)"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":7
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Src"
-        , "id":3878452848
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":7
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":3865209968
-        , "to":3878452848
+        "from":3696478880
+        , "to":3701110480
         , "details":
         [
           {
@@ -1468,30 +1582,8 @@
         ]
       }
       , {
-        "from":3868007120
-        , "to":3878042176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3868202800
-        , "to":3868007120
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":3868579888
-        , "to":3868202800
+        "from":3697791616
+        , "to":3702605136
         , "details":
         [
           {
@@ -1501,63 +1593,30 @@
         ]
       }
       , {
-        "from":3869180912
-        , "to":3864406208
+        "from":3701520128
+        , "to":3704003984
         , "details":
         [
           {
             "type":"table"
-            , "Width":"128"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":3869180912
-        , "to":3865209968
+        "from":3702605136
+        , "to":3701520128
         , "details":
         [
           {
             "type":"table"
-            , "Width":"128"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":3869180912
-        , "to":3868202800
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"128"
-          }
-        ]
-      }
-      , {
-        "from":3869180912
-        , "to":3868579888
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"128"
-          }
-        ]
-      }
-      , {
-        "from":3869180912
-        , "to":3870586496
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"128"
-          }
-        ]
-      }
-      , {
-        "from":3878042176
-        , "to":3870588000
+        "from":3704003984
+        , "to":3699105120
         , "details":
         [
           {
@@ -1566,15 +1625,70 @@
           }
         ]
       }
+      , {
+        "from":3715364272
+        , "to":3696478880
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"128"
+          }
+        ]
+      }
+      , {
+        "from":3715364272
+        , "to":3697791616
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"128"
+          }
+        ]
+      }
+      , {
+        "from":3715364272
+        , "to":3699288080
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"128"
+          }
+        ]
+      }
+      , {
+        "from":3715364272
+        , "to":3702605136
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"128"
+          }
+        ]
+      }
+      , {
+        "from":3715364272
+        , "to":3714552352
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"128"
+          }
+        ]
+      }
     ]
   }
-  , "3856183744":
+  , "3693081024":
   {
     "nodes":
     [
       {
         "name":"Input"
-        , "id":3861639120
+        , "id":3702132336
         , "details":
         [
           {
@@ -1590,13 +1704,13 @@
     [
     ]
   }
-  , "3856183824":
+  , "3693081104":
   {
     "nodes":
     [
       {
         "name":"Cluster 1"
-        , "id":3859764208
+        , "id":3696661648
         , "start":"1"
         , "end":"6"
         , "details":
@@ -1614,7 +1728,7 @@
         [
           {
             "name":"Logic"
-            , "id":3859770672
+            , "id":3696668112
             , "details":
             [
               {
@@ -1627,7 +1741,7 @@
           }
           , {
             "name":"Exit"
-            , "id":3860115648
+            , "id":3697013136
             , "details":
             [
               {
@@ -1645,7 +1759,7 @@
       }
       , {
         "name":"Loop Orch"
-        , "id":3865075712
+        , "id":3705256528
         , "details":
         [
           {
@@ -1668,12 +1782,12 @@
     , "links":
     [
       {
-        "from":3859770672
-        , "to":3860115648
+        "from":3696668112
+        , "to":3697013136
       }
       , {
-        "from":3865075712
-        , "to":3859770672
+        "from":3705256528
+        , "to":3696668112
         , "details":
         [
           {
@@ -1684,13 +1798,39 @@
       }
     ]
   }
-  , "3856192304":
+  , "3693089584":
   {
     "nodes":
     [
       {
+        "name":"?"
+        , "id":3696438752
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bubblesort/bubblesort.c"
+              , "line":5
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Feedback"
-        , "id":3860968592
+        , "id":3712472464
         , "start":"1"
         , "end":"2"
         , "details":
@@ -1716,38 +1856,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"?"
-        , "id":3865204320
-        , "start":"1"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"1"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bubblesort/bubblesort.c"
-              , "line":5
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":3860968592
-        , "to":3865204320
+        "from":3712472464
+        , "to":3696438752
         , "reverse":1
         , "details":
         [

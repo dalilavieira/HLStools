@@ -1,11 +1,11 @@
 {
-  "1889860848":
+  "1800645808":
   {
     "nodes":
     [
       {
         "name":"Exit"
-        , "id":1890492864
+        , "id":1802472784
         , "start":"1"
         , "end":"1"
         , "details":
@@ -20,7 +20,7 @@
       }
       , {
         "name":"Entry"
-        , "id":1896961104
+        , "id":1802762576
         , "details":
         [
           {
@@ -37,20 +37,47 @@
     [
     ]
   }
-  , "1890186688":
+  , "1800971648":
   {
     "nodes":
     [
       {
-        "name":"Loop Orch"
-        , "id":1889888320
+        "name":"FFwd Dest"
+        , "id":1800703120
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":6
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1800842224
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
           }
         ]
         , "debug":
@@ -65,34 +92,40 @@
         , "type":"inst"
       }
       , {
-        "name":"Exit"
-        , "id":1889947488
+        "name":"Compare"
+        , "id":1801436512
         , "start":"2"
-        , "end":"5"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Exit Start Cycle":"2"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"24"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+            , "Instruction":"32-bit Integer Compare"
+            , "Start Cycle":"2"
+            , "Latency":"0"
           }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":8
+            }
+          ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"'F1'"
-        , "id":1890439104
+        "name":"Select"
+        , "id":1801445360
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'F1'"
+            , "Instruction":"32-bit Select"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
@@ -102,31 +135,68 @@
           [
             {
               "filename":"mmc/mmc.c"
-              , "line":12
+              , "line":9
             }
           ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":1890485376
+        "name":"+"
+        , "id":1801445696
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"FFwd Destination"
+            , "Instruction":"32-bit Integer Add"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":9
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":1801446032
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'F2'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":9
+            }
+          ]
         ]
         , "type":"inst"
       }
       , {
         "name":"Select"
-        , "id":1890546832
+        , "id":1801477728
         , "start":"1"
         , "end":"1"
         , "details":
@@ -151,7 +221,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":1890547168
+        , "id":1801478064
         , "start":"1"
         , "end":"1"
         , "details":
@@ -175,20 +245,15 @@
         , "type":"inst"
       }
       , {
-        "name":"Feedback"
-        , "id":1890660432
+        "name":"Loop Orch"
+        , "id":1801536368
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'F1'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
+            , "Instruction":"Loop Orchestration Logic"
           }
         ]
         , "debug":
@@ -196,22 +261,23 @@
           [
             {
               "filename":"mmc/mmc.c"
-              , "line":9
+              , "line":8
             }
           ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"Select"
-        , "id":1891776416
+        "name":"'F2'"
+        , "id":1802563376
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Select"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'F2'"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
@@ -221,54 +287,33 @@
           [
             {
               "filename":"mmc/mmc.c"
-              , "line":12
+              , "line":10
             }
           ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"Compare"
-        , "id":1891776752
-        , "start":"1"
-        , "end":"1"
+        "name":"Exit"
+        , "id":1802647456
+        , "start":"2"
+        , "end":"5"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Integer Compare"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":9
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":1891977920
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
+            , "Exit Start Cycle":"2"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"24"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
           }
         ]
         , "type":"inst"
       }
       , {
         "name":"Xor"
-        , "id":1892071376
+        , "id":1802739280
         , "start":"2"
         , "end":"2"
         , "details":
@@ -293,15 +338,15 @@
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":1892114336
+        "name":"Compare"
+        , "id":1803018944
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"FFwd Destination"
+            , "Instruction":"32-bit Integer Compare"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
@@ -311,7 +356,7 @@
           [
             {
               "filename":"mmc/mmc.c"
-              , "line":6
+              , "line":9
             }
           ]
         ]
@@ -319,7 +364,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":1892234768
+        , "id":1803019280
         , "start":"1"
         , "end":"1"
         , "details":
@@ -334,8 +379,59 @@
         , "type":"inst"
       }
       , {
+        "name":"'F1'"
+        , "id":1803020848
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'F1'"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Select"
-        , "id":1892248560
+        , "id":1803023040
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Select"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"mmc/mmc.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":1803037648
         , "start":"1"
         , "end":"1"
         , "details":
@@ -360,7 +456,7 @@
       }
       , {
         "name":"+"
-        , "id":1892252800
+        , "id":1803037984
         , "start":"1"
         , "end":"1"
         , "details":
@@ -384,8 +480,24 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":1803072992
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Feedback"
-        , "id":1892253136
+        , "id":1803080064
         , "start":"2"
         , "end":"2"
         , "details":
@@ -393,7 +505,7 @@
           {
             "type":"table"
             , "Instruction":"Feedback Write"
-            , "Variable":"'F2'"
+            , "Variable":"'F1'"
             , "Feedback FIFO Depth":"1"
             , "Feedback FIFO Width":"32"
             , "Start Cycle":"2"
@@ -412,8 +524,22 @@
         , "type":"inst"
       }
       , {
+        "name":"Entry"
+        , "id":1803371312
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"FFwd Src"
-        , "id":1892275360
+        , "id":1804527648
         , "start":"2"
         , "end":"2"
         , "details":
@@ -436,160 +562,125 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Compare"
-        , "id":1892296000
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Compare"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":1892296336
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":8
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'F2'"
-        , "id":1893969312
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'F2'"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":10
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":1896895152
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Select"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":9
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":1896895488
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"mmc/mmc.c"
-              , "line":9
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":1889888320
-        , "to":1889947488
+        "from":1800703120
+        , "to":1801477728
         , "details":
         [
           {
             "type":"table"
-            , "Width":"4"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":1889888320
-        , "to":1890660432
+        "from":1800842224
+        , "to":1801536368
+        , "reverse":1
         , "details":
         [
           {
             "type":"table"
-            , "Width":"4"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":1889888320
-        , "to":1892071376
+        "from":1801436512
+        , "to":1801536368
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1801445360
+        , "to":1801445696
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801445696
+        , "to":1801436512
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801445696
+        , "to":1801446032
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801446032
+        , "to":1802563376
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801477728
+        , "to":1801445696
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801477728
+        , "to":1803018944
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801478064
+        , "to":1803023040
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1801536368
+        , "to":1801446032
         , "reverse":1
         , "details":
         [
@@ -600,8 +691,9 @@
         ]
       }
       , {
-        "from":1889888320
-        , "to":1892253136
+        "from":1801536368
+        , "to":1802647456
+        , "reverse":1
         , "details":
         [
           {
@@ -611,8 +703,32 @@
         ]
       }
       , {
-        "from":1890439104
-        , "to":1891776416
+        "from":1801536368
+        , "to":1802739280
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1801536368
+        , "to":1803080064
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1802563376
+        , "to":1801477728
         , "details":
         [
           {
@@ -622,8 +738,52 @@
         ]
       }
       , {
-        "from":1890485376
-        , "to":1896895152
+        "from":1802739280
+        , "to":1801536368
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1802739280
+        , "to":1804527648
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1803018944
+        , "to":1801445360
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1803018944
+        , "to":1803037648
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1803019280
+        , "to":1803037648
         , "details":
         [
           {
@@ -633,8 +793,8 @@
         ]
       }
       , {
-        "from":1890546832
-        , "to":1891776752
+        "from":1803020848
+        , "to":1803023040
         , "details":
         [
           {
@@ -644,8 +804,8 @@
         ]
       }
       , {
-        "from":1890546832
-        , "to":1892252800
+        "from":1803023040
+        , "to":1803018944
         , "details":
         [
           {
@@ -655,8 +815,8 @@
         ]
       }
       , {
-        "from":1890547168
-        , "to":1891776416
+        "from":1803023040
+        , "to":1803037984
         , "details":
         [
           {
@@ -666,8 +826,63 @@
         ]
       }
       , {
-        "from":1890660432
-        , "to":1890439104
+        "from":1803037648
+        , "to":1803037984
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1803037984
+        , "to":1801436512
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1803037984
+        , "to":1803080064
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1803037984
+        , "to":1804527648
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1803072992
+        , "to":1801445360
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1803080064
+        , "to":1803020848
         , "reverse":1
         , "details":
         [
@@ -678,52 +893,8 @@
         ]
       }
       , {
-        "from":1891776416
-        , "to":1891776752
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1891776416
-        , "to":1896895488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1891776752
-        , "to":1892248560
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1891776752
-        , "to":1896895152
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1891977920
-        , "to":1889888320
+        "from":1803371312
+        , "to":1801446032
         , "details":
         [
           {
@@ -733,8 +904,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1889947488
+        "from":1803371312
+        , "to":1801477728
         , "details":
         [
           {
@@ -744,8 +915,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1890439104
+        "from":1803371312
+        , "to":1801536368
         , "details":
         [
           {
@@ -755,8 +926,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1890546832
+        "from":1803371312
+        , "to":1802563376
         , "details":
         [
           {
@@ -766,8 +937,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1890660432
+        "from":1803371312
+        , "to":1802647456
         , "details":
         [
           {
@@ -777,8 +948,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1891776416
+        "from":1803371312
+        , "to":1803020848
         , "details":
         [
           {
@@ -788,8 +959,8 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1892253136
+        "from":1803371312
+        , "to":1803023040
         , "details":
         [
           {
@@ -799,181 +970,13 @@
         ]
       }
       , {
-        "from":1891977920
-        , "to":1893969312
+        "from":1803371312
+        , "to":1803080064
         , "details":
         [
           {
             "type":"table"
             , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1892071376
-        , "to":1889888320
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1892071376
-        , "to":1892275360
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1892114336
-        , "to":1890546832
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892234768
-        , "to":1892248560
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892248560
-        , "to":1892252800
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892252800
-        , "to":1892253136
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892252800
-        , "to":1892296000
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892253136
-        , "to":1893969312
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1892296000
-        , "to":1889888320
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1892296336
-        , "to":1889888320
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1893969312
-        , "to":1890546832
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1896895152
-        , "to":1896895488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1896895488
-        , "to":1890660432
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1896895488
-        , "to":1892275360
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1896895488
-        , "to":1892296000
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
           }
         ]
       }

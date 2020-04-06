@@ -1,0 +1,1611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2020.04.06.12:56:00"
+ outputDirectory="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Arria 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10AX115U1F45I1SG"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVMM_0_RW_ADDRESS_MAP"
+     type="AddressMap"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVMM_0_RW_ADDRESS_WIDTH"
+     type="AddressWidthType"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clock" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="resetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="call" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="start" direction="input" role="valid" width="1" />
+   <port name="busy" direction="output" role="stall" width="1" />
+  </interface>
+  <interface name="return" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="done" direction="output" role="valid" width="1" />
+   <port name="stall" direction="input" role="stall" width="1" />
+  </interface>
+  <interface name="image1" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="image1" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="image2" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="image2" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="avmm_0_rw" kind="avalon" start="1">
+   <property name="adaptsTo" value="" />
+   <property name="addressGroup" value="0" />
+   <property name="addressUnits" value="SYMBOLS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="burstOnBurstBoundariesOnly" value="false" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="dBSBigEndian" value="false" />
+   <property name="doStreamReads" value="false" />
+   <property name="doStreamWrites" value="false" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isAsynchronous" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isReadable" value="false" />
+   <property name="isWriteable" value="false" />
+   <property name="linewrapBursts" value="false" />
+   <property name="maxAddressWidth" value="32" />
+   <property name="maximumPendingReadTransactions" value="0" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumReadLatency" value="1" />
+   <property name="minimumResponseLatency" value="1" />
+   <property name="prSafe" value="false" />
+   <property name="readLatency" value="1" />
+   <property name="readWaitTime" value="0" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="waitrequestAllowance" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port name="avmm_0_rw_address" direction="output" role="address" width="64" />
+   <port
+       name="avmm_0_rw_byteenable"
+       direction="output"
+       role="byteenable"
+       width="8" />
+   <port name="avmm_0_rw_read" direction="output" role="read" width="1" />
+   <port
+       name="avmm_0_rw_readdata"
+       direction="input"
+       role="readdata"
+       width="64" />
+   <port name="avmm_0_rw_write" direction="output" role="write" width="1" />
+   <port
+       name="avmm_0_rw_writedata"
+       direction="output"
+       role="writedata"
+       width="64" />
+  </interface>
+ </perimeter>
+ <entity kind="sobel" version="1.0" name="sobel">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLOCK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_AVMM_0_RW_ADDRESS_WIDTH" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="10AX115U1F45I1SG" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria 10" />
+  <parameter name="AUTO_AVMM_0_RW_ADDRESS_MAP" value="" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="1" />
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/synth/sobel.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/synth/sobel.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel_internal_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="sobel">"Generating: sobel"</message>
+   <message level="Info" culprit="sobel">"Generating: sobel_internal"</message>
+  </messages>
+ </entity>
+ <entity kind="sobel_internal" version="1.0" name="sobel_internal">
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ffwdsrc.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_full_detector.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_decr_decr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ffwddst.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/ternary_add.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/six_three_comp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_popcount.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_loop_limiter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop10_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_for_cond1_preheader_s_c0_enter435_sobel1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zr_s_c0_exit45_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zsobel1_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt45_sobel1_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_for_cond1_preheader_s_c0_enter435_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv9_pop8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_push9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv9_push8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_push10_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B4_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B4_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_iowr_bl_return_unnamed_sobel15_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_throttle_push_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_throttle_push_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B5_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B5_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_2_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_2_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_3_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_loop_limiter_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_loop_limiter_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_throttle_i1_throttle_pop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_throttle_i1_throttle_pop_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_iord_bl_call_unnamed_sobel2_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_source_s_struct_zA000000Znnamed_sobel3_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_wt_entry_s_c0_enter4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_memdep_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_10_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_10_sobel4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_11_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_11_sobel5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_12_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_12_sobel6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_13_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_13_sobel7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_6_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_6_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_7_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_7_sobel1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_8_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_8_sobel2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_9_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_9_sobel3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_exitcond1132_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_exitcond1132_pop17_9_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop1034_pop19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop1034_pop19_11_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi_pop13_5_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_notcmp2033_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_notcmp2033_pop18_10_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i2_cleanups_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i2_cleanups_pop14_2_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_add1231_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_add1231_pop16_8_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_i_082_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_i_082_pop12_4_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop930_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop930_pop15_7_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv_pop11_6_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_exitcond1132_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_exitcond1132_push17_28_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_lastiniteration_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_lastiniteration_16_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_pop1034_push19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_pop1034_push19_30_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi_push13_113_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notcmp2033_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notcmp2033_push18_29_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond_37_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i2_cleanups_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i2_cleanups_push14_63_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_add1231_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_add1231_push16_26_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_i_082_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_i_082_push12_34_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_pop930_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_pop930_push15_23_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv_push11_38_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_dest_s_struct_z5pA000000Znnamed_sobel4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_dest_s_struct_z5pA000000Znnamed_sobel5_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_for_body3_s_c0_enter486_sobel110.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_body3_s_c0_exit51_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000001Zsobel1_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt51_sobel1_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_for_body3_s_c0_enter486_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z54c2463b0c2463a0455u.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z37_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z38_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z41_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z42_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z45_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z49_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z52_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z55_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_to_avm.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_internal.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ffwdsrc.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_full_detector.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_tessellated_incr_decr_decr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ffwddst.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/ternary_add.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/six_three_comp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_popcount.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_loop_limiter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop10_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_for_cond1_preheader_s_c0_enter435_sobel1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zr_s_c0_exit45_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zsobel1_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt45_sobel1_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_for_cond1_preheader_s_c0_enter435_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv9_pop8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_push9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv9_push8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B2_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_push10_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B4_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B4_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_iowr_bl_return_unnamed_sobel15_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_throttle_push_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_token_i1_throttle_push_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B5_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B5_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_2_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going22_2_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_3_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_loop_limiter_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_loop_limiter_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_throttle_i1_throttle_pop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_throttle_i1_throttle_pop_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_iord_bl_call_unnamed_sobel2_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_source_s_struct_zA000000Znnamed_sobel3_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_wt_entry_s_c0_enter4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B2_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_memdep_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_10_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_10_sobel4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_11_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_11_sobel5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_12_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_12_sobel6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_13_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_13_sobel7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_6_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_6_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_7_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_7_sobel1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_8_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_8_sobel2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_mem_unnamed_9_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_readdata_reg_unnamed_9_sobel3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pipeline_keep_going_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_exitcond1132_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_exitcond1132_pop17_9_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop1034_pop19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi1_pop1034_pop19_11_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_memdep_phi_pop13_5_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_notcmp2033_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i1_notcmp2033_pop18_10_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i2_cleanups_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i2_cleanups_pop14_2_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_add1231_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_add1231_pop16_8_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_i_082_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_i_082_pop12_4_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop930_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i32_j_083_pop930_pop15_7_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_pop_i8_fpga_indvars_iv_pop11_6_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_exitcond1132_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_exitcond1132_push17_28_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_lastiniteration_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_lastiniteration_16_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_pop1034_push19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi1_pop1034_push19_30_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_memdep_phi_push13_113_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notcmp2033_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notcmp2033_push18_29_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i1_notexitcond_37_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i2_cleanups_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i2_cleanups_push14_63_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_add1231_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_add1231_push16_26_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_i_082_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_i_082_push12_34_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_pop930_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i32_j_083_pop930_push15_23_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_push_i8_fpga_indvars_iv_push11_38_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_dest_s_struct_z5pA000000Znnamed_sobel4_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_ffwd_dest_s_struct_z5pA000000Znnamed_sobel5_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_s_c0_in_for_body3_s_c0_enter486_sobel110.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_body3_s_c0_exit51_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000001Zsobel1_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt51_sobel1_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_i_sfc_logic_s_c0_in_for_body3_s_c0_enter486_sobel0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z54c2463b0c2463a0455u.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z37_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z38_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z41_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z42_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z45_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z49_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z52_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_flt_i_sfc_logic_s_c0_in_for_body3_A000000Z55_sqrtTables_lutmem.hex"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_B3_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B3_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B4_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_bb_B5_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/acl_ic_to_avm.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel/sobel_internal_10/synth/sobel_internal.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/teste_3_plataformas/intel/a.prj/components/sobel/sobel_internal_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="sobel" as="sobel_internal_inst" />
+  <messages>
+   <message level="Info" culprit="sobel">"Generating: sobel_internal"</message>
+  </messages>
+ </entity>
+</deploy>
