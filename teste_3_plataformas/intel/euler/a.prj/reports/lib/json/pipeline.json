@@ -1,25 +1,11 @@
 {
-  "2246260704":
+  "2275604464":
   {
     "nodes":
     [
       {
-        "name":"Entry"
-        , "id":2247228464
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Exit"
-        , "id":2250836880
+        , "id":2283680384
         , "start":"1"
         , "end":"1"
         , "details":
@@ -32,18 +18,356 @@
         ]
         , "type":"inst"
       }
+      , {
+        "name":"Entry"
+        , "id":2293328976
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
     ]
     , "links":
     [
     ]
   }
-  , "2246687696":
+  , "2276031456":
   {
     "nodes":
     [
       {
+        "name":"Xor"
+        , "id":2275452816
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'i'"
+        , "id":2275453152
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'i'"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":2275706528
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"33-bit Select"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":2275706864
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Or"
+        , "id":2277180240
+        , "start":"2"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Or"
+            , "Start Cycle":"2"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":2277180912
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Exit"
+        , "id":2280231088
+        , "start":"3"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"3"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"192"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"And"
+        , "id":2280501024
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit And"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Loop Orch"
+        , "id":2280501360
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Entry"
+        , "id":2283679296
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Compare"
+        , "id":2284944192
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Compare"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":2284944528
+        , "start":"2"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Select"
+            , "Start Cycle":"2"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":2246317360
+        , "id":2284944864
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"-1 (0xFFFFFFFF)"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":2285060928
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":2285843328
         , "start":"2"
         , "end":"2"
         , "details":
@@ -69,7 +393,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":2246317696
+        , "id":2289384720
         , "start":"2"
         , "end":"2"
         , "details":
@@ -96,239 +420,8 @@
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":2246908160
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"And"
-        , "id":2249236800
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit And"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Loop Orch"
-        , "id":2249237136
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":2250305968
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":2251115456
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"33-bit Select"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":2251115792
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":2254235568
-        , "start":"3"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"3"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"192"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Compare"
-        , "id":2254436016
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Compare"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Or"
-        , "id":2254436352
-        , "start":"2"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Or"
-            , "Start Cycle":"2"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"+"
-        , "id":2255904176
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"-1 (0xFFFFFFFF)"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":2255904848
+        , "id":2293505296
         , "start":"3"
         , "end":"3"
         , "details":
@@ -354,7 +447,7 @@
       }
       , {
         "name":"Compare"
-        , "id":2256539856
+        , "id":2293505632
         , "start":"2"
         , "end":"2"
         , "details":
@@ -377,105 +470,23 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Select"
-        , "id":2256540192
-        , "start":"2"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Select"
-            , "Start Cycle":"2"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":2256545840
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'i'"
-        , "id":2256546176
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'i'"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":2263420640
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":2246317360
-        , "to":2246317696
+        "from":2275452816
+        , "to":2277180240
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2275453152
+        , "to":2284944192
         , "details":
         [
           {
@@ -485,8 +496,240 @@
         ]
       }
       , {
-        "from":2246317696
-        , "to":2256546176
+        "from":2275453152
+        , "to":2284944528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2275453152
+        , "to":2285843328
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2275453152
+        , "to":2293505632
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2275706528
+        , "to":2275706528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":2275706528
+        , "to":2280501024
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":2275706864
+        , "to":2275452816
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2277180240
+        , "to":2280231088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2277180912
+        , "to":2280501024
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280501024
+        , "to":2275706528
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280501024
+        , "to":2280231088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280501024
+        , "to":2280501360
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280501024
+        , "to":2289384720
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280501360
+        , "to":2280231088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2283679296
+        , "to":2275453152
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":2283679296
+        , "to":2275706528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":2283679296
+        , "to":2280231088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":2284944192
+        , "to":2284944528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2284944528
+        , "to":2284944864
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2284944864
+        , "to":2293505296
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2285060928
+        , "to":2275706528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":2285843328
+        , "to":2289384720
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2289384720
+        , "to":2275453152
         , "reverse":1
         , "details":
         [
@@ -497,8 +740,8 @@
         ]
       }
       , {
-        "from":2246908160
-        , "to":2251115456
+        "from":2293505296
+        , "to":2280231088
         , "details":
         [
           {
@@ -508,251 +751,8 @@
         ]
       }
       , {
-        "from":2249236800
-        , "to":2246317696
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2249236800
-        , "to":2249237136
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2249236800
-        , "to":2251115456
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2249236800
-        , "to":2254235568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2249237136
-        , "to":2254235568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2250305968
-        , "to":2251115456
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":2250305968
-        , "to":2254235568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":2250305968
-        , "to":2256546176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":2251115456
-        , "to":2249236800
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":2251115456
-        , "to":2251115456
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":2251115792
-        , "to":2256545840
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2254436016
-        , "to":2254436352
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2254436352
-        , "to":2254235568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2255904176
-        , "to":2255904848
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2255904848
-        , "to":2254235568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":2256539856
-        , "to":2256540192
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2256540192
-        , "to":2255904176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2256545840
-        , "to":2254436352
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2256546176
-        , "to":2246317360
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2256546176
-        , "to":2254436016
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2256546176
-        , "to":2256539856
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2256546176
-        , "to":2256540192
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":2263420640
-        , "to":2249236800
+        "from":2293505632
+        , "to":2277180240
         , "details":
         [
           {
@@ -763,80 +763,15 @@
       }
     ]
   }
-  , "2247069760":
+  , "2276413520":
   {
     "nodes":
     [
       {
-        "name":"?"
-        , "id":2246275472
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":2246669328
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"*"
-        , "id":2246747536
-        , "start":"3"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"64-bit Integer Multiply"
-            , "Start Cycle":"3"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":13
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Loop Orch"
-        , "id":2246845264
-        , "start":"3"
-        , "end":"3"
+        , "id":2275742880
+        , "start":"5"
+        , "end":"5"
         , "details":
         [
           {
@@ -849,59 +784,6 @@
           [
             {
               "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":2247981088
-        , "start":"6"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'y'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"64"
-            , "Start Cycle":"6"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":13
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":2248288768
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
               , "line":23
             }
           ]
@@ -910,35 +792,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":2249180288
-        , "start":"5"
-        , "end":"5"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"Unknown variable"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"1"
-            , "Start Cycle":"5"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":23
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":2250293248
+        , "id":2276189232
         , "start":"6"
         , "end":"6"
         , "details":
@@ -965,8 +819,22 @@
         , "type":"inst"
       }
       , {
-        "name":"?"
-        , "id":2250301920
+        "name":"Entry"
+        , "id":2276901408
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'i'"
+        , "id":2277387952
         , "start":"3"
         , "end":"3"
         , "details":
@@ -974,58 +842,7 @@
           {
             "type":"table"
             , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'y'"
-        , "id":2250386464
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'y'"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":13
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"And"
-        , "id":2251237888
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit And"
+            , "Variable":"'i'"
             , "Start Cycle":"3"
             , "Latency":"0"
           }
@@ -1043,7 +860,7 @@
       }
       , {
         "name":"Exit"
-        , "id":2252780144
+        , "id":2277419712
         , "start":"6"
         , "end":"9"
         , "details":
@@ -1060,8 +877,34 @@
         , "type":"inst"
       }
       , {
+        "name":"+"
+        , "id":2277608464
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Feedback"
-        , "id":2254040192
+        , "id":2277608800
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1088,16 +931,16 @@
         , "type":"inst"
       }
       , {
-        "name":"+"
-        , "id":2255892512
+        "name":"?"
+        , "id":2277629712
         , "start":"3"
         , "end":"3"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
             , "Start Cycle":"3"
             , "Latency":"0"
           }
@@ -1114,16 +957,15 @@
         , "type":"inst"
       }
       , {
-        "name":"'i'"
-        , "id":2261092912
+        "name":"And"
+        , "id":2280581200
         , "start":"3"
         , "end":"3"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'i'"
+            , "Instruction":"1-bit And"
             , "Start Cycle":"3"
             , "Latency":"0"
           }
@@ -1134,6 +976,164 @@
             {
               "filename":"euler/euler.c"
               , "line":12
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":2283219872
+        , "start":"6"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'y'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"64"
+            , "Start Cycle":"6"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"*"
+        , "id":2283344832
+        , "start":"3"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"64-bit Integer Multiply"
+            , "Start Cycle":"3"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":2283730048
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":2285455696
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'y'"
+        , "id":2285821456
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'y'"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":2293689120
+        , "start":"5"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"1"
+            , "Start Cycle":"5"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":23
             }
           ]
         ]
@@ -1143,173 +1143,8 @@
     , "links":
     [
       {
-        "from":2246275472
-        , "to":2249180288
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2246275472
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2246275472
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2246845264
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2247981088
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2249180288
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2250293248
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2250301920
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2250386464
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2251237888
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2254040192
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246669328
-        , "to":2261092912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"192"
-          }
-        ]
-      }
-      , {
-        "from":2246747536
-        , "to":2247981088
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2246747536
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2246845264
-        , "to":2247981088
+        "from":2275742880
+        , "to":2276189232
         , "reverse":1
         , "details":
         [
@@ -1320,30 +1155,8 @@
         ]
       }
       , {
-        "from":2246845264
-        , "to":2249180288
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2246845264
-        , "to":2250293248
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2246845264
-        , "to":2251237888
+        "from":2275742880
+        , "to":2277419712
         , "reverse":1
         , "details":
         [
@@ -1354,19 +1167,8 @@
         ]
       }
       , {
-        "from":2246845264
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2246845264
-        , "to":2254040192
+        "from":2275742880
+        , "to":2277608800
         , "reverse":1
         , "details":
         [
@@ -1377,31 +1179,8 @@
         ]
       }
       , {
-        "from":2247981088
-        , "to":2250386464
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2248288768
-        , "to":2251237888
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2249180288
-        , "to":2246275472
+        "from":2275742880
+        , "to":2280581200
         , "reverse":1
         , "details":
         [
@@ -1412,8 +1191,8 @@
         ]
       }
       , {
-        "from":2250293248
-        , "to":2250301920
+        "from":2275742880
+        , "to":2283219872
         , "reverse":1
         , "details":
         [
@@ -1424,52 +1203,8 @@
         ]
       }
       , {
-        "from":2250301920
-        , "to":2250293248
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2250301920
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2250386464
-        , "to":2246747536
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2246845264
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2247981088
+        "from":2275742880
+        , "to":2293689120
         , "reverse":1
         , "details":
         [
@@ -1480,52 +1215,8 @@
         ]
       }
       , {
-        "from":2251237888
-        , "to":2249180288
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2250293248
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2251237888
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2252780144
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":2251237888
-        , "to":2254040192
+        "from":2276189232
+        , "to":2277629712
         , "reverse":1
         , "details":
         [
@@ -1536,8 +1227,162 @@
         ]
       }
       , {
-        "from":2254040192
-        , "to":2261092912
+        "from":2276901408
+        , "to":2275742880
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2276189232
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2277387952
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2277419712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2277608800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2277629712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2280581200
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2283219872
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2283730048
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2285821456
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2276901408
+        , "to":2293689120
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"192"
+          }
+        ]
+      }
+      , {
+        "from":2277387952
+        , "to":2277608464
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2277387952
+        , "to":2283344832
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2277608464
+        , "to":2277608800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":2277608800
+        , "to":2277387952
         , "reverse":1
         , "details":
         [
@@ -1548,161 +1393,215 @@
         ]
       }
       , {
-        "from":2255892512
-        , "to":2254040192
+        "from":2277629712
+        , "to":2276189232
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":2261092912
-        , "to":2246747536
+        "from":2277629712
+        , "to":2277419712
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":2261092912
-        , "to":2255892512
+        "from":2280581200
+        , "to":2275742880
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2276189232
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2277419712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2277608800
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2280581200
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2283219872
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2280581200
+        , "to":2293689120
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2283219872
+        , "to":2285821456
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2283344832
+        , "to":2277419712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2283344832
+        , "to":2283219872
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2283730048
+        , "to":2277419712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2283730048
+        , "to":2293689120
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2285455696
+        , "to":2280581200
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":2285821456
+        , "to":2283344832
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2293689120
+        , "to":2283730048
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
           }
         ]
       }
     ]
   }
-  , "2247694816":
+  , "2277038576":
   {
     "nodes":
     [
       {
         "name":"'Convert 64-bit Signed Integer to Double-precision Floating-point' Function Call"
-        , "id":2246276896
-        , "start":"1"
-        , "end":"1"
+        , "id":2275620320
+        , "start":"3"
+        , "end":"3"
         , "details":
         [
           {
             "type":"table"
             , "Instruction":"'Convert 64-bit Signed Integer to Double-precision Floating-point' Function Call"
-            , "Start Cycle":"1"
+            , "Constant Operand":"2047 (0x7FF)"
+            , "Start Cycle":"3"
             , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":24
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":2246395952
-        , "start":"43"
-        , "end":"44"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"64-bit Select"
-            , "Start Cycle":"43"
-            , "Latency":"1"
-            , "Subnormal Support":"On"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":24
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'soma'"
-        , "id":2246396288
-        , "start":"43"
-        , "end":"43"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'soma'"
-            , "Start Cycle":"43"
-            , "Latency":"0"
-            , "Subnormal Support":"On"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":24
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Src"
-        , "id":2246822112
-        , "start":"54"
-        , "end":"54"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"54"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"euler/euler.c"
-              , "line":24
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FP +"
-        , "id":2247425088
-        , "start":"44"
-        , "end":"54"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"64-bit Double-precision Floating-point Add"
-            , "Start Cycle":"44"
-            , "Latency":"10"
-            , "Rounding Scheme":"IEEE-754 RNE Rounding"
-            , "Subnormal Support":"On"
           }
         ]
         , "debug":
@@ -1718,7 +1617,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":2247425424
+        , "id":2275665760
         , "start":"54"
         , "end":"54"
         , "details":
@@ -1746,8 +1645,87 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Src"
+        , "id":2276621008
+        , "start":"54"
+        , "end":"54"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"54"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FP +"
+        , "id":2276682224
+        , "start":"44"
+        , "end":"54"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"64-bit Double-precision Floating-point Add"
+            , "Start Cycle":"44"
+            , "Latency":"10"
+            , "Rounding Scheme":"IEEE-754 RNE Rounding"
+            , "Subnormal Support":"On"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'soma'"
+        , "id":2276801856
+        , "start":"43"
+        , "end":"43"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'soma'"
+            , "Start Cycle":"43"
+            , "Latency":"0"
+            , "Subnormal Support":"On"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"FP /"
-        , "id":2247902752
+        , "id":2276848528
         , "start":"6"
         , "end":"42"
         , "details":
@@ -1773,8 +1751,34 @@
         , "type":"inst"
       }
       , {
+        "name":"Select"
+        , "id":2276848864
+        , "start":"43"
+        , "end":"44"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"64-bit Select"
+            , "Start Cycle":"43"
+            , "Latency":"1"
+            , "Subnormal Support":"On"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"euler/euler.c"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Exit"
-        , "id":2248093984
+        , "id":2278426480
         , "start":"54"
         , "end":"57"
         , "details":
@@ -1792,7 +1796,7 @@
       }
       , {
         "name":"Entry"
-        , "id":2254559152
+        , "id":2283554128
         , "details":
         [
           {
@@ -1808,52 +1812,8 @@
     , "links":
     [
       {
-        "from":2246395952
-        , "to":2247425088
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2246396288
-        , "to":2247425088
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2247425088
-        , "to":2246822112
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2247425088
-        , "to":2247425424
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":2247425424
-        , "to":2246396288
+        "from":2275665760
+        , "to":2276801856
         , "reverse":1
         , "details":
         [
@@ -1864,8 +1824,8 @@
         ]
       }
       , {
-        "from":2246276896
-        , "to":2247902752
+        "from":2276682224
+        , "to":2275665760
         , "details":
         [
           {
@@ -1875,8 +1835,8 @@
         ]
       }
       , {
-        "from":2247902752
-        , "to":2246395952
+        "from":2276682224
+        , "to":2276621008
         , "details":
         [
           {
@@ -1886,8 +1846,52 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246395952
+        "from":2276801856
+        , "to":2276682224
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2276848528
+        , "to":2276848864
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2276848864
+        , "to":2276682224
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2275620320
+        , "to":2276848528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":2283554128
+        , "to":2275665760
         , "details":
         [
           {
@@ -1897,8 +1901,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246396288
+        "from":2283554128
+        , "to":2276801856
         , "details":
         [
           {
@@ -1908,8 +1912,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2247425424
+        "from":2283554128
+        , "to":2276848864
         , "details":
         [
           {
@@ -1919,8 +1923,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246276896
+        "from":2283554128
+        , "to":2275620320
         , "details":
         [
           {
@@ -1930,8 +1934,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246276896
+        "from":2283554128
+        , "to":2275620320
         , "details":
         [
           {
@@ -1941,8 +1945,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246276896
+        "from":2283554128
+        , "to":2275620320
         , "details":
         [
           {
@@ -1952,8 +1956,8 @@
         ]
       }
       , {
-        "from":2254559152
-        , "to":2246276896
+        "from":2283554128
+        , "to":2275620320
         , "details":
         [
           {
