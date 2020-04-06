@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdint.h>
 
-void mandelbrot(int xmax, int xmin, int ymax, int ymin, int maxiter, int xres, int yres, int dx, int dy){
+component void mandelbrot(int xmax, int xmin, int ymax, int ymin, int maxiter, int xres, int yres, int dx, int dy){
   double x, y; /* Coordinates of the current point in the complex plane. */
   double u, v; /* Coordinates of the iterated point. */
   int i,j; /* Pixel counters */

@@ -9,7 +9,7 @@
 
 void printMatrix(int A[][nV]);
 
-void floydWarshall(int graph[][nV])
+component void floydWarshall(int graph[][nV])
 {
   int A[nV][nV], i, j, k;
 

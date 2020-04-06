@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void bubbleSort(int v[], int n) {
+component void bubbleSort(int v[], int n) {
     int i, j;
     for (i = 0; i < n; ++i) {
         for (j = i+1; j < n; ++j) {

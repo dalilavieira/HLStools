@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int mmc(int a, int b) {
+component int mmc(int a, int b) {
     int F1 = a, F2 = b;
 
     while (F1 != F2){

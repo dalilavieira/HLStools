@@ -1,7 +1,7 @@
 #include <HLS/hls.h>
 #include <stdio.h>
 
-void cesarcipher(char palavra[30], int n) {
+component void cesarcipher(char palavra[30], int n) {
     char aux[30];
     int chave=1, i;
 

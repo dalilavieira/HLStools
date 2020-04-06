@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void prod_matrix(int v[][100], int r[][100], int row, int col) {
+component void prod_matrix(int v[][100], int r[][100], int row, int col) {
     int i, j, k;
     for (i = 0; i < row; ++i) {
         for (j = 0; j < col; ++j) {

@@ -16,7 +16,7 @@ long long int fatorial (int n){
     return y;
 }
 
-double euler (int n){
+component double euler (int n){
 
     double soma = 0;
 
