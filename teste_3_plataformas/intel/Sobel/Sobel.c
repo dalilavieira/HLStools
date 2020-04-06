@@ -4,7 +4,7 @@
 #include <math.h>
 #define d_size 100
 
-void sobel(int image1[][100], int image2[][100]){
+component void sobel(int image1[][100], int image2[][100]){
 	int i,j;
 	for (j = 1; j < d_size- 1; j++) {
 		for (i = 1; i < d_size - 1; i++) {

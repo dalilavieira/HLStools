@@ -35,7 +35,7 @@ int partition (int arr[], int low, int high)
  arr[] --> Array to be sorted, 
   low  --> Starting index, 
   high  --> Ending index */
-void quickSort(int arr[], int low, int high) 
+component void quickSort(int arr[], int low, int high) 
 { 
     if (low < high) 
     { 
