@@ -1,0 +1,14 @@
+	component mmc is
+		port (
+			clock      : in  std_logic                     := 'X';             -- clk
+			resetn     : in  std_logic                     := 'X';             -- reset_n
+			start      : in  std_logic                     := 'X';             -- valid
+			busy       : out std_logic;                                        -- stall
+			done       : out std_logic;                                        -- valid
+			stall      : in  std_logic                     := 'X';             -- stall
+			returndata : out std_logic_vector(31 downto 0);                    -- data
+			a          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			b          : in  std_logic_vector(31 downto 0) := (others => 'X')  -- data
+		);
+	end component mmc;
+

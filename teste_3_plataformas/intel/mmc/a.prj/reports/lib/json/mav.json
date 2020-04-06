@@ -1,0 +1,380 @@
+{
+  "nodes":
+  [
+    {
+      "type":"component"
+      , "id":2
+      , "name":"mmc"
+      , "children":
+      [
+        {
+          "type":"bb"
+          , "id":3
+          , "name":"mmc.B0.runOnce"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"2"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":4
+          , "name":"mmc.B1.start"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":7
+              , "name":"Stream Read"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"mmc/mmc.c"
+                    , "line":5
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"64 bits"
+                  , "Depth":"0"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"2"
+                  , "Latency":"0"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Reference Manual"
+                          , "link":"https://www.intel.com/content/www/us/en/programmable/documentation/ewa1462824960255.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":11
+              , "name":"Loop Input"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":""
+                    , "line":0
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                  , "Loops To":"14"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":12
+              , "name":"End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"2"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"2"
+              , "II":"1"
+              , "Subloops":"Yes"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Entry to loop. "
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":5
+          , "name":"mmc.B2"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"5"
+              , "II":"1"
+              , "Subloops":"No"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":""
+              , "Loops To":"5"
+            }
+          ]
+        }
+        , {
+          "type":"bb"
+          , "id":6
+          , "name":"mmc.B3"
+          , "children":
+          [
+            {
+              "type":"inst"
+              , "id":9
+              , "name":"Stream Write"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"mmc/mmc.c"
+                    , "line":14
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"32 bits"
+                  , "Depth":"0"
+                  , "Stall-free":"No"
+                  , "Start Cycle":"0"
+                  , "Latency":"0"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Reference Manual"
+                          , "link":"https://www.intel.com/content/www/us/en/programmable/documentation/ewa1462824960255.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":13
+              , "name":"Begin"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":14
+              , "name":"Loop End"
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Start Cycle":"0"
+                  , "Latency":"1"
+                }
+              ]
+            }
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Latency":"0"
+              , "II":"1"
+              , "Subloops":"Yes"
+              , "Pipelined":"Yes"
+              , "Fmax Bottlenecks":"No"
+              , "Loop Info":"Exit which branches back to loop. "
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"stream"
+      , "id":8
+      , "name":"call.mmc"
+      , "debug":
+      [
+        [
+          {
+            "filename":"mmc/mmc.c"
+            , "line":5
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"64 bits"
+          , "Depth":"0"
+          , "Bits per symbol":"64 bits"
+          , "Uses Packets":"No"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+          , "Uses Valid":"Yes"
+          , "Ready Latency":"0"
+        }
+      ]
+    }
+    , {
+      "type":"stream"
+      , "id":10
+      , "name":"return.mmc"
+      , "debug":
+      [
+        [
+          {
+            "filename":"mmc/mmc.c"
+            , "line":5
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Bits per symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+          , "Uses Ready":"Yes"
+          , "Ready Latency":"0"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":15
+      , "name":"a"
+      , "debug":
+      [
+        [
+          {
+            "filename":"mmc/mmc.c"
+            , "line":5
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"32 bits"
+          , "Component":"mmc"
+        }
+      ]
+    }
+    , {
+      "type":"interface"
+      , "id":16
+      , "name":"b"
+      , "debug":
+      [
+        [
+          {
+            "filename":"mmc/mmc.c"
+            , "line":5
+          }
+        ]
+      ]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Stable":"No"
+          , "Width":"32 bits"
+          , "Component":"mmc"
+        }
+      ]
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":8
+      , "to":7
+    }
+    , {
+      "from":9
+      , "to":10
+    }
+    , {
+      "from":15
+      , "to":7
+    }
+    , {
+      "from":16
+      , "to":7
+    }
+    , {
+      "from":14
+      , "to":11
+    }
+    , {
+      "from":3
+      , "to":11
+    }
+    , {
+      "from":7
+      , "to":12
+    }
+    , {
+      "from":5
+      , "to":5
+    }
+    , {
+      "from":12
+      , "to":5
+    }
+    , {
+      "from":5
+      , "to":13
+    }
+    , {
+      "from":9
+      , "to":14
+    }
+    , {
+      "from":11
+      , "to":7
+    }
+    , {
+      "from":13
+      , "to":9
+    }
+  ]
+}

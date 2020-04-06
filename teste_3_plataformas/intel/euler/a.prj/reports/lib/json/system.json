@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"euler"
+      , "id":564414856
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":564498648
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"euler.B2"
+              , "Width":"64 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"euler/euler.c"
+                , "line":26
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":564442728
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"euler.B1.start"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"euler/euler.c"
+                , "line":19
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"return.euler"
+      , "id":564253384
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"64 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"64 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"call.euler"
+      , "id":564413704
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":564498648
+      , "to":564253384
+    }
+    , {
+      "from":564413704
+      , "to":564442728
+    }
+    , {
+      "from":564442728
+      , "to":564498648
+    }
+  ]
+}

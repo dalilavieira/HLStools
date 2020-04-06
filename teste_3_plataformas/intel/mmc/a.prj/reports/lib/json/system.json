@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"mmc"
+      , "id":2335814232
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":2336039800
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"mmc.B3"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"mmc/mmc.c"
+                , "line":14
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":2336019384
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"mmc.B1.start"
+              , "Width":"64 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"mmc/mmc.c"
+                , "line":5
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"return.mmc"
+      , "id":2335807752
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"call.mmc"
+      , "id":2335809320
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"64 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"64 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":2336039800
+      , "to":2335807752
+    }
+    , {
+      "from":2335809320
+      , "to":2336019384
+    }
+    , {
+      "from":2336019384
+      , "to":2336039800
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"bubbleSort"
+      , "id":2057548360
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":2057831432
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"bubbleSort.B5"
+              , "Width":"1 bit"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bubblesort/bubblesort.c"
+                , "line":16
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":2057786152
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"bubbleSort.B1.start"
+              , "Width":"128 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bubblesort/bubblesort.c"
+                , "line":5
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"return.bubbleSort"
+      , "id":2057559608
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"1 bit"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"1 bit"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"call.bubbleSort"
+      , "id":2057560856
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"128 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"128 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":2057831432
+      , "to":2057559608
+    }
+    , {
+      "from":2057560856
+      , "to":2057786152
+    }
+    , {
+      "from":2057786152
+      , "to":2057831432
+    }
+  ]
+}

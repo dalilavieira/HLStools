@@ -1,0 +1,20 @@
+	component mandelbrot is
+		port (
+			clock   : in  std_logic                     := 'X';             -- clk
+			resetn  : in  std_logic                     := 'X';             -- reset_n
+			start   : in  std_logic                     := 'X';             -- valid
+			busy    : out std_logic;                                        -- stall
+			done    : out std_logic;                                        -- valid
+			stall   : in  std_logic                     := 'X';             -- stall
+			xmax    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			xmin    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			ymax    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			ymin    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			maxiter : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			xres    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			yres    : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			dx      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			dy      : in  std_logic_vector(31 downto 0) := (others => 'X')  -- data
+		);
+	end component mandelbrot;
+
