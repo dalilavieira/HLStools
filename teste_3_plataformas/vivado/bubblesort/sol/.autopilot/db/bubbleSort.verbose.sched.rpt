@@ -1,0 +1,170 @@
+
+
+================================================================
+== Vivado HLS Report for 'bubbleSort'
+================================================================
+* Date:           Mon Apr  6 16:34:38 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        bubblesort
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.328|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-------+-----+-------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    | min |  max  | min |  max  |   Type  |
+    +-----+-------+-----+-------+---------+
+    |  201|  20001|  201|  20001|   none  |
+    +-----+-------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-------+----------+-----------+-----------+--------+----------+
+        |             |   Latency   | Iteration|  Initiation Interval  |  Trip  |          |
+        |  Loop Name  | min |  max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +-------------+-----+-------+----------+-----------+-----------+--------+----------+
+        |- Loop 1     |  200|  20000|  2 ~ 200 |          -|          -|     100|    no    |
+        | + Loop 1.1  |    0|    198|         2|          -|          -| 0 ~ 99 |    no    |
+        +-------------+-----+-------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 3 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i32]* %v) nounwind, !map !13"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @bubbleSort_str) nounwind"   --->   Operation 6 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.06ns)   --->   "br label %.loopexit" [bubblesort.c:7]   --->   Operation 7 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.37>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 8 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln7 = zext i7 %i_0 to i32" [bubblesort.c:7]   --->   Operation 9 'zext' 'zext_ln7' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.18ns)   --->   "%icmp_ln7 = icmp eq i7 %i_0, -28" [bubblesort.c:7]   --->   Operation 10 'icmp' 'icmp_ln7' <Predicate = true> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.37ns)   --->   "%i = add i7 %i_0, 1" [bubblesort.c:7]   --->   Operation 12 'add' 'i' <Predicate = true> <Delay = 1.37> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln7, label %3, label %.preheader.preheader" [bubblesort.c:7]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln9 = zext i7 %i_0 to i64" [bubblesort.c:9]   --->   Operation 14 'zext' 'zext_ln9' <Predicate = (!icmp_ln7)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%v_addr = getelementptr [100 x i32]* %v, i64 0, i64 %zext_ln9" [bubblesort.c:9]   --->   Operation 15 'getelementptr' 'v_addr' <Predicate = (!icmp_ln7)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (1.06ns)   --->   "br label %.preheader" [bubblesort.c:8]   --->   Operation 16 'br' <Predicate = (!icmp_ln7)> <Delay = 1.06>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "ret void" [bubblesort.c:16]   --->   Operation 17 'ret' <Predicate = (icmp_ln7)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.44>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%j_0_in = phi i32 [ %j, %._crit_edge ], [ %zext_ln7, %.preheader.preheader ]"   --->   Operation 18 'phi' 'j_0_in' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (1.78ns)   --->   "%j = add nsw i32 %j_0_in, 1" [bubblesort.c:8]   --->   Operation 19 'add' 'j' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 20 [1/1] (1.54ns)   --->   "%icmp_ln8 = icmp eq i32 %j_0_in, 99" [bubblesort.c:8]   --->   Operation 20 'icmp' 'icmp_ln8' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 99, i64 0) nounwind"   --->   Operation 21 'speclooptripcount' 'empty_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %icmp_ln8, label %.loopexit.loopexit, label %1" [bubblesort.c:8]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [2/2] (2.66ns)   --->   "%aux = load i32* %v_addr, align 4" [bubblesort.c:9]   --->   Operation 23 'load' 'aux' <Predicate = (!icmp_ln8)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%sext_ln9 = sext i32 %j to i64" [bubblesort.c:9]   --->   Operation 24 'sext' 'sext_ln9' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%v_addr_1 = getelementptr [100 x i32]* %v, i64 0, i64 %sext_ln9" [bubblesort.c:9]   --->   Operation 25 'getelementptr' 'v_addr_1' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_3 : Operation 26 [2/2] (2.66ns)   --->   "%v_load_1 = load i32* %v_addr_1, align 4" [bubblesort.c:9]   --->   Operation 26 'load' 'v_load_1' <Predicate = (!icmp_ln8)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 27 'br' <Predicate = (icmp_ln8)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 5.32>
+ST_4 : Operation 28 [1/2] (2.66ns)   --->   "%aux = load i32* %v_addr, align 4" [bubblesort.c:9]   --->   Operation 28 'load' 'aux' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 29 [1/2] (2.66ns)   --->   "%v_load_1 = load i32* %v_addr_1, align 4" [bubblesort.c:9]   --->   Operation 29 'load' 'v_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 30 [1/1] (1.54ns)   --->   "%icmp_ln9 = icmp sgt i32 %aux, %v_load_1" [bubblesort.c:9]   --->   Operation 30 'icmp' 'icmp_ln9' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "br i1 %icmp_ln9, label %2, label %._crit_edge" [bubblesort.c:9]   --->   Operation 31 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (2.66ns)   --->   "store i32 %v_load_1, i32* %v_addr, align 4" [bubblesort.c:11]   --->   Operation 32 'store' <Predicate = (icmp_ln9)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 33 [1/1] (2.66ns)   --->   "store i32 %aux, i32* %v_addr_1, align 4" [bubblesort.c:12]   --->   Operation 33 'store' <Predicate = (icmp_ln9)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "br label %._crit_edge" [bubblesort.c:13]   --->   Operation 34 'br' <Predicate = (icmp_ln9)> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "br label %.preheader" [bubblesort.c:8]   --->   Operation 35 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', bubblesort.c:7) [6]  (1.06 ns)
+
+ <State 2>: 1.37ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', bubblesort.c:7) [6]  (0 ns)
+	'add' operation ('i', bubblesort.c:7) [10]  (1.37 ns)
+
+ <State 3>: 4.45ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('zext_ln7', bubblesort.c:7) ('j', bubblesort.c:8) [17]  (0 ns)
+	'add' operation ('j', bubblesort.c:8) [18]  (1.78 ns)
+	'getelementptr' operation ('v_addr_1', bubblesort.c:9) [25]  (0 ns)
+	'load' operation ('v_load_1', bubblesort.c:9) on array 'v' [26]  (2.66 ns)
+
+ <State 4>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('aux', bubblesort.c:9) on array 'v' [23]  (2.66 ns)
+	'store' operation ('store_ln12', bubblesort.c:12) of variable 'aux', bubblesort.c:9 on array 'v' [31]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

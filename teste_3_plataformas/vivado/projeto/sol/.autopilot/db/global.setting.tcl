@@ -40,9 +40,9 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
-set SourceFiles {sc {} c ../../teste.c}
+set SourceFiles {sc {} c ../teste.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/vivado/ultimaHora/projeto/sol/sol.directive
+set DirectiveFile /home/vivado/HLStools/teste_3_plataformas/vivado/projeto/sol/sol.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -54,7 +54,7 @@ set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_ga
 set TBTVFileNotFound {}
 set AppFile ../vivado_hls.app
 set ApsFile sol.aps
-set AvePath ../..
+set AvePath {}
 set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}

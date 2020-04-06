@@ -1,0 +1,137 @@
+
+
+================================================================
+== Vivado HLS Report for 'mmc'
+================================================================
+* Date:           Mon Apr  6 16:40:53 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        mmc
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.416|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %a) nounwind, !map !13"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %b) nounwind, !map !19"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !23"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @mmc_str) nounwind"   --->   Operation 6 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%b_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %b) nounwind" [mmc.c:4]   --->   Operation 7 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%a_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %a) nounwind" [mmc.c:4]   --->   Operation 8 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.06ns)   --->   "br label %1" [mmc.c:7]   --->   Operation 9 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.41>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%F1_0 = phi i32 [ %a_read, %0 ], [ %F1_1, %2 ]"   --->   Operation 10 'phi' 'F1_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%F2_0 = phi i32 [ %b_read, %0 ], [ %F2_1, %2 ]"   --->   Operation 11 'phi' 'F2_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.54ns)   --->   "%icmp_ln7 = icmp eq i32 %F1_0, %F2_0" [mmc.c:7]   --->   Operation 12 'icmp' 'icmp_ln7' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln7, label %3, label %2" [mmc.c:7]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (1.54ns)   --->   "%icmp_ln8 = icmp sgt i32 %F1_0, %F2_0" [mmc.c:8]   --->   Operation 14 'icmp' 'icmp_ln8' <Predicate = (!icmp_ln7)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (1.78ns)   --->   "%F2 = add nsw i32 %F2_0, %b_read" [mmc.c:9]   --->   Operation 15 'add' 'F2' <Predicate = (!icmp_ln7)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (1.78ns)   --->   "%F1 = add nsw i32 %F1_0, %a_read" [mmc.c:11]   --->   Operation 16 'add' 'F1' <Predicate = (!icmp_ln7)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.63ns)   --->   "%F1_1 = select i1 %icmp_ln8, i32 %F1_0, i32 %F1" [mmc.c:8]   --->   Operation 17 'select' 'F1_1' <Predicate = (!icmp_ln7)> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.63ns)   --->   "%F2_1 = select i1 %icmp_ln8, i32 %F2, i32 %F2_0" [mmc.c:8]   --->   Operation 18 'select' 'F2_1' <Predicate = (!icmp_ln7)> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "br label %1" [mmc.c:12]   --->   Operation 19 'br' <Predicate = (!icmp_ln7)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "ret i32 %F1_0" [mmc.c:13]   --->   Operation 20 'ret' <Predicate = (icmp_ln7)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('F1') with incoming values : ('a', mmc.c:4) ('F1', mmc.c:8) [11]  (1.06 ns)
+
+ <State 2>: 2.42ns
+The critical path consists of the following:
+	'phi' operation ('F1') with incoming values : ('a', mmc.c:4) ('F1', mmc.c:8) [11]  (0 ns)
+	'add' operation ('F1', mmc.c:11) [18]  (1.78 ns)
+	'select' operation ('F1', mmc.c:8) [19]  (0.631 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

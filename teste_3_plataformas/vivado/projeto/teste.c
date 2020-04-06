@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define n 100
 
-void sum_vector(int *a,int *b,int *c) {
+void sum_vector(__int32_t a[n], __int32_t b[n], __int32_t c[n]) {
 
     for (int i = 0; i < n; ++i) {
         c[i] = a[i] + b[i];
