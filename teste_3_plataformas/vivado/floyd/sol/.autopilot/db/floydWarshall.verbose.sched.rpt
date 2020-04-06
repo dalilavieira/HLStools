@@ -1,0 +1,264 @@
+
+
+================================================================
+== Vivado HLS Report for 'floydWarshall'
+================================================================
+* Date:           Mon Apr  6 17:37:46 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        floyd
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.210|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  274|  274|  274|  274|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1         |   40|   40|        10|          -|          -|     4|    no    |
+        | + Loop 1.1      |    8|    8|         2|          -|          -|     4|    no    |
+        |- Loop 2         |  232|  232|        58|          -|          -|     4|    no    |
+        | + Loop 2.1      |   56|   56|        14|          -|          -|     4|    no    |
+        |  ++ Loop 2.1.1  |   12|   12|         3|          -|          -|     4|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 9
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 5 
+3 --> 4 2 
+4 --> 3 
+5 --> 6 
+6 --> 7 5 
+7 --> 8 6 
+8 --> 9 
+9 --> 7 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([16 x i32]* %graph) nounwind, !map !13"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([14 x i8]* @floydWarshall_str) nounwind"   --->   Operation 11 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%A = alloca [16 x i32], align 4" [floydWarshall.c:14]   --->   Operation 12 'alloca' 'A' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_1 : Operation 13 [1/1] (1.06ns)   --->   "br label %.loopexit" [floydWarshall.c:16]   --->   Operation 13 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.16>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 14 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.86ns)   --->   "%icmp_ln16 = icmp eq i3 %i_0, -4" [floydWarshall.c:16]   --->   Operation 15 'icmp' 'icmp_ln16' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4) nounwind"   --->   Operation 16 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (1.16ns)   --->   "%i = add i3 %i_0, 1" [floydWarshall.c:16]   --->   Operation 17 'add' 'i' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %icmp_ln16, label %.preheader2.preheader, label %.preheader3.preheader" [floydWarshall.c:16]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%tmp = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i_0, i2 0)" [floydWarshall.c:18]   --->   Operation 19 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln17 = zext i5 %tmp to i6" [floydWarshall.c:17]   --->   Operation 20 'zext' 'zext_ln17' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (1.06ns)   --->   "br label %.preheader3" [floydWarshall.c:17]   --->   Operation 21 'br' <Predicate = (!icmp_ln16)> <Delay = 1.06>
+ST_2 : Operation 22 [1/1] (1.06ns)   --->   "br label %.preheader2" [floydWarshall.c:20]   --->   Operation 22 'br' <Predicate = (icmp_ln16)> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 2.76>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %1 ], [ 0, %.preheader3.preheader ]"   --->   Operation 23 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.86ns)   --->   "%icmp_ln17 = icmp eq i3 %j_0, -4" [floydWarshall.c:17]   --->   Operation 24 'icmp' 'icmp_ln17' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4) nounwind"   --->   Operation 25 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (1.16ns)   --->   "%j = add i3 %j_0, 1" [floydWarshall.c:17]   --->   Operation 26 'add' 'j' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln17, label %.loopexit.loopexit, label %1" [floydWarshall.c:17]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln18 = zext i3 %j_0 to i6" [floydWarshall.c:18]   --->   Operation 28 'zext' 'zext_ln18' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (1.33ns)   --->   "%add_ln18 = add i6 %zext_ln17, %zext_ln18" [floydWarshall.c:18]   --->   Operation 29 'add' 'add_ln18' <Predicate = (!icmp_ln17)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln18_1 = zext i6 %add_ln18 to i64" [floydWarshall.c:18]   --->   Operation 30 'zext' 'zext_ln18_1' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%graph_addr = getelementptr [16 x i32]* %graph, i64 0, i64 %zext_ln18_1" [floydWarshall.c:18]   --->   Operation 31 'getelementptr' 'graph_addr' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 32 [2/2] (1.42ns)   --->   "%graph_load = load i32* %graph_addr, align 4" [floydWarshall.c:18]   --->   Operation 32 'load' 'graph_load' <Predicate = (!icmp_ln17)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 33 'br' <Predicate = (icmp_ln17)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 2.85>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%A_addr = getelementptr [16 x i32]* %A, i64 0, i64 %zext_ln18_1" [floydWarshall.c:18]   --->   Operation 34 'getelementptr' 'A_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/2] (1.42ns)   --->   "%graph_load = load i32* %graph_addr, align 4" [floydWarshall.c:18]   --->   Operation 35 'load' 'graph_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_4 : Operation 36 [1/1] (1.42ns)   --->   "store i32 %graph_load, i32* %A_addr, align 4" [floydWarshall.c:18]   --->   Operation 36 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "br label %.preheader3" [floydWarshall.c:17]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 1.16>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%k_0 = phi i3 [ %k, %.preheader2.loopexit ], [ 0, %.preheader2.preheader ]"   --->   Operation 38 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 39 [1/1] (0.86ns)   --->   "%icmp_ln20 = icmp eq i3 %k_0, -4" [floydWarshall.c:20]   --->   Operation 39 'icmp' 'icmp_ln20' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4) nounwind"   --->   Operation 40 'speclooptripcount' 'empty_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 41 [1/1] (1.16ns)   --->   "%k = add i3 %k_0, 1" [floydWarshall.c:20]   --->   Operation 41 'add' 'k' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "br i1 %icmp_ln20, label %4, label %.preheader1.preheader" [floydWarshall.c:20]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln26 = zext i3 %k_0 to i6" [floydWarshall.c:26]   --->   Operation 43 'zext' 'zext_ln26' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%tmp_1 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %k_0, i2 0)" [floydWarshall.c:26]   --->   Operation 44 'bitconcatenate' 'tmp_1' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%zext_ln22 = zext i5 %tmp_1 to i6" [floydWarshall.c:22]   --->   Operation 45 'zext' 'zext_ln22' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (1.06ns)   --->   "br label %.preheader1" [floydWarshall.c:22]   --->   Operation 46 'br' <Predicate = (!icmp_ln20)> <Delay = 1.06>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "ret void" [floydWarshall.c:32]   --->   Operation 47 'ret' <Predicate = (icmp_ln20)> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 1.33>
+ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %.preheader1.preheader ], [ %i_2, %.preheader1.loopexit ]"   --->   Operation 48 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 49 [1/1] (0.86ns)   --->   "%icmp_ln22 = icmp eq i3 %i_1, -4" [floydWarshall.c:22]   --->   Operation 49 'icmp' 'icmp_ln22' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 50 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4) nounwind"   --->   Operation 50 'speclooptripcount' 'empty_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 51 [1/1] (1.16ns)   --->   "%i_2 = add i3 %i_1, 1" [floydWarshall.c:22]   --->   Operation 51 'add' 'i_2' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 52 [1/1] (0.00ns)   --->   "br i1 %icmp_ln22, label %.preheader2.loopexit, label %.preheader.preheader" [floydWarshall.c:22]   --->   Operation 52 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_2 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i_1, i2 0)" [floydWarshall.c:26]   --->   Operation 53 'bitconcatenate' 'tmp_2' <Predicate = (!icmp_ln22)> <Delay = 0.00>
+ST_6 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln26_1 = zext i5 %tmp_2 to i6" [floydWarshall.c:26]   --->   Operation 54 'zext' 'zext_ln26_1' <Predicate = (!icmp_ln22)> <Delay = 0.00>
+ST_6 : Operation 55 [1/1] (1.33ns)   --->   "%add_ln26_1 = add i6 %zext_ln26, %zext_ln26_1" [floydWarshall.c:26]   --->   Operation 55 'add' 'add_ln26_1' <Predicate = (!icmp_ln22)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%zext_ln26_2 = zext i6 %add_ln26_1 to i64" [floydWarshall.c:26]   --->   Operation 56 'zext' 'zext_ln26_2' <Predicate = (!icmp_ln22)> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%A_addr_1 = getelementptr [16 x i32]* %A, i64 0, i64 %zext_ln26_2" [floydWarshall.c:26]   --->   Operation 57 'getelementptr' 'A_addr_1' <Predicate = (!icmp_ln22)> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (1.06ns)   --->   "br label %.preheader" [floydWarshall.c:24]   --->   Operation 58 'br' <Predicate = (!icmp_ln22)> <Delay = 1.06>
+ST_6 : Operation 59 [1/1] (0.00ns)   --->   "br label %.preheader2"   --->   Operation 59 'br' <Predicate = (icmp_ln22)> <Delay = 0.00>
+
+State 7 <SV = 4> <Delay = 2.76>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ %j_2, %._crit_edge ], [ 0, %.preheader.preheader ]"   --->   Operation 60 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 61 [1/1] (0.86ns)   --->   "%icmp_ln24 = icmp eq i3 %j_1, -4" [floydWarshall.c:24]   --->   Operation 61 'icmp' 'icmp_ln24' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4) nounwind"   --->   Operation 62 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 63 [1/1] (1.16ns)   --->   "%j_2 = add i3 %j_1, 1" [floydWarshall.c:24]   --->   Operation 63 'add' 'j_2' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %icmp_ln24, label %.preheader1.loopexit, label %2" [floydWarshall.c:24]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 65 [2/2] (1.42ns)   --->   "%A_load = load i32* %A_addr_1, align 4" [floydWarshall.c:26]   --->   Operation 65 'load' 'A_load' <Predicate = (!icmp_ln24)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_7 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln26_3 = zext i3 %j_1 to i6" [floydWarshall.c:26]   --->   Operation 66 'zext' 'zext_ln26_3' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_7 : Operation 67 [1/1] (1.33ns)   --->   "%add_ln26_2 = add i6 %zext_ln22, %zext_ln26_3" [floydWarshall.c:26]   --->   Operation 67 'add' 'add_ln26_2' <Predicate = (!icmp_ln24)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln26_4 = zext i6 %add_ln26_2 to i64" [floydWarshall.c:26]   --->   Operation 68 'zext' 'zext_ln26_4' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_7 : Operation 69 [1/1] (0.00ns)   --->   "%A_addr_2 = getelementptr [16 x i32]* %A, i64 0, i64 %zext_ln26_4" [floydWarshall.c:26]   --->   Operation 69 'getelementptr' 'A_addr_2' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_7 : Operation 70 [1/1] (1.33ns)   --->   "%add_ln26_3 = add i6 %zext_ln26_1, %zext_ln26_3" [floydWarshall.c:26]   --->   Operation 70 'add' 'add_ln26_3' <Predicate = (!icmp_ln24)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%zext_ln26_5 = zext i6 %add_ln26_3 to i64" [floydWarshall.c:26]   --->   Operation 71 'zext' 'zext_ln26_5' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_7 : Operation 72 [1/1] (0.00ns)   --->   "%A_addr_3 = getelementptr [16 x i32]* %A, i64 0, i64 %zext_ln26_5" [floydWarshall.c:26]   --->   Operation 72 'getelementptr' 'A_addr_3' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_7 : Operation 73 [2/2] (1.42ns)   --->   "%A_load_1 = load i32* %A_addr_2, align 4" [floydWarshall.c:26]   --->   Operation 73 'load' 'A_load_1' <Predicate = (!icmp_ln24)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_7 : Operation 74 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 74 'br' <Predicate = (icmp_ln24)> <Delay = 0.00>
+
+State 8 <SV = 5> <Delay = 3.21>
+ST_8 : Operation 75 [1/2] (1.42ns)   --->   "%A_load = load i32* %A_addr_1, align 4" [floydWarshall.c:26]   --->   Operation 75 'load' 'A_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_8 : Operation 76 [1/2] (1.42ns)   --->   "%A_load_1 = load i32* %A_addr_2, align 4" [floydWarshall.c:26]   --->   Operation 76 'load' 'A_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_8 : Operation 77 [1/1] (1.78ns)   --->   "%add_ln26 = add nsw i32 %A_load_1, %A_load" [floydWarshall.c:26]   --->   Operation 77 'add' 'add_ln26' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 78 [2/2] (1.42ns)   --->   "%A_load_2 = load i32* %A_addr_3, align 4" [floydWarshall.c:26]   --->   Operation 78 'load' 'A_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 9 <SV = 6> <Delay = 2.97>
+ST_9 : Operation 79 [1/2] (1.42ns)   --->   "%A_load_2 = load i32* %A_addr_3, align 4" [floydWarshall.c:26]   --->   Operation 79 'load' 'A_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_9 : Operation 80 [1/1] (1.54ns)   --->   "%icmp_ln26 = icmp slt i32 %add_ln26, %A_load_2" [floydWarshall.c:26]   --->   Operation 80 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 81 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %3, label %._crit_edge" [floydWarshall.c:26]   --->   Operation 81 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 82 [1/1] (1.42ns)   --->   "store i32 %add_ln26, i32* %A_addr_3, align 4" [floydWarshall.c:27]   --->   Operation 82 'store' <Predicate = (icmp_ln26)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_9 : Operation 83 [1/1] (0.00ns)   --->   "br label %._crit_edge" [floydWarshall.c:27]   --->   Operation 83 'br' <Predicate = (icmp_ln26)> <Delay = 0.00>
+ST_9 : Operation 84 [1/1] (0.00ns)   --->   "br label %.preheader" [floydWarshall.c:24]   --->   Operation 84 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', floydWarshall.c:16) [7]  (1.06 ns)
+
+ <State 2>: 1.16ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', floydWarshall.c:16) [7]  (0 ns)
+	'add' operation ('i', floydWarshall.c:16) [10]  (1.16 ns)
+
+ <State 3>: 2.76ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', floydWarshall.c:17) [17]  (0 ns)
+	'add' operation ('add_ln18', floydWarshall.c:18) [24]  (1.34 ns)
+	'getelementptr' operation ('graph_addr', floydWarshall.c:18) [26]  (0 ns)
+	'load' operation ('graph_load', floydWarshall.c:18) on array 'graph' [28]  (1.43 ns)
+
+ <State 4>: 2.85ns
+The critical path consists of the following:
+	'load' operation ('graph_load', floydWarshall.c:18) on array 'graph' [28]  (1.43 ns)
+	'store' operation ('store_ln18', floydWarshall.c:18) of variable 'graph_load', floydWarshall.c:18 on array 'A', floydWarshall.c:14 [29]  (1.43 ns)
+
+ <State 5>: 1.16ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', floydWarshall.c:20) [36]  (0 ns)
+	'add' operation ('k', floydWarshall.c:20) [39]  (1.16 ns)
+
+ <State 6>: 1.34ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', floydWarshall.c:22) [47]  (0 ns)
+	'add' operation ('add_ln26_1', floydWarshall.c:26) [55]  (1.34 ns)
+
+ <State 7>: 2.76ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', floydWarshall.c:24) [60]  (0 ns)
+	'add' operation ('add_ln26_2', floydWarshall.c:26) [68]  (1.34 ns)
+	'getelementptr' operation ('A_addr_2', floydWarshall.c:26) [70]  (0 ns)
+	'load' operation ('A_load_1', floydWarshall.c:26) on array 'A', floydWarshall.c:14 [74]  (1.43 ns)
+
+ <State 8>: 3.21ns
+The critical path consists of the following:
+	'load' operation ('A_load', floydWarshall.c:26) on array 'A', floydWarshall.c:14 [66]  (1.43 ns)
+	'add' operation ('add_ln26', floydWarshall.c:26) [75]  (1.78 ns)
+
+ <State 9>: 2.97ns
+The critical path consists of the following:
+	'load' operation ('A_load_2', floydWarshall.c:26) on array 'A', floydWarshall.c:14 [76]  (1.43 ns)
+	'icmp' operation ('icmp_ln26', floydWarshall.c:26) [77]  (1.55 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -8,7 +8,7 @@
   
 // A utility function to find the vertex with minimum distance value, from 
 // the set of vertices not yet included in shortest path tree 
-int minDistance(int dist[], int sptSet[]) 
+int minDistance(__int32_t dist[V], __int32_t sptSet[V]) 
 { 
     // Initialize min value 
     int min = INT_MAX, min_index; 
@@ -21,7 +21,7 @@ int minDistance(int dist[], int sptSet[])
 } 
   
 // A utility function to print the constructed distance array 
-int printSolution(int dist[], int n) 
+int printSolution(__int32_t dist[V], int n) 
 { 
     printf("Vertex   Distance from Source\n"); 
     for (int i = 0; i < V; i++) 
@@ -30,7 +30,7 @@ int printSolution(int dist[], int n)
   
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
-void dijkstra(int graph[V][V], int src) 
+void dijkstra(__int32_t graph[V][V], int src) 
 { 
     int dist[V]; // The output array.  dist[i] will hold the shortest 
     // distance from src to i 

@@ -1,0 +1,291 @@
+
+
+================================================================
+== Vivado HLS Report for 'dijkstra'
+================================================================
+* Date:           Mon Apr  6 17:31:11 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        dijkstra
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     4.210|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  395|  539|  395|  539|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    9|    9|         1|          -|          -|     9|    no    |
+        |- Loop 2     |  384|  528|  48 ~ 66 |          -|          -|     8|    no    |
+        | + Loop 2.1  |   18|   18|         2|          -|          -|     9|    no    |
+        | + Loop 2.2  |   27|   45|   3 ~ 5  |          -|          -|     9|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 10
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 2 3 
+3 --> 4 
+4 --> 5 6 
+5 --> 4 
+6 --> 7 3 
+7 --> 8 10 
+8 --> 9 10 
+9 --> 10 
+10 --> 6 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([81 x i32]* %graph) nounwind, !map !20"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %src) nounwind, !map !26"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @dijkstra_str) nounwind"   --->   Operation 13 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%src_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %src) nounwind"   --->   Operation 14 'read' 'src_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%dist = alloca [9 x i32], align 16" [dijkstra.c:35]   --->   Operation 15 'alloca' 'dist' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%sptSet = alloca [9 x i1], align 1" [dijkstra.c:38]   --->   Operation 16 'alloca' 'sptSet' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 17 [1/1] (1.06ns)   --->   "br label %1" [dijkstra.c:42]   --->   Operation 17 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.42>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%i_0 = phi i4 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 18 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.08ns)   --->   "%icmp_ln42 = icmp eq i4 %i_0, -7" [dijkstra.c:42]   --->   Operation 19 'icmp' 'icmp_ln42' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9) nounwind"   --->   Operation 20 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (1.32ns)   --->   "%i = add i4 %i_0, 1" [dijkstra.c:42]   --->   Operation 21 'add' 'i' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %icmp_ln42, label %3, label %2" [dijkstra.c:42]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln43 = zext i4 %i_0 to i64" [dijkstra.c:43]   --->   Operation 23 'zext' 'zext_ln43' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%dist_addr_1 = getelementptr inbounds [9 x i32]* %dist, i64 0, i64 %zext_ln43" [dijkstra.c:43]   --->   Operation 24 'getelementptr' 'dist_addr_1' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (1.42ns)   --->   "store i32 2147483647, i32* %dist_addr_1, align 4" [dijkstra.c:43]   --->   Operation 25 'store' <Predicate = (!icmp_ln42)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%sptSet_addr = getelementptr [9 x i1]* %sptSet, i64 0, i64 %zext_ln43" [dijkstra.c:43]   --->   Operation 26 'getelementptr' 'sptSet_addr' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (1.42ns)   --->   "store i1 false, i1* %sptSet_addr, align 1" [dijkstra.c:43]   --->   Operation 27 'store' <Predicate = (!icmp_ln42)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br label %1" [dijkstra.c:42]   --->   Operation 28 'br' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%sext_ln46 = sext i32 %src_read to i64" [dijkstra.c:46]   --->   Operation 29 'sext' 'sext_ln46' <Predicate = (icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%dist_addr = getelementptr inbounds [9 x i32]* %dist, i64 0, i64 %sext_ln46" [dijkstra.c:46]   --->   Operation 30 'getelementptr' 'dist_addr' <Predicate = (icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (1.42ns)   --->   "store i32 0, i32* %dist_addr, align 4" [dijkstra.c:46]   --->   Operation 31 'store' <Predicate = (icmp_ln42)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 32 [1/1] (1.06ns)   --->   "br label %.loopexit" [dijkstra.c:49]   --->   Operation 32 'br' <Predicate = (icmp_ln42)> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 1.32>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%count_0 = phi i4 [ 0, %3 ], [ %count, %.loopexit.loopexit ]"   --->   Operation 33 'phi' 'count_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (1.08ns)   --->   "%icmp_ln49 = icmp eq i4 %count_0, -8" [dijkstra.c:49]   --->   Operation 34 'icmp' 'icmp_ln49' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 35 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (1.32ns)   --->   "%count = add i4 %count_0, 1" [dijkstra.c:49]   --->   Operation 36 'add' 'count' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %icmp_ln49, label %10, label %.preheader.preheader" [dijkstra.c:49]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%u = alloca i32"   --->   Operation 38 'alloca' 'u' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (1.06ns)   --->   "br label %.preheader" [dijkstra.c:18->dijkstra.c:52]   --->   Operation 39 'br' <Predicate = (!icmp_ln49)> <Delay = 1.06>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "ret void" [dijkstra.c:70]   --->   Operation 40 'ret' <Predicate = (icmp_ln49)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 1.42>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%min_0_i = phi i32 [ %select_ln17_2, %_ifconv ], [ 2147483647, %.preheader.preheader ]" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 41 'phi' 'min_0_i' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%min_index = phi i4 [ %v_1, %_ifconv ], [ 0, %.preheader.preheader ]"   --->   Operation 42 'phi' 'min_index' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln18 = zext i4 %min_index to i32" [dijkstra.c:18->dijkstra.c:52]   --->   Operation 43 'zext' 'zext_ln18' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (1.08ns)   --->   "%icmp_ln16 = icmp eq i4 %min_index, -7" [dijkstra.c:16->dijkstra.c:52]   --->   Operation 44 'icmp' 'icmp_ln16' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9) nounwind"   --->   Operation 45 'speclooptripcount' 'empty_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (1.32ns)   --->   "%v_1 = add i4 %min_index, 1" [dijkstra.c:16->dijkstra.c:52]   --->   Operation 46 'add' 'v_1' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %icmp_ln16, label %minDistance.exit, label %_ifconv" [dijkstra.c:16->dijkstra.c:52]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln17 = zext i4 %min_index to i64" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 48 'zext' 'zext_ln17' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%sptSet_addr_2 = getelementptr [9 x i1]* %sptSet, i64 0, i64 %zext_ln17" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 49 'getelementptr' 'sptSet_addr_2' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 50 [2/2] (1.42ns)   --->   "%sptSet_load = load i1* %sptSet_addr_2, align 1" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 50 'load' 'sptSet_load' <Predicate = (!icmp_ln16)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%dist_addr_4 = getelementptr [9 x i32]* %dist, i64 0, i64 %zext_ln17" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 51 'getelementptr' 'dist_addr_4' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 52 [2/2] (1.42ns)   --->   "%min = load i32* %dist_addr_4, align 4" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 52 'load' 'min' <Predicate = (!icmp_ln16)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%u_load = load i32* %u" [dijkstra.c:63]   --->   Operation 53 'load' 'u_load' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%sext_ln55 = sext i32 %u_load to i64" [dijkstra.c:55]   --->   Operation 54 'sext' 'sext_ln55' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%trunc_ln63 = trunc i32 %u_load to i8" [dijkstra.c:63]   --->   Operation 55 'trunc' 'trunc_ln63' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%trunc_ln63_1 = trunc i32 %u_load to i5" [dijkstra.c:63]   --->   Operation 56 'trunc' 'trunc_ln63_1' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%sext_ln63_cast = call i8 @_ssdm_op_BitConcatenate.i8.i5.i3(i5 %trunc_ln63_1, i3 0)" [dijkstra.c:63]   --->   Operation 57 'bitconcatenate' 'sext_ln63_cast' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (1.39ns)   --->   "%add_ln63_1 = add i8 %sext_ln63_cast, %trunc_ln63" [dijkstra.c:63]   --->   Operation 58 'add' 'add_ln63_1' <Predicate = (icmp_ln16)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%sptSet_addr_1 = getelementptr [9 x i1]* %sptSet, i64 0, i64 %sext_ln55" [dijkstra.c:55]   --->   Operation 59 'getelementptr' 'sptSet_addr_1' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (1.42ns)   --->   "store i1 true, i1* %sptSet_addr_1, align 1" [dijkstra.c:55]   --->   Operation 60 'store' <Predicate = (icmp_ln16)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%dist_addr_2 = getelementptr inbounds [9 x i32]* %dist, i64 0, i64 %sext_ln55" [dijkstra.c:63]   --->   Operation 61 'getelementptr' 'dist_addr_2' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (1.06ns)   --->   "br label %4" [dijkstra.c:58]   --->   Operation 62 'br' <Predicate = (icmp_ln16)> <Delay = 1.06>
+
+State 5 <SV = 4> <Delay = 3.60>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%u_load_1 = load i32* %u" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 63 'load' 'u_load_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/2] (1.42ns)   --->   "%sptSet_load = load i1* %sptSet_addr_2, align 1" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 64 'load' 'sptSet_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 65 [1/2] (1.42ns)   --->   "%min = load i32* %dist_addr_4, align 4" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 65 'load' 'min' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 66 [1/1] (1.54ns)   --->   "%icmp_ln17 = icmp sgt i32 %min, %min_0_i" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 66 'icmp' 'icmp_ln17' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node select_ln17_2)   --->   "%select_ln17 = select i1 %icmp_ln17, i32 %min_0_i, i32 %min" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 67 'select' 'select_ln17' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node select_ln17_3)   --->   "%select_ln17_1 = select i1 %icmp_ln17, i32 %u_load_1, i32 %zext_ln18" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 68 'select' 'select_ln17_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 69 [1/1] (0.63ns) (out node of the LUT)   --->   "%select_ln17_2 = select i1 %sptSet_load, i32 %min_0_i, i32 %select_ln17" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 69 'select' 'select_ln17_2' <Predicate = true> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 70 [1/1] (0.63ns) (out node of the LUT)   --->   "%select_ln17_3 = select i1 %sptSet_load, i32 %u_load_1, i32 %select_ln17_1" [dijkstra.c:17->dijkstra.c:52]   --->   Operation 70 'select' 'select_ln17_3' <Predicate = true> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "store i32 %select_ln17_3, i32* %u" [dijkstra.c:16->dijkstra.c:52]   --->   Operation 71 'store' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "br label %.preheader" [dijkstra.c:16->dijkstra.c:52]   --->   Operation 72 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 1.42>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%v_0 = phi i4 [ 0, %minDistance.exit ], [ %v, %._crit_edge ]"   --->   Operation 73 'phi' 'v_0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 74 [1/1] (1.08ns)   --->   "%icmp_ln58 = icmp eq i4 %v_0, -7" [dijkstra.c:58]   --->   Operation 74 'icmp' 'icmp_ln58' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9) nounwind"   --->   Operation 75 'speclooptripcount' 'empty_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 76 [1/1] (1.32ns)   --->   "%v = add i4 %v_0, 1" [dijkstra.c:58]   --->   Operation 76 'add' 'v' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %icmp_ln58, label %.loopexit.loopexit, label %5" [dijkstra.c:58]   --->   Operation 77 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln63 = zext i4 %v_0 to i64" [dijkstra.c:63]   --->   Operation 78 'zext' 'zext_ln63' <Predicate = (!icmp_ln58)> <Delay = 0.00>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln63_1 = zext i4 %v_0 to i8" [dijkstra.c:63]   --->   Operation 79 'zext' 'zext_ln63_1' <Predicate = (!icmp_ln58)> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (1.39ns)   --->   "%add_ln63_2 = add i8 %add_ln63_1, %zext_ln63_1" [dijkstra.c:63]   --->   Operation 80 'add' 'add_ln63_2' <Predicate = (!icmp_ln58)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%sext_ln63 = sext i8 %add_ln63_2 to i64" [dijkstra.c:63]   --->   Operation 81 'sext' 'sext_ln63' <Predicate = (!icmp_ln58)> <Delay = 0.00>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%graph_addr = getelementptr [81 x i32]* %graph, i64 0, i64 %sext_ln63" [dijkstra.c:63]   --->   Operation 82 'getelementptr' 'graph_addr' <Predicate = (!icmp_ln58)> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (0.00ns)   --->   "%sptSet_addr_3 = getelementptr [9 x i1]* %sptSet, i64 0, i64 %zext_ln63" [dijkstra.c:63]   --->   Operation 83 'getelementptr' 'sptSet_addr_3' <Predicate = (!icmp_ln58)> <Delay = 0.00>
+ST_6 : Operation 84 [2/2] (1.42ns)   --->   "%sptSet_load_1 = load i1* %sptSet_addr_3, align 1" [dijkstra.c:63]   --->   Operation 84 'load' 'sptSet_load_1' <Predicate = (!icmp_ln58)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 85 'br' <Predicate = (icmp_ln58)> <Delay = 0.00>
+
+State 7 <SV = 5> <Delay = 2.66>
+ST_7 : Operation 86 [1/2] (1.42ns)   --->   "%sptSet_load_1 = load i1* %sptSet_addr_3, align 1" [dijkstra.c:63]   --->   Operation 86 'load' 'sptSet_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_7 : Operation 87 [1/1] (0.00ns)   --->   "br i1 %sptSet_load_1, label %._crit_edge, label %6" [dijkstra.c:63]   --->   Operation 87 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 88 [2/2] (2.66ns)   --->   "%graph_load = load i32* %graph_addr, align 4" [dijkstra.c:63]   --->   Operation 88 'load' 'graph_load' <Predicate = (!sptSet_load_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 8 <SV = 6> <Delay = 4.21>
+ST_8 : Operation 89 [1/2] (2.66ns)   --->   "%graph_load = load i32* %graph_addr, align 4" [dijkstra.c:63]   --->   Operation 89 'load' 'graph_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_8 : Operation 90 [1/1] (1.54ns)   --->   "%icmp_ln63 = icmp eq i32 %graph_load, 0" [dijkstra.c:63]   --->   Operation 90 'icmp' 'icmp_ln63' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 91 [1/1] (0.00ns)   --->   "br i1 %icmp_ln63, label %._crit_edge, label %7" [dijkstra.c:63]   --->   Operation 91 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 92 [2/2] (1.42ns)   --->   "%dist_load = load i32* %dist_addr_2, align 4" [dijkstra.c:63]   --->   Operation 92 'load' 'dist_load' <Predicate = (!icmp_ln63)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 9 <SV = 7> <Delay = 3.21>
+ST_9 : Operation 93 [1/2] (1.42ns)   --->   "%dist_load = load i32* %dist_addr_2, align 4" [dijkstra.c:63]   --->   Operation 93 'load' 'dist_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_9 : Operation 94 [1/1] (1.54ns)   --->   "%icmp_ln63_1 = icmp eq i32 %dist_load, 2147483647" [dijkstra.c:63]   --->   Operation 94 'icmp' 'icmp_ln63_1' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 95 [1/1] (0.00ns)   --->   "br i1 %icmp_ln63_1, label %._crit_edge, label %8" [dijkstra.c:63]   --->   Operation 95 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 96 [1/1] (1.78ns)   --->   "%add_ln63 = add nsw i32 %dist_load, %graph_load" [dijkstra.c:63]   --->   Operation 96 'add' 'add_ln63' <Predicate = (!icmp_ln63_1)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 97 [1/1] (0.00ns)   --->   "%dist_addr_3 = getelementptr inbounds [9 x i32]* %dist, i64 0, i64 %zext_ln63" [dijkstra.c:63]   --->   Operation 97 'getelementptr' 'dist_addr_3' <Predicate = (!icmp_ln63_1)> <Delay = 0.00>
+ST_9 : Operation 98 [2/2] (1.42ns)   --->   "%dist_load_1 = load i32* %dist_addr_3, align 4" [dijkstra.c:63]   --->   Operation 98 'load' 'dist_load_1' <Predicate = (!icmp_ln63_1)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 10 <SV = 8> <Delay = 2.97>
+ST_10 : Operation 99 [1/2] (1.42ns)   --->   "%dist_load_1 = load i32* %dist_addr_3, align 4" [dijkstra.c:63]   --->   Operation 99 'load' 'dist_load_1' <Predicate = (!sptSet_load_1 & !icmp_ln63 & !icmp_ln63_1)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_10 : Operation 100 [1/1] (1.54ns)   --->   "%icmp_ln63_2 = icmp slt i32 %add_ln63, %dist_load_1" [dijkstra.c:63]   --->   Operation 100 'icmp' 'icmp_ln63_2' <Predicate = (!sptSet_load_1 & !icmp_ln63 & !icmp_ln63_1)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 101 [1/1] (0.00ns)   --->   "br i1 %icmp_ln63_2, label %9, label %._crit_edge" [dijkstra.c:63]   --->   Operation 101 'br' <Predicate = (!sptSet_load_1 & !icmp_ln63 & !icmp_ln63_1)> <Delay = 0.00>
+ST_10 : Operation 102 [1/1] (1.42ns)   --->   "store i32 %add_ln63, i32* %dist_addr_3, align 4" [dijkstra.c:65]   --->   Operation 102 'store' <Predicate = (!sptSet_load_1 & !icmp_ln63 & !icmp_ln63_1 & icmp_ln63_2)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_10 : Operation 103 [1/1] (0.00ns)   --->   "br label %._crit_edge" [dijkstra.c:65]   --->   Operation 103 'br' <Predicate = (!sptSet_load_1 & !icmp_ln63 & !icmp_ln63_1 & icmp_ln63_2)> <Delay = 0.00>
+ST_10 : Operation 104 [1/1] (0.00ns)   --->   "br label %4" [dijkstra.c:58]   --->   Operation 104 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', dijkstra.c:42) [11]  (1.06 ns)
+
+ <State 2>: 1.43ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', dijkstra.c:42) [11]  (0 ns)
+	'getelementptr' operation ('dist_addr_1', dijkstra.c:43) [18]  (0 ns)
+	'store' operation ('store_ln43', dijkstra.c:43) of constant 2147483647 on array 'dist', dijkstra.c:35 [19]  (1.43 ns)
+
+ <State 3>: 1.32ns
+The critical path consists of the following:
+	'phi' operation ('count') with incoming values : ('count', dijkstra.c:49) [29]  (0 ns)
+	'add' operation ('count', dijkstra.c:49) [32]  (1.32 ns)
+
+ <State 4>: 1.43ns
+The critical path consists of the following:
+	'phi' operation ('v') with incoming values : ('v', dijkstra.c:16->dijkstra.c:52) [39]  (0 ns)
+	'getelementptr' operation ('sptSet_addr_2', dijkstra.c:17->dijkstra.c:52) [48]  (0 ns)
+	'load' operation ('sptSet_load', dijkstra.c:17->dijkstra.c:52) on array 'sptSet', dijkstra.c:38 [49]  (1.43 ns)
+
+ <State 5>: 3.6ns
+The critical path consists of the following:
+	'load' operation ('min', dijkstra.c:17->dijkstra.c:52) on array 'dist', dijkstra.c:35 [51]  (1.43 ns)
+	'icmp' operation ('icmp_ln17', dijkstra.c:17->dijkstra.c:52) [52]  (1.55 ns)
+	'select' operation ('select_ln17', dijkstra.c:17->dijkstra.c:52) [53]  (0 ns)
+	'select' operation ('select_ln17_2', dijkstra.c:17->dijkstra.c:52) [55]  (0.631 ns)
+
+ <State 6>: 1.43ns
+The critical path consists of the following:
+	'phi' operation ('v') with incoming values : ('v', dijkstra.c:58) [71]  (0 ns)
+	'getelementptr' operation ('sptSet_addr_3', dijkstra.c:63) [82]  (0 ns)
+	'load' operation ('sptSet_load_1', dijkstra.c:63) on array 'sptSet', dijkstra.c:38 [83]  (1.43 ns)
+
+ <State 7>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('graph_load', dijkstra.c:63) on array 'graph' [86]  (2.66 ns)
+
+ <State 8>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('graph_load', dijkstra.c:63) on array 'graph' [86]  (2.66 ns)
+	'icmp' operation ('icmp_ln63', dijkstra.c:63) [87]  (1.55 ns)
+
+ <State 9>: 3.21ns
+The critical path consists of the following:
+	'load' operation ('dist_load', dijkstra.c:63) on array 'dist', dijkstra.c:35 [90]  (1.43 ns)
+	'add' operation ('add_ln63', dijkstra.c:63) [94]  (1.78 ns)
+
+ <State 10>: 2.97ns
+The critical path consists of the following:
+	'load' operation ('dist_load_1', dijkstra.c:63) on array 'dist', dijkstra.c:35 [96]  (1.43 ns)
+	'icmp' operation ('icmp_ln63_2', dijkstra.c:63) [97]  (1.55 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
