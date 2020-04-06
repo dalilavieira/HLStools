@@ -13,6 +13,7 @@ SIMULATOR=none
 
 for ((i=0; i < ${#BENCHMARKS[@]}; i++)) do
     echo "RUNNING "${BENCHMARKS[i]}
+    rm ${BENCHMARKS[i]}"/log.txt"
     error=$(i++ -march=Arria10 --simulator $SIMULATOR ${BENCHMARKS[i]}"/"${BENCHMARKS[i]}".c" &> ${BENCHMARKS[i]}"/log.txt")
     # version changed
     rm -rf ${BENCHMARKS[i]}"/a.prj"
