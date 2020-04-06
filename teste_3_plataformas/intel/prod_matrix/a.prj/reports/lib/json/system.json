@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"prod_matrix"
+      , "id":3350803352
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":3351090376
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"prod_matrix.B7"
+              , "Width":"1 bit"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"prod_matrix/prod_matrix.c"
+                , "line":13
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":3351032184
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"prod_matrix.B1.start"
+              , "Width":"192 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"prod_matrix/prod_matrix.c"
+                , "line":5
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"call.prod_matrix"
+      , "id":3350787160
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"192 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"192 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"return.prod_matrix"
+      , "id":3350787464
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"1 bit"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"1 bit"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":3350787160
+      , "to":3351032184
+    }
+    , {
+      "from":3351090376
+      , "to":3350787464
+    }
+    , {
+      "from":3351032184
+      , "to":3351090376
+    }
+  ]
+}
