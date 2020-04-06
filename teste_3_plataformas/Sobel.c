@@ -1,14 +1,9 @@
-#include <stdlib.h>
-#include <float.h>
+#include <stdio.h>
 #include <math.h>
-#include <iostream>
-#include <chrono>
-#include <omp.h>
-#define d_size 500
+#define d_size 100
 
-using namespace std::chrono;
-
-void sobel(int image1[][], int image2[][]){
+void sobel(int image1[][100], int image2[][100]){
+	int i,j;
 	for (j = 1; j < d_size- 1; j++) {
 		for (i = 1; i < d_size - 1; i++) {
  
@@ -30,11 +25,11 @@ int main(){
     double total = 0;
 
     int image1[d_size][d_size];
-    //int image2[d_size][d_size];
+    int image2[d_size][d_size];
 
     for(int i=0; i<d_size; i++){
         for(int j=0; j<d_size; j++){
-            image1[i][j] = (int) (random() % 255);
+            image1[i][j] = random() % 255;
         }
     }
 
