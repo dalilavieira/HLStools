@@ -1,7 +1,7 @@
 #include <HLS/hls.h>
+#include "HLS/math.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #define d_size 100
 
 component void sobel(int image1[][100], int image2[][100]){
