@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vivado HLS Report for 'cesarcipher'
+================================================================
+* Date:           Mon Apr  6 17:03:43 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        cesarcipher
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.649|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|    25|    no    |
+        | + Loop 1.1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 3 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([30 x i8]* %palavra) nounwind, !map !13"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @cesarcipher_str) nounwind"   --->   Operation 6 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.06ns)   --->   "br label %1" [cesarcipher.c:8]   --->   Operation 7 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.11>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%chave_0 = phi i5 [ 1, %0 ], [ %chave, %2 ]"   --->   Operation 8 'phi' 'chave_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (1.11ns)   --->   "%icmp_ln8 = icmp eq i5 %chave_0, -6" [cesarcipher.c:8]   --->   Operation 9 'icmp' 'icmp_ln8' <Predicate = true> <Delay = 1.11> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 25, i64 25, i64 25) nounwind"   --->   Operation 10 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %icmp_ln8, label %3, label %.preheader.preheader" [cesarcipher.c:8]   --->   Operation 11 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.06ns)   --->   "br label %.preheader" [cesarcipher.c:11]   --->   Operation 12 'br' <Predicate = (!icmp_ln8)> <Delay = 1.06>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "ret void" [cesarcipher.c:34]   --->   Operation 13 'ret' <Predicate = (icmp_ln8)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.78>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%i_0 = phi i32 [ %i, %.preheader ], [ 0, %.preheader.preheader ]"   --->   Operation 14 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "%sext_ln11 = sext i32 %i_0 to i64" [cesarcipher.c:11]   --->   Operation 15 'sext' 'sext_ln11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%palavra_addr = getelementptr [30 x i8]* %palavra, i64 0, i64 %sext_ln11" [cesarcipher.c:11]   --->   Operation 16 'getelementptr' 'palavra_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [2/2] (1.42ns)   --->   "%palavra_load = load i8* %palavra_addr, align 1" [cesarcipher.c:11]   --->   Operation 17 'load' 'palavra_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 30> <RAM>
+ST_3 : Operation 18 [1/1] (1.78ns)   --->   "%i = add nsw i32 %i_0, 1" [cesarcipher.c:22]   --->   Operation 18 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.64>
+ST_4 : Operation 19 [1/2] (1.42ns)   --->   "%palavra_load = load i8* %palavra_addr, align 1" [cesarcipher.c:11]   --->   Operation 19 'load' 'palavra_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 30> <RAM>
+ST_4 : Operation 20 [1/1] (1.22ns)   --->   "%icmp_ln11 = icmp eq i8 %palavra_load, 0" [cesarcipher.c:11]   --->   Operation 20 'icmp' 'icmp_ln11' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %icmp_ln11, label %2, label %.preheader" [cesarcipher.c:11]   --->   Operation 21 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (1.33ns)   --->   "%chave = add i5 %chave_0, 1" [cesarcipher.c:31]   --->   Operation 22 'add' 'chave' <Predicate = (icmp_ln11)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "br label %1" [cesarcipher.c:32]   --->   Operation 23 'br' <Predicate = (icmp_ln11)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('chave') with incoming values : ('chave', cesarcipher.c:31) [6]  (1.06 ns)
+
+ <State 2>: 1.12ns
+The critical path consists of the following:
+	'phi' operation ('chave') with incoming values : ('chave', cesarcipher.c:31) [6]  (0 ns)
+	'icmp' operation ('icmp_ln8', cesarcipher.c:8) [7]  (1.12 ns)
+
+ <State 3>: 1.78ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', cesarcipher.c:22) [13]  (0 ns)
+	'add' operation ('i', cesarcipher.c:22) [18]  (1.78 ns)
+
+ <State 4>: 2.65ns
+The critical path consists of the following:
+	'load' operation ('palavra_load', cesarcipher.c:11) on array 'palavra' [16]  (1.43 ns)
+	'icmp' operation ('icmp_ln11', cesarcipher.c:11) [17]  (1.22 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
