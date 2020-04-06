@@ -1,0 +1,24 @@
+digraph {
+Node0xaf9d490[label="  %38 = zext i1 %not. to i32"];
+Node0xaf9d350[label="  %not. = icmp ult i32 %phitmp, 50"];
+Node0xaf9d350 -> Node0xaf9d490[label="D:4.43ns L:0",color=blue];
+Node0xaf9d3f0[label="  %37 = zext i1 %not. to i8"];
+Node0xaf9d350 -> Node0xaf9d3f0[label="D:4.43ns L:0",color=blue];
+Node0xaf9d5d0[label="  volatile store i8 %37, i8* %scevgep, a..."];
+Node0xaf9d3f0 -> Node0xaf9d5d0[label="D:0.00ns L:0",color=blue];
+Node0xaf9d530[label="  %39 = add nsw i32 %38, %count.15"];
+Node0xaf9d490 -> Node0xaf9d530[label="D:0.00ns L:0",color=blue];
+Node0xaf9da30[label="  %phitmp9 = inttoptr i32 %39 to i8*"];
+Node0xaf9d530 -> Node0xaf9da30[label="D:3.81ns L:0",color=blue];
+Node0xaf9a498[label="  %count.07 = phi i32 [ 0, %.preheader.l..."];
+Node0xaf9d530 -> Node0xaf9a498[label="D:3.81ns L:0",color=blue];
+Node0xaf9bb48[label="  %count.15 = phi i32 [ %count.07, %.pre..."];
+Node0xaf9d530 -> Node0xaf9bb48[label="D:3.81ns L:0",color=blue];
+Node0xaf9d710[label="  %exitcond10 = icmp eq i32 %40, 64"];
+Node0xaf9d670[label="  %40 = add nsw i32 %i.06, 1"];
+Node0xaf9d670 -> Node0xaf9d710[label="D:3.81ns L:0",color=blue];
+Node0xaf9baa8[label="  %i.06 = phi i32 [ 0, %.preheader ], [ ..."];
+Node0xaf9d670 -> Node0xaf9baa8[label="D:3.81ns L:0",color=blue];
+Node0xaf9d7b0[label="  br i1 %exitcond10, label %41, label %1..."];
+Node0xaf9d710 -> Node0xaf9d7b0[label="D:2.34ns L:0",color=blue];
+}
