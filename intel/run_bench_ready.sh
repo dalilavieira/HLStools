@@ -24,7 +24,7 @@ SIMULATOR=none
 for ((i=0; i < ${#BENCHMARKS[@]}; i++)) do
     echo "RUNNING "${BENCHMARKS[i]}
     # version changed
-    error=$(i++ -march=Arria10 --simulator $SIMULATOR "bench_ready/"${BENCHMARKS[i]}"/"${BENCHMARKS[i]}".c" &> "bench_ready/"${BENCHMARKS[i]}"/log.txt")
+    error=$(i++ -march=Arria10 --simulator $SIMULATOR "bench_ready/"${BENCHMARKS[i]}"/"${BENCHMARKS[i]}".cpp" &> "bench_ready/"${BENCHMARKS[i]}"/log.txt")
     rm -rf "bench_ready/"${BENCHMARKS[i]}"/a.prj"
     mv "a.prj" "bench_ready/"${BENCHMARKS[i]}
 done
