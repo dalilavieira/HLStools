@@ -1,0 +1,62 @@
+
+Usage: i++ [<options>] <input_files> 
+Generic flags:
+--debug-log Generate the compiler diagnostics log
+-h,--help   Display this information
+-o <name>   Place the output into <name> and <name>.prj
+-v          Verbose mode
+--version   Display compiler version information
+
+Flags impacting the compile step (source to object file translation):
+-c          Preprocess, parse and generate object files
+--component <components>
+            Comma-separated list of function names to synthesize to RTL
+-D<macro>[=<val>]   
+            Define a <macro> with <val> as its value.  If just <macro> is
+            given, <val> is taken to be 1
+-g          Generate debug information (default)
+-g0         Do not generate debug information
+-I<dir>     Add directory to the end of the main include path
+-march=<arch> 
+            Generate code for <arch>, <arch> is one of:
+              x86-64, FPGA family, FPGA part code
+            FPGA family is one of:
+              "Arria10", "Cyclone10GX", "Stratix10"
+            or any valid part code from those FPGA families.
+--quartus-compile 
+            Run HDL through a Quartus compilation
+--quartus-seed <seed>
+            Specify the seed to use for the Quartus compilation
+--simulator <simulator>
+            Specify the simulator to be used for verification.
+            Supported simulators are: modelsim (default), none
+            If "none" is specified, generate RTL for components without testbench
+
+Flags impacting the link step only (object file to binary/RTL translation):
+--clock <clock_spec>
+            Optimize the RTL for the specified clock frequency or period
+--fp-relaxed
+            [DEPRECATED] See -ffp-reassoc
+-ffp-reassoc
+            Relax the order of arithmetic operations
+--fpc       [DEPRECATED] See -ffp-contract=fast
+-ffp-contract=fast
+            Removes intermediate rounding and conversion when possible
+--daz        Flushes double precision denormalized numbers to zero
+--rounding=<ieee|faithful>
+            Set floating point rounding scheme:
+                ieee     : Set FP rounding scheme to IEEE RNE (0.5 ULP)
+                faithful : Set FP rounding scheme to faithful (1 ULP)
+-ghdl       Enable full debug visibility and logging of all HDL signals in simulation
+-L<dir>     Add directory dir to the list of directories to be searched
+-l<library> Search the library named library when linking (Flag is only supported
+            on Linux. For Windows, just add .lib files directly to command line)
+--x86-only  Only create the executable to run the testbench, but no RTL or
+            cosim support
+--fpga-only Create the project directory, all RTL and cosim support, but do
+            not generate the testbench binary
+--hyper-optimized-handshaking=<auto|off>
+            Disabling hyper-optimized handshaking may reduce latency and area at
+            the cost of lower fmax. Currently only applicable for Stratix 10:
+                auto: Enable hyper-optimized handshaking if possible (default)
+                off:  Disable hyper-optimized handshaking
