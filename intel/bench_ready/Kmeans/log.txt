@@ -1,2 +1,20 @@
-bench_ready/Kmeans/Kmeans.cpp:12: Compiler Error: Dynamic memory allocation is not supported in components
-HLS Main Optimizer FAILED.
+bench_ready/Kmeans/Kmeans.cpp:12:20: error: redefinition of 'data_in' with a different type: 'unsigned short [(1 << 10) * num_dim]' vs 'unsigned short *'
+    unsigned short data_in[DATA_SIZE * num_dim];
+                   ^
+bench_ready/Kmeans/Kmeans.cpp:10:21: note: previous definition is here
+    unsigned short *data_in, *data_out, *centroids;
+                    ^
+bench_ready/Kmeans/Kmeans.cpp:13:20: error: redefinition of 'data_out' with a different type: 'unsigned short [1024]' vs 'unsigned short *'
+    unsigned short data_out[DATA_SIZE];
+                   ^
+bench_ready/Kmeans/Kmeans.cpp:10:31: note: previous definition is here
+    unsigned short *data_in, *data_out, *centroids;
+                              ^
+bench_ready/Kmeans/Kmeans.cpp:14:20: error: redefinition of 'centroids' with a different type: 'unsigned short [num_clusters * num_dim]' vs 'unsigned short *'
+    unsigned short centroids[num_clusters * num_dim];
+                   ^
+bench_ready/Kmeans/Kmeans.cpp:10:42: note: previous definition is here
+    unsigned short *data_in, *data_out, *centroids;
+                                         ^
+3 errors generated.
+HLS FPGA Parse FAILED.

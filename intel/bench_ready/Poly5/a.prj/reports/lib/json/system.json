@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"poly5"
+      , "id":1435760232
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Read"
+          , "id":1435937976
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"poly5.B1.start"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Poly5/Poly5.cpp"
+                , "line":7
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Write"
+          , "id":1436044056
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"poly5.B5"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Poly5/Poly5.cpp"
+                , "line":33
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"call.poly5"
+      , "id":1435754376
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"return.poly5"
+      , "id":1435757512
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":1435754376
+      , "to":1435937976
+    }
+    , {
+      "from":1436044056
+      , "to":1435757512
+    }
+    , {
+      "from":1435937976
+      , "to":1436044056
+    }
+  ]
+}

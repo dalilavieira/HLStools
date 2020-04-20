@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2020.04.19.21:19:02"
+ outputDirectory="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Arria 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10AX115U1F45I1SG"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clock" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="resetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="call" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="start" direction="input" role="valid" width="1" />
+   <port name="busy" direction="output" role="stall" width="1" />
+  </interface>
+  <interface name="return" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="done" direction="output" role="valid" width="1" />
+   <port name="stall" direction="input" role="stall" width="1" />
+  </interface>
+  <interface name="returndata" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="returndata" direction="output" role="data" width="32" />
+  </interface>
+  <interface name="idx" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="idx" direction="input" role="data" width="32" />
+  </interface>
+ </perimeter>
+ <entity kind="poly5" version="1.0" name="poly5">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLOCK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="10AX115U1F45I1SG" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria 10" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="1" />
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/synth/poly5.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/synth/poly5.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5_internal_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="poly5">"Generating: poly5"</message>
+   <message level="Info" culprit="poly5">"Generating: poly5_internal"</message>
+  </messages>
+ </entity>
+ <entity kind="poly5_internal" version="1.0" name="poly5_internal">
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ffwdsrc.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_full_detector.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_decr_decr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ffwddst.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_loop_limiter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_ffwd_source_i32_unnamed_3_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_throttle_i1_throttle_pop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_throttle_i1_throttle_pop_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_iord_bl_call_unnamed_poly52_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_wt_entry_s_c0_enter2_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter2_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B2_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B2_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_body_s_c0_enter813_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_body_s_c0_exit83_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt83_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_body_s_c0_enter813_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_1_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_2_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i11_fpga_indvars_iv_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i32_k_034_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i4_cleanups30_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i4_initerations25_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i11_fpga_indvars_iv_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_lastiniteration29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i32_k_034_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i4_cleanups30_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i4_initerations25_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_cond14_preheader_s_c0_enter864_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zr_s_c0_exit90_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_cond14_preheader_s_c0_enter864_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i8_fpga_indvars_iv8_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i8_fpga_indvars_iv8_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_iowr_bl_return_unnamed_poly56_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_throttle_push_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_throttle_push_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_cond_cleanup11_s_c0_enter93_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Z1_s_c0_exit95_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000001Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt95_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_cond_cleanup11_s_c0_enter93_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_ffwd_dest_i32_idx3513_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_5_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B5_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B5_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B6_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B6_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_body17_s_c0_enter985_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_body17_s_c0_exit102_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000002Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Z102_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_body17_s_c0_enter985_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_10_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_7_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_8_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_9_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i11_fpga_indvars_iv5_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i1_notcmp1847_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i2_cleanups_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i32_k13_032_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i11_fpga_indvars_iv5_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_lastiniteration_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notcmp1847_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i2_cleanups_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i32_k13_032_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_2_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_2_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_6_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_6_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_6_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_6_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mem1x.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mem_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_local_mem_router.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_internal.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_enable_sink.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ffwdsrc.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_full_detector.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_tessellated_incr_decr_decr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ffwddst.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_loop_limiter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_ffwd_source_i32_unnamed_3_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_throttle_i1_throttle_pop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_throttle_i1_throttle_pop_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_iord_bl_call_unnamed_poly52_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_wt_entry_s_c0_enter2_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter2_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B2_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B2_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_body_s_c0_enter813_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_body_s_c0_exit83_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt83_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_body_s_c0_enter813_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_1_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_2_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i11_fpga_indvars_iv_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i32_k_034_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i4_cleanups30_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i4_initerations25_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i11_fpga_indvars_iv_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_lastiniteration29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i32_k_034_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i4_cleanups30_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i4_initerations25_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B3_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_cond14_preheader_s_c0_enter864_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zr_s_c0_exit90_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_cond14_preheader_s_c0_enter864_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i8_fpga_indvars_iv8_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i8_fpga_indvars_iv8_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B4_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_iowr_bl_return_unnamed_poly56_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_throttle_push_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_token_i1_throttle_push_3_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_cond_cleanup11_s_c0_enter93_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Z1_s_c0_exit95_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000001Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Zt95_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_cond_cleanup11_s_c0_enter93_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_ffwd_dest_i32_idx3513_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_5_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B5_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B5_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B6_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B6_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_s_c0_in_for_body17_s_c0_enter985_poly51.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_body17_s_c0_exit102_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000002Zpoly51_full_detector.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_sfc_exit_s_c0_out_for_A000000Z102_poly51_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_sfc_logic_s_c0_in_for_body17_s_c0_enter985_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_memdep_4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_10_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_7_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_8_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_mem_unnamed_9_poly50.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i11_fpga_indvars_iv5_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i1_notcmp1847_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i2_cleanups_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pop_i32_k13_032_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i11_fpga_indvars_iv5_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_lastiniteration_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notcmp1847_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i2_cleanups_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_push_i32_k13_032_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_B7_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_2_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going20_2_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_6_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going27_6_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_1_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going43_1_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_6_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_i_llvm_fpga_pipeline_keep_going_6_valid_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_loop_limiter_2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B2_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B3_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B4_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B5_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B6_sr_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_bb_B7_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mem1x.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_mem_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_local_mem_router.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5/poly5_internal_10/synth/poly5_internal.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/poly5/poly5_internal_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="poly5" as="poly5_internal_inst" />
+  <messages>
+   <message level="Info" culprit="poly5">"Generating: poly5_internal"</message>
+  </messages>
+ </entity>
+</deploy>

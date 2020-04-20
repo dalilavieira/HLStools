@@ -1,0 +1,573 @@
+{
+  "1435751888":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 0"
+        , "id":1439240304
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_wt_entry_poly5s_c0_enter2_poly50"
+            , "Cluster Type":"Stall-Enable"
+            , "Cluster Start Cycle":"1"
+            , "Cluster Latency":"0"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1439247296
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"1"
+                , "Cluster Logic Latency":"0"
+              }
+            ]
+            , "type":"inst"
+          }
+        ]
+      }
+      , {
+        "name":"FFwd Src"
+        , "id":1442807936
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"RD"
+        , "id":1453131680
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Stream Read"
+            , "Width":"32 bits"
+            , "Depth":"0"
+            , "Stream Name":"call.poly5"
+            , "Stall-free":"No"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":7
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1453131680
+        , "to":1442807936
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+    ]
+  }
+  , "1435751968":
+  {
+    "nodes":
+    [
+    ]
+    , "links":
+    [
+    ]
+  }
+  , "1435752048":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 1"
+        , "id":1439553200
+        , "start":"1"
+        , "end":"7"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_for_body_poly5s_c0_enter813_poly51"
+            , "Cluster Type":"Stall-Free"
+            , "Cluster Start Cycle":"1"
+            , "Cluster Latency":"6"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1439559712
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"1"
+                , "Cluster Logic Latency":"3"
+              }
+            ]
+            , "type":"inst"
+          }
+          , {
+            "name":"Exit"
+            , "id":1440084512
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Exit Start Cycle":"4"
+                , "Exit Latency":"3"
+                , "Exit FIFO Depth":"8"
+                , "Exit FIFO Width":"24"
+                , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+              }
+            ]
+            , "type":"bb"
+          }
+        ]
+      }
+      , {
+        "name":"Loop Orch"
+        , "id":1446392368
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":14
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1439559712
+        , "to":1440084512
+      }
+      , {
+        "from":1446392368
+        , "to":1439559712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+  , "1435752128":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 2"
+        , "id":1440186144
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_for_cond14_preheader_poly5s_c0_enter864_poly51"
+            , "Cluster Type":"Stall-Enable"
+            , "Cluster Start Cycle":"1"
+            , "Cluster Latency":"0"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1440192832
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"1"
+                , "Cluster Logic Latency":"0"
+              }
+            ]
+            , "type":"inst"
+          }
+        ]
+      }
+      , {
+        "name":"Loop Input"
+        , "id":1440318528
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Input"
+            , "Preceding Blocks":"poly5.B6, poly5.B2"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":21
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1440318528
+        , "to":1440192832
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+  , "1435752208":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 3"
+        , "id":1440382864
+        , "start":"0"
+        , "end":"8"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_for_cond_cleanup11_poly5s_c0_enter93_poly50"
+            , "Cluster Type":"Stall-Free"
+            , "Cluster Start Cycle":"0"
+            , "Cluster Latency":"8"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1440389872
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"0"
+                , "Cluster Logic Latency":"5"
+              }
+            ]
+            , "type":"inst"
+          }
+          , {
+            "name":"Exit"
+            , "id":1440485120
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Exit Start Cycle":"5"
+                , "Exit Latency":"3"
+                , "Exit FIFO Depth":"16"
+                , "Exit FIFO Width":"64"
+                , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+              }
+            ]
+            , "type":"bb"
+          }
+        ]
+      }
+      , {
+        "name":"WR"
+        , "id":1443010704
+        , "start":"8"
+        , "end":"8"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Stream Write"
+            , "Width":"32 bits"
+            , "Depth":"0"
+            , "Stream Name":"return.poly5"
+            , "Stall-free":"No"
+            , "Start Cycle":"8"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":33
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1440389872
+        , "to":1440485120
+      }
+      , {
+        "from":1440485120
+        , "to":1443010704
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+    ]
+  }
+  , "1435752288":
+  {
+    "nodes":
+    [
+      {
+        "name":"Input"
+        , "id":1454327168
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Input"
+            , "Preceding Blocks":"poly5.B7"
+          }
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+    ]
+  }
+  , "1435752368":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 4"
+        , "id":1440698016
+        , "start":"1"
+        , "end":"23"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_for_body17_poly5s_c0_enter985_poly51"
+            , "Cluster Type":"Stall-Free"
+            , "Cluster Start Cycle":"1"
+            , "Cluster Latency":"22"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1440706032
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"1"
+                , "Cluster Logic Latency":"19"
+              }
+            ]
+            , "type":"inst"
+          }
+          , {
+            "name":"Exit"
+            , "id":1441512992
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Exit Start Cycle":"20"
+                , "Exit Latency":"3"
+                , "Exit FIFO Depth":"32"
+                , "Exit FIFO Width":"32"
+                , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+              }
+            ]
+            , "type":"bb"
+          }
+        ]
+      }
+      , {
+        "name":"Loop Orch"
+        , "id":1442506144
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1440706032
+        , "to":1441512992
+      }
+      , {
+        "from":1442506144
+        , "to":1440706032
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1442506144
+        , "to":1440706032
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+  , "1435921600":
+  {
+    "nodes":
+    [
+      {
+        "name":"Feedback"
+        , "id":1441557248
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"1"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Poly5/Poly5.cpp"
+              , "line":7
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1447467488
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1441557248
+        , "to":1447467488
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+}

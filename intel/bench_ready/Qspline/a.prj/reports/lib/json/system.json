@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"qspline"
+      , "id":2162947944
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":2163252808
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"qspline.B5"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Qspline/Qspline.cpp"
+                , "line":38
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":2163181544
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"qspline.B1.start"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Qspline/Qspline.cpp"
+                , "line":7
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"call.qspline"
+      , "id":2162942280
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"return.qspline"
+      , "id":2162945448
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":2162942280
+      , "to":2163181544
+    }
+    , {
+      "from":2163252808
+      , "to":2162945448
+    }
+    , {
+      "from":2163181544
+      , "to":2163252808
+    }
+  ]
+}
