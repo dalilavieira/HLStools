@@ -6,10 +6,8 @@
 
 component int loopback(int idx) {
 
-    unsigned short *a, *out;
-
-    a = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    unsigned short a[DATA_SIZE];
+    unsigned short out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k % 1024;
@@ -24,9 +22,6 @@ component int loopback(int idx) {
     }
 
     int v = out[idx];
-
-    delete a;
-    delete out;
 
     return v;
 }

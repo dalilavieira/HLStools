@@ -6,9 +6,9 @@
 
 component int sgfilter(int idx) {
 
-    auto a = new unsigned short[DATA_SIZE];
-    auto b = new unsigned short[DATA_SIZE];
-    auto OUT = new unsigned short[DATA_SIZE];
+    unsigned short a[DATA_SIZE];
+    unsigned short b[DATA_SIZE];
+    unsigned short OUT[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k % 1024;
@@ -26,10 +26,6 @@ component int sgfilter(int idx) {
     }
 
     int v = OUT[idx];
-
-    delete[] a;
-    delete[] b;
-    delete[] OUT;
 
     return v;
 }

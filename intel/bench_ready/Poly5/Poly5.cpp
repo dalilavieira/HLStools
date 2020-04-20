@@ -6,12 +6,10 @@
 
 component int poly5(int idx) {
 
-    unsigned short *a, *b, *c, *out;
-
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    unsigned short a[DATA_SIZE];
+    unsigned short b[DATA_SIZE];
+    unsigned short c[DATA_SIZE];
+    unsigned short out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k;
@@ -32,11 +30,6 @@ component int poly5(int idx) {
 
     int v = out[idx];
 
-    delete a;
-    delete b;
-    delete c;
-    delete out;
-
     return v;
 }
 
@@ -47,7 +40,7 @@ int main(int argc, char *argv[]) {
     int test = 0;
      
     int r = poly5(idx);
-     printf("%d\n", r);
+    printf("%d\n", r);
 
     return 0;
 }

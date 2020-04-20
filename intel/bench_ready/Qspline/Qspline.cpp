@@ -6,16 +6,14 @@
 
 component int qspline(int idx) {
 
-    unsigned short *a, *b, *c, *d, *e, *f, *g, *out;
-
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    d = new unsigned short[DATA_SIZE];
-    e = new unsigned short[DATA_SIZE];
-    f = new unsigned short[DATA_SIZE];
-    g = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    unsigned short a[DATA_SIZE];
+    unsigned short b[DATA_SIZE];
+    unsigned short c[DATA_SIZE];
+    unsigned short d[DATA_SIZE];
+    unsigned short e[DATA_SIZE];
+    unsigned short f[DATA_SIZE];
+    unsigned short g[DATA_SIZE];
+    unsigned short out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k % 1024;
@@ -36,15 +34,6 @@ component int qspline(int idx) {
     }
 
     int v = out[idx];
-
-    delete a;
-    delete b;
-    delete c;
-    delete d;
-    delete e;
-    delete f;
-    delete g;
-    delete out;
 
     return v;
 }

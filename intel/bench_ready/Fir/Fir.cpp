@@ -8,15 +8,14 @@
 component int fir(int idx, int taps){
 
    unsigned short *data_in, *data_out;
-    unsigned short *coef;
-    coef = new unsigned short[TAPS];
+   unsigned short coef[TAPS];
 
     for (int k = 0; k < TAPS; ++k){
       coef[k] = k+1;
     }
 
-   data_in = new unsigned short[DATA_SIZE+taps];
-   data_out = new unsigned short[DATA_SIZE+taps];
+   unsigned short data_in[DATA_SIZE+taps];
+   unsigned short data_out[DATA_SIZE+taps];
 
    for (int k = 0; k < DATA_SIZE; ++k){
       data_in[k] = k;
@@ -36,9 +35,6 @@ component int fir(int idx, int taps){
    }
    
    int v = data_out[idx];  
-
-   delete data_in;
-   delete data_out;
 
    return v;
 

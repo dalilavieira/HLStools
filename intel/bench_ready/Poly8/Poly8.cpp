@@ -8,10 +8,10 @@ component int poly8(int idx) {
 
     unsigned short *a, *b, *c, *out;
 
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    unsigned short a[DATA_SIZE];
+    unsigned short b[DATA_SIZE];
+    unsigned short c[DATA_SIZE];
+    unsigned short out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k;
@@ -30,11 +30,6 @@ component int poly8(int idx) {
     }
 
     int v = out[idx];
-
-    delete a;
-    delete b;
-    delete c;
-    delete out;
 
     return v;
 }
