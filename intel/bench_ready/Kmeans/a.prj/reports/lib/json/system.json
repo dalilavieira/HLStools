@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"kmeans"
+      , "id":524927768
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":525156392
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"kmeans.B9"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Kmeans/Kmeans.cpp"
+                , "line":45
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":525036600
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"kmeans.B1.start"
+              , "Width":"96 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Kmeans/Kmeans.cpp"
+                , "line":10
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"call.kmeans"
+      , "id":524782776
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"96 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"96 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"return.kmeans"
+      , "id":524783944
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":524782776
+      , "to":525036600
+    }
+    , {
+      "from":525156392
+      , "to":524783944
+    }
+    , {
+      "from":525036600
+      , "to":525156392
+    }
+  ]
+}
