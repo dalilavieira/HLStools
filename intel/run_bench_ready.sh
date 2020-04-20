@@ -15,7 +15,8 @@ BENCHMARKS=(
     "Poly6"
     "Poly8"
     "Qspline"
-    "Sgfilter" 
+    "Sgfilter"
+    "SobelFilter" 
 )
 
 #SIMULATOR=modelsim
