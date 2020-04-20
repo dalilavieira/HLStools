@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"chebyshev"
+      , "id":161959368
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":162038152
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"chebyshev.B5"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+                , "line":26
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":162063464
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"chebyshev.B1.start"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+                , "line":7
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"return.chebyshev"
+      , "id":161792088
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"call.chebyshev"
+      , "id":161954824
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":162038152
+      , "to":161792088
+    }
+    , {
+      "from":161954824
+      , "to":162063464
+    }
+    , {
+      "from":162063464
+      , "to":162038152
+    }
+  ]
+}
