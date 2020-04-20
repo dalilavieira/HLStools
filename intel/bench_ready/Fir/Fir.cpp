@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #define DATA_SIZE (1 << 10)
+#define DATA_SIZE_TOTAL (1024 * 63)
 #define SAMPLES (100)
 #define TAPS 63
 
@@ -13,9 +14,8 @@ component int fir(int idx, int taps){
       coef[k] = k+1;
     }
 
-   int DATA_TOTAL = DATA_SIZE+taps;
-   unsigned short data_in[DATA_TOTAL];
-   unsigned short data_out[DATA_TOTAL];
+   unsigned short data_in[DATA_SIZE_TOTAL];
+   unsigned short data_out[DATA_SIZE_TOTAL];
 
    for (int k = 0; k < DATA_SIZE; ++k){
       data_in[k] = k;

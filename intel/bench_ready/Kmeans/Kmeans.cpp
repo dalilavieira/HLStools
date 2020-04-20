@@ -2,15 +2,15 @@
 #include <stdio.h>
 
 #define DATA_SIZE (1 << 10)
+#define DATA_SIZE_TOTAL (1024 * 8)
+#define SIZE_CLUSTER (5 * 8)
 #define UINT16_MAX 65535
 #define SAMPLES (100)
 
 component int kmeans(int idx, int num_clusters, int num_dim) {
 
-    int DATA_SIZE_TOTAL = DATA_SIZE * num_dim
     unsigned short data_in[DATA_SIZE_TOTAL];
     unsigned short data_out[DATA_SIZE];
-    int SIZE_CLUSTER = num_clusters * num_dim;
     unsigned short centroids[SIZE_CLUSTER];
 
     for (int i = 0; i < DATA_SIZE * num_dim; i++) {
