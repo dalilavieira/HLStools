@@ -1,0 +1,108 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Adding design file 'loopback.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'loopback.h' to the project
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'loopback.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:20 ; elapsed = 00:08:04 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36826 ; free virtual = 47257
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:01:20 ; elapsed = 00:08:04 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36826 ; free virtual = 47257
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:21 ; elapsed = 00:08:06 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36815 ; free virtual = 47257
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:21 ; elapsed = 00:08:06 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36815 ; free virtual = 47257
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-1' (loopback.cpp:38) in function 'loopback' automatically.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (loopback.cpp:38) in function 'loopback' completely with a factor of 1.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:22 ; elapsed = 00:08:06 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36811 ; free virtual = 47253
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:22 ; elapsed = 00:08:06 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36810 ; free virtual = 47253
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'loopback' ...
+WARNING: [SYN 201-107] Renaming port name 'loopback/out' to 'loopback/out_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loopback' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 202.17 seconds; current allocated memory: 105.758 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 105.804 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loopback' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'loopback/idx' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'loopback' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loopback'.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 105.900 MB.
+INFO: [RTMG 210-279] Implementing memory 'loopback_out_r_rom' using distributed ROMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:22 ; elapsed = 00:08:07 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 36599 ; free virtual = 47042
+INFO: [VHDL 208-304] Generating VHDL RTL for loopback.
+INFO: [VLOG 209-307] Generating Verilog RTL for loopback.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Cannot find source file loopback.h; skipping it.
+WARNING: [HLS 200-40] Cannot find source file loopback.cpp; skipping it.
+ERROR: [HLS 200-70] Cannot find any design unit to elaborate.
+INFO: [HLS 200-10] Adding design file 'paeth.h' to the project
+INFO: [HLS 200-10] Adding design file 'paeth.cpp' to the project
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Cannot find source file loopback.h; skipping it.
+WARNING: [HLS 200-40] Cannot find source file loopback.cpp; skipping it.
+INFO: [HLS 200-10] Analyzing design file 'paeth.cpp' ... 
+ERROR: [HLS 200-70] Compilation errors found: In file included from paeth.cpp:1:
+paeth.cpp:31:5: error: use of undeclared identifier 'out'
+    out = new unsigned short[(1 << 24)];
+    ^
+paeth.cpp:37:9: error: use of undeclared identifier 'out'
+        out[k] = 0;
+        ^
+paeth.cpp:54:25: error: use of undeclared identifier 'out'
+            if (test_3) out[k] = a[k];
+                        ^
+paeth.cpp:55:30: error: use of undeclared identifier 'out'
+            else if (test_4) out[k] = b[k];
+                             ^
+paeth.cpp:56:18: error: use of undeclared identifier 'out'
+            else out[k] = c[k];
+                 ^
+paeth.cpp:64:13: error: use of undeclared identifier 'out'
+    int v = out[idx];
+            ^
+6 errors generated.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Cannot find source file loopback.h; skipping it.
+WARNING: [HLS 200-40] Cannot find source file loopback.cpp; skipping it.
+INFO: [HLS 200-10] Analyzing design file 'paeth.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:46 ; elapsed = 00:11:33 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44905
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:01:46 ; elapsed = 00:11:33 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44905
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:48 ; elapsed = 00:11:35 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44905
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:48 ; elapsed = 00:11:35 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44905
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:11:35 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44906
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:48 ; elapsed = 00:11:35 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 34467 ; free virtual = 44906
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'paeth' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'paeth' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 208.88 seconds; current allocated memory: 108.419 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 108.748 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'paeth' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'paeth/idx' to 'ap_none'.

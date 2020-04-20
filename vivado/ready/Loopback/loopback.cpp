@@ -13,48 +13,48 @@ int main(int argc, char *argv[]) {
     
     if(test & 1)
         loopback(idx);
-    if(test & 2)
+    /*if(test & 2)
         loopback_openmp(idx);
     if(test & 4)
-        loopback_cgra(idx, 2);
+        loopback_cgra(idx, 2);*/
 
     return 0;
 }
 
 int loopback(int idx) {
 
-    unsigned short *a, *out;
+    //unsigned short *a, *out;
 
-    a = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    int a[DATA_SIZE];
+    int out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k % 1024;
         out[k] = 0;
     }
 
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+    //high_resolution_clock::time_point s;
+    //duration<double> diff = {};
     for (int i = 0; i < SAMPLES; i++) {
-        s = high_resolution_clock::now();
+        //s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             out[k] = a[k];
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / SAMPLES;
+    //double cpuExecTime = (diff.count() * 1000) / SAMPLES;
 
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+    //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = out[idx];
 
-    delete a;
-    delete out;
+    //delete a;
+    //delete out;
 
     return v;
 
 }
-
+/*
 int loopback_openmp(int idx) {
 
     unsigned short *a, *out;
@@ -170,4 +170,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
 
     return df;
-}
+}*/

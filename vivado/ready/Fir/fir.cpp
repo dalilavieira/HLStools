@@ -20,22 +20,22 @@ int main(int argc, char *argv[]){
      } 
      if(test & 1)
         fir(idx,coef,TAPS);
-     if(test & 2)
+     /*if(test & 2)
         fir_openmp(idx,coef,TAPS);
      if(test & 4)
         fir_cgra(idx,1,coef,TAPS);
      
-     delete coef;
+     delete coef;*/
      
      return 0;
 }
 
-int fir(int idx, unsigned short *coef, int taps){
+int fir(int idx,int coef[100], int taps){
 
-   unsigned short *data_in, *data_out;
+   //unsigned short *data_in, *data_out;
 
-   data_in = new unsigned short[DATA_SIZE+taps];
-   data_out = new unsigned short[DATA_SIZE+taps];
+   int data_in[DATA_SIZE+100];
+   int data_out[DATA_SIZE+100];
 
 
    for (int k = 0; k < DATA_SIZE; ++k){
@@ -43,11 +43,11 @@ int fir(int idx, unsigned short *coef, int taps){
       data_out[k] = 0;
    }
    
-   high_resolution_clock::time_point s;
-   duration<double> diff = {};
+  // high_resolution_clock::time_point s;
+  // duration<double> diff = {};
    
    for(int i = 0; i < SAMPLES;i++){
-      s = high_resolution_clock::now();
+      //s = high_resolution_clock::now();
       for (int j = 0; j < DATA_SIZE; j++){
          unsigned short fir = 0;
          for (int k = 0; k < taps; ++k) {
@@ -55,22 +55,23 @@ int fir(int idx, unsigned short *coef, int taps){
          }
          data_out[j] = fir;
       }
-      diff += high_resolution_clock::now() - s;
+      //diff += high_resolution_clock::now() - s;
    }
    
-   double cpuExecTime = (diff.count() * 1000)/SAMPLES;
+   //double cpuExecTime = (diff.count() * 1000)/SAMPLES;
 
-   printf("Time(ms) CPU 1 Thread: %5.2lf\n",cpuExecTime);
+  // printf("Time(ms) CPU 1 Thread: %5.2lf\n",cpuExecTime);
    
    int v = data_out[idx];  
 
-   delete data_in;
-   delete data_out;
+   //delete data_in;
+   //delete data_out;
 
    return v;
 
 }
 
+/*
 int fir_openmp(int idx, unsigned short *coef, int taps){
     
    unsigned short *data_in, *data_out;
@@ -223,4 +224,4 @@ DataFlow *createDataFlow(int id, int copies, unsigned short *coef, int taps) {
 
     return df;
 
-}
+}*/

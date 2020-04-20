@@ -13,22 +13,22 @@ int main(int argc, char *argv[]) {
 
     if(test & 1)
         poly5(idx);
-    if(test & 2)
+   /* if(test & 2)
         poly5_openmp(idx);
     if(test & 4)
-        poly5_cgra(idx,2);
+        poly5_cgra(idx,2);*/
 
     return 0;
 }
 
 int poly5(int idx) {
 
-    unsigned short *a, *b, *c, *out;
+    //unsigned short *a, *b, *c, *out;
 
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    int a[DATA_SIZE];
+    int b[DATA_SIZE];
+    int c[DATA_SIZE];
+    int out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k;
@@ -37,32 +37,32 @@ int poly5(int idx) {
         out[k] = 0;
     }
 
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+    //high_resolution_clock::time_point s;
+    //duration<double> diff = {};
 
     for (int i = 0; i < 100; i++) {
-        s = high_resolution_clock::now();
+        //s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             out[k] = ((a[k] * (a[k] * (a[k - 432]) + 62208) - 2985984) * b[k] *
                       (a[k] * (78 * a[k] - 9504) + b[k] * (288 * a[k] - 5184)) +
                       c[k] * b[k] * (a[k] * (a[k] - 207) + 3456 - b[k] * (2 * a[k] - c[k] + 144))) * c[k];
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / 100;
+   // double cpuExecTime = (diff.count() * 1000) / 100;
 
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+   // printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = out[idx];
 
-    delete a;
+    /*delete a;
     delete b;
     delete c;
-    delete out;
+    delete out;*/
 
     return v;
 }
-
+/*
 int poly5_openmp(int idx) {
 
     unsigned short *a, *b, *c, *out;
@@ -330,4 +330,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
 
     return df;
-}
+}*/

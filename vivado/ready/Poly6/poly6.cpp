@@ -13,22 +13,22 @@ int main(int argc, char *argv[]) {
 
     if(test & 1)
         poly6(idx);
-    if(test & 2)
+    /*if(test & 2)
         poly6_openmp(idx);
     if(test & 4)
-        poly6_cgra(idx, 1);
+        poly6_cgra(idx, 1);*/
     
     return 0;
 }
 
 int poly6(int idx) {
 
-    unsigned short *a, *b, *c, *out;
+    //unsigned short *a, *b, *c, *out;
 
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    int a[DATA_SIZE];
+    int b[DATA_SIZE];
+    int c[DATA_SIZE];
+    int out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k;
@@ -37,11 +37,11 @@ int poly6(int idx) {
         out[k] = 0;
     }
 
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+   // high_resolution_clock::time_point s;
+   // duration<double> diff = {};
 
     for (int i = 0; i < 100; i++) {
-        s = high_resolution_clock::now();
+     //   s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             out[k] = b[k] * (8 * c[k] * (b[k] + 216) + 124416 * c[k]) + 2985984 * c[k] - a[k] * (b[k] * b[k] * c[k] *
                                                                                                  (6 * b[k] + 4 * b[k] -
@@ -64,22 +64,22 @@ int poly6(int idx) {
                                                                                                                   864) -
                                                                                                                  186624)));
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / 100;
+    //double cpuExecTime = (diff.count() * 1000) / 100;
 
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+   // printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = out[idx];
 
-    delete a;
+    /*delete a;
     delete b;
     delete c;
-    delete out;
+    delete out;*/
 
     return v;
 }
-
+/*
 int poly6_openmp(int idx) {
 
     unsigned short *a, *b, *c, *out;
@@ -459,4 +459,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
 
     return df;
-}
+}*/

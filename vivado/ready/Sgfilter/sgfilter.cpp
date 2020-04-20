@@ -13,47 +13,47 @@ int main(int argc, char *argv[]) {
 
     if(test & 1)
         sgfilter(idx);
-    if(test & 2)
+    /*if(test & 2)
         sgfilter_openmp(idx);
     if(test & 4)    
-        sgfilter_cgra(idx, 3);
+        sgfilter_cgra(idx, 3);*/
 
     return 0;
 }
 
 int sgfilter(int idx) {
 
-    auto a = new unsigned short[DATA_SIZE];
-    auto b = new unsigned short[DATA_SIZE];
-    auto OUT = new unsigned short[DATA_SIZE];
+    int a[DATA_SIZE];
+    int b[DATA_SIZE];
+    int OUT[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k % 1024;
         b[k] = k % 1024;
         OUT[k] = 0;
     }
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+    //high_resolution_clock::time_point s;
+    //duration<double> diff = {};
     for (int i = 0; i < SAMPLES; i++) {
-        s = high_resolution_clock::now();
+       // s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             OUT[k] = ((-984 * a[k] - 46) * a[k] - 46) * a[k] +
                      ((92 * a[k] - 39) * a[k] + (-76 * a[k] + 7 * b[k] + 7) * b[k] + 7) * b[k] - 75;
         }
-        diff += high_resolution_clock::now() - s;
+       // diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / SAMPLES;
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+   // double cpuExecTime = (diff.count() * 1000) / SAMPLES;
+    //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = OUT[idx];
 
-    delete[] a;
+    /*delete[] a;
     delete[] b;
-    delete[] OUT;
+    delete[] OUT;*/
 
     return v;
 }
-
+/*
 int sgfilter_openmp(int idx) {
     auto a = new unsigned short[DATA_SIZE];
     auto b = new unsigned short[DATA_SIZE];
@@ -253,4 +253,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
     return df;
 }
-
+*/

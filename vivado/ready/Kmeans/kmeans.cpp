@@ -13,21 +13,21 @@ int main(int argc, char *argv[]) {
 
     if(test & 1)
         kmeans(idx, 5, 8);
-    if(test & 2)
+   /* if(test & 2)
         kmeans_openmp(idx, 5, 8);
     if(test & 4)
-        kmeans_cgra(idx, 5, 8);
+        kmeans_cgra(idx, 5, 8);*/
 
     return 0;
 }
 
 int kmeans(int idx, int num_clusters, int num_dim) {
 
-    unsigned short *data_in, *data_out, *centroids;
+    //unsigned short *data_in, *data_out, *centroids;
 
-    data_in = new unsigned short[DATA_SIZE * num_dim];
-    data_out = new unsigned short[DATA_SIZE];
-    centroids = new unsigned short[num_clusters * num_dim];
+    int data_in[DATA_SIZE * 100];
+    int data_out[DATA_SIZE];
+    int centroids[9999 * 100];
 
     for (int i = 0; i < DATA_SIZE * num_dim; i++) {
         data_in[i] = i;
@@ -39,13 +39,13 @@ int kmeans(int idx, int num_clusters, int num_dim) {
         centroids[i] = i;
     }
 
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+    //high_resolution_clock::time_point s;
+    //duration<double> diff = {};
 
     for (int sp = 0; sp < SAMPLES; sp++) {
-        s = high_resolution_clock::now();
+        //s = high_resolution_clock::now();
         for (int i = 0; i < DATA_SIZE; i++) {
-            unsigned short min = UINT16_MAX, min_id = 0;
+            unsigned short min = 33333, min_id = 0;
             for (unsigned short c = 0; c < num_clusters; c++) {
                 unsigned short sum = 0;
                 for (int j = 0; j < num_dim; j++) {
@@ -58,22 +58,22 @@ int kmeans(int idx, int num_clusters, int num_dim) {
             }
             data_out[i] = min_id;
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
 
-    double cpuExecTime = (diff.count() * 1000) / SAMPLES;
+    //double cpuExecTime = (diff.count() * 1000) / SAMPLES;
 
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+    //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = data_out[idx];
 
-    delete data_in;
+    /*delete data_in;
     delete data_out;
-    delete centroids;
+    delete centroids;*/
 
     return v;
 }
-
+/*
 int kmeans_openmp(int idx, int num_clusters, int num_dim) {
     unsigned short *data_in, *data_out, *centroids;
 
@@ -356,4 +356,4 @@ void helpKmeansUpdateConstants(cgra_program_t *cgra_program, int thread, unsigne
             }
         }
     }
-}
+}*/

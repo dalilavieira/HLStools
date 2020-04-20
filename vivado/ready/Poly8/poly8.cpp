@@ -13,22 +13,22 @@ int main(int argc, char *argv[]) {
     
     if(test & 1)
         poly8(idx);
-    if(test & 2)
+   /* if(test & 2)
         poly8_openmp(idx);
     if(test & 4)    
-        poly8_cgra(idx, 1);
+        poly8_cgra(idx, 1);*/
 
     return 0;
 }
 
 int poly8(int idx) {
 
-    unsigned short *a, *b, *c, *out;
+    //unsigned short *a, *b, *c, *out;
 
-    a = new unsigned short[DATA_SIZE];
-    b = new unsigned short[DATA_SIZE];
-    c = new unsigned short[DATA_SIZE];
-    out = new unsigned short[DATA_SIZE];
+    int a[DATA_SIZE];
+    int b[DATA_SIZE];
+    int c[DATA_SIZE];
+    int out[DATA_SIZE];
 
     for (int k = 0; k < DATA_SIZE; ++k) {
         a[k] = k;
@@ -37,31 +37,31 @@ int poly8(int idx) {
         out[k] = 0;
     }
 
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+   // high_resolution_clock::time_point s;
+   // duration<double> diff = {};
 
     for (int i = 0; i < SAMPLES; i++) {
-        s = high_resolution_clock::now();
+        //s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             out[k] = a[k] * (c[k] * (432 * b[k] - 13824) +
                              a[k] * a[k] * (c[k] * (6 * c[k] - 4312) + 55296 - (464 * c[k] - 13824))) + a[k];
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / SAMPLES;
+    //double cpuExecTime = (diff.count() * 1000) / SAMPLES;
 
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+    //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
     int v = out[idx];
 
-    delete a;
+    /*delete a;
     delete b;
     delete c;
-    delete out;
+    delete out;*/
 
     return v;
 }
-
+/*
 int poly8_openmp(int idx) {
 
     unsigned short *a, *b, *c, *out;
@@ -348,4 +348,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
 
     return df;
-}
+}*/

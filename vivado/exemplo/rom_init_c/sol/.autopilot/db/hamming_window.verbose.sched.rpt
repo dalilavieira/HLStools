@@ -1,0 +1,174 @@
+
+
+================================================================
+== Vivado HLS Report for 'hamming_window'
+================================================================
+* Date:           Mon Apr 20 15:17:22 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        rom_init_c
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.454|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  259|  259|  259|  259|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  257|  257|         3|          1|          1|   256|    yes   |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 5 3 
+3 --> 4 
+4 --> 2 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([256 x i32]* %outdata) nounwind, !map !20"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([256 x i16]* %indata) nounwind, !map !26"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @hamming_window_str) nounwind"   --->   Operation 8 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.06ns)   --->   "br label %1" [hamming_window.c:107]   --->   Operation 9 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i_0 = phi i9 [ 0, %0 ], [ %i, %hls_label_0 ]"   --->   Operation 10 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (1.25ns)   --->   "%icmp_ln107 = icmp eq i9 %i_0, -256" [hamming_window.c:107]   --->   Operation 11 'icmp' 'icmp_ln107' <Predicate = true> <Delay = 1.25> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.25> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256) nounwind"   --->   Operation 12 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (1.40ns)   --->   "%i = add i9 %i_0, 1" [hamming_window.c:107]   --->   Operation 13 'add' 'i' <Predicate = true> <Delay = 1.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.40> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %icmp_ln107, label %2, label %hls_label_0" [hamming_window.c:107]   --->   Operation 14 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln109 = zext i9 %i_0 to i64" [hamming_window.c:109]   --->   Operation 15 'zext' 'zext_ln109' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%window_coeff_addr = getelementptr [256 x i14]* @window_coeff, i64 0, i64 %zext_ln109" [hamming_window.c:109]   --->   Operation 16 'getelementptr' 'window_coeff_addr' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_2 : Operation 17 [2/2] (2.66ns)   --->   "%window_coeff_load = load i14* %window_coeff_addr, align 2" [hamming_window.c:109]   --->   Operation 17 'load' 'window_coeff_load' <Predicate = (!icmp_ln107)> <Delay = 2.66> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 256> <ROM>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%indata_addr = getelementptr [256 x i16]* %indata, i64 0, i64 %zext_ln109" [hamming_window.c:109]   --->   Operation 18 'getelementptr' 'indata_addr' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_2 : Operation 19 [2/2] (2.66ns)   --->   "%indata_load = load i16* %indata_addr, align 2" [hamming_window.c:109]   --->   Operation 19 'load' 'indata_load' <Predicate = (!icmp_ln107)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+
+State 3 <SV = 2> <Delay = 8.45>
+ST_3 : Operation 20 [1/2] (2.66ns)   --->   "%window_coeff_load = load i14* %window_coeff_addr, align 2" [hamming_window.c:109]   --->   Operation 20 'load' 'window_coeff_load' <Predicate = (!icmp_ln107)> <Delay = 2.66> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 256> <ROM>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%zext_ln109_1 = zext i14 %window_coeff_load to i30" [hamming_window.c:109]   --->   Operation 21 'zext' 'zext_ln109_1' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_3 : Operation 22 [1/2] (2.66ns)   --->   "%indata_load = load i16* %indata_addr, align 2" [hamming_window.c:109]   --->   Operation 22 'load' 'indata_load' <Predicate = (!icmp_ln107)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%sext_ln109 = sext i16 %indata_load to i30" [hamming_window.c:109]   --->   Operation 23 'sext' 'sext_ln109' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (5.79ns) (root node of the DSP)   --->   "%mul_ln109 = mul i30 %zext_ln109_1, %sext_ln109" [hamming_window.c:109]   --->   Operation 24 'mul' 'mul_ln109' <Predicate = (!icmp_ln107)> <Delay = 5.79> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 4 <SV = 3> <Delay = 2.66>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str) nounwind" [hamming_window.c:107]   --->   Operation 25 'specregionbegin' 'tmp' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [hamming_window.c:108]   --->   Operation 26 'specpipeline' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%sext_ln109_1 = sext i30 %mul_ln109 to i32" [hamming_window.c:109]   --->   Operation 27 'sext' 'sext_ln109_1' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%outdata_addr = getelementptr [256 x i32]* %outdata, i64 0, i64 %zext_ln109" [hamming_window.c:109]   --->   Operation 28 'getelementptr' 'outdata_addr' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 29 [1/1] (2.66ns)   --->   "store i32 %sext_ln109_1, i32* %outdata_addr, align 4" [hamming_window.c:109]   --->   Operation 29 'store' <Predicate = (!icmp_ln107)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp) nounwind" [hamming_window.c:110]   --->   Operation 30 'specregionend' 'empty_2' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "br label %1" [hamming_window.c:107]   --->   Operation 31 'br' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (0.00ns)   --->   "ret void" [hamming_window.c:111]   --->   Operation 32 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', hamming_window.c:107) [9]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', hamming_window.c:107) [9]  (0 ns)
+	'getelementptr' operation ('window_coeff_addr', hamming_window.c:109) [18]  (0 ns)
+	'load' operation ('window_coeff_load', hamming_window.c:109) on array 'window_coeff' [19]  (2.66 ns)
+
+ <State 3>: 8.45ns
+The critical path consists of the following:
+	'load' operation ('window_coeff_load', hamming_window.c:109) on array 'window_coeff' [19]  (2.66 ns)
+	'mul' operation of DSP[24] ('mul_ln109', hamming_window.c:109) [24]  (5.79 ns)
+
+ <State 4>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln109', hamming_window.c:109) of variable 'sext_ln109_1', hamming_window.c:109 on array 'outdata' [27]  (2.66 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

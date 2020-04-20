@@ -1,0 +1,426 @@
+
+
+================================================================
+== Vivado HLS Report for 'sgfilter'
+================================================================
+* Date:           Mon Apr 20 17:56:45 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     4.109|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------------+-------------+-------------+-------------+---------+
+    |          Latency          |          Interval         | Pipeline|
+    |     min     |     max     |     min     |     max     |   Type  |
+    +-------------+-------------+-------------+-------------+---------+
+    |  46765965517|  46765965517|  46765965517|  46765965517|   none  |
+    +-------------+-------------+-------------+-------------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-------------+-------------+-----------+-----------+-----------+----------+----------+
+        |             |          Latency          | Iteration |  Initiation Interval  |   Trip   |          |
+        |  Loop Name  |     min     |     max     |  Latency  |  achieved |   target  |   Count  | Pipelined|
+        +-------------+-------------+-------------+-----------+-----------+-----------+----------+----------+
+        |- Loop 1     |     51904512|     51904512|          2|          -|          -|  25952256|    no    |
+        |- Loop 2     |  46714061000|  46714061000|  467140610|          -|          -|       100|    no    |
+        | + Loop 2.1  |    467140608|    467140608|         18|          -|          -|  25952256|    no    |
+        +-------------+-------------+-------------+-----------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 25
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 23 5 
+5 --> 6 4 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 5 
+23 --> 24 
+24 --> 25 
+25 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %idx) nounwind, !map !13"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @sgfilter_str) nounwind"   --->   Operation 28 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%idx_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %idx) nounwind"   --->   Operation 29 'read' 'idx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%a = alloca [25952256 x i10], align 2" [sgfilter.cpp:26]   --->   Operation 30 'alloca' 'a' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%b = alloca [25952256 x i10], align 2" [sgfilter.cpp:27]   --->   Operation 31 'alloca' 'b' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%OUT = alloca [25952256 x i32], align 16" [sgfilter.cpp:28]   --->   Operation 32 'alloca' 'OUT' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_1 : Operation 33 [1/1] (1.06ns)   --->   "br label %1" [sgfilter.cpp:30]   --->   Operation 33 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%k_0 = phi i25 [ 0, %0 ], [ %k, %2 ]"   --->   Operation 34 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%trunc_ln30 = trunc i25 %k_0 to i10" [sgfilter.cpp:30]   --->   Operation 35 'trunc' 'trunc_ln30' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (1.52ns)   --->   "%icmp_ln30 = icmp eq i25 %k_0, -7602176" [sgfilter.cpp:30]   --->   Operation 36 'icmp' 'icmp_ln30' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 25952256, i64 25952256, i64 25952256) nounwind"   --->   Operation 37 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (1.65ns)   --->   "%k = add i25 1, %k_0" [sgfilter.cpp:30]   --->   Operation 38 'add' 'k' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "br i1 %icmp_ln30, label %.preheader1.preheader, label %2" [sgfilter.cpp:30]   --->   Operation 39 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i25 %k_0 to i64" [sgfilter.cpp:31]   --->   Operation 40 'zext' 'zext_ln31' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [25952256 x i10]* %a, i64 0, i64 %zext_ln31" [sgfilter.cpp:31]   --->   Operation 41 'getelementptr' 'a_addr' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_2 : Operation 42 [2/2] (2.66ns)   --->   "store i10 %trunc_ln30, i10* %a_addr, align 2" [sgfilter.cpp:31]   --->   Operation 42 'store' <Predicate = (!icmp_ln30)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%b_addr = getelementptr [25952256 x i10]* %b, i64 0, i64 %zext_ln31" [sgfilter.cpp:32]   --->   Operation 43 'getelementptr' 'b_addr' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_2 : Operation 44 [2/2] (2.66ns)   --->   "store i10 %trunc_ln30, i10* %b_addr, align 2" [sgfilter.cpp:32]   --->   Operation 44 'store' <Predicate = (!icmp_ln30)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%OUT_addr = getelementptr inbounds [25952256 x i32]* %OUT, i64 0, i64 %zext_ln31" [sgfilter.cpp:33]   --->   Operation 45 'getelementptr' 'OUT_addr' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_2 : Operation 46 [2/2] (2.66ns)   --->   "store i32 0, i32* %OUT_addr, align 4" [sgfilter.cpp:33]   --->   Operation 46 'store' <Predicate = (!icmp_ln30)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_2 : Operation 47 [1/1] (1.06ns)   --->   "br label %.preheader1" [sgfilter.cpp:37]   --->   Operation 47 'br' <Predicate = (icmp_ln30)> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 2.66>
+ST_3 : Operation 48 [1/2] (2.66ns)   --->   "store i10 %trunc_ln30, i10* %a_addr, align 2" [sgfilter.cpp:31]   --->   Operation 48 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_3 : Operation 49 [1/2] (2.66ns)   --->   "store i10 %trunc_ln30, i10* %b_addr, align 2" [sgfilter.cpp:32]   --->   Operation 49 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_3 : Operation 50 [1/2] (2.66ns)   --->   "store i32 0, i32* %OUT_addr, align 4" [sgfilter.cpp:33]   --->   Operation 50 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "br label %1" [sgfilter.cpp:30]   --->   Operation 51 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 2.66>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ %i, %.preheader1.loopexit ], [ 0, %.preheader1.preheader ]"   --->   Operation 52 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (1.18ns)   --->   "%icmp_ln37 = icmp eq i7 %i_0, -28" [sgfilter.cpp:37]   --->   Operation 53 'icmp' 'icmp_ln37' <Predicate = true> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 54 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (1.37ns)   --->   "%i = add i7 %i_0, 1" [sgfilter.cpp:37]   --->   Operation 55 'add' 'i' <Predicate = true> <Delay = 1.37> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "br i1 %icmp_ln37, label %4, label %.preheader.preheader" [sgfilter.cpp:37]   --->   Operation 56 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (1.06ns)   --->   "br label %.preheader" [sgfilter.cpp:39]   --->   Operation 57 'br' <Predicate = (!icmp_ln37)> <Delay = 1.06>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%sext_ln48 = sext i32 %idx_read to i64" [sgfilter.cpp:48]   --->   Operation 58 'sext' 'sext_ln48' <Predicate = (icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%OUT_addr_1 = getelementptr inbounds [25952256 x i32]* %OUT, i64 0, i64 %sext_ln48" [sgfilter.cpp:48]   --->   Operation 59 'getelementptr' 'OUT_addr_1' <Predicate = (icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 60 [4/4] (2.66ns)   --->   "%v = load i32* %OUT_addr_1, align 4" [sgfilter.cpp:48]   --->   Operation 60 'load' 'v' <Predicate = (icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 5 <SV = 3> <Delay = 2.66>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%k1_0 = phi i25 [ %k_1, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 61 'phi' 'k1_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 62 [1/1] (1.52ns)   --->   "%icmp_ln39 = icmp eq i25 %k1_0, -7602176" [sgfilter.cpp:39]   --->   Operation 62 'icmp' 'icmp_ln39' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 25952256, i64 25952256, i64 25952256) nounwind"   --->   Operation 63 'speclooptripcount' 'empty_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (1.65ns)   --->   "%k_1 = add i25 %k1_0, 1" [sgfilter.cpp:39]   --->   Operation 64 'add' 'k_1' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "br i1 %icmp_ln39, label %.preheader1.loopexit, label %3" [sgfilter.cpp:39]   --->   Operation 65 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln40 = zext i25 %k1_0 to i64" [sgfilter.cpp:40]   --->   Operation 66 'zext' 'zext_ln40' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%a_addr_1 = getelementptr [25952256 x i10]* %a, i64 0, i64 %zext_ln40" [sgfilter.cpp:40]   --->   Operation 67 'getelementptr' 'a_addr_1' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_5 : Operation 68 [4/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 68 'load' 'a_load' <Predicate = (!icmp_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%b_addr_1 = getelementptr [25952256 x i10]* %b, i64 0, i64 %zext_ln40" [sgfilter.cpp:40]   --->   Operation 69 'getelementptr' 'b_addr_1' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_5 : Operation 70 [4/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 70 'load' 'b_load' <Predicate = (!icmp_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 71 'br' <Predicate = (icmp_ln39)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 2.66>
+ST_6 : Operation 72 [3/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 72 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_6 : Operation 73 [3/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 73 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 7 <SV = 5> <Delay = 2.66>
+ST_7 : Operation 74 [2/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 74 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_7 : Operation 75 [2/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 75 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 8 <SV = 6> <Delay = 3.75>
+ST_8 : Operation 76 [1/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 76 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_8 : Operation 77 [1/1] (0.00ns)   --->   "%zext_ln40_6 = zext i10 %a_load to i18" [sgfilter.cpp:40]   --->   Operation 77 'zext' 'zext_ln40_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 78 [3/3] (1.09ns) (grouped into DSP with root node add_ln40_4)   --->   "%mul_ln40_5 = mul i18 %zext_ln40_6, -76" [sgfilter.cpp:40]   --->   Operation 78 'mul' 'mul_ln40_5' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 79 [1/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [sgfilter.cpp:40]   --->   Operation 79 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 9 <SV = 7> <Delay = 2.51>
+ST_9 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln40_7 = zext i10 %a_load to i21" [sgfilter.cpp:40]   --->   Operation 80 'zext' 'zext_ln40_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 81 [3/3] (1.09ns) (grouped into DSP with root node add_ln40)   --->   "%mul_ln40 = mul i21 %zext_ln40_7, -984" [sgfilter.cpp:40]   --->   Operation 81 'mul' 'mul_ln40' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 82 [3/3] (1.09ns) (grouped into DSP with root node add_ln40_2)   --->   "%mul_ln40_3 = mul i18 %zext_ln40_6, 92" [sgfilter.cpp:40]   --->   Operation 82 'mul' 'mul_ln40_3' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 83 [2/3] (1.09ns) (grouped into DSP with root node add_ln40_4)   --->   "%mul_ln40_5 = mul i18 %zext_ln40_6, -76" [sgfilter.cpp:40]   --->   Operation 83 'mul' 'mul_ln40_5' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln40_3 = zext i10 %b_load to i29" [sgfilter.cpp:40]   --->   Operation 84 'zext' 'zext_ln40_3' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 85 [1/1] (0.00ns)   --->   "%tmp = call i13 @_ssdm_op_BitConcatenate.i13.i10.i3(i10 %b_load, i3 0)" [sgfilter.cpp:40]   --->   Operation 85 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln40_4 = zext i13 %tmp to i29" [sgfilter.cpp:40]   --->   Operation 86 'zext' 'zext_ln40_4' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 87 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln40 = sub i29 %zext_ln40_4, %zext_ln40_3" [sgfilter.cpp:40]   --->   Operation 87 'sub' 'sub_ln40' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 88 [1/1] (2.51ns) (root node of TernaryAdder)   --->   "%add_ln40_3 = add i29 %sub_ln40, 7" [sgfilter.cpp:40]   --->   Operation 88 'add' 'add_ln40_3' <Predicate = true> <Delay = 2.51> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 10 <SV = 8> <Delay = 2.95>
+ST_10 : Operation 89 [2/3] (1.09ns) (grouped into DSP with root node add_ln40)   --->   "%mul_ln40 = mul i21 %zext_ln40_7, -984" [sgfilter.cpp:40]   --->   Operation 89 'mul' 'mul_ln40' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 90 [2/3] (1.09ns) (grouped into DSP with root node add_ln40_2)   --->   "%mul_ln40_3 = mul i18 %zext_ln40_6, 92" [sgfilter.cpp:40]   --->   Operation 90 'mul' 'mul_ln40_3' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 91 [1/3] (0.00ns) (grouped into DSP with root node add_ln40_4)   --->   "%mul_ln40_5 = mul i18 %zext_ln40_6, -76" [sgfilter.cpp:40]   --->   Operation 91 'mul' 'mul_ln40_5' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 92 [1/1] (0.00ns) (grouped into DSP with root node add_ln40_4)   --->   "%sext_ln40_4 = sext i18 %mul_ln40_5 to i30" [sgfilter.cpp:40]   --->   Operation 92 'sext' 'sext_ln40_4' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 93 [1/1] (0.00ns)   --->   "%sext_ln40_5 = sext i29 %add_ln40_3 to i30" [sgfilter.cpp:40]   --->   Operation 93 'sext' 'sext_ln40_5' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 94 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln40_4 = add i30 %sext_ln40_5, %sext_ln40_4" [sgfilter.cpp:40]   --->   Operation 94 'add' 'add_ln40_4' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 11 <SV = 9> <Delay = 4.10>
+ST_11 : Operation 95 [1/3] (0.00ns) (grouped into DSP with root node add_ln40)   --->   "%mul_ln40 = mul i21 %zext_ln40_7, -984" [sgfilter.cpp:40]   --->   Operation 95 'mul' 'mul_ln40' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 96 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln40 = add i21 %mul_ln40, -46" [sgfilter.cpp:40]   --->   Operation 96 'add' 'add_ln40' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 97 [1/3] (0.00ns) (grouped into DSP with root node add_ln40_2)   --->   "%mul_ln40_3 = mul i18 %zext_ln40_6, 92" [sgfilter.cpp:40]   --->   Operation 97 'mul' 'mul_ln40_3' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 98 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln40_2 = add i18 %mul_ln40_3, -39" [sgfilter.cpp:40]   --->   Operation 98 'add' 'add_ln40_2' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln40_2 = zext i10 %b_load to i32" [sgfilter.cpp:40]   --->   Operation 99 'zext' 'zext_ln40_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 100 [1/1] (0.00ns)   --->   "%sext_ln40_6 = sext i30 %add_ln40_4 to i32" [sgfilter.cpp:40]   --->   Operation 100 'sext' 'sext_ln40_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 101 [2/2] (4.10ns)   --->   "%mul_ln40_6 = mul nsw i32 %zext_ln40_2, %sext_ln40_6" [sgfilter.cpp:40]   --->   Operation 101 'mul' 'mul_ln40_6' <Predicate = true> <Delay = 4.10> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 10> <Delay = 4.10>
+ST_12 : Operation 102 [1/1] (0.00ns)   --->   "%zext_ln40_5 = zext i10 %a_load to i29" [sgfilter.cpp:40]   --->   Operation 102 'zext' 'zext_ln40_5' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln40_8 = zext i10 %a_load to i31" [sgfilter.cpp:40]   --->   Operation 103 'zext' 'zext_ln40_8' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 104 [1/1] (0.00ns)   --->   "%sext_ln40 = sext i21 %add_ln40 to i31" [sgfilter.cpp:40]   --->   Operation 104 'sext' 'sext_ln40' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 105 [3/3] (1.09ns) (grouped into DSP with root node add_ln40_1)   --->   "%mul_ln40_1 = mul i31 %zext_ln40_8, %sext_ln40" [sgfilter.cpp:40]   --->   Operation 105 'mul' 'mul_ln40_1' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 106 [1/1] (0.00ns)   --->   "%sext_ln40_2 = sext i18 %add_ln40_2 to i29" [sgfilter.cpp:40]   --->   Operation 106 'sext' 'sext_ln40_2' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 107 [3/3] (1.09ns) (grouped into DSP with root node add_ln40_6)   --->   "%mul_ln40_4 = mul i29 %zext_ln40_5, %sext_ln40_2" [sgfilter.cpp:40]   --->   Operation 107 'mul' 'mul_ln40_4' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 108 [1/2] (4.10ns)   --->   "%mul_ln40_6 = mul nsw i32 %zext_ln40_2, %sext_ln40_6" [sgfilter.cpp:40]   --->   Operation 108 'mul' 'mul_ln40_6' <Predicate = true> <Delay = 4.10> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 11> <Delay = 1.72>
+ST_13 : Operation 109 [2/3] (1.09ns) (grouped into DSP with root node add_ln40_1)   --->   "%mul_ln40_1 = mul i31 %zext_ln40_8, %sext_ln40" [sgfilter.cpp:40]   --->   Operation 109 'mul' 'mul_ln40_1' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 110 [2/3] (1.09ns) (grouped into DSP with root node add_ln40_6)   --->   "%mul_ln40_4 = mul i29 %zext_ln40_5, %sext_ln40_2" [sgfilter.cpp:40]   --->   Operation 110 'mul' 'mul_ln40_4' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 111 [1/1] (1.72ns)   --->   "%add_ln40_5 = add i32 %mul_ln40_6, 7" [sgfilter.cpp:40]   --->   Operation 111 'add' 'add_ln40_5' <Predicate = true> <Delay = 1.72> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 12> <Delay = 2.95>
+ST_14 : Operation 112 [1/3] (0.00ns) (grouped into DSP with root node add_ln40_1)   --->   "%mul_ln40_1 = mul i31 %zext_ln40_8, %sext_ln40" [sgfilter.cpp:40]   --->   Operation 112 'mul' 'mul_ln40_1' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 113 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln40_1 = add i31 %mul_ln40_1, -46" [sgfilter.cpp:40]   --->   Operation 113 'add' 'add_ln40_1' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 114 [1/3] (0.00ns) (grouped into DSP with root node add_ln40_6)   --->   "%mul_ln40_4 = mul i29 %zext_ln40_5, %sext_ln40_2" [sgfilter.cpp:40]   --->   Operation 114 'mul' 'mul_ln40_4' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 115 [1/1] (0.00ns) (grouped into DSP with root node add_ln40_6)   --->   "%sext_ln40_3 = sext i29 %mul_ln40_4 to i32" [sgfilter.cpp:40]   --->   Operation 115 'sext' 'sext_ln40_3' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 116 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln40_6 = add i32 %add_ln40_5, %sext_ln40_3" [sgfilter.cpp:40]   --->   Operation 116 'add' 'add_ln40_6' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 15 <SV = 13> <Delay = 3.34>
+ST_15 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln40_1 = zext i10 %a_load to i32" [sgfilter.cpp:40]   --->   Operation 117 'zext' 'zext_ln40_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 118 [1/1] (0.00ns)   --->   "%sext_ln40_1 = sext i31 %add_ln40_1 to i32" [sgfilter.cpp:40]   --->   Operation 118 'sext' 'sext_ln40_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 119 [5/5] (3.34ns)   --->   "%mul_ln40_2 = mul nsw i32 %zext_ln40_1, %sext_ln40_1" [sgfilter.cpp:40]   --->   Operation 119 'mul' 'mul_ln40_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 120 [5/5] (3.34ns)   --->   "%mul_ln40_7 = mul nsw i32 %zext_ln40_2, %add_ln40_6" [sgfilter.cpp:40]   --->   Operation 120 'mul' 'mul_ln40_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 14> <Delay = 3.34>
+ST_16 : Operation 121 [4/5] (3.34ns)   --->   "%mul_ln40_2 = mul nsw i32 %zext_ln40_1, %sext_ln40_1" [sgfilter.cpp:40]   --->   Operation 121 'mul' 'mul_ln40_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 122 [4/5] (3.34ns)   --->   "%mul_ln40_7 = mul nsw i32 %zext_ln40_2, %add_ln40_6" [sgfilter.cpp:40]   --->   Operation 122 'mul' 'mul_ln40_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 15> <Delay = 3.34>
+ST_17 : Operation 123 [3/5] (3.34ns)   --->   "%mul_ln40_2 = mul nsw i32 %zext_ln40_1, %sext_ln40_1" [sgfilter.cpp:40]   --->   Operation 123 'mul' 'mul_ln40_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 124 [3/5] (3.34ns)   --->   "%mul_ln40_7 = mul nsw i32 %zext_ln40_2, %add_ln40_6" [sgfilter.cpp:40]   --->   Operation 124 'mul' 'mul_ln40_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 16> <Delay = 3.34>
+ST_18 : Operation 125 [2/5] (3.34ns)   --->   "%mul_ln40_2 = mul nsw i32 %zext_ln40_1, %sext_ln40_1" [sgfilter.cpp:40]   --->   Operation 125 'mul' 'mul_ln40_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 126 [2/5] (3.34ns)   --->   "%mul_ln40_7 = mul nsw i32 %zext_ln40_2, %add_ln40_6" [sgfilter.cpp:40]   --->   Operation 126 'mul' 'mul_ln40_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 17> <Delay = 3.34>
+ST_19 : Operation 127 [1/5] (3.34ns)   --->   "%mul_ln40_2 = mul nsw i32 %zext_ln40_1, %sext_ln40_1" [sgfilter.cpp:40]   --->   Operation 127 'mul' 'mul_ln40_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 128 [1/5] (3.34ns)   --->   "%mul_ln40_7 = mul nsw i32 %zext_ln40_2, %add_ln40_6" [sgfilter.cpp:40]   --->   Operation 128 'mul' 'mul_ln40_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 18> <Delay = 2.77>
+ST_20 : Operation 129 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln40_7 = add i32 %mul_ln40_7, -75" [sgfilter.cpp:40]   --->   Operation 129 'add' 'add_ln40_7' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_20 : Operation 130 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln40_8 = add i32 %add_ln40_7, %mul_ln40_2" [sgfilter.cpp:40]   --->   Operation 130 'add' 'add_ln40_8' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 21 <SV = 19> <Delay = 2.66>
+ST_21 : Operation 131 [1/1] (0.00ns)   --->   "%OUT_addr_2 = getelementptr inbounds [25952256 x i32]* %OUT, i64 0, i64 %zext_ln40" [sgfilter.cpp:40]   --->   Operation 131 'getelementptr' 'OUT_addr_2' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 132 [2/2] (2.66ns)   --->   "store i32 %add_ln40_8, i32* %OUT_addr_2, align 4" [sgfilter.cpp:40]   --->   Operation 132 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 22 <SV = 20> <Delay = 2.66>
+ST_22 : Operation 133 [1/2] (2.66ns)   --->   "store i32 %add_ln40_8, i32* %OUT_addr_2, align 4" [sgfilter.cpp:40]   --->   Operation 133 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_22 : Operation 134 [1/1] (0.00ns)   --->   "br label %.preheader" [sgfilter.cpp:39]   --->   Operation 134 'br' <Predicate = true> <Delay = 0.00>
+
+State 23 <SV = 3> <Delay = 2.66>
+ST_23 : Operation 135 [3/4] (2.66ns)   --->   "%v = load i32* %OUT_addr_1, align 4" [sgfilter.cpp:48]   --->   Operation 135 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 24 <SV = 4> <Delay = 2.66>
+ST_24 : Operation 136 [2/4] (2.66ns)   --->   "%v = load i32* %OUT_addr_1, align 4" [sgfilter.cpp:48]   --->   Operation 136 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+
+State 25 <SV = 5> <Delay = 2.66>
+ST_25 : Operation 137 [1/4] (2.66ns)   --->   "%v = load i32* %OUT_addr_1, align 4" [sgfilter.cpp:48]   --->   Operation 137 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 25952256> <RAM>
+ST_25 : Operation 138 [1/1] (0.00ns)   --->   "ret i32 %v" [sgfilter.cpp:54]   --->   Operation 138 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('k') with incoming values : ('k', sgfilter.cpp:30) [11]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', sgfilter.cpp:30) [11]  (0 ns)
+	'store' operation ('store_ln31', sgfilter.cpp:31) of variable 'trunc_ln30', sgfilter.cpp:30 on array 'a', sgfilter.cpp:26 [20]  (2.66 ns)
+
+ <State 3>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln31', sgfilter.cpp:31) of variable 'trunc_ln30', sgfilter.cpp:30 on array 'a', sgfilter.cpp:26 [20]  (2.66 ns)
+
+ <State 4>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('OUT_addr_1', sgfilter.cpp:48) [89]  (0 ns)
+	'load' operation ('v', sgfilter.cpp:48) on array 'OUT', sgfilter.cpp:28 [90]  (2.66 ns)
+
+ <State 5>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', sgfilter.cpp:39) [37]  (0 ns)
+	'getelementptr' operation ('a_addr_1', sgfilter.cpp:40) [44]  (0 ns)
+	'load' operation ('a_load', sgfilter.cpp:40) on array 'a', sgfilter.cpp:26 [45]  (2.66 ns)
+
+ <State 6>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('a_load', sgfilter.cpp:40) on array 'a', sgfilter.cpp:26 [45]  (2.66 ns)
+
+ <State 7>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('a_load', sgfilter.cpp:40) on array 'a', sgfilter.cpp:26 [45]  (2.66 ns)
+
+ <State 8>: 3.75ns
+The critical path consists of the following:
+	'load' operation ('a_load', sgfilter.cpp:40) on array 'a', sgfilter.cpp:26 [45]  (2.66 ns)
+	'mul' operation of DSP[74] ('mul_ln40_5', sgfilter.cpp:40) [63]  (1.09 ns)
+
+ <State 9>: 2.52ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln40', sgfilter.cpp:40) [71]  (0 ns)
+	'add' operation ('add_ln40_3', sgfilter.cpp:40) [72]  (2.52 ns)
+
+ <State 10>: 2.95ns
+The critical path consists of the following:
+	'mul' operation of DSP[74] ('mul_ln40_5', sgfilter.cpp:40) [63]  (0 ns)
+	'add' operation of DSP[74] ('add_ln40_4', sgfilter.cpp:40) [74]  (2.95 ns)
+
+ <State 11>: 4.11ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_6', sgfilter.cpp:40) [76]  (4.11 ns)
+
+ <State 12>: 4.11ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_6', sgfilter.cpp:40) [76]  (4.11 ns)
+
+ <State 13>: 1.73ns
+The critical path consists of the following:
+	'add' operation ('add_ln40_5', sgfilter.cpp:40) [77]  (1.73 ns)
+
+ <State 14>: 2.95ns
+The critical path consists of the following:
+	'mul' operation of DSP[55] ('mul_ln40_1', sgfilter.cpp:40) [54]  (0 ns)
+	'add' operation of DSP[55] ('add_ln40_1', sgfilter.cpp:40) [55]  (2.95 ns)
+
+ <State 15>: 3.35ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_2', sgfilter.cpp:40) [57]  (3.35 ns)
+
+ <State 16>: 3.35ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_2', sgfilter.cpp:40) [57]  (3.35 ns)
+
+ <State 17>: 3.35ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_2', sgfilter.cpp:40) [57]  (3.35 ns)
+
+ <State 18>: 3.35ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_2', sgfilter.cpp:40) [57]  (3.35 ns)
+
+ <State 19>: 3.35ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln40_2', sgfilter.cpp:40) [57]  (3.35 ns)
+
+ <State 20>: 2.78ns
+The critical path consists of the following:
+	'add' operation ('add_ln40_7', sgfilter.cpp:40) [80]  (0 ns)
+	'add' operation ('add_ln40_8', sgfilter.cpp:40) [81]  (2.78 ns)
+
+ <State 21>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('OUT_addr_2', sgfilter.cpp:40) [82]  (0 ns)
+	'store' operation ('store_ln40', sgfilter.cpp:40) of variable 'add_ln40_8', sgfilter.cpp:40 on array 'OUT', sgfilter.cpp:28 [83]  (2.66 ns)
+
+ <State 22>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln40', sgfilter.cpp:40) of variable 'add_ln40_8', sgfilter.cpp:40 on array 'OUT', sgfilter.cpp:28 [83]  (2.66 ns)
+
+ <State 23>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('v', sgfilter.cpp:48) on array 'OUT', sgfilter.cpp:28 [90]  (2.66 ns)
+
+ <State 24>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('v', sgfilter.cpp:48) on array 'OUT', sgfilter.cpp:28 [90]  (2.66 ns)
+
+ <State 25>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('v', sgfilter.cpp:48) on array 'OUT', sgfilter.cpp:28 [90]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
