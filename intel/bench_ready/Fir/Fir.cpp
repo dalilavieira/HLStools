@@ -13,8 +13,9 @@ component int fir(int idx, int taps){
       coef[k] = k+1;
     }
 
-   unsigned short data_in[DATA_SIZE+taps];
-   unsigned short data_out[DATA_SIZE+taps];
+   int DATA_TOTAL = DATA_SIZE+taps;
+   unsigned short data_in[DATA_TOTAL];
+   unsigned short data_out[DATA_TOTAL];
 
    for (int k = 0; k < DATA_SIZE; ++k){
       data_in[k] = k;
