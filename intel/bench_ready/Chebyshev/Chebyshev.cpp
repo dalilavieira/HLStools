@@ -6,8 +6,6 @@
 
 component int chebyshev(int idx) {
 
-     *data_in, *data_out;
-
     unsigned short data_in[DATA_SIZE];
     unsigned short data_out[DATA_SIZE];
 

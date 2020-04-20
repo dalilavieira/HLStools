@@ -1,10 +1,10 @@
-//#include "HLS/hls.h"
+#include "HLS/hls.h"
 #include <stdio.h>
 
 #define DATA_SIZE (1 << 10)
 #define SAMPLES (100)
 
-int poly6(int idx) {
+component int poly6(int idx) {
 
     unsigned short a[DATA_SIZE];
     unsigned short b[DATA_SIZE];

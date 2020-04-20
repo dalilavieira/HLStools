@@ -7,8 +7,6 @@
 
 component int kmeans(int idx, int num_clusters, int num_dim) {
 
-    unsigned short *data_in, *data_out, *centroids;
-
     unsigned short data_in[DATA_SIZE * num_dim];
     unsigned short data_out[DATA_SIZE];
     unsigned short centroids[num_clusters * num_dim];

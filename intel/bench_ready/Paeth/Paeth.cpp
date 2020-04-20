@@ -6,8 +6,6 @@
 
 component int paeth(int idx) {
 
-    unsigned short *a, *b, *c, *out;
-
     unsigned short a[DATA_SIZE];
     unsigned short b[DATA_SIZE];
     unsigned short c[DATA_SIZE];

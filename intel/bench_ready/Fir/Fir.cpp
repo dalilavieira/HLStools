@@ -6,8 +6,7 @@
 #define TAPS 63
 
 component int fir(int idx, int taps){
-
-   unsigned short *data_in, *data_out;
+   
    unsigned short coef[TAPS];
 
     for (int k = 0; k < TAPS; ++k){
