@@ -15,14 +15,14 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 24)
+#define DATA_SIZE (100)//(1 << 24)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
 
-int paeth(int idx);
+int paeth(int16_t a[],int16_t b[],int16_t c[],int32_t out[]);
 
 /*int paeth_openmp(int idx);
 

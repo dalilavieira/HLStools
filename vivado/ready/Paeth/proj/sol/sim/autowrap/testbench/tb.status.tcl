@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Paeth/proj/sol/./sim/autowrap/testbench/paeth.cpp_pre.cpp.tb.cpp
