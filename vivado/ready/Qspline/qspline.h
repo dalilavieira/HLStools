@@ -15,14 +15,14 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 23)
+#define DATA_SIZE (100)//(1 << 23)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
 
-int qspline(int idx);
+int qspline(int16_t a[],int16_t b[],int16_t c[],int16_t d[],int16_t e[],int16_t f[],int16_t g[],int32_t out[]);
 
 /*int qspline_openmp(int idx);
 

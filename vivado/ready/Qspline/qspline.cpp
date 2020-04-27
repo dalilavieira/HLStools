@@ -1,49 +1,8 @@
 #include "qspline.h"
 
-int main(int argc, char *argv[]) {
+int qspline(int16_t a[DATA_SIZE],int16_t b[DATA_SIZE],int16_t c[DATA_SIZE],int16_t d[DATA_SIZE],int16_t e[DATA_SIZE],int16_t f[DATA_SIZE],int16_t g[DATA_SIZE],int32_t out[DATA_SIZE]) {
 
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-
-    if(test & 1)
-        qspline(idx);
-    /*if(test & 2)    
-        qspline_openmp(idx);
-    if(test & 4)
-        qspline_cgra(idx, 1);*/
-
-    return 0;
-}
-
-int qspline(int idx) {
-
-    //unsigned short *a, *b, *c, *d, *e, *f, *g, *out;
-
-    int a[DATA_SIZE];
-    int b[DATA_SIZE];
-    int c[DATA_SIZE];
-    int d[DATA_SIZE];
-    int e[DATA_SIZE];
-    int f[DATA_SIZE];
-    int g[DATA_SIZE];
-    int out[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        a[k] = k % 1024;
-        b[k] = k % 1024;
-        c[k] = k % 1024;
-        d[k] = k % 1024;
-        e[k] = k % 1024;
-        f[k] = k % 1024;
-        g[k] = k % 1024;
-        out[k] = 0;
-    }
+    //unsigned short *a, *b, *c, *d, *e, *f, *g, *out
 
    // high_resolution_clock::time_point s;
     //duration<double> diff = {};
@@ -59,7 +18,7 @@ int qspline(int idx) {
 
    // printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
-    int v = out[idx];
+    int v = out[0];
 
     /*delete a;
     delete b;
