@@ -15,14 +15,14 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE ((1 << 24)+9175040)
+#define DATA_SIZE (100)//((1 << 24)+9175040)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
 
-int sgfilter(int idx);
+int sgfilter(int16_t a[],int16_t b[],int32_t OUT[]);
 
 /*int sgfilter_openmp(int idx);
 

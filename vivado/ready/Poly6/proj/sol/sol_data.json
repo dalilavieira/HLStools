@@ -7,22 +7,69 @@
   "GenerateBdFiles": "0",
   "HostMachineBits": "64",
   "Target": {
-    "Family": "kintex7",
-    "Device": "xc7k160t",
-    "Package": "-fbg484",
-    "Speed": "-1"
+    "Family": "virtexuplus",
+    "Device": "xcvu9p",
+    "Package": "-flgb2104",
+    "Speed": "-2-i"
   },
   "HlsSolution": {
     
   },
-  "Args": {"idx": {
+  "Args": {
+    "a": {
       "index": "0",
       "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "a_address0",
+          "a_q0"
+        ]
+      }
+    },
+    "b": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "b_address0",
+          "b_q0"
+        ]
+      }
+    },
+    "c": {
+      "index": "2",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "c_address0",
+          "c_q0"
+        ]
+      }
+    },
+    "out": {
+      "index": "3",
+      "type": {
+        "kinds": ["array"],
         "dataType": "int",
         "dataWidth": "32",
-        "interfaceRef": "idx"
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "out_r_address0",
+          "out_r_d0",
+          "out_r_q0"
+        ]
       }
-    }},
+    }
+  },
   "Return": {
     "dataType": "int",
     "dataWidth": "32",
@@ -30,13 +77,13 @@
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
-    "ClockPeriod": "5",
+    "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "24343740621",
-    "Uncertainty": "0.625"
+    "Latency": "40202",
+    "Uncertainty": "1.25"
   },
-  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 5.000 [get_ports ap_clk]"]},
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -51,37 +98,31 @@
   "Files": {
     "CSource": ["..\/..\/poly6.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/poly6_a.vhd",
-      "impl\/vhdl\/poly6_mac_muladd_24ns_8ns_13ns_31_3_1.vhd",
-      "impl\/vhdl\/poly6_mac_muladd_24ns_10ns_16s_32_3_1.vhd",
-      "impl\/vhdl\/poly6_mac_muladd_24ns_13ns_22s_32_3_1.vhd",
-      "impl\/vhdl\/poly6_mul_24ns_24ns_32_4_1.vhd",
-      "impl\/vhdl\/poly6_mul_25s_24ns_32_4_1.vhd",
-      "impl\/vhdl\/poly6_mul_28ns_24ns_32_5_1.vhd",
-      "impl\/vhdl\/poly6_mul_29s_32s_32_5_1.vhd",
-      "impl\/vhdl\/poly6_mul_32s_24ns_32_5_1.vhd",
-      "impl\/vhdl\/poly6_mul_32s_32s_32_5_1.vhd",
-      "impl\/vhdl\/poly6_out.vhd",
+      "impl\/vhdl\/poly6_am_addmul_16s_8s_16s_32_1_1.vhd",
+      "impl\/vhdl\/poly6_ama_addmuladd_16s_6s_16s_32s_32_1_1.vhd",
+      "impl\/vhdl\/poly6_ama_addmuladd_16s_11s_16s_19s_32_1_1.vhd",
+      "impl\/vhdl\/poly6_mac_muladd_16s_8ns_13ns_23_1_1.vhd",
+      "impl\/vhdl\/poly6_mac_muladd_16s_10ns_16s_25_1_1.vhd",
+      "impl\/vhdl\/poly6_mac_muladd_16s_13ns_22s_28_1_1.vhd",
+      "impl\/vhdl\/poly6_mac_muladd_16s_20s_23ns_32_1_1.vhd",
+      "impl\/vhdl\/poly6_mul_mul_16s_16s_32_1_1.vhd",
       "impl\/vhdl\/poly6.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/poly6_a.v",
-      "impl\/verilog\/poly6_mac_muladd_24ns_8ns_13ns_31_3_1.v",
-      "impl\/verilog\/poly6_mac_muladd_24ns_10ns_16s_32_3_1.v",
-      "impl\/verilog\/poly6_mac_muladd_24ns_13ns_22s_32_3_1.v",
-      "impl\/verilog\/poly6_mul_24ns_24ns_32_4_1.v",
-      "impl\/verilog\/poly6_mul_25s_24ns_32_4_1.v",
-      "impl\/verilog\/poly6_mul_28ns_24ns_32_5_1.v",
-      "impl\/verilog\/poly6_mul_29s_32s_32_5_1.v",
-      "impl\/verilog\/poly6_mul_32s_24ns_32_5_1.v",
-      "impl\/verilog\/poly6_mul_32s_32s_32_5_1.v",
-      "impl\/verilog\/poly6_out.v",
+      "impl\/verilog\/poly6_am_addmul_16s_8s_16s_32_1_1.v",
+      "impl\/verilog\/poly6_ama_addmuladd_16s_6s_16s_32s_32_1_1.v",
+      "impl\/verilog\/poly6_ama_addmuladd_16s_11s_16s_19s_32_1_1.v",
+      "impl\/verilog\/poly6_mac_muladd_16s_8ns_13ns_23_1_1.v",
+      "impl\/verilog\/poly6_mac_muladd_16s_10ns_16s_25_1_1.v",
+      "impl\/verilog\/poly6_mac_muladd_16s_13ns_22s_28_1_1.v",
+      "impl\/verilog\/poly6_mac_muladd_16s_20s_23ns_32_1_1.v",
+      "impl\/verilog\/poly6_mul_mul_16s_16s_32_1_1.v",
       "impl\/verilog\/poly6.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/vivado\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.autopilot\/db\/poly6.design.xml",
-    "DebugDir": "\/home\/vivado\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.debug",
-    "ProtoInst": ["\/home\/vivado\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.debug\/poly6.protoinst"]
+    "DesignXml": "\/home\/dalila\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.autopilot\/db\/poly6.design.xml",
+    "DebugDir": "\/home\/dalila\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.debug",
+    "ProtoInst": ["\/home\/dalila\/HLStools\/vivado\/ready\/Poly6\/proj\/sol\/.debug\/poly6.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -89,6 +130,28 @@
     "IP": []
   },
   "Interfaces": {
+    "a_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "address0"
+    },
+    "a_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "q0"
+    },
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
@@ -124,7 +187,73 @@
       "bundle_name": "ap_rst",
       "bundle_role": "default"
     },
-    "idx": {
+    "b_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "address0"
+    },
+    "b_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "q0"
+    },
+    "c_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "c",
+      "bundle_role": "address0"
+    },
+    "c_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "c",
+      "bundle_role": "q0"
+    },
+    "out_r_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "out_r",
+      "bundle_role": "address0"
+    },
+    "out_r_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "out_r",
+      "bundle_role": "d0"
+    },
+    "out_r_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -132,8 +261,8 @@
           "Type": "integer signed",
           "Width": "32"
         }},
-      "bundle_name": "idx",
-      "bundle_role": "default"
+      "bundle_name": "out_r",
+      "bundle_role": "q0"
     }
   },
   "RtlPorts": {
@@ -165,7 +294,59 @@
       "dir": "out",
       "width": "32"
     },
-    "idx": {
+    "a_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "a_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "a_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "b_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "b_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "c_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "c_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "c_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "out_r_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "out_r_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "out_r_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "out_r_d0": {
+      "dir": "out",
+      "width": "32"
+    },
+    "out_r_q0": {
       "dir": "in",
       "width": "32"
     }
@@ -181,46 +362,37 @@
       }},
     "Metrics": {"poly6": {
         "Latency": {
-          "LatencyBest": "24343740621",
-          "LatencyAvg": "24343740621",
-          "LatencyWorst": "24343740621",
-          "PipelineII": "24343740622",
+          "LatencyBest": "40202",
+          "LatencyAvg": "40202",
+          "LatencyWorst": "40202",
+          "PipelineII": "40203",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
-          "Target": "5.00",
-          "Uncertainty": "0.62",
-          "Estimate": "4.300"
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.678"
         },
-        "Loops": [
-          {
+        "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "8388608",
-            "Latency": "16777216",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 2",
             "TripCount": "100",
-            "Latency": "24326963400",
+            "Latency": "40200",
             "PipelineII": "",
-            "PipelineDepth": "243269634",
+            "PipelineDepth": "402",
             "Loops": [{
-                "Name": "Loop 2.1",
-                "TripCount": "8388608",
-                "Latency": "243269632",
+                "Name": "Loop 1.1",
+                "TripCount": "100",
+                "Latency": "400",
                 "PipelineII": "",
-                "PipelineDepth": "29"
+                "PipelineDepth": "4"
               }]
-          }
-        ],
+          }],
         "Area": {
-          "BRAM_18K": "53248",
-          "DSP48E": "29",
-          "FF": "3522",
-          "LUT": "1001",
+          "DSP48E": "23",
+          "FF": "330",
+          "LUT": "500",
+          "BRAM_18K": "0",
           "URAM": "0"
         }
       }}
@@ -235,7 +407,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-04-20 17:42:11 UTC",
+    "Time": "2020-04-27 12:14:48 -03",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }

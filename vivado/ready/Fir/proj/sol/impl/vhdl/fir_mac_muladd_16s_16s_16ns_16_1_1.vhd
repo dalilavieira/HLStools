@@ -16,13 +16,13 @@ port (
 end entity;
 
 architecture behav of fir_mac_muladd_16s_16s_16ns_16_1_1_DSP48_0 is
-    signal a       : signed(25-1 downto 0);
+    signal a       : signed(27-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
-    signal m       : signed(43-1 downto 0);
+    signal m       : signed(45-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(signed(in0), 25));
+a  <= signed(resize(signed(in0), 27));
 b  <= signed(resize(signed(in1), 18));
 c  <= signed(resize(unsigned(in2), 48));
 

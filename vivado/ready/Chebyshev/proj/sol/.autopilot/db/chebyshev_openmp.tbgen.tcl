@@ -14,13 +14,15 @@ set isEnableWaveformDebug 1
 set C_modelName {chebyshev_openmp}
 set C_modelType { int 32 }
 set C_modelArgList {
-	{ idx int 32 regular  }
+	{ data_in int 16 regular {array 100 { 1 3 } 1 1 }  }
+	{ data_out int 32 regular {array 100 { 2 3 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "idx", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "idx","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}]} , 
+	{ "Name" : "data_in", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "bitSlice":[{"low":0,"up":15,"cElement": [{"cName": "data_in","cData": "short","bit_use": { "low": 0,"up": 15},"cArray": [{"low" : 0,"up" : 99,"step" : 1}]}]}]} , 
+ 	{ "Name" : "data_out", "interface" : "memory", "bitwidth" : 32, "direction" : "READWRITE", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "data_out","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 99,"step" : 1}]}]}]} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 32,"bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "return","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 1,"step" : 0}]}]}]} ]}
 # RTL Port declarations: 
-set portNum 8
+set portNum 15
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -28,7 +30,14 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ idx sc_in sc_lv 32 signal 0 } 
+	{ data_in_address0 sc_out sc_lv 7 signal 0 } 
+	{ data_in_ce0 sc_out sc_logic 1 signal 0 } 
+	{ data_in_q0 sc_in sc_lv 16 signal 0 } 
+	{ data_out_address0 sc_out sc_lv 7 signal 1 } 
+	{ data_out_ce0 sc_out sc_logic 1 signal 1 } 
+	{ data_out_we0 sc_out sc_logic 1 signal 1 } 
+	{ data_out_d0 sc_out sc_lv 32 signal 1 } 
+	{ data_out_q0 sc_in sc_lv 32 signal 1 } 
 	{ ap_return sc_out sc_lv 32 signal -1 } 
 }
 set NewPortList {[ 
@@ -38,7 +47,14 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "idx", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "idx", "role": "default" }} , 
+ 	{ "name": "data_in_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "data_in", "role": "address0" }} , 
+ 	{ "name": "data_in_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_in", "role": "ce0" }} , 
+ 	{ "name": "data_in_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "data_in", "role": "q0" }} , 
+ 	{ "name": "data_out_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "data_out", "role": "address0" }} , 
+ 	{ "name": "data_out_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_out", "role": "ce0" }} , 
+ 	{ "name": "data_out_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "data_out", "role": "we0" }} , 
+ 	{ "name": "data_out_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "data_out", "role": "d0" }} , 
+ 	{ "name": "data_out_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "data_out", "role": "q0" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -48,7 +64,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "53821309133", "EstimateLatencyMax" : "53821309133",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "30202", "EstimateLatencyMax" : "30202",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -56,27 +72,30 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "idx", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_in_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_out_U", "Parent" : "0"}]}
+			{"Name" : "data_in", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "data_out", "Type" : "Memory", "Direction" : "IO"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.chebyshev_openmp_mul_mul_16s_16s_28_1_1_U1", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.chebyshev_openmp_mul_mul_16s_16s_32_1_1_U2", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	chebyshev_openmp {
-		idx {Type I LastRead 0 FirstWrite -1}}}
+		data_in {Type I LastRead 2 FirstWrite -1}
+		data_out {Type IO LastRead 1 FirstWrite 4}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "53821309133", "Max" : "53821309133"}
-	, {"Name" : "Interval", "Min" : "-2013265714", "Max" : "-2013265714"}
+	{"Name" : "Latency", "Min" : "30202", "Max" : "30202"}
+	, {"Name" : "Interval", "Min" : "30203", "Max" : "30203"}
 ]}
 
 set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	idx { ap_none {  { idx in_data 0 32 } } }
+	data_in { ap_memory {  { data_in_address0 mem_address 1 7 }  { data_in_ce0 mem_ce 1 1 }  { data_in_q0 mem_dout 0 16 } } }
+	data_out { ap_memory {  { data_out_address0 mem_address 1 7 }  { data_out_ce0 mem_ce 1 1 }  { data_out_we0 mem_we 1 1 }  { data_out_d0 mem_din 1 32 }  { data_out_q0 mem_dout 0 32 } } }
 }
 
 set busDeadlockParameterList { 

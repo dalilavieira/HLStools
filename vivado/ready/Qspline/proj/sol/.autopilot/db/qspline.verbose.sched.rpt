@@ -3,13 +3,13 @@
 ================================================================
 == Vivado HLS Report for 'qspline'
 ================================================================
-* Date:           Mon Apr 20 17:52:46 2020
+* Date:           Mon Apr 27 13:57:49 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        proj
 * Solution:       sol
-* Product family: kintex7
-* Target device:  xc7k160t-fbg484-1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
 
 
 ================================================================
@@ -20,31 +20,30 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|     8.454|        1.25|
+    |ap_clk  |  10.00|     8.261|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +------------+------------+------------+------------+---------+
-    |         Latency         |         Interval        | Pipeline|
-    |     min    |     max    |     min    |     max    |   Type  |
-    +------------+------------+------------+------------+---------+
-    |  8405385421|  8405385421|  8405385421|  8405385421|   none  |
-    +------------+------------+------------+------------+---------+
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  30202|  30202|  30202|  30202|   none  |
+    +-------+-------+-------+-------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-------------+------------+------------+----------+-----------+-----------+---------+----------+
-        |             |         Latency         | Iteration|  Initiation Interval  |   Trip  |          |
-        |  Loop Name  |     min    |     max    |  Latency |  achieved |   target  |  Count  | Pipelined|
-        +-------------+------------+------------+----------+-----------+-----------+---------+----------+
-        |- Loop 1     |    16777216|    16777216|         2|          -|          -|  8388608|    no    |
-        |- Loop 2     |  8388608200|  8388608200|  83886082|          -|          -|      100|    no    |
-        | + Loop 2.1  |    83886080|    83886080|        10|          -|          -|  8388608|    no    |
-        +-------------+------------+------------+----------+-----------+-----------+---------+----------+
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |             |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  30200|  30200|       302|          -|          -|   100|    no    |
+        | + Loop 1.1  |    300|    300|         3|          -|          -|   100|    no    |
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -72,190 +71,104 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 17
+* Number of FSM states : 6
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
-2 --> 3 4 
-3 --> 2 
-4 --> 15 5 
-5 --> 6 4 
-6 --> 7 
-7 --> 8 
-8 --> 9 
-9 --> 10 
-10 --> 11 
-11 --> 12 
-12 --> 13 
-13 --> 14 
-14 --> 5 
-15 --> 16 
-16 --> 17 
-17 --> 
+2 --> 6 3 
+3 --> 4 2 
+4 --> 5 
+5 --> 3 
+6 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.06>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %idx) nounwind, !map !13"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @qspline_str) nounwind"   --->   Operation 20 'spectopmodule' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%idx_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %idx) nounwind"   --->   Operation 21 'read' 'idx_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%a = alloca [8388608 x i10], align 2" [qspline.cpp:28]   --->   Operation 22 'alloca' 'a' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%b = alloca [8388608 x i10], align 2" [qspline.cpp:29]   --->   Operation 23 'alloca' 'b' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%c = alloca [8388608 x i10], align 2" [qspline.cpp:30]   --->   Operation 24 'alloca' 'c' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%e = alloca [8388608 x i10], align 2" [qspline.cpp:32]   --->   Operation 25 'alloca' 'e' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%f = alloca [8388608 x i10], align 2" [qspline.cpp:33]   --->   Operation 26 'alloca' 'f' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%g = alloca [8388608 x i10], align 2" [qspline.cpp:34]   --->   Operation 27 'alloca' 'g' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%out = alloca [8388608 x i32], align 16" [qspline.cpp:35]   --->   Operation 28 'alloca' 'out' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 29 [1/1] (1.06ns)   --->   "br label %1" [qspline.cpp:37]   --->   Operation 29 'br' <Predicate = true> <Delay = 1.06>
+State 1 <SV = 0> <Delay = 0.60>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %a) nounwind, !map !7"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %b) nounwind, !map !13"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %c) nounwind, !map !17"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %d) nounwind, !map !21"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %e) nounwind, !map !25"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %f) nounwind, !map !29"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %g) nounwind, !map !33"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i32]* %out_r) nounwind, !map !37"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%out_addr = getelementptr [100 x i32]* %out_r, i64 0, i64 0" [qspline.cpp:3]   --->   Operation 15 'getelementptr' 'out_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !41"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @qspline_str) nounwind"   --->   Operation 17 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.60ns)   --->   "br label %.loopexit" [qspline.cpp:9]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.60>
 
-State 2 <SV = 1> <Delay = 2.66>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%k_0 = phi i24 [ 0, %0 ], [ %k, %2 ]"   --->   Operation 30 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln37 = trunc i24 %k_0 to i10" [qspline.cpp:37]   --->   Operation 31 'trunc' 'trunc_ln37' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 32 [1/1] (1.52ns)   --->   "%icmp_ln37 = icmp eq i24 %k_0, -8388608" [qspline.cpp:37]   --->   Operation 32 'icmp' 'icmp_ln37' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8388608, i64 8388608, i64 8388608) nounwind"   --->   Operation 33 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 34 [1/1] (1.63ns)   --->   "%k = add i24 1, %k_0" [qspline.cpp:37]   --->   Operation 34 'add' 'k' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 35 [1/1] (0.00ns)   --->   "br i1 %icmp_ln37, label %.preheader1.preheader, label %2" [qspline.cpp:37]   --->   Operation 35 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%zext_ln38 = zext i24 %k_0 to i64" [qspline.cpp:38]   --->   Operation 36 'zext' 'zext_ln38' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [8388608 x i10]* %a, i64 0, i64 %zext_ln38" [qspline.cpp:38]   --->   Operation 37 'getelementptr' 'a_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 38 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %a_addr, align 2" [qspline.cpp:38]   --->   Operation 38 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%b_addr = getelementptr [8388608 x i10]* %b, i64 0, i64 %zext_ln38" [qspline.cpp:39]   --->   Operation 39 'getelementptr' 'b_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 40 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %b_addr, align 2" [qspline.cpp:39]   --->   Operation 40 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%c_addr = getelementptr [8388608 x i10]* %c, i64 0, i64 %zext_ln38" [qspline.cpp:40]   --->   Operation 41 'getelementptr' 'c_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 42 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %c_addr, align 2" [qspline.cpp:40]   --->   Operation 42 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%e_addr = getelementptr [8388608 x i10]* %e, i64 0, i64 %zext_ln38" [qspline.cpp:42]   --->   Operation 43 'getelementptr' 'e_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 44 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %e_addr, align 2" [qspline.cpp:42]   --->   Operation 44 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%f_addr = getelementptr [8388608 x i10]* %f, i64 0, i64 %zext_ln38" [qspline.cpp:43]   --->   Operation 45 'getelementptr' 'f_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 46 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %f_addr, align 2" [qspline.cpp:43]   --->   Operation 46 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%g_addr = getelementptr [8388608 x i10]* %g, i64 0, i64 %zext_ln38" [qspline.cpp:44]   --->   Operation 47 'getelementptr' 'g_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 48 [2/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %g_addr, align 2" [qspline.cpp:44]   --->   Operation 48 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%out_addr = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %zext_ln38" [qspline.cpp:45]   --->   Operation 49 'getelementptr' 'out_addr' <Predicate = (!icmp_ln37)> <Delay = 0.00>
-ST_2 : Operation 50 [2/2] (2.66ns)   --->   "store i32 0, i32* %out_addr, align 4" [qspline.cpp:45]   --->   Operation 50 'store' <Predicate = (!icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 51 [1/1] (1.06ns)   --->   "br label %.preheader1" [qspline.cpp:50]   --->   Operation 51 'br' <Predicate = (icmp_ln37)> <Delay = 1.06>
+State 2 <SV = 1> <Delay = 1.15>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 19 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.59ns)   --->   "%icmp_ln9 = icmp eq i7 %i_0, -28" [qspline.cpp:9]   --->   Operation 20 'icmp' 'icmp_ln9' <Predicate = true> <Delay = 0.59> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.59> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 21 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.40ns)   --->   "%i = add i7 %i_0, 1" [qspline.cpp:9]   --->   Operation 22 'add' 'i' <Predicate = true> <Delay = 0.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br i1 %icmp_ln9, label %2, label %.preheader.preheader" [qspline.cpp:9]   --->   Operation 23 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.60ns)   --->   "br label %.preheader" [qspline.cpp:11]   --->   Operation 24 'br' <Predicate = (!icmp_ln9)> <Delay = 0.60>
+ST_2 : Operation 25 [2/2] (1.15ns)   --->   "%v = load i32* %out_addr, align 4" [qspline.cpp:21]   --->   Operation 25 'load' 'v' <Predicate = (icmp_ln9)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
 
-State 3 <SV = 2> <Delay = 2.66>
-ST_3 : Operation 52 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %a_addr, align 2" [qspline.cpp:38]   --->   Operation 52 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 53 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %b_addr, align 2" [qspline.cpp:39]   --->   Operation 53 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 54 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %c_addr, align 2" [qspline.cpp:40]   --->   Operation 54 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 55 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %e_addr, align 2" [qspline.cpp:42]   --->   Operation 55 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 56 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %f_addr, align 2" [qspline.cpp:43]   --->   Operation 56 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 57 [1/2] (2.66ns)   --->   "store i10 %trunc_ln37, i10* %g_addr, align 2" [qspline.cpp:44]   --->   Operation 57 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 58 [1/2] (2.66ns)   --->   "store i32 0, i32* %out_addr, align 4" [qspline.cpp:45]   --->   Operation 58 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 59 [1/1] (0.00ns)   --->   "br label %1" [qspline.cpp:37]   --->   Operation 59 'br' <Predicate = true> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 1.15>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%k_0 = phi i7 [ %k, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 26 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.59ns)   --->   "%icmp_ln11 = icmp eq i7 %k_0, -28" [qspline.cpp:11]   --->   Operation 27 'icmp' 'icmp_ln11' <Predicate = true> <Delay = 0.59> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.59> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 28 'speclooptripcount' 'empty_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.40ns)   --->   "%k = add i7 %k_0, 1" [qspline.cpp:11]   --->   Operation 29 'add' 'k' <Predicate = true> <Delay = 0.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %icmp_ln11, label %.loopexit.loopexit, label %1" [qspline.cpp:11]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln12 = zext i7 %k_0 to i64" [qspline.cpp:12]   --->   Operation 31 'zext' 'zext_ln12' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%b_addr = getelementptr [100 x i16]* %b, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 32 'getelementptr' 'b_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 33 [2/2] (1.15ns)   --->   "%b_load = load i16* %b_addr, align 2" [qspline.cpp:12]   --->   Operation 33 'load' 'b_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [100 x i16]* %a, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 34 'getelementptr' 'a_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 35 [2/2] (1.15ns)   --->   "%a_load = load i16* %a_addr, align 2" [qspline.cpp:12]   --->   Operation 35 'load' 'a_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%f_addr = getelementptr [100 x i16]* %f, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 36 'getelementptr' 'f_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 37 [2/2] (1.15ns)   --->   "%f_load = load i16* %f_addr, align 2" [qspline.cpp:12]   --->   Operation 37 'load' 'f_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%c_addr = getelementptr [100 x i16]* %c, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 38 'getelementptr' 'c_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 39 [2/2] (1.15ns)   --->   "%c_load = load i16* %c_addr, align 2" [qspline.cpp:12]   --->   Operation 39 'load' 'c_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%e_addr = getelementptr [100 x i16]* %e, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 40 'getelementptr' 'e_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 41 [2/2] (1.15ns)   --->   "%e_load = load i16* %e_addr, align 2" [qspline.cpp:12]   --->   Operation 41 'load' 'e_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%g_addr = getelementptr [100 x i16]* %g, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 42 'getelementptr' 'g_addr' <Predicate = (!icmp_ln11)> <Delay = 0.00>
+ST_3 : Operation 43 [2/2] (1.15ns)   --->   "%g_load = load i16* %g_addr, align 2" [qspline.cpp:12]   --->   Operation 43 'load' 'g_load' <Predicate = (!icmp_ln11)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 44 'br' <Predicate = (icmp_ln11)> <Delay = 0.00>
 
-State 4 <SV = 2> <Delay = 2.66>
-ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ %i, %.preheader1.loopexit ], [ 0, %.preheader1.preheader ]"   --->   Operation 60 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 61 [1/1] (1.18ns)   --->   "%icmp_ln50 = icmp eq i7 %i_0, -28" [qspline.cpp:50]   --->   Operation 61 'icmp' 'icmp_ln50' <Predicate = true> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 62 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 63 [1/1] (1.37ns)   --->   "%i = add i7 %i_0, 1" [qspline.cpp:50]   --->   Operation 63 'add' 'i' <Predicate = true> <Delay = 1.37> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %icmp_ln50, label %4, label %.preheader.preheader" [qspline.cpp:50]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 65 [1/1] (1.06ns)   --->   "br label %.preheader" [qspline.cpp:52]   --->   Operation 65 'br' <Predicate = (!icmp_ln50)> <Delay = 1.06>
-ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%sext_ln62 = sext i32 %idx_read to i64" [qspline.cpp:62]   --->   Operation 66 'sext' 'sext_ln62' <Predicate = (icmp_ln50)> <Delay = 0.00>
-ST_4 : Operation 67 [1/1] (0.00ns)   --->   "%out_addr_1 = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %sext_ln62" [qspline.cpp:62]   --->   Operation 67 'getelementptr' 'out_addr_1' <Predicate = (icmp_ln50)> <Delay = 0.00>
-ST_4 : Operation 68 [4/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [qspline.cpp:62]   --->   Operation 68 'load' 'v' <Predicate = (icmp_ln50)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
+State 4 <SV = 3> <Delay = 8.26>
+ST_4 : Operation 45 [1/2] (1.15ns)   --->   "%b_load = load i16* %b_addr, align 2" [qspline.cpp:12]   --->   Operation 45 'load' 'b_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%sext_ln12 = sext i16 %b_load to i32" [qspline.cpp:12]   --->   Operation 46 'sext' 'sext_ln12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [1/2] (1.15ns)   --->   "%a_load = load i16* %a_addr, align 2" [qspline.cpp:12]   --->   Operation 47 'load' 'a_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%sext_ln12_1 = sext i16 %a_load to i32" [qspline.cpp:12]   --->   Operation 48 'sext' 'sext_ln12_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (2.53ns) (root node of the DSP)   --->   "%mul_ln12 = mul i32 %sext_ln12, %sext_ln12" [qspline.cpp:12]   --->   Operation 49 'mul' 'mul_ln12' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 50 [1/1] (2.53ns) (root node of the DSP)   --->   "%mul_ln12_1 = mul i32 %sext_ln12, %sext_ln12_1" [qspline.cpp:12]   --->   Operation 50 'mul' 'mul_ln12_1' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 51 [1/1] (3.17ns)   --->   "%mul_ln12_2 = mul i32 %mul_ln12_1, %mul_ln12" [qspline.cpp:12]   --->   Operation 51 'mul' 'mul_ln12_2' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 52 [1/2] (1.15ns)   --->   "%f_load = load i16* %f_addr, align 2" [qspline.cpp:12]   --->   Operation 52 'load' 'f_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%sext_ln12_2 = sext i16 %f_load to i32" [qspline.cpp:12]   --->   Operation 53 'sext' 'sext_ln12_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/2] (1.15ns)   --->   "%c_load = load i16* %c_addr, align 2" [qspline.cpp:12]   --->   Operation 54 'load' 'c_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%sext_ln12_3 = sext i16 %c_load to i32" [qspline.cpp:12]   --->   Operation 55 'sext' 'sext_ln12_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (3.17ns)   --->   "%mul_ln12_3 = mul i32 %mul_ln12, %sext_ln12_3" [qspline.cpp:12]   --->   Operation 56 'mul' 'mul_ln12_3' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%shl_ln12 = shl i32 %mul_ln12_3, 3" [qspline.cpp:12]   --->   Operation 57 'shl' 'shl_ln12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%shl_ln12_1 = shl i32 %mul_ln12_3, 1" [qspline.cpp:12]   --->   Operation 58 'shl' 'shl_ln12_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln12 = sub i32 %shl_ln12, %shl_ln12_1" [qspline.cpp:12]   --->   Operation 59 'sub' 'sub_ln12' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 60 [1/2] (1.15ns)   --->   "%e_load = load i16* %e_addr, align 2" [qspline.cpp:12]   --->   Operation 60 'load' 'e_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%sext_ln12_4 = sext i16 %e_load to i32" [qspline.cpp:12]   --->   Operation 61 'sext' 'sext_ln12_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 62 [1/2] (1.15ns)   --->   "%g_load = load i16* %g_addr, align 2" [qspline.cpp:12]   --->   Operation 62 'load' 'g_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%sext_ln12_5 = sext i16 %b_load to i30" [qspline.cpp:12]   --->   Operation 63 'sext' 'sext_ln12_5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%sext_ln12_6 = sext i16 %g_load to i30" [qspline.cpp:12]   --->   Operation 64 'sext' 'sext_ln12_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (2.53ns) (root node of the DSP)   --->   "%mul_ln12_4 = mul i30 %sext_ln12_6, %sext_ln12_5" [qspline.cpp:12]   --->   Operation 65 'mul' 'mul_ln12_4' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%shl_ln12_2 = call i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30 %mul_ln12_4, i2 0)" [qspline.cpp:12]   --->   Operation 66 'bitconcatenate' 'shl_ln12_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 67 [1/1] (0.66ns)   --->   "%tmp4 = add i32 %shl_ln12_2, %sext_ln12_4" [qspline.cpp:12]   --->   Operation 67 'add' 'tmp4' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 68 [1/1] (3.17ns)   --->   "%tmp5 = mul i32 %tmp4, %sext_ln12_2" [qspline.cpp:12]   --->   Operation 68 'mul' 'tmp5' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 69 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%tmp3 = add i32 %sub_ln12, %tmp5" [qspline.cpp:12]   --->   Operation 69 'add' 'tmp3' <Predicate = true> <Delay = 0.73> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
 
-State 5 <SV = 3> <Delay = 2.66>
-ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%k1_0 = phi i24 [ %k_1, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 69 'phi' 'k1_0' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 70 [1/1] (1.52ns)   --->   "%icmp_ln52 = icmp eq i24 %k1_0, -8388608" [qspline.cpp:52]   --->   Operation 70 'icmp' 'icmp_ln52' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8388608, i64 8388608, i64 8388608) nounwind"   --->   Operation 71 'speclooptripcount' 'empty_4' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 72 [1/1] (1.63ns)   --->   "%k_1 = add i24 %k1_0, 1" [qspline.cpp:52]   --->   Operation 72 'add' 'k_1' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 73 [1/1] (0.00ns)   --->   "br i1 %icmp_ln52, label %.preheader1.loopexit, label %3" [qspline.cpp:52]   --->   Operation 73 'br' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 74 [1/1] (0.00ns)   --->   "%zext_ln53 = zext i24 %k1_0 to i64" [qspline.cpp:53]   --->   Operation 74 'zext' 'zext_ln53' <Predicate = (!icmp_ln52)> <Delay = 0.00>
-ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%b_addr_1 = getelementptr [8388608 x i10]* %b, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 75 'getelementptr' 'b_addr_1' <Predicate = (!icmp_ln52)> <Delay = 0.00>
-ST_5 : Operation 76 [4/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [qspline.cpp:53]   --->   Operation 76 'load' 'b_load' <Predicate = (!icmp_ln52)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_5 : Operation 77 [1/1] (0.00ns)   --->   "%a_addr_1 = getelementptr [8388608 x i10]* %a, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 77 'getelementptr' 'a_addr_1' <Predicate = (!icmp_ln52)> <Delay = 0.00>
-ST_5 : Operation 78 [4/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [qspline.cpp:53]   --->   Operation 78 'load' 'a_load' <Predicate = (!icmp_ln52)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_5 : Operation 79 [1/1] (0.00ns)   --->   "%g_addr_1 = getelementptr [8388608 x i10]* %g, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 79 'getelementptr' 'g_addr_1' <Predicate = (!icmp_ln52)> <Delay = 0.00>
-ST_5 : Operation 80 [4/4] (2.66ns)   --->   "%g_load = load i10* %g_addr_1, align 2" [qspline.cpp:53]   --->   Operation 80 'load' 'g_load' <Predicate = (!icmp_ln52)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_5 : Operation 81 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 81 'br' <Predicate = (icmp_ln52)> <Delay = 0.00>
+State 5 <SV = 4> <Delay = 7.53>
+ST_5 : Operation 70 [1/1] (0.66ns)   --->   "%add_ln12 = add i32 %mul_ln12_2, %sext_ln12" [qspline.cpp:12]   --->   Operation 70 'add' 'add_ln12' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 71 [1/1] (3.17ns)   --->   "%mul_ln12_5 = mul i32 %add_ln12, %sext_ln12" [qspline.cpp:12]   --->   Operation 71 'mul' 'mul_ln12_5' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 72 [1/1] (2.53ns) (root node of the DSP)   --->   "%tmp8 = mul i32 %sext_ln12_2, %sext_ln12_2" [qspline.cpp:12]   --->   Operation 72 'mul' 'tmp8' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 73 [1/1] (3.17ns)   --->   "%tmp7 = mul i32 %tmp8, %tmp3" [qspline.cpp:12]   --->   Operation 73 'mul' 'tmp7' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 74 [1/1] (0.66ns)   --->   "%add_ln12_1 = add i32 %mul_ln12_5, %tmp7" [qspline.cpp:12]   --->   Operation 74 'add' 'add_ln12_1' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%out_addr_1 = getelementptr [100 x i32]* %out_r, i64 0, i64 %zext_ln12" [qspline.cpp:12]   --->   Operation 75 'getelementptr' 'out_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 76 [1/1] (1.15ns)   --->   "store i32 %add_ln12_1, i32* %out_addr_1, align 4" [qspline.cpp:12]   --->   Operation 76 'store' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_5 : Operation 77 [1/1] (0.00ns)   --->   "br label %.preheader" [qspline.cpp:11]   --->   Operation 77 'br' <Predicate = true> <Delay = 0.00>
 
-State 6 <SV = 4> <Delay = 2.66>
-ST_6 : Operation 82 [3/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [qspline.cpp:53]   --->   Operation 82 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 83 [3/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [qspline.cpp:53]   --->   Operation 83 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 84 [1/1] (0.00ns)   --->   "%f_addr_1 = getelementptr [8388608 x i10]* %f, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 84 'getelementptr' 'f_addr_1' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 85 [4/4] (2.66ns)   --->   "%f_load = load i10* %f_addr_1, align 2" [qspline.cpp:53]   --->   Operation 85 'load' 'f_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 86 [1/1] (0.00ns)   --->   "%c_addr_1 = getelementptr [8388608 x i10]* %c, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 86 'getelementptr' 'c_addr_1' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 87 [4/4] (2.66ns)   --->   "%c_load = load i10* %c_addr_1, align 2" [qspline.cpp:53]   --->   Operation 87 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%e_addr_1 = getelementptr [8388608 x i10]* %e, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 88 'getelementptr' 'e_addr_1' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 89 [4/4] (2.66ns)   --->   "%e_load = load i10* %e_addr_1, align 2" [qspline.cpp:53]   --->   Operation 89 'load' 'e_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 90 [3/4] (2.66ns)   --->   "%g_load = load i10* %g_addr_1, align 2" [qspline.cpp:53]   --->   Operation 90 'load' 'g_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 7 <SV = 5> <Delay = 2.66>
-ST_7 : Operation 91 [2/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [qspline.cpp:53]   --->   Operation 91 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 92 [2/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [qspline.cpp:53]   --->   Operation 92 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 93 [3/4] (2.66ns)   --->   "%f_load = load i10* %f_addr_1, align 2" [qspline.cpp:53]   --->   Operation 93 'load' 'f_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 94 [3/4] (2.66ns)   --->   "%c_load = load i10* %c_addr_1, align 2" [qspline.cpp:53]   --->   Operation 94 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 95 [3/4] (2.66ns)   --->   "%e_load = load i10* %e_addr_1, align 2" [qspline.cpp:53]   --->   Operation 95 'load' 'e_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 96 [2/4] (2.66ns)   --->   "%g_load = load i10* %g_addr_1, align 2" [qspline.cpp:53]   --->   Operation 96 'load' 'g_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 8 <SV = 6> <Delay = 8.45>
-ST_8 : Operation 97 [1/4] (2.66ns)   --->   "%b_load = load i10* %b_addr_1, align 2" [qspline.cpp:53]   --->   Operation 97 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 98 [1/1] (0.00ns)   --->   "%zext_ln53_2 = zext i10 %b_load to i20" [qspline.cpp:53]   --->   Operation 98 'zext' 'zext_ln53_2' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 99 [1/4] (2.66ns)   --->   "%a_load = load i10* %a_addr_1, align 2" [qspline.cpp:53]   --->   Operation 99 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 100 [1/1] (0.00ns)   --->   "%zext_ln53_4 = zext i10 %a_load to i20" [qspline.cpp:53]   --->   Operation 100 'zext' 'zext_ln53_4' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 101 [1/1] (5.79ns) (root node of the DSP)   --->   "%mul_ln53 = mul i20 %zext_ln53_2, %zext_ln53_2" [qspline.cpp:53]   --->   Operation 101 'mul' 'mul_ln53' <Predicate = true> <Delay = 5.79> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_8 : Operation 102 [1/1] (5.79ns) (root node of the DSP)   --->   "%mul_ln53_1 = mul i20 %zext_ln53_4, %zext_ln53_2" [qspline.cpp:53]   --->   Operation 102 'mul' 'mul_ln53_1' <Predicate = true> <Delay = 5.79> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_8 : Operation 103 [2/4] (2.66ns)   --->   "%f_load = load i10* %f_addr_1, align 2" [qspline.cpp:53]   --->   Operation 103 'load' 'f_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 104 [2/4] (2.66ns)   --->   "%c_load = load i10* %c_addr_1, align 2" [qspline.cpp:53]   --->   Operation 104 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 105 [2/4] (2.66ns)   --->   "%e_load = load i10* %e_addr_1, align 2" [qspline.cpp:53]   --->   Operation 105 'load' 'e_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 106 [1/4] (2.66ns)   --->   "%g_load = load i10* %g_addr_1, align 2" [qspline.cpp:53]   --->   Operation 106 'load' 'g_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln53_11 = zext i10 %g_load to i20" [qspline.cpp:53]   --->   Operation 107 'zext' 'zext_ln53_11' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 108 [1/1] (5.79ns) (root node of the DSP)   --->   "%mul_ln53_4 = mul i20 %zext_ln53_2, %zext_ln53_11" [qspline.cpp:53]   --->   Operation 108 'mul' 'mul_ln53_4' <Predicate = true> <Delay = 5.79> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-
-State 9 <SV = 7> <Delay = 8.45>
-ST_9 : Operation 109 [1/1] (0.00ns)   --->   "%zext_ln53_6 = zext i20 %mul_ln53 to i30" [qspline.cpp:53]   --->   Operation 109 'zext' 'zext_ln53_6' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 110 [1/1] (0.00ns)   --->   "%zext_ln53_7 = zext i20 %mul_ln53 to i32" [qspline.cpp:53]   --->   Operation 110 'zext' 'zext_ln53_7' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%zext_ln53_8 = zext i20 %mul_ln53_1 to i32" [qspline.cpp:53]   --->   Operation 111 'zext' 'zext_ln53_8' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 112 [1/1] (4.61ns)   --->   "%mul_ln53_2 = mul i32 %zext_ln53_7, %zext_ln53_8" [qspline.cpp:53]   --->   Operation 112 'mul' 'mul_ln53_2' <Predicate = true> <Delay = 4.61> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 113 [1/4] (2.66ns)   --->   "%f_load = load i10* %f_addr_1, align 2" [qspline.cpp:53]   --->   Operation 113 'load' 'f_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_9 : Operation 114 [1/4] (2.66ns)   --->   "%c_load = load i10* %c_addr_1, align 2" [qspline.cpp:53]   --->   Operation 114 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_9 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln53_9 = zext i10 %c_load to i30" [qspline.cpp:53]   --->   Operation 115 'zext' 'zext_ln53_9' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 116 [1/1] (5.79ns) (root node of the DSP)   --->   "%mul_ln53_3 = mul i30 %zext_ln53_9, %zext_ln53_6" [qspline.cpp:53]   --->   Operation 116 'mul' 'mul_ln53_3' <Predicate = true> <Delay = 5.79> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_9 : Operation 117 [1/1] (0.00ns)   --->   "%trunc_ln53 = trunc i30 %mul_ln53_3 to i29" [qspline.cpp:53]   --->   Operation 117 'trunc' 'trunc_ln53' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 118 [1/4] (2.66ns)   --->   "%e_load = load i10* %e_addr_1, align 2" [qspline.cpp:53]   --->   Operation 118 'load' 'e_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_9 : Operation 119 [1/1] (0.00ns)   --->   "%zext_ln53_5 = zext i10 %e_load to i32" [qspline.cpp:53]   --->   Operation 119 'zext' 'zext_ln53_5' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 120 [1/1] (0.00ns)   --->   "%tmp_1 = call i22 @_ssdm_op_BitConcatenate.i22.i20.i2(i20 %mul_ln53_4, i2 0)" [qspline.cpp:53]   --->   Operation 120 'bitconcatenate' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 121 [1/1] (0.00ns)   --->   "%zext_ln53_12 = zext i22 %tmp_1 to i32" [qspline.cpp:53]   --->   Operation 121 'zext' 'zext_ln53_12' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 122 [1/1] (1.59ns)   --->   "%tmp5 = add i32 %zext_ln53_12, %zext_ln53_5" [qspline.cpp:53]   --->   Operation 122 'add' 'tmp5' <Predicate = true> <Delay = 1.59> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 10 <SV = 8> <Delay = 8.36>
-ST_10 : Operation 123 [1/1] (0.00ns)   --->   "%zext_ln53_1 = zext i10 %b_load to i32" [qspline.cpp:53]   --->   Operation 123 'zext' 'zext_ln53_1' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 124 [1/1] (0.00ns)   --->   "%zext_ln53_3 = zext i10 %f_load to i32" [qspline.cpp:53]   --->   Operation 124 'zext' 'zext_ln53_3' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 125 [1/1] (0.00ns)   --->   "%shl_ln = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %trunc_ln53, i3 0)" [qspline.cpp:53]   --->   Operation 125 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 126 [1/1] (0.00ns)   --->   "%tmp = call i31 @_ssdm_op_BitConcatenate.i31.i30.i1(i30 %mul_ln53_3, i1 false)" [qspline.cpp:53]   --->   Operation 126 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 127 [1/1] (0.00ns)   --->   "%zext_ln53_10 = zext i31 %tmp to i32" [qspline.cpp:53]   --->   Operation 127 'zext' 'zext_ln53_10' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 128 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln53 = sub i32 %shl_ln, %zext_ln53_10" [qspline.cpp:53]   --->   Operation 128 'sub' 'sub_ln53' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_10 : Operation 129 [1/1] (1.78ns)   --->   "%add_ln53 = add i32 %mul_ln53_2, %zext_ln53_1" [qspline.cpp:53]   --->   Operation 129 'add' 'add_ln53' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 130 [1/1] (6.58ns)   --->   "%mul_ln53_5 = mul i32 %add_ln53, %zext_ln53_1" [qspline.cpp:53]   --->   Operation 130 'mul' 'mul_ln53_5' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 131 [1/1] (5.01ns)   --->   "%tmp6 = mul i32 %tmp5, %zext_ln53_3" [qspline.cpp:53]   --->   Operation 131 'mul' 'tmp6' <Predicate = true> <Delay = 5.01> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 132 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%tmp4 = add i32 %tmp6, %sub_ln53" [qspline.cpp:53]   --->   Operation 132 'add' 'tmp4' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-
-State 11 <SV = 9> <Delay = 6.58>
-ST_11 : Operation 133 [1/1] (6.58ns)   --->   "%tmp3 = mul i32 %tmp4, %zext_ln53_3" [qspline.cpp:53]   --->   Operation 133 'mul' 'tmp3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 12 <SV = 10> <Delay = 8.36>
-ST_12 : Operation 134 [1/1] (6.58ns)   --->   "%tmp8 = mul i32 %zext_ln53_3, %tmp3" [qspline.cpp:53]   --->   Operation 134 'mul' 'tmp8' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 135 [1/1] (1.78ns)   --->   "%add_ln53_1 = add i32 %tmp8, %mul_ln53_5" [qspline.cpp:53]   --->   Operation 135 'add' 'add_ln53_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 13 <SV = 11> <Delay = 2.66>
-ST_13 : Operation 136 [1/1] (0.00ns)   --->   "%out_addr_2 = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %zext_ln53" [qspline.cpp:53]   --->   Operation 136 'getelementptr' 'out_addr_2' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 137 [2/2] (2.66ns)   --->   "store i32 %add_ln53_1, i32* %out_addr_2, align 4" [qspline.cpp:53]   --->   Operation 137 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 14 <SV = 12> <Delay = 2.66>
-ST_14 : Operation 138 [1/2] (2.66ns)   --->   "store i32 %add_ln53_1, i32* %out_addr_2, align 4" [qspline.cpp:53]   --->   Operation 138 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_14 : Operation 139 [1/1] (0.00ns)   --->   "br label %.preheader" [qspline.cpp:52]   --->   Operation 139 'br' <Predicate = true> <Delay = 0.00>
-
-State 15 <SV = 3> <Delay = 2.66>
-ST_15 : Operation 140 [3/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [qspline.cpp:62]   --->   Operation 140 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 16 <SV = 4> <Delay = 2.66>
-ST_16 : Operation 141 [2/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [qspline.cpp:62]   --->   Operation 141 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 17 <SV = 5> <Delay = 2.66>
-ST_17 : Operation 142 [1/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [qspline.cpp:62]   --->   Operation 142 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_17 : Operation 143 [1/1] (0.00ns)   --->   "ret i32 %v" [qspline.cpp:73]   --->   Operation 143 'ret' <Predicate = true> <Delay = 0.00>
+State 6 <SV = 2> <Delay = 1.15>
+ST_6 : Operation 78 [1/2] (1.15ns)   --->   "%v = load i32* %out_addr, align 4" [qspline.cpp:21]   --->   Operation 78 'load' 'v' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "ret i32 %v" [qspline.cpp:32]   --->   Operation 79 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -263,82 +176,38 @@ ST_17 : Operation 143 [1/1] (0.00ns)   --->   "ret i32 %v" [qspline.cpp:73]   --
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.06ns
+ <State 1>: 0.603ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('k') with incoming values : ('k', qspline.cpp:37) [15]  (1.06 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', qspline.cpp:9) [22]  (0.603 ns)
 
- <State 2>: 2.66ns
+ <State 2>: 1.16ns
 The critical path consists of the following:
-	'phi' operation ('k') with incoming values : ('k', qspline.cpp:37) [15]  (0 ns)
-	'store' operation ('store_ln38', qspline.cpp:38) of variable 'trunc_ln37', qspline.cpp:37 on array 'a', qspline.cpp:28 [24]  (2.66 ns)
+	'load' operation ('v', qspline.cpp:21) on array 'out_r' [79]  (1.16 ns)
 
- <State 3>: 2.66ns
+ <State 3>: 1.16ns
 The critical path consists of the following:
-	'store' operation ('store_ln38', qspline.cpp:38) of variable 'trunc_ln37', qspline.cpp:37 on array 'a', qspline.cpp:28 [24]  (2.66 ns)
+	'phi' operation ('k') with incoming values : ('k', qspline.cpp:11) [30]  (0 ns)
+	'getelementptr' operation ('b_addr', qspline.cpp:12) [37]  (0 ns)
+	'load' operation ('b_load', qspline.cpp:12) on array 'b' [38]  (1.16 ns)
 
- <State 4>: 2.66ns
+ <State 4>: 8.26ns
 The critical path consists of the following:
-	'getelementptr' operation ('out_addr_1', qspline.cpp:62) [105]  (0 ns)
-	'load' operation ('v', qspline.cpp:62) on array 'out', qspline.cpp:35 [106]  (2.66 ns)
+	'load' operation ('b_load', qspline.cpp:12) on array 'b' [38]  (1.16 ns)
+	'mul' operation of DSP[63] ('mul_ln12_4', qspline.cpp:12) [63]  (2.53 ns)
+	'add' operation ('tmp4', qspline.cpp:12) [67]  (0.669 ns)
+	'mul' operation ('tmp5', qspline.cpp:12) [68]  (3.17 ns)
+	'add' operation ('tmp3', qspline.cpp:12) [69]  (0.731 ns)
 
- <State 5>: 2.66ns
+ <State 5>: 7.53ns
 The critical path consists of the following:
-	'phi' operation ('k') with incoming values : ('k', qspline.cpp:52) [49]  (0 ns)
-	'getelementptr' operation ('b_addr_1', qspline.cpp:53) [56]  (0 ns)
-	'load' operation ('b_load', qspline.cpp:53) on array 'b', qspline.cpp:29 [57]  (2.66 ns)
+	'mul' operation of DSP[70] ('tmp8', qspline.cpp:12) [70]  (2.53 ns)
+	'mul' operation ('tmp7', qspline.cpp:12) [71]  (3.17 ns)
+	'add' operation ('add_ln12_1', qspline.cpp:12) [72]  (0.669 ns)
+	'store' operation ('store_ln12', qspline.cpp:12) of variable 'add_ln12_1', qspline.cpp:12 on array 'out_r' [74]  (1.16 ns)
 
- <State 6>: 2.66ns
+ <State 6>: 1.16ns
 The critical path consists of the following:
-	'load' operation ('b_load', qspline.cpp:53) on array 'b', qspline.cpp:29 [57]  (2.66 ns)
-
- <State 7>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('b_load', qspline.cpp:53) on array 'b', qspline.cpp:29 [57]  (2.66 ns)
-
- <State 8>: 8.45ns
-The critical path consists of the following:
-	'load' operation ('b_load', qspline.cpp:53) on array 'b', qspline.cpp:29 [57]  (2.66 ns)
-	'mul' operation of DSP[63] ('mul_ln53', qspline.cpp:53) [63]  (5.79 ns)
-
- <State 9>: 8.45ns
-The critical path consists of the following:
-	'load' operation ('c_load', qspline.cpp:53) on array 'c', qspline.cpp:30 [73]  (2.66 ns)
-	'mul' operation of DSP[75] ('mul_ln53_3', qspline.cpp:53) [75]  (5.79 ns)
-
- <State 10>: 8.37ns
-The critical path consists of the following:
-	'add' operation ('add_ln53', qspline.cpp:53) [90]  (1.78 ns)
-	'mul' operation ('mul_ln53_5', qspline.cpp:53) [91]  (6.58 ns)
-
- <State 11>: 6.58ns
-The critical path consists of the following:
-	'mul' operation ('tmp3', qspline.cpp:53) [95]  (6.58 ns)
-
- <State 12>: 8.37ns
-The critical path consists of the following:
-	'mul' operation ('tmp8', qspline.cpp:53) [96]  (6.58 ns)
-	'add' operation ('add_ln53_1', qspline.cpp:53) [97]  (1.78 ns)
-
- <State 13>: 2.66ns
-The critical path consists of the following:
-	'getelementptr' operation ('out_addr_2', qspline.cpp:53) [98]  (0 ns)
-	'store' operation ('store_ln53', qspline.cpp:53) of variable 'add_ln53_1', qspline.cpp:53 on array 'out', qspline.cpp:35 [99]  (2.66 ns)
-
- <State 14>: 2.66ns
-The critical path consists of the following:
-	'store' operation ('store_ln53', qspline.cpp:53) of variable 'add_ln53_1', qspline.cpp:53 on array 'out', qspline.cpp:35 [99]  (2.66 ns)
-
- <State 15>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', qspline.cpp:62) on array 'out', qspline.cpp:35 [106]  (2.66 ns)
-
- <State 16>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', qspline.cpp:62) on array 'out', qspline.cpp:35 [106]  (2.66 ns)
-
- <State 17>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', qspline.cpp:62) on array 'out', qspline.cpp:35 [106]  (2.66 ns)
+	'load' operation ('v', qspline.cpp:21) on array 'out_r' [79]  (1.16 ns)
 
 
 ============================================================
@@ -355,17 +224,6 @@ N/A
 	State 4
 	State 5
 	State 6
-	State 7
-	State 8
-	State 9
-	State 10
-	State 11
-	State 12
-	State 13
-	State 14
-	State 15
-	State 16
-	State 17
 
 
 ============================================================

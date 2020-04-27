@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Qspline/proj/sol/./sim/autowrap/testbench/qspline.cpp_pre.cpp.tb.cpp

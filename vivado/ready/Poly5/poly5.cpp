@@ -1,41 +1,8 @@
 #include "poly5.h"
 
-int main(int argc, char *argv[]) {
-
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-
-    if(test & 1)
-        poly5(idx);
-   /* if(test & 2)
-        poly5_openmp(idx);
-    if(test & 4)
-        poly5_cgra(idx,2);*/
-
-    return 0;
-}
-
-int poly5(int idx) {
+int poly5(int16_t a[DATA_SIZE], int16_t b[DATA_SIZE], int16_t c[DATA_SIZE], int32_t out[DATA_SIZE]) {
 
     //unsigned short *a, *b, *c, *out;
-
-    int a[DATA_SIZE];
-    int b[DATA_SIZE];
-    int c[DATA_SIZE];
-    int out[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        a[k] = k;
-        b[k] = k;
-        c[k] = k;
-        out[k] = 0;
-    }
 
     //high_resolution_clock::time_point s;
     //duration<double> diff = {};
@@ -53,7 +20,7 @@ int poly5(int idx) {
 
    // printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
-    int v = out[idx];
+    int v = out[0];
 
     /*delete a;
     delete b;

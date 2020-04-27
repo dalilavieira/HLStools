@@ -2,8 +2,8 @@ set clock_constraint { \
     name clk \
     module sgfilter \
     port ap_clk \
-    period 5 \
-    uncertainty 0.625 \
+    period 10 \
+    uncertainty 1.25 \
 }
 
 set all_path {}

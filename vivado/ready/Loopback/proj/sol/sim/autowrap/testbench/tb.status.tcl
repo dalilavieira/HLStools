@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Loopback/proj/sol/./sim/autowrap/testbench/loopback.cpp_pre.cpp.tb.cpp

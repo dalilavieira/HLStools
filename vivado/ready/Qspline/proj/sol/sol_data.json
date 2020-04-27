@@ -7,22 +7,125 @@
   "GenerateBdFiles": "0",
   "HostMachineBits": "64",
   "Target": {
-    "Family": "kintex7",
-    "Device": "xc7k160t",
-    "Package": "-fbg484",
-    "Speed": "-1"
+    "Family": "virtexuplus",
+    "Device": "xcvu9p",
+    "Package": "-flgb2104",
+    "Speed": "-2-i"
   },
   "HlsSolution": {
     
   },
-  "Args": {"idx": {
+  "Args": {
+    "a": {
       "index": "0",
       "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "a_address0",
+          "a_q0"
+        ]
+      }
+    },
+    "b": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "b_address0",
+          "b_q0"
+        ]
+      }
+    },
+    "c": {
+      "index": "2",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "c_address0",
+          "c_q0"
+        ]
+      }
+    },
+    "d": {
+      "index": "3",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "d_address0",
+          "d_address1",
+          "d_d0",
+          "d_d1",
+          "d_q0",
+          "d_q1"
+        ]
+      }
+    },
+    "e": {
+      "index": "4",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "e_address0",
+          "e_q0"
+        ]
+      }
+    },
+    "f": {
+      "index": "5",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "f_address0",
+          "f_q0"
+        ]
+      }
+    },
+    "g": {
+      "index": "6",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "g_address0",
+          "g_q0"
+        ]
+      }
+    },
+    "out": {
+      "index": "7",
+      "type": {
+        "kinds": ["array"],
         "dataType": "int",
         "dataWidth": "32",
-        "interfaceRef": "idx"
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "out_r_address0",
+          "out_r_d0",
+          "out_r_q0"
+        ]
       }
-    }},
+    }
+  },
   "Return": {
     "dataType": "int",
     "dataWidth": "32",
@@ -33,7 +136,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "8405385421",
+    "Latency": "30202",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -51,23 +154,19 @@
   "Files": {
     "CSource": ["..\/..\/qspline.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/qspline_a.vhd",
-      "impl\/vhdl\/qspline_mul_mul_10ns_10ns_20_1_1.vhd",
-      "impl\/vhdl\/qspline_mul_mul_10ns_20ns_30_1_1.vhd",
-      "impl\/vhdl\/qspline_out.vhd",
+      "impl\/vhdl\/qspline_mul_mul_16s_16s_30_1_1.vhd",
+      "impl\/vhdl\/qspline_mul_mul_16s_16s_32_1_1.vhd",
       "impl\/vhdl\/qspline.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/qspline_a.v",
-      "impl\/verilog\/qspline_mul_mul_10ns_10ns_20_1_1.v",
-      "impl\/verilog\/qspline_mul_mul_10ns_20ns_30_1_1.v",
-      "impl\/verilog\/qspline_out.v",
+      "impl\/verilog\/qspline_mul_mul_16s_16s_30_1_1.v",
+      "impl\/verilog\/qspline_mul_mul_16s_16s_32_1_1.v",
       "impl\/verilog\/qspline.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/vivado\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.autopilot\/db\/qspline.design.xml",
-    "DebugDir": "\/home\/vivado\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.debug",
-    "ProtoInst": ["\/home\/vivado\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.debug\/qspline.protoinst"]
+    "DesignXml": "\/home\/dalila\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.autopilot\/db\/qspline.design.xml",
+    "DebugDir": "\/home\/dalila\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.debug",
+    "ProtoInst": ["\/home\/dalila\/HLStools\/vivado\/ready\/Qspline\/proj\/sol\/.debug\/qspline.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -75,6 +174,28 @@
     "IP": []
   },
   "Interfaces": {
+    "a_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "address0"
+    },
+    "a_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "q0"
+    },
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
@@ -110,7 +231,205 @@
       "bundle_name": "ap_rst",
       "bundle_role": "default"
     },
-    "idx": {
+    "b_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "address0"
+    },
+    "b_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "q0"
+    },
+    "c_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "c",
+      "bundle_role": "address0"
+    },
+    "c_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "c",
+      "bundle_role": "q0"
+    },
+    "d_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "address0"
+    },
+    "d_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "address1"
+    },
+    "d_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "d0"
+    },
+    "d_d1": {
+      "type": "data",
+      "dir": "out",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "d1"
+    },
+    "d_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "q0"
+    },
+    "d_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "d",
+      "bundle_role": "q1"
+    },
+    "e_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "e",
+      "bundle_role": "address0"
+    },
+    "e_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "e",
+      "bundle_role": "q0"
+    },
+    "f_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "f",
+      "bundle_role": "address0"
+    },
+    "f_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "f",
+      "bundle_role": "q0"
+    },
+    "g_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "g",
+      "bundle_role": "address0"
+    },
+    "g_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "g",
+      "bundle_role": "q0"
+    },
+    "out_r_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "out_r",
+      "bundle_role": "address0"
+    },
+    "out_r_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "out_r",
+      "bundle_role": "d0"
+    },
+    "out_r_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -118,8 +437,8 @@
           "Type": "integer signed",
           "Width": "32"
         }},
-      "bundle_name": "idx",
-      "bundle_role": "default"
+      "bundle_name": "out_r",
+      "bundle_role": "q0"
     }
   },
   "RtlPorts": {
@@ -151,7 +470,135 @@
       "dir": "out",
       "width": "32"
     },
-    "idx": {
+    "a_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "a_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "a_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "b_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "b_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "c_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "c_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "c_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "d_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "d_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "d_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "d_d0": {
+      "dir": "out",
+      "width": "16"
+    },
+    "d_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "d_address1": {
+      "dir": "out",
+      "width": "7"
+    },
+    "d_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "d_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "d_d1": {
+      "dir": "out",
+      "width": "16"
+    },
+    "d_q1": {
+      "dir": "in",
+      "width": "16"
+    },
+    "e_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "e_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "e_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "f_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "f_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "f_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "g_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "g_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "g_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "out_r_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "out_r_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "out_r_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "out_r_d0": {
+      "dir": "out",
+      "width": "32"
+    },
+    "out_r_q0": {
       "dir": "in",
       "width": "32"
     }
@@ -167,46 +614,37 @@
       }},
     "Metrics": {"qspline": {
         "Latency": {
-          "LatencyBest": "8405385421",
-          "LatencyAvg": "8405385421",
-          "LatencyWorst": "8405385421",
-          "PipelineII": "8405385422",
+          "LatencyBest": "30202",
+          "LatencyAvg": "30202",
+          "LatencyWorst": "30202",
+          "PipelineII": "30203",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.454"
+          "Estimate": "8.261"
         },
-        "Loops": [
-          {
+        "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "8388608",
-            "Latency": "16777216",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 2",
             "TripCount": "100",
-            "Latency": "8388608200",
+            "Latency": "30200",
             "PipelineII": "",
-            "PipelineDepth": "83886082",
+            "PipelineDepth": "302",
             "Loops": [{
-                "Name": "Loop 2.1",
-                "TripCount": "8388608",
-                "Latency": "83886080",
+                "Name": "Loop 1.1",
+                "TripCount": "100",
+                "Latency": "300",
                 "PipelineII": "",
-                "PipelineDepth": "10"
+                "PipelineDepth": "3"
               }]
-          }
-        ],
+          }],
         "Area": {
-          "BRAM_18K": "47104",
-          "DSP48E": "13",
-          "FF": "676",
-          "LUT": "653",
+          "DSP48E": "16",
+          "FF": "169",
+          "LUT": "367",
+          "BRAM_18K": "0",
           "URAM": "0"
         }
       }}
@@ -221,7 +659,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-04-20 17:52:47 UTC",
+    "Time": "2020-04-27 13:57:50 -03",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }

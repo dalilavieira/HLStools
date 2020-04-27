@@ -3,13 +3,13 @@
 ================================================================
 == Vivado HLS Report for 'poly6'
 ================================================================
-* Date:           Mon Apr 20 17:42:09 2020
+* Date:           Mon Apr 27 12:14:47 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        proj
 * Solution:       sol
-* Product family: kintex7
-* Target device:  xc7k160t-fbg484-1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
 
 
 ================================================================
@@ -20,31 +20,30 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |   5.00|     4.300|        0.62|
+    |ap_clk  |  10.00|     7.678|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +-------------+-------------+-------------+-------------+---------+
-    |          Latency          |          Interval         | Pipeline|
-    |     min     |     max     |     min     |     max     |   Type  |
-    +-------------+-------------+-------------+-------------+---------+
-    |  24343740621|  24343740621|  24343740621|  24343740621|   none  |
-    +-------------+-------------+-------------+-------------+---------+
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  40202|  40202|  40202|  40202|   none  |
+    +-------+-------+-------+-------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-------------+-------------+-------------+-----------+-----------+-----------+---------+----------+
-        |             |          Latency          | Iteration |  Initiation Interval  |   Trip  |          |
-        |  Loop Name  |     min     |     max     |  Latency  |  achieved |   target  |  Count  | Pipelined|
-        +-------------+-------------+-------------+-----------+-----------+-----------+---------+----------+
-        |- Loop 1     |     16777216|     16777216|          2|          -|          -|  8388608|    no    |
-        |- Loop 2     |  24326963400|  24326963400|  243269634|          -|          -|      100|    no    |
-        | + Loop 2.1  |    243269632|    243269632|         29|          -|          -|  8388608|    no    |
-        +-------------+-------------+-------------+-----------+-----------+-----------+---------+----------+
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |             |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  40200|  40200|       402|          -|          -|   100|    no    |
+        | + Loop 1.1  |    400|    400|         4|          -|          -|   100|    no    |
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -72,446 +71,168 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 36
+* Number of FSM states : 7
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
-2 --> 3 4 
-3 --> 2 
-4 --> 34 5 
-5 --> 6 4 
-6 --> 7 
-7 --> 8 
-8 --> 9 
-9 --> 10 
-10 --> 11 
-11 --> 12 
-12 --> 13 
-13 --> 14 
-14 --> 15 
-15 --> 16 
-16 --> 17 
-17 --> 18 
-18 --> 19 
-19 --> 20 
-20 --> 21 
-21 --> 22 
-22 --> 23 
-23 --> 24 
-24 --> 25 
-25 --> 26 
-26 --> 27 
-27 --> 28 
-28 --> 29 
-29 --> 30 
-30 --> 31 
-31 --> 32 
-32 --> 33 
-33 --> 5 
-34 --> 35 
-35 --> 36 
-36 --> 
+2 --> 7 3 
+3 --> 4 2 
+4 --> 5 
+5 --> 6 
+6 --> 3 
+7 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.06>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %idx) nounwind, !map !13"   --->   Operation 37 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 38 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([6 x i8]* @poly6_str) nounwind"   --->   Operation 39 'spectopmodule' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%idx_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %idx) nounwind"   --->   Operation 40 'read' 'idx_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%a = alloca [8388608 x i24], align 4" [poly6.cpp:28]   --->   Operation 41 'alloca' 'a' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%b = alloca [8388608 x i24], align 4" [poly6.cpp:29]   --->   Operation 42 'alloca' 'b' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%c = alloca [8388608 x i24], align 4" [poly6.cpp:30]   --->   Operation 43 'alloca' 'c' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%out = alloca [8388608 x i32], align 16" [poly6.cpp:31]   --->   Operation 44 'alloca' 'out' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_1 : Operation 45 [1/1] (1.06ns)   --->   "br label %1" [poly6.cpp:33]   --->   Operation 45 'br' <Predicate = true> <Delay = 1.06>
+State 1 <SV = 0> <Delay = 0.60>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %a) nounwind, !map !7"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %b) nounwind, !map !13"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i16]* %c) nounwind, !map !17"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i32]* %out_r) nounwind, !map !21"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%out_addr = getelementptr [100 x i32]* %out_r, i64 0, i64 0" [poly6.cpp:3]   --->   Operation 12 'getelementptr' 'out_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !25"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([6 x i8]* @poly6_str) nounwind"   --->   Operation 14 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.60ns)   --->   "br label %.loopexit" [poly6.cpp:10]   --->   Operation 15 'br' <Predicate = true> <Delay = 0.60>
 
-State 2 <SV = 1> <Delay = 2.66>
-ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%k_0 = phi i24 [ 0, %0 ], [ %k, %2 ]"   --->   Operation 46 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 47 [1/1] (1.52ns)   --->   "%icmp_ln33 = icmp eq i24 %k_0, -8388608" [poly6.cpp:33]   --->   Operation 47 'icmp' 'icmp_ln33' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8388608, i64 8388608, i64 8388608) nounwind"   --->   Operation 48 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 49 [1/1] (1.63ns)   --->   "%k = add i24 %k_0, 1" [poly6.cpp:33]   --->   Operation 49 'add' 'k' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 50 [1/1] (0.00ns)   --->   "br i1 %icmp_ln33, label %.preheader1.preheader, label %2" [poly6.cpp:33]   --->   Operation 50 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln34 = zext i24 %k_0 to i64" [poly6.cpp:34]   --->   Operation 51 'zext' 'zext_ln34' <Predicate = (!icmp_ln33)> <Delay = 0.00>
-ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [8388608 x i24]* %a, i64 0, i64 %zext_ln34" [poly6.cpp:34]   --->   Operation 52 'getelementptr' 'a_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
-ST_2 : Operation 53 [2/2] (2.66ns)   --->   "store i24 %k_0, i24* %a_addr, align 4" [poly6.cpp:34]   --->   Operation 53 'store' <Predicate = (!icmp_ln33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%b_addr = getelementptr [8388608 x i24]* %b, i64 0, i64 %zext_ln34" [poly6.cpp:35]   --->   Operation 54 'getelementptr' 'b_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
-ST_2 : Operation 55 [2/2] (2.66ns)   --->   "store i24 %k_0, i24* %b_addr, align 4" [poly6.cpp:35]   --->   Operation 55 'store' <Predicate = (!icmp_ln33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%c_addr = getelementptr [8388608 x i24]* %c, i64 0, i64 %zext_ln34" [poly6.cpp:36]   --->   Operation 56 'getelementptr' 'c_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
-ST_2 : Operation 57 [2/2] (2.66ns)   --->   "store i24 %k_0, i24* %c_addr, align 4" [poly6.cpp:36]   --->   Operation 57 'store' <Predicate = (!icmp_ln33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%out_addr = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %zext_ln34" [poly6.cpp:37]   --->   Operation 58 'getelementptr' 'out_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
-ST_2 : Operation 59 [2/2] (2.66ns)   --->   "store i32 0, i32* %out_addr, align 4" [poly6.cpp:37]   --->   Operation 59 'store' <Predicate = (!icmp_ln33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_2 : Operation 60 [1/1] (1.06ns)   --->   "br label %.preheader1" [poly6.cpp:43]   --->   Operation 60 'br' <Predicate = (icmp_ln33)> <Delay = 1.06>
+State 2 <SV = 1> <Delay = 1.15>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 16 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.59ns)   --->   "%icmp_ln10 = icmp eq i7 %i_0, -28" [poly6.cpp:10]   --->   Operation 17 'icmp' 'icmp_ln10' <Predicate = true> <Delay = 0.59> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.59> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 18 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.40ns)   --->   "%i = add i7 %i_0, 1" [poly6.cpp:10]   --->   Operation 19 'add' 'i' <Predicate = true> <Delay = 0.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %icmp_ln10, label %2, label %.preheader.preheader" [poly6.cpp:10]   --->   Operation 20 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.60ns)   --->   "br label %.preheader" [poly6.cpp:12]   --->   Operation 21 'br' <Predicate = (!icmp_ln10)> <Delay = 0.60>
+ST_2 : Operation 22 [2/2] (1.15ns)   --->   "%v = load i32* %out_addr, align 4" [poly6.cpp:40]   --->   Operation 22 'load' 'v' <Predicate = (icmp_ln10)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
 
-State 3 <SV = 2> <Delay = 2.66>
-ST_3 : Operation 61 [1/2] (2.66ns)   --->   "store i24 %k_0, i24* %a_addr, align 4" [poly6.cpp:34]   --->   Operation 61 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 62 [1/2] (2.66ns)   --->   "store i24 %k_0, i24* %b_addr, align 4" [poly6.cpp:35]   --->   Operation 62 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 63 [1/2] (2.66ns)   --->   "store i24 %k_0, i24* %c_addr, align 4" [poly6.cpp:36]   --->   Operation 63 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 64 [1/2] (2.66ns)   --->   "store i32 0, i32* %out_addr, align 4" [poly6.cpp:37]   --->   Operation 64 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_3 : Operation 65 [1/1] (0.00ns)   --->   "br label %1" [poly6.cpp:33]   --->   Operation 65 'br' <Predicate = true> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 1.15>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%k_0 = phi i7 [ %k, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 23 'phi' 'k_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.59ns)   --->   "%icmp_ln12 = icmp eq i7 %k_0, -28" [poly6.cpp:12]   --->   Operation 24 'icmp' 'icmp_ln12' <Predicate = true> <Delay = 0.59> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.59> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 25 'speclooptripcount' 'empty_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.40ns)   --->   "%k = add i7 %k_0, 1" [poly6.cpp:12]   --->   Operation 26 'add' 'k' <Predicate = true> <Delay = 0.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln12, label %.loopexit.loopexit, label %1" [poly6.cpp:12]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln13 = zext i7 %k_0 to i64" [poly6.cpp:13]   --->   Operation 28 'zext' 'zext_ln13' <Predicate = (!icmp_ln12)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%b_addr = getelementptr [100 x i16]* %b, i64 0, i64 %zext_ln13" [poly6.cpp:13]   --->   Operation 29 'getelementptr' 'b_addr' <Predicate = (!icmp_ln12)> <Delay = 0.00>
+ST_3 : Operation 30 [2/2] (1.15ns)   --->   "%b_load = load i16* %b_addr, align 2" [poly6.cpp:13]   --->   Operation 30 'load' 'b_load' <Predicate = (!icmp_ln12)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%c_addr = getelementptr [100 x i16]* %c, i64 0, i64 %zext_ln13" [poly6.cpp:13]   --->   Operation 31 'getelementptr' 'c_addr' <Predicate = (!icmp_ln12)> <Delay = 0.00>
+ST_3 : Operation 32 [2/2] (1.15ns)   --->   "%c_load = load i16* %c_addr, align 2" [poly6.cpp:13]   --->   Operation 32 'load' 'c_load' <Predicate = (!icmp_ln12)> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 33 'br' <Predicate = (icmp_ln12)> <Delay = 0.00>
 
-State 4 <SV = 2> <Delay = 2.66>
-ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ %i, %.preheader1.loopexit ], [ 0, %.preheader1.preheader ]"   --->   Operation 66 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 67 [1/1] (1.18ns)   --->   "%icmp_ln43 = icmp eq i7 %i_0, -28" [poly6.cpp:43]   --->   Operation 67 'icmp' 'icmp_ln43' <Predicate = true> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) nounwind"   --->   Operation 68 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 69 [1/1] (1.37ns)   --->   "%i = add i7 %i_0, 1" [poly6.cpp:43]   --->   Operation 69 'add' 'i' <Predicate = true> <Delay = 1.37> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %icmp_ln43, label %4, label %.preheader.preheader" [poly6.cpp:43]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 71 [1/1] (1.06ns)   --->   "br label %.preheader" [poly6.cpp:45]   --->   Operation 71 'br' <Predicate = (!icmp_ln43)> <Delay = 1.06>
-ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%sext_ln73 = sext i32 %idx_read to i64" [poly6.cpp:73]   --->   Operation 72 'sext' 'sext_ln73' <Predicate = (icmp_ln43)> <Delay = 0.00>
-ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%out_addr_1 = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %sext_ln73" [poly6.cpp:73]   --->   Operation 73 'getelementptr' 'out_addr_1' <Predicate = (icmp_ln43)> <Delay = 0.00>
-ST_4 : Operation 74 [4/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [poly6.cpp:73]   --->   Operation 74 'load' 'v' <Predicate = (icmp_ln43)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
+State 4 <SV = 3> <Delay = 7.59>
+ST_4 : Operation 34 [1/2] (1.15ns)   --->   "%b_load = load i16* %b_addr, align 2" [poly6.cpp:13]   --->   Operation 34 'load' 'b_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%sext_ln13 = sext i16 %b_load to i32" [poly6.cpp:13]   --->   Operation 35 'sext' 'sext_ln13' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/2] (1.15ns)   --->   "%c_load = load i16* %c_addr, align 2" [poly6.cpp:13]   --->   Operation 36 'load' 'c_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%sext_ln13_1 = sext i16 %c_load to i32" [poly6.cpp:13]   --->   Operation 37 'sext' 'sext_ln13_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%sext_ln13_3 = sext i16 %c_load to i23" [poly6.cpp:13]   --->   Operation 38 'sext' 'sext_ln13_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%sext_ln13_4 = sext i16 %c_load to i17" [poly6.cpp:13]   --->   Operation 39 'sext' 'sext_ln13_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%sext_ln13_5 = sext i16 %c_load to i28" [poly6.cpp:13]   --->   Operation 40 'sext' 'sext_ln13_5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%sext_ln13_6 = sext i16 %c_load to i25" [poly6.cpp:13]   --->   Operation 41 'sext' 'sext_ln13_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%shl_ln = call i19 @_ssdm_op_BitConcatenate.i19.i16.i3(i16 %b_load, i3 0)" [poly6.cpp:13]   --->   Operation 42 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%sext_ln13_7 = sext i19 %shl_ln to i20" [poly6.cpp:13]   --->   Operation 43 'sext' 'sext_ln13_7' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.56ns)   --->   "%tmp = add i20 %sext_ln13_7, 126144" [poly6.cpp:13]   --->   Operation 44 'add' 'tmp' <Predicate = true> <Delay = 0.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%tmp_cast = sext i20 %tmp to i32" [poly6.cpp:13]   --->   Operation 45 'sext' 'tmp_cast' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.49ns) (grouped into DSP with root node tmp12)   --->   "%mul_ln13 = mul i32 %sext_ln13, %tmp_cast" [poly6.cpp:13]   --->   Operation 46 'mul' 'mul_ln13' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [100 x i16]* %a, i64 0, i64 %zext_ln13" [poly6.cpp:13]   --->   Operation 47 'getelementptr' 'a_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [2/2] (1.15ns)   --->   "%a_load = load i16* %a_addr, align 2" [poly6.cpp:13]   --->   Operation 48 'load' 'a_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%p_shl = call i17 @_ssdm_op_BitConcatenate.i17.i16.i1(i16 %b_load, i1 false)" [poly6.cpp:13]   --->   Operation 49 'bitconcatenate' 'p_shl' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%p_shl11_cast = sext i17 %p_shl to i18" [poly6.cpp:13]   --->   Operation 50 'sext' 'p_shl11_cast' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.59ns)   --->   "%add_ln13_10 = add i18 %p_shl11_cast, -432" [poly6.cpp:13]   --->   Operation 51 'add' 'add_ln13_10' <Predicate = true> <Delay = 0.59> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%sext_ln13_8 = sext i18 %add_ln13_10 to i20" [poly6.cpp:13]   --->   Operation 52 'sext' 'sext_ln13_8' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.56ns)   --->   "%add_ln13 = add i20 %sext_ln13_7, %sext_ln13_8" [poly6.cpp:13]   --->   Operation 53 'add' 'add_ln13' <Predicate = true> <Delay = 0.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%sext_ln13_9 = sext i20 %add_ln13 to i32" [poly6.cpp:13]   --->   Operation 54 'sext' 'sext_ln13_9' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (2.53ns) (root node of the DSP)   --->   "%mul_ln13_1 = mul i32 %sext_ln13, %sext_ln13" [poly6.cpp:13]   --->   Operation 55 'mul' 'mul_ln13_1' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 56 [1/1] (3.17ns)   --->   "%mul_ln13_2 = mul i32 %sext_ln13_9, %mul_ln13_1" [poly6.cpp:13]   --->   Operation 56 'mul' 'mul_ln13_2' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 57 [1/1] (0.49ns) (grouped into DSP with root node add_ln13_1)   --->   "%mul_ln13_3 = mul i25 %sext_ln13_6, 414" [poly6.cpp:13]   --->   Operation 57 'mul' 'mul_ln13_3' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 58 [1/1] (2.03ns) (root node of the DSP)   --->   "%add_ln13_1 = add i25 %mul_ln13_3, -20736" [poly6.cpp:13]   --->   Operation 58 'add' 'add_ln13_1' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%sext_ln13_10 = sext i25 %add_ln13_1 to i32" [poly6.cpp:13]   --->   Operation 59 'sext' 'sext_ln13_10' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.49ns) (grouped into DSP with root node add_ln13_2)   --->   "%mul_ln13_4 = mul i28 %sext_ln13_5, 3456" [poly6.cpp:13]   --->   Operation 60 'mul' 'mul_ln13_4' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 61 [1/1] (2.03ns) (root node of the DSP)   --->   "%add_ln13_2 = add i28 %mul_ln13_4, -1492992" [poly6.cpp:13]   --->   Operation 61 'add' 'add_ln13_2' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%sext_ln13_11 = sext i28 %add_ln13_2 to i32" [poly6.cpp:13]   --->   Operation 62 'sext' 'sext_ln13_11' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (0.00ns) (grouped into DSP with root node add_ln13_5)   --->   "%add_ln13_3 = add i17 %sext_ln13_4, -32" [poly6.cpp:13]   --->   Operation 63 'add' 'add_ln13_3' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 64 [1/1] (0.00ns) (grouped into DSP with root node add_ln13_5)   --->   "%sext_ln13_12 = sext i17 %add_ln13_3 to i32" [poly6.cpp:13]   --->   Operation 64 'sext' 'sext_ln13_12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.49ns) (grouped into DSP with root node add_ln13_5)   --->   "%mul_ln13_5 = mul nsw i32 %sext_ln13, %sext_ln13_12" [poly6.cpp:13]   --->   Operation 65 'mul' 'mul_ln13_5' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 66 [1/1] (0.00ns) (grouped into DSP with root node mul_ln13_6)   --->   "%add_ln13_4 = add i17 %sext_ln13_4, -72" [poly6.cpp:13]   --->   Operation 66 'add' 'add_ln13_4' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 67 [1/1] (0.00ns) (grouped into DSP with root node mul_ln13_6)   --->   "%sext_ln13_13 = sext i17 %add_ln13_4 to i32" [poly6.cpp:13]   --->   Operation 67 'sext' 'sext_ln13_13' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (2.53ns) (root node of the DSP)   --->   "%mul_ln13_6 = mul nsw i32 %sext_ln13_1, %sext_ln13_13" [poly6.cpp:13]   --->   Operation 68 'mul' 'mul_ln13_6' <Predicate = true> <Delay = 2.53> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 69 [1/1] (2.03ns) (root node of the DSP)   --->   "%add_ln13_5 = add nsw i32 %mul_ln13_6, %mul_ln13_5" [poly6.cpp:13]   --->   Operation 69 'add' 'add_ln13_5' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 70 [1/1] (0.49ns) (grouped into DSP with root node add_ln13_6)   --->   "%mul_ln13_8 = mul i23 %sext_ln13_3, 87" [poly6.cpp:13]   --->   Operation 70 'mul' 'mul_ln13_8' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 71 [1/1] (2.03ns) (root node of the DSP)   --->   "%add_ln13_6 = add i23 %mul_ln13_8, 2592" [poly6.cpp:13]   --->   Operation 71 'add' 'add_ln13_6' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%sext_ln13_14 = sext i23 %add_ln13_6 to i32" [poly6.cpp:13]   --->   Operation 72 'sext' 'sext_ln13_14' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (0.00ns) (grouped into DSP with root node add_ln13_8)   --->   "%add_ln13_7 = add i17 %sext_ln13_4, -864" [poly6.cpp:13]   --->   Operation 73 'add' 'add_ln13_7' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 74 [1/1] (0.00ns) (grouped into DSP with root node add_ln13_8)   --->   "%sext_ln13_15 = sext i17 %add_ln13_7 to i32" [poly6.cpp:13]   --->   Operation 74 'sext' 'sext_ln13_15' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.49ns) (grouped into DSP with root node add_ln13_8)   --->   "%mul_ln13_9 = mul nsw i32 %sext_ln13_1, %sext_ln13_15" [poly6.cpp:13]   --->   Operation 75 'mul' 'mul_ln13_9' <Predicate = true> <Delay = 0.49> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 76 [1/1] (2.03ns) (root node of the DSP)   --->   "%add_ln13_8 = add nsw i32 %mul_ln13_9, -186624" [poly6.cpp:13]   --->   Operation 76 'add' 'add_ln13_8' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 77 [1/1] (0.66ns)   --->   "%sub_ln13 = sub i32 %add_ln13_8, %sext_ln13_14" [poly6.cpp:13]   --->   Operation 77 'sub' 'sub_ln13' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 78 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln13_1 = sub i32 %mul_ln13_2, %sext_ln13_11" [poly6.cpp:13]   --->   Operation 78 'sub' 'sub_ln13_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 79 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%sub_ln13_2 = sub i32 %sub_ln13_1, %sext_ln13_10" [poly6.cpp:13]   --->   Operation 79 'sub' 'sub_ln13_2' <Predicate = true> <Delay = 0.73> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 80 [1/1] (2.03ns) (root node of the DSP)   --->   "%tmp12 = add i32 %mul_ln13, 2985984" [poly6.cpp:13]   --->   Operation 80 'add' 'tmp12' <Predicate = true> <Delay = 2.03> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
 
-State 5 <SV = 3> <Delay = 2.66>
-ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%k1_0 = phi i24 [ %k_1, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 75 'phi' 'k1_0' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 76 [1/1] (1.52ns)   --->   "%icmp_ln45 = icmp eq i24 %k1_0, -8388608" [poly6.cpp:45]   --->   Operation 76 'icmp' 'icmp_ln45' <Predicate = true> <Delay = 1.52> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 77 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8388608, i64 8388608, i64 8388608) nounwind"   --->   Operation 77 'speclooptripcount' 'empty_4' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 78 [1/1] (1.63ns)   --->   "%k_1 = add i24 %k1_0, 1" [poly6.cpp:45]   --->   Operation 78 'add' 'k_1' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 79 [1/1] (0.00ns)   --->   "br i1 %icmp_ln45, label %.preheader1.loopexit, label %3" [poly6.cpp:45]   --->   Operation 79 'br' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln46 = zext i24 %k1_0 to i64" [poly6.cpp:46]   --->   Operation 80 'zext' 'zext_ln46' <Predicate = (!icmp_ln45)> <Delay = 0.00>
-ST_5 : Operation 81 [1/1] (0.00ns)   --->   "%b_addr_1 = getelementptr [8388608 x i24]* %b, i64 0, i64 %zext_ln46" [poly6.cpp:46]   --->   Operation 81 'getelementptr' 'b_addr_1' <Predicate = (!icmp_ln45)> <Delay = 0.00>
-ST_5 : Operation 82 [4/4] (2.66ns)   --->   "%b_load = load i24* %b_addr_1, align 4" [poly6.cpp:46]   --->   Operation 82 'load' 'b_load' <Predicate = (!icmp_ln45)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_5 : Operation 83 [1/1] (0.00ns)   --->   "%c_addr_1 = getelementptr [8388608 x i24]* %c, i64 0, i64 %zext_ln46" [poly6.cpp:46]   --->   Operation 83 'getelementptr' 'c_addr_1' <Predicate = (!icmp_ln45)> <Delay = 0.00>
-ST_5 : Operation 84 [4/4] (2.66ns)   --->   "%c_load = load i24* %c_addr_1, align 4" [poly6.cpp:46]   --->   Operation 84 'load' 'c_load' <Predicate = (!icmp_ln45)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_5 : Operation 85 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 85 'br' <Predicate = (icmp_ln45)> <Delay = 0.00>
+State 5 <SV = 4> <Delay = 7.67>
+ST_5 : Operation 81 [1/2] (1.15ns)   --->   "%a_load = load i16* %a_addr, align 2" [poly6.cpp:13]   --->   Operation 81 'load' 'a_load' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_5 : Operation 82 [1/1] (0.00ns)   --->   "%sext_ln13_2 = sext i16 %a_load to i32" [poly6.cpp:13]   --->   Operation 82 'sext' 'sext_ln13_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 83 [1/1] (3.17ns)   --->   "%mul_ln13_7 = mul i32 %add_ln13_5, %mul_ln13_1" [poly6.cpp:13]   --->   Operation 83 'mul' 'mul_ln13_7' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 84 [1/1] (3.17ns)   --->   "%mul_ln13_10 = mul i32 %sext_ln13_1, %sub_ln13" [poly6.cpp:13]   --->   Operation 84 'mul' 'mul_ln13_10' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 85 [1/1] (0.66ns)   --->   "%add_ln13_9 = add i32 %mul_ln13_10, %mul_ln13_7" [poly6.cpp:13]   --->   Operation 85 'add' 'add_ln13_9' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 86 [1/1] (3.17ns)   --->   "%mul_ln13_11 = mul nsw i32 %sext_ln13_2, %add_ln13_9" [poly6.cpp:13]   --->   Operation 86 'mul' 'mul_ln13_11' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 87 [1/1] (3.17ns)   --->   "%mul_ln13_12 = mul i32 %sext_ln13_1, %sub_ln13_2" [poly6.cpp:13]   --->   Operation 87 'mul' 'mul_ln13_12' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 88 [1/1] (0.66ns)   --->   "%sub_ln13_3 = sub i32 %mul_ln13_12, %mul_ln13_11" [poly6.cpp:13]   --->   Operation 88 'sub' 'sub_ln13_3' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 89 [1/1] (3.17ns)   --->   "%tmp13 = mul i32 %sext_ln13_1, %tmp12" [poly6.cpp:13]   --->   Operation 89 'mul' 'tmp13' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
 
-State 6 <SV = 4> <Delay = 2.66>
-ST_6 : Operation 86 [3/4] (2.66ns)   --->   "%b_load = load i24* %b_addr_1, align 4" [poly6.cpp:46]   --->   Operation 86 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_6 : Operation 87 [3/4] (2.66ns)   --->   "%c_load = load i24* %c_addr_1, align 4" [poly6.cpp:46]   --->   Operation 87 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
+State 6 <SV = 5> <Delay = 4.99>
+ST_6 : Operation 90 [1/1] (3.17ns)   --->   "%mul_ln13_13 = mul nsw i32 %sext_ln13_2, %sub_ln13_3" [poly6.cpp:13]   --->   Operation 90 'mul' 'mul_ln13_13' <Predicate = true> <Delay = 3.17> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 91 [1/1] (0.66ns)   --->   "%sub_ln13_4 = sub i32 %tmp13, %mul_ln13_13" [poly6.cpp:13]   --->   Operation 91 'sub' 'sub_ln13_4' <Predicate = true> <Delay = 0.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 92 [1/1] (0.00ns)   --->   "%out_addr_1 = getelementptr [100 x i32]* %out_r, i64 0, i64 %zext_ln13" [poly6.cpp:13]   --->   Operation 92 'getelementptr' 'out_addr_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 93 [1/1] (1.15ns)   --->   "store i32 %sub_ln13_4, i32* %out_addr_1, align 4" [poly6.cpp:13]   --->   Operation 93 'store' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "br label %.preheader" [poly6.cpp:12]   --->   Operation 94 'br' <Predicate = true> <Delay = 0.00>
 
-State 7 <SV = 5> <Delay = 2.66>
-ST_7 : Operation 88 [2/4] (2.66ns)   --->   "%b_load = load i24* %b_addr_1, align 4" [poly6.cpp:46]   --->   Operation 88 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_7 : Operation 89 [2/4] (2.66ns)   --->   "%c_load = load i24* %c_addr_1, align 4" [poly6.cpp:46]   --->   Operation 89 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 8 <SV = 6> <Delay = 4.30>
-ST_8 : Operation 90 [1/4] (2.66ns)   --->   "%b_load = load i24* %b_addr_1, align 4" [poly6.cpp:46]   --->   Operation 90 'load' 'b_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 91 [1/4] (2.66ns)   --->   "%c_load = load i24* %c_addr_1, align 4" [poly6.cpp:46]   --->   Operation 91 'load' 'c_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_8 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln46_3 = zext i24 %c_load to i25" [poly6.cpp:46]   --->   Operation 92 'zext' 'zext_ln46_3' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 93 [1/1] (1.63ns)   --->   "%add_ln46_3 = add i25 %zext_ln46_3, -32" [poly6.cpp:46]   --->   Operation 93 'add' 'add_ln46_3' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 94 [1/1] (1.63ns)   --->   "%add_ln46_4 = add i25 %zext_ln46_3, -72" [poly6.cpp:46]   --->   Operation 94 'add' 'add_ln46_4' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 95 [1/1] (1.63ns)   --->   "%add_ln46_7 = add i25 %zext_ln46_3, -864" [poly6.cpp:46]   --->   Operation 95 'add' 'add_ln46_7' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 9 <SV = 7> <Delay = 3.34>
-ST_9 : Operation 96 [1/1] (0.00ns)   --->   "%zext_ln46_1 = zext i24 %b_load to i32" [poly6.cpp:46]   --->   Operation 96 'zext' 'zext_ln46_1' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 97 [1/1] (0.00ns)   --->   "%zext_ln46_2 = zext i24 %c_load to i32" [poly6.cpp:46]   --->   Operation 97 'zext' 'zext_ln46_2' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 98 [1/1] (0.00ns)   --->   "%sext_ln46_2 = sext i25 %add_ln46_3 to i32" [poly6.cpp:46]   --->   Operation 98 'sext' 'sext_ln46_2' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 99 [4/4] (3.34ns)   --->   "%mul_ln46_5 = mul nsw i32 %sext_ln46_2, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 99 'mul' 'mul_ln46_5' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 100 [1/1] (0.00ns)   --->   "%sext_ln46_3 = sext i25 %add_ln46_4 to i32" [poly6.cpp:46]   --->   Operation 100 'sext' 'sext_ln46_3' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 101 [4/4] (3.34ns)   --->   "%mul_ln46_6 = mul nsw i32 %sext_ln46_3, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 101 'mul' 'mul_ln46_6' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 102 [1/1] (0.00ns)   --->   "%sext_ln46_4 = sext i25 %add_ln46_7 to i32" [poly6.cpp:46]   --->   Operation 102 'sext' 'sext_ln46_4' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 103 [4/4] (3.34ns)   --->   "%mul_ln46_9 = mul nsw i32 %sext_ln46_4, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 103 'mul' 'mul_ln46_9' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 10 <SV = 8> <Delay = 3.34>
-ST_10 : Operation 104 [4/4] (3.34ns)   --->   "%mul_ln46_1 = mul i32 %zext_ln46_1, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 104 'mul' 'mul_ln46_1' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 105 [3/4] (3.34ns)   --->   "%mul_ln46_5 = mul nsw i32 %sext_ln46_2, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 105 'mul' 'mul_ln46_5' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 106 [3/4] (3.34ns)   --->   "%mul_ln46_6 = mul nsw i32 %sext_ln46_3, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 106 'mul' 'mul_ln46_6' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln46_7 = zext i24 %c_load to i31" [poly6.cpp:46]   --->   Operation 107 'zext' 'zext_ln46_7' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 108 [3/3] (1.09ns) (grouped into DSP with root node add_ln46_6)   --->   "%mul_ln46_8 = mul i31 %zext_ln46_7, 87" [poly6.cpp:46]   --->   Operation 108 'mul' 'mul_ln46_8' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_10 : Operation 109 [3/4] (3.34ns)   --->   "%mul_ln46_9 = mul nsw i32 %sext_ln46_4, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 109 'mul' 'mul_ln46_9' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 11 <SV = 9> <Delay = 3.34>
-ST_11 : Operation 110 [3/4] (3.34ns)   --->   "%mul_ln46_1 = mul i32 %zext_ln46_1, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 110 'mul' 'mul_ln46_1' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_11 : Operation 111 [2/4] (3.34ns)   --->   "%mul_ln46_5 = mul nsw i32 %sext_ln46_2, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 111 'mul' 'mul_ln46_5' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_11 : Operation 112 [2/4] (3.34ns)   --->   "%mul_ln46_6 = mul nsw i32 %sext_ln46_3, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 112 'mul' 'mul_ln46_6' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_11 : Operation 113 [2/3] (1.09ns) (grouped into DSP with root node add_ln46_6)   --->   "%mul_ln46_8 = mul i31 %zext_ln46_7, 87" [poly6.cpp:46]   --->   Operation 113 'mul' 'mul_ln46_8' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_11 : Operation 114 [2/4] (3.34ns)   --->   "%mul_ln46_9 = mul nsw i32 %sext_ln46_4, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 114 'mul' 'mul_ln46_9' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 12 <SV = 10> <Delay = 3.34>
-ST_12 : Operation 115 [2/4] (3.34ns)   --->   "%mul_ln46_1 = mul i32 %zext_ln46_1, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 115 'mul' 'mul_ln46_1' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 116 [1/4] (3.34ns)   --->   "%mul_ln46_5 = mul nsw i32 %sext_ln46_2, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 116 'mul' 'mul_ln46_5' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 117 [1/4] (3.34ns)   --->   "%mul_ln46_6 = mul nsw i32 %sext_ln46_3, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 117 'mul' 'mul_ln46_6' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 118 [1/3] (0.00ns) (grouped into DSP with root node add_ln46_6)   --->   "%mul_ln46_8 = mul i31 %zext_ln46_7, 87" [poly6.cpp:46]   --->   Operation 118 'mul' 'mul_ln46_8' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_12 : Operation 119 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln46_6 = add i31 %mul_ln46_8, 2592" [poly6.cpp:46]   --->   Operation 119 'add' 'add_ln46_6' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_12 : Operation 120 [1/4] (3.34ns)   --->   "%mul_ln46_9 = mul nsw i32 %sext_ln46_4, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 120 'mul' 'mul_ln46_9' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 13 <SV = 11> <Delay = 3.34>
-ST_13 : Operation 121 [1/1] (0.00ns)   --->   "%shl_ln = call i27 @_ssdm_op_BitConcatenate.i27.i24.i3(i24 %b_load, i3 0)" [poly6.cpp:46]   --->   Operation 121 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 122 [1/1] (0.00ns)   --->   "%zext_ln46_4 = zext i27 %shl_ln to i29" [poly6.cpp:46]   --->   Operation 122 'zext' 'zext_ln46_4' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 123 [1/1] (0.00ns)   --->   "%zext_ln46_5 = zext i27 %shl_ln to i28" [poly6.cpp:46]   --->   Operation 123 'zext' 'zext_ln46_5' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 124 [1/1] (1.69ns)   --->   "%tmp = add i28 %zext_ln46_5, 126144" [poly6.cpp:46]   --->   Operation 124 'add' 'tmp' <Predicate = true> <Delay = 1.69> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 125 [1/1] (0.00ns)   --->   "%p_shl4 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %b_load, i1 false)" [poly6.cpp:46]   --->   Operation 125 'bitconcatenate' 'p_shl4' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 126 [1/1] (0.00ns)   --->   "%p_shl4_cast = zext i25 %p_shl4 to i26" [poly6.cpp:46]   --->   Operation 126 'zext' 'p_shl4_cast' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 127 [1/1] (1.65ns)   --->   "%add_ln46_10 = add i26 %p_shl4_cast, -432" [poly6.cpp:46]   --->   Operation 127 'add' 'add_ln46_10' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 128 [1/1] (0.00ns)   --->   "%sext_ln46 = sext i26 %add_ln46_10 to i29" [poly6.cpp:46]   --->   Operation 128 'sext' 'sext_ln46' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 129 [1/1] (1.69ns)   --->   "%add_ln46 = add i29 %zext_ln46_4, %sext_ln46" [poly6.cpp:46]   --->   Operation 129 'add' 'add_ln46' <Predicate = true> <Delay = 1.69> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 130 [1/4] (3.34ns)   --->   "%mul_ln46_1 = mul i32 %zext_ln46_1, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 130 'mul' 'mul_ln46_1' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 131 [1/1] (1.78ns)   --->   "%add_ln46_5 = add nsw i32 %mul_ln46_6, %mul_ln46_5" [poly6.cpp:46]   --->   Operation 131 'add' 'add_ln46_5' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 132 [1/1] (0.00ns)   --->   "%zext_ln46_8 = zext i31 %add_ln46_6 to i32" [poly6.cpp:46]   --->   Operation 132 'zext' 'zext_ln46_8' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 133 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln46_8 = add nsw i32 %mul_ln46_9, -186624" [poly6.cpp:46]   --->   Operation 133 'add' 'add_ln46_8' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_13 : Operation 134 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln46 = sub i32 %add_ln46_8, %zext_ln46_8" [poly6.cpp:46]   --->   Operation 134 'sub' 'sub_ln46' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-
-State 14 <SV = 12> <Delay = 3.79>
-ST_14 : Operation 135 [1/1] (0.00ns)   --->   "%tmp_cast = zext i28 %tmp to i32" [poly6.cpp:46]   --->   Operation 135 'zext' 'tmp_cast' <Predicate = true> <Delay = 0.00>
-ST_14 : Operation 136 [5/5] (3.79ns)   --->   "%mul_ln46 = mul i32 %tmp_cast, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 136 'mul' 'mul_ln46' <Predicate = true> <Delay = 3.79> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_14 : Operation 137 [1/1] (0.00ns)   --->   "%sext_ln46_1 = sext i29 %add_ln46 to i32" [poly6.cpp:46]   --->   Operation 137 'sext' 'sext_ln46_1' <Predicate = true> <Delay = 0.00>
-ST_14 : Operation 138 [5/5] (3.34ns)   --->   "%mul_ln46_2 = mul i32 %sext_ln46_1, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 138 'mul' 'mul_ln46_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_14 : Operation 139 [5/5] (3.34ns)   --->   "%mul_ln46_7 = mul i32 %add_ln46_5, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 139 'mul' 'mul_ln46_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_14 : Operation 140 [5/5] (3.34ns)   --->   "%mul_ln46_10 = mul i32 %sub_ln46, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 140 'mul' 'mul_ln46_10' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 15 <SV = 13> <Delay = 3.79>
-ST_15 : Operation 141 [4/5] (3.79ns)   --->   "%mul_ln46 = mul i32 %tmp_cast, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 141 'mul' 'mul_ln46' <Predicate = true> <Delay = 3.79> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_15 : Operation 142 [4/5] (3.34ns)   --->   "%mul_ln46_2 = mul i32 %sext_ln46_1, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 142 'mul' 'mul_ln46_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_15 : Operation 143 [4/5] (3.34ns)   --->   "%mul_ln46_7 = mul i32 %add_ln46_5, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 143 'mul' 'mul_ln46_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_15 : Operation 144 [4/5] (3.34ns)   --->   "%mul_ln46_10 = mul i32 %sub_ln46, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 144 'mul' 'mul_ln46_10' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 16 <SV = 14> <Delay = 3.79>
-ST_16 : Operation 145 [3/5] (3.79ns)   --->   "%mul_ln46 = mul i32 %tmp_cast, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 145 'mul' 'mul_ln46' <Predicate = true> <Delay = 3.79> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_16 : Operation 146 [1/1] (0.00ns)   --->   "%a_addr_1 = getelementptr [8388608 x i24]* %a, i64 0, i64 %zext_ln46" [poly6.cpp:46]   --->   Operation 146 'getelementptr' 'a_addr_1' <Predicate = true> <Delay = 0.00>
-ST_16 : Operation 147 [4/4] (2.66ns)   --->   "%a_load = load i24* %a_addr_1, align 4" [poly6.cpp:46]   --->   Operation 147 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_16 : Operation 148 [3/5] (3.34ns)   --->   "%mul_ln46_2 = mul i32 %sext_ln46_1, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 148 'mul' 'mul_ln46_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_16 : Operation 149 [3/3] (1.09ns) (grouped into DSP with root node add_ln46_1)   --->   "%mul_ln46_3 = mul nsw i32 %zext_ln46_2, 414" [poly6.cpp:46]   --->   Operation 149 'mul' 'mul_ln46_3' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_16 : Operation 150 [3/3] (1.09ns) (grouped into DSP with root node add_ln46_2)   --->   "%mul_ln46_4 = mul nsw i32 %zext_ln46_2, 3456" [poly6.cpp:46]   --->   Operation 150 'mul' 'mul_ln46_4' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_16 : Operation 151 [3/5] (3.34ns)   --->   "%mul_ln46_7 = mul i32 %add_ln46_5, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 151 'mul' 'mul_ln46_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_16 : Operation 152 [3/5] (3.34ns)   --->   "%mul_ln46_10 = mul i32 %sub_ln46, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 152 'mul' 'mul_ln46_10' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 17 <SV = 15> <Delay = 3.79>
-ST_17 : Operation 153 [2/5] (3.79ns)   --->   "%mul_ln46 = mul i32 %tmp_cast, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 153 'mul' 'mul_ln46' <Predicate = true> <Delay = 3.79> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_17 : Operation 154 [3/4] (2.66ns)   --->   "%a_load = load i24* %a_addr_1, align 4" [poly6.cpp:46]   --->   Operation 154 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_17 : Operation 155 [2/5] (3.34ns)   --->   "%mul_ln46_2 = mul i32 %sext_ln46_1, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 155 'mul' 'mul_ln46_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_17 : Operation 156 [2/3] (1.09ns) (grouped into DSP with root node add_ln46_1)   --->   "%mul_ln46_3 = mul nsw i32 %zext_ln46_2, 414" [poly6.cpp:46]   --->   Operation 156 'mul' 'mul_ln46_3' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_17 : Operation 157 [2/3] (1.09ns) (grouped into DSP with root node add_ln46_2)   --->   "%mul_ln46_4 = mul nsw i32 %zext_ln46_2, 3456" [poly6.cpp:46]   --->   Operation 157 'mul' 'mul_ln46_4' <Predicate = true> <Delay = 1.09> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_17 : Operation 158 [2/5] (3.34ns)   --->   "%mul_ln46_7 = mul i32 %add_ln46_5, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 158 'mul' 'mul_ln46_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_17 : Operation 159 [2/5] (3.34ns)   --->   "%mul_ln46_10 = mul i32 %sub_ln46, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 159 'mul' 'mul_ln46_10' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 18 <SV = 16> <Delay = 3.79>
-ST_18 : Operation 160 [1/5] (3.79ns)   --->   "%mul_ln46 = mul i32 %tmp_cast, %zext_ln46_1" [poly6.cpp:46]   --->   Operation 160 'mul' 'mul_ln46' <Predicate = true> <Delay = 3.79> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_18 : Operation 161 [2/4] (2.66ns)   --->   "%a_load = load i24* %a_addr_1, align 4" [poly6.cpp:46]   --->   Operation 161 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_18 : Operation 162 [1/5] (3.34ns)   --->   "%mul_ln46_2 = mul i32 %sext_ln46_1, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 162 'mul' 'mul_ln46_2' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_18 : Operation 163 [1/3] (0.00ns) (grouped into DSP with root node add_ln46_1)   --->   "%mul_ln46_3 = mul nsw i32 %zext_ln46_2, 414" [poly6.cpp:46]   --->   Operation 163 'mul' 'mul_ln46_3' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_18 : Operation 164 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln46_1 = add nsw i32 %mul_ln46_3, -20736" [poly6.cpp:46]   --->   Operation 164 'add' 'add_ln46_1' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_18 : Operation 165 [1/3] (0.00ns) (grouped into DSP with root node add_ln46_2)   --->   "%mul_ln46_4 = mul nsw i32 %zext_ln46_2, 3456" [poly6.cpp:46]   --->   Operation 165 'mul' 'mul_ln46_4' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_18 : Operation 166 [1/1] (2.95ns) (root node of the DSP)   --->   "%add_ln46_2 = add nsw i32 %mul_ln46_4, -1492992" [poly6.cpp:46]   --->   Operation 166 'add' 'add_ln46_2' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 2> <II = 1> <Delay = 3.29> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_18 : Operation 167 [1/5] (3.34ns)   --->   "%mul_ln46_7 = mul i32 %add_ln46_5, %mul_ln46_1" [poly6.cpp:46]   --->   Operation 167 'mul' 'mul_ln46_7' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_18 : Operation 168 [1/5] (3.34ns)   --->   "%mul_ln46_10 = mul i32 %sub_ln46, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 168 'mul' 'mul_ln46_10' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 19 <SV = 17> <Delay = 2.77>
-ST_19 : Operation 169 [1/4] (2.66ns)   --->   "%a_load = load i24* %a_addr_1, align 4" [poly6.cpp:46]   --->   Operation 169 'load' 'a_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_19 : Operation 170 [1/1] (1.78ns)   --->   "%add_ln46_9 = add i32 %mul_ln46_10, %mul_ln46_7" [poly6.cpp:46]   --->   Operation 170 'add' 'add_ln46_9' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_19 : Operation 171 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln46_1 = sub i32 %mul_ln46_2, %add_ln46_2" [poly6.cpp:46]   --->   Operation 171 'sub' 'sub_ln46_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_19 : Operation 172 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln46_2 = sub i32 %sub_ln46_1, %add_ln46_1" [poly6.cpp:46]   --->   Operation 172 'sub' 'sub_ln46_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_19 : Operation 173 [1/1] (1.78ns)   --->   "%tmp13 = add i32 %mul_ln46, 2985984" [poly6.cpp:46]   --->   Operation 173 'add' 'tmp13' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 20 <SV = 18> <Delay = 3.34>
-ST_20 : Operation 174 [1/1] (0.00ns)   --->   "%zext_ln46_6 = zext i24 %a_load to i32" [poly6.cpp:46]   --->   Operation 174 'zext' 'zext_ln46_6' <Predicate = true> <Delay = 0.00>
-ST_20 : Operation 175 [5/5] (3.34ns)   --->   "%mul_ln46_11 = mul nsw i32 %add_ln46_9, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 175 'mul' 'mul_ln46_11' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_20 : Operation 176 [5/5] (3.34ns)   --->   "%mul_ln46_12 = mul i32 %sub_ln46_2, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 176 'mul' 'mul_ln46_12' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_20 : Operation 177 [5/5] (3.34ns)   --->   "%tmp14 = mul i32 %tmp13, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 177 'mul' 'tmp14' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 21 <SV = 19> <Delay = 3.34>
-ST_21 : Operation 178 [4/5] (3.34ns)   --->   "%mul_ln46_11 = mul nsw i32 %add_ln46_9, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 178 'mul' 'mul_ln46_11' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_21 : Operation 179 [4/5] (3.34ns)   --->   "%mul_ln46_12 = mul i32 %sub_ln46_2, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 179 'mul' 'mul_ln46_12' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_21 : Operation 180 [4/5] (3.34ns)   --->   "%tmp14 = mul i32 %tmp13, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 180 'mul' 'tmp14' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 22 <SV = 20> <Delay = 3.34>
-ST_22 : Operation 181 [3/5] (3.34ns)   --->   "%mul_ln46_11 = mul nsw i32 %add_ln46_9, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 181 'mul' 'mul_ln46_11' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_22 : Operation 182 [3/5] (3.34ns)   --->   "%mul_ln46_12 = mul i32 %sub_ln46_2, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 182 'mul' 'mul_ln46_12' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_22 : Operation 183 [3/5] (3.34ns)   --->   "%tmp14 = mul i32 %tmp13, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 183 'mul' 'tmp14' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 23 <SV = 21> <Delay = 3.34>
-ST_23 : Operation 184 [2/5] (3.34ns)   --->   "%mul_ln46_11 = mul nsw i32 %add_ln46_9, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 184 'mul' 'mul_ln46_11' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_23 : Operation 185 [2/5] (3.34ns)   --->   "%mul_ln46_12 = mul i32 %sub_ln46_2, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 185 'mul' 'mul_ln46_12' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_23 : Operation 186 [2/5] (3.34ns)   --->   "%tmp14 = mul i32 %tmp13, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 186 'mul' 'tmp14' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 24 <SV = 22> <Delay = 3.34>
-ST_24 : Operation 187 [1/5] (3.34ns)   --->   "%mul_ln46_11 = mul nsw i32 %add_ln46_9, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 187 'mul' 'mul_ln46_11' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_24 : Operation 188 [1/5] (3.34ns)   --->   "%mul_ln46_12 = mul i32 %sub_ln46_2, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 188 'mul' 'mul_ln46_12' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_24 : Operation 189 [1/5] (3.34ns)   --->   "%tmp14 = mul i32 %tmp13, %zext_ln46_2" [poly6.cpp:46]   --->   Operation 189 'mul' 'tmp14' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 25 <SV = 23> <Delay = 1.78>
-ST_25 : Operation 190 [1/1] (1.78ns)   --->   "%sub_ln46_3 = sub i32 %mul_ln46_12, %mul_ln46_11" [poly6.cpp:46]   --->   Operation 190 'sub' 'sub_ln46_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 26 <SV = 24> <Delay = 3.34>
-ST_26 : Operation 191 [5/5] (3.34ns)   --->   "%mul_ln46_13 = mul nsw i32 %sub_ln46_3, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 191 'mul' 'mul_ln46_13' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 27 <SV = 25> <Delay = 3.34>
-ST_27 : Operation 192 [4/5] (3.34ns)   --->   "%mul_ln46_13 = mul nsw i32 %sub_ln46_3, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 192 'mul' 'mul_ln46_13' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 28 <SV = 26> <Delay = 3.34>
-ST_28 : Operation 193 [3/5] (3.34ns)   --->   "%mul_ln46_13 = mul nsw i32 %sub_ln46_3, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 193 'mul' 'mul_ln46_13' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 29 <SV = 27> <Delay = 3.34>
-ST_29 : Operation 194 [2/5] (3.34ns)   --->   "%mul_ln46_13 = mul nsw i32 %sub_ln46_3, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 194 'mul' 'mul_ln46_13' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 30 <SV = 28> <Delay = 3.34>
-ST_30 : Operation 195 [1/5] (3.34ns)   --->   "%mul_ln46_13 = mul nsw i32 %sub_ln46_3, %zext_ln46_6" [poly6.cpp:46]   --->   Operation 195 'mul' 'mul_ln46_13' <Predicate = true> <Delay = 3.34> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 4> <II = 1> <Delay = 3.34> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-
-State 31 <SV = 29> <Delay = 1.78>
-ST_31 : Operation 196 [1/1] (1.78ns)   --->   "%sub_ln46_4 = sub i32 %tmp14, %mul_ln46_13" [poly6.cpp:46]   --->   Operation 196 'sub' 'sub_ln46_4' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-
-State 32 <SV = 30> <Delay = 2.66>
-ST_32 : Operation 197 [1/1] (0.00ns)   --->   "%out_addr_2 = getelementptr inbounds [8388608 x i32]* %out, i64 0, i64 %zext_ln46" [poly6.cpp:46]   --->   Operation 197 'getelementptr' 'out_addr_2' <Predicate = true> <Delay = 0.00>
-ST_32 : Operation 198 [2/2] (2.66ns)   --->   "store i32 %sub_ln46_4, i32* %out_addr_2, align 4" [poly6.cpp:46]   --->   Operation 198 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 33 <SV = 31> <Delay = 2.66>
-ST_33 : Operation 199 [1/2] (2.66ns)   --->   "store i32 %sub_ln46_4, i32* %out_addr_2, align 4" [poly6.cpp:46]   --->   Operation 199 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_33 : Operation 200 [1/1] (0.00ns)   --->   "br label %.preheader" [poly6.cpp:45]   --->   Operation 200 'br' <Predicate = true> <Delay = 0.00>
-
-State 34 <SV = 3> <Delay = 2.66>
-ST_34 : Operation 201 [3/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [poly6.cpp:73]   --->   Operation 201 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 35 <SV = 4> <Delay = 2.66>
-ST_35 : Operation 202 [2/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [poly6.cpp:73]   --->   Operation 202 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-
-State 36 <SV = 5> <Delay = 2.66>
-ST_36 : Operation 203 [1/4] (2.66ns)   --->   "%v = load i32* %out_addr_1, align 4" [poly6.cpp:73]   --->   Operation 203 'load' 'v' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8388608> <RAM>
-ST_36 : Operation 204 [1/1] (0.00ns)   --->   "ret i32 %v" [poly6.cpp:80]   --->   Operation 204 'ret' <Predicate = true> <Delay = 0.00>
+State 7 <SV = 2> <Delay = 1.15>
+ST_7 : Operation 95 [1/2] (1.15ns)   --->   "%v = load i32* %out_addr, align 4" [poly6.cpp:40]   --->   Operation 95 'load' 'v' <Predicate = true> <Delay = 1.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.15> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 100> <RAM>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "ret i32 %v" [poly6.cpp:47]   --->   Operation 96 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
 + Verbose Summary: Timing violations
 ============================================================
-Target clock period: 5ns, clock uncertainty: 0.625ns.
+Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.06ns
+ <State 1>: 0.603ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('k') with incoming values : ('k', poly6.cpp:33) [12]  (1.06 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', poly6.cpp:10) [14]  (0.603 ns)
 
- <State 2>: 2.66ns
+ <State 2>: 1.16ns
 The critical path consists of the following:
-	'phi' operation ('k') with incoming values : ('k', poly6.cpp:33) [12]  (0 ns)
-	'store' operation ('store_ln34', poly6.cpp:34) of variable 'k' on array 'a', poly6.cpp:28 [20]  (2.66 ns)
+	'load' operation ('v', poly6.cpp:40) on array 'out_r' [94]  (1.16 ns)
 
- <State 3>: 2.66ns
+ <State 3>: 1.16ns
 The critical path consists of the following:
-	'store' operation ('store_ln34', poly6.cpp:34) of variable 'k' on array 'a', poly6.cpp:28 [20]  (2.66 ns)
+	'phi' operation ('k') with incoming values : ('k', poly6.cpp:12) [22]  (0 ns)
+	'getelementptr' operation ('b_addr', poly6.cpp:13) [29]  (0 ns)
+	'load' operation ('b_load', poly6.cpp:13) on array 'b' [30]  (1.16 ns)
 
- <State 4>: 2.66ns
+ <State 4>: 7.59ns
 The critical path consists of the following:
-	'getelementptr' operation ('out_addr_1', poly6.cpp:73) [109]  (0 ns)
-	'load' operation ('v', poly6.cpp:73) on array 'out', poly6.cpp:31 [110]  (2.66 ns)
+	'load' operation ('b_load', poly6.cpp:13) on array 'b' [30]  (1.16 ns)
+	'mul' operation of DSP[53] ('mul_ln13_1', poly6.cpp:13) [53]  (2.53 ns)
+	'mul' operation ('mul_ln13_2', poly6.cpp:13) [54]  (3.17 ns)
+	'sub' operation ('sub_ln13_1', poly6.cpp:13) [80]  (0 ns)
+	'sub' operation ('sub_ln13_2', poly6.cpp:13) [81]  (0.731 ns)
 
- <State 5>: 2.66ns
+ <State 5>: 7.68ns
 The critical path consists of the following:
-	'phi' operation ('k') with incoming values : ('k', poly6.cpp:45) [39]  (0 ns)
-	'getelementptr' operation ('b_addr_1', poly6.cpp:46) [46]  (0 ns)
-	'load' operation ('b_load', poly6.cpp:46) on array 'b', poly6.cpp:29 [47]  (2.66 ns)
+	'mul' operation ('mul_ln13_7', poly6.cpp:13) [68]  (3.17 ns)
+	'add' operation ('add_ln13_9', poly6.cpp:13) [78]  (0.669 ns)
+	'mul' operation ('mul_ln13_11', poly6.cpp:13) [79]  (3.17 ns)
+	'sub' operation ('sub_ln13_3', poly6.cpp:13) [83]  (0.669 ns)
 
- <State 6>: 2.66ns
+ <State 6>: 5ns
 The critical path consists of the following:
-	'load' operation ('b_load', poly6.cpp:46) on array 'b', poly6.cpp:29 [47]  (2.66 ns)
+	'mul' operation ('mul_ln13_13', poly6.cpp:13) [84]  (3.17 ns)
+	'sub' operation ('sub_ln13_4', poly6.cpp:13) [87]  (0.669 ns)
+	'store' operation ('store_ln13', poly6.cpp:13) of variable 'sub_ln13_4', poly6.cpp:13 on array 'out_r' [89]  (1.16 ns)
 
- <State 7>: 2.66ns
+ <State 7>: 1.16ns
 The critical path consists of the following:
-	'load' operation ('b_load', poly6.cpp:46) on array 'b', poly6.cpp:29 [47]  (2.66 ns)
-
- <State 8>: 4.3ns
-The critical path consists of the following:
-	'load' operation ('c_load', poly6.cpp:46) on array 'c', poly6.cpp:30 [50]  (2.66 ns)
-	'add' operation ('add_ln46_3', poly6.cpp:46) [74]  (1.64 ns)
-
- <State 9>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_5', poly6.cpp:46) [76]  (3.35 ns)
-
- <State 10>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_1', poly6.cpp:46) [68]  (3.35 ns)
-
- <State 11>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_1', poly6.cpp:46) [68]  (3.35 ns)
-
- <State 12>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_1', poly6.cpp:46) [68]  (3.35 ns)
-
- <State 13>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_1', poly6.cpp:46) [68]  (3.35 ns)
-
- <State 14>: 3.8ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46', poly6.cpp:46) [58]  (3.8 ns)
-
- <State 15>: 3.8ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46', poly6.cpp:46) [58]  (3.8 ns)
-
- <State 16>: 3.8ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46', poly6.cpp:46) [58]  (3.8 ns)
-
- <State 17>: 3.8ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46', poly6.cpp:46) [58]  (3.8 ns)
-
- <State 18>: 3.8ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46', poly6.cpp:46) [58]  (3.8 ns)
-
- <State 19>: 2.78ns
-The critical path consists of the following:
-	'sub' operation ('sub_ln46_1', poly6.cpp:46) [94]  (0 ns)
-	'sub' operation ('sub_ln46_2', poly6.cpp:46) [95]  (2.78 ns)
-
- <State 20>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_11', poly6.cpp:46) [93]  (3.35 ns)
-
- <State 21>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_11', poly6.cpp:46) [93]  (3.35 ns)
-
- <State 22>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_11', poly6.cpp:46) [93]  (3.35 ns)
-
- <State 23>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_11', poly6.cpp:46) [93]  (3.35 ns)
-
- <State 24>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_11', poly6.cpp:46) [93]  (3.35 ns)
-
- <State 25>: 1.78ns
-The critical path consists of the following:
-	'sub' operation ('sub_ln46_3', poly6.cpp:46) [97]  (1.78 ns)
-
- <State 26>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_13', poly6.cpp:46) [98]  (3.35 ns)
-
- <State 27>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_13', poly6.cpp:46) [98]  (3.35 ns)
-
- <State 28>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_13', poly6.cpp:46) [98]  (3.35 ns)
-
- <State 29>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_13', poly6.cpp:46) [98]  (3.35 ns)
-
- <State 30>: 3.35ns
-The critical path consists of the following:
-	'mul' operation ('mul_ln46_13', poly6.cpp:46) [98]  (3.35 ns)
-
- <State 31>: 1.78ns
-The critical path consists of the following:
-	'sub' operation ('sub_ln46_4', poly6.cpp:46) [101]  (1.78 ns)
-
- <State 32>: 2.66ns
-The critical path consists of the following:
-	'getelementptr' operation ('out_addr_2', poly6.cpp:46) [102]  (0 ns)
-	'store' operation ('store_ln46', poly6.cpp:46) of variable 'sub_ln46_4', poly6.cpp:46 on array 'out', poly6.cpp:31 [103]  (2.66 ns)
-
- <State 33>: 2.66ns
-The critical path consists of the following:
-	'store' operation ('store_ln46', poly6.cpp:46) of variable 'sub_ln46_4', poly6.cpp:46 on array 'out', poly6.cpp:31 [103]  (2.66 ns)
-
- <State 34>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', poly6.cpp:73) on array 'out', poly6.cpp:31 [110]  (2.66 ns)
-
- <State 35>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', poly6.cpp:73) on array 'out', poly6.cpp:31 [110]  (2.66 ns)
-
- <State 36>: 2.66ns
-The critical path consists of the following:
-	'load' operation ('v', poly6.cpp:73) on array 'out', poly6.cpp:31 [110]  (2.66 ns)
+	'load' operation ('v', poly6.cpp:40) on array 'out_r' [94]  (1.16 ns)
 
 
 ============================================================
@@ -529,35 +250,6 @@ N/A
 	State 5
 	State 6
 	State 7
-	State 8
-	State 9
-	State 10
-	State 11
-	State 12
-	State 13
-	State 14
-	State 15
-	State 16
-	State 17
-	State 18
-	State 19
-	State 20
-	State 21
-	State 22
-	State 23
-	State 24
-	State 25
-	State 26
-	State 27
-	State 28
-	State 29
-	State 30
-	State 31
-	State 32
-	State 33
-	State 34
-	State 35
-	State 36
 
 
 ============================================================

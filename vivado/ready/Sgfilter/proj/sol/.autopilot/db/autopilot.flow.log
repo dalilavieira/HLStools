@@ -1,16 +1,32 @@
-INFO-FLOW: Workspace /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol opened at Mon Apr 20 17:53:36 UTC 2020
+INFO-FLOW: Workspace /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol opened at Mon Apr 27 13:24:21 -03 2020
+Execute   is_hidden add_files 
+Execute   is_hidden add_file 
+Execute   add_files sgfilter.h 
+INFO: [HLS 200-10] Adding design file 'sgfilter.h' to the project
+Execute   add_files sgfilter.cpp 
+INFO: [HLS 200-10] Adding design file 'sgfilter.cpp' to the project
+Execute     is_xip sgfilter.cpp 
+Execute   set_top sgfilter 
+Execute   is_hidden add_files 
+Execute   is_hidden add_file 
+Execute   add_files -tb testes.cpp 
+INFO: [HLS 200-10] Adding test bench file 'testes.cpp' to the project
+Execute   create_clock -period 5 -name default 
+Execute     config_clock -quiet -name default -period 5 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
 Execute   create_clock -period 10ns -name default 
 Execute     config_clock -quiet -name default -period 10 -unit ns -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-Execute   set_part xc7k160t-fbg484-1 
-Execute     ap_part_info -name xc7k160t-fbg484-1 -data single -quiet 
-Execute     ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute     add_library xilinx/kintex7/kintex7:xc7k160t:-fbg484:-1 
+Execute   set_part xcvu9p-flgb2104-2-i 
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data single -quiet 
+Command     ap_part_info done; 0.64 sec.
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute     add_library xilinx/virtexuplus/virtexuplus:xcvu9p:-flgb2104:-2-i 
 Execute       get_default_platform 
-Execute       license_isbetapart xc7k160t 
+Execute       license_isbetapart xcvu9p 
 Command       license_isbetapart done; error code: 1; 
 Execute       open_platform DefaultPlatform 
-Execute       import_lib /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7 
+Execute       import_lib /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.lib 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/xilinx_interface.lib 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.lib 
@@ -19,23 +35,23 @@ Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/in
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.lib 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.lib 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.lib 
-Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.lib 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.lib 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.lib 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.lib 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.hlp 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/target_info.tcl 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/xilinx_interface.hlp 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.hlp 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.hlp 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.hlp 
-Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/dsp48e1.hlp 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/dsp48e2.hlp 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.hlp 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/target_info.tcl 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/xilinx_interface.hlp 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.hlp 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.hlp 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.hlp 
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
@@ -48,23 +64,20 @@ Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/inte
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source done; 0.12 sec.
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.18 sec.
-Command       ap_source done; 0.18 sec.
-Execute       ap_part_info -data single -name xc7k160t-fbg484-1 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data resources 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute       config_chip_info -quiet -resource {SLICE 25350} {LUT 101400} {FF 202800} {DSP48E 600} {BRAM 650} {URAM 0} 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute       config_chip_info -quiet -speed slow 
-Command     add_library done; 0.22 sec.
-Execute     add_library xilinx/kintex7/kintex7_fpv6 
+Execute       ap_part_info -data single -name xcvu9p-flgb2104-2-i 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data resources 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute       config_chip_info -quiet -resource {SLICE 147780} {LUT 1182240} {FF 2364480} {DSP48E 6840} {BRAM 4320} {URAM 960} {SLR 3} 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute       config_chip_info -quiet -speed medium 
+Command     add_library done; 0.13 sec.
+Execute     add_library xilinx/virtexuplus/virtexuplus_fpv7 
 Execute       get_default_platform 
 Execute       open_platform DefaultPlatform 
-Execute       import_lib /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6 
+Execute       import_lib /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.lib 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.hlp 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.hlp 
@@ -73,46 +86,12 @@ Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/in
 Execute               source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.hlp 
 Execute               source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.hlp 
 Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.hlp 
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
-Execute     ap_part_info -name xc7k160t-fbg484-1 -data info 
+INFO: [HLS 200-10] Setting target device to 'xcvu9p-flgb2104-2-i'
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
 Execute     get_default_platform 
-Command   set_part done; 0.36 sec.
-Execute   create_clock -period 5 -name default 
-Execute     config_clock -quiet -name default -period 5 -default=false 
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
-Execute   is_hidden add_files 
-Execute   is_hidden add_file 
-Execute   is_hidden query_top 
-Execute   is_hidden query_core 
-Execute   is_hidden query_model 
-Execute   is_hidden query_performance 
-Execute   is_hidden query_area 
-Execute   is_hidden quit 
-Execute   is_hidden query_timing 
-Execute   is_hidden query_chip_info 
-Execute   is_hidden query_clock 
-Execute   is_hidden query_power 
-Execute   is_hidden add_files 
-Execute   is_hidden add_file 
-Execute   add_files sgfilter.cpp 
-INFO: [HLS 200-10] Adding design file 'sgfilter.cpp' to the project
-Execute     is_xip sgfilter.cpp 
-Execute   add_files sgfilter.h 
-INFO: [HLS 200-10] Adding design file 'sgfilter.h' to the project
-Execute   is_hidden query_top 
-Execute   is_hidden query_core 
-Execute   is_hidden query_model 
-Execute   is_hidden query_performance 
-Execute   is_hidden query_area 
-Execute   is_hidden quit 
-Execute   is_hidden query_timing 
-Execute   is_hidden query_chip_info 
-Execute   is_hidden query_clock 
-Execute   is_hidden query_power 
-Execute   set_top sgfilter 
-Execute   is_hidden csim_design 
-Execute   is_hidden csynth_design 
+Command   set_part done; 0.86 sec.
 Execute   is_hidden csynth_design 
 Execute   csynth_design 
 Execute     get_config_compile -dump_cfg 
@@ -133,75 +112,81 @@ INFO: [HLS 200-10] Analyzing design file 'sgfilter.cpp' ...
 INFO-FLOW: Compiling one TU...
 Execute       is_m_axi_addr64 
 INFO-FLOW: Handling sgfilter.cpp as C++
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
 Execute       is_encrypted sgfilter.cpp 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
 INFO-FLOW: Running: GCC PP
 INFO-FLOW: Source preprocessing
-Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.1/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "sgfilter.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E sgfilter.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp
-Command       clang done; 3.32 sec.
-Execute       tidy_31 xilinx-xfmat-array-geometry /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.1/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "sgfilter.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__  -o "/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E sgfilter.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp
+Command       clang done; 1.98 sec.
+Execute       tidy_31 xilinx-xfmat-array-geometry /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
 INFO-FLOW: Syntax Checking before pre-processing...
-Execute       clang -syntaxcheck -src /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp"  -o "/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/useless.bc"  
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/useless.bc
-Command       clang done; 3.33 sec.
-INFO-FLOW: Done: GCC PP time: 6.7 seconds per iteration
+Execute       clang -syntaxcheck -src /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__  "/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp"  -o "/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/useless.bc
+Command       clang done; 1.96 sec.
+INFO-FLOW: Done: GCC PP time: 4 seconds per iteration
+Execute       source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute       source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute         source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/try/try.tcl 
 Execute       list_core -type functional_unit 
-Execute       tidy_31 xilinx-systemc-detector /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 -directive=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/.systemc_flag 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/.systemc_flag -quiet -fix-errors /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute       tidy_31 xilinx-systemc-detector /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 -directive=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/.systemc_flag -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
 INFO-FLOW: Running: tidy-3.1 CDT preprocess
-Execute       tidy_31 xilinx-directive2pragma /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 -directive=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/all.directive.json 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/all.directive.json -quiet -fix-errors /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute       tidy_31 xilinx-directive2pragma /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 -directive=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/all.directive.json -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
 Execute       get_config_dataflow -strict_mode 
-Execute       ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.diag.yml /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.out.log 2> /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.err.log 
-Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 
-Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.out.log 2> /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.err.log 
-Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-legacy-rewriter.sgfilter.pp.0.cpp.out.log 2> /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-legacy-rewriter.sgfilter.pp.0.cpp.err.log 
+Execute       ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.diag.yml /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.out.log 2> /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-dataflow-lawyer.sgfilter.pp.0.cpp.err.log 
+Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp std=gnu++98 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.out.log 2> /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/tidy-3.1.sgfilter.pp.0.cpp.err.log 
+Execute         source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Execute           source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-legacy-rewriter.sgfilter.pp.0.cpp.out.log 2> /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/xilinx-legacy-rewriter.sgfilter.pp.0.cpp.err.log 
+Command       tidy_31 done; 0.12 sec.
 INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.2 seconds per iteration
 INFO-FLOW: Pragma Handling...
-Execute       tidy_31 xilinx-ssdm-intrinsics-arguments /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.1.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info 
+Execute       tidy_31 xilinx-ssdm-intrinsics-arguments /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info 
 INFO-FLOW: Processing labels
-Execute       clang -src /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bc" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bc
-Command       clang done; 3.34 sec.
+Execute       clang -src /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "/home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot -I /opt/xilinx/Vivado/2019.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bc
+Command       clang done; 1.89 sec.
 INFO-FLOW: Linking Debug ...
-Execute       llvm-ld /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.g.bc -hls-opt -except-internalize sgfilter -L/opt/xilinx/Vivado/2019.1/lnx64/lib -lhlsm -lhlsmc++ -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g 
-Command       llvm-ld done; 1.67 sec.
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:58 ; elapsed = 00:09:29 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34453 ; free virtual = 44906
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:58 ; elapsed = 00:09:29 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34453 ; free virtual = 44906
+Execute       llvm-ld /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.g.bc -hls-opt -except-internalize sgfilter -L/opt/xilinx/Vivado/2019.1/lnx64/lib -lhlsm -lhlsmc++ -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g 
+Command       llvm-ld done; 0.96 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:08 ; elapsed = 00:01:36 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41791 ; free virtual = 125778
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:08 ; elapsed = 00:01:36 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41791 ; free virtual = 125778
 Execute       get_config_sdx -target 
 Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute         cleanup_all_models 
 INFO: [HLS 200-10] Starting code transformations ...
-Execute         transform -promote-dbg-pointer /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.0.bc -f 
-Execute         llvm-ld /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.1/lnx64/lib -lfloatconversion -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.0 
-Command         llvm-ld done; 1.66 sec.
+Execute         transform -promote-dbg-pointer /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.0.bc -f 
+Execute         llvm-ld /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.1/lnx64/lib -lfloatconversion -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.0 
+Command         llvm-ld done; 0.96 sec.
 INFO-FLOW: Running Standard Transforms...
-Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top sgfilter -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.0.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:00 ; elapsed = 00:09:31 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34453 ; free virtual = 44906
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top sgfilter -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.0.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:01:37 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41789 ; free virtual = 125776
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
-Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.prechk.bc -f 
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.prechk.bc -f 
 INFO-FLOW: Checking Synthesizability 2/2..
-Execute         transform -syn-check /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.prechk.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.bc -f -phase syn-check 
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:00 ; elapsed = 00:09:31 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34453 ; free virtual = 44906
+Execute         transform -syn-check /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.prechk.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:09 ; elapsed = 00:01:37 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41789 ; free virtual = 125776
 INFO-FLOW: Compiler optimizing ...
-INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc to /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.bc
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.g.1.bc to /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
-Execute         transform -hls -tmp /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.tmp.bc -f 
+Execute         transform -hls -tmp /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.tmp.bc -f 
 INFO-FLOW: Presyn 2...
-Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.tmp.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.2.bc -f -phase presyn 
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:00 ; elapsed = 00:09:31 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34451 ; free virtual = 44904
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.1.tmp.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:01:37 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41776 ; free virtual = 125763
 INFO-FLOW: Building ssdm...
-Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.2.bc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:00 ; elapsed = 00:09:31 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34451 ; free virtual = 44904
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.2.bc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:01:37 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41776 ; free virtual = 125763
 INFO-FLOW: Finish building internal data model.
-Command       opt_and_import_c done; 1.87 sec.
-Command     elaborate done; 13.9 sec.
+Command       opt_and_import_c done; 1.13 sec.
+Command     elaborate done; 8.29 sec.
 Execute     autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -219,6 +204,7 @@ INFO-FLOW: Preprocessing Module: sgfilter ...
 Execute       set_default_model sgfilter 
 Execute       cdfg_preprocess -model sgfilter 
 Execute       rtl_gen_preprocess sgfilter 
+WARNING: [SYN 201-107] Renaming port name 'sgfilter/OUT' to 'sgfilter/OUT_r' to avoid the conflict with HDL keywords or other object names.
 INFO-FLOW: Model list for synthesis: sgfilter
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'sgfilter' 
@@ -227,10 +213,10 @@ Execute       set_default_model sgfilter
 Execute       schedule -model sgfilter 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.27 sec.
-INFO: [HLS 200-111]  Elapsed time: 238.47 seconds; current allocated memory: 109.044 MB.
-Execute       syn_report -verbosereport -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.sched.rpt 
-Execute       db_write -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.sched.adb -f 
+INFO: [HLS 200-111]  Elapsed time: 97.48 seconds; current allocated memory: 97.608 MB.
+Execute       syn_report -verbosereport -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.sched.rpt 
+INFO: [HLS 200-434] Only 0 loops out of a total 2 loops have been pipelined in this design.
+Execute       db_write -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.sched.adb -f 
 INFO-FLOW: Finish scheduling sgfilter.
 Execute       set_default_model sgfilter 
 Execute       bind -model sgfilter 
@@ -240,10 +226,9 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 109.411 MB.
-Execute       syn_report -verbosereport -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.bind.rpt 
-Command       syn_report done; 0.14 sec.
-Execute       db_write -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bind.adb -f 
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 97.976 MB.
+Execute       syn_report -verbosereport -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.bind.rpt 
+Execute       db_write -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.bind.adb -f 
 INFO-FLOW: Finish binding sgfilter.
 Execute       get_model_list sgfilter -filter all-wo-channel 
 INFO-FLOW: Preprocessing for RTLGen ...
@@ -254,70 +239,61 @@ INFO: [HLS 200-10] -- Generating RTL for module 'sgfilter'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 Execute       get_config_rtl -module_prefix 
 Execute       get_config_rtl -module_auto_prefix 
-Execute       create_rtl_model sgfilter -vendor xilinx -mg_file /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
-INFO: [RTGEN 206-500] Setting interface mode on port 'sgfilter/idx' to 'ap_none'.
+Execute       create_rtl_model sgfilter -vendor xilinx -mg_file /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'sgfilter/a' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sgfilter/b' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sgfilter/OUT_r' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'sgfilter' to 'ap_ctrl_hs'.
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_10ns_11s_7s_21_3_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_10ns_18s_30s_32_3_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_10ns_21s_7s_31_3_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_10ns_8ns_7s_18_3_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_10ns_8s_15s_30_3_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mul_10ns_19s_32_2_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'sgfilter_mul_10ns_31s_32_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_11s_7s_26_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_23s_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_23s_4ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_26s_7s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_8ns_7s_23_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sgfilter_mac_muladd_16s_8s_20s_23_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'sgfilter'.
-INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 110.136 MB.
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
-Execute       gen_rtl sgfilter -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/syn/systemc/sgfilter -synmodules sgfilter 
-Execute       gen_rtl sgfilter -istop -style xilinx -f -lang vhdl -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/syn/vhdl/sgfilter 
-Execute       gen_rtl sgfilter -istop -style xilinx -f -lang vlog -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/syn/verilog/sgfilter 
-Execute       syn_report -csynth -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/syn/report/sgfilter_csynth.rpt 
-Execute       syn_report -rtlxml -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/syn/report/sgfilter_csynth.xml 
-Execute       syn_report -verbosereport -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.rpt 
-Command       syn_report done; 0.17 sec.
-Execute       db_write -model sgfilter -f -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.adb 
-Execute       gen_tb_info sgfilter -p /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter 
-Execute       export_constraint_db -f -tool general -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
-Execute       syn_report -designview -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.design.xml 
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 98.469 MB.
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute       gen_rtl sgfilter -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/syn/systemc/sgfilter -synmodules sgfilter 
+Execute       gen_rtl sgfilter -istop -style xilinx -f -lang vhdl -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/syn/vhdl/sgfilter 
+Execute       gen_rtl sgfilter -istop -style xilinx -f -lang vlog -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/syn/verilog/sgfilter 
+Execute       syn_report -csynth -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/syn/report/sgfilter_csynth.rpt 
+Execute       syn_report -rtlxml -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/syn/report/sgfilter_csynth.xml 
+Execute       syn_report -verbosereport -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.verbose.rpt 
+Execute       db_write -model sgfilter -f -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.adb 
+Execute       gen_tb_info sgfilter -p /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter 
+Execute       export_constraint_db -f -tool general -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
+Execute       syn_report -designview -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.design.xml 
 Execute       get_config_rtl -disable_wave_debug 
-Execute       syn_report -wcfg -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter_dataflow_ana.wcfg 
-Execute       syn_report -protoinst -model sgfilter -o /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.protoinst 
+Execute       syn_report -wcfg -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter_dataflow_ana.wcfg 
+Execute       syn_report -protoinst -model sgfilter -o /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.protoinst 
 Execute       get_config_debug -directory 
 Execute       sc_get_clocks sgfilter 
 Execute       get_config_export -vivado_clock 
 Execute       sc_get_portdomain sgfilter 
 INFO-FLOW: Model list for RTL component generation: sgfilter
 INFO-FLOW: Handling components in module [sgfilter] ... 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
-INFO-FLOW: Found component sgfilter_mul_10ns_19s_32_2_1.
-INFO-FLOW: Append model sgfilter_mul_10ns_19s_32_2_1
-INFO-FLOW: Found component sgfilter_mul_10ns_31s_32_5_1.
-INFO-FLOW: Append model sgfilter_mul_10ns_31s_32_5_1
-INFO-FLOW: Found component sgfilter_mac_muladd_10ns_8s_15s_30_3_1.
-INFO-FLOW: Append model sgfilter_mac_muladd_10ns_8s_15s_30_3_1
-INFO-FLOW: Found component sgfilter_mac_muladd_10ns_11s_7s_21_3_1.
-INFO-FLOW: Append model sgfilter_mac_muladd_10ns_11s_7s_21_3_1
-INFO-FLOW: Found component sgfilter_mac_muladd_10ns_8ns_7s_18_3_1.
-INFO-FLOW: Append model sgfilter_mac_muladd_10ns_8ns_7s_18_3_1
-INFO-FLOW: Found component sgfilter_mac_muladd_10ns_21s_7s_31_3_1.
-INFO-FLOW: Append model sgfilter_mac_muladd_10ns_21s_7s_31_3_1
-INFO-FLOW: Found component sgfilter_mac_muladd_10ns_18s_30s_32_3_1.
-INFO-FLOW: Append model sgfilter_mac_muladd_10ns_18s_30s_32_3_1
-INFO-FLOW: Found component sgfilter_a.
-INFO-FLOW: Append model sgfilter_a
-INFO-FLOW: Found component sgfilter_OUT.
-INFO-FLOW: Append model sgfilter_OUT
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_11s_7s_26_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_11s_7s_26_1_1
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_8ns_7s_23_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_8ns_7s_23_1_1
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_23s_32s_32_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_23s_32s_32_1_1
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_8s_20s_23_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_8s_20s_23_1_1
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_23s_4ns_32_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_23s_4ns_32_1_1
+INFO-FLOW: Found component sgfilter_mac_muladd_16s_26s_7s_32_1_1.
+INFO-FLOW: Append model sgfilter_mac_muladd_16s_26s_7s_32_1_1
 INFO-FLOW: Append model sgfilter
 INFO-FLOW: Generating RTL model list ...
-INFO-FLOW: All models in this session: sgfilter_mul_10ns_19s_32_2_1 sgfilter_mul_10ns_31s_32_5_1 sgfilter_mac_muladd_10ns_8s_15s_30_3_1 sgfilter_mac_muladd_10ns_11s_7s_21_3_1 sgfilter_mac_muladd_10ns_8ns_7s_18_3_1 sgfilter_mac_muladd_10ns_21s_7s_31_3_1 sgfilter_mac_muladd_10ns_18s_30s_32_3_1 sgfilter_a sgfilter_OUT sgfilter
-INFO-FLOW: To file: write model sgfilter_mul_10ns_19s_32_2_1
-INFO-FLOW: To file: write model sgfilter_mul_10ns_31s_32_5_1
-INFO-FLOW: To file: write model sgfilter_mac_muladd_10ns_8s_15s_30_3_1
-INFO-FLOW: To file: write model sgfilter_mac_muladd_10ns_11s_7s_21_3_1
-INFO-FLOW: To file: write model sgfilter_mac_muladd_10ns_8ns_7s_18_3_1
-INFO-FLOW: To file: write model sgfilter_mac_muladd_10ns_21s_7s_31_3_1
-INFO-FLOW: To file: write model sgfilter_mac_muladd_10ns_18s_30s_32_3_1
-INFO-FLOW: To file: write model sgfilter_a
-INFO-FLOW: To file: write model sgfilter_OUT
+INFO-FLOW: All models in this session: sgfilter_mac_muladd_16s_11s_7s_26_1_1 sgfilter_mac_muladd_16s_8ns_7s_23_1_1 sgfilter_mac_muladd_16s_23s_32s_32_1_1 sgfilter_mac_muladd_16s_8s_20s_23_1_1 sgfilter_mac_muladd_16s_23s_4ns_32_1_1 sgfilter_mac_muladd_16s_26s_7s_32_1_1 sgfilter
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_11s_7s_26_1_1
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_8ns_7s_23_1_1
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_23s_32s_32_1_1
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_8s_20s_23_1_1
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_23s_4ns_32_1_1
+INFO-FLOW: To file: write model sgfilter_mac_muladd_16s_26s_7s_32_1_1
 INFO-FLOW: To file: write model sgfilter
 INFO-FLOW: Finished generating RTL model list.
 
@@ -326,16 +302,16 @@ INFO-FLOW: RTL Generation done.
 INFO-FLOW: CAS Generation done.
 INFO-FLOW: CBC Generation done.
 INFO-FLOW: DBG:CMD: auto_generate_csynth_design
-INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD: read_platform_lib /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/common.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/APCoreGen.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op_simcore.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/interface.gen 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7.gen 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
@@ -348,60 +324,46 @@ Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/inte
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source done; 0.12 sec.
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.18 sec.
-Command       ap_source done; 0.18 sec.
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
-INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=5.000 (was 10.000)
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-INFO: [RTMG 210-282] Generating pipelined core: 'sgfilter_mul_10ns_19s_32_2_1_MulnS_0'
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-INFO: [RTMG 210-282] Generating pipelined core: 'sgfilter_mul_10ns_31s_32_5_1_MulnS_1'
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info 
-INFO: [RTMG 210-278] Implementing memory 'sgfilter_a_ram (RAM)' using block RAMs.
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-INFO: [RTMG 210-278] Implementing memory 'sgfilter_OUT_ram (RAM)' using block RAMs.
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Command       ap_source done; 0.19 sec.
-INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD: read_platform_lib /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/common.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/APCoreGen.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op_simcore.gen 
 Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/interface.gen 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7.gen 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
@@ -414,107 +376,222 @@ Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/inte
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
-Command           ap_source done; 0.12 sec.
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
 Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.18 sec.
-Command       ap_source done; 0.18 sec.
-Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
 Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
 INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=sgfilter xml_exists=0
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
 INFO-FLOW: DBG:CMD:       export_impl_rtl
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute         source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute         source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute         ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=6
-INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=2
-INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=10 #gSsdmPorts=6
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.tcl 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=10
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=4
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=7 #gSsdmPorts=10
+Execute       source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
 Execute       get_config_export -xo 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
 Execute       get_config_sdx -target 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.dataonly.tcl 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.compgen.dataonly.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.constraint.tcl 
 Execute       sc_get_clocks sgfilter 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
-Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute       ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
 Execute       get_config_debug -directory 
-Execute       source /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute       source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
 Execute       get_config_sdx -target 
 Execute       get_config_sdx -profile 
 Execute       get_config_rtl -kernel_profile 
 Execute       get_config_rtl -stall_sig_gen 
 Execute       get_config_rtl -profile 
-INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/vivado/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/kernel.internal.xml
 INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:01 ; elapsed = 00:09:33 . Memory (MB): peak = 902.391 ; gain = 202.070 ; free physical = 34448 ; free virtual = 44903
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:01:38 . Memory (MB): peak = 826.320 ; gain = 128.000 ; free physical = 41771 ; free virtual = 125759
 INFO: [VHDL 208-304] Generating VHDL RTL for sgfilter.
 INFO: [VLOG 209-307] Generating Verilog RTL for sgfilter.
-Command     autosyn done; 1.9 sec.
-Command   csynth_design done; 15.81 sec.
-Execute   is_hidden opt_and_import_c 
-Execute   is_hidden open_solution 
-Execute   is_hidden open_platform 
-Execute   is_hidden open_project 
-Execute   is_hidden open 
-Execute   is_hidden open_platform 
-Execute   is_hidden open_project 
-Execute   open_project proj 
-INFO: [HLS 200-10] Creating and opening project '/home/vivado/HLStools/vivado/ready/SobelFilter/proj'.
-Execute   is_hidden open_solution 
-Execute   is_hidden open_platform 
-Execute   is_hidden open_project 
-Execute   is_hidden open 
-Execute   is_hidden open_solution 
-Execute   open_solution sol 
-Execute     cleanup_all 
-Execute     cleanup_all 
+Command     autosyn done; 0.72 sec.
+Command   csynth_design done; 9.02 sec.
+Execute   is_hidden cosim_design 
+Execute   cosim_design 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/common.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op.gen 
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/interface.gen 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.13 sec.
+Command     ap_source done; 0.13 sec.
+Execute     source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data names -quiet 
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info -quiet 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/testes.cpp 
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.cpp 
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.h 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+INFO-FLOW: TB processing: /home/dalila/HLStools/vivado/ready/Sgfilter/testes.cpp /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/testes.cpp_pre.cpp
+Execute     tidy_31 xilinx-tb-xfmat /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/testes.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/testes.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute     tidy_31 xilinx-tb31-process /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/testes.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/testes.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+INFO-FLOW: TB processing: /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.cpp /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp
+Execute     tidy_31 xilinx-tb-xfmat /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute     tidy_31 xilinx-tb31-process /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/tb.status.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.rtl_wrap.cfg.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 0.29 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/sgfilter.tbgen.tcl 
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+Execute     source .run_sim.tcl 
+Execute       source check_sim.tcl 
+Execute       source .sim.status.tcl 
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+Command     ap_source done; 12.67 sec.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+Command   cosim_design done; 16.03 sec.
+Execute   is_hidden csim_design 
+Execute   is_hidden csynth_design 
+Execute   is_hidden csim_design 
+Execute   csim_design 
+Execute     source /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/.autopilot/db/global.setting.tcl 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/testes.cpp 
+Execute     is_xip /home/dalila/HLStools/vivado/ready/Sgfilter/testes.cpp 
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.cpp 
+Execute     is_xip /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.cpp 
+Execute     is_encrypted /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.h 
+Execute     is_xip /home/dalila/HLStools/vivado/ready/Sgfilter/sgfilter.h 
+Execute     ap_part_info -name xcvu9p-flgb2104-2-i -data info 
+Execute     source run_sim.tcl 
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 0.34 sec.
+Execute   cleanup_all 

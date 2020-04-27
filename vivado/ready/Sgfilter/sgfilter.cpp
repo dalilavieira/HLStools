@@ -1,37 +1,7 @@
 #include "sgfilter.h"
 
-int main(int argc, char *argv[]) {
+int sgfilter(int16_t a[DATA_SIZE],int16_t b[DATA_SIZE],int32_t OUT[DATA_SIZE]) {
 
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-
-    if(test & 1)
-        sgfilter(idx);
-    /*if(test & 2)
-        sgfilter_openmp(idx);
-    if(test & 4)    
-        sgfilter_cgra(idx, 3);*/
-
-    return 0;
-}
-
-int sgfilter(int idx) {
-
-    int a[DATA_SIZE];
-    int b[DATA_SIZE];
-    int OUT[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        a[k] = k % 1024;
-        b[k] = k % 1024;
-        OUT[k] = 0;
-    }
     //high_resolution_clock::time_point s;
     //duration<double> diff = {};
     for (int i = 0; i < SAMPLES; i++) {
@@ -45,7 +15,7 @@ int sgfilter(int idx) {
    // double cpuExecTime = (diff.count() * 1000) / SAMPLES;
     //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
-    int v = OUT[idx];
+    int v = OUT[0];
 
     /*delete[] a;
     delete[] b;

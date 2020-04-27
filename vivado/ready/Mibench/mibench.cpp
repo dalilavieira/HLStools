@@ -1,63 +1,31 @@
 #include "mibench.h"
 
-int main(int argc, char *argv[]) {
+int mibench(int16_t A[DATA_SIZE],int16_t B[DATA_SIZE],int16_t C[DATA_SIZE],int32_t OUT[DATA_SIZE]) {
 
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-
-    if(test & 1)
-        mibench(idx);
-    if(test & 2)
-        mibench_openmp(idx);
-    if(test & 4)
-        mibench_cgra(idx, 2);
-
-    return 0;
-}
-
-int mibench(int idx) {
-
-    auto A = new unsigned short[DATA_SIZE];
-    auto B = new unsigned short[DATA_SIZE];
-    auto C = new unsigned short[DATA_SIZE];
-    auto OUT = new unsigned short[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        A[k] = k;
-        B[k] = k;
-        C[k] = k;
-        OUT[k] = 0;
-    }
-    high_resolution_clock::time_point s;
-    duration<double> diff = {};
+   // high_resolution_clock::time_point s;
+   // duration<double> diff = {};
     for (int i = 0; i < 100; i++) {
-        s = high_resolution_clock::now();
+       // s = high_resolution_clock::now();
         for (int k = 0; k < DATA_SIZE; ++k) {
             OUT[k] = (unsigned short) (A[k] * (6 * A[k] + 43 + B[k]) + C[k] * (6 * A[k] + 43 + 2 * B[k] + C[k]) +
                                        A[k] * (9 * A[k] + 1));
         }
-        diff += high_resolution_clock::now() - s;
+        //diff += high_resolution_clock::now() - s;
     }
-    double cpuExecTime = (diff.count() * 1000) / 100;
-    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
+    /*double cpuExecTime = (diff.count() * 1000) / 100;
+    printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);*/
 
-    int v = OUT[idx];
+    int v = OUT[0];
 
-    delete[] A;
+   /* delete[] A;
     delete[] B;
     delete[] C;
-    delete[] OUT;
+    delete[] OUT;*/
 
     return v;
 
 }
-
+/*
 int mibench_openmp(int idx) {
 
     auto A = new unsigned short[DATA_SIZE];
@@ -265,4 +233,4 @@ DataFlow *createDataFlow(int id, int copies) {
     }
     return df;
 }
-
+*/
