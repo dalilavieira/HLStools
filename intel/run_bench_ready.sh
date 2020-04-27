@@ -7,12 +7,9 @@ export LM_LICENSE_FILE="27000@localhost"
 export PATH=$PATH:$QUARTUS_HOME/bin:$MODEL_SIM_HOME/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QUARTUS_HOME/linux64 
 
-#source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
-
-source /opt/altera_pro/19.4/hls/init_hls.sh
-
 # initializate variables hls
-
+#source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
+source /opt/altera_pro/19.4/hls/init_hls.sh
 
 BENCHMARKS=(
     "Chebyshev" 
@@ -29,8 +26,8 @@ BENCHMARKS=(
 #    "SobelFilter" 
 )
 
-#SIMULATOR=modelsim
-SIMULATOR=none
+SIMULATOR=modelsim
+#SIMULATOR=none
 
 for ((i=0; i < ${#BENCHMARKS[@]}; i++)) do
     echo "RUNNING "${BENCHMARKS[i]}
