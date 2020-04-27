@@ -1,3 +1,4 @@
+#!/bin/bash
 # set environment quartus 19.4
 export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 
@@ -13,17 +14,17 @@ source /opt/altera_pro/19.4/hls/init_hls.sh
 
 BENCHMARKS=(
     "Chebyshev" 
-#    "Fir"
-#    "Kmeans"
-#    "Loopback"
-#    "Mibench"
-#    "Paeth"
-#    "Poly5"
-#    "Poly6"
-#    "Poly8"
-#    "Qspline"
-#    "Sgfilter"
-#    "SobelFilter" 
+    "Fir"
+    "Kmeans"
+    "Loopback"
+    "Mibench"
+    "Paeth"
+    "Poly5"
+    "Poly6"
+    "Poly8"
+    "Qspline"
+    "Sgfilter"
+    "SobelFilter" 
 )
 
 SIMULATOR=modelsim
