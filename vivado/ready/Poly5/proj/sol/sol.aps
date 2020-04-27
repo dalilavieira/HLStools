@@ -1,4 +1,10 @@
 <AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <clockList>
+        <clock default="false" name="default" period="10ns"/>
+    </clockList>
+    <config>
+        <schedule model="poly5"/>
+    </config>
     <name>
         <value string="sol"/>
     </name>
@@ -12,11 +18,12 @@
         <library value="xilinx/kintex7/kintex7" name="DefaultPlatform"/>
         <library value="xilinx/kintex7/kintex7_fpv6" name="DefaultPlatform"/>
     </libraryList>
-    <clockList>
-        <clock default="false" name="default" period="10ns"/>
-    </clockList>
-    <config>
-        <schedule model="poly5"/>
-    </config>
+    <Simulation argv="">
+        <SimFlow name="cosim" setup="false" dumpTrace="none" optimizeCompile="false" ldflags="" mflags="" compiledLibrary="" reduce_diskspace="false" toolName="auto">
+            <Rtl name="systemc" active="false"/>
+            <Rtl name="verilog" active="true"/>
+            <Rtl name="vhdl" active="false"/>
+        </SimFlow>
+    </Simulation>
 </AutoPilot:solution>
 

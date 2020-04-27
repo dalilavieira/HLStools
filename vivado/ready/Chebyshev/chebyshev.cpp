@@ -1,23 +1,5 @@
 #include "chebyshev.h"
 
-int main(int argc, char *argv[]) {
-
-    int idx = 0;
-    int test= 0;
-    if (argc > 1)
-        test = atoi(argv[1]);
-    if (argc > 2)
-        idx = atoi(argv[2]);
-    
-    //if(test & 1)
-     //   chebyshev(idx);
-    if(test & 2)
-        chebyshev_openmp(idx);
-    //if(test & 4)
-      //  chebyshev_cgra(idx, 8);
-
-    return 0;
-}
 /*
 int chebyshev(int idx) {
 
@@ -56,17 +38,10 @@ int chebyshev(int idx) {
 
 }
 */
-int chebyshev_openmp(int idx) {
+int chebyshev_openmp(int16_t data_in[DATA_SIZE], int32_t data_out[DATA_SIZE]) {
 
    // unsigned short *data_in, *data_out;
 
-    int data_in[DATA_SIZE];
-    int data_out[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        data_in[k] = k;
-        data_out[k] = 0;
-    }
     //omp_set_num_threads(NUM_THREAD);
     //high_resolution_clock::time_point s;
     //duration<double> diff = {};
@@ -84,7 +59,7 @@ int chebyshev_openmp(int idx) {
 
    // printf("Time(ms) CPU %d Thread: %5.2lf\n", NUM_THREAD, cpuExecTime);
 
-    int v = data_out[idx];
+    int v = data_out[0];
 
    // delete data_in;
    // delete data_out;

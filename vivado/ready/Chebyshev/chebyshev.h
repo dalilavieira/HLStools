@@ -15,16 +15,16 @@
 //#include <fdam/cgra/cgra.h>
 //#include <fdam/cgra/scheduler_defs.h>
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 26)
+#define DATA_SIZE (100)//(1 << 26)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
 
 //int chebyshev(int idx);
 
-int chebyshev_openmp(int idx);
+int chebyshev_openmp(int16_t data_in[], int32_t data_out[]);
 
 //int chebyshev_cgra(int idx, int copies);
 

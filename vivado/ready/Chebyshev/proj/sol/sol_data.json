@@ -7,22 +7,43 @@
   "GenerateBdFiles": "0",
   "HostMachineBits": "64",
   "Target": {
-    "Family": "kintex7",
-    "Device": "xc7k160t",
-    "Package": "-fbg484",
-    "Speed": "-1"
+    "Family": "virtexuplus",
+    "Device": "xcvu9p",
+    "Package": "-flgb2104",
+    "Speed": "-2-i"
   },
   "HlsSolution": {
     
   },
-  "Args": {"idx": {
+  "Args": {
+    "data_in": {
       "index": "0",
       "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "data_in_address0",
+          "data_in_q0"
+        ]
+      }
+    },
+    "data_out": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
         "dataType": "int",
         "dataWidth": "32",
-        "interfaceRef": "idx"
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "data_out_address0",
+          "data_out_d0",
+          "data_out_q0"
+        ]
       }
-    }},
+    }
+  },
   "Return": {
     "dataType": "int",
     "dataWidth": "32",
@@ -33,7 +54,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "53821309133",
+    "Latency": "30202",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -51,19 +72,19 @@
   "Files": {
     "CSource": ["..\/..\/chebyshev.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/chebyshev_openmp_data_in.vhd",
-      "impl\/vhdl\/chebyshev_openmp_data_out.vhd",
+      "impl\/vhdl\/chebyshev_openmp_mul_mul_16s_16s_28_1_1.vhd",
+      "impl\/vhdl\/chebyshev_openmp_mul_mul_16s_16s_32_1_1.vhd",
       "impl\/vhdl\/chebyshev_openmp.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/chebyshev_openmp_data_in.v",
-      "impl\/verilog\/chebyshev_openmp_data_out.v",
+      "impl\/verilog\/chebyshev_openmp_mul_mul_16s_16s_28_1_1.v",
+      "impl\/verilog\/chebyshev_openmp_mul_mul_16s_16s_32_1_1.v",
       "impl\/verilog\/chebyshev_openmp.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/vivado\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.autopilot\/db\/chebyshev_openmp.design.xml",
-    "DebugDir": "\/home\/vivado\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.debug",
-    "ProtoInst": ["\/home\/vivado\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.debug\/chebyshev_openmp.protoinst"]
+    "DesignXml": "\/home\/dalila\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.autopilot\/db\/chebyshev_openmp.design.xml",
+    "DebugDir": "\/home\/dalila\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.debug",
+    "ProtoInst": ["\/home\/dalila\/HLStools\/vivado\/ready\/Chebyshev\/proj\/sol\/.debug\/chebyshev_openmp.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -106,7 +127,51 @@
       "bundle_name": "ap_rst",
       "bundle_role": "default"
     },
-    "idx": {
+    "data_in_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "data_in",
+      "bundle_role": "address0"
+    },
+    "data_in_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "data_in",
+      "bundle_role": "q0"
+    },
+    "data_out_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "data_out",
+      "bundle_role": "address0"
+    },
+    "data_out_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "data_out",
+      "bundle_role": "d0"
+    },
+    "data_out_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -114,8 +179,8 @@
           "Type": "integer signed",
           "Width": "32"
         }},
-      "bundle_name": "idx",
-      "bundle_role": "default"
+      "bundle_name": "data_out",
+      "bundle_role": "q0"
     }
   },
   "RtlPorts": {
@@ -147,7 +212,35 @@
       "dir": "out",
       "width": "32"
     },
-    "idx": {
+    "data_in_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "data_in_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "data_in_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "data_out_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "data_out_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "data_out_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "data_out_d0": {
+      "dir": "out",
+      "width": "32"
+    },
+    "data_out_q0": {
       "dir": "in",
       "width": "32"
     }
@@ -163,46 +256,37 @@
       }},
     "Metrics": {"chebyshev_openmp": {
         "Latency": {
-          "LatencyBest": "53821309133",
-          "LatencyAvg": "53821309133",
-          "LatencyWorst": "53821309133",
-          "PipelineII": "53821309134",
+          "LatencyBest": "30202",
+          "LatencyAvg": "30202",
+          "LatencyWorst": "30202",
+          "PipelineII": "30203",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.365"
+          "Estimate": "7.530"
         },
-        "Loops": [
-          {
+        "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "67108864",
-            "Latency": "134217728",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 2",
             "TripCount": "100",
-            "Latency": "53687091400",
+            "Latency": "30200",
             "PipelineII": "",
-            "PipelineDepth": "536870914",
+            "PipelineDepth": "302",
             "Loops": [{
-                "Name": "Loop 2.1",
-                "TripCount": "67108864",
-                "Latency": "536870912",
+                "Name": "Loop 1.1",
+                "TripCount": "100",
+                "Latency": "300",
                 "PipelineII": "",
-                "PipelineDepth": "8"
+                "PipelineDepth": "3"
               }]
-          }
-        ],
+          }],
         "Area": {
-          "BRAM_18K": "241664",
-          "DSP48E": "9",
-          "FF": "405",
-          "LUT": "434",
+          "DSP48E": "7",
+          "FF": "105",
+          "LUT": "211",
+          "BRAM_18K": "0",
           "URAM": "0"
         }
       }}
@@ -217,7 +301,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-04-20 15:30:30 UTC",
+    "Time": "2020-04-27 11:58:02 -03",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }
