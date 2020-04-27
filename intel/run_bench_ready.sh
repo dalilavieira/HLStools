@@ -1,6 +1,6 @@
 #!/bin/bash
 # set environment quartus 19.4
-export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
+#export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 
 export QUARTUS_HOME="/opt/altera_pro/19.4/quartus"                                               
 export MODEL_SIM_HOME="/opt/altera_pro/19.4/modelsim_ase"                                        
