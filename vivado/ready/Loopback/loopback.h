@@ -15,14 +15,14 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 5)
+#define DATA_SIZE (100)//(1 << 5)
 #define NUM_THREAD (8)
 #define SAMPLES (1)
 
-int loopback(int idx);
+int loopback(int16_t a[],int32_t out[]);
 
 /*int loopback_openmp(int idx);
 

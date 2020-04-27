@@ -1,37 +1,8 @@
 #include "loopback.h"
 
-int main(int argc, char *argv[]) {
-
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-    
-    if(test & 1)
-        loopback(idx);
-    /*if(test & 2)
-        loopback_openmp(idx);
-    if(test & 4)
-        loopback_cgra(idx, 2);*/
-
-    return 0;
-}
-
-int loopback(int idx) {
+int loopback(int16_t a[DATA_SIZE],int32_t out[DATA_SIZE]) {
 
     //unsigned short *a, *out;
-
-    int a[DATA_SIZE];
-    int out[DATA_SIZE];
-
-    for (int k = 0; k < DATA_SIZE; ++k) {
-        a[k] = k % 1024;
-        out[k] = 0;
-    }
 
     //high_resolution_clock::time_point s;
     //duration<double> diff = {};
@@ -46,7 +17,7 @@ int loopback(int idx) {
 
     //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
-    int v = out[idx];
+    int v = out[0];
 
     //delete a;
     //delete out;
