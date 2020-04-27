@@ -7,22 +7,56 @@
   "GenerateBdFiles": "0",
   "HostMachineBits": "64",
   "Target": {
-    "Family": "kintex7",
-    "Device": "xc7k160t",
-    "Package": "-fbg484",
-    "Speed": "-1"
+    "Family": "virtexuplus",
+    "Device": "xcvu9p",
+    "Package": "-flgb2104",
+    "Speed": "-2-i"
   },
   "HlsSolution": {
     
   },
-  "Args": {"idx": {
+  "Args": {
+    "a": {
       "index": "0",
       "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "a_address0",
+          "a_q0"
+        ]
+      }
+    },
+    "b": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "short",
+        "dataWidth": "16",
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "b_address0",
+          "b_q0"
+        ]
+      }
+    },
+    "OUT": {
+      "index": "2",
+      "type": {
+        "kinds": ["array"],
         "dataType": "int",
         "dataWidth": "32",
-        "interfaceRef": "idx"
+        "arraySizes": ["100"],
+        "multiInterfaceRef": [
+          "OUT_r_address0",
+          "OUT_r_d0",
+          "OUT_r_q0"
+        ]
       }
-    }},
+    }
+  },
   "Return": {
     "dataType": "int",
     "dataWidth": "32",
@@ -30,13 +64,13 @@
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
-    "ClockPeriod": "5",
+    "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "46765965517",
-    "Uncertainty": "0.625"
+    "Latency": "30202",
+    "Uncertainty": "1.25"
   },
-  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 5.000 [get_ports ap_clk]"]},
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -51,33 +85,27 @@
   "Files": {
     "CSource": ["..\/..\/sgfilter.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/sgfilter_a.vhd",
-      "impl\/vhdl\/sgfilter_mac_muladd_10ns_8ns_7s_18_3_1.vhd",
-      "impl\/vhdl\/sgfilter_mac_muladd_10ns_8s_15s_30_3_1.vhd",
-      "impl\/vhdl\/sgfilter_mac_muladd_10ns_11s_7s_21_3_1.vhd",
-      "impl\/vhdl\/sgfilter_mac_muladd_10ns_18s_30s_32_3_1.vhd",
-      "impl\/vhdl\/sgfilter_mac_muladd_10ns_21s_7s_31_3_1.vhd",
-      "impl\/vhdl\/sgfilter_mul_10ns_19s_32_2_1.vhd",
-      "impl\/vhdl\/sgfilter_mul_10ns_31s_32_5_1.vhd",
-      "impl\/vhdl\/sgfilter_OUT.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_8ns_7s_23_1_1.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_8s_20s_23_1_1.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_11s_7s_26_1_1.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_23s_4ns_32_1_1.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_23s_32s_32_1_1.vhd",
+      "impl\/vhdl\/sgfilter_mac_muladd_16s_26s_7s_32_1_1.vhd",
       "impl\/vhdl\/sgfilter.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/sgfilter_a.v",
-      "impl\/verilog\/sgfilter_mac_muladd_10ns_8ns_7s_18_3_1.v",
-      "impl\/verilog\/sgfilter_mac_muladd_10ns_8s_15s_30_3_1.v",
-      "impl\/verilog\/sgfilter_mac_muladd_10ns_11s_7s_21_3_1.v",
-      "impl\/verilog\/sgfilter_mac_muladd_10ns_18s_30s_32_3_1.v",
-      "impl\/verilog\/sgfilter_mac_muladd_10ns_21s_7s_31_3_1.v",
-      "impl\/verilog\/sgfilter_mul_10ns_19s_32_2_1.v",
-      "impl\/verilog\/sgfilter_mul_10ns_31s_32_5_1.v",
-      "impl\/verilog\/sgfilter_OUT.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_8ns_7s_23_1_1.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_8s_20s_23_1_1.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_11s_7s_26_1_1.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_23s_4ns_32_1_1.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_23s_32s_32_1_1.v",
+      "impl\/verilog\/sgfilter_mac_muladd_16s_26s_7s_32_1_1.v",
       "impl\/verilog\/sgfilter.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/vivado\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.autopilot\/db\/sgfilter.design.xml",
-    "DebugDir": "\/home\/vivado\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.debug",
-    "ProtoInst": ["\/home\/vivado\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.debug\/sgfilter.protoinst"]
+    "DesignXml": "\/home\/dalila\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.autopilot\/db\/sgfilter.design.xml",
+    "DebugDir": "\/home\/dalila\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.debug",
+    "ProtoInst": ["\/home\/dalila\/HLStools\/vivado\/ready\/Sgfilter\/proj\/sol\/.debug\/sgfilter.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
@@ -85,6 +113,28 @@
     "IP": []
   },
   "Interfaces": {
+    "a_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "address0"
+    },
+    "a_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "a",
+      "bundle_role": "q0"
+    },
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
@@ -120,7 +170,51 @@
       "bundle_name": "ap_rst",
       "bundle_role": "default"
     },
-    "idx": {
+    "b_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "address0"
+    },
+    "b_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "16"
+        }},
+      "bundle_name": "b",
+      "bundle_role": "q0"
+    },
+    "OUT_r_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "7",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "7"
+        }},
+      "bundle_name": "OUT_r",
+      "bundle_role": "address0"
+    },
+    "OUT_r_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "OUT_r",
+      "bundle_role": "d0"
+    },
+    "OUT_r_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -128,8 +222,8 @@
           "Type": "integer signed",
           "Width": "32"
         }},
-      "bundle_name": "idx",
-      "bundle_role": "default"
+      "bundle_name": "OUT_r",
+      "bundle_role": "q0"
     }
   },
   "RtlPorts": {
@@ -161,7 +255,47 @@
       "dir": "out",
       "width": "32"
     },
-    "idx": {
+    "a_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "a_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "a_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "b_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "b_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_q0": {
+      "dir": "in",
+      "width": "16"
+    },
+    "OUT_r_address0": {
+      "dir": "out",
+      "width": "7"
+    },
+    "OUT_r_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "OUT_r_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "OUT_r_d0": {
+      "dir": "out",
+      "width": "32"
+    },
+    "OUT_r_q0": {
       "dir": "in",
       "width": "32"
     }
@@ -177,46 +311,37 @@
       }},
     "Metrics": {"sgfilter": {
         "Latency": {
-          "LatencyBest": "46765965517",
-          "LatencyAvg": "46765965517",
-          "LatencyWorst": "46765965517",
-          "PipelineII": "46765965518",
+          "LatencyBest": "30202",
+          "LatencyAvg": "30202",
+          "LatencyWorst": "30202",
+          "PipelineII": "30203",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
-          "Target": "5.00",
-          "Uncertainty": "0.62",
-          "Estimate": "4.109"
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.458"
         },
-        "Loops": [
-          {
+        "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "25952256",
-            "Latency": "51904512",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 2",
             "TripCount": "100",
-            "Latency": "46714061000",
+            "Latency": "30200",
             "PipelineII": "",
-            "PipelineDepth": "467140610",
+            "PipelineDepth": "302",
             "Loops": [{
-                "Name": "Loop 2.1",
-                "TripCount": "25952256",
-                "Latency": "467140608",
+                "Name": "Loop 1.1",
+                "TripCount": "100",
+                "Latency": "300",
                 "PipelineII": "",
-                "PipelineDepth": "18"
+                "PipelineDepth": "3"
               }]
-          }
-        ],
+          }],
         "Area": {
-          "BRAM_18K": "106496",
           "DSP48E": "10",
-          "FF": "1073",
-          "LUT": "514",
+          "FF": "163",
+          "LUT": "275",
+          "BRAM_18K": "0",
           "URAM": "0"
         }
       }}
@@ -231,7 +356,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-04-20 17:56:46 UTC",
+    "Time": "2020-04-27 13:25:50 -03",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.1"
   }
