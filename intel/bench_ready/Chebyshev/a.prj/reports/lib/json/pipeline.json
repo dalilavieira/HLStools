@@ -1,11 +1,11 @@
 {
-  "1406231488":
+  "12444608":
   {
     "nodes":
     [
       {
         "name":"Entry"
-        , "id":1412374368
+        , "id":18350128
         , "details":
         [
           {
@@ -19,7 +19,7 @@
       }
       , {
         "name":"Exit"
-        , "id":1422033152
+        , "id":28193008
         , "start":"1"
         , "end":"1"
         , "details":
@@ -37,15 +37,15 @@
     [
     ]
   }
-  , "1406544848":
+  , "12757968":
   {
     "nodes":
     [
       {
         "name":"Loop Orch"
-        , "id":1406662096
+        , "id":13152816
         , "start":"3"
-        , "end":"3"
+        , "end":"4"
         , "details":
         [
           {
@@ -66,7 +66,7 @@
       }
       , {
         "name":"ST"
-        , "id":1407092688
+        , "id":13305232
         , "start":"3"
         , "end":"4"
         , "details":
@@ -94,26 +94,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Exit"
-        , "id":1407451072
-        , "start":"4"
-        , "end":"7"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"4"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"24"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Ptr. Comp."
-        , "id":1407638944
+        , "id":13851488
         , "start":"3"
         , "end":"3"
         , "details":
@@ -137,16 +119,17 @@
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":1410299456
-        , "start":"3"
-        , "end":"3"
+        "name":"'k'"
+        , "id":15428560
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'k'"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
         ]
@@ -155,7 +138,7 @@
           [
             {
               "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":13
+              , "line":12
             }
           ]
         ]
@@ -163,7 +146,7 @@
       }
       , {
         "name":"Xor"
-        , "id":1410992944
+        , "id":17770800
         , "start":"3"
         , "end":"3"
         , "details":
@@ -188,8 +171,26 @@
         , "type":"inst"
       }
       , {
+        "name":"Exit"
+        , "id":24434992
+        , "start":"4"
+        , "end":"7"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"4"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"24"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":1411496416
+        , "id":24811216
         , "start":"2"
         , "end":"2"
         , "details":
@@ -215,7 +216,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":1411496752
+        , "id":24811552
         , "start":"2"
         , "end":"2"
         , "details":
@@ -242,48 +243,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Entry"
-        , "id":1412371408
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'k'"
-        , "id":1412589488
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'k'"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":12
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"ST"
-        , "id":1422256928
+        , "id":25541792
         , "start":"3"
         , "end":"4"
         , "details":
@@ -310,218 +271,9 @@
         ]
         , "type":"inst"
       }
-    ]
-    , "links":
-    [
-      {
-        "from":1406662096
-        , "to":1407451072
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
       , {
-        "from":1406662096
-        , "to":1410992944
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1406662096
-        , "to":1411496752
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1407638944
-        , "to":1407092688
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":1410299456
-        , "to":1422256928
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":1410992944
-        , "to":1406662096
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1410992944
-        , "to":1407092688
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1410992944
-        , "to":1422256928
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1411496416
-        , "to":1411496752
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1411496752
-        , "to":1412589488
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1412371408
-        , "to":1406662096
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412371408
-        , "to":1407451072
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412371408
-        , "to":1411496752
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412371408
-        , "to":1412589488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412589488
-        , "to":1407638944
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1412589488
-        , "to":1410299456
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1412589488
-        , "to":1411496416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1412589488
-        , "to":1422256928
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-    ]
-  }
-  , "1407076000":
-  {
-    "nodes":
-    [
-      {
         "name":"Entry"
-        , "id":1407768896
+        , "id":28360592
         , "details":
         [
           {
@@ -534,8 +286,242 @@
         , "type":"inst"
       }
       , {
+        "name":"Ptr. Comp."
+        , "id":28470512
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":13152816
+        , "to":17770800
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":13152816
+        , "to":24434992
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":13152816
+        , "to":24811552
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":13851488
+        , "to":13305232
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":15428560
+        , "to":13851488
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":15428560
+        , "to":24811216
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":15428560
+        , "to":25541792
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":15428560
+        , "to":28470512
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":17770800
+        , "to":13152816
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":17770800
+        , "to":13305232
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":17770800
+        , "to":25541792
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":24811216
+        , "to":24811552
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":24811552
+        , "to":15428560
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":28360592
+        , "to":13152816
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":28360592
+        , "to":15428560
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":28360592
+        , "to":24434992
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":28360592
+        , "to":24811552
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":28470512
+        , "to":25541792
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+    ]
+  }
+  , "13289120":
+  {
+    "nodes":
+    [
+      {
         "name":"Exit"
-        , "id":1411572400
+        , "id":13664576
         , "start":"1"
         , "end":"1"
         , "details":
@@ -549,8 +535,22 @@
         , "type":"inst"
       }
       , {
+        "name":"Entry"
+        , "id":14177184
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Loop Orch"
-        , "id":1411799360
+        , "id":17455648
         , "start":"1"
         , "end":"1"
         , "details":
@@ -575,8 +575,8 @@
     , "links":
     [
       {
-        "from":1407768896
-        , "to":1411572400
+        "from":14177184
+        , "to":13664576
         , "details":
         [
           {
@@ -586,8 +586,8 @@
         ]
       }
       , {
-        "from":1407768896
-        , "to":1411799360
+        "from":14177184
+        , "to":17455648
         , "details":
         [
           {
@@ -597,8 +597,8 @@
         ]
       }
       , {
-        "from":1411799360
-        , "to":1411572400
+        "from":17455648
+        , "to":13664576
         , "details":
         [
           {
@@ -609,13 +609,13 @@
       }
     ]
   }
-  , "1407272736":
+  , "13485856":
   {
     "nodes":
     [
       {
         "name":"FFwd Dest"
-        , "id":1409150528
+        , "id":17405488
         , "start":"1"
         , "end":"1"
         , "details":
@@ -630,47 +630,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":1409164992
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":24
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":1410403712
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"0"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Exit"
-        , "id":1410780032
+        , "id":17786864
         , "start":"5"
         , "end":"8"
         , "details":
@@ -688,7 +649,7 @@
       }
       , {
         "name":"LD"
-        , "id":1418474400
+        , "id":24619136
         , "start":"1"
         , "end":"5"
         , "details":
@@ -715,12 +676,51 @@
         ]
         , "type":"inst"
       }
+      , {
+        "name":"Entry"
+        , "id":24725376
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"0"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":28365552
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
     ]
     , "links":
     [
       {
-        "from":1409150528
-        , "to":1409164992
+        "from":17405488
+        , "to":28365552
         , "details":
         [
           {
@@ -730,19 +730,8 @@
         ]
       }
       , {
-        "from":1409164992
-        , "to":1418474400
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":1418474400
-        , "to":1410780032
+        "from":24619136
+        , "to":17786864
         , "details":
         [
           {
@@ -751,69 +740,26 @@
           }
         ]
       }
+      , {
+        "from":28365552
+        , "to":24619136
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
     ]
   }
-  , "1407589840":
+  , "13802960":
   {
     "nodes":
     [
       {
-        "name":"+"
-        , "id":1406173136
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":18
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":1406173472
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'k'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":18
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Loop Orch"
-        , "id":1406564448
+        , "id":12778480
         , "start":"2"
         , "end":"2"
         , "details":
@@ -828,7 +774,46 @@
           [
             {
               "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":18
+              , "line":17
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Entry"
+        , "id":13843712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"dot.product"
+        , "id":14347104
+        , "start":"7"
+        , "end":"10"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"dot.product"
+            , "Start Cycle":"7"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
             }
           ]
         ]
@@ -836,7 +821,7 @@
       }
       , {
         "name":"+"
-        , "id":1407225968
+        , "id":15381712
         , "start":"13"
         , "end":"13"
         , "details":
@@ -861,8 +846,33 @@
         , "type":"inst"
       }
       , {
+        "name":"*"
+        , "id":15382048
+        , "start":"13"
+        , "end":"16"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Integer Multiply"
+            , "Start Cycle":"13"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"LD"
-        , "id":1408133328
+        , "id":15460192
         , "start":"3"
         , "end":"7"
         , "details":
@@ -890,8 +900,212 @@
         , "type":"inst"
       }
       , {
+        "name":"Ptr. Comp."
+        , "id":16561568
+        , "start":"3"
+        , "end":"16"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"13"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'k'"
+        , "id":17382080
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'k'"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":18
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":17422064
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":19
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":17473296
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":18
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":17708368
+        , "start":"10"
+        , "end":"10"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Integer Add"
+            , "Constant Operand":"-20 (0xFFEC)"
+            , "Start Cycle":"10"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"*"
+        , "id":17708704
+        , "start":"7"
+        , "end":"10"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Integer Multiply"
+            , "Start Cycle":"7"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"dot.product"
+        , "id":17709712
+        , "start":"10"
+        , "end":"13"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"dot.product"
+            , "Start Cycle":"10"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"<<"
+        , "id":24649056
+        , "start":"7"
+        , "end":"7"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Left Shift"
+            , "Constant Operand":"4 (0x4)"
+            , "Start Cycle":"7"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"ST"
-        , "id":1408790320
+        , "id":24875040
         , "start":"16"
         , "end":"17"
         , "details":
@@ -919,66 +1133,15 @@
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":1409248032
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":19
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"<<"
-        , "id":1410350160
-        , "start":"7"
-        , "end":"7"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Left Shift"
-            , "Constant Operand":"4 (0x4)"
-            , "Start Cycle":"7"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":1410963648
+        "name":"+"
+        , "id":25045168
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"1-bit Xor"
+            , "Instruction":"32-bit Integer Add"
             , "Constant Operand":"1 (0x1)"
             , "Start Cycle":"2"
             , "Latency":"0"
@@ -996,199 +1159,18 @@
         , "type":"inst"
       }
       , {
-        "name":"Entry"
-        , "id":1411573312
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"dot.product"
-        , "id":1412004848
-        , "start":"7"
-        , "end":"10"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"dot.product"
-            , "Start Cycle":"7"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"*"
-        , "id":1412175648
-        , "start":"13"
-        , "end":"16"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Integer Multiply"
-            , "Start Cycle":"13"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Ptr. Comp."
-        , "id":1412175984
-        , "start":"3"
-        , "end":"16"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
-            , "Latency":"13"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":1412187200
-        , "start":"17"
-        , "end":"20"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"17"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"32"
-            , "Exit FIFO Width":"32"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":1412535408
-        , "start":"10"
-        , "end":"10"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Integer Add"
-            , "Constant Operand":"-20 (0xFFEC)"
-            , "Start Cycle":"10"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"*"
-        , "id":1412535744
-        , "start":"7"
-        , "end":"10"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Integer Multiply"
-            , "Start Cycle":"7"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"dot.product"
-        , "id":1412536752
-        , "start":"10"
-        , "end":"13"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"dot.product"
-            , "Start Cycle":"10"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Chebyshev/Chebyshev.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'k'"
-        , "id":1421986784
+        "name":"Feedback"
+        , "id":25045504
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Feedback Read"
+            , "Instruction":"Feedback Write"
             , "Variable":"'k'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
             , "Start Cycle":"2"
             , "Latency":"0"
           }
@@ -1204,46 +1186,30 @@
         ]
         , "type":"inst"
       }
+      , {
+        "name":"Exit"
+        , "id":25511184
+        , "start":"17"
+        , "end":"20"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"17"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"32"
+            , "Exit FIFO Width":"32"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
     ]
     , "links":
     [
       {
-        "from":1406173136
-        , "to":1406173472
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1406173472
-        , "to":1421986784
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1406564448
-        , "to":1406173472
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1406564448
-        , "to":1410963648
+        "from":12778480
+        , "to":17473296
         , "reverse":1
         , "details":
         [
@@ -1254,8 +1220,9 @@
         ]
       }
       , {
-        "from":1406564448
-        , "to":1412187200
+        "from":12778480
+        , "to":25045504
+        , "reverse":1
         , "details":
         [
           {
@@ -1265,8 +1232,64 @@
         ]
       }
       , {
-        "from":1407225968
-        , "to":1412175648
+        "from":12778480
+        , "to":25511184
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":13843712
+        , "to":12778480
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":13843712
+        , "to":17382080
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":13843712
+        , "to":25045504
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":13843712
+        , "to":25511184
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":14347104
+        , "to":17708368
         , "details":
         [
           {
@@ -1276,8 +1299,8 @@
         ]
       }
       , {
-        "from":1408133328
-        , "to":1410350160
+        "from":15381712
+        , "to":15382048
         , "details":
         [
           {
@@ -1287,8 +1310,8 @@
         ]
       }
       , {
-        "from":1408133328
-        , "to":1412004848
+        "from":15382048
+        , "to":24875040
         , "details":
         [
           {
@@ -1298,8 +1321,8 @@
         ]
       }
       , {
-        "from":1408133328
-        , "to":1412175648
+        "from":15460192
+        , "to":14347104
         , "details":
         [
           {
@@ -1309,8 +1332,8 @@
         ]
       }
       , {
-        "from":1408133328
-        , "to":1412535744
+        "from":15460192
+        , "to":15382048
         , "details":
         [
           {
@@ -1320,8 +1343,30 @@
         ]
       }
       , {
-        "from":1409248032
-        , "to":1408133328
+        "from":15460192
+        , "to":17708704
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":15460192
+        , "to":24649056
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":16561568
+        , "to":24875040
         , "details":
         [
           {
@@ -1331,118 +1376,41 @@
         ]
       }
       , {
-        "from":1410350160
-        , "to":1412004848
+        "from":17382080
+        , "to":16561568
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":1410963648
-        , "to":1406564448
+        "from":17382080
+        , "to":17422064
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":1410963648
-        , "to":1408133328
+        "from":17382080
+        , "to":25045168
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":1410963648
-        , "to":1408790320
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":1411573312
-        , "to":1406173472
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":1411573312
-        , "to":1406564448
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":1411573312
-        , "to":1412187200
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":1411573312
-        , "to":1421986784
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":1412004848
-        , "to":1412535408
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412175648
-        , "to":1408790320
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":1412175984
-        , "to":1408790320
+        "from":17422064
+        , "to":15460192
         , "details":
         [
           {
@@ -1452,8 +1420,41 @@
         ]
       }
       , {
-        "from":1412535408
-        , "to":1412536752
+        "from":17473296
+        , "to":12778480
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":17473296
+        , "to":15460192
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":17473296
+        , "to":24875040
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":17708368
+        , "to":17709712
         , "details":
         [
           {
@@ -1463,8 +1464,8 @@
         ]
       }
       , {
-        "from":1412535744
-        , "to":1412536752
+        "from":17708704
+        , "to":17709712
         , "details":
         [
           {
@@ -1474,8 +1475,8 @@
         ]
       }
       , {
-        "from":1412536752
-        , "to":1407225968
+        "from":17709712
+        , "to":15381712
         , "details":
         [
           {
@@ -1485,8 +1486,19 @@
         ]
       }
       , {
-        "from":1421986784
-        , "to":1406173136
+        "from":24649056
+        , "to":14347104
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":25045168
+        , "to":25045504
         , "details":
         [
           {
@@ -1496,19 +1508,9 @@
         ]
       }
       , {
-        "from":1421986784
-        , "to":1409248032
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":1421986784
-        , "to":1412175984
+        "from":25045504
+        , "to":17382080
+        , "reverse":1
         , "details":
         [
           {

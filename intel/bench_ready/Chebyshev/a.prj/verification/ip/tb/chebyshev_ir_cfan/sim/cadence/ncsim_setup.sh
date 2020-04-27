@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 19.4 64 linux 2020.04.27.09:27:32
+# ACDS 19.4 64 linux 2020.04.27.09:46:57
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script
@@ -106,7 +106,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Intel IP within the design.
 # ----------------------------------------
-# ACDS 19.4 64 linux 2020.04.27.09:27:32
+# ACDS 19.4 64 linux 2020.04.27.09:46:57
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="chebyshev_ir_cfan.chebyshev_ir_cfan"

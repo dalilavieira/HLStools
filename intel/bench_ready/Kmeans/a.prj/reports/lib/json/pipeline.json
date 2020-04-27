@@ -1,11 +1,25 @@
 {
-  "529603248":
+  "1942252352":
   {
     "nodes":
     [
       {
+        "name":"Entry"
+        , "id":1952291856
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Exit"
-        , "id":566922672
+        , "id":1973701328
         , "start":"1"
         , "end":"1"
         , "details":
@@ -18,34 +32,20 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Entry"
-        , "id":566983952
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
     ]
   }
-  , "530014064":
+  , "1942663168":
   {
     "nodes":
     [
       {
         "name":"Loop Orch"
-        , "id":530193424
-        , "start":"3"
-        , "end":"4"
+        , "id":1949251360
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
@@ -65,8 +65,128 @@
         , "type":"inst"
       }
       , {
+        "name":"Select"
+        , "id":1955723760
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"33-bit Select"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1955724096
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":1955726720
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'i'"
+        , "id":1955727056
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'i'"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Exit"
+        , "id":1955855840
+        , "start":"4"
+        , "end":"7"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"4"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"24"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"And"
-        , "id":530763984
+        , "id":1971771200
         , "start":"3"
         , "end":"3"
         , "details":
@@ -91,7 +211,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":531427712
+        , "id":1971786208
         , "start":"3"
         , "end":"3"
         , "details":
@@ -115,8 +235,73 @@
         , "type":"inst"
       }
       , {
+        "name":"Ptr. Comp."
+        , "id":1971806208
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":17
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":1971826880
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Entry"
+        , "id":1971840592
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Or"
-        , "id":532419200
+        , "id":1973085504
         , "start":"3"
         , "end":"3"
         , "details":
@@ -141,7 +326,7 @@
       }
       , {
         "name":"ST"
-        , "id":532419536
+        , "id":1973085840
         , "start":"3"
         , "end":"4"
         , "details":
@@ -169,8 +354,33 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":1973091280
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":532739168
+        , "id":1974234400
         , "start":"2"
         , "end":"2"
         , "details":
@@ -196,7 +406,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":532739504
+        , "id":1974234736
         , "start":"2"
         , "end":"2"
         , "details":
@@ -222,257 +432,79 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Ptr. Comp."
-        , "id":533924784
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":17
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":542743792
-        , "start":"4"
-        , "end":"7"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"4"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"24"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":543193152
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":559137760
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":559155216
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"33-bit Select"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":559155552
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":559158176
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'i'"
-        , "id":559158512
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'i'"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":559161168
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":530193424
-        , "to":532739504
+        "from":1949251360
+        , "to":1955723760
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"4"
           }
         ]
       }
       , {
-        "from":530193424
-        , "to":542743792
+        "from":1949251360
+        , "to":1955855840
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"4"
           }
         ]
       }
       , {
-        "from":530193424
-        , "to":559155216
+        "from":1949251360
+        , "to":1971826880
         , "reverse":1
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"4"
           }
         ]
       }
       , {
-        "from":530193424
-        , "to":559161168
-        , "reverse":1
+        "from":1949251360
+        , "to":1974234736
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1955723760
+        , "to":1955723760
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1955723760
+        , "to":1971771200
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1955724096
+        , "to":1955726720
         , "details":
         [
           {
@@ -482,8 +514,8 @@
         ]
       }
       , {
-        "from":530763984
-        , "to":530193424
+        "from":1955726720
+        , "to":1973085504
         , "details":
         [
           {
@@ -493,64 +525,8 @@
         ]
       }
       , {
-        "from":530763984
-        , "to":532739504
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":530763984
-        , "to":542743792
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":530763984
-        , "to":559155216
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":531427712
-        , "to":530763984
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":532419200
-        , "to":532419536
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":532739168
-        , "to":532739504
+        "from":1955727056
+        , "to":1971806208
         , "details":
         [
           {
@@ -560,9 +536,8 @@
         ]
       }
       , {
-        "from":532739504
-        , "to":559158512
-        , "reverse":1
+        "from":1955727056
+        , "to":1973085840
         , "details":
         [
           {
@@ -572,8 +547,76 @@
         ]
       }
       , {
-        "from":533924784
-        , "to":532419536
+        "from":1955727056
+        , "to":1974234400
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1971771200
+        , "to":1949251360
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971771200
+        , "to":1955723760
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971771200
+        , "to":1955855840
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971771200
+        , "to":1974234736
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971786208
+        , "to":1971771200
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971806208
+        , "to":1973085840
         , "details":
         [
           {
@@ -583,8 +626,96 @@
         ]
       }
       , {
-        "from":543193152
-        , "to":559155216
+        "from":1971826880
+        , "to":1949251360
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971826880
+        , "to":1973085504
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971840592
+        , "to":1949251360
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1971840592
+        , "to":1955723760
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1971840592
+        , "to":1955727056
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1971840592
+        , "to":1955855840
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1971840592
+        , "to":1974234736
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1973085504
+        , "to":1973085840
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1973091280
+        , "to":1955723760
         , "details":
         [
           {
@@ -594,107 +725,8 @@
         ]
       }
       , {
-        "from":559137760
-        , "to":530193424
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559137760
-        , "to":532739504
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559137760
-        , "to":542743792
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559137760
-        , "to":559155216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559137760
-        , "to":559158512
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559155216
-        , "to":530763984
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":559155216
-        , "to":559155216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":559155552
-        , "to":559158176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559158176
-        , "to":532419200
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559158512
-        , "to":532419536
+        "from":1974234400
+        , "to":1974234736
         , "details":
         [
           {
@@ -704,58 +736,127 @@
         ]
       }
       , {
-        "from":559158512
-        , "to":532739168
+        "from":1974234736
+        , "to":1955727056
+        , "reverse":1
         , "details":
         [
           {
             "type":"table"
             , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559158512
-        , "to":533924784
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559161168
-        , "to":530193424
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559161168
-        , "to":532419200
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
           }
         ]
       }
     ]
   }
-  , "530513632":
+  , "1943162736":
   {
     "nodes":
     [
       {
+        "name":"FFwd Src"
+        , "id":1945936400
+        , "start":"5"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"5"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Src"
+        , "id":1945939024
+        , "start":"6"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Source"
+            , "Start Cycle":"6"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":1971775728
+        , "start":"5"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Select"
+            , "Start Cycle":"5"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"+"
-        , "id":530230912
+        , "id":1971776064
+        , "start":"6"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"-1 (0xFFFFFFFF)"
+            , "Start Cycle":"6"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":1971776736
         , "start":"6"
         , "end":"6"
         , "details":
@@ -781,7 +882,7 @@
       }
       , {
         "name":"FFwd Src"
-        , "id":530231248
+        , "id":1971777072
         , "start":"1"
         , "end":"1"
         , "details":
@@ -789,87 +890,6 @@
           {
             "type":"table"
             , "Instruction":"FFwd Source"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Src"
-        , "id":530233456
-        , "start":"5"
-        , "end":"5"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"5"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":530662336
-        , "start":"6"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"6"
-            , "Exit Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Src"
-        , "id":530901584
-        , "start":"6"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Source"
-            , "Start Cycle":"6"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":531525376
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
@@ -878,7 +898,7 @@
       }
       , {
         "name":"Entry"
-        , "id":533740336
+        , "id":1971797296
         , "details":
         [
           {
@@ -892,7 +912,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":533740672
+        , "id":1971797632
         , "start":"1"
         , "end":"1"
         , "details":
@@ -916,8 +936,39 @@
         , "type":"inst"
       }
       , {
+        "name":"Exit"
+        , "id":1972755424
+        , "start":"6"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"6"
+            , "Exit Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1974210896
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"*"
-        , "id":533789568
+        , "id":1974213104
         , "start":"1"
         , "end":"4"
         , "details":
@@ -942,7 +993,7 @@
       }
       , {
         "name":"Compare"
-        , "id":533789904
+        , "id":1974213440
         , "start":"5"
         , "end":"5"
         , "details":
@@ -967,7 +1018,7 @@
       }
       , {
         "name":"Compare"
-        , "id":533790240
+        , "id":1974213776
         , "start":"5"
         , "end":"5"
         , "details":
@@ -990,63 +1041,34 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Select"
-        , "id":533790576
-        , "start":"5"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Select"
-            , "Start Cycle":"5"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":533790912
-        , "start":"6"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"-1 (0xFFFFFFFF)"
-            , "Start Cycle":"6"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":530230912
-        , "to":530901584
+        "from":1971775728
+        , "to":1971776064
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1971776064
+        , "to":1971776736
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1971776736
+        , "to":1945939024
         , "details":
         [
           {
@@ -1056,19 +1078,8 @@
         ]
       }
       , {
-        "from":531525376
-        , "to":533789568
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":533740672
-        , "to":530231248
+        "from":1971797632
+        , "to":1971777072
         , "details":
         [
           {
@@ -1078,8 +1089,8 @@
         ]
       }
       , {
-        "from":533740672
-        , "to":533789568
+        "from":1971797632
+        , "to":1974213104
         , "details":
         [
           {
@@ -1089,8 +1100,8 @@
         ]
       }
       , {
-        "from":533789568
-        , "to":533789904
+        "from":1974210896
+        , "to":1974213104
         , "details":
         [
           {
@@ -1100,8 +1111,8 @@
         ]
       }
       , {
-        "from":533789568
-        , "to":533790240
+        "from":1974213104
+        , "to":1971775728
         , "details":
         [
           {
@@ -1111,8 +1122,8 @@
         ]
       }
       , {
-        "from":533789568
-        , "to":533790576
+        "from":1974213104
+        , "to":1974213440
         , "details":
         [
           {
@@ -1122,8 +1133,19 @@
         ]
       }
       , {
-        "from":533789904
-        , "to":530233456
+        "from":1974213104
+        , "to":1974213776
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1974213440
+        , "to":1945936400
         , "details":
         [
           {
@@ -1133,47 +1155,153 @@
         ]
       }
       , {
-        "from":533790240
-        , "to":533790576
+        "from":1974213776
+        , "to":1971775728
         , "details":
         [
           {
             "type":"table"
             , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":533790576
-        , "to":533790912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":533790912
-        , "to":530230912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
           }
         ]
       }
     ]
   }
-  , "530741856":
+  , "1943390960":
   {
     "nodes":
     [
       {
+        "name":"Loop Orch"
+        , "id":1942844016
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":19
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":1943415632
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":19
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":1943415968
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'i'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":19
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'i'"
+        , "id":1943474000
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'i'"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":19
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":1944076304
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":20
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"ST"
-        , "id":530824976
+        , "id":1944078096
         , "start":"3"
         , "end":"4"
         , "details":
@@ -1201,96 +1329,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Entry"
-        , "id":530903584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Loop Orch"
-        , "id":531560480
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":19
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'i'"
-        , "id":532344928
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'i'"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":19
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Ptr. Comp."
-        , "id":532347696
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":20
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Xor"
-        , "id":533638608
+        , "id":1946572432
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1315,8 +1355,22 @@
         , "type":"inst"
       }
       , {
+        "name":"Entry"
+        , "id":1949667968
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Exit"
-        , "id":537073168
+        , "id":1972963984
         , "start":"4"
         , "end":"7"
         , "details":
@@ -1332,143 +1386,46 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"+"
-        , "id":544502080
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":19
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":544502416
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'i'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":19
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":530903584
-        , "to":531560480
+        "from":1942844016
+        , "to":1943415968
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":530903584
-        , "to":532344928
+        "from":1942844016
+        , "to":1946572432
+        , "reverse":1
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":530903584
-        , "to":537073168
+        "from":1942844016
+        , "to":1972963984
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":530903584
-        , "to":544502416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":531560480
-        , "to":533638608
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"4"
-          }
-        ]
-      }
-      , {
-        "from":531560480
-        , "to":537073168
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"4"
-          }
-        ]
-      }
-      , {
-        "from":531560480
-        , "to":544502416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"4"
-          }
-        ]
-      }
-      , {
-        "from":532344928
-        , "to":532347696
+        "from":1943415632
+        , "to":1943415968
         , "details":
         [
           {
@@ -1478,8 +1435,9 @@
         ]
       }
       , {
-        "from":532344928
-        , "to":544502080
+        "from":1943415968
+        , "to":1943474000
+        , "reverse":1
         , "details":
         [
           {
@@ -1489,8 +1447,30 @@
         ]
       }
       , {
-        "from":532347696
-        , "to":530824976
+        "from":1943474000
+        , "to":1943415632
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1943474000
+        , "to":1944076304
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1944076304
+        , "to":1944078096
         , "details":
         [
           {
@@ -1500,8 +1480,8 @@
         ]
       }
       , {
-        "from":533638608
-        , "to":530824976
+        "from":1946572432
+        , "to":1942844016
         , "details":
         [
           {
@@ -1511,9 +1491,8 @@
         ]
       }
       , {
-        "from":533638608
-        , "to":531560480
-        , "reverse":1
+        "from":1946572432
+        , "to":1944078096
         , "details":
         [
           {
@@ -1523,37 +1502,72 @@
         ]
       }
       , {
-        "from":544502080
-        , "to":544502416
+        "from":1949667968
+        , "to":1942844016
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"16"
           }
         ]
       }
       , {
-        "from":544502416
-        , "to":532344928
-        , "reverse":1
+        "from":1949667968
+        , "to":1943415968
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1949667968
+        , "to":1943474000
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1949667968
+        , "to":1972963984
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
           }
         ]
       }
     ]
   }
-  , "531345344":
+  , "1943994432":
   {
     "nodes":
     [
       {
+        "name":"Entry"
+        , "id":1942882752
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Loop Orch"
-        , "id":536998416
+        , "id":1943549312
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1575,101 +1589,8 @@
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":542678544
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"And"
-        , "id":542681168
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit And"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":542882592
-        , "start":"4"
-        , "end":"7"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"4"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"24"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":543070320
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Xor"
-        , "id":544940752
+        , "id":1943552496
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1694,101 +1615,26 @@
         , "type":"inst"
       }
       , {
-        "name":"+"
-        , "id":545031440
-        , "start":"2"
-        , "end":"2"
+        "name":"Exit"
+        , "id":1944665296
+        , "start":"4"
+        , "end":"7"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
+            , "Exit Start Cycle":"4"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"24"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
           }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":545031776
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'i'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":22
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":559548720
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Ptr. Comp."
-        , "id":560194992
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":23
-            }
-          ]
         ]
         , "type":"inst"
       }
       , {
         "name":"Select"
-        , "id":561516912
+        , "id":1944994960
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1813,7 +1659,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":561517248
+        , "id":1944995296
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1837,8 +1683,61 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":1945407648
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":1946457536
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'i'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Xor"
-        , "id":561519872
+        , "id":1949332608
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1864,7 +1763,7 @@
       }
       , {
         "name":"'i'"
-        , "id":561520208
+        , "id":1949332944
         , "start":"2"
         , "end":"2"
         , "details":
@@ -1889,8 +1788,58 @@
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":1955443584
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":1955641936
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":23
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Or"
-        , "id":566482880
+        , "id":1955643728
         , "start":"3"
         , "end":"3"
         , "details":
@@ -1915,7 +1864,7 @@
       }
       , {
         "name":"ST"
-        , "id":566483216
+        , "id":1955644064
         , "start":"3"
         , "end":"4"
         , "details":
@@ -1942,23 +1891,162 @@
         ]
         , "type":"inst"
       }
+      , {
+        "name":"+"
+        , "id":1955644608
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"And"
+        , "id":1973082288
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit And"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":22
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
     ]
     , "links":
     [
       {
-        "from":536998416
-        , "to":542882592
+        "from":1942882752
+        , "to":1943549312
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"16"
           }
         ]
       }
       , {
-        "from":536998416
-        , "to":544940752
+        "from":1942882752
+        , "to":1944665296
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1942882752
+        , "to":1944994960
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1942882752
+        , "to":1946457536
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1942882752
+        , "to":1949332944
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1943549312
+        , "to":1943552496
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1943549312
+        , "to":1944665296
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1943549312
+        , "to":1944994960
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1943549312
+        , "to":1946457536
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"4"
+          }
+        ]
+      }
+      , {
+        "from":1943552496
+        , "to":1943549312
         , "reverse":1
         , "details":
         [
@@ -1969,8 +2057,8 @@
         ]
       }
       , {
-        "from":536998416
-        , "to":545031776
+        "from":1943552496
+        , "to":1955643728
         , "details":
         [
           {
@@ -1980,76 +2068,8 @@
         ]
       }
       , {
-        "from":536998416
-        , "to":561516912
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":542678544
-        , "to":542681168
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":542681168
-        , "to":536998416
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":542681168
-        , "to":542882592
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":542681168
-        , "to":545031776
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":542681168
-        , "to":561516912
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543070320
-        , "to":561516912
+        "from":1944994960
+        , "to":1944994960
         , "details":
         [
           {
@@ -2059,8 +2079,19 @@
         ]
       }
       , {
-        "from":544940752
-        , "to":536998416
+        "from":1944994960
+        , "to":1973082288
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1944995296
+        , "to":1949332608
         , "details":
         [
           {
@@ -2070,30 +2101,19 @@
         ]
       }
       , {
-        "from":544940752
-        , "to":566482880
+        "from":1945407648
+        , "to":1944994960
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"33"
           }
         ]
       }
       , {
-        "from":545031440
-        , "to":545031776
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":545031776
-        , "to":561520208
+        "from":1946457536
+        , "to":1949332944
         , "reverse":1
         , "details":
         [
@@ -2104,63 +2124,63 @@
         ]
       }
       , {
-        "from":559548720
-        , "to":536998416
+        "from":1949332608
+        , "to":1955643728
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":559548720
-        , "to":542882592
+        "from":1949332944
+        , "to":1955641936
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":559548720
-        , "to":545031776
+        "from":1949332944
+        , "to":1955644064
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":559548720
-        , "to":561516912
+        "from":1949332944
+        , "to":1955644608
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"32"
           }
         ]
       }
       , {
-        "from":559548720
-        , "to":561520208
+        "from":1955443584
+        , "to":1973082288
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":560194992
-        , "to":566483216
+        "from":1955641936
+        , "to":1955644064
         , "details":
         [
           {
@@ -2170,30 +2190,8 @@
         ]
       }
       , {
-        "from":561516912
-        , "to":542681168
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":561516912
-        , "to":561516912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":561517248
-        , "to":561519872
+        "from":1955643728
+        , "to":1955644064
         , "details":
         [
           {
@@ -2203,8 +2201,20 @@
         ]
       }
       , {
-        "from":561519872
-        , "to":566482880
+        "from":1955644608
+        , "to":1946457536
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1973082288
+        , "to":1943549312
+        , "reverse":1
         , "details":
         [
           {
@@ -2214,41 +2224,31 @@
         ]
       }
       , {
-        "from":561520208
-        , "to":545031440
+        "from":1973082288
+        , "to":1944665296
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":561520208
-        , "to":560194992
+        "from":1973082288
+        , "to":1944994960
+        , "reverse":1
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":561520208
-        , "to":566483216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":566482880
-        , "to":566483216
+        "from":1973082288
+        , "to":1946457536
         , "details":
         [
           {
@@ -2259,13 +2259,13 @@
       }
     ]
   }
-  , "531848224":
+  , "1944497360":
   {
     "nodes":
     [
       {
         "name":"Loop Orch"
-        , "id":530096528
+        , "id":1943650128
         , "start":"1"
         , "end":"1"
         , "details":
@@ -2287,8 +2287,22 @@
         , "type":"inst"
       }
       , {
+        "name":"Entry"
+        , "id":1972345728
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Exit"
-        , "id":560217760
+        , "id":1972879472
         , "start":"1"
         , "end":"1"
         , "details":
@@ -2301,26 +2315,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Entry"
-        , "id":561721616
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":530096528
-        , "to":560217760
+        "from":1943650128
+        , "to":1972879472
         , "details":
         [
           {
@@ -2330,8 +2330,8 @@
         ]
       }
       , {
-        "from":561721616
-        , "to":530096528
+        "from":1972345728
+        , "to":1943650128
         , "details":
         [
           {
@@ -2341,8 +2341,8 @@
         ]
       }
       , {
-        "from":561721616
-        , "to":560217760
+        "from":1972345728
+        , "to":1972879472
         , "details":
         [
           {
@@ -2353,13 +2353,13 @@
       }
     ]
   }
-  , "532044800":
+  , "1944693904":
   {
     "nodes":
     [
       {
         "name":"Entry"
-        , "id":530039760
+        , "id":1944666016
         , "details":
         [
           {
@@ -2372,24 +2372,8 @@
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":542883312
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Exit"
-        , "id":545452800
+        , "id":1949733216
         , "start":"5"
         , "end":"8"
         , "details":
@@ -2406,8 +2390,33 @@
         , "type":"inst"
       }
       , {
+        "name":"Ptr. Comp."
+        , "id":1957490736
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":43
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"LD"
-        , "id":560527280
+        , "id":1957492528
         , "start":"1"
         , "end":"5"
         , "details":
@@ -2435,27 +2444,18 @@
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":561989840
+        "name":"FFwd Dest"
+        , "id":1958012864
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Pointer Computation"
+            , "Instruction":"FFwd Destination"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":43
-            }
-          ]
         ]
         , "type":"inst"
       }
@@ -2463,19 +2463,19 @@
     , "links":
     [
       {
-        "from":542883312
-        , "to":561989840
+        "from":1957490736
+        , "to":1957492528
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"64"
           }
         ]
       }
       , {
-        "from":560527280
-        , "to":545452800
+        "from":1957492528
+        , "to":1949733216
         , "details":
         [
           {
@@ -2485,25 +2485,62 @@
         ]
       }
       , {
-        "from":561989840
-        , "to":560527280
+        "from":1958012864
+        , "to":1957490736
         , "details":
         [
           {
             "type":"table"
-            , "Width":"64"
+            , "Width":"32"
           }
         ]
       }
     ]
   }
-  , "532294048":
+  , "1944943168":
   {
     "nodes":
     [
       {
+        "name":"Entry"
+        , "id":1955278992
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Loop Orch"
-        , "id":544497968
+        , "id":1955308752
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":27
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Loop Orch"
+        , "id":1955326800
         , "start":"2"
         , "end":"2"
         , "details":
@@ -2526,7 +2563,7 @@
       }
       , {
         "name":"Exit"
-        , "id":559180272
+        , "id":1972820688
         , "start":"2"
         , "end":"5"
         , "details":
@@ -2543,22 +2580,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Entry"
-        , "id":560438736
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"'i'"
-        , "id":560480064
+        , "id":1979127456
         , "start":"2"
         , "end":"2"
         , "details":
@@ -2583,31 +2606,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Loop Orch"
-        , "id":560974912
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":27
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"+"
-        , "id":566474288
+        , "id":1979129888
         , "start":"2"
         , "end":"2"
         , "details":
@@ -2633,7 +2633,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":566474624
+        , "id":1979130224
         , "start":"2"
         , "end":"2"
         , "details":
@@ -2663,8 +2663,74 @@
     , "links":
     [
       {
-        "from":544497968
-        , "to":559180272
+        "from":1955278992
+        , "to":1955308752
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":1955278992
+        , "to":1955326800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":1955278992
+        , "to":1972820688
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":1955278992
+        , "to":1979127456
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":1955278992
+        , "to":1979130224
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"24"
+          }
+        ]
+      }
+      , {
+        "from":1955308752
+        , "to":1972820688
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1955326800
+        , "to":1972820688
         , "reverse":1
         , "details":
         [
@@ -2675,63 +2741,8 @@
         ]
       }
       , {
-        "from":560438736
-        , "to":544497968
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":560438736
-        , "to":559180272
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":560438736
-        , "to":560480064
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":560438736
-        , "to":560974912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":560438736
-        , "to":566474624
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"24"
-          }
-        ]
-      }
-      , {
-        "from":560480064
-        , "to":559180272
+        "from":1979127456
+        , "to":1972820688
         , "details":
         [
           {
@@ -2741,8 +2752,8 @@
         ]
       }
       , {
-        "from":560480064
-        , "to":566474288
+        "from":1979127456
+        , "to":1979129888
         , "details":
         [
           {
@@ -2752,19 +2763,8 @@
         ]
       }
       , {
-        "from":560974912
-        , "to":559180272
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":566474288
-        , "to":566474624
+        "from":1979129888
+        , "to":1979130224
         , "details":
         [
           {
@@ -2774,8 +2774,8 @@
         ]
       }
       , {
-        "from":566474624
-        , "to":560480064
+        "from":1979130224
+        , "to":1979127456
         , "reverse":1
         , "details":
         [
@@ -2787,22 +2787,22 @@
       }
     ]
   }
-  , "532677280":
+  , "1945326368":
   {
     "nodes":
     [
       {
         "name":"?"
-        , "id":533009744
-        , "start":"5"
-        , "end":"5"
+        , "id":1942686800
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
             , "Instruction":"Feedback Read"
             , "Variable":"Unknown variable"
-            , "Start Cycle":"5"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
         ]
@@ -2811,15 +2811,31 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":27
+              , "line":29
             }
           ]
         ]
         , "type":"inst"
       }
       , {
+        "name":"FFwd Dest"
+        , "id":1942749072
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Feedback"
-        , "id":533012176
+        , "id":1955814416
         , "start":"5"
         , "end":"5"
         , "details":
@@ -2846,97 +2862,8 @@
         , "type":"inst"
       }
       , {
-        "name":"?"
-        , "id":536687104
-        , "start":"5"
-        , "end":"5"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"5"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":26
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"?"
-        , "id":536758672
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Entry"
-        , "id":539510080
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Loop Orch"
-        , "id":540295088
-        , "start":"5"
-        , "end":"5"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":27
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"And"
-        , "id":544837968
+        , "id":1956947424
         , "start":"1"
         , "end":"1"
         , "details":
@@ -2961,7 +2888,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":544838304
+        , "id":1956947760
         , "start":"1"
         , "end":"1"
         , "details":
@@ -2988,8 +2915,258 @@
         , "type":"inst"
       }
       , {
+        "name":"Loop Orch"
+        , "id":1957145824
+        , "start":"5"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":27
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1958263328
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Compare"
+        , "id":1958265536
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Compare"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1958265872
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Entry"
+        , "id":1972454352
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"*"
+        , "id":1972789744
+        , "start":"2"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Multiply"
+            , "Start Cycle":"2"
+            , "Latency":"3"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'c'"
+        , "id":1972790080
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'c'"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":1972792912
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Integer Add"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Exit"
+        , "id":1973175808
+        , "start":"5"
+        , "end":"8"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"5"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"8"
+            , "Exit FIFO Width":"256"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1978979104
+        , "start":"5"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"5"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":26
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1979122032
+        , "start":"5"
+        , "end":"5"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"5"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":27
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Feedback"
-        , "id":544840944
+        , "id":1980279088
         , "start":"2"
         , "end":"2"
         , "details":
@@ -3017,7 +3194,7 @@
       }
       , {
         "name":"Loop Orch"
-        , "id":545170064
+        , "id":1980281728
         , "start":"5"
         , "end":"5"
         , "details":
@@ -3039,108 +3216,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Exit"
-        , "id":559173312
-        , "start":"5"
-        , "end":"8"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"5"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"8"
-            , "Exit FIFO Width":"256"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":559498672
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Compare"
-        , "id":559500880
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Compare"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":559501216
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":560315168
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Feedback"
-        , "id":561238640
+        , "id":1980401264
         , "start":"5"
         , "end":"5"
         , "details":
@@ -3166,89 +3243,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"*"
-        , "id":566436768
-        , "start":"2"
-        , "end":"5"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Multiply"
-            , "Start Cycle":"2"
-            , "Latency":"3"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'c'"
-        , "id":566437104
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'c'"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":566440064
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":533009744
-        , "to":533012176
+        "from":1942686800
+        , "to":1972789744
         , "details":
         [
           {
@@ -3258,8 +3258,8 @@
         ]
       }
       , {
-        "from":533009744
-        , "to":559173312
+        "from":1942749072
+        , "to":1972789744
         , "details":
         [
           {
@@ -3269,8 +3269,8 @@
         ]
       }
       , {
-        "from":533012176
-        , "to":533009744
+        "from":1955814416
+        , "to":1979122032
         , "reverse":1
         , "details":
         [
@@ -3281,8 +3281,8 @@
         ]
       }
       , {
-        "from":536687104
-        , "to":559173312
+        "from":1956947424
+        , "to":1955814416
         , "details":
         [
           {
@@ -3292,8 +3292,8 @@
         ]
       }
       , {
-        "from":536687104
-        , "to":561238640
+        "from":1956947424
+        , "to":1956947760
         , "details":
         [
           {
@@ -3303,86 +3303,8 @@
         ]
       }
       , {
-        "from":536758672
-        , "to":566436768
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":533009744
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":536687104
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":536758672
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":540295088
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":559173312
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":539510080
-        , "to":566437104
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"96"
-          }
-        ]
-      }
-      , {
-        "from":540295088
-        , "to":559173312
-        , "reverse":1
+        "from":1956947424
+        , "to":1957145824
         , "details":
         [
           {
@@ -3392,8 +3314,8 @@
         ]
       }
       , {
-        "from":544837968
-        , "to":533012176
+        "from":1956947424
+        , "to":1973175808
         , "details":
         [
           {
@@ -3403,8 +3325,8 @@
         ]
       }
       , {
-        "from":544837968
-        , "to":540295088
+        "from":1956947424
+        , "to":1980279088
         , "details":
         [
           {
@@ -3414,8 +3336,8 @@
         ]
       }
       , {
-        "from":544837968
-        , "to":544838304
+        "from":1956947424
+        , "to":1980281728
         , "details":
         [
           {
@@ -3425,8 +3347,8 @@
         ]
       }
       , {
-        "from":544837968
-        , "to":544840944
+        "from":1956947424
+        , "to":1980401264
         , "details":
         [
           {
@@ -3436,41 +3358,8 @@
         ]
       }
       , {
-        "from":544837968
-        , "to":545170064
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":544837968
-        , "to":559173312
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":544837968
-        , "to":561238640
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":544838304
-        , "to":566437104
+        "from":1956947760
+        , "to":1972790080
         , "reverse":1
         , "details":
         [
@@ -3481,8 +3370,228 @@
         ]
       }
       , {
-        "from":544840944
-        , "to":536758672
+        "from":1957145824
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958263328
+        , "to":1958265536
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958265536
+        , "to":1956947424
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958265872
+        , "to":1956947424
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1942686800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1957145824
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1972790080
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1978979104
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972454352
+        , "to":1979122032
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"96"
+          }
+        ]
+      }
+      , {
+        "from":1972789744
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972790080
+        , "to":1972792912
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972790080
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972792912
+        , "to":1956947760
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972792912
+        , "to":1958265536
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972792912
+        , "to":1980279088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1978979104
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1978979104
+        , "to":1980401264
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1979122032
+        , "to":1955814416
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1979122032
+        , "to":1973175808
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1980279088
+        , "to":1942686800
         , "reverse":1
         , "details":
         [
@@ -3493,8 +3602,8 @@
         ]
       }
       , {
-        "from":545170064
-        , "to":559173312
+        "from":1980281728
+        , "to":1973175808
         , "details":
         [
           {
@@ -3504,136 +3613,51 @@
         ]
       }
       , {
-        "from":559498672
-        , "to":559500880
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559500880
-        , "to":544837968
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559501216
-        , "to":544837968
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":560315168
-        , "to":566436768
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":561238640
-        , "to":536687104
+        "from":1980401264
+        , "to":1978979104
         , "reverse":1
         , "details":
         [
           {
             "type":"table"
             , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":566436768
-        , "to":559173312
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":566437104
-        , "to":559173312
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":566437104
-        , "to":566440064
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":566440064
-        , "to":544838304
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":566440064
-        , "to":544840944
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":566440064
-        , "to":559500880
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
           }
         ]
       }
     ]
   }
-  , "533266752":
+  , "1945915744":
   {
     "nodes":
     [
       {
+        "name":"FFwd Dest"
+        , "id":1945659040
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Entry"
-        , "id":540364816
+        , "id":1955480704
         , "details":
         [
           {
@@ -3646,23 +3670,8 @@
         , "type":"inst"
       }
       , {
-        "name":"Exit"
-        , "id":559170112
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"1"
-            , "Exit Latency":"0"
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"'min'"
-        , "id":559982784
+        , "id":1955482384
         , "start":"1"
         , "end":"1"
         , "details":
@@ -3687,8 +3696,127 @@
         , "type":"inst"
       }
       , {
+        "name":"Select"
+        , "id":1956184640
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Select"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":34
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'min_id'"
+        , "id":1957833168
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'min_id'"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":28
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":1957835600
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Select"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":34
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":1957835936
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'min_id'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"16"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":34
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Exit"
+        , "id":1958100288
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"1"
+            , "Exit Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Compare"
-        , "id":559985216
+        , "id":1973041392
         , "start":"1"
         , "end":"1"
         , "details":
@@ -3713,7 +3841,7 @@
       }
       , {
         "name":"Select"
-        , "id":559985552
+        , "id":1973041728
         , "start":"1"
         , "end":"1"
         , "details":
@@ -3738,7 +3866,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":559985888
+        , "id":1973042064
         , "start":"1"
         , "end":"1"
         , "details":
@@ -3764,240 +3892,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Select"
-        , "id":560815856
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Select"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":34
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":565412064
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"16-bit Select"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":34
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":565412400
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'min_id'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"16"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":34
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":565415040
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'min_id'"
-        , "id":568232176
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'min_id'"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":28
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":540364816
-        , "to":559982784
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":559985216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":559985552
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":559985888
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":565412064
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":565412400
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":540364816
-        , "to":568232176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"64"
-          }
-        ]
-      }
-      , {
-        "from":559982784
-        , "to":559985216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559982784
-        , "to":559985552
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559985216
-        , "to":559985552
+        "from":1945659040
+        , "to":1956184640
         , "details":
         [
           {
@@ -4007,19 +3907,85 @@
         ]
       }
       , {
-        "from":559985216
-        , "to":565412064
+        "from":1955480704
+        , "to":1955482384
         , "details":
         [
           {
             "type":"table"
-            , "Width":"1"
+            , "Width":"64"
           }
         ]
       }
       , {
-        "from":559985552
-        , "to":559985888
+        "from":1955480704
+        , "to":1957833168
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955480704
+        , "to":1957835600
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955480704
+        , "to":1957835936
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955480704
+        , "to":1973041392
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955480704
+        , "to":1973041728
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955480704
+        , "to":1973042064
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"64"
+          }
+        ]
+      }
+      , {
+        "from":1955482384
+        , "to":1973041392
         , "details":
         [
           {
@@ -4029,8 +3995,63 @@
         ]
       }
       , {
-        "from":559985888
-        , "to":559982784
+        "from":1955482384
+        , "to":1973041728
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1956184640
+        , "to":1958100288
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1957833168
+        , "to":1957835600
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1957835600
+        , "to":1956184640
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1957835600
+        , "to":1957835936
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1957835936
+        , "to":1957833168
         , "reverse":1
         , "details":
         [
@@ -4041,53 +4062,8 @@
         ]
       }
       , {
-        "from":560815856
-        , "to":559170112
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":565412064
-        , "to":560815856
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":565412064
-        , "to":565412400
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":565412400
-        , "to":568232176
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":565415040
-        , "to":560815856
+        "from":1973041392
+        , "to":1957835600
         , "details":
         [
           {
@@ -4097,8 +4073,31 @@
         ]
       }
       , {
-        "from":568232176
-        , "to":565412064
+        "from":1973041392
+        , "to":1973041728
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1973041728
+        , "to":1973042064
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1973042064
+        , "to":1955482384
+        , "reverse":1
         , "details":
         [
           {
@@ -4109,13 +4108,13 @@
       }
     ]
   }
-  , "533610064":
+  , "1946259104":
   {
     "nodes":
     [
       {
         "name":"Feedback"
-        , "id":533602960
+        , "id":1946251584
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4142,8 +4141,81 @@
         , "type":"inst"
       }
       , {
+        "name":"Loop Orch"
+        , "id":1946254640
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Loop Orchestration Logic"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":29
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":1954495184
+        , "start":"6"
+        , "end":"6"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Start Cycle":"6"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":1954495856
+        , "start":"7"
+        , "end":"7"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"7"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"?"
-        , "id":533606016
+        , "id":1955248320
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4168,8 +4240,48 @@
         , "type":"inst"
       }
       , {
+        "name":"Entry"
+        , "id":1955532160
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Cluster Entry"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":1957111040
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":31
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"*"
-        , "id":541844880
+        , "id":1957511088
         , "start":"2"
         , "end":"5"
         , "details":
@@ -4194,7 +4306,7 @@
       }
       , {
         "name":"?"
-        , "id":541845216
+        , "id":1957511424
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4220,7 +4332,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":541847648
+        , "id":1957513856
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4247,15 +4359,15 @@
         , "type":"inst"
       }
       , {
-        "name":"+"
-        , "id":542832448
+        "name":"Select"
+        , "id":1958007024
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"32-bit Integer Add"
+            , "Instruction":"33-bit Select"
             , "Start Cycle":"2"
             , "Latency":"0"
           }
@@ -4265,22 +4377,22 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
+              , "line":31
             }
           ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":542833120
+        "name":"FFwd Dest"
+        , "id":1958007360
         , "start":"3"
         , "end":"3"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Pointer Computation"
+            , "Instruction":"FFwd Destination"
             , "Start Cycle":"3"
             , "Latency":"0"
           }
@@ -4290,7 +4402,239 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Xor"
+        , "id":1958010512
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit Xor"
+            , "Constant Operand":"1 (0x1)"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"And"
+        , "id":1958101392
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"1-bit And"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":31
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1958318064
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"'j'"
+        , "id":1958320272
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"'j'"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":31
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Select"
+        , "id":1958383120
+        , "start":"11"
+        , "end":"11"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"16-bit Select"
+            , "Start Cycle":"11"
+            , "Latency":"0"
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1958383456
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":26
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Feedback"
+        , "id":1958386304
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"1"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":26
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Exit"
+        , "id":1971821584
+        , "start":"11"
+        , "end":"14"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Exit Start Cycle":"11"
+            , "Exit Latency":"3"
+            , "Exit FIFO Depth":"16"
+            , "Exit FIFO Width":"256"
+            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+          }
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"FFwd Dest"
+        , "id":1971983456
+        , "start":"11"
+        , "end":"11"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"FFwd Destination"
+            , "Start Cycle":"11"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":16
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1972233408
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":27
             }
           ]
         ]
@@ -4298,7 +4642,7 @@
       }
       , {
         "name":"LD"
-        , "id":542834912
+        , "id":1972498080
         , "start":"3"
         , "end":"7"
         , "details":
@@ -4326,39 +4670,16 @@
         , "type":"inst"
       }
       , {
-        "name":"Loop Orch"
-        , "id":543591584
-        , "start":"2"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Loop Orchestration Logic"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"FFwd Dest"
-        , "id":543591920
-        , "start":"11"
-        , "end":"11"
+        , "id":1972521568
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
             , "Instruction":"FFwd Destination"
-            , "Start Cycle":"11"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
         ]
@@ -4374,35 +4695,44 @@
         , "type":"inst"
       }
       , {
-        "name":"Select"
-        , "id":543594544
+        "name":"llvm.experimental.vector.reduce.add"
+        , "id":1972543072
         , "start":"11"
         , "end":"11"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"16-bit Select"
+            , "Instruction":"llvm.experimental.vector.reduce.add"
             , "Start Cycle":"11"
             , "Latency":"0"
           }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
         ]
         , "type":"inst"
       }
       , {
         "name":"Feedback"
-        , "id":545683584
-        , "start":"2"
-        , "end":"2"
+        , "id":1972543408
+        , "start":"11"
+        , "end":"11"
         , "details":
         [
           {
             "type":"table"
             , "Instruction":"Feedback Write"
-            , "Variable":"Unknown variable"
+            , "Variable":"'sum'"
             , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"1"
-            , "Start Cycle":"2"
+            , "Feedback FIFO Width":"16"
+            , "Start Cycle":"11"
             , "Latency":"0"
           }
         ]
@@ -4411,66 +4741,23 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":27
+              , "line":32
             }
           ]
         ]
         , "type":"inst"
       }
       , {
-        "name":"?"
-        , "id":545686560
+        "name":"+"
+        , "id":1972546048
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Exit"
-        , "id":559146480
-        , "start":"11"
-        , "end":"14"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Exit Start Cycle":"11"
-            , "Exit Latency":"3"
-            , "Exit FIFO Depth":"16"
-            , "Exit FIFO Width":"256"
-            , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
-          }
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"And"
-        , "id":559171216
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit And"
+            , "Instruction":"32-bit Integer Add"
+            , "Constant Operand":"1 (0x1)"
             , "Start Cycle":"2"
             , "Latency":"0"
           }
@@ -4487,22 +4774,86 @@
         , "type":"inst"
       }
       , {
-        "name":"Entry"
-        , "id":559182512
+        "name":"Feedback"
+        , "id":1972546384
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Cluster Entry"
-            , "Start Cycle":"1"
+            , "Instruction":"Feedback Write"
+            , "Variable":"'j'"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":31
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"+"
+        , "id":1972566944
+        , "start":"2"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"32-bit Integer Add"
+            , "Start Cycle":"2"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"Ptr. Comp."
+        , "id":1972567616
+        , "start":"3"
+        , "end":"3"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Pointer Computation"
+            , "Start Cycle":"3"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"bench_ready/Kmeans/Kmeans.cpp"
+              , "line":32
+            }
+          ]
         ]
         , "type":"inst"
       }
       , {
         "name":"'sum'"
-        , "id":559340464
+        , "id":1972610208
         , "start":"11"
         , "end":"11"
         , "details":
@@ -4528,7 +4879,7 @@
       }
       , {
         "name":"-"
-        , "id":559346704
+        , "id":1972613168
         , "start":"10"
         , "end":"10"
         , "details":
@@ -4552,61 +4903,8 @@
         , "type":"inst"
       }
       , {
-        "name":"llvm.experimental.vector.reduce.add"
-        , "id":559348048
-        , "start":"11"
-        , "end":"11"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"llvm.experimental.vector.reduce.add"
-            , "Start Cycle":"11"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":559348384
-        , "start":"11"
-        , "end":"11"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'sum'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"16"
-            , "Start Cycle":"11"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"?"
-        , "id":559493984
+        , "id":1972856256
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4632,7 +4930,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":559497360
+        , "id":1972859104
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4659,67 +4957,17 @@
         , "type":"inst"
       }
       , {
-        "name":"FFwd Dest"
-        , "id":559835792
+        "name":"?"
+        , "id":1972951280
         , "start":"2"
         , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"FFwd Destination"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
             , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":29
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":559855200
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":559877488
-        , "start":"6"
-        , "end":"6"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Start Cycle":"6"
             , "Latency":"0"
           }
         ]
@@ -4735,16 +4983,19 @@
         , "type":"inst"
       }
       , {
-        "name":"Ptr. Comp."
-        , "id":559878160
-        , "start":"7"
-        , "end":"7"
+        "name":"Feedback"
+        , "id":1972953712
+        , "start":"2"
+        , "end":"2"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Pointer Computation"
-            , "Start Cycle":"7"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"32"
+            , "Start Cycle":"2"
             , "Latency":"0"
           }
         ]
@@ -4761,7 +5012,7 @@
       }
       , {
         "name":"Or"
-        , "id":559879952
+        , "id":1973060800
         , "start":"3"
         , "end":"3"
         , "details":
@@ -4786,7 +5037,7 @@
       }
       , {
         "name":"LD"
-        , "id":559880288
+        , "id":1973061136
         , "start":"7"
         , "end":"11"
         , "details":
@@ -4815,7 +5066,7 @@
       }
       , {
         "name":"FFwd Dest"
-        , "id":559898992
+        , "id":1973287680
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4827,131 +5078,12 @@
             , "Latency":"0"
           }
         ]
-        , "type":"inst"
-      }
-      , {
-        "name":"'j'"
-        , "id":559901200
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"'j'"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
         , "debug":
         [
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Select"
-        , "id":559944000
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"33-bit Select"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"FFwd Dest"
-        , "id":559944336
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Xor"
-        , "id":559947488
-        , "start":"3"
-        , "end":"3"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"1-bit Xor"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"3"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"?"
-        , "id":560267456
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":26
+              , "line":29
             }
           ]
         ]
@@ -4959,7 +5091,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":560270176
+        , "id":1973525952
         , "start":"2"
         , "end":"2"
         , "details":
@@ -4979,7 +5111,7 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":26
+              , "line":27
             }
           ]
         ]
@@ -4987,7 +5119,7 @@
       }
       , {
         "name":"?"
-        , "id":560327824
+        , "id":1980127840
         , "start":"2"
         , "end":"2"
         , "details":
@@ -5005,7 +5137,7 @@
           [
             {
               "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
+              , "line":29
             }
           ]
         ]
@@ -5013,89 +5145,7 @@
       }
       , {
         "name":"Feedback"
-        , "id":560330256
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"Unknown variable"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":32
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"+"
-        , "id":560561376
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Integer Add"
-            , "Constant Operand":"1 (0x1)"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":560561712
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Write"
-            , "Variable":"'j'"
-            , "Feedback FIFO Depth":"1"
-            , "Feedback FIFO Width":"32"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":31
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"Feedback"
-        , "id":560565776
+        , "id":1980130272
         , "start":"2"
         , "end":"2"
         , "details":
@@ -5121,63 +5171,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"FFwd Dest"
-        , "id":561259344
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"FFwd Destination"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":16
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
-        "name":"?"
-        , "id":561879424
-        , "start":"2"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"2"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"bench_ready/Kmeans/Kmeans.cpp"
-              , "line":27
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":533602960
-        , "to":545686560
+        "from":1946251584
+        , "to":1955248320
         , "reverse":1
         , "details":
         [
@@ -5188,86 +5187,142 @@
         ]
       }
       , {
-        "from":533606016
-        , "to":559146480
+        "from":1946254640
+        , "to":1946251584
         , "details":
         [
           {
             "type":"table"
-            , "Width":"16"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":533606016
-        , "to":560565776
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":541844880
-        , "to":559877488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":541845216
-        , "to":541847648
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":541845216
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":541845216
-        , "to":559877488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":541847648
-        , "to":541845216
+        "from":1946254640
+        , "to":1957111040
         , "reverse":1
         , "details":
         [
           {
             "type":"table"
-            , "Width":"32"
+            , "Width":"1"
           }
         ]
       }
       , {
-        "from":542832448
-        , "to":542833120
+        "from":1946254640
+        , "to":1957513856
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1958007024
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1958386304
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1972543408
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1972546384
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1972859104
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1972953712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1973525952
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1946254640
+        , "to":1980130272
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1954495184
+        , "to":1954495856
         , "details":
         [
           {
@@ -5277,8 +5332,8 @@
         ]
       }
       , {
-        "from":542833120
-        , "to":542834912
+        "from":1954495856
+        , "to":1973061136
         , "details":
         [
           {
@@ -5288,19 +5343,8 @@
         ]
       }
       , {
-        "from":542834912
-        , "to":559346704
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":533602960
+        "from":1955248320
+        , "to":1946251584
         , "details":
         [
           {
@@ -5310,8 +5354,8 @@
         ]
       }
       , {
-        "from":543591584
-        , "to":541847648
+        "from":1955248320
+        , "to":1971821584
         , "details":
         [
           {
@@ -5321,309 +5365,8 @@
         ]
       }
       , {
-        "from":543591584
-        , "to":545683584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":559348384
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":559497360
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":559855200
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":559944000
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":560270176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":560330256
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":560561712
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591584
-        , "to":560565776
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543591920
-        , "to":543594544
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":543594544
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":545683584
-        , "to":561879424
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":545686560
-        , "to":533602960
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":545686560
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":533602960
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":541847648
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":543591584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":545683584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":559348384
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":559497360
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":559944000
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":560270176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":560330256
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":560561712
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559171216
-        , "to":560565776
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559182512
-        , "to":533602960
+        "from":1955532160
+        , "to":1946251584
         , "details":
         [
           {
@@ -5633,8 +5376,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":533606016
+        "from":1955532160
+        , "to":1946254640
         , "details":
         [
           {
@@ -5644,8 +5387,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":541845216
+        "from":1955532160
+        , "to":1955248320
         , "details":
         [
           {
@@ -5655,8 +5398,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":541847648
+        "from":1955532160
+        , "to":1957511424
         , "details":
         [
           {
@@ -5666,8 +5409,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":543591584
+        "from":1955532160
+        , "to":1957513856
         , "details":
         [
           {
@@ -5677,8 +5420,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":545683584
+        "from":1955532160
+        , "to":1958007024
         , "details":
         [
           {
@@ -5688,8 +5431,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":545686560
+        "from":1955532160
+        , "to":1958320272
         , "details":
         [
           {
@@ -5699,8 +5442,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559146480
+        "from":1955532160
+        , "to":1958383456
         , "details":
         [
           {
@@ -5710,8 +5453,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559340464
+        "from":1955532160
+        , "to":1958386304
         , "details":
         [
           {
@@ -5721,8 +5464,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559348384
+        "from":1955532160
+        , "to":1971821584
         , "details":
         [
           {
@@ -5732,8 +5475,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559493984
+        "from":1955532160
+        , "to":1972233408
         , "details":
         [
           {
@@ -5743,8 +5486,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559497360
+        "from":1955532160
+        , "to":1972543408
         , "details":
         [
           {
@@ -5754,8 +5497,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559901200
+        "from":1955532160
+        , "to":1972546384
         , "details":
         [
           {
@@ -5765,8 +5508,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":559944000
+        "from":1955532160
+        , "to":1972610208
         , "details":
         [
           {
@@ -5776,8 +5519,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560267456
+        "from":1955532160
+        , "to":1972856256
         , "details":
         [
           {
@@ -5787,8 +5530,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560270176
+        "from":1955532160
+        , "to":1972859104
         , "details":
         [
           {
@@ -5798,8 +5541,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560327824
+        "from":1955532160
+        , "to":1972951280
         , "details":
         [
           {
@@ -5809,8 +5552,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560330256
+        "from":1955532160
+        , "to":1972953712
         , "details":
         [
           {
@@ -5820,8 +5563,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560561712
+        "from":1955532160
+        , "to":1973525952
         , "details":
         [
           {
@@ -5831,8 +5574,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":560565776
+        "from":1955532160
+        , "to":1980127840
         , "details":
         [
           {
@@ -5842,8 +5585,8 @@
         ]
       }
       , {
-        "from":559182512
-        , "to":561879424
+        "from":1955532160
+        , "to":1980130272
         , "details":
         [
           {
@@ -5853,64 +5596,8 @@
         ]
       }
       , {
-        "from":559340464
-        , "to":559348048
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559346704
-        , "to":559348048
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559348048
-        , "to":543594544
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559348048
-        , "to":559348384
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559348384
-        , "to":559340464
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"16"
-          }
-        ]
-      }
-      , {
-        "from":559493984
-        , "to":559146480
+        "from":1957111040
+        , "to":1946254640
         , "details":
         [
           {
@@ -5920,8 +5607,8 @@
         ]
       }
       , {
-        "from":559493984
-        , "to":559497360
+        "from":1957111040
+        , "to":1973060800
         , "details":
         [
           {
@@ -5931,53 +5618,8 @@
         ]
       }
       , {
-        "from":559497360
-        , "to":559493984
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559835792
-        , "to":559944000
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":559855200
-        , "to":543591584
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559855200
-        , "to":559879952
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559877488
-        , "to":559878160
+        "from":1957511088
+        , "to":1954495184
         , "details":
         [
           {
@@ -5987,8 +5629,442 @@
         ]
       }
       , {
-        "from":559878160
-        , "to":559880288
+        "from":1957511424
+        , "to":1954495184
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1957511424
+        , "to":1957513856
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1957511424
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1957513856
+        , "to":1957511424
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958007024
+        , "to":1958007024
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1958007024
+        , "to":1958101392
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1958007360
+        , "to":1958010512
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958010512
+        , "to":1973060800
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1946251584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1946254640
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1957513856
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1958007024
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1958386304
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1972543408
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1972546384
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1972859104
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1972953712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1973525952
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958101392
+        , "to":1980130272
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958318064
+        , "to":1957511088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958320272
+        , "to":1957511088
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958320272
+        , "to":1972546048
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958320272
+        , "to":1972566944
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1958383120
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1958383456
+        , "to":1958386304
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958383456
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1958386304
+        , "to":1958383456
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1971983456
+        , "to":1958383120
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972233408
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972233408
+        , "to":1973525952
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972498080
+        , "to":1972613168
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972521568
+        , "to":1958101392
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972543072
+        , "to":1958383120
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972543072
+        , "to":1972543408
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972543408
+        , "to":1972610208
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1972546048
+        , "to":1972546384
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972546384
+        , "to":1958320272
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972566944
+        , "to":1972567616
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972567616
+        , "to":1972498080
         , "details":
         [
           {
@@ -5998,30 +6074,8 @@
         ]
       }
       , {
-        "from":559879952
-        , "to":542834912
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559879952
-        , "to":559880288
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559880288
-        , "to":559348048
+        "from":1972610208
+        , "to":1972543072
         , "details":
         [
           {
@@ -6031,188 +6085,8 @@
         ]
       }
       , {
-        "from":559898992
-        , "to":541844880
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559901200
-        , "to":541844880
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559901200
-        , "to":542832448
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559901200
-        , "to":560561376
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":559944000
-        , "to":559171216
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":559944000
-        , "to":559944000
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"33"
-          }
-        ]
-      }
-      , {
-        "from":559944336
-        , "to":559947488
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":559947488
-        , "to":559879952
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":560267456
-        , "to":559146480
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":560267456
-        , "to":560270176
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":560270176
-        , "to":560267456
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":560327824
-        , "to":542832448
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":560327824
-        , "to":560330256
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":560330256
-        , "to":560327824
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":560561376
-        , "to":560561712
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":560561712
-        , "to":559901200
-        , "reverse":1
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
-          }
-        ]
-      }
-      , {
-        "from":560565776
-        , "to":533606016
-        , "reverse":1
+        "from":1972613168
+        , "to":1972543072
         , "details":
         [
           {
@@ -6222,8 +6096,8 @@
         ]
       }
       , {
-        "from":561259344
-        , "to":559171216
+        "from":1972856256
+        , "to":1971821584
         , "details":
         [
           {
@@ -6233,8 +6107,8 @@
         ]
       }
       , {
-        "from":561879424
-        , "to":545683584
+        "from":1972856256
+        , "to":1972859104
         , "details":
         [
           {
@@ -6244,13 +6118,138 @@
         ]
       }
       , {
-        "from":561879424
-        , "to":559146480
+        "from":1972859104
+        , "to":1972856256
+        , "reverse":1
         , "details":
         [
           {
             "type":"table"
             , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1972951280
+        , "to":1972566944
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972951280
+        , "to":1972953712
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1972953712
+        , "to":1972951280
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1973060800
+        , "to":1972498080
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1973060800
+        , "to":1973061136
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1973061136
+        , "to":1972543072
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1973287680
+        , "to":1958007024
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"33"
+          }
+        ]
+      }
+      , {
+        "from":1973525952
+        , "to":1972233408
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+      , {
+        "from":1980127840
+        , "to":1971821584
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1980127840
+        , "to":1980130272
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
+          }
+        ]
+      }
+      , {
+        "from":1980130272
+        , "to":1980127840
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"16"
           }
         ]
       }

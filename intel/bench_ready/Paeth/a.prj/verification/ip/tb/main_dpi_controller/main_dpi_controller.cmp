@@ -1,0 +1,12 @@
+	component main_dpi_controller is
+		port (
+			clock                            : in  std_logic                    := 'X';             -- clk
+			resetn                           : in  std_logic                    := 'X';             -- reset_n
+			clock2x                          : in  std_logic                    := 'X';             -- clk
+			component_enabled                : out std_logic_vector(0 downto 0);                    -- conduit
+			component_done                   : in  std_logic_vector(0 downto 0) := (others => 'X'); -- conduit
+			component_wait_for_stream_writes : in  std_logic_vector(0 downto 0) := (others => 'X'); -- conduit
+			trigger_reset                    : out std_logic                                        -- conduit
+		);
+	end component main_dpi_controller;
+

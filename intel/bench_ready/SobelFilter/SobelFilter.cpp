@@ -55,7 +55,7 @@ void contour(const byte *sobel_h, const byte *sobel_v, int gray_size, byte *cont
     }
 }
 
-int sobel_filter(int idx) {
+component int sobel_filter(int idx) {
 
     int v = 0;
     int width = (int) sqrt(DATA_SIZE);

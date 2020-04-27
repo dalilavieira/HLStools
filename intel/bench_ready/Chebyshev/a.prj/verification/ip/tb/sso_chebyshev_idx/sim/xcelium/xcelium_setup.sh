@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 19.4 64 linux 2020.04.27.09:27:29
+# ACDS 19.4 64 linux 2020.04.27.09:46:54
 
 # ----------------------------------------
 # xcelium - auto-generated simulation script
@@ -107,7 +107,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Intel IP within the design.
 # ----------------------------------------
-# ACDS 19.4 64 linux 2020.04.27.09:27:29
+# ACDS 19.4 64 linux 2020.04.27.09:46:54
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="sso_chebyshev_idx.sso_chebyshev_idx"
