@@ -1,22 +1,32 @@
 # set environment quartus 19.4
 export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 
+export QUARTUS_HOME="/opt/altera_pro/19.4/quartus"                                               
+export MODEL_SIM_HOME="/opt/altera_pro/19.4/modelsim_ase"                                        
+export LM_LICENSE_FILE="27000@localhost"                                                      
+export PATH=$PATH:$QUARTUS_HOME/bin:$MODEL_SIM_HOME/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QUARTUS_HOME/linux64 
+
+#source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
+
+source /opt/altera_pro/19.4/hls/init_hls.sh
+
 # initializate variables hls
-source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
+
 
 BENCHMARKS=(
     "Chebyshev" 
-    "Fir"
-    "Kmeans"
-    "Loopback"
-    "Mibench"
-    "Paeth"
-    "Poly5"
-    "Poly6"
-    "Poly8"
-    "Qspline"
-    "Sgfilter"
-    "SobelFilter" 
+#    "Fir"
+#    "Kmeans"
+#    "Loopback"
+#    "Mibench"
+#    "Paeth"
+#    "Poly5"
+#    "Poly6"
+#    "Poly8"
+#    "Qspline"
+#    "Sgfilter"
+#    "SobelFilter" 
 )
 
 #SIMULATOR=modelsim
