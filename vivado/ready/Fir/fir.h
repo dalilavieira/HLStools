@@ -14,16 +14,16 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 23)
+#define DATA_SIZE (100)// (1 << 23)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
-#define TAPS 63
+#define TAPS 100
 
 
-int fir(int idx, unsigned short *coef, int taps);
+int fir(int16_t coef[], int16_t data_in[], int32_t data_out[]);
 
 /*int fir_openmp(int idx, unsigned short *coef, int taps);
 

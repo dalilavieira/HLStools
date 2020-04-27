@@ -1,48 +1,9 @@
 #include "fir.h"
 
-
-int main(int argc, char *argv[]){
-      
-     int idx = 0;
-     int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-     if(argc > 2)
-        idx = atoi(argv[2]);
-     
-     unsigned short *coef;
-     coef = new unsigned short[TAPS];
-     
-     for (int k = 0; k < TAPS; ++k){
-      coef[k] = k+1;
-     } 
-     if(test & 1)
-        fir(idx,coef,TAPS);
-     /*if(test & 2)
-        fir_openmp(idx,coef,TAPS);
-     if(test & 4)
-        fir_cgra(idx,1,coef,TAPS);
-     
-     delete coef;*/
-     
-     return 0;
-}
-
-int fir(int idx,int coef[100], int taps){
+int fir(int16_t coef[100], int16_t data_in[DATA_SIZE+100], int32_t data_out[DATA_SIZE+100]){
 
    //unsigned short *data_in, *data_out;
 
-   int data_in[DATA_SIZE+100];
-   int data_out[DATA_SIZE+100];
-
-
-   for (int k = 0; k < DATA_SIZE; ++k){
-      data_in[k] = k;
-      data_out[k] = 0;
-   }
-   
   // high_resolution_clock::time_point s;
   // duration<double> diff = {};
    
@@ -50,8 +11,8 @@ int fir(int idx,int coef[100], int taps){
       //s = high_resolution_clock::now();
       for (int j = 0; j < DATA_SIZE; j++){
          unsigned short fir = 0;
-         for (int k = 0; k < taps; ++k) {
-             fir += data_in[j + k] * coef[taps - 1 - k];
+         for (int k = 0; k < TAPS; ++k) {
+             fir += data_in[j + k] * coef[TAPS - 1 - k];
          }
          data_out[j] = fir;
       }
@@ -62,7 +23,7 @@ int fir(int idx,int coef[100], int taps){
 
   // printf("Time(ms) CPU 1 Thread: %5.2lf\n",cpuExecTime);
    
-   int v = data_out[idx];  
+   int v = data_out[0];  
 
    //delete data_in;
    //delete data_out;
