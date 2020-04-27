@@ -15,14 +15,14 @@
 #include <fdam/cgra/cgra.h>
 #include <fdam/cgra/scheduler_defs.h>*/
 
-using namespace std;
+//using namespace std;
 //using namespace std::chrono;
 
-#define DATA_SIZE (1 << 23)
+#define DATA_SIZE (100)//(1 << 23)
 #define NUM_THREAD (8)
 #define SAMPLES (100)
 
-int kmeans(int idx, int num_clusters, int num_dim);
+int kmeans(int16_t data_in[], int32_t data_out[], int16_t centroids[], int num_clusters, int num_dim);
 
 /*int kmeans_openmp(int idx, int num_clusters, int num_dim);
 

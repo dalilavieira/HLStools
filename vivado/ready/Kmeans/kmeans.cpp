@@ -1,45 +1,10 @@
 #include "kmeans.h"
 
-int main(int argc, char *argv[]) {
-
-    int idx = 0;
-    int test = 0;
-     
-    if(argc > 1)
-        test = atoi(argv[1]);
-     
-    if(argc > 2)
-        idx = atoi(argv[2]);
-
-    if(test & 1)
-        kmeans(idx, 5, 8);
-   /* if(test & 2)
-        kmeans_openmp(idx, 5, 8);
-    if(test & 4)
-        kmeans_cgra(idx, 5, 8);*/
-
-    return 0;
-}
-
-int kmeans(int idx, int num_clusters, int num_dim) {
+int kmeans(int16_t data_in[DATA_SIZE * 100], int32_t data_out[DATA_SIZE], int16_t centroids[9999 * 100], int num_clusters, int num_dim) {
 
     //unsigned short *data_in, *data_out, *centroids;
 
-    int data_in[DATA_SIZE * 100];
-    int data_out[DATA_SIZE];
-    int centroids[9999 * 100];
-
-    for (int i = 0; i < DATA_SIZE * num_dim; i++) {
-        data_in[i] = i;
-    }
-    for (int i = 0; i < DATA_SIZE; i++) {
-        data_out[i] = 0;
-    }
-    for (int i = 0; i < num_clusters * num_dim; i++) {
-        centroids[i] = i;
-    }
-
-    //high_resolution_clock::time_point s;
+     //high_resolution_clock::time_point s;
     //duration<double> diff = {};
 
     for (int sp = 0; sp < SAMPLES; sp++) {
@@ -65,7 +30,7 @@ int kmeans(int idx, int num_clusters, int num_dim) {
 
     //printf("Time(ms) CPU 1 Thread: %5.2lf\n", cpuExecTime);
 
-    int v = data_out[idx];
+    int v = data_out[0];
 
     /*delete data_in;
     delete data_out;
