@@ -1,0 +1,173 @@
+// ----------------------------------------------------------------------------
+// LegUp High-Level Synthesis Tool Version 7.5 (http://legupcomputing.com)
+// Copyright (c) 2015-2019 LegUp Computing Inc. All Rights Reserved.
+// For technical issues, please contact: support@legupcomputing.com
+// For general inquiries, please contact: info@legupcomputing.com
+// Date: Wed Apr 29 09:51:09 2020
+// ----------------------------------------------------------------------------
+
+LegUp Summary Report for Project: SobelFilter.
+
+Table of Contents
+  1. Scheduling Result
+  2. Pipeline Result
+  3. Memory Usage
+  4. Resource Binding with Adaptive Latency
+
+
+====== 1. Scheduling Result ======
+
+Please use LegUp's schedule viewer to examine the schedule.
+
+Basic Block Latencies:
+
++-------------------------------------------+
+| Function: itConv (non-pipelined function) |
++------------------------+------------------+
+| Basic Block            | Cycle Latency    |
++------------------------+------------------+
+| %for.body4.preheader   | 1                |
+| %for.body4             | 2                |
+| %cond.true.i           | 3                |
+| %cond.end.i            | 1                |
+| %cond.end18.i          | 2                |
+| %cond.true24.i         | 2                |
+| %cond.end29.i          | 1                |
+| %cond.true33.i         | 2                |
+| %cond.end37.i          | 2                |
+| %cond.true43.i         | 2                |
+| %cond.end47.i          | 1                |
+| %cond.true53.i         | 2                |
+| %cond.end58.i          | 1                |
+| %cond.end66.i          | 2                |
+| %cond.true72.i         | 2                |
+| %makeOpMemCPU.exit     | 10               |
+| %for.end9              | 1                |
++------------------------+------------------+
+
++--------------------------------------------------------------+
+| Function: main (non-pipelined function)                      |
++----------------------------------------------+---------------+
+| Basic Block                                  | Cycle Latency |
++----------------------------------------------+---------------+
+| %entry                                       | 1             |
+| %while.body.i                                | 2             |
+| %legup_memset_4.exit                         | 4             |
+| %while.body.i44                              | 2             |
+| %legup_memset_4.exit45                       | 4             |
+| %for.body6.i                                 | 2             |
+| %for.body6.1.i.preheader                     | 1             |
+| %for.cond15.preheader.i                      | 1             |
+| %for.body18.i                                | 5             |
+| %for.body.i.i                                | 8             |
+| %lor.lhs.false.i.i24                         | 1             |
+| %if.then20.i.i30                             | 1             |
+| %if.then61.i.i36                             | 8             |
+| %pow.exit38                                  | 8             |
+| %lor.lhs.false.i.i11                         | 1             |
+| %if.then20.i.i                               | 1             |
+| %if.then61.i.i                               | 8             |
+| %pow.exit                                    | 8             |
+| %if.then.i.i                                 | 15            |
+| %if.end.i.i                                  | 1             |
+| %if.then3.i.i                                | 1             |
+| %if.else.i.i                                 | 1             |
+| %if.then8.i.i                                | 38            |
+| %if.end12.i.i                                | 1             |
+| %while.cond.preheader.i.i                    | 1             |
+| %while.body.i.i.preheader                    | 1             |
+| %while.cond.for.cond.preheader_crit_edge.i.i | 1             |
+| %for.cond.preheader.i.i                      | 1             |
+| %for.body.i.i4.preheader                     | 1             |
+| %while.body.i.i                              | 1             |
+| %for.body.i.i4                               | 1             |
+| %for.end.i.i.loopexit                        | 1             |
+| %for.end.i.i                                 | 1             |
+| %if.end28.i.i                                | 1             |
+| %if.then33.i.i                               | 1             |
+| %if.end39.i.i                                | 1             |
+| %while.body48.i.i                            | 1             |
+| %if.then51.i.i                               | 1             |
+| %if.end55.i.i                                | 1             |
+| %while.body65.i.i.preheader                  | 1             |
+| %while.body65.i.i                            | 1             |
+| %lor.lhs.false.i.i                           | 1             |
+| %if.then70.i.i                               | 1             |
+| %if.end87.i.i                                | 1             |
+| %while.end94.i.i                             | 1             |
+| %if.then99.i.i                               | 1             |
+| %if.then101.i.i                              | 1             |
+| %if.else111.i.i                              | 1             |
+| %if.end117.i.i                               | 1             |
+| %sqrt.exit                                   | 6             |
+| %contour.exit.i                              | 1             |
+| %for.inc34.i                                 | 1             |
+| %for.body6.1.i                               | 3             |
+| %for.body6.2.i.preheader                     | 1             |
+| %for.body6.2.i                               | 3             |
+| %for.body6.3.i.preheader                     | 1             |
+| %for.body6.3.i                               | 3             |
+| %for.body6.4.i.preheader                     | 1             |
+| %for.body6.4.i                               | 3             |
+| %for.body6.5.i.preheader                     | 1             |
+| %for.body6.5.i                               | 3             |
+| %for.body6.6.i.preheader                     | 1             |
+| %for.body6.6.i                               | 3             |
+| %for.body6.7.i.preheader                     | 1             |
+| %for.body6.7.i                               | 3             |
+| %for.cond15.preheader.i.preheader            | 1             |
+| %sobelfilter.exit                            | 2             |
++----------------------------------------------+---------------+
+
+====== 2. Pipeline Result ======
+
+No pipeline is generated.
+
+====== 3. Memory Usage ======
+
++---------------------------------------------------------------------------------------+
+| Local Memories                                                                        |
++---------------------+-----------------------+------+-------------+------------+-------+
+| Name                | Accessing Function(s) | Type | Size [Bits] | Data Width | Depth |
++---------------------+-----------------------+------+-------------+------------+-------+
+| main_entry_vla160_i | main                  | RAM  | 262144      | 32         | 8192  |
++---------------------+-----------------------+------+-------------+------------+-------+
+
++-------------------------+
+| Local Constant Memories |
++-------------------------+
+| None                    |
++-------------------------+
+
++--------------------------------------------------------------------------------------+
+| Shared Local Memories                                                                |
++--------------------+-----------------------+------+-------------+------------+-------+
+| Name               | Accessing Function(s) | Type | Size [Bits] | Data Width | Depth |
++--------------------+-----------------------+------+-------------+------------+-------+
+| main_entry_vla59_i | itConv, main          | RAM  | 262144      | 32         | 8192  |
++--------------------+-----------------------+------+-------------+------------+-------+
+
++------------------------------------------------------------------------------------------------------------------+
+| Aliased Memories                                                                                                 |
++--------------------------+---------------------+-----------------------+------+-------------+------------+-------+
+| Name                     | Memory Controller   | Accessing Function(s) | Type | Size [Bits] | Data Width | Depth |
++--------------------------+---------------------+-----------------------+------+-------------+------------+-------+
+| main_entry_sobel_h_i     | memory_controller_0 | itConv, main          | RAM  | 288         | 32         | 9     |
+| main_entry_sobel_v_i     | memory_controller_0 | itConv, main          | RAM  | 288         | 32         | 9     |
+| main_entry_sobel_h_res_i | memory_controller_1 | itConv, main          | RAM  | 262144      | 32         | 8192  |
+| main_entry_sobel_v_res_i | memory_controller_1 | itConv, main          | RAM  | 262144      | 32         | 8192  |
++--------------------------+---------------------+-----------------------+------+-------------+------------+-------+
+
++--------------+
+| I/O Memories |
++--------------+
+| None         |
++--------------+
+
+
+====== 4. Resource Binding with Adaptive Latency ======
+
+Binding to resource with adaptive latency is disabled.
+You can enable this feature by setting config parameter 'ADAPTIVE_LATENCY_BINDING' to 1.
+
+

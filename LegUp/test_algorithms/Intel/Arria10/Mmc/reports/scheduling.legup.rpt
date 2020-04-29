@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------------
+// LegUp High-Level Synthesis Tool Version 7.5 (http://legupcomputing.com)
+// Copyright (c) 2015-2019 LegUp Computing Inc. All Rights Reserved.
+// For technical issues, please contact: support@legupcomputing.com
+// For general inquiries, please contact: info@legupcomputing.com
+// Date: Wed Apr 29 10:42:41 2020
+// ----------------------------------------------------------------------------
+Target FPGA: INTEL Arria10
+Clock period constraint: 5.000000e+00ns
+Start Function: main
+state: LEGUP_0, basic block: BB_entry
+   br label %while.body.lr.ph.i, !dbg !24, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: if (start): LEGUP_F_main_BB_while_body_lr_ph_i_1 default: LEGUP_0
+state: LEGUP_F_main_BB_while_body_lr_ph_i_1, basic block: BB_while_body_lr_ph_i
+   %indvar3 = phi i32 [ 0, %entry ], [ %indvar.next4, %if.else.i ], !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %F2.0.ph15.i = phi i32 [ 7, %entry ], [ %F2.011.i, %if.else.i ], !dbg !26, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %bit_select3 = call i31 @legup_bit_select_31_32(i32 %indvar3, i64 30, i64 0), !MSB !30, !LSB !28, !extendFrom !30 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %bit_select1 = call i30 @legup_bit_select_30_32(i32 %indvar3, i64 29, i64 0), !MSB !31, !LSB !28, !extendFrom !31 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %bit_concat4 = call i32 @legup_bit_concat_31_1(i31 %bit_select3, i64 31, i1 false, i64 1), !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %bit_concat2 = call i32 @legup_bit_concat_30_2(i30 %bit_select1, i64 30, i2 0, i64 2), !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %sr_add = add i32 %bit_concat4, %bit_concat2, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %add2.i = add i32 %sr_add, 12, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %F1.0.ph14.i = add i32 %sr_add, 6, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   %0 = add i32 %F2.0.ph15.i, 7, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_lr_ph_i_1)
+   br label %while.body.i, !dbg !24, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: default: LEGUP_F_main_BB_while_body_i_3
+state: LEGUP_F_main_BB_while_cond_i_2, basic block: BB_while_cond_i
+   %add.i = add i32 %0, %sr_add7, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_cond_i_2)
+   %cmp.i = icmp eq i32 %F1.0.ph14.i, %add.i, !dbg !24, !MSB !28, !LSB !28, !extendFrom !28 (endState: LEGUP_F_main_BB_while_cond_i_2)
+   %indvar.next = add i32 %indvar, 1, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_cond_i_2)
+   br i1 %cmp.i, label %mmc.exit.loopexit, label %while.body.i, !dbg !24, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: if (%cmp.i): LEGUP_F_main_BB_mmc_exit_loopexit_6 default: LEGUP_F_main_BB_while_body_i_3
+state: LEGUP_F_main_BB_while_body_i_3, basic block: BB_while_body_i
+   %indvar = phi i32 [ 0, %while.body.lr.ph.i ], [ %indvar.next, %while.cond.i ], !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_i_3)
+   %bit_select = call i29 @legup_bit_select_29_32(i32 %indvar, i64 28, i64 0), !MSB !32, !LSB !28, !extendFrom !32 (endState: LEGUP_F_main_BB_while_body_i_3)
+   %sr_negate = sub i32 0, %indvar, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_i_3)
+   %bit_concat = call i32 @legup_bit_concat_29_3(i29 %bit_select, i64 29, i3 0, i64 3), !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_i_3)
+   %sr_add7 = add i32 %sr_negate, %bit_concat, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_i_3)
+   Transition: default: LEGUP_F_main_BB_while_body_i_4
+state: LEGUP_F_main_BB_while_body_i_4, basic block: BB_while_body_i
+   %F2.011.i = add i32 %F2.0.ph15.i, %sr_add7, !dbg !33, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_while_body_i_4)
+   %cmp1.i = icmp sgt i32 %F1.0.ph14.i, %F2.011.i, !dbg !33, !MSB !28, !LSB !28, !extendFrom !28 (endState: LEGUP_F_main_BB_while_body_i_4)
+   br i1 %cmp1.i, label %while.cond.i, label %if.else.i, !dbg !33, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: if (%cmp1.i): LEGUP_F_main_BB_while_cond_i_2 default: LEGUP_F_main_BB_if_else_i_5
+state: LEGUP_F_main_BB_if_else_i_5, basic block: BB_if_else_i
+   %cmp10.i = icmp eq i32 %add2.i, %F2.011.i, !dbg !24, !MSB !28, !LSB !28, !extendFrom !28 (endState: LEGUP_F_main_BB_if_else_i_5)
+   %indvar.next4 = add i32 %indvar3, 1, !dbg !24, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_if_else_i_5)
+   br i1 %cmp10.i, label %mmc.exit.loopexit1, label %while.body.lr.ph.i, !dbg !24, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: if (%cmp10.i): LEGUP_F_main_BB_mmc_exit_loopexit1_7 default: LEGUP_F_main_BB_while_body_lr_ph_i_1
+state: LEGUP_F_main_BB_mmc_exit_loopexit_6, basic block: BB_mmc_exit_loopexit
+   br label %mmc.exit, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: default: LEGUP_F_main_BB_mmc_exit_8
+state: LEGUP_F_main_BB_mmc_exit_loopexit1_7, basic block: BB_mmc_exit_loopexit1
+   br label %mmc.exit, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: default: LEGUP_F_main_BB_mmc_exit_8
+state: LEGUP_F_main_BB_mmc_exit_8, basic block: BB_mmc_exit
+   %F1.0.ph.lcssa.i = phi i32 [ %F1.0.ph14.i, %mmc.exit.loopexit ], [ %add2.i, %mmc.exit.loopexit1 ], !dbg !26, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_mmc_exit_8)
+   %call1 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([24 x i8]* @.str, i32 0, i32 0), i32 6, i32 7, i32 %F1.0.ph.lcssa.i) #1, !dbg !36, !MSB !29, !LSB !28, !extendFrom !29 (endState: LEGUP_F_main_BB_mmc_exit_8)
+   ret i32 0, !dbg !37, !MSB !27, !LSB !28, !extendFrom !27
+   Transition: default: LEGUP_0
+
+Basic Block: %mmc.exit Num States: 1
+Basic Block: %mmc.exit.loopexit1 Num States: 1
+Basic Block: %entry Num States: 1
+Basic Block: %while.body.lr.ph.i Num States: 1
+Basic Block: %while.cond.i Num States: 1
+Basic Block: %while.body.i Num States: 2
+Basic Block: %if.else.i Num States: 1
+Basic Block: %mmc.exit.loopexit Num States: 1
+End Function: main
+--------------------------------------------------------------------------------
+

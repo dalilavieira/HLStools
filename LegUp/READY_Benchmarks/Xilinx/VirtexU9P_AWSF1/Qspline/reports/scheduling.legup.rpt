@@ -1,0 +1,134 @@
+// ----------------------------------------------------------------------------
+// LegUp High-Level Synthesis Tool Version 7.5 (http://legupcomputing.com)
+// Copyright (c) 2015-2019 LegUp Computing Inc. All Rights Reserved.
+// For technical issues, please contact: support@legupcomputing.com
+// For general inquiries, please contact: info@legupcomputing.com
+// Date: Wed Apr 29 09:43:26 2020
+// ----------------------------------------------------------------------------
+Target FPGA: XILINX VirtexU9P
+Clock period constraint: 5.000000e+00ns
+Start Function: main
+state: LEGUP_0, basic block: LEGUP_0
+   Transition: if (start): LEGUP_F_main_BB_entry_1 default: LEGUP_0
+state: LEGUP_F_main_BB_entry_1, basic block: BB_entry
+   %a.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %b.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %c.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %e.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %f.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %g.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   %out.i = alloca [1024 x i16], align 2, !dbg !34, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_entry_1)
+   br label %for.body.i, !dbg !37, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: default: LEGUP_F_main_BB_for_body_i_2
+state: LEGUP_F_main_BB_for_body_i_2, basic block: BB_for_body_i
+   %k.0143.i = phi i32 [ 0, %entry ], [ %0, %for.body.i ], !dbg !34, !MSB !41, !LSB !36, !extendFrom !41 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %bit_select6 = call i16 @legup_bit_select_16_32(i32 %k.0143.i, i64 15, i64 0), !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx.i = getelementptr [1024 x i16]* %a.i, i32 0, i32 %k.0143.i, !dbg !43, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx3.i = getelementptr [1024 x i16]* %b.i, i32 0, i32 %k.0143.i, !dbg !45, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx6.i = getelementptr [1024 x i16]* %c.i, i32 0, i32 %k.0143.i, !dbg !46, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx9.i = getelementptr [1024 x i16]* %e.i, i32 0, i32 %k.0143.i, !dbg !47, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx12.i = getelementptr [1024 x i16]* %f.i, i32 0, i32 %k.0143.i, !dbg !48, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx15.i = getelementptr [1024 x i16]* %g.i, i32 0, i32 %k.0143.i, !dbg !49, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %arrayidx16.i = getelementptr [1024 x i16]* %out.i, i32 0, i32 %k.0143.i, !dbg !50, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_2)
+   store i16 %bit_select6, i16* %arrayidx.i, align 2, !dbg !43, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 %bit_select6, i16* %arrayidx3.i, align 2, !dbg !45, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 %bit_select6, i16* %arrayidx6.i, align 2, !dbg !46, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 %bit_select6, i16* %arrayidx9.i, align 2, !dbg !47, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 %bit_select6, i16* %arrayidx12.i, align 2, !dbg !48, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 %bit_select6, i16* %arrayidx15.i, align 2, !dbg !49, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   store i16 0, i16* %arrayidx16.i, align 2, !dbg !50, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body_i_3)
+   %0 = add nsw i32 %k.0143.i, 1, !dbg !55, !MSB !56, !LSB !36, !extendFrom !56 (endState: LEGUP_F_main_BB_for_body_i_2)
+   %exitcond5 = icmp eq i32 %0, 1024, !dbg !37, !MSB !36, !LSB !36, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_i_2)
+   Transition: default: LEGUP_F_main_BB_for_body_i_3
+state: LEGUP_F_main_BB_for_body_i_3, basic block: BB_for_body_i
+   br i1 %exitcond5, label %for.cond21.preheader.i.preheader, label %for.body.i, !dbg !37, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: if (%exitcond5): LEGUP_F_main_BB_for_cond21_preheader_i_preheader_4 default: LEGUP_F_main_BB_for_body_i_2
+state: LEGUP_F_main_BB_for_cond21_preheader_i_preheader_4, basic block: BB_for_cond21_preheader_i_preheader
+   br label %for.cond21.preheader.i, !dbg !57, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: default: LEGUP_F_main_BB_for_cond21_preheader_i_5
+state: LEGUP_F_main_BB_for_cond21_preheader_i_5, basic block: BB_for_cond21_preheader_i
+   %i.0142.i = phi i32 [ %8, %for.inc92.i ], [ 0, %for.cond21.preheader.i.preheader ], !dbg !34, !MSB !63, !LSB !36, !extendFrom !63 (endState: LEGUP_F_main_BB_for_cond21_preheader_i_5)
+   br label %for.body24.i, !dbg !57, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: default: LEGUP_F_main_BB_for_body24_i_6
+state: LEGUP_F_main_BB_for_body24_i_6, basic block: BB_for_body24_i
+   %k.1141.i = phi i32 [ 0, %for.cond21.preheader.i ], [ %7, %for.body24.i ], !dbg !34, !MSB !64, !LSB !36, !extendFrom !64 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx25.i = getelementptr [1024 x i16]* %b.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx27.i = getelementptr [1024 x i16]* %a.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx45.i = getelementptr [1024 x i16]* %f.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx49.i = getelementptr [1024 x i16]* %c.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx59.i = getelementptr [1024 x i16]* %e.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx80.i = getelementptr [1024 x i16]* %g.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %arrayidx88.i = getelementptr [1024 x i16]* %out.i, i32 0, i32 %k.1141.i, !dbg !65, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %1 = load i16* %arrayidx25.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %2 = load i16* %arrayidx27.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %3 = load i16* %arrayidx45.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %4 = load i16* %arrayidx49.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %5 = load i16* %arrayidx59.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %6 = load i16* %arrayidx80.i, align 2, !dbg !65, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %7 = add nsw i32 %k.1141.i, 1, !dbg !69, !MSB !64, !LSB !36, !extendFrom !64 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   %exitcond3 = icmp eq i32 %7, 1024, !dbg !57, !MSB !36, !LSB !36, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body24_i_6)
+   Transition: default: LEGUP_F_main_BB_for_body24_i_7
+state: LEGUP_F_main_BB_for_body24_i_7, basic block: BB_for_body24_i
+   %bit_select4 = call i15 @legup_bit_select_15_16(i16 %1, i64 14, i64 0), !MSB !67, !LSB !36, !extendFrom !67 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %bit_select2 = call i14 @legup_bit_select_14_16(i16 %1, i64 13, i64 0), !MSB !68, !LSB !36, !extendFrom !68 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %mul.i = mul i16 %1, %1, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %newEarly.mul34_i = mul i16 %1, %2, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %bit_select = call i14 @legup_bit_select_14_16(i16 %3, i64 13, i64 0), !MSB !68, !LSB !36, !extendFrom !68 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %bit_concat5 = call i16 @legup_bit_concat_15_1(i15 %bit_select4, i64 15, i1 false, i64 1), !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %bit_concat3 = call i16 @legup_bit_concat_14_2(i14 %bit_select2, i64 14, i2 0, i64 2), !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %sr_add7 = add i16 %bit_concat5, %bit_concat3, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %mul57.i = mul i16 %sr_add7, %4, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %mul69.i = mul i16 %5, %3, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %bit_concat1 = call i16 @legup_bit_concat_14_2(i14 %bit_select, i64 14, i2 0, i64 2), !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_7)
+   %mul85.i = mul i16 %bit_concat1, %6, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %tmp1 = mul i16 %3, %3, !dbg !34, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   Transition: default: LEGUP_F_main_BB_for_body24_i_8
+state: LEGUP_F_main_BB_for_body24_i_8, basic block: BB_for_body24_i
+   Transition: default: LEGUP_F_main_BB_for_body24_i_9
+state: LEGUP_F_main_BB_for_body24_i_9, basic block: BB_for_body24_i
+   %newCurOp.mul34_i = mul i16 %mul.i, %newEarly.mul34_i, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_11)
+   %tmp139.i = add i16 %mul85.i, %mul57.i, !dbg !34, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_9)
+   %tmp140.i = mul i16 %tmp139.i, %1, !dbg !34, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_11)
+   Transition: default: LEGUP_F_main_BB_for_body24_i_10
+state: LEGUP_F_main_BB_for_body24_i_10, basic block: BB_for_body24_i
+   Transition: default: LEGUP_F_main_BB_for_body24_i_11
+state: LEGUP_F_main_BB_for_body24_i_11, basic block: BB_for_body24_i
+   %mul37136.i = add i16 %newCurOp.mul34_i, %1, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_11)
+   %add.i = mul i16 %mul37136.i, %1, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_13)
+   %tmp = add i16 %tmp140.i, %mul69.i, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_11)
+   %tmp138.i = mul i16 %tmp1, %tmp, !dbg !34, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_13)
+   Transition: default: LEGUP_F_main_BB_for_body24_i_12
+state: LEGUP_F_main_BB_for_body24_i_12, basic block: BB_for_body24_i
+   Transition: default: LEGUP_F_main_BB_for_body24_i_13
+state: LEGUP_F_main_BB_for_body24_i_13, basic block: BB_for_body24_i
+   %add86.i = add i16 %tmp138.i, %add.i, !dbg !65, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_for_body24_i_13)
+   store i16 %add86.i, i16* %arrayidx88.i, align 2, !dbg !65, !tbaa !51, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_for_body24_i_14)
+   Transition: default: LEGUP_F_main_BB_for_body24_i_14
+state: LEGUP_F_main_BB_for_body24_i_14, basic block: BB_for_body24_i
+   br i1 %exitcond3, label %for.inc92.i, label %for.body24.i, !dbg !57, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: if (%exitcond3): LEGUP_F_main_BB_for_inc92_i_15 default: LEGUP_F_main_BB_for_body24_i_6
+state: LEGUP_F_main_BB_for_inc92_i_15, basic block: BB_for_inc92_i
+   %8 = add nsw i32 %i.0142.i, 1, !dbg !70, !MSB !71, !LSB !36, !extendFrom !71 (endState: LEGUP_F_main_BB_for_inc92_i_15)
+   %exitcond4 = icmp eq i32 %8, 100, !dbg !72, !MSB !36, !LSB !36, !extendFrom !36 (endState: LEGUP_F_main_BB_for_inc92_i_15)
+   br i1 %exitcond4, label %qspline.exit, label %for.cond21.preheader.i, !dbg !72, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: if (%exitcond4): LEGUP_F_main_BB_qspline_exit_16 default: LEGUP_F_main_BB_for_cond21_preheader_i_5
+state: LEGUP_F_main_BB_qspline_exit_16, basic block: BB_qspline_exit
+   %arrayidx95.i = getelementptr inbounds [1024 x i16]* %out.i, i32 0, i32 50, !dbg !75, !MSB !35, !LSB !36, !extendFrom !35 (endState: LEGUP_F_main_BB_qspline_exit_16)
+   %9 = load i16* %arrayidx95.i, align 2, !dbg !75, !tbaa !51, !MSB !42, !LSB !36, !extendFrom !42 (endState: LEGUP_F_main_BB_qspline_exit_17)
+   Transition: default: LEGUP_F_main_BB_qspline_exit_17
+state: LEGUP_F_main_BB_qspline_exit_17, basic block: BB_qspline_exit
+   %bit_concat = call i32 @legup_bit_concat_16_16(i16 0, i64 16, i16 %9, i64 16), !MSB !64, !LSB !36, !extendFrom !64 (endState: LEGUP_F_main_BB_qspline_exit_17)
+   %call1 = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([4 x i8]* @.str, i32 0, i32 0), i32 %bit_concat) #1, !dbg !76, !MSB !64, !LSB !36, !extendFrom !64 (endState: LEGUP_F_main_BB_qspline_exit_17)
+   ret i32 0, !dbg !77, !MSB !35, !LSB !36, !extendFrom !35
+   Transition: default: LEGUP_0
+
+Basic Block: %for.cond21.preheader.i Num States: 1
+Basic Block: %for.body24.i Num States: 9
+Basic Block: %for.inc92.i Num States: 1
+Basic Block: %qspline.exit Num States: 2
+Basic Block: %entry Num States: 1
+Basic Block: %for.body.i Num States: 2
+Basic Block: %for.cond21.preheader.i.preheader Num States: 1
+End Function: main
+--------------------------------------------------------------------------------
+
