@@ -1,0 +1,85 @@
+// ----------------------------------------------------------------------------
+// LegUp High-Level Synthesis Tool Version 7.5 (http://legupcomputing.com)
+// Copyright (c) 2015-2019 LegUp Computing Inc. All Rights Reserved.
+// For technical issues, please contact: support@legupcomputing.com
+// For general inquiries, please contact: info@legupcomputing.com
+// Date: Mon May  4 13:23:04 2020
+// ----------------------------------------------------------------------------
+Target FPGA: INTEL CycloneIV
+Clock period constraint: 1.500000e+01ns
+Start Function: main
+state: LEGUP_0, basic block: LEGUP_0
+   Transition: if (start): LEGUP_F_main_BB_entry_1 default: LEGUP_0
+state: LEGUP_F_main_BB_entry_1, basic block: BB_entry
+   %vla31 = alloca [100 x i32], align 4, !dbg !35, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_entry_1)
+   %vla132 = alloca [100 x i32], align 4, !dbg !35, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_entry_1)
+   %vla233 = alloca [100 x i32], align 4, !dbg !35, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_entry_1)
+   br label %for.body, !dbg !38, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: default: LEGUP_F_main_BB_for_body_2
+state: LEGUP_F_main_BB_for_body_2, basic block: BB_for_body
+   %0 = phi i32 [ 0, %entry ], [ %1, %for.body ], !dbg !41, !MSB !43, !LSB !37, !extendFrom !43 (endState: LEGUP_F_main_BB_for_body_2)
+   %arrayidx = getelementptr [100 x i32]* %vla31, i32 0, i32 %0, !dbg !41, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_2)
+   %sub = sub i32 100, %0, !dbg !44, !MSB !45, !LSB !37, !extendFrom !46 (endState: LEGUP_F_main_BB_for_body_2)
+   %arrayidx3 = getelementptr [100 x i32]* %vla132, i32 0, i32 %0, !dbg !44, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_2)
+   %arrayidx4 = getelementptr [100 x i32]* %vla233, i32 0, i32 %0, !dbg !47, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_2)
+   store i32 %0, i32* %arrayidx, align 4, !dbg !41, !tbaa !48, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_3)
+   store i32 %sub, i32* %arrayidx3, align 4, !dbg !44, !tbaa !48, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_3)
+   store i32 0, i32* %arrayidx4, align 4, !dbg !47, !tbaa !48, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_3)
+   %1 = add nsw i32 %0, 1, !dbg !52, !MSB !53, !LSB !37, !extendFrom !53 (endState: LEGUP_F_main_BB_for_body_2)
+   %exitcond2 = icmp eq i32 %1, 100, !dbg !38, !MSB !37, !LSB !37, !extendFrom !37 (endState: LEGUP_F_main_BB_for_body_2)
+   Transition: default: LEGUP_F_main_BB_for_body_3
+state: LEGUP_F_main_BB_for_body_3, basic block: BB_for_body
+   br i1 %exitcond2, label %for.body.i.preheader, label %for.body, !dbg !38, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: if (%exitcond2): LEGUP_F_main_BB_for_body_i_preheader_4 default: LEGUP_F_main_BB_for_body_2
+state: LEGUP_F_main_BB_for_body_i_preheader_4, basic block: BB_for_body_i_preheader
+   br label %for.body.i, !dbg !54, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: default: LEGUP_F_main_BB_for_body_i_5
+state: LEGUP_F_main_BB_for_body_i_5, basic block: BB_for_body_i
+   %i.08.i = phi i32 [ %4, %for.body.i ], [ 0, %for.body.i.preheader ], !dbg !56, !MSB !43, !LSB !37, !extendFrom !43 (endState: LEGUP_F_main_BB_for_body_i_5)
+   %arrayidx.i = getelementptr [100 x i32]* %vla31, i32 0, i32 %i.08.i, !dbg !54, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_i_5)
+   %arrayidx1.i = getelementptr [100 x i32]* %vla132, i32 0, i32 %i.08.i, !dbg !54, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_i_5)
+   %arrayidx2.i = getelementptr [100 x i32]* %vla233, i32 0, i32 %i.08.i, !dbg !54, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_i_5)
+   %2 = load i32* %arrayidx.i, align 4, !dbg !54, !tbaa !48, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body_i_6)
+   %3 = load i32* %arrayidx1.i, align 4, !dbg !54, !tbaa !48, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body_i_6)
+   %4 = add nsw i32 %i.08.i, 1, !dbg !57, !MSB !53, !LSB !37, !extendFrom !53 (endState: LEGUP_F_main_BB_for_body_i_5)
+   %exitcond1 = icmp eq i32 %4, 100, !dbg !58, !MSB !37, !LSB !37, !extendFrom !37 (endState: LEGUP_F_main_BB_for_body_i_5)
+   Transition: default: LEGUP_F_main_BB_for_body_i_6
+state: LEGUP_F_main_BB_for_body_i_6, basic block: BB_for_body_i
+   %add.i = add nsw i32 %3, %2, !dbg !54, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body_i_6)
+   store i32 %add.i, i32* %arrayidx2.i, align 4, !dbg !54, !tbaa !48, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body_i_7)
+   Transition: default: LEGUP_F_main_BB_for_body_i_7
+state: LEGUP_F_main_BB_for_body_i_7, basic block: BB_for_body_i
+   br i1 %exitcond1, label %for.body8.preheader, label %for.body.i, !dbg !58, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: if (%exitcond1): LEGUP_F_main_BB_for_body8_preheader_8 default: LEGUP_F_main_BB_for_body_i_5
+state: LEGUP_F_main_BB_for_body8_preheader_8, basic block: BB_for_body8_preheader
+   br label %for.body8, !dbg !61, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: default: LEGUP_F_main_BB_for_body8_9
+state: LEGUP_F_main_BB_for_body8_9, basic block: BB_for_body8
+   %i5.034 = phi i32 [ %8, %for.body8 ], [ 0, %for.body8.preheader ], !MSB !43, !LSB !37, !extendFrom !43 (endState: LEGUP_F_main_BB_for_body8_9)
+   %arrayidx9 = getelementptr [100 x i32]* %vla31, i32 0, i32 %i5.034, !dbg !61, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body8_9)
+   %arrayidx10 = getelementptr [100 x i32]* %vla132, i32 0, i32 %i5.034, !dbg !61, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body8_9)
+   %arrayidx11 = getelementptr [100 x i32]* %vla233, i32 0, i32 %i5.034, !dbg !61, !MSB !36, !LSB !37, !extendFrom !36 (endState: LEGUP_F_main_BB_for_body8_9)
+   %5 = load i32* %arrayidx9, align 4, !dbg !61, !tbaa !48, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body8_10)
+   %6 = load i32* %arrayidx10, align 4, !dbg !61, !tbaa !48, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body8_10)
+   %7 = load i32* %arrayidx11, align 4, !dbg !61, !tbaa !48, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body8_10)
+   %8 = add nsw i32 %i5.034, 1, !dbg !63, !MSB !53, !LSB !37, !extendFrom !53 (endState: LEGUP_F_main_BB_for_body8_9)
+   %exitcond = icmp eq i32 %8, 100, !dbg !64, !MSB !37, !LSB !37, !extendFrom !37 (endState: LEGUP_F_main_BB_for_body8_9)
+   Transition: default: LEGUP_F_main_BB_for_body8_10
+state: LEGUP_F_main_BB_for_body8_10, basic block: BB_for_body8
+   %call = tail call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([14 x i8]* @.str, i32 0, i32 0), i32 %5, i32 %6, i32 %7) #1, !dbg !61, !MSB !45, !LSB !37, !extendFrom !45 (endState: LEGUP_F_main_BB_for_body8_10)
+   br i1 %exitcond, label %for.end14, label %for.body8, !dbg !64, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: if (%exitcond): LEGUP_F_main_BB_for_end14_11 default: LEGUP_F_main_BB_for_body8_9
+state: LEGUP_F_main_BB_for_end14_11, basic block: BB_for_end14
+   ret i32 0, !dbg !67, !MSB !36, !LSB !37, !extendFrom !36
+   Transition: default: LEGUP_0
+
+Basic Block: %for.end14 Num States: 1
+Basic Block: %entry Num States: 1
+Basic Block: %for.body Num States: 2
+Basic Block: %for.body.i.preheader Num States: 1
+Basic Block: %for.body.i Num States: 3
+Basic Block: %for.body8.preheader Num States: 1
+Basic Block: %for.body8 Num States: 2
+End Function: main
+--------------------------------------------------------------------------------
+
