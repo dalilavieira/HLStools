@@ -1,0 +1,962 @@
+
+
+================================================================
+== Vivado HLS Report for 'nfs_open_file_remove_open_find'
+================================================================
+* Date:           Wed May 20 03:55:29 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     1.546|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      72|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      21|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       0|      93|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|       0|   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |icmp_ln75_fu_124_p2  |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln76_fu_130_p2  |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln77_fu_147_p2  |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln95_fu_136_p2  |   icmp   |      0|  0|  18|          32|           1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |Total                |          |      0|  0|  72|         128|           4|
+    +---------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |delegated  |  21|          4|   32|        128|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  21|          4|   32|        128|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_start              |  in |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_done               | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | nfs_open_file_remove_open_find | return value |
+|nofp_nof_access       |  in |   32|   ap_none  |         nofp_nof_access        |    pointer   |
+|nofp_nof_deny         |  in |   32|   ap_none  |          nofp_nof_deny         |    pointer   |
+|nofp_nof_r            |  in |   32|   ap_none  |           nofp_nof_r           |    pointer   |
+|nofp_nof_d_r          |  in |   32|   ap_none  |          nofp_nof_d_r          |    pointer   |
+|nofp_nof_rw           |  in |   32|   ap_none  |           nofp_nof_rw          |    pointer   |
+|nofp_nof_d_rw         |  in |   32|   ap_none  |          nofp_nof_d_rw         |    pointer   |
+|nofp_nof_r_dw         |  in |   32|   ap_none  |          nofp_nof_r_dw         |    pointer   |
+|nofp_nof_d_r_dw       |  in |   32|   ap_none  |         nofp_nof_d_r_dw        |    pointer   |
+|nofp_nof_rw_dw        |  in |   32|   ap_none  |         nofp_nof_rw_dw         |    pointer   |
+|nofp_nof_d_rw_dw      |  in |   32|   ap_none  |        nofp_nof_d_rw_dw        |    pointer   |
+|nofp_nof_r_drw        |  in |   32|   ap_none  |         nofp_nof_r_drw         |    pointer   |
+|nofp_nof_d_r_drw      |  in |   32|   ap_none  |        nofp_nof_d_r_drw        |    pointer   |
+|nofp_nof_w            |  in |   32|   ap_none  |           nofp_nof_w           |    pointer   |
+|nofp_nof_d_w          |  in |   32|   ap_none  |          nofp_nof_d_w          |    pointer   |
+|nofp_nof_w_dw         |  in |   32|   ap_none  |          nofp_nof_w_dw         |    pointer   |
+|nofp_nof_d_w_dw       |  in |   32|   ap_none  |         nofp_nof_d_w_dw        |    pointer   |
+|nofp_nof_w_drw        |  in |   32|   ap_none  |         nofp_nof_w_drw         |    pointer   |
+|nofp_nof_d_w_drw      |  in |   32|   ap_none  |        nofp_nof_d_w_drw        |    pointer   |
+|nofp_nof_rw_drw       |  in |   32|   ap_none  |         nofp_nof_rw_drw        |    pointer   |
+|nofp_nof_d_rw_drw     |  in |   32|   ap_none  |        nofp_nof_d_rw_drw       |    pointer   |
+|accessMode            |  in |   32|   ap_none  |           accessMode           |    scalar    |
+|denyMode              |  in |   32|   ap_none  |            denyMode            |    scalar    |
+|newAccessMode         | out |   32|   ap_vld   |          newAccessMode         |    pointer   |
+|newAccessMode_ap_vld  | out |    1|   ap_vld   |          newAccessMode         |    pointer   |
+|newDenyMode           | out |   32|   ap_vld   |           newDenyMode          |    pointer   |
+|newDenyMode_ap_vld    | out |    1|   ap_vld   |           newDenyMode          |    pointer   |
+|delegated             | out |   32|   ap_vld   |            delegated           |    pointer   |
+|delegated_ap_vld      | out |    1|   ap_vld   |            delegated           |    pointer   |
++----------------------+-----+-----+------------+--------------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 1
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.54>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_access), !map !45"   --->   Operation 2 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_deny), !map !49"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_r), !map !53"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_r), !map !57"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_rw), !map !61"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_rw), !map !65"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_r_dw), !map !69"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_r_dw), !map !73"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_rw_dw), !map !77"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_rw_dw), !map !81"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_r_drw), !map !85"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_r_drw), !map !89"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_w), !map !93"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_w), !map !97"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_w_dw), !map !101"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_w_dw), !map !105"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_w_drw), !map !109"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_w_drw), !map !113"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_rw_drw), !map !117"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %nofp_nof_d_rw_drw), !map !121"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %accessMode), !map !125"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %denyMode), !map !131"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %newAccessMode), !map !135"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %newDenyMode), !map !139"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %delegated), !map !143"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([31 x i8]* @nfs_open_file_remove) nounwind"   --->   Operation 27 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%denyMode_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %denyMode)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:26]   --->   Operation 28 'read' 'denyMode_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%accessMode_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %accessMode)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:26]   --->   Operation 29 'read' 'accessMode_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%nofp_nof_access_read = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %nofp_nof_access)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:37]   --->   Operation 30 'read' 'nofp_nof_access_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %newAccessMode, i32 %nofp_nof_access_read)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:37]   --->   Operation 31 'write' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%nofp_nof_deny_read = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %nofp_nof_deny)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:38]   --->   Operation 32 'read' 'nofp_nof_deny_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %newDenyMode, i32 %nofp_nof_deny_read)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:38]   --->   Operation 33 'write' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (1.54ns)   --->   "%icmp_ln75 = icmp eq i32 %denyMode_read, 0" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:75]   --->   Operation 34 'icmp' 'icmp_ln75' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (1.54ns)   --->   "%icmp_ln76 = icmp eq i32 %accessMode_read, 0" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:76]   --->   Operation 35 'icmp' 'icmp_ln76' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "br i1 %icmp_ln75, label %0, label %4" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:75]   --->   Operation 36 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %icmp_ln76, label %5, label %6" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:94]   --->   Operation 37 'br' <Predicate = (!icmp_ln75)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %delegated, i32 0)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:101]   --->   Operation 38 'write' <Predicate = (!icmp_ln75 & !icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "br label %7"   --->   Operation 39 'br' <Predicate = (!icmp_ln75 & !icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%nofp_nof_d_r_drw_rea = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %nofp_nof_d_r_drw)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:95]   --->   Operation 40 'read' 'nofp_nof_d_r_drw_rea' <Predicate = (!icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (1.54ns)   --->   "%icmp_ln95 = icmp ne i32 %nofp_nof_d_r_drw_rea, 0" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:95]   --->   Operation 41 'icmp' 'icmp_ln95' <Predicate = (!icmp_ln75 & icmp_ln76)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%zext_ln95 = zext i1 %icmp_ln95 to i32" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:95]   --->   Operation 42 'zext' 'zext_ln95' <Predicate = (!icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %delegated, i32 %zext_ln95)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:95]   --->   Operation 43 'write' <Predicate = (!icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "br label %7" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:95]   --->   Operation 44 'br' <Predicate = (!icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "br label %8"   --->   Operation 45 'br' <Predicate = (!icmp_ln75)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "br i1 %icmp_ln76, label %1, label %2" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:76]   --->   Operation 46 'br' <Predicate = (icmp_ln75)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %delegated, i32 0)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:83]   --->   Operation 47 'write' <Predicate = (icmp_ln75 & !icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "br label %3"   --->   Operation 48 'br' <Predicate = (icmp_ln75 & !icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%nofp_nof_d_r_read = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %nofp_nof_d_r)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:77]   --->   Operation 49 'read' 'nofp_nof_d_r_read' <Predicate = (icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (1.54ns)   --->   "%icmp_ln77 = icmp ne i32 %nofp_nof_d_r_read, 0" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:77]   --->   Operation 50 'icmp' 'icmp_ln77' <Predicate = (icmp_ln75 & icmp_ln76)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln77 = zext i1 %icmp_ln77 to i32" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:77]   --->   Operation 51 'zext' 'zext_ln77' <Predicate = (icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %delegated, i32 %zext_ln77)" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:77]   --->   Operation 52 'write' <Predicate = (icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "br label %3" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:77]   --->   Operation 53 'br' <Predicate = (icmp_ln75 & icmp_ln76)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "br label %8" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:84]   --->   Operation 54 'br' <Predicate = (icmp_ln75)> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "ret void" [extr_.darwin-xnubsdnfsnfs4_vnops.c_nfs_open_file_remove_open_find_with_main.c:103]   --->   Operation 55 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 1
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ nofp_nof_access]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_deny]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_r]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_rw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_rw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_r_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_r_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_rw_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_rw_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_r_drw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_r_drw]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_w]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_w]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_w_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_w_dw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_w_drw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_w_drw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_rw_drw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ nofp_nof_d_rw_drw]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ accessMode]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ denyMode]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ newAccessMode]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ newDenyMode]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ delegated]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+specbitsmap_ln0      (specbitsmap  ) [ 00]
+spectopmodule_ln0    (spectopmodule) [ 00]
+denyMode_read        (read         ) [ 00]
+accessMode_read      (read         ) [ 00]
+nofp_nof_access_read (read         ) [ 00]
+write_ln37           (write        ) [ 00]
+nofp_nof_deny_read   (read         ) [ 00]
+write_ln38           (write        ) [ 00]
+icmp_ln75            (icmp         ) [ 01]
+icmp_ln76            (icmp         ) [ 01]
+br_ln75              (br           ) [ 00]
+br_ln94              (br           ) [ 00]
+write_ln101          (write        ) [ 00]
+br_ln0               (br           ) [ 00]
+nofp_nof_d_r_drw_rea (read         ) [ 00]
+icmp_ln95            (icmp         ) [ 00]
+zext_ln95            (zext         ) [ 00]
+write_ln95           (write        ) [ 00]
+br_ln95              (br           ) [ 00]
+br_ln0               (br           ) [ 00]
+br_ln76              (br           ) [ 00]
+write_ln83           (write        ) [ 00]
+br_ln0               (br           ) [ 00]
+nofp_nof_d_r_read    (read         ) [ 00]
+icmp_ln77            (icmp         ) [ 00]
+zext_ln77            (zext         ) [ 00]
+write_ln77           (write        ) [ 00]
+br_ln77              (br           ) [ 00]
+br_ln84              (br           ) [ 00]
+ret_ln103            (ret          ) [ 00]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="nofp_nof_access">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_access"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="nofp_nof_deny">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_deny"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="nofp_nof_r">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_r"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="nofp_nof_d_r">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_r"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="nofp_nof_rw">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_rw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="nofp_nof_d_rw">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_rw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="nofp_nof_r_dw">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_r_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="nofp_nof_d_r_dw">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_r_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="nofp_nof_rw_dw">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_rw_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="nofp_nof_d_rw_dw">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_rw_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="nofp_nof_r_drw">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_r_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="nofp_nof_d_r_drw">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_r_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="nofp_nof_w">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_w"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1000" name="nofp_nof_d_w">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_w"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1000" name="nofp_nof_w_dw">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_w_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1000" name="nofp_nof_d_w_dw">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_w_dw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1000" name="nofp_nof_w_drw">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_w_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1000" name="nofp_nof_d_w_drw">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_w_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1000" name="nofp_nof_rw_drw">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_rw_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1000" name="nofp_nof_d_rw_drw">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nofp_nof_d_rw_drw"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1000" name="accessMode">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="accessMode"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1000" name="denyMode">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="denyMode"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1000" name="newAccessMode">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="newAccessMode"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1000" name="newDenyMode">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="newDenyMode"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1000" name="delegated">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="delegated"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="nfs_open_file_remove"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.volatile.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.volatile.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1004" name="denyMode_read_read_fu_64">
+<pin_list>
+<pin id="65" dir="0" index="0" bw="32" slack="0"/>
+<pin id="66" dir="0" index="1" bw="32" slack="0"/>
+<pin id="67" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="denyMode_read/1 "/>
+</bind>
+</comp>
+
+<comp id="70" class="1004" name="accessMode_read_read_fu_70">
+<pin_list>
+<pin id="71" dir="0" index="0" bw="32" slack="0"/>
+<pin id="72" dir="0" index="1" bw="32" slack="0"/>
+<pin id="73" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="accessMode_read/1 "/>
+</bind>
+</comp>
+
+<comp id="76" class="1004" name="nofp_nof_access_read_read_fu_76">
+<pin_list>
+<pin id="77" dir="0" index="0" bw="32" slack="0"/>
+<pin id="78" dir="0" index="1" bw="32" slack="0"/>
+<pin id="79" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="nofp_nof_access_read/1 "/>
+</bind>
+</comp>
+
+<comp id="82" class="1004" name="write_ln37_write_fu_82">
+<pin_list>
+<pin id="83" dir="0" index="0" bw="0" slack="0"/>
+<pin id="84" dir="0" index="1" bw="32" slack="0"/>
+<pin id="85" dir="0" index="2" bw="32" slack="0"/>
+<pin id="86" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln37/1 "/>
+</bind>
+</comp>
+
+<comp id="90" class="1004" name="nofp_nof_deny_read_read_fu_90">
+<pin_list>
+<pin id="91" dir="0" index="0" bw="32" slack="0"/>
+<pin id="92" dir="0" index="1" bw="32" slack="0"/>
+<pin id="93" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="nofp_nof_deny_read/1 "/>
+</bind>
+</comp>
+
+<comp id="96" class="1004" name="write_ln38_write_fu_96">
+<pin_list>
+<pin id="97" dir="0" index="0" bw="0" slack="0"/>
+<pin id="98" dir="0" index="1" bw="32" slack="0"/>
+<pin id="99" dir="0" index="2" bw="32" slack="0"/>
+<pin id="100" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln38/1 "/>
+</bind>
+</comp>
+
+<comp id="104" class="1004" name="grp_write_fu_104">
+<pin_list>
+<pin id="105" dir="0" index="0" bw="0" slack="0"/>
+<pin id="106" dir="0" index="1" bw="32" slack="0"/>
+<pin id="107" dir="0" index="2" bw="1" slack="0"/>
+<pin id="108" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln101/1 write_ln95/1 write_ln83/1 write_ln77/1 "/>
+</bind>
+</comp>
+
+<comp id="112" class="1004" name="nofp_nof_d_r_drw_rea_read_fu_112">
+<pin_list>
+<pin id="113" dir="0" index="0" bw="32" slack="0"/>
+<pin id="114" dir="0" index="1" bw="32" slack="0"/>
+<pin id="115" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="nofp_nof_d_r_drw_rea/1 "/>
+</bind>
+</comp>
+
+<comp id="118" class="1004" name="nofp_nof_d_r_read_read_fu_118">
+<pin_list>
+<pin id="119" dir="0" index="0" bw="32" slack="0"/>
+<pin id="120" dir="0" index="1" bw="32" slack="0"/>
+<pin id="121" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="nofp_nof_d_r_read/1 "/>
+</bind>
+</comp>
+
+<comp id="124" class="1004" name="icmp_ln75_fu_124">
+<pin_list>
+<pin id="125" dir="0" index="0" bw="32" slack="0"/>
+<pin id="126" dir="0" index="1" bw="32" slack="0"/>
+<pin id="127" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln75/1 "/>
+</bind>
+</comp>
+
+<comp id="130" class="1004" name="icmp_ln76_fu_130">
+<pin_list>
+<pin id="131" dir="0" index="0" bw="32" slack="0"/>
+<pin id="132" dir="0" index="1" bw="32" slack="0"/>
+<pin id="133" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln76/1 "/>
+</bind>
+</comp>
+
+<comp id="136" class="1004" name="icmp_ln95_fu_136">
+<pin_list>
+<pin id="137" dir="0" index="0" bw="32" slack="0"/>
+<pin id="138" dir="0" index="1" bw="32" slack="0"/>
+<pin id="139" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln95/1 "/>
+</bind>
+</comp>
+
+<comp id="142" class="1004" name="zext_ln95_fu_142">
+<pin_list>
+<pin id="143" dir="0" index="0" bw="1" slack="0"/>
+<pin id="144" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln95/1 "/>
+</bind>
+</comp>
+
+<comp id="147" class="1004" name="icmp_ln77_fu_147">
+<pin_list>
+<pin id="148" dir="0" index="0" bw="32" slack="0"/>
+<pin id="149" dir="0" index="1" bw="32" slack="0"/>
+<pin id="150" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln77/1 "/>
+</bind>
+</comp>
+
+<comp id="153" class="1004" name="zext_ln77_fu_153">
+<pin_list>
+<pin id="154" dir="0" index="0" bw="1" slack="0"/>
+<pin id="155" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln77/1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="68"><net_src comp="56" pin="0"/><net_sink comp="64" pin=0"/></net>
+
+<net id="69"><net_src comp="42" pin="0"/><net_sink comp="64" pin=1"/></net>
+
+<net id="74"><net_src comp="56" pin="0"/><net_sink comp="70" pin=0"/></net>
+
+<net id="75"><net_src comp="40" pin="0"/><net_sink comp="70" pin=1"/></net>
+
+<net id="80"><net_src comp="58" pin="0"/><net_sink comp="76" pin=0"/></net>
+
+<net id="81"><net_src comp="0" pin="0"/><net_sink comp="76" pin=1"/></net>
+
+<net id="87"><net_src comp="60" pin="0"/><net_sink comp="82" pin=0"/></net>
+
+<net id="88"><net_src comp="44" pin="0"/><net_sink comp="82" pin=1"/></net>
+
+<net id="89"><net_src comp="76" pin="2"/><net_sink comp="82" pin=2"/></net>
+
+<net id="94"><net_src comp="58" pin="0"/><net_sink comp="90" pin=0"/></net>
+
+<net id="95"><net_src comp="2" pin="0"/><net_sink comp="90" pin=1"/></net>
+
+<net id="101"><net_src comp="60" pin="0"/><net_sink comp="96" pin=0"/></net>
+
+<net id="102"><net_src comp="46" pin="0"/><net_sink comp="96" pin=1"/></net>
+
+<net id="103"><net_src comp="90" pin="2"/><net_sink comp="96" pin=2"/></net>
+
+<net id="109"><net_src comp="60" pin="0"/><net_sink comp="104" pin=0"/></net>
+
+<net id="110"><net_src comp="48" pin="0"/><net_sink comp="104" pin=1"/></net>
+
+<net id="111"><net_src comp="62" pin="0"/><net_sink comp="104" pin=2"/></net>
+
+<net id="116"><net_src comp="58" pin="0"/><net_sink comp="112" pin=0"/></net>
+
+<net id="117"><net_src comp="22" pin="0"/><net_sink comp="112" pin=1"/></net>
+
+<net id="122"><net_src comp="58" pin="0"/><net_sink comp="118" pin=0"/></net>
+
+<net id="123"><net_src comp="6" pin="0"/><net_sink comp="118" pin=1"/></net>
+
+<net id="128"><net_src comp="64" pin="2"/><net_sink comp="124" pin=0"/></net>
+
+<net id="129"><net_src comp="62" pin="0"/><net_sink comp="124" pin=1"/></net>
+
+<net id="134"><net_src comp="70" pin="2"/><net_sink comp="130" pin=0"/></net>
+
+<net id="135"><net_src comp="62" pin="0"/><net_sink comp="130" pin=1"/></net>
+
+<net id="140"><net_src comp="112" pin="2"/><net_sink comp="136" pin=0"/></net>
+
+<net id="141"><net_src comp="62" pin="0"/><net_sink comp="136" pin=1"/></net>
+
+<net id="145"><net_src comp="136" pin="2"/><net_sink comp="142" pin=0"/></net>
+
+<net id="146"><net_src comp="142" pin="1"/><net_sink comp="104" pin=2"/></net>
+
+<net id="151"><net_src comp="118" pin="2"/><net_sink comp="147" pin=0"/></net>
+
+<net id="152"><net_src comp="62" pin="0"/><net_sink comp="147" pin=1"/></net>
+
+<net id="156"><net_src comp="147" pin="2"/><net_sink comp="153" pin=0"/></net>
+
+<net id="157"><net_src comp="153" pin="1"/><net_sink comp="104" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: newAccessMode | {1 }
+	Port: newDenyMode | {1 }
+	Port: delegated | {1 }
+ - Input state : 
+	Port: nfs_open_file_remove_open_find : nofp_nof_access | {1 }
+	Port: nfs_open_file_remove_open_find : nofp_nof_deny | {1 }
+	Port: nfs_open_file_remove_open_find : nofp_nof_d_r | {1 }
+	Port: nfs_open_file_remove_open_find : nofp_nof_d_r_drw | {1 }
+	Port: nfs_open_file_remove_open_find : accessMode | {1 }
+	Port: nfs_open_file_remove_open_find : denyMode | {1 }
+  - Chain level:
+	State 1
+		br_ln75 : 1
+		br_ln94 : 1
+		zext_ln95 : 1
+		write_ln95 : 2
+		br_ln76 : 1
+		zext_ln77 : 1
+		write_ln77 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|----------------------------------|---------|---------|
+| Operation|          Functional Unit         |    FF   |   LUT   |
+|----------|----------------------------------|---------|---------|
+|          |         icmp_ln75_fu_124         |    0    |    18   |
+|   icmp   |         icmp_ln76_fu_130         |    0    |    18   |
+|          |         icmp_ln95_fu_136         |    0    |    18   |
+|          |         icmp_ln77_fu_147         |    0    |    18   |
+|----------|----------------------------------|---------|---------|
+|          |     denyMode_read_read_fu_64     |    0    |    0    |
+|          |    accessMode_read_read_fu_70    |    0    |    0    |
+|   read   |  nofp_nof_access_read_read_fu_76 |    0    |    0    |
+|          |   nofp_nof_deny_read_read_fu_90  |    0    |    0    |
+|          | nofp_nof_d_r_drw_rea_read_fu_112 |    0    |    0    |
+|          |   nofp_nof_d_r_read_read_fu_118  |    0    |    0    |
+|----------|----------------------------------|---------|---------|
+|          |      write_ln37_write_fu_82      |    0    |    0    |
+|   write  |      write_ln38_write_fu_96      |    0    |    0    |
+|          |         grp_write_fu_104         |    0    |    0    |
+|----------|----------------------------------|---------|---------|
+|   zext   |         zext_ln95_fu_142         |    0    |    0    |
+|          |         zext_ln77_fu_153         |    0    |    0    |
+|----------|----------------------------------|---------|---------|
+|   Total  |                                  |    0    |    72   |
+|----------|----------------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
+N/A
+
+* Multiplexer (MUX) list: 
+|------------------|------|------|------|--------||---------||---------|
+|       Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|------------------|------|------|------|--------||---------||---------|
+| grp_write_fu_104 |  p2  |   3  |   1  |    3   ||    15   |
+|------------------|------|------|------|--------||---------||---------|
+|       Total      |      |      |      |    3   ||  1.1295 ||    15   |
+|------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |    0   |   72   |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    1   |    -   |   15   |
+|  Register |    -   |    -   |    -   |
++-----------+--------+--------+--------+
+|   Total   |    1   |    0   |   87   |
++-----------+--------+--------+--------+
