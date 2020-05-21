@@ -2,5 +2,8 @@
     <files>
         <file name="extr_.emscriptentestsfuzz15.c_func_3_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>
+    <solutions>
+        <solution name="sol" status=""/>
+    </solutions>
 </AutoPilot:project>
 
