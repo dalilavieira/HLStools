@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.FFmpeglibavcodecscpr.h_decode_run_i_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.FFmpeglibavcodecscpr.h_decode_run_i_with_main.c" top="decode_run_i">
     <files>
         <file name="extr_.FFmpeglibavcodecscpr.h_decode_run_i_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

@@ -1,4 +1,4 @@
 #!/bin/sh
 lli=${LLVMINTERP-lli}
 exec $lli \
-    /home/vivado/aut/proj_extr_.FFmpeglibavcodecvmnc.c_put_cursor_with_main.c/solution1/.autopilot/db/a.g.bc ${1+"$@"}
+    /home/vivado/HLStools/vivado/new214/proj_extr_.FFmpeglibavcodecvmnc.c_put_cursor_with_main.c/solution1/.autopilot/db/a.g.bc ${1+"$@"}

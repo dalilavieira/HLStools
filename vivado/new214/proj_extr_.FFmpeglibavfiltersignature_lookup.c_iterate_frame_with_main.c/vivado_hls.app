@@ -5,6 +5,7 @@
     <solutions>
         <solution name="solution1" status=""/>
         <solution name="sol" status=""/>
+        <solution name="iterate_frame" status=""/>
     </solutions>
 </AutoPilot:project>
 

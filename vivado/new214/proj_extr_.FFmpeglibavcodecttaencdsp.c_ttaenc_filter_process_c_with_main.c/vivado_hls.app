@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c" top="ttaenc_filter_process_c">
     <files>
         <file name="extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>
