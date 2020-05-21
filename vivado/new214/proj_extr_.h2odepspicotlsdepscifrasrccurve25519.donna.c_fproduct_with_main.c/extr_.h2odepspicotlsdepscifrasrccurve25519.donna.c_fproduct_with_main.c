@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int limb ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void fproduct(volatile limb *output,volatile const limb *in2, volatile const limb *in) {
+__attribute__((used)) static void fproduct(limb *output, const limb *in2, const limb *in) {
   output[0] =       ((limb) ((s32) in2[0])) * ((s32) in[0]);
   output[1] =       ((limb) ((s32) in2[0])) * ((s32) in[1]) +
                     ((limb) ((s32) in2[1])) * ((s32) in[0]);

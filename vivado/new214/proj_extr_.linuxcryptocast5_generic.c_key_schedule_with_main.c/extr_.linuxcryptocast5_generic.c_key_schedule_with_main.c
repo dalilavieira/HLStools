@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,7 +17,7 @@ typedef  int u32 ;
  int* s7 ; 
  int* sb8 ; 
 
-__attribute__((used)) static void key_schedule(volatile u32 *x, volatile u32 *z, volatile u32 *k)
+__attribute__((used)) static void key_schedule(u32 *x, u32 *z, u32 *k)
 {
 
 #define xi(i)   ((x[(i)/4] >> (8*(3-((i)%4)))) & 0xff)

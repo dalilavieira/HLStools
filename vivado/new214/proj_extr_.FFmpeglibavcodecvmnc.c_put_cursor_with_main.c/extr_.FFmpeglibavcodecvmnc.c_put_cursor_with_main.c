@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  TYPE_1__ VmncContext ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void put_cursor(volatile uint8_t *dst, int stride,volatile VmncContext *c, int dx, int dy)
+__attribute__((used)) static void put_cursor(uint8_t *dst, int stride, VmncContext *c, int dx, int dy)
 {
     int i, j;
     int w, h, x, y;

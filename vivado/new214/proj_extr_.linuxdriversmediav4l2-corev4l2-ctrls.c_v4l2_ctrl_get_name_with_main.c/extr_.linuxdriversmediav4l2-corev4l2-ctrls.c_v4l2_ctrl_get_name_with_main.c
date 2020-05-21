@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -342,7 +341,7 @@ typedef  int u32 ;
 #define  V4L2_CID_ZOOM_CONTINUOUS 129 
 #define  V4L2_CID_ZOOM_RELATIVE 128 
 
-const volatile char *v4l2_ctrl_get_name(u32 id)
+const char *v4l2_ctrl_get_name(u32 id)
 {
 	switch (id) {
 	/* USER controls */

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,7 +17,7 @@ struct screen {struct screen_sel* sel; } ;
  scalar_t__ MODEKEY_EMACS ; 
 
 int
-screen_check_selection(volatile struct screen *s, u_int px, u_int py)
+screen_check_selection(struct screen *s, u_int px, u_int py)
 {
 	struct screen_sel	*sel = s->sel;
 	u_int			 xx;

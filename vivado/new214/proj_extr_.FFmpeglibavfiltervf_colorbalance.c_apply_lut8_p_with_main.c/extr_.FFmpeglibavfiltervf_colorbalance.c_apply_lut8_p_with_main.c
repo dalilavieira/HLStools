@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -29,7 +28,7 @@ typedef  TYPE_4__ AVFilterContext ;
  size_t G ; 
  size_t R ; 
 
-__attribute__((used)) static int apply_lut8_p(volatile AVFilterContext *ctx,volatile void *arg, int jobnr, int nb_jobs)
+__attribute__((used)) static int apply_lut8_p(AVFilterContext *ctx, void *arg, int jobnr, int nb_jobs)
 {
     ColorBalanceContext *s = ctx->priv;
     ThreadData *td = arg;

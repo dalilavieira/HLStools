@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -112,7 +111,7 @@ typedef  TYPE_1__ STypeInfo ;
  scalar_t__ is_struct_class_fwdref ; 
  scalar_t__ is_union_fwdref ; 
 
-__attribute__((used)) static void init_stype_info(volatile STypeInfo *type_info)
+__attribute__((used)) static void init_stype_info(STypeInfo *type_info)
 {
 	type_info->free_ = 0;
 	type_info->get_members = 0;

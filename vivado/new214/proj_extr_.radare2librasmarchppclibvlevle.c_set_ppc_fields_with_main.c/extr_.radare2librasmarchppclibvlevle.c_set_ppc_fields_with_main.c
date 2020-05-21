@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -39,7 +38,7 @@ struct TYPE_6__ {int value; int /*<<< orphan*/  type; } ;
 #define  F_X_EI 128 
  int /*<<< orphan*/  TYPE_NONE ; 
 
-__attribute__((used)) static void set_ppc_fields(volatile vle_t * v,volatile const ppc_t* p, ut32 data) {
+__attribute__((used)) static void set_ppc_fields(vle_t * v, const ppc_t* p, ut32 data) {
 	if (!v) {
 		return;
 	}

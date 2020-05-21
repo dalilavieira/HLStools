@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -21,7 +20,7 @@ typedef  int ngx_int_t ;
  int* mday ; 
 
 time_t
-ngx_http_parse_time(volatile u_char *value, size_t len)
+ngx_http_parse_time(u_char *value, size_t len)
 {
     u_char      *p, *end;
     ngx_int_t    month;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -332,7 +331,7 @@ typedef  TYPE_4__ HexInsn ;
  void* R_ANAL_OP_TYPE_JMP ; 
  void* R_ANAL_OP_TYPE_RET ; 
 
-int hexagon_anal_instruction(volatile HexInsn *hi, volatile RAnalOp *op) {
+int hexagon_anal_instruction(HexInsn *hi, RAnalOp *op) {
 	switch (hi->instruction) {
 	case HEX_INS_CALL__R22_2: {
 		// call #r22:2

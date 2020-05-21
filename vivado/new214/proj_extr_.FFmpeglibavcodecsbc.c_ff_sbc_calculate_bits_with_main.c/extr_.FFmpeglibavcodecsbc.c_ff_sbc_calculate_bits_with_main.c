@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -22,7 +21,7 @@ struct sbc_frame {int subbands; size_t frequency; scalar_t__ mode; int channels;
  int** sbc_offset4 ; 
  int** sbc_offset8 ; 
 
-void ff_sbc_calculate_bits(volatile const struct sbc_frame *frame, volatile int (*bits)[8])
+void ff_sbc_calculate_bits(const struct sbc_frame *frame, int (*bits)[8])
 {
     int subbands = frame->subbands;
     uint8_t sf = frame->frequency;

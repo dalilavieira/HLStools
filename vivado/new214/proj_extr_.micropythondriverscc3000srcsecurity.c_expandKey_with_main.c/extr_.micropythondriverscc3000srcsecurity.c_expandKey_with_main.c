@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -17,7 +16,7 @@ typedef  int UINT16 ;
  size_t* Rcon ; 
  size_t* sbox ; 
 
-void expandKey(volatile UINT8 *expandedKey,volatile UINT8 *key)
+void expandKey(UINT8 *expandedKey, UINT8 *key)
 {
   UINT16 ii, buf1;
   for (ii=0;ii<16;ii++)

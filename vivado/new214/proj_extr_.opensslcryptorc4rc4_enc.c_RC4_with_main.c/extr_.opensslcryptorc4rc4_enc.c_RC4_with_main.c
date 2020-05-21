@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -17,7 +16,7 @@ typedef  int RC4_INT ;
 
 /* Variables and functions */
 
-void RC4(volatile RC4_KEY *key, size_t len, volatile unsigned char *indata,
+void RC4(RC4_KEY *key, size_t len, const unsigned char *indata,
          unsigned char *outdata)
 {
     register RC4_INT *d;

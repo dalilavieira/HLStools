@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -25,7 +24,7 @@ struct TYPE_3__ {int dpms_off_ps_idx; int dpms_on_ps_idx; scalar_t__ dpms_on_cm_
  size_t PM_PROFILE_MID_MH_IDX ; 
  size_t PM_PROFILE_MID_SH_IDX ; 
 
-void rs780_pm_init_profile(volatile struct radeon_device *rdev)
+void rs780_pm_init_profile(struct radeon_device *rdev)
 {
 	if (rdev->pm.num_power_states == 2) {
 		/* default */

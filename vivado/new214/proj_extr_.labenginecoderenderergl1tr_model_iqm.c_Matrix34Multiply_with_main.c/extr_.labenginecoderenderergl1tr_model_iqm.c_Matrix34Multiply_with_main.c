@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -13,7 +12,7 @@ typedef int bool;
 
 /* Variables and functions */
 
-__attribute__((used)) static void Matrix34Multiply(volatile float *a,volatile float *b,volatile float *out ) {
+__attribute__((used)) static void Matrix34Multiply( float *a, float *b, float *out ) {
 	out[ 0] = a[0] * b[0] + a[1] * b[4] + a[ 2] * b[ 8];
 	out[ 1] = a[0] * b[1] + a[1] * b[5] + a[ 2] * b[ 9];
 	out[ 2] = a[0] * b[2] + a[1] * b[6] + a[ 2] * b[10];

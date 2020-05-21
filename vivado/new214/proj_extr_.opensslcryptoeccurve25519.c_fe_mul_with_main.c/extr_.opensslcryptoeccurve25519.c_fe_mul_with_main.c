@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,7 +17,7 @@ typedef  int* fe ;
  int kTop38Bits ; 
  int kTop39Bits ; 
 
-__attribute__((used)) static void fe_mul(volatile fe h, volatile fe f, volatile fe g)
+__attribute__((used)) static void fe_mul(fe h, const fe f, const fe g)
 {
     int32_t f0 = f[0];
     int32_t f1 = f[1];

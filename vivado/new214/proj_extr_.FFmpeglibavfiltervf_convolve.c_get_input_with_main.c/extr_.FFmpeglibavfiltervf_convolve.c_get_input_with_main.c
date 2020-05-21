@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -24,8 +23,8 @@ typedef  TYPE_3__ AVFrame ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void get_input(volatile ConvolveContext *s,volatile FFTComplex *fft_hdata,
-                      volatile AVFrame *in, int w, int h, int n, int plane, float scale)
+__attribute__((used)) static void get_input(ConvolveContext *s, FFTComplex *fft_hdata,
+                      AVFrame *in, int w, int h, int n, int plane, float scale)
 {
     const int iw = (n - w) / 2, ih = (n - h) / 2;
     int y, x;

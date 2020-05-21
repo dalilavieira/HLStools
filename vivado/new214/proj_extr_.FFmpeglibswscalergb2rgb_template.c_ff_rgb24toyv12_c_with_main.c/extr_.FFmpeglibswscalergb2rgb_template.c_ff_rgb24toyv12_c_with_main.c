@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -25,9 +24,9 @@ typedef  unsigned int int32_t ;
  size_t RV_IDX ; 
  size_t RY_IDX ; 
 
-void ff_rgb24toyv12_c(volatile const uint8_t *src, volatile uint8_t *ydst, volatile uint8_t *udst,
-                   volatile uint8_t *vdst, int width, int height, int lumStride,
-                   int chromStride, int srcStride, volatile int32_t *rgb2yuv)
+void ff_rgb24toyv12_c(const uint8_t *src, uint8_t *ydst, uint8_t *udst,
+                   uint8_t *vdst, int width, int height, int lumStride,
+                   int chromStride, int srcStride, int32_t *rgb2yuv)
 {
     int32_t ry = rgb2yuv[RY_IDX], gy = rgb2yuv[GY_IDX], by = rgb2yuv[BY_IDX];
     int32_t ru = rgb2yuv[RU_IDX], gu = rgb2yuv[GU_IDX], bu = rgb2yuv[BU_IDX];

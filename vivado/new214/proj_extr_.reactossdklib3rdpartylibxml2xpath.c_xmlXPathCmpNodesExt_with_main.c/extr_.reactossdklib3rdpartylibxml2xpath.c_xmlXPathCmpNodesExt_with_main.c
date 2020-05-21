@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -25,7 +24,7 @@ struct TYPE_4__ {int type; int content; scalar_t__ doc; struct TYPE_4__* next; s
 #define  XML_TEXT_NODE 128 
 
 __attribute__((used)) static int
-xmlXPathCmpNodesExt(volatile xmlNodePtr node1,volatile xmlNodePtr node2) {
+xmlXPathCmpNodesExt(xmlNodePtr node1, xmlNodePtr node2) {
     int depth1, depth2;
     int misc = 0, precedence1 = 0, precedence2 = 0;
     xmlNodePtr miscNode1 = NULL, miscNode2 = NULL;

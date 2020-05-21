@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,7 +15,7 @@ typedef  int uint16_t ;
 /* Variables and functions */
  int** dither ; 
 
-__attribute__((used)) static void store_slice_c(volatile uint8_t *dst, volatile const uint16_t *src,
+__attribute__((used)) static void store_slice_c(uint8_t *dst, const uint16_t *src,
                           int dst_stride, int src_stride,
                           int width, int height, int log2_scale)
 {

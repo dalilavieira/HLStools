@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -44,8 +43,8 @@ struct TYPE_2__ {unsigned short ModeID; unsigned short Ext_InfoFlag; } ;
  int VB_SISVB ; 
 
 __attribute__((used)) static bool
-SiS_AdjustCRT2Rate(volatile struct SiS_Private *SiS_Pr, unsigned short ModeNo, unsigned short ModeIdIndex,
-		unsigned short RRTI, volatile unsigned short *i)
+SiS_AdjustCRT2Rate(struct SiS_Private *SiS_Pr, unsigned short ModeNo, unsigned short ModeIdIndex,
+		unsigned short RRTI, unsigned short *i)
 {
    unsigned short checkmask=0, modeid, infoflag;
 

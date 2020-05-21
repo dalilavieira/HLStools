@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -61,7 +60,7 @@ struct uart_ip22zilog_port {int* curregs; int parity_mask; TYPE_1__ port; } ;
  int XCLK_MASK ; 
 
 __attribute__((used)) static void
-ip22zilog_convert_to_zs(volatile struct uart_ip22zilog_port *up, unsigned int cflag,
+ip22zilog_convert_to_zs(struct uart_ip22zilog_port *up, unsigned int cflag,
 		       unsigned int iflag, int brg)
 {
 

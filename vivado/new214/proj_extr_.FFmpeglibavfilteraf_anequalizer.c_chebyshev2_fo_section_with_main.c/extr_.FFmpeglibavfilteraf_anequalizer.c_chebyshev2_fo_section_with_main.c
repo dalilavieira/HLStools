@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,7 +15,7 @@ typedef  TYPE_1__ FoSection ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void chebyshev2_fo_section(volatile FoSection *S, double a,
+__attribute__((used)) static void chebyshev2_fo_section(FoSection *S, double a,
                                   double c, double tetta_b,
                                   double g, double si, double b,
                                   double D, double c0)

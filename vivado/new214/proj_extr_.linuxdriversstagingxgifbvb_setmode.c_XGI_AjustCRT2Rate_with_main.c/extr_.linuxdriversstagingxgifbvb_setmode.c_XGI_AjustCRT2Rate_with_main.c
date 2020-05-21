@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -49,7 +48,7 @@ struct TYPE_3__ {unsigned short ModeID; unsigned short Ext_InfoFlag; } ;
 
 __attribute__((used)) static unsigned char XGI_AjustCRT2Rate(unsigned short ModeIdIndex,
 				       unsigned short RefreshRateTableIndex,
-				       volatile unsigned short *i,
+				       unsigned short *i,
 		struct vb_device_info *pVBInfo)
 {
 	unsigned short tempax, tempbx, resinfo, modeflag, infoflag;

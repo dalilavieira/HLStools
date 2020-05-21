@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,9 +14,9 @@ typedef  int WCHAR ;
 
 /* Variables and functions */
 
-__attribute__((used)) static inline int wcstombs_sbcs(volatile const struct sbcs_table *table,
-                                 volatile const WCHAR *src, unsigned int srclen,
-                                 volatile char *dst, unsigned int dstlen )
+__attribute__((used)) static inline int wcstombs_sbcs( const struct sbcs_table *table,
+                                 const WCHAR *src, unsigned int srclen,
+                                 char *dst, unsigned int dstlen )
 {
     const unsigned char  * const uni2cp_low = table->uni2cp_low;
     const unsigned short * const uni2cp_high = table->uni2cp_high;

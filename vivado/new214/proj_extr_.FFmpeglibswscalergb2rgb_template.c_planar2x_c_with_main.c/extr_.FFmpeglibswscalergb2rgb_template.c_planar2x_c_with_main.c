@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int uint8_t ;
 
 /* Variables and functions */
 
-__attribute__((used)) static inline void planar2x_c(volatile const uint8_t *src, volatile uint8_t *dst, int srcWidth,
+__attribute__((used)) static inline void planar2x_c(const uint8_t *src, uint8_t *dst, int srcWidth,
                               int srcHeight, int srcStride, int dstStride)
 {
     int x, y;

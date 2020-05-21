@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -122,7 +121,7 @@ typedef int bool;
  int* _s_78_ ; 
  int* _s_79_ ; 
 
-void translit_from_ru_to_en (volatile int *s,volatile long long *rh,volatile int *hn) {
+void translit_from_ru_to_en (int *s, long long *rh, int *hn) {
 
 #define TEST(a, b, hm, ha) \
   i = 1;                         \

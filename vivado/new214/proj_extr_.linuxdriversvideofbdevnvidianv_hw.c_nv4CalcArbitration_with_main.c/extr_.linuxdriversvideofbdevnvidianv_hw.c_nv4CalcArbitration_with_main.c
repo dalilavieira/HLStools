@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  TYPE_2__ nv4_fifo_info ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void nv4CalcArbitration(volatile nv4_fifo_info * fifo, volatile nv4_sim_state * arb)
+__attribute__((used)) static void nv4CalcArbitration(nv4_fifo_info * fifo, nv4_sim_state * arb)
 {
 	int data, pagemiss, cas, width, video_enable, bpp;
 	int nvclks, mclks, pclks, vpagemiss, crtpagemiss, vbs;

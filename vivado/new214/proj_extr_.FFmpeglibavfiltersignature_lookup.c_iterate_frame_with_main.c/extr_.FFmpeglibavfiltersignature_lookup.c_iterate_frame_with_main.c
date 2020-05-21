@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -20,7 +19,7 @@ typedef  TYPE_1__ FineSignature ;
  int DIR_PREV ; 
  int DIR_PREV_END ; 
 
-__attribute__((used)) static int iterate_frame(double frr, volatile FineSignature **a, volatile FineSignature **b, int fcount, volatile int *bcount, int dir)
+__attribute__((used)) static int iterate_frame(double frr, FineSignature **a, FineSignature **b, int fcount, int *bcount, int dir)
 {
     int step;
 

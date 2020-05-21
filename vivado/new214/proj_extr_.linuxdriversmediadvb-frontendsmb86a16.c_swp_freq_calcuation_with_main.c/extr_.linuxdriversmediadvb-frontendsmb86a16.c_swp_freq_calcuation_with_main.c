@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,8 +13,8 @@ struct mb86a16_state {int dummy; } ;
 
 /* Variables and functions */
 
-__attribute__((used)) static int swp_freq_calcuation(volatile struct mb86a16_state *state, int i, int v, volatile int *V,  int vmax, int vmin,
-			       int SIGMIN, int fOSC, int afcex_freq, int swp_ofs, volatile unsigned char *SIG1)
+__attribute__((used)) static int swp_freq_calcuation(struct mb86a16_state *state, int i, int v, int *V,  int vmax, int vmin,
+			       int SIGMIN, int fOSC, int afcex_freq, int swp_ofs, unsigned char *SIG1)
 {
 	int swp_freq ;
 

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef int bool;
 /* Variables and functions */
 
 int
-xmlNormalizeURIPath(volatile char *path) {
+xmlNormalizeURIPath(char *path) {
     char *cur, *out;
 
     if (path == NULL)

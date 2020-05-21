@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,8 +17,8 @@ struct fb_var_screeninfo {int xres; int right_margin; int hsync_len; int left_ma
  int FB_SYNC_VERT_HIGH_ACT ; 
  int FB_VMODE_DOUBLE ; 
 
-__attribute__((used)) static int vgaHWInit(volatile const struct fb_var_screeninfo *var,
-		     volatile struct neofb_par *par)
+__attribute__((used)) static int vgaHWInit(const struct fb_var_screeninfo *var,
+		     struct neofb_par *par)
 {
 	int hsync_end = var->xres + var->right_margin + var->hsync_len;
 	int htotal = (hsync_end + var->left_margin) >> 3;

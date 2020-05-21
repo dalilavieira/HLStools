@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -75,7 +74,7 @@ struct TYPE_4__ {int dar; int esr; } ;
 #define  SPRN_TCR 129 
 #define  SPRN_TSR 128 
 
-int kvmppc_booke_emulate_mfspr(volatile struct kvm_vcpu *vcpu, int sprn, volatile ulong *spr_val)
+int kvmppc_booke_emulate_mfspr(struct kvm_vcpu *vcpu, int sprn, ulong *spr_val)
 {
 	int emulated = EMULATE_DONE;
 

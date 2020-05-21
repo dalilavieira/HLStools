@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -42,7 +41,7 @@ struct TYPE_4__ {int xres; int yres; int bpp; int chipset; } ;
 #define  XGIFB_DISP_TV 128 
  TYPE_2__* XGIbios_mode ; 
 
-__attribute__((used)) static int XGIfb_validate_mode(volatile struct xgifb_video_info *xgifb_info, int myindex)
+__attribute__((used)) static int XGIfb_validate_mode(struct xgifb_video_info *xgifb_info, int myindex)
 {
 	u16 xres, yres;
 	struct xgi_hw_device_info *hw_info = &xgifb_info->hw_info;

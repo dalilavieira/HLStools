@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -86,7 +85,7 @@ struct tpg_data {int fourcc; int planes; int buffers; int recalc_colors; int int
 #define  V4L2_PIX_FMT_YVU444M 129 
 #define  V4L2_PIX_FMT_YVYU 128 
 
-bool tpg_s_fourcc(volatile struct tpg_data *tpg, u32 fourcc)
+bool tpg_s_fourcc(struct tpg_data *tpg, u32 fourcc)
 {
 	tpg->fourcc = fourcc;
 	tpg->planes = 1;

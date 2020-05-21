@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,8 +17,8 @@ typedef  TYPE_1__ _GLFWfbconfig ;
  scalar_t__ GLFW_DONT_CARE ; 
  unsigned int UINT_MAX ; 
 
-const _GLFWfbconfig* _glfwChooseFBConfig(volatile const _GLFWfbconfig* desired,
-                                         volatile const _GLFWfbconfig* alternatives,
+const _GLFWfbconfig* _glfwChooseFBConfig(const _GLFWfbconfig* desired,
+                                         const _GLFWfbconfig* alternatives,
                                          unsigned int count)
 {
     unsigned int i;

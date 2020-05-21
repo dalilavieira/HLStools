@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -66,9 +65,9 @@ struct TYPE_4__ {unsigned short St_CRT2CRTC; } ;
  int VB_SISVB ; 
 
 __attribute__((used)) static void
-SiS_GetCRT2Ptr(volatile struct SiS_Private *SiS_Pr, unsigned short ModeNo, unsigned short ModeIdIndex,
-	       unsigned short RefreshRateTableIndex,volatile unsigned short *CRT2Index,
-	       volatile unsigned short *ResIndex)
+SiS_GetCRT2Ptr(struct SiS_Private *SiS_Pr, unsigned short ModeNo, unsigned short ModeIdIndex,
+	       unsigned short RefreshRateTableIndex, unsigned short *CRT2Index,
+	       unsigned short *ResIndex)
 {
   unsigned short tempbx=0, tempal=0, resinfo=0;
 

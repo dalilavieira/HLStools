@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int IDWTELEM ;
 
 /* Variables and functions */
 
-void ff_snow_horizontal_compose97i(volatile IDWTELEM *b, volatile IDWTELEM *temp, int width)
+void ff_snow_horizontal_compose97i(IDWTELEM *b, IDWTELEM *temp, int width)
 {
     const int w2 = (width + 1) >> 1;
     int x;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  int* fe ;
  int kBottom25Bits ; 
  int kBottom26Bits ; 
 
-__attribute__((used)) static void fe_tobytes(volatile uint8_t *s,volatile const fe h)
+__attribute__((used)) static void fe_tobytes(uint8_t *s, const fe h)
 {
     int32_t h0 = h[0];
     int32_t h1 = h[1];

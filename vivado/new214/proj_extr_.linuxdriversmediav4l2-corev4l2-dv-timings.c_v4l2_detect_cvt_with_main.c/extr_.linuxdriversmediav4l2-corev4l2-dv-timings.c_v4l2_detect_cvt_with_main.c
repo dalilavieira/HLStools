@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -48,7 +47,7 @@ bool v4l2_detect_cvt(unsigned frame_height,
 		     unsigned active_width,
 		     u32 polarities,
 		     bool interlaced,
-		     volatile struct v4l2_dv_timings *fmt)
+		     struct v4l2_dv_timings *fmt)
 {
 	int  v_fp, v_bp, h_fp, h_bp, hsync;
 	int  frame_width, image_height, image_width;

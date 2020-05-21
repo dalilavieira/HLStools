@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -32,8 +31,8 @@ struct TYPE_7__ {int /*<<< orphan*/  v_dscale_ave_sz; int /*<<< orphan*/  h_dsca
  int RSZ_B ; 
 
 __attribute__((used)) static void
-configure_resizer_out_params(volatile struct vpfe_resizer_device *resizer, int index,
-			     volatile void *output_spec, unsigned char partial,
+configure_resizer_out_params(struct vpfe_resizer_device *resizer, int index,
+			     void *output_spec, unsigned char partial,
 			     unsigned int flag)
 {
 	struct resizer_params *param = &resizer->config;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -17,8 +16,8 @@ typedef  TYPE_1__ complex ;
 
 /* Variables and functions */
 
-int claswp_(volatile integer *n,volatile complex *a,volatile integer *lda,volatile integer *
-	k1,volatile integer *k2,volatile integer *ipiv,volatile integer *incx)
+int claswp_(integer *n, complex *a, integer *lda, integer *
+	k1, integer *k2, integer *ipiv, integer *incx)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5, i__6;

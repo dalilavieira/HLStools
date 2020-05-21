@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,7 +15,7 @@ typedef  int /*<<< orphan*/  aarch64_opcode ;
  int /*<<< orphan*/  const* aarch64_opcode_table ; 
 
 const aarch64_opcode *
-aarch64_find_next_alias_opcode (volatile const aarch64_opcode *opcode)
+aarch64_find_next_alias_opcode (const aarch64_opcode *opcode)
 {
   /* Use the index as the key to locate the next opcode.  */
   int key = opcode - aarch64_opcode_table;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int* m4x4_t ;
 
 /* Variables and functions */
 
-void m4x4_premultiply_by_m4x4(volatile m4x4_t dst,volatile const m4x4_t src ){
+void m4x4_premultiply_by_m4x4( m4x4_t dst, const m4x4_t src ){
 	vec_t dst0, dst1, dst2, dst3;
 
 #if 1

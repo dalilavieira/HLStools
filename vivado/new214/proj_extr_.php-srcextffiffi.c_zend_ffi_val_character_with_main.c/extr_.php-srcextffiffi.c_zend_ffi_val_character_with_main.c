@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,7 +17,7 @@ typedef  TYPE_1__ zend_ffi_val ;
  void* ZEND_FFI_VAL_CHAR ; 
  void* ZEND_FFI_VAL_ERROR ; 
 
-void zend_ffi_val_character(volatile zend_ffi_val *val, volatile char *str, size_t str_len) /* {{{ */
+void zend_ffi_val_character(zend_ffi_val *val, const char *str, size_t str_len) /* {{{ */
 {
 	int n;
 

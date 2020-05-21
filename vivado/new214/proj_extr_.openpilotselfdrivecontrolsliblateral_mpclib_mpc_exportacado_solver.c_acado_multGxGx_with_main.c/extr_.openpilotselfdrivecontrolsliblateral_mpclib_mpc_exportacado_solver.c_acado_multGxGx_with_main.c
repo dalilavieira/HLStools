@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int real_t ;
 
 /* Variables and functions */
 
-void acado_multGxGx(volatile real_t* const Gx1, volatile real_t* const Gx2, volatile real_t* const Gx3 )
+void acado_multGxGx( real_t* const Gx1, real_t* const Gx2, real_t* const Gx3 )
 {
 Gx3[0] = + Gx1[0]*Gx2[0] + Gx1[1]*Gx2[4] + Gx1[2]*Gx2[8] + Gx1[3]*Gx2[12];
 Gx3[1] = + Gx1[0]*Gx2[1] + Gx1[1]*Gx2[5] + Gx1[2]*Gx2[9] + Gx1[3]*Gx2[13];

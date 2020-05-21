@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -23,8 +22,8 @@ struct cfb_info {int dummy; } ;
  int FB_VMODE_MASK ; 
 
 __attribute__((used)) static int
-cyber2000fb_decode_crtc(volatile struct par_info *hw,volatile struct cfb_info *cfb,
-			volatile struct fb_var_screeninfo *var)
+cyber2000fb_decode_crtc(struct par_info *hw, struct cfb_info *cfb,
+			struct fb_var_screeninfo *var)
 {
 	u_int Htotal, Hblankend, Hsyncend;
 	u_int Vtotal, Vdispend, Vblankstart, Vblankend, Vsyncstart, Vsyncend;

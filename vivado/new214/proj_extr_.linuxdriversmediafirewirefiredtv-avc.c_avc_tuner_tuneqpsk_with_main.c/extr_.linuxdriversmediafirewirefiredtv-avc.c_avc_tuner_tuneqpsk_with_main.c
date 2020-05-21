@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -48,8 +47,8 @@ struct avc_command_frame {int* operand; int /*<<< orphan*/  opcode; } ;
  int SFE_VENDOR_OPCODE_TUNE_QPSK2 ; 
  scalar_t__ SYS_DVBS2 ; 
 
-__attribute__((used)) static int avc_tuner_tuneqpsk(volatile struct firedtv *fdtv,
-			     volatile struct dtv_frontend_properties *p)
+__attribute__((used)) static int avc_tuner_tuneqpsk(struct firedtv *fdtv,
+			      struct dtv_frontend_properties *p)
 {
 	struct avc_command_frame *c = (void *)fdtv->avc_data;
 

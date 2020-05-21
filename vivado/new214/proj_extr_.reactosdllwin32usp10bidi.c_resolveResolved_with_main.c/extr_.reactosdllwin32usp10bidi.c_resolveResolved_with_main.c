@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -27,7 +26,7 @@ typedef  scalar_t__ WORD ;
  scalar_t__ const S ; 
  scalar_t__ const WS ; 
 
-__attribute__((used)) static void resolveResolved(unsigned baselevel,volatile const WORD * pcls,volatile WORD *plevel, int sos, int eos)
+__attribute__((used)) static void resolveResolved(unsigned baselevel, const WORD * pcls, WORD *plevel, int sos, int eos)
 {
     int i;
 

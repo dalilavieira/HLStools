@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -17,7 +16,7 @@ struct TYPE_2__ {int* H; } ;
 /* Variables and functions */
  TYPE_1__ acadoWorkspace ; 
 
-void acado_multCTQC(volatile real_t* const Gx1, volatile real_t* const Gx2 )
+void acado_multCTQC( real_t* const Gx1, real_t* const Gx2 )
 {
 acadoWorkspace.H[0] += + Gx1[0]*Gx2[0] + Gx1[4]*Gx2[4] + Gx1[8]*Gx2[8] + Gx1[12]*Gx2[12];
 acadoWorkspace.H[1] += + Gx1[0]*Gx2[1] + Gx1[4]*Gx2[5] + Gx1[8]*Gx2[9] + Gx1[12]*Gx2[13];

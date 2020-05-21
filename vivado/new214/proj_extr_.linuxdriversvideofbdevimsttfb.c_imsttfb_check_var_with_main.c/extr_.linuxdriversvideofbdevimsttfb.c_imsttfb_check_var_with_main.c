@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -31,7 +30,7 @@ typedef  int __u32 ;
  int PAGE_SIZE ; 
 
 __attribute__((used)) static int
-imsttfb_check_var(volatile struct fb_var_screeninfo *var,volatile struct fb_info *info)
+imsttfb_check_var(struct fb_var_screeninfo *var, struct fb_info *info)
 {
 	if ((var->bits_per_pixel != 8 && var->bits_per_pixel != 16
 	    && var->bits_per_pixel != 24 && var->bits_per_pixel != 32)

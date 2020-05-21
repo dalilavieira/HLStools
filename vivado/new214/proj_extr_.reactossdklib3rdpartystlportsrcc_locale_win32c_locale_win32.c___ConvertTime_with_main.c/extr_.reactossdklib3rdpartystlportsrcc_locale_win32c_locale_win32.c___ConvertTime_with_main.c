@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -13,7 +12,7 @@ typedef int bool;
 
 /* Variables and functions */
 
-__attribute__((used)) static int __ConvertTime(volatile const char *NTTime,volatile char *buffer, int buf_size) {
+__attribute__((used)) static int __ConvertTime(const char *NTTime, char *buffer, int buf_size) {
   const char *cur_char;
   char *cur_output, *end_output;
   cur_char = NTTime;

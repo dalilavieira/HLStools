@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,9 +15,9 @@ struct SiS_Private {int dummy; } ;
 /* Variables and functions */
 
 void
-SiS_Generic_ConvertCRData(volatile struct SiS_Private *SiS_Pr,volatile unsigned char *crdata,
+SiS_Generic_ConvertCRData(struct SiS_Private *SiS_Pr, unsigned char *crdata,
 			int xres, int yres,
-			volatile struct fb_var_screeninfo *var, bool writeres
+			struct fb_var_screeninfo *var, bool writeres
 )
 {
    unsigned short HRE, HBE, HRS, HBS, HDE, HT;

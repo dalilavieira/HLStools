@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,8 +14,8 @@ typedef  int unichar ;
 
 /* Variables and functions */
 
-__attribute__((used)) volatile ut8 *
-encode_utf8(volatile ut8 *buf, size_t len, volatile unichar *ubuf, size_t ulen)
+__attribute__((used)) static ut8 *
+encode_utf8(ut8 *buf, size_t len, unichar *ubuf, size_t ulen)
 {
 	size_t i;
 	ut8 *end = buf + len;

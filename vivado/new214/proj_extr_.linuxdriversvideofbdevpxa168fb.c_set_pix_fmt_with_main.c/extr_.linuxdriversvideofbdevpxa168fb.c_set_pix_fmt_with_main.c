@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -31,7 +30,7 @@ struct fb_var_screeninfo {int bits_per_pixel; TYPE_1__ transp; TYPE_4__ blue; TY
 #define  PIX_FMT_RGB888PACK 129 
 #define  PIX_FMT_RGBA888 128 
 
-__attribute__((used)) static void set_pix_fmt(volatile struct fb_var_screeninfo *var, int pix_fmt)
+__attribute__((used)) static void set_pix_fmt(struct fb_var_screeninfo *var, int pix_fmt)
 {
 	switch (pix_fmt) {
 	case PIX_FMT_RGB565:

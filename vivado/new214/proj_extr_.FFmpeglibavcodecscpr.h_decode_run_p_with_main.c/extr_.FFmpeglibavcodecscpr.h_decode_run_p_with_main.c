@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  TYPE_1__ AVCodecContext ;
 /* Variables and functions */
  int AVERROR_INVALIDDATA ; 
 
-__attribute__((used)) static int decode_run_p(volatile AVCodecContext *avctx, uint32_t ptype, int run,
+__attribute__((used)) static int decode_run_p(AVCodecContext *avctx, uint32_t ptype, int run,
                         int x, int y, uint32_t clr,
                         uint32_t *dst, uint32_t *prev,
                         int linesize, int plinesize,

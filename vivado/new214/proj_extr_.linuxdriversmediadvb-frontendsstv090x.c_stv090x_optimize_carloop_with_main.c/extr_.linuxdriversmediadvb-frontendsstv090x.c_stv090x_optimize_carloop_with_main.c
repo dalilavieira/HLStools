@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -29,7 +28,7 @@ struct TYPE_2__ {int dev_ver; } ;
  struct stv090x_long_frame_crloop* stv090x_s2_lowqpsk_crl_cut20 ; 
  struct stv090x_long_frame_crloop* stv090x_s2_lowqpsk_crl_cut30 ; 
 
-__attribute__((used)) static u8 stv090x_optimize_carloop(volatile struct stv090x_state *state, enum stv090x_modcod modcod, s32 pilots)
+__attribute__((used)) static u8 stv090x_optimize_carloop(struct stv090x_state *state, enum stv090x_modcod modcod, s32 pilots)
 {
 	u8 aclc = 0x29;
 	s32 i;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -189,7 +188,7 @@ struct gl_api_table {int /*<<< orphan*/  Viewport; int /*<<< orphan*/  VertexPoi
  int /*<<< orphan*/  gl_save_Vertex4f ; 
  int /*<<< orphan*/  gl_save_Viewport ; 
 
-__attribute__((used)) static void init_dlist_pointers(volatile struct gl_api_table *table )
+__attribute__((used)) static void init_dlist_pointers( struct gl_api_table *table )
 {
    table->Accum = gl_save_Accum;
    table->AlphaFunc = gl_save_AlphaFunc;

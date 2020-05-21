@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -60,7 +59,7 @@ typedef  enum radeon_combios_ddc { ____Placeholder_radeon_combios_ddc } radeon_c
  int RADEON_MDGPIO_MASK ; 
  void* RADEON_MDGPIO_Y ; 
 
-__attribute__((used)) static struct radeon_i2c_bus_rec combios_setup_i2c_bus(volatile struct radeon_device *rdev,
+__attribute__((used)) static struct radeon_i2c_bus_rec combios_setup_i2c_bus(struct radeon_device *rdev,
 						       enum radeon_combios_ddc ddc,
 						       u32 clk_mask,
 						       u32 data_mask)

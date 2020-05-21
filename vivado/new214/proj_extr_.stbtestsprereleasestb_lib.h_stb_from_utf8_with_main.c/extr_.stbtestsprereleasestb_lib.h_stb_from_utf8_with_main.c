@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int stb__wchar ;
 
 /* Variables and functions */
 
-volatile stb__wchar * stb_from_utf8(volatile stb__wchar *buffer,volatile char *ostr, int n)
+stb__wchar * stb_from_utf8(stb__wchar *buffer, char *ostr, int n)
 {
    unsigned char *str = (unsigned char *) ostr;
    stb_uint32 c;

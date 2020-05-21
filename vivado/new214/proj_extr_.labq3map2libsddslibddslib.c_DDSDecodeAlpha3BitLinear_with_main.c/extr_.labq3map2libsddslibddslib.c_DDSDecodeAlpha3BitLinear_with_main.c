@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  TYPE_2__ ddsAlphaBlock3BitLinear_t ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void DDSDecodeAlpha3BitLinear( volatile unsigned int *pixel, volatile ddsAlphaBlock3BitLinear_t *alphaBlock, int width, unsigned int alphaZero ){
+__attribute__((used)) static void DDSDecodeAlpha3BitLinear( unsigned int *pixel, ddsAlphaBlock3BitLinear_t *alphaBlock, int width, unsigned int alphaZero ){
 
 	int row, pix;
 	unsigned int stuff;

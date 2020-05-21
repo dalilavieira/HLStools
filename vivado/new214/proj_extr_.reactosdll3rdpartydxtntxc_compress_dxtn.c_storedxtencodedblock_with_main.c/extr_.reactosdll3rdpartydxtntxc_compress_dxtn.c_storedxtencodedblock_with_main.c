@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -24,7 +23,7 @@ typedef  scalar_t__ GLboolean ;
  int GREENWEIGHT ; 
  int REDWEIGHT ; 
 
-__attribute__((used)) static void storedxtencodedblock( volatile GLubyte *blkaddr, GLubyte srccolors[4][4][4], volatile GLubyte *bestcolor[2],
+__attribute__((used)) static void storedxtencodedblock( GLubyte *blkaddr, GLubyte srccolors[4][4][4], GLubyte *bestcolor[2],
                            GLint numxpixels, GLint numypixels, GLuint type, GLboolean haveAlpha)
 {
    /* use same luminance-weighted distance metric to determine encoding as for finding the base colors */

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -33,7 +32,7 @@ struct perf_tool {int /*<<< orphan*/ * feature; int /*<<< orphan*/ * time_conv; 
  int /*<<< orphan*/ * process_stat_round_stub ; 
  int /*<<< orphan*/ * process_stat_stub ; 
 
-void perf_tool__fill_defaults(volatile struct perf_tool *tool)
+void perf_tool__fill_defaults(struct perf_tool *tool)
 {
 	if (tool->sample == NULL)
 		tool->sample = process_event_sample_stub;

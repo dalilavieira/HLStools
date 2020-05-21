@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -23,9 +22,9 @@ typedef  int s8 ;
  scalar_t__ TxHighPwrLevel_Level1 ; 
  scalar_t__ TxHighPwrLevel_Level2 ; 
 
-__attribute__((used)) static void get_rx_power_val_by_reg(volatile struct adapter *adapt, u8 channel,
-				    volatile u8 index, volatile u32 *powerbase0, volatile u32 *powerbase1,
-				    volatile u32 *out_val)
+__attribute__((used)) static void get_rx_power_val_by_reg(struct adapter *adapt, u8 channel,
+				    u8 index, u32 *powerbase0, u32 *powerbase1,
+				    u32 *out_val)
 {
 	struct hal_data_8188e *hal_data = adapt->HalData;
 	struct dm_priv	*pdmpriv = &hal_data->dmpriv;

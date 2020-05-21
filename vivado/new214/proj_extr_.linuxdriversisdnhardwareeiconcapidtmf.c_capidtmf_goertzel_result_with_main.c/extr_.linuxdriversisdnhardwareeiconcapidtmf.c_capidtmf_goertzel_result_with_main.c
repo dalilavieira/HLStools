@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int dword ;
 /* Variables and functions */
  int CAPIDTMF_RECV_TOTAL_FREQUENCY_COUNT ; 
 
-__attribute__((used)) static void capidtmf_goertzel_result(volatile long *buffer,volatile long *coeffs)
+__attribute__((used)) static void capidtmf_goertzel_result(long *buffer, long *coeffs)
 {
 	int i;
 	long d, e, q1, q2, lo, mid, hi;

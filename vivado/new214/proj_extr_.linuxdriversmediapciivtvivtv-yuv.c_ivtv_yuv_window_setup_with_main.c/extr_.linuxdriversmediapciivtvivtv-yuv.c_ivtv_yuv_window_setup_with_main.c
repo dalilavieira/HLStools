@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -21,7 +20,7 @@ struct ivtv {TYPE_1__ yuv_info; } ;
  int IVTV_YUV_UPDATE_INVALID ; 
  int IVTV_YUV_UPDATE_VERTICAL ; 
 
-__attribute__((used)) static u32 ivtv_yuv_window_setup(volatile struct ivtv *itv, volatile struct yuv_frame_info *f)
+__attribute__((used)) static u32 ivtv_yuv_window_setup(struct ivtv *itv, struct yuv_frame_info *f)
 {
 	struct yuv_frame_info *of = &itv->yuv_info.old_frame_info;
 	int osd_crop;

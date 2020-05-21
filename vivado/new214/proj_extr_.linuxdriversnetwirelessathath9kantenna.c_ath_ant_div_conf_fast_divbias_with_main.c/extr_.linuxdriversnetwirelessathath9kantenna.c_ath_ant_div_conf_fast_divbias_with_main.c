@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,8 +15,8 @@ struct ath_ant_comb {int ant_ratio; int fast_div_bias; int /*<<< orphan*/  scan;
 /* Variables and functions */
  int ATH_ANT_DIV_COMB_ALT_ANT_RATIO ; 
 
-__attribute__((used)) static void ath_ant_div_conf_fast_divbias(volatile struct ath_hw_antcomb_conf *ant_conf,
-					  volatile struct ath_ant_comb *antcomb,
+__attribute__((used)) static void ath_ant_div_conf_fast_divbias(struct ath_hw_antcomb_conf *ant_conf,
+					  struct ath_ant_comb *antcomb,
 					  int alt_ratio)
 {
 	ant_conf->main_gaintb = 0;

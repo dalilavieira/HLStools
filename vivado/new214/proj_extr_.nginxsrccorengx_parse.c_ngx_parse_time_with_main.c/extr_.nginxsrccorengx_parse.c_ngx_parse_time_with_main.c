@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -22,7 +21,7 @@ typedef  char ngx_int_t ;
  int NGX_MAX_INT_T_VALUE ; 
 
 ngx_int_t
-ngx_parse_time(volatile ngx_str_t *line, ngx_uint_t is_sec)
+ngx_parse_time(ngx_str_t *line, ngx_uint_t is_sec)
 {
     u_char      *p, *last;
     ngx_int_t    value, total, scale;

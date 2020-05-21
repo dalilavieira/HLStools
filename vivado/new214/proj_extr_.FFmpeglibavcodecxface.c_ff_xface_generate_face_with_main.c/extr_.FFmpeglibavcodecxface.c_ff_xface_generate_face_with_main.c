@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -31,7 +30,7 @@ typedef  int uint8_t ;
  int* g_41 ; 
  int* g_42 ; 
 
-void ff_xface_generate_face(volatile uint8_t *dst,volatile uint8_t * const src)
+void ff_xface_generate_face(uint8_t *dst, uint8_t * const src)
 {
     int h, i, j, k, l, m;
 

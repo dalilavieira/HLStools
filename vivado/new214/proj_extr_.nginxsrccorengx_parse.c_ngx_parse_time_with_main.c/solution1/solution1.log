@@ -1,0 +1,63 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c' ... 
+WARNING: [HLS 200-40] In file included from extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:1:
+extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:73:34: warning: implicit conversion from 'int' to 'ngx_int_t' (aka 'char') changes value from 31536000 to -128 [-Wconstant-conversion]
+            scale = 60 * 60 * 24 * 365;
+                  ~ ~~~~~~~~~~~~~^~~~~
+extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:82:34: warning: implicit conversion from 'int' to 'ngx_int_t' (aka 'char') changes value from 2592000 to 0 [-Wconstant-conversion]
+            scale = 60 * 60 * 24 * 30;
+                  ~ ~~~~~~~~~~~~~^~~~
+extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:91:34: warning: implicit conversion from 'int' to 'ngx_int_t' (aka 'char') changes value from 604800 to -128 [-Wconstant-conversion]
+            scale = 60 * 60 * 24 * 7;
+                  ~ ~~~~~~~~~~~~~^~~
+extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:100:29: warning: implicit conversion from 'int' to 'ngx_int_t' (aka 'char') changes value from 86400 to -128 [-Wconstant-conversion]
+            scale = 60 * 60 * 24;
+                  ~ ~~~~~~~~^~~~
+extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:109:24: warning: implicit conversion from 'int' to 'ngx_int_t' (aka 'char') changes value from 3600 to 16 [-Wconstant-conversion]
+            scale = 60 * 60;
+                  ~ ~~~^~~~
+5 warnings generated.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:43 ; elapsed = 00:01:07 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21987 ; free virtual = 44662
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:01:07 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21987 ; free virtual = 44662
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21987 ; free virtual = 44663
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'ngx_parse_time' into 'main' (extr_.nginxsrccorengx_parse.c_ngx_parse_time_with_main.c:199) automatically.
+WARNING: [SYNCHK 200-77] The top function 'main' has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21988 ; free virtual = 44663
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21988 ; free virtual = 44663
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21988 ; free virtual = 44663
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'main' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 14.7 seconds; current allocated memory: 105.834 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0 seconds; current allocated memory: 105.860 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on function 'main' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Setting dangling out port 'main/ap_return' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'main'.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 105.879 MB.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:45 ; elapsed = 00:01:10 . Memory (MB): peak = 832.453 ; gain = 132.133 ; free physical = 21988 ; free virtual = 44663
+INFO: [VHDL 208-304] Generating VHDL RTL for main.
+INFO: [VLOG 209-307] Generating Verilog RTL for main.
+INFO: [HLS 200-10] Creating and opening project '/home/vivado/aut/proj_extr_.linuxdriversinputmiscad714x.c_touchpad_check_endpoint_with_main.c'.
+INFO: [HLS 200-10] Adding design file 'extr_.linuxdriversinputmiscad714x.c_touchpad_check_endpoint_with_main.c' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/vivado/aut/proj_extr_.linuxdriversinputmiscad714x.c_touchpad_check_endpoint_with_main.c/solution1'.

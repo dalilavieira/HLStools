@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -20,7 +19,7 @@ typedef  TYPE_1__ plane_t ;
  int PSIDE_BACK ; 
  int PSIDE_FRONT ; 
 
-int BoxOnPlaneSide (volatile vec3_t emins,volatile vec3_t emaxs,volatile plane_t *p)
+int BoxOnPlaneSide (vec3_t emins, vec3_t emaxs, plane_t *p)
 {
 	float	dist1, dist2;
 	int sides;

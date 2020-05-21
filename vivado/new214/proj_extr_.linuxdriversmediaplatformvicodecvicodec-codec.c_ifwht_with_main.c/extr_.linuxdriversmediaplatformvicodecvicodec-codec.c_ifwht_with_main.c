@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int s16 ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void ifwht(volatile const s16 *block,volatile s16 *output_block, int intra)
+__attribute__((used)) static void ifwht(const s16 *block, s16 *output_block, int intra)
 {
 	/*
 	 * we'll need more than 8 bits for the transformed coefficients

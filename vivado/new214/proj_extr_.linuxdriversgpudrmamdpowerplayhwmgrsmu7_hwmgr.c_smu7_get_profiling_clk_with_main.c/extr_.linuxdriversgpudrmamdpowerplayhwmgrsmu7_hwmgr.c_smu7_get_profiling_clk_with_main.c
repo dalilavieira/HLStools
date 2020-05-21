@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -48,8 +47,8 @@ struct TYPE_14__ {int value; } ;
  scalar_t__ PP_TABLE_V0 ; 
  scalar_t__ PP_TABLE_V1 ; 
 
-__attribute__((used)) static int smu7_get_profiling_clk(volatile struct pp_hwmgr *hwmgr, enum amd_dpm_forced_level level,
-				volatile uint32_t *sclk_mask, volatile uint32_t *mclk_mask, volatile uint32_t *pcie_mask)
+__attribute__((used)) static int smu7_get_profiling_clk(struct pp_hwmgr *hwmgr, enum amd_dpm_forced_level level,
+				uint32_t *sclk_mask, uint32_t *mclk_mask, uint32_t *pcie_mask)
 {
 	uint32_t percentage;
 	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);

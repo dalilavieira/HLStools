@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -22,8 +21,8 @@ struct php_crypt_extended_data {int* en_keysl; int* en_keysr; int* de_keysl; int
  int** psbox ; 
 
 __attribute__((used)) static int
-do_des(uint32_t l_in, uint32_t r_in, uint32_t *l_out, volatile uint32_t *r_out,
-	int count, volatile struct php_crypt_extended_data *data)
+do_des(uint32_t l_in, uint32_t r_in, uint32_t *l_out, uint32_t *r_out,
+	int count, struct php_crypt_extended_data *data)
 {
 	/*
 	 *	l_in, r_in, l_out, and r_out are in pseudo-"big-endian" format.

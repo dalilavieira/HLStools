@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -181,7 +180,7 @@ typedef int bool;
 #define  MLX5_CMD_OP_SQERR2RTS_QP 129 
 #define  MLX5_CMD_OP_TEARDOWN_HCA 128 
 
-const volatile char *mlx5_command_str(int command)
+const char *mlx5_command_str(int command)
 {
 #define MLX5_COMMAND_STR_CASE(__cmd) case MLX5_CMD_OP_ ## __cmd: return #__cmd
 

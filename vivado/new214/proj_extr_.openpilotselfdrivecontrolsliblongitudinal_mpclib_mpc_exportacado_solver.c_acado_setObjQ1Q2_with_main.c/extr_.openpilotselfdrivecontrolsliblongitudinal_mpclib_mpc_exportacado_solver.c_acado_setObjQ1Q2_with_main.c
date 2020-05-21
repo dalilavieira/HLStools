@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int real_t ;
 
 /* Variables and functions */
 
-void acado_setObjQ1Q2(volatile real_t* tmpFx,volatile real_t* tmpObjS,volatile real_t* tmpQ1,volatile real_t* tmpQ2 )
+void acado_setObjQ1Q2( real_t* const tmpFx, real_t* const tmpObjS, real_t* const tmpQ1, real_t* const tmpQ2 )
 {
 tmpQ2[0] = + tmpFx[0]*tmpObjS[0] + tmpFx[3]*tmpObjS[4] + tmpFx[6]*tmpObjS[8] + tmpFx[9]*tmpObjS[12];
 tmpQ2[1] = + tmpFx[0]*tmpObjS[1] + tmpFx[3]*tmpObjS[5] + tmpFx[6]*tmpObjS[9] + tmpFx[9]*tmpObjS[13];

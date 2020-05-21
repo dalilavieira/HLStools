@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -31,7 +30,7 @@ typedef  TYPE_4__ AVFilterContext ;
  size_t G ; 
  size_t R ; 
 
-__attribute__((used)) static int filter_slice_planar(volatile AVFilterContext *ctx,volatile void *arg, int jobnr, int nb_jobs)
+__attribute__((used)) static int filter_slice_planar(AVFilterContext *ctx, void *arg, int jobnr, int nb_jobs)
 {
     int x, y;
     const CurvesContext *curves = ctx->priv;

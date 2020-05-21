@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -18,8 +17,8 @@ typedef  int limb ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void smallfelem_mul(volatile longfelem out, volatile const smallfelem small1,
-                         volatile const smallfelem small2)
+__attribute__((used)) static void smallfelem_mul(longfelem out, const smallfelem small1,
+                           const smallfelem small2)
 {
     limb a;
     u64 high, low;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -38,7 +37,7 @@ struct TYPE_15__ {TYPE_5__ dst_rect; TYPE_3__ clip_rect; TYPE_1__ src_rect; } ;
  int UPDATE_TYPE_MED ; 
 
 __attribute__((used)) static enum surface_update_type get_scaling_info_update_type(
-		volatile const struct dc_surface_update *u)
+		const struct dc_surface_update *u)
 {
 	union surface_update_flags *update_flags = &u->surface->update_flags;
 

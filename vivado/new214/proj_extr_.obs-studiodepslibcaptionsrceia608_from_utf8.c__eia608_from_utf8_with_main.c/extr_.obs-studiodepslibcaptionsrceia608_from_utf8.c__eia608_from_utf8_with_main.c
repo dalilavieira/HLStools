@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int uint16_t ;
 
 /* Variables and functions */
 
-uint16_t _eia608_from_utf8 (volatile const utf8_char_t* s)
+uint16_t _eia608_from_utf8 (const utf8_char_t* s)
 {
     const unsigned char* YYMARKER = 0;
     const unsigned char* YYCURSOR = (const unsigned char*) s;

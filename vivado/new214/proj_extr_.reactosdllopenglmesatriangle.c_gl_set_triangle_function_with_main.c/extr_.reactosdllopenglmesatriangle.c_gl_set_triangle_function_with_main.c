@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -66,7 +65,7 @@ typedef  scalar_t__ GLboolean ;
  scalar_t__ smooth_ci_triangle ; 
  scalar_t__ smooth_rgba_triangle ; 
 
-void gl_set_triangle_function(volatile GLcontext *ctx )
+void gl_set_triangle_function( GLcontext *ctx )
 {
    GLboolean rgbmode = ctx->Visual->RGBAflag;
 

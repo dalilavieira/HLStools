@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -59,8 +58,8 @@ struct cx2341x_mpeg_params {int audio_sampling_freq; int capabilities; int audio
  int /*<<< orphan*/  V4L2_MPEG_VIDEO_ENCODING_MPEG_1 ; 
  int /*<<< orphan*/  V4L2_MPEG_VIDEO_ENCODING_MPEG_2 ; 
 
-__attribute__((used)) static int cx2341x_set_ctrl(volatile struct cx2341x_mpeg_params *params, int busy,
-		volatile struct v4l2_ext_control *ctrl)
+__attribute__((used)) static int cx2341x_set_ctrl(struct cx2341x_mpeg_params *params, int busy,
+		struct v4l2_ext_control *ctrl)
 {
 	switch (ctrl->id) {
 	case V4L2_CID_MPEG_AUDIO_SAMPLING_FREQ:

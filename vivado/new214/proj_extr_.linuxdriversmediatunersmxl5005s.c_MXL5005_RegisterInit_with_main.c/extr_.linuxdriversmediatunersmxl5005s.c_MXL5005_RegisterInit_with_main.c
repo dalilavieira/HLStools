@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ struct TYPE_2__ {int Reg_Num; int Reg_Val; } ;
 /* Variables and functions */
  int /*<<< orphan*/  TUNER_REGS_NUM ; 
 
-__attribute__((used)) static u16 MXL5005_RegisterInit(volatile struct dvb_frontend *fe)
+__attribute__((used)) static u16 MXL5005_RegisterInit(struct dvb_frontend *fe)
 {
 	struct mxl5005s_state *state = fe->tuner_priv;
 	state->TunerRegs_Num = TUNER_REGS_NUM ;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -35,7 +34,7 @@ typedef  scalar_t__ INT ;
  void* WPR_WCHAR ; 
  void* WPR_WSTRING ; 
 
-__attribute__((used)) static INT WPRINTF_ParseFormatA( volatile LPCSTR format, volatile WPRINTF_FORMAT *res )
+__attribute__((used)) static INT WPRINTF_ParseFormatA( LPCSTR format, WPRINTF_FORMAT *res )
 {
     LPCSTR p = format;
 

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -39,7 +38,7 @@ struct c2c_stats {int /*<<< orphan*/  nomap; int /*<<< orphan*/  noparse; int /*
  int PERF_MEM_SNOOP_HIT ; 
  int PERF_MEM_SNOOP_HITM ; 
 
-int c2c_decode_stats(volatile struct c2c_stats *stats, volatile struct mem_info *mi)
+int c2c_decode_stats(struct c2c_stats *stats, struct mem_info *mi)
 {
 	union perf_mem_data_src *data_src = &mi->data_src;
 	u64 daddr  = mi->daddr.addr;

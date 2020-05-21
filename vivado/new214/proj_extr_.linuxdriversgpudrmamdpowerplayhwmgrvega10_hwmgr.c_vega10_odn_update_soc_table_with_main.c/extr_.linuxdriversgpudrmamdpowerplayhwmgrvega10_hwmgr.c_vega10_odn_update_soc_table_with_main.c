@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -40,7 +39,7 @@ struct TYPE_10__ {scalar_t__ us_vdd; } ;
  int PP_OD_EDIT_MCLK_VDDC_TABLE ; 
  int PP_OD_EDIT_SCLK_VDDC_TABLE ; 
 
-__attribute__((used)) static void vega10_odn_update_soc_table(volatile struct pp_hwmgr *hwmgr,
+__attribute__((used)) static void vega10_odn_update_soc_table(struct pp_hwmgr *hwmgr,
 						enum PP_OD_DPM_TABLE_COMMAND type)
 {
 	struct vega10_hwmgr *data = hwmgr->backend;

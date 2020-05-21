@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -23,7 +22,7 @@ struct atl1_adapter {TYPE_2__ soft_stats; TYPE_1__ smb; struct net_device* netde
 
 /* Variables and functions */
 
-__attribute__((used)) static void atl1_inc_smb(volatile struct atl1_adapter *adapter)
+__attribute__((used)) static void atl1_inc_smb(struct atl1_adapter *adapter)
 {
 	struct net_device *netdev = adapter->netdev;
 	struct stats_msg_block *smb = adapter->smb.smb;

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -41,7 +40,7 @@ typedef  enum app_env { ____Placeholder_app_env } app_env ;
  int IFFILTER_DISCRETE ; 
  int IFFILTER_SAW ; 
 
-__attribute__((used)) static int CDRXD(volatile struct drxd_state *state, u32 IntermediateFrequency)
+__attribute__((used)) static int CDRXD(struct drxd_state *state, u32 IntermediateFrequency)
 {
 	u32 ulRfAgcOutputLevel = 0xffffffff;
 	u32 ulRfAgcSettleLevel = 528;	/* Optimum value for MT2060 */

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -19,7 +18,7 @@ typedef  int* felem ;
  int bottom52bits ; 
  int bottom58bits ; 
 
-__attribute__((used)) static void felem_reduce(volatile felem out, volatile const largefelem in)
+__attribute__((used)) static void felem_reduce(felem out, const largefelem in)
 {
     u64 overflow1, overflow2;
 

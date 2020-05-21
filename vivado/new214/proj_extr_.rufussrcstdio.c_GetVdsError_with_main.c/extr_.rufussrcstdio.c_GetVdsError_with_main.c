@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef  int DWORD ;
 
 /* Variables and functions */
 
-__attribute__((used)) volatile char *GetVdsError(DWORD error_code)
+__attribute__((used)) static const char *GetVdsError(DWORD error_code)
 {
 	switch (error_code) {
 	case 0x80042400:	// VDS_E_NOT_SUPPORTED

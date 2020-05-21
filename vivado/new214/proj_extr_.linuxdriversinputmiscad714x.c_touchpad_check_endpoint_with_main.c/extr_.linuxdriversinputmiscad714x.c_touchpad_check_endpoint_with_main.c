@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -26,7 +25,7 @@ struct TYPE_3__ {struct ad714x_touchpad_plat* touchpad; } ;
  int TOP_BOTTOM_END_POINT_DEAVTIVALION_LEVEL ; 
  int TOP_END_POINT_DETECTION_LEVEL ; 
 
-__attribute__((used)) static int touchpad_check_endpoint(volatile struct ad714x_chip *ad714x, int idx)
+__attribute__((used)) static int touchpad_check_endpoint(struct ad714x_chip *ad714x, int idx)
 {
 	struct ad714x_touchpad_plat *hw = &ad714x->hw->touchpad[idx];
 	struct ad714x_touchpad_drv *sw  = &ad714x->sw->touchpad[idx];

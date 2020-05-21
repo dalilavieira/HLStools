@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -17,7 +16,7 @@ typedef int bool;
  unsigned int* crc32c_table1 ; 
  unsigned int* crc32c_table2 ; 
 
-__attribute__((used)) static unsigned crc32c_partial_four_tables (volatile const void *data, int len, unsigned crc) {
+__attribute__((used)) static unsigned crc32c_partial_four_tables (const void *data, int len, unsigned crc) {
   const int *p = (const int *) data;
   int x;
 #define DO_ONE(v) crc ^= v; crc = crc32c_table0[crc & 0xff] ^ crc32c_table1[(crc & 0xff00) >> 8] ^ crc32c_table2[(crc & 0xff0000) >> 16] ^ crc32c_table[crc >> 24];

@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -13,7 +12,7 @@ typedef int bool;
 
 /* Variables and functions */
 
-int UTF8_getc(volatile unsigned char *str, int len, volatile unsigned long *val)
+int UTF8_getc(const unsigned char *str, int len, unsigned long *val)
 {
     const unsigned char *p;
     unsigned long value;

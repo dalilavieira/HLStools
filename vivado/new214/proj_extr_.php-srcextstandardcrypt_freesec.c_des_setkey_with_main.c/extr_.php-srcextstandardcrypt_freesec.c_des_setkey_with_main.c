@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -22,7 +21,7 @@ struct php_crypt_extended_data {int old_rawkey0; int old_rawkey1; int* de_keysl;
  scalar_t__* key_shifts ; 
 
 __attribute__((used)) static int
-des_setkey(volatile const char *key, volatile struct php_crypt_extended_data *data)
+des_setkey(const char *key, struct php_crypt_extended_data *data)
 {
 	uint32_t	k0, k1, rawkey0, rawkey1;
 	int	shifts, round;

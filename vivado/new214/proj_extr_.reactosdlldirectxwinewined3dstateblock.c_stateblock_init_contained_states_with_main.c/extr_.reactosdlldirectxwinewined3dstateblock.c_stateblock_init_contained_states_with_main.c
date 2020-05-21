@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -34,7 +33,7 @@ typedef  int DWORD ;
  unsigned int WINED3D_MAX_CONSTS_I ; 
  unsigned int WINEHIGHEST_RENDER_STATE ; 
 
-void stateblock_init_contained_states(volatile struct wined3d_stateblock *stateblock)
+void stateblock_init_contained_states(struct wined3d_stateblock *stateblock)
 {
     const struct wined3d_d3d_info *d3d_info = &stateblock->device->adapter->d3d_info;
     unsigned int i, j;

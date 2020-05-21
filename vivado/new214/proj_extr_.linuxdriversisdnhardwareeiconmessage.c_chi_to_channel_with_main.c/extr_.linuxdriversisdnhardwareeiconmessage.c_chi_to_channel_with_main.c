@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -15,7 +14,7 @@ typedef  int byte ;
 
 /* Variables and functions */
 
-__attribute__((used)) static byte chi_to_channel(volatile byte *chi, volatile dword *pchannelmap)
+__attribute__((used)) static byte chi_to_channel(byte *chi, dword *pchannelmap)
 {
 	int p;
 	int i;

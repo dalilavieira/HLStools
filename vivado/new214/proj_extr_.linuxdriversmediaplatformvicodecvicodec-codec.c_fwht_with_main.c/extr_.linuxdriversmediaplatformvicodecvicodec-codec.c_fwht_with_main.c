@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,7 +15,7 @@ typedef  scalar_t__ s16 ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void fwht(volatile const u8 *block, volatile s16 *output_block, unsigned int stride,
+__attribute__((used)) static void fwht(const u8 *block, s16 *output_block, unsigned int stride,
 		 unsigned int input_step, bool intra)
 {
 	/* we'll need more than 8 bits for the transformed coefficients */

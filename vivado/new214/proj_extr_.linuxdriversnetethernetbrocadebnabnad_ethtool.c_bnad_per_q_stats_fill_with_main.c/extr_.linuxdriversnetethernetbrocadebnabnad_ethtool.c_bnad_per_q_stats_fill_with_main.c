@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -30,7 +29,7 @@ struct TYPE_7__ {struct bna_tcb** tcb; int /*<<< orphan*/  tx; } ;
 /* Variables and functions */
 
 __attribute__((used)) static int
-bnad_per_q_stats_fill(volatile struct bnad *bnad, volatile u64 *buf, int bi)
+bnad_per_q_stats_fill(struct bnad *bnad, u64 *buf, int bi)
 {
 	int i, j;
 	struct bna_rcb *rcb = NULL;

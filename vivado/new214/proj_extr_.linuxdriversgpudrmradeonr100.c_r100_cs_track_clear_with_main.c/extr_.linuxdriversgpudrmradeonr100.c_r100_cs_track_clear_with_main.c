@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -30,7 +29,7 @@ struct TYPE_7__ {int width; int height; scalar_t__ offset; int /*<<< orphan*/ * 
  scalar_t__ CHIP_RS200 ; 
  int /*<<< orphan*/  R100_TRACK_COMP_NONE ; 
 
-void r100_cs_track_clear(volatile struct radeon_device *rdev,volatile struct r100_cs_track *track)
+void r100_cs_track_clear(struct radeon_device *rdev, struct r100_cs_track *track)
 {
 	unsigned i, face;
 

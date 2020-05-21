@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -65,8 +64,8 @@ typedef  int /*<<< orphan*/  ngx_http_tfs_peer_connection_t ;
  void* ngx_http_tfs_retry_ds ; 
  void* ngx_http_tfs_retry_ns ; 
 
-__attribute__((used)) volatile ngx_http_tfs_peer_connection_t *
-ngx_http_tfs_select_peer_v1(volatile ngx_http_tfs_t *t)
+__attribute__((used)) static ngx_http_tfs_peer_connection_t *
+ngx_http_tfs_select_peer_v1(ngx_http_tfs_t *t)
 {
     switch (t->r_ctx.action.code) {
     case NGX_HTTP_TFS_ACTION_REMOVE_FILE:

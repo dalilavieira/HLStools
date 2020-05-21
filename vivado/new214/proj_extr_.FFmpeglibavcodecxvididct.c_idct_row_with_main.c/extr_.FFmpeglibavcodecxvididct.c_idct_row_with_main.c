@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,7 +13,7 @@ typedef int bool;
 /* Variables and functions */
  int const ROW_SHIFT ; 
 
-__attribute__((used)) static int idct_row(volatile short *in, volatile const int *const tab, int rnd)
+__attribute__((used)) static int idct_row(short *in, const int *const tab, int rnd)
 {
     const int c1 = tab[0];
     const int c2 = tab[1];

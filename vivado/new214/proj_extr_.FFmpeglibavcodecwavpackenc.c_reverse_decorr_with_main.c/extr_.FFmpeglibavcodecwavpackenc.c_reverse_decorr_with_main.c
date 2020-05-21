@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -16,7 +15,7 @@ typedef  void* int32_t ;
 /* Variables and functions */
  int MAX_TERM ; 
 
-__attribute__((used)) static void reverse_decorr(volatile struct Decorr *dpp)
+__attribute__((used)) static void reverse_decorr(struct Decorr *dpp)
 {
     if (dpp->value > MAX_TERM) {
         int32_t sam_A, sam_B;

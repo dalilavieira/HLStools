@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -48,7 +47,7 @@ typedef  TYPE_16__* PPREVIEW_DATA ;
 /* Variables and functions */
 
 __attribute__((used)) static VOID
-CalculateItemSize(volatile PPREVIEW_DATA pPreviewData)
+CalculateItemSize(PPREVIEW_DATA pPreviewData)
 {
     int width, height;
 

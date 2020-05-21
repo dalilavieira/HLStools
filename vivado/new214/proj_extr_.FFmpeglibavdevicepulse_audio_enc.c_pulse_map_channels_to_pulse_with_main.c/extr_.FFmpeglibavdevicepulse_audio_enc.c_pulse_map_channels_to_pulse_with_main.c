@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -64,7 +63,7 @@ typedef  int int64_t ;
  void* PA_CHANNEL_POSITION_TOP_REAR_LEFT ; 
  void* PA_CHANNEL_POSITION_TOP_REAR_RIGHT ; 
 
-__attribute__((used)) static void pulse_map_channels_to_pulse(int64_t channel_layout, volatile pa_channel_map *channel_map)
+__attribute__((used)) static void pulse_map_channels_to_pulse(int64_t channel_layout, pa_channel_map *channel_map)
 {
     channel_map->channels = 0;
     if (channel_layout & AV_CH_FRONT_LEFT)

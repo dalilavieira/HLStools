@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -14,8 +13,8 @@ typedef  int int32_t ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void ttaenc_filter_process_c(volatileint32_t *qm,volatile int32_t *dx,volatile int32_t *dl,
-                                    volatile int32_t *error,volatile int32_t *in, int32_t shift,
+__attribute__((used)) static void ttaenc_filter_process_c(int32_t *qm, int32_t *dx, int32_t *dl,
+                                    int32_t *error, int32_t *in, int32_t shift,
                                     int32_t round) {
     if (*error < 0) {
         qm[0] -= dx[0]; qm[1] -= dx[1]; qm[2] -= dx[2]; qm[3] -= dx[3];

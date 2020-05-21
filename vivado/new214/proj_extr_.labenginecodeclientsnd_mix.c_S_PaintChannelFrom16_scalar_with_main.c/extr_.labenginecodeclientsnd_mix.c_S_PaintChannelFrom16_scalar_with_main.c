@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -28,7 +27,7 @@ typedef  TYPE_4__ channel_t ;
  TYPE_3__* paintbuffer ; 
  int snd_vol ; 
 
-__attribute__((used)) static void S_PaintChannelFrom16_scalar(volatile channel_t *ch, volatileconst sfx_t *sc, int count, int sampleOffset, int bufferOffset ) {
+__attribute__((used)) static void S_PaintChannelFrom16_scalar( channel_t *ch, const sfx_t *sc, int count, int sampleOffset, int bufferOffset ) {
 	int						data, aoff, boff;
 	int						leftvol, rightvol;
 	int						i, j;

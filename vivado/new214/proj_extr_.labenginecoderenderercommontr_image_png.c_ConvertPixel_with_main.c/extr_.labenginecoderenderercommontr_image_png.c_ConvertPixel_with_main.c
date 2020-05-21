@@ -1,4 +1,3 @@
-//#include "HLS/hls.h"
 #define NULL ((void*)0)
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
@@ -30,12 +29,12 @@ typedef  int byte ;
  int /*<<< orphan*/  qfalse ; 
  int /*<<< orphan*/  qtrue ; 
 
-__attribute__((used)) static qboolean ConvertPixel(volatile struct PNG_Chunk_IHDR *IHDR,
-		volatile byte                  *OutPtr,
-		volatile uint8_t               *DecompPtr,
+__attribute__((used)) static qboolean ConvertPixel(struct PNG_Chunk_IHDR *IHDR,
+		byte                  *OutPtr,
+		uint8_t               *DecompPtr,
 		qboolean               HasTransparentColour,
-		volatile uint8_t               *TransparentColour,
-		volatile uint8_t               *OutPal)
+		uint8_t               *TransparentColour,
+		uint8_t               *OutPal)
 {
 	/*
 	 *  input verification
