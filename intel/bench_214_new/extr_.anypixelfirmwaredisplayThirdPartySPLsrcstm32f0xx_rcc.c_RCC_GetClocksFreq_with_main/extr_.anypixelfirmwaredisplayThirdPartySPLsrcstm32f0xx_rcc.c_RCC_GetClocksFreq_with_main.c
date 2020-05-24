@@ -41,6 +41,7 @@ typedef  TYPE_1__ RCC_ClocksTypeDef ;
  int RCC_CFGR_PPRE ; 
  int RCC_CFGR_SWS ; 
 
+component
 void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
 {
   uint32_t tmp = 0, pllmull = 0, pllsource = 0, prediv1factor = 0, presc = 0, pllclk = 0;
@@ -76,7 +77,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
       RCC_Clocks->SYSCLK_Frequency = pllclk;      
       break;
     case 0x0C:  /* HSI48 used as system clock */
-      RCC_Clocks->SYSCLK_Frequency = *HSI48_VALUE;
+      RCC_Clocks->SYSCLK_Frequency = HSI48_VALUE;
       break;
     default: /* HSI used as system clock */
       RCC_Clocks->SYSCLK_Frequency = HSI_VALUE;
