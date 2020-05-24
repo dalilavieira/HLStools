@@ -152,8 +152,8 @@ typedef char xmlChar ;
 
 
 int
-xmlCheckLanguageID(const xmlChar * lang)
-{
+xmlCheckLanguageID(const xmlChar lang[1000])
+{_ssdm_SpecArrayDimSize(lang, 1000);
     const xmlChar *cur = lang, *nxt;
 
     if (cur == ((void*)0))

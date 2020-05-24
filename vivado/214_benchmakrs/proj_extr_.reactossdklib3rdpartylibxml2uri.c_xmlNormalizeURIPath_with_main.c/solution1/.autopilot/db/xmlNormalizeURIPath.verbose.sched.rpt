@@ -1,0 +1,806 @@
+
+
+================================================================
+== Vivado HLS Report for 'xmlNormalizeURIPath'
+================================================================
+* Date:           Sun May 24 22:10:31 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.520|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 2     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 2.1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 2.2  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 2.3  |    ?|    ?|         3|          -|          -|     ?|    no    |
+        |- Loop 3     |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 4     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 4.1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 4.2  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 4.3  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 4.4  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 5     |    ?|    ?|         5|          -|          -|     ?|    no    |
+        |- Loop 6     |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 41
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 41 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 13 8 
+7 --> 8 
+8 --> 7 9 16 
+9 --> 10 
+10 --> 11 
+11 --> 9 12 
+12 --> 15 
+13 --> 14 
+14 --> 13 15 
+15 --> 4 
+16 --> 17 
+17 --> 16 41 18 
+18 --> 19 
+19 --> 20 
+20 --> 19 21 25 
+21 --> 22 
+22 --> 23 25 
+23 --> 24 25 
+24 --> 25 
+25 --> 26 32 31 
+26 --> 27 
+27 --> 26 28 
+28 --> 29 
+29 --> 28 31 30 
+30 --> 31 
+31 --> 30 18 
+32 --> 33 
+33 --> 34 
+34 --> 41 35 
+35 --> 36 
+36 --> 37 39 
+37 --> 38 39 
+38 --> 39 
+39 --> 35 41 40 
+40 --> 41 
+41 --> 40 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i8]* %path) nounwind, !map !13"   --->   Operation 42 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%path_addr = getelementptr [1000 x i8]* %path, i64 0, i64 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:73]   --->   Operation 43 'getelementptr' 'path_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 44 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([20 x i8]* @xmlNormalizeURIPath_s) nounwind"   --->   Operation 45 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (1.06ns)   --->   "br label %.preheader48"   --->   Operation 46 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%cur_0_rec = phi i64 [ 0, %.preheader48.preheader ], [ %add_ln27, %.preheader48 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27]   --->   Operation 47 'phi' 'cur_0_rec' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%out = getelementptr [1000 x i8]* %path, i64 0, i64 %cur_0_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27]   --->   Operation 48 'getelementptr' 'out' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [2/2] (2.66ns)   --->   "%out_load = load i8* %out, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26]   --->   Operation 49 'load' 'out_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 3 <SV = 2> <Delay = 3.88>
+ST_3 : Operation 50 [1/2] (2.66ns)   --->   "%out_load = load i8* %out, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26]   --->   Operation 50 'load' 'out_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_3 : Operation 51 [1/1] (1.22ns)   --->   "%icmp_ln26 = icmp eq i8 %out_load, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26]   --->   Operation 51 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (1.98ns)   --->   "%add_ln27 = add i64 %cur_0_rec, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27]   --->   Operation 52 'add' 'add_ln27' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %.preheader48, label %0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26]   --->   Operation 53 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (1.22ns)   --->   "%icmp_ln28 = icmp eq i8 %out_load, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:28]   --->   Operation 54 'icmp' 'icmp_ln28' <Predicate = (!icmp_ln26)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %icmp_ln28, label %._crit_edge, label %.backedge1.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:28]   --->   Operation 55 'br' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%out_0_idx = alloca i64"   --->   Operation 56 'alloca' 'out_0_idx' <Predicate = (!icmp_ln26 & !icmp_ln28)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (1.06ns)   --->   "store i64 %cur_0_rec, i64* %out_0_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27]   --->   Operation 57 'store' <Predicate = (!icmp_ln26 & !icmp_ln28)> <Delay = 1.06>
+ST_3 : Operation 58 [1/1] (1.06ns)   --->   "br label %.backedge1"   --->   Operation 58 'br' <Predicate = (!icmp_ln26 & !icmp_ln28)> <Delay = 1.06>
+
+State 4 <SV = 3> <Delay = 2.66>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%cur_1_idx = phi i64 [ %cur_1_be_idx, %.backedge1.backedge ], [ %cur_0_rec, %.backedge1.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 59 'phi' 'cur_1_idx' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%path_addr_2 = getelementptr [1000 x i8]* %path, i64 0, i64 %cur_1_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 60 'getelementptr' 'path_addr_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 61 [2/2] (2.66ns)   --->   "%path_load = load i8* %path_addr_2, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:37]   --->   Operation 61 'load' 'path_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 5 <SV = 4> <Delay = 4.09>
+ST_5 : Operation 62 [1/1] (0.00ns)   --->   "%out_0_idx_load = load i64* %out_0_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 62 'load' 'out_0_idx_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%empty = trunc i64 %out_0_idx_load to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 63 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/2] (2.66ns)   --->   "%path_load = load i8* %path_addr_2, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:37]   --->   Operation 64 'load' 'path_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_5 : Operation 65 [1/1] (1.22ns)   --->   "%icmp_ln37 = icmp eq i8 %path_load, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:37]   --->   Operation 65 'icmp' 'icmp_ln37' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %icmp_ln37, label %.loopexit.loopexit12, label %1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:37]   --->   Operation 66 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (1.22ns)   --->   "%icmp_ln42 = icmp eq i8 %path_load, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 67 'icmp' 'icmp_ln42' <Predicate = (!icmp_ln37)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 68 [1/1] (0.00ns)   --->   "br i1 %icmp_ln42, label %2, label %._crit_edge62" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 68 'br' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%empty_2 = trunc i64 %cur_1_idx to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 69 'trunc' 'empty_2' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 0.00>
+ST_5 : Operation 70 [1/1] (1.42ns)   --->   "%add_ln42 = add i11 1, %empty_2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 70 'add' 'add_ln42' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%zext_ln42 = zext i11 %add_ln42 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 71 'zext' 'zext_ln42' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "%path_addr_3 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln42" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 72 'getelementptr' 'path_addr_3' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 0.00>
+ST_5 : Operation 73 [2/2] (2.66ns)   --->   "%path_load_1 = load i8* %path_addr_3, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 73 'load' 'path_load_1' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 6 <SV = 5> <Delay = 3.88>
+ST_6 : Operation 74 [1/2] (2.66ns)   --->   "%path_load_1 = load i8* %path_addr_3, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 74 'load' 'path_load_1' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_6 : Operation 75 [1/1] (1.22ns)   --->   "%icmp_ln42_1 = icmp eq i8 %path_load_1, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 75 'icmp' 'icmp_ln42_1' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "br i1 %icmp_ln42_1, label %.preheader46.preheader, label %._crit_edge59" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42]   --->   Operation 76 'br' <Predicate = (!icmp_ln37 & icmp_ln42)> <Delay = 0.00>
+ST_6 : Operation 77 [1/1] (1.22ns)   --->   "%icmp_ln54 = icmp eq i8 %path_load_1, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:54]   --->   Operation 77 'icmp' 'icmp_ln54' <Predicate = (!icmp_ln37 & icmp_ln42 & !icmp_ln42_1)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 78 [1/1] (0.00ns)   --->   "br i1 %icmp_ln54, label %.loopexit.loopexit12, label %._crit_edge62" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:54]   --->   Operation 78 'br' <Predicate = (!icmp_ln37 & icmp_ln42 & !icmp_ln42_1)> <Delay = 0.00>
+ST_6 : Operation 79 [1/1] (1.06ns)   --->   "br label %3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58]   --->   Operation 79 'br' <Predicate = (!icmp_ln37 & !icmp_ln42_1 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 1.06>
+ST_6 : Operation 80 [1/1] (1.06ns)   --->   "br label %.preheader46"   --->   Operation 80 'br' <Predicate = (!icmp_ln37 & icmp_ln42 & icmp_ln42_1)> <Delay = 1.06>
+ST_6 : Operation 81 [1/1] (1.06ns)   --->   "br label %.loopexit"   --->   Operation 81 'br' <Predicate = (icmp_ln42 & !icmp_ln42_1 & icmp_ln54) | (icmp_ln37)> <Delay = 1.06>
+
+State 7 <SV = 6> <Delay = 4.09>
+ST_7 : Operation 82 [1/1] (0.00ns)   --->   "%out_1_rec = phi i64 [ 0, %._crit_edge62 ], [ %add_ln61, %5 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61]   --->   Operation 82 'phi' 'out_1_rec' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 83 [1/1] (0.00ns)   --->   "%empty_4 = trunc i64 %out_1_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61]   --->   Operation 83 'trunc' 'empty_4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 84 [1/1] (0.00ns)   --->   "%empty_5 = trunc i64 %cur_1_idx to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 84 'trunc' 'empty_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 85 [1/1] (1.42ns)   --->   "%sum10 = add i11 %empty_5, %empty_4" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 85 'add' 'sum10' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 86 [1/1] (0.00ns)   --->   "%sum10_cast = zext i11 %sum10 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 86 'zext' 'sum10_cast' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 87 [1/1] (0.00ns)   --->   "%path_addr_5 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum10_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 87 'getelementptr' 'path_addr_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 88 [2/2] (2.66ns)   --->   "%path_load_3 = load i8* %path_addr_5, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58]   --->   Operation 88 'load' 'path_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 8 <SV = 7> <Delay = 5.32>
+ST_8 : Operation 89 [1/1] (1.42ns)   --->   "%sum12 = add i11 %empty, %empty_4" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 89 'add' 'sum12' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 90 [1/1] (0.00ns)   --->   "%sum12_cast = zext i11 %sum12 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 90 'zext' 'sum12_cast' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 0.00>
+ST_8 : Operation 91 [1/1] (0.00ns)   --->   "%path_addr_6 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum12_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 91 'getelementptr' 'path_addr_6' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 0.00>
+ST_8 : Operation 92 [1/2] (2.66ns)   --->   "%path_load_3 = load i8* %path_addr_5, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58]   --->   Operation 92 'load' 'path_load_3' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_8 : Operation 93 [1/1] (1.22ns)   --->   "%icmp_ln58 = icmp eq i8 %path_load_3, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58]   --->   Operation 93 'icmp' 'icmp_ln58' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 94 [1/1] (1.98ns)   --->   "%add_ln61 = add i64 1, %out_1_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61]   --->   Operation 94 'add' 'add_ln61' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 95 [1/1] (0.00ns)   --->   "br i1 %icmp_ln58, label %.preheader42.preheader, label %4" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58]   --->   Operation 95 'br' <Predicate = (!icmp_ln37 & !icmp_ln54) | (!icmp_ln37 & !icmp_ln42)> <Delay = 0.00>
+ST_8 : Operation 96 [1/1] (1.22ns)   --->   "%icmp_ln59 = icmp eq i8 %path_load_3, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:59]   --->   Operation 96 'icmp' 'icmp_ln59' <Predicate = (!icmp_ln37 & !icmp_ln54 & !icmp_ln58) | (!icmp_ln37 & !icmp_ln42 & !icmp_ln58)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 97 [1/1] (0.00ns)   --->   "br i1 %icmp_ln59, label %.loopexit.loopexit, label %5" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:59]   --->   Operation 97 'br' <Predicate = (!icmp_ln37 & !icmp_ln54 & !icmp_ln58) | (!icmp_ln37 & !icmp_ln42 & !icmp_ln58)> <Delay = 0.00>
+ST_8 : Operation 98 [1/1] (2.66ns)   --->   "store i8 %path_load_3, i8* %path_addr_6, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61]   --->   Operation 98 'store' <Predicate = (!icmp_ln37 & !icmp_ln54 & !icmp_ln58 & !icmp_ln59) | (!icmp_ln37 & !icmp_ln42 & !icmp_ln58 & !icmp_ln59)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_8 : Operation 99 [1/1] (0.00ns)   --->   "br label %3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:62]   --->   Operation 99 'br' <Predicate = (!icmp_ln37 & !icmp_ln54 & !icmp_ln58 & !icmp_ln59) | (!icmp_ln37 & !icmp_ln42 & !icmp_ln58 & !icmp_ln59)> <Delay = 0.00>
+ST_8 : Operation 100 [1/1] (1.06ns)   --->   "br label %.loopexit"   --->   Operation 100 'br' <Predicate = (!icmp_ln37 & !icmp_ln54 & !icmp_ln58 & icmp_ln59) | (!icmp_ln37 & !icmp_ln42 & !icmp_ln58 & icmp_ln59)> <Delay = 1.06>
+ST_8 : Operation 101 [1/1] (1.42ns)   --->   "%add_ln64 = add i11 %empty_5, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 101 'add' 'add_ln64' <Predicate = (!icmp_ln37 & !icmp_ln54 & icmp_ln58) | (!icmp_ln37 & !icmp_ln42 & icmp_ln58)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 102 [1/1] (1.06ns)   --->   "br label %.preheader42"   --->   Operation 102 'br' <Predicate = (!icmp_ln37 & !icmp_ln54 & icmp_ln58) | (!icmp_ln37 & !icmp_ln42 & icmp_ln58)> <Delay = 1.06>
+ST_8 : Operation 103 [1/1] (0.00ns)   --->   "%out_0_lcssa100_pn = phi i11 [ %empty, %.loopexit.loopexit12 ], [ %sum12, %.loopexit.loopexit ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 103 'phi' 'out_0_lcssa100_pn' <Predicate = (!icmp_ln58 & icmp_ln59) | (icmp_ln42 & icmp_ln54) | (icmp_ln37)> <Delay = 0.00>
+ST_8 : Operation 104 [1/1] (0.00ns)   --->   "%out_0_lcssa100_pn_ca = zext i11 %out_0_lcssa100_pn to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 104 'zext' 'out_0_lcssa100_pn_ca' <Predicate = (!icmp_ln58 & icmp_ln59) | (icmp_ln42 & icmp_ln54) | (icmp_ln37)> <Delay = 0.00>
+ST_8 : Operation 105 [1/1] (0.00ns)   --->   "%path_addr_9 = getelementptr [1000 x i8]* %path, i64 0, i64 %out_0_lcssa100_pn_ca" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 105 'getelementptr' 'path_addr_9' <Predicate = (!icmp_ln58 & icmp_ln59) | (icmp_ln42 & icmp_ln54) | (icmp_ln37)> <Delay = 0.00>
+ST_8 : Operation 106 [1/1] (2.66ns)   --->   "store i8 0, i8* %path_addr_9, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:70]   --->   Operation 106 'store' <Predicate = (!icmp_ln58 & icmp_ln59) | (icmp_ln42 & icmp_ln54) | (icmp_ln37)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_8 : Operation 107 [1/1] (1.06ns)   --->   "br label %7" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74]   --->   Operation 107 'br' <Predicate = (!icmp_ln58 & icmp_ln59) | (icmp_ln42 & icmp_ln54) | (icmp_ln37)> <Delay = 1.06>
+
+State 9 <SV = 8> <Delay = 5.52>
+ST_9 : Operation 108 [1/1] (0.00ns)   --->   "%cur_4_rec = phi i64 [ 0, %.preheader42.preheader ], [ %add_ln65, %6 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 108 'phi' 'cur_4_rec' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "%empty_6 = trunc i64 %cur_4_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 109 'trunc' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (1.42ns)   --->   "%cur_3_sum_cast = add i11 %empty_6, %empty_4" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 110 'add' 'cur_3_sum_cast' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 111 [1/1] (1.42ns)   --->   "%sum16 = add i11 %cur_3_sum_cast, %empty_5" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 111 'add' 'sum16' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 112 [1/1] (0.00ns)   --->   "%sum16_cast = zext i11 %sum16 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 112 'zext' 'sum16_cast' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "%path_addr_7 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum16_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 113 'getelementptr' 'path_addr_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 114 [2/2] (2.66ns)   --->   "%path_load_4 = load i8* %path_addr_7, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 114 'load' 'path_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 10 <SV = 9> <Delay = 4.94>
+ST_10 : Operation 115 [1/2] (2.66ns)   --->   "%path_load_4 = load i8* %path_addr_7, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 115 'load' 'path_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_10 : Operation 116 [1/1] (1.22ns)   --->   "%icmp_ln64 = icmp eq i8 %path_load_4, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 116 'icmp' 'icmp_ln64' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 117 [1/1] (1.98ns)   --->   "%add_ln65 = add i64 1, %cur_4_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65]   --->   Operation 117 'add' 'add_ln65' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 118 [1/1] (1.06ns)   --->   "br i1 %icmp_ln64, label %6, label %.critedge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 118 'br' <Predicate = true> <Delay = 1.06>
+ST_10 : Operation 119 [1/1] (1.42ns)   --->   "%add_ln64_1 = add i11 %add_ln64, %cur_3_sum_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 119 'add' 'add_ln64_1' <Predicate = (icmp_ln64)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln64 = zext i11 %add_ln64_1 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 120 'zext' 'zext_ln64' <Predicate = (icmp_ln64)> <Delay = 0.00>
+ST_10 : Operation 121 [1/1] (0.00ns)   --->   "%path_addr_8 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 121 'getelementptr' 'path_addr_8' <Predicate = (icmp_ln64)> <Delay = 0.00>
+ST_10 : Operation 122 [2/2] (2.66ns)   --->   "%path_load_5 = load i8* %path_addr_8, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 122 'load' 'path_load_5' <Predicate = (icmp_ln64)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 11 <SV = 10> <Delay = 4.94>
+ST_11 : Operation 123 [1/2] (2.66ns)   --->   "%path_load_5 = load i8* %path_addr_8, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 123 'load' 'path_load_5' <Predicate = (icmp_ln64)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_11 : Operation 124 [1/1] (1.22ns)   --->   "%icmp_ln64_1 = icmp eq i8 %path_load_5, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 124 'icmp' 'icmp_ln64_1' <Predicate = (icmp_ln64)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 125 [1/1] (1.06ns)   --->   "br i1 %icmp_ln64_1, label %.preheader42, label %.critedge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 125 'br' <Predicate = (icmp_ln64)> <Delay = 1.06>
+ST_11 : Operation 126 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%cur_3_sum = add i64 %out_1_rec, %cur_4_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61]   --->   Operation 126 'add' 'cur_3_sum' <Predicate = (!icmp_ln64_1) | (!icmp_ln64)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 127 [1/1] (3.24ns) (root node of TernaryAdder)   --->   "%add_ln67 = add i64 %cur_3_sum, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 127 'add' 'add_ln67' <Predicate = (!icmp_ln64_1) | (!icmp_ln64)> <Delay = 3.24> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 128 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln67_1 = add i64 %out_0_idx_load, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 128 'add' 'add_ln67_1' <Predicate = (!icmp_ln64_1) | (!icmp_ln64)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 129 [1/1] (3.24ns) (root node of TernaryAdder)   --->   "%add_ln67_2 = add i64 %add_ln67_1, %out_1_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 129 'add' 'add_ln67_2' <Predicate = (!icmp_ln64_1) | (!icmp_ln64)> <Delay = 3.24> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 130 [1/1] (1.06ns)   --->   "store i64 %add_ln67_2, i64* %out_0_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:68]   --->   Operation 130 'store' <Predicate = (!icmp_ln64_1) | (!icmp_ln64)> <Delay = 1.06>
+
+State 12 <SV = 11> <Delay = 2.66>
+ST_12 : Operation 131 [1/1] (0.00ns)   --->   "%path_load_4_lcssa = phi i8 [ 47, %6 ], [ %path_load_4, %.preheader42 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64]   --->   Operation 131 'phi' 'path_load_4_lcssa' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 132 [1/1] (2.66ns)   --->   "store i8 %path_load_4_lcssa, i8* %path_addr_6, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 132 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_12 : Operation 133 [1/1] (1.06ns)   --->   "br label %.backedge1.backedge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:68]   --->   Operation 133 'br' <Predicate = true> <Delay = 1.06>
+
+State 13 <SV = 6> <Delay = 5.13>
+ST_13 : Operation 134 [1/1] (0.00ns)   --->   "%cur_2_rec = phi i64 [ %add_ln46, %.preheader46 ], [ 0, %.preheader46.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 134 'phi' 'cur_2_rec' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 135 [1/1] (0.00ns)   --->   "%empty_3 = trunc i64 %cur_2_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 135 'trunc' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 136 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%p_sum30_cast = add i11 2, %empty_3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 136 'add' 'p_sum30_cast' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 137 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%sum8 = add i11 %p_sum30_cast, %empty_2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 137 'add' 'sum8' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 138 [1/1] (0.00ns)   --->   "%sum8_cast = zext i11 %sum8 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 138 'zext' 'sum8_cast' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 139 [1/1] (0.00ns)   --->   "%path_addr_4 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum8_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 139 'getelementptr' 'path_addr_4' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 140 [2/2] (2.66ns)   --->   "%path_load_2 = load i8* %path_addr_4, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45]   --->   Operation 140 'load' 'path_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 14 <SV = 7> <Delay = 3.88>
+ST_14 : Operation 141 [1/2] (2.66ns)   --->   "%path_load_2 = load i8* %path_addr_4, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45]   --->   Operation 141 'load' 'path_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_14 : Operation 142 [1/1] (1.22ns)   --->   "%icmp_ln45 = icmp eq i8 %path_load_2, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45]   --->   Operation 142 'icmp' 'icmp_ln45' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 143 [1/1] (1.98ns)   --->   "%add_ln46 = add i64 1, %cur_2_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 143 'add' 'add_ln46' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 144 [1/1] (0.00ns)   --->   "br i1 %icmp_ln45, label %.preheader46, label %.backedge1.backedge.loopexit" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45]   --->   Operation 144 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 145 [1/1] (1.98ns)   --->   "%p_sum30 = add i64 %cur_2_rec, 2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46]   --->   Operation 145 'add' 'p_sum30' <Predicate = (!icmp_ln45)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 146 [1/1] (1.06ns)   --->   "br label %.backedge1.backedge"   --->   Operation 146 'br' <Predicate = (!icmp_ln45)> <Delay = 1.06>
+
+State 15 <SV = 12> <Delay = 1.98>
+ST_15 : Operation 147 [1/1] (0.00ns) (grouped into LUT with out node cur_1_be_idx)   --->   "%add_ln67_pn = phi i64 [ %add_ln67, %.critedge ], [ %p_sum30, %.backedge1.backedge.loopexit ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 147 'phi' 'add_ln67_pn' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 148 [1/1] (1.98ns) (out node of the LUT)   --->   "%cur_1_be_idx = add i64 %add_ln67_pn, %cur_1_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67]   --->   Operation 148 'add' 'cur_1_be_idx' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 149 [1/1] (0.00ns)   --->   "br label %.backedge1"   --->   Operation 149 'br' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 8> <Delay = 2.66>
+ST_16 : Operation 150 [1/1] (0.00ns)   --->   "%cur_5_rec = phi i64 [ 0, %.loopexit ], [ %add_ln75, %7 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75]   --->   Operation 150 'phi' 'cur_5_rec' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 151 [1/1] (0.00ns)   --->   "%path_addr_10 = getelementptr [1000 x i8]* %path, i64 0, i64 %cur_5_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75]   --->   Operation 151 'getelementptr' 'path_addr_10' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 152 [2/2] (2.66ns)   --->   "%path_load_6 = load i8* %path_addr_10, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74]   --->   Operation 152 'load' 'path_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 17 <SV = 9> <Delay = 3.88>
+ST_17 : Operation 153 [1/2] (2.66ns)   --->   "%path_load_6 = load i8* %path_addr_10, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74]   --->   Operation 153 'load' 'path_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_17 : Operation 154 [1/1] (1.22ns)   --->   "%icmp_ln74 = icmp eq i8 %path_load_6, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74]   --->   Operation 154 'icmp' 'icmp_ln74' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 155 [1/1] (1.98ns)   --->   "%add_ln75 = add i64 %cur_5_rec, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75]   --->   Operation 155 'add' 'add_ln75' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 156 [1/1] (0.00ns)   --->   "br i1 %icmp_ln74, label %7, label %8" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74]   --->   Operation 156 'br' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 157 [1/1] (1.22ns)   --->   "%icmp_ln76 = icmp eq i8 %path_load_6, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:76]   --->   Operation 157 'icmp' 'icmp_ln76' <Predicate = (!icmp_ln74)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 158 [1/1] (0.00ns)   --->   "br i1 %icmp_ln76, label %._crit_edge, label %.backedge.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:76]   --->   Operation 158 'br' <Predicate = (!icmp_ln74)> <Delay = 0.00>
+ST_17 : Operation 159 [1/1] (0.00ns)   --->   "%cur_6_idx = alloca i64"   --->   Operation 159 'alloca' 'cur_6_idx' <Predicate = (!icmp_ln74 & !icmp_ln76)> <Delay = 0.00>
+ST_17 : Operation 160 [1/1] (1.12ns)   --->   "store i64 %cur_5_rec, i64* %cur_6_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 160 'store' <Predicate = (!icmp_ln74 & !icmp_ln76)> <Delay = 1.12>
+ST_17 : Operation 161 [1/1] (0.00ns)   --->   "br label %.backedge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 161 'br' <Predicate = (!icmp_ln74 & !icmp_ln76)> <Delay = 0.00>
+
+State 18 <SV = 10> <Delay = 1.06>
+ST_18 : Operation 162 [1/1] (0.00ns)   --->   "%cur_6_idx_load = load i64* %cur_6_idx"   --->   Operation 162 'load' 'cur_6_idx_load' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 163 [1/1] (1.06ns)   --->   "br label %9" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 163 'br' <Predicate = true> <Delay = 1.06>
+
+State 19 <SV = 11> <Delay = 4.09>
+ST_19 : Operation 164 [1/1] (0.00ns)   --->   "%segp_0_rec = phi i64 [ 0, %.backedge ], [ %add_ln107, %9 ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 164 'phi' 'segp_0_rec' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 165 [1/1] (0.00ns)   --->   "%empty_7 = trunc i64 %segp_0_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 165 'trunc' 'empty_7' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 166 [1/1] (0.00ns)   --->   "%empty_8 = trunc i64 %cur_6_idx_load to i11"   --->   Operation 166 'trunc' 'empty_8' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 167 [1/1] (1.42ns)   --->   "%sum26 = add i11 %empty_8, %empty_7" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 167 'add' 'sum26' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 168 [1/1] (0.00ns)   --->   "%sum26_cast = zext i11 %sum26 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 168 'zext' 'sum26_cast' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 169 [1/1] (0.00ns)   --->   "%path_addr_11 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum26_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 169 'getelementptr' 'path_addr_11' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 170 [2/2] (2.66ns)   --->   "%path_load_14 = load i8* %path_addr_11, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 170 'load' 'path_load_14' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 20 <SV = 12> <Delay = 4.50>
+ST_20 : Operation 171 [1/2] (2.66ns)   --->   "%path_load_14 = load i8* %path_addr_11, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 171 'load' 'path_load_14' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_20 : Operation 172 [1/1] (1.98ns)   --->   "%add_ln107 = add i64 1, %segp_0_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 172 'add' 'add_ln107' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 173 [1/1] (1.22ns)   --->   "%empty_9 = icmp eq i8 %path_load_14, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 173 'icmp' 'empty_9' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 174 [1/1] (1.22ns)   --->   "%empty_10 = icmp eq i8 %path_load_14, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 174 'icmp' 'empty_10' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 175 [1/1] (0.61ns)   --->   "%empty_11 = or i1 %empty_10, %empty_9" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 175 'or' 'empty_11' <Predicate = true> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 176 [1/1] (0.00ns)   --->   "br i1 %empty_11, label %.critedge31, label %9" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 176 'br' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 177 [1/1] (1.22ns)   --->   "%icmp_ln106 = icmp eq i8 %path_load_14, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106]   --->   Operation 177 'icmp' 'icmp_ln106' <Predicate = (empty_11)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 178 [1/1] (0.00ns)   --->   "br i1 %icmp_ln106, label %.loopexit40.loopexit, label %10" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:112]   --->   Operation 178 'br' <Predicate = (empty_11)> <Delay = 0.00>
+ST_20 : Operation 179 [1/1] (0.00ns)   --->   "%path_addr_13 = getelementptr [1000 x i8]* %path, i64 0, i64 %cur_6_idx_load"   --->   Operation 179 'getelementptr' 'path_addr_13' <Predicate = (empty_11 & !icmp_ln106)> <Delay = 0.00>
+ST_20 : Operation 180 [2/2] (2.66ns)   --->   "%path_load_19 = load i8* %path_addr_13, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 180 'load' 'path_load_19' <Predicate = (empty_11 & !icmp_ln106)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_20 : Operation 181 [1/1] (0.00ns)   --->   "br label %.loopexit40"   --->   Operation 181 'br' <Predicate = (empty_11 & icmp_ln106)> <Delay = 0.00>
+
+State 21 <SV = 13> <Delay = 4.09>
+ST_21 : Operation 182 [1/1] (1.98ns)   --->   "%add_ln118 = add i64 %add_ln107, %cur_6_idx_load" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:118]   --->   Operation 182 'add' 'add_ln118' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 183 [1/1] (0.00ns)   --->   "%segp_2 = getelementptr [1000 x i8]* %path, i64 0, i64 %add_ln118" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:118]   --->   Operation 183 'getelementptr' 'segp_2' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 184 [1/2] (2.66ns)   --->   "%path_load_19 = load i8* %path_addr_13, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 184 'load' 'path_load_19' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_21 : Operation 185 [1/1] (1.22ns)   --->   "%icmp_ln119 = icmp eq i8 %path_load_19, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 185 'icmp' 'icmp_ln119' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 186 [1/1] (0.00ns)   --->   "br i1 %icmp_ln119, label %11, label %._crit_edge65" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 186 'br' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 187 [1/1] (1.42ns)   --->   "%add_ln119 = add i11 %empty_8, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 187 'add' 'add_ln119' <Predicate = (icmp_ln119)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 188 [1/1] (0.00ns)   --->   "%zext_ln119 = zext i11 %add_ln119 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 188 'zext' 'zext_ln119' <Predicate = (icmp_ln119)> <Delay = 0.00>
+ST_21 : Operation 189 [1/1] (0.00ns)   --->   "%path_addr_14 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln119" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 189 'getelementptr' 'path_addr_14' <Predicate = (icmp_ln119)> <Delay = 0.00>
+ST_21 : Operation 190 [2/2] (2.66ns)   --->   "%path_load_15 = load i8* %path_addr_14, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 190 'load' 'path_load_15' <Predicate = (icmp_ln119)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_21 : Operation 191 [1/1] (1.68ns)   --->   "%icmp_ln119_2 = icmp eq i64 %add_ln107, 3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 191 'icmp' 'icmp_ln119_2' <Predicate = (icmp_ln119)> <Delay = 1.68> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 14> <Delay = 4.50>
+ST_22 : Operation 192 [1/2] (2.66ns)   --->   "%path_load_15 = load i8* %path_addr_14, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 192 'load' 'path_load_15' <Predicate = (icmp_ln119)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_22 : Operation 193 [1/1] (1.22ns)   --->   "%icmp_ln119_1 = icmp eq i8 %path_load_15, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 193 'icmp' 'icmp_ln119_1' <Predicate = (icmp_ln119)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 194 [1/1] (0.61ns)   --->   "%and_ln119 = and i1 %icmp_ln119_1, %icmp_ln119_2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 194 'and' 'and_ln119' <Predicate = (icmp_ln119)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 195 [1/1] (0.00ns)   --->   "br i1 %and_ln119, label %._crit_edge66, label %._crit_edge65" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 195 'br' <Predicate = (icmp_ln119)> <Delay = 0.00>
+ST_22 : Operation 196 [2/2] (2.66ns)   --->   "%segp_1_load = load i8* %segp_2, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 196 'load' 'segp_1_load' <Predicate = (!and_ln119) | (!icmp_ln119)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 23 <SV = 15> <Delay = 5.13>
+ST_23 : Operation 197 [1/2] (2.66ns)   --->   "%segp_1_load = load i8* %segp_2, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 197 'load' 'segp_1_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_23 : Operation 198 [1/1] (1.22ns)   --->   "%icmp_ln119_3 = icmp eq i8 %segp_1_load, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 198 'icmp' 'icmp_ln119_3' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 199 [1/1] (0.00ns)   --->   "br i1 %icmp_ln119_3, label %12, label %._crit_edge66" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 199 'br' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 200 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln119_1 = add i11 %empty_8, 2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 200 'add' 'add_ln119_1' <Predicate = (icmp_ln119_3)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_23 : Operation 201 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln119_2 = add i11 %add_ln119_1, %empty_7" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 201 'add' 'add_ln119_2' <Predicate = (icmp_ln119_3)> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_23 : Operation 202 [1/1] (0.00ns)   --->   "%zext_ln119_1 = zext i11 %add_ln119_2 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 202 'zext' 'zext_ln119_1' <Predicate = (icmp_ln119_3)> <Delay = 0.00>
+ST_23 : Operation 203 [1/1] (0.00ns)   --->   "%path_addr_15 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln119_1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 203 'getelementptr' 'path_addr_15' <Predicate = (icmp_ln119_3)> <Delay = 0.00>
+ST_23 : Operation 204 [2/2] (2.66ns)   --->   "%path_load_16 = load i8* %path_addr_15, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 204 'load' 'path_load_16' <Predicate = (icmp_ln119_3)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 24 <SV = 16> <Delay = 5.13>
+ST_24 : Operation 205 [1/2] (2.66ns)   --->   "%path_load_16 = load i8* %path_addr_15, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 205 'load' 'path_load_16' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_24 : Operation 206 [1/1] (1.22ns)   --->   "%icmp_ln119_4 = icmp eq i8 %path_load_16, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 206 'icmp' 'icmp_ln119_4' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 207 [1/1] (0.00ns)   --->   "br i1 %icmp_ln119_4, label %13, label %._crit_edge66" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 207 'br' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 208 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln119_3 = add i11 %empty_8, 3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 208 'add' 'add_ln119_3' <Predicate = (icmp_ln119_4)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_24 : Operation 209 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln119_4 = add i11 %add_ln119_3, %empty_7" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 209 'add' 'add_ln119_4' <Predicate = (icmp_ln119_4)> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_24 : Operation 210 [1/1] (0.00ns)   --->   "%zext_ln119_2 = zext i11 %add_ln119_4 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 210 'zext' 'zext_ln119_2' <Predicate = (icmp_ln119_4)> <Delay = 0.00>
+ST_24 : Operation 211 [1/1] (0.00ns)   --->   "%path_addr_16 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln119_2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 211 'getelementptr' 'path_addr_16' <Predicate = (icmp_ln119_4)> <Delay = 0.00>
+ST_24 : Operation 212 [2/2] (2.66ns)   --->   "%path_load_17 = load i8* %path_addr_16, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 212 'load' 'path_load_17' <Predicate = (icmp_ln119_4)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 25 <SV = 17> <Delay = 4.50>
+ST_25 : Operation 213 [1/2] (2.66ns)   --->   "%path_load_17 = load i8* %path_addr_16, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 213 'load' 'path_load_17' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_25 : Operation 214 [1/1] (1.22ns)   --->   "%empty_12 = icmp eq i8 %path_load_17, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 214 'icmp' 'empty_12' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 215 [1/1] (1.22ns)   --->   "%empty_13 = icmp eq i8 %path_load_17, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 215 'icmp' 'empty_13' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 216 [1/1] (0.61ns)   --->   "%empty_14 = or i1 %empty_13, %empty_12" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 216 'or' 'empty_14' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 217 [1/1] (0.00ns)   --->   "br i1 %empty_14, label %._crit_edge70, label %._crit_edge66" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119]   --->   Operation 217 'br' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4)> <Delay = 0.00>
+ST_25 : Operation 218 [1/1] (1.22ns)   --->   "%icmp_ln134 = icmp eq i8 %path_load_17, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:134]   --->   Operation 218 'icmp' 'icmp_ln134' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 219 [1/1] (0.00ns)   --->   "br i1 %icmp_ln134, label %14, label %._crit_edge73.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:134]   --->   Operation 219 'br' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14)> <Delay = 0.00>
+ST_25 : Operation 220 [1/1] (1.42ns)   --->   "%tmp6 = add i11 %empty_8, 4"   --->   Operation 220 'add' 'tmp6' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln134) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln134)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 221 [1/1] (1.06ns)   --->   "br label %._crit_edge73"   --->   Operation 221 'br' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln134) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln134)> <Delay = 1.06>
+ST_25 : Operation 222 [1/1] (2.66ns)   --->   "store i8 0, i8* %path_addr_13, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:135]   --->   Operation 222 'store' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & icmp_ln134) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & icmp_ln134)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_25 : Operation 223 [1/1] (0.00ns)   --->   "br label %.loopexit40" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:136]   --->   Operation 223 'br' <Predicate = (!icmp_ln106 & !and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & icmp_ln134) | (!icmp_ln106 & !icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & icmp_ln134)> <Delay = 0.00>
+ST_25 : Operation 224 [1/1] (1.12ns)   --->   "store i64 %add_ln118, i64* %cur_6_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:123]   --->   Operation 224 'store' <Predicate = (!icmp_ln106 & !empty_14) | (!icmp_ln106 & !icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119_3) | (!icmp_ln106 & icmp_ln119 & and_ln119)> <Delay = 1.12>
+ST_25 : Operation 225 [1/1] (0.00ns)   --->   "br label %.backedge.backedge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:123]   --->   Operation 225 'br' <Predicate = (!icmp_ln106 & !empty_14) | (!icmp_ln106 & !icmp_ln119_4) | (!icmp_ln106 & !icmp_ln119_3) | (!icmp_ln106 & icmp_ln119 & and_ln119)> <Delay = 0.00>
+
+State 26 <SV = 18> <Delay = 5.13>
+ST_26 : Operation 226 [1/1] (0.00ns)   --->   "%segp_1_rec = phi i64 [ %add_ln142, %._crit_edge73 ], [ 0, %._crit_edge73.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 226 'phi' 'segp_1_rec' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 227 [1/1] (0.00ns)   --->   "%empty_15 = trunc i64 %segp_1_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 227 'trunc' 'empty_15' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 228 [1/1] (1.42ns)   --->   "%sum38 = add i11 %empty_8, %empty_15" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 228 'add' 'sum38' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 229 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp5 = add i11 %empty_7, %empty_15" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 229 'add' 'tmp5' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_26 : Operation 230 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%sum40 = add i11 %tmp6, %tmp5" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 230 'add' 'sum40' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_26 : Operation 231 [1/1] (0.00ns)   --->   "%sum40_cast = zext i11 %sum40 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 231 'zext' 'sum40_cast' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 232 [1/1] (0.00ns)   --->   "%path_addr_18 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum40_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107]   --->   Operation 232 'getelementptr' 'path_addr_18' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 233 [1/1] (1.98ns)   --->   "%add_ln142 = add i64 1, %segp_1_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 233 'add' 'add_ln142' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 234 [2/2] (2.66ns)   --->   "%path_load_18 = load i8* %path_addr_18, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 234 'load' 'path_load_18' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 27 <SV = 19> <Delay = 5.32>
+ST_27 : Operation 235 [1/1] (0.00ns)   --->   "%sum38_cast = zext i11 %sum38 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 235 'zext' 'sum38_cast' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 236 [1/1] (0.00ns)   --->   "%path_addr_17 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum38_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 236 'getelementptr' 'path_addr_17' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 237 [1/2] (2.66ns)   --->   "%path_load_18 = load i8* %path_addr_18, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 237 'load' 'path_load_18' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_27 : Operation 238 [1/1] (2.66ns)   --->   "store i8 %path_load_18, i8* %path_addr_17, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 238 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_27 : Operation 239 [1/1] (1.22ns)   --->   "%icmp_ln142 = icmp eq i8 %path_load_18, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 239 'icmp' 'icmp_ln142' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 240 [1/1] (0.00ns)   --->   "br i1 %icmp_ln142, label %.preheader39_ifconv.preheader, label %._crit_edge73" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142]   --->   Operation 240 'br' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 241 [1/1] (1.06ns)   --->   "br label %.preheader39_ifconv" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 241 'br' <Predicate = (icmp_ln142)> <Delay = 1.06>
+
+State 28 <SV = 20> <Delay = 4.65>
+ST_28 : Operation 242 [1/1] (0.00ns)   --->   "%segp_2_idx = phi i64 [ %select_ln147, %.preheader39_ifconv ], [ %cur_6_idx_load, %.preheader39_ifconv.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 242 'phi' 'segp_2_idx' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 243 [1/1] (1.68ns)   --->   "%icmp_ln147 = icmp sgt i64 %segp_2_idx, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 243 'icmp' 'icmp_ln147' <Predicate = true> <Delay = 1.68> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 244 [1/1] (1.98ns)   --->   "%add_ln147 = add i64 %segp_2_idx, -1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 244 'add' 'add_ln147' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 245 [1/1] (0.00ns)   --->   "%segp = getelementptr [1000 x i8]* %path, i64 0, i64 %add_ln147" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 245 'getelementptr' 'segp' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 246 [2/2] (2.66ns)   --->   "%segp_load = load i8* %segp, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 246 'load' 'segp_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_28 : Operation 247 [1/1] (0.77ns)   --->   "%select_ln147 = select i1 %icmp_ln147, i64 %add_ln147, i64 %segp_2_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 247 'select' 'select_ln147' <Predicate = true> <Delay = 0.77> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+State 29 <SV = 21> <Delay = 4.50>
+ST_29 : Operation 248 [1/2] (2.66ns)   --->   "%segp_load = load i8* %segp, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 248 'load' 'segp_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_29 : Operation 249 [1/1] (1.22ns)   --->   "%icmp_ln147_1 = icmp eq i8 %segp_load, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 249 'icmp' 'icmp_ln147_1' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 250 [1/1] (0.61ns)   --->   "%and_ln147 = and i1 %icmp_ln147, %icmp_ln147_1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 250 'and' 'and_ln147' <Predicate = true> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 251 [1/1] (0.00ns)   --->   "br i1 %and_ln147, label %.preheader39_ifconv, label %15" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 251 'br' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 252 [1/1] (0.00ns)   --->   "%trunc_ln147 = trunc i64 %select_ln147 to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 252 'trunc' 'trunc_ln147' <Predicate = (!and_ln147)> <Delay = 0.00>
+ST_29 : Operation 253 [1/1] (1.68ns)   --->   "%icmp_ln149 = icmp eq i64 %select_ln147, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:149]   --->   Operation 253 'icmp' 'icmp_ln149' <Predicate = (!and_ln147)> <Delay = 1.68> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 254 [1/1] (0.00ns)   --->   "br i1 %icmp_ln149, label %.backedge.backedge, label %.preheader38.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:149]   --->   Operation 254 'br' <Predicate = (!and_ln147)> <Delay = 0.00>
+ST_29 : Operation 255 [1/1] (1.06ns)   --->   "br label %.preheader38"   --->   Operation 255 'br' <Predicate = (!and_ln147 & !icmp_ln149)> <Delay = 1.06>
+
+State 30 <SV = 22> <Delay = 5.13>
+ST_30 : Operation 256 [1/1] (0.00ns)   --->   "%cur_7_rec = phi i64 [ %add_ln160, %16 ], [ 0, %.preheader38.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 256 'phi' 'cur_7_rec' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 257 [1/1] (1.98ns)   --->   "%sum48 = add i64 %select_ln147, %cur_7_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 257 'add' 'sum48' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 258 [1/1] (1.68ns)   --->   "%icmp_ln160 = icmp sgt i64 %sum48, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 258 'icmp' 'icmp_ln160' <Predicate = true> <Delay = 1.68> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 259 [1/1] (0.00ns)   --->   "br i1 %icmp_ln160, label %16, label %.backedge.loopexit" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 259 'br' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 260 [1/1] (0.00ns)   --->   "%trunc_ln160 = trunc i64 %cur_7_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 260 'trunc' 'trunc_ln160' <Predicate = (icmp_ln160)> <Delay = 0.00>
+ST_30 : Operation 261 [1/1] (1.98ns)   --->   "%add_ln160 = add i64 -1, %cur_7_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 261 'add' 'add_ln160' <Predicate = (icmp_ln160)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 262 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln160_2 = add i11 -1, %trunc_ln160" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 262 'add' 'add_ln160_2' <Predicate = (icmp_ln160)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_30 : Operation 263 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln160_1 = add i11 %add_ln160_2, %trunc_ln147" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 263 'add' 'add_ln160_1' <Predicate = (icmp_ln160)> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.23> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_30 : Operation 264 [1/1] (0.00ns)   --->   "%zext_ln160 = zext i11 %add_ln160_1 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 264 'zext' 'zext_ln160' <Predicate = (icmp_ln160)> <Delay = 0.00>
+ST_30 : Operation 265 [1/1] (0.00ns)   --->   "%path_addr_24 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln160" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 265 'getelementptr' 'path_addr_24' <Predicate = (icmp_ln160)> <Delay = 0.00>
+ST_30 : Operation 266 [2/2] (2.66ns)   --->   "%path_load_12 = load i8* %path_addr_24, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 266 'load' 'path_load_12' <Predicate = (icmp_ln160)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 31 <SV = 23> <Delay = 3.88>
+ST_31 : Operation 267 [1/2] (2.66ns)   --->   "%path_load_12 = load i8* %path_addr_24, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 267 'load' 'path_load_12' <Predicate = (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_31 : Operation 268 [1/1] (1.22ns)   --->   "%icmp_ln160_1 = icmp eq i8 %path_load_12, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 268 'icmp' 'icmp_ln160_1' <Predicate = (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 269 [1/1] (0.00ns)   --->   "br i1 %icmp_ln160_1, label %.backedge.loopexit, label %.preheader38" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160]   --->   Operation 269 'br' <Predicate = (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160)> <Delay = 0.00>
+ST_31 : Operation 270 [1/1] (1.12ns)   --->   "store i64 %sum48, i64* %cur_6_idx" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147]   --->   Operation 270 'store' <Predicate = (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160_1) | (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & !icmp_ln160) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160_1) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & !icmp_ln160)> <Delay = 1.12>
+ST_31 : Operation 271 [1/1] (0.00ns)   --->   "br label %.backedge.backedge"   --->   Operation 271 'br' <Predicate = (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160_1) | (!and_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & !icmp_ln160) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & icmp_ln160_1) | (!icmp_ln119 & icmp_ln119_3 & icmp_ln119_4 & empty_14 & !icmp_ln149 & !icmp_ln160)> <Delay = 0.00>
+ST_31 : Operation 272 [1/1] (0.00ns)   --->   "br label %.backedge"   --->   Operation 272 'br' <Predicate = (icmp_ln160_1) | (!icmp_ln160) | (icmp_ln149) | (!empty_14) | (!icmp_ln119_4) | (!icmp_ln119_3) | (icmp_ln119 & and_ln119)> <Delay = 0.00>
+
+State 32 <SV = 18> <Delay = 2.66>
+ST_32 : Operation 273 [1/1] (2.66ns)   --->   "store i8 0, i8* %path_addr_9, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:163]   --->   Operation 273 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 33 <SV = 19> <Delay = 2.66>
+ST_33 : Operation 274 [2/2] (2.66ns)   --->   "%path_load_7 = load i8* %path_addr, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176]   --->   Operation 274 'load' 'path_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 34 <SV = 20> <Delay = 3.88>
+ST_34 : Operation 275 [1/2] (2.66ns)   --->   "%path_load_7 = load i8* %path_addr, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176]   --->   Operation 275 'load' 'path_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_34 : Operation 276 [1/1] (1.22ns)   --->   "%icmp_ln176 = icmp eq i8 %path_load_7, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176]   --->   Operation 276 'icmp' 'icmp_ln176' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 277 [1/1] (0.00ns)   --->   "br i1 %icmp_ln176, label %.preheader37.preheader, label %.loopexit40._crit_edge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176]   --->   Operation 277 'br' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 278 [1/1] (1.06ns)   --->   "br label %.preheader37"   --->   Operation 278 'br' <Predicate = (icmp_ln176)> <Delay = 1.06>
+
+State 35 <SV = 21> <Delay = 2.66>
+ST_35 : Operation 279 [1/1] (0.00ns)   --->   "%cur_8_rec = phi i64 [ %add_ln178_2, %.critedge36 ], [ 0, %.preheader37.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 279 'phi' 'cur_8_rec' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 280 [1/1] (0.00ns)   --->   "%empty_16 = trunc i64 %cur_8_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 280 'trunc' 'empty_16' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 281 [1/1] (0.00ns)   --->   "%path_addr_19 = getelementptr [1000 x i8]* %path, i64 0, i64 %cur_8_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 281 'getelementptr' 'path_addr_19' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 282 [2/2] (2.66ns)   --->   "%path_load_8 = load i8* %path_addr_19, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 282 'load' 'path_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 36 <SV = 22> <Delay = 4.09>
+ST_36 : Operation 283 [1/2] (2.66ns)   --->   "%path_load_8 = load i8* %path_addr_19, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 283 'load' 'path_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_36 : Operation 284 [1/1] (1.22ns)   --->   "%icmp_ln178 = icmp eq i8 %path_load_8, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 284 'icmp' 'icmp_ln178' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 285 [1/1] (0.00ns)   --->   "br i1 %icmp_ln178, label %17, label %.critedge33" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 285 'br' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 286 [1/1] (1.42ns)   --->   "%add_ln178 = add i11 %empty_16, 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 286 'add' 'add_ln178' <Predicate = (icmp_ln178)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 287 [1/1] (0.00ns)   --->   "%zext_ln178 = zext i11 %add_ln178 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 287 'zext' 'zext_ln178' <Predicate = (icmp_ln178)> <Delay = 0.00>
+ST_36 : Operation 288 [1/1] (0.00ns)   --->   "%path_addr_20 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln178" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 288 'getelementptr' 'path_addr_20' <Predicate = (icmp_ln178)> <Delay = 0.00>
+ST_36 : Operation 289 [2/2] (2.66ns)   --->   "%path_load_9 = load i8* %path_addr_20, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 289 'load' 'path_load_9' <Predicate = (icmp_ln178)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 37 <SV = 23> <Delay = 4.09>
+ST_37 : Operation 290 [1/2] (2.66ns)   --->   "%path_load_9 = load i8* %path_addr_20, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 290 'load' 'path_load_9' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_37 : Operation 291 [1/1] (1.22ns)   --->   "%icmp_ln178_1 = icmp eq i8 %path_load_9, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 291 'icmp' 'icmp_ln178_1' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 292 [1/1] (0.00ns)   --->   "br i1 %icmp_ln178_1, label %18, label %.critedge33" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 292 'br' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 293 [1/1] (1.42ns)   --->   "%add_ln178_1 = add i11 %empty_16, 2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 293 'add' 'add_ln178_1' <Predicate = (icmp_ln178_1)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 294 [1/1] (0.00ns)   --->   "%zext_ln178_1 = zext i11 %add_ln178_1 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 294 'zext' 'zext_ln178_1' <Predicate = (icmp_ln178_1)> <Delay = 0.00>
+ST_37 : Operation 295 [1/1] (0.00ns)   --->   "%path_addr_22 = getelementptr [1000 x i8]* %path, i64 0, i64 %zext_ln178_1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 295 'getelementptr' 'path_addr_22' <Predicate = (icmp_ln178_1)> <Delay = 0.00>
+ST_37 : Operation 296 [2/2] (2.66ns)   --->   "%path_load_10 = load i8* %path_addr_22, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 296 'load' 'path_load_10' <Predicate = (icmp_ln178_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 38 <SV = 24> <Delay = 4.65>
+ST_38 : Operation 297 [1/2] (2.66ns)   --->   "%path_load_10 = load i8* %path_addr_22, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 297 'load' 'path_load_10' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_38 : Operation 298 [1/1] (1.22ns)   --->   "%icmp_ln178_2 = icmp eq i8 %path_load_10, 46" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 298 'icmp' 'icmp_ln178_2' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 299 [1/1] (0.00ns)   --->   "br i1 %icmp_ln178_2, label %19, label %.critedge33" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 299 'br' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 300 [1/1] (1.98ns)   --->   "%add_ln178_2 = add i64 %cur_8_rec, 3" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 300 'add' 'add_ln178_2' <Predicate = (icmp_ln178_2)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 301 [1/1] (0.00ns)   --->   "%path_addr_23 = getelementptr [1000 x i8]* %path, i64 0, i64 %add_ln178_2" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 301 'getelementptr' 'path_addr_23' <Predicate = (icmp_ln178_2)> <Delay = 0.00>
+ST_38 : Operation 302 [2/2] (2.66ns)   --->   "%path_load_11 = load i8* %path_addr_23, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 302 'load' 'path_load_11' <Predicate = (icmp_ln178_2)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+
+State 39 <SV = 25> <Delay = 4.50>
+ST_39 : Operation 303 [1/2] (2.66ns)   --->   "%path_load_11 = load i8* %path_addr_23, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 303 'load' 'path_load_11' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_39 : Operation 304 [1/1] (1.22ns)   --->   "%empty_17 = icmp eq i8 %path_load_11, 47" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 304 'icmp' 'empty_17' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 305 [1/1] (1.22ns)   --->   "%empty_18 = icmp eq i8 %path_load_11, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 305 'icmp' 'empty_18' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 306 [1/1] (0.61ns)   --->   "%empty_19 = or i1 %empty_18, %empty_17" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 306 'or' 'empty_19' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 307 [1/1] (0.00ns)   --->   "br i1 %empty_19, label %.critedge36, label %.critedge33" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178]   --->   Operation 307 'br' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2)> <Delay = 0.00>
+ST_39 : Operation 308 [1/1] (0.00ns)   --->   "br label %.preheader37" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:180]   --->   Operation 308 'br' <Predicate = (icmp_ln178 & icmp_ln178_1 & icmp_ln178_2 & empty_19)> <Delay = 0.00>
+ST_39 : Operation 309 [1/1] (1.68ns)   --->   "%icmp_ln182 = icmp eq i64 %cur_8_rec, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:182]   --->   Operation 309 'icmp' 'icmp_ln182' <Predicate = (!empty_19) | (!icmp_ln178_2) | (!icmp_ln178_1) | (!icmp_ln178)> <Delay = 1.68> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 310 [1/1] (0.00ns)   --->   "br i1 %icmp_ln182, label %.critedge33._crit_edge, label %.preheader.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:182]   --->   Operation 310 'br' <Predicate = (!empty_19) | (!icmp_ln178_2) | (!icmp_ln178_1) | (!icmp_ln178)> <Delay = 0.00>
+ST_39 : Operation 311 [1/1] (1.06ns)   --->   "br label %.preheader"   --->   Operation 311 'br' <Predicate = (!empty_19 & !icmp_ln182) | (!icmp_ln178_2 & !icmp_ln182) | (!icmp_ln178_1 & !icmp_ln182) | (!icmp_ln178 & !icmp_ln182)> <Delay = 1.06>
+
+State 40 <SV = 26> <Delay = 4.09>
+ST_40 : Operation 312 [1/1] (0.00ns)   --->   "%out_3_rec = phi i64 [ %add_ln185, %20 ], [ 0, %.preheader.preheader ]" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 312 'phi' 'out_3_rec' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 313 [1/1] (0.00ns)   --->   "%empty_20 = trunc i64 %out_3_rec to i11" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 313 'trunc' 'empty_20' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 314 [1/1] (1.42ns)   --->   "%sum62 = add i11 %empty_20, %empty_16" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 314 'add' 'sum62' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 315 [1/1] (0.00ns)   --->   "%sum62_cast = zext i11 %sum62 to i64" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 315 'zext' 'sum62_cast' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 316 [1/1] (0.00ns)   --->   "%path_addr_25 = getelementptr [1000 x i8]* %path, i64 0, i64 %sum62_cast" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 316 'getelementptr' 'path_addr_25' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 317 [1/1] (0.00ns)   --->   "%path_addr_26 = getelementptr [1000 x i8]* %path, i64 0, i64 %out_3_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 317 'getelementptr' 'path_addr_26' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 318 [2/2] (2.66ns)   --->   "%path_load_13 = load i8* %path_addr_25, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184]   --->   Operation 318 'load' 'path_load_13' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_40 : Operation 319 [1/1] (1.98ns)   --->   "%add_ln185 = add i64 1, %out_3_rec" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 319 'add' 'add_ln185' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 27> <Delay = 5.32>
+ST_41 : Operation 320 [1/2] (2.66ns)   --->   "%path_load_13 = load i8* %path_addr_25, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184]   --->   Operation 320 'load' 'path_load_13' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_41 : Operation 321 [1/1] (1.22ns)   --->   "%icmp_ln184 = icmp eq i8 %path_load_13, 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184]   --->   Operation 321 'icmp' 'icmp_ln184' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 322 [1/1] (0.00ns)   --->   "br i1 %icmp_ln184, label %21, label %20" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184]   --->   Operation 322 'br' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182)> <Delay = 0.00>
+ST_41 : Operation 323 [1/1] (2.66ns)   --->   "store i8 %path_load_13, i8* %path_addr_26, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 323 'store' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182 & !icmp_ln184)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_41 : Operation 324 [1/1] (0.00ns)   --->   "br label %.preheader" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185]   --->   Operation 324 'br' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182 & !icmp_ln184)> <Delay = 0.00>
+ST_41 : Operation 325 [1/1] (2.66ns)   --->   "store i8 0, i8* %path_addr_26, align 1" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:186]   --->   Operation 325 'store' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182 & icmp_ln184)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_41 : Operation 326 [1/1] (0.00ns)   --->   "br label %.critedge33._crit_edge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:187]   --->   Operation 326 'br' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & !icmp_ln182 & icmp_ln184)> <Delay = 0.00>
+ST_41 : Operation 327 [1/1] (0.00ns)   --->   "br label %.loopexit40._crit_edge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:188]   --->   Operation 327 'br' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & icmp_ln184) | (!icmp_ln28 & !icmp_ln76 & icmp_ln176 & icmp_ln182)> <Delay = 0.00>
+ST_41 : Operation 328 [1/1] (0.00ns)   --->   "br label %._crit_edge" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:190]   --->   Operation 328 'br' <Predicate = (!icmp_ln28 & !icmp_ln76 & icmp_ln184) | (!icmp_ln28 & !icmp_ln76 & icmp_ln182) | (!icmp_ln28 & !icmp_ln76 & !icmp_ln176)> <Delay = 0.00>
+ST_41 : Operation 329 [1/1] (0.00ns)   --->   "ret i32 0" [extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:191]   --->   Operation 329 'ret' <Predicate = (icmp_ln184) | (icmp_ln182) | (!icmp_ln176) | (icmp_ln76) | (icmp_ln28)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('cur_0_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) with incoming values : ('add_ln27', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) [8]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('cur_0_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) with incoming values : ('add_ln27', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) [8]  (0 ns)
+	'getelementptr' operation ('out', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) [9]  (0 ns)
+	'load' operation ('out_load', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26) on array 'path' [10]  (2.66 ns)
+
+ <State 3>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('out_load', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:26) on array 'path' [10]  (2.66 ns)
+	'icmp' operation ('icmp_ln28', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:28) [15]  (1.22 ns)
+
+ <State 4>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('cur_1_idx', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) with incoming values : ('add_ln27', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:27) ('cur_1_be_idx', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) [22]  (0 ns)
+	'getelementptr' operation ('path_addr_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) [25]  (0 ns)
+	'load' operation ('path_load', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:37) on array 'path' [26]  (2.66 ns)
+
+ <State 5>: 4.09ns
+The critical path consists of the following:
+	'add' operation ('add_ln42', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42) [34]  (1.43 ns)
+	'getelementptr' operation ('path_addr_3', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42) [36]  (0 ns)
+	'load' operation ('path_load_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42) on array 'path' [37]  (2.66 ns)
+
+ <State 6>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('path_load_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:42) on array 'path' [37]  (2.66 ns)
+	'icmp' operation ('icmp_ln54', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:54) [41]  (1.22 ns)
+
+ <State 7>: 4.09ns
+The critical path consists of the following:
+	'phi' operation ('out_1_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61) with incoming values : ('add_ln61', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61) [46]  (0 ns)
+	'add' operation ('sum10', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) [49]  (1.43 ns)
+	'getelementptr' operation ('path_addr_5', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) [51]  (0 ns)
+	'load' operation ('path_load_3', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58) on array 'path' [55]  (2.66 ns)
+
+ <State 8>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('path_load_3', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58) on array 'path' [55]  (2.66 ns)
+	'store' operation ('store_ln61', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:61) of variable 'path_load_3', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:58 on array 'path' [63]  (2.66 ns)
+
+ <State 9>: 5.52ns
+The critical path consists of the following:
+	'phi' operation ('cur_4_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65) with incoming values : ('add_ln65', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65) [71]  (0 ns)
+	'add' operation ('cur_3_sum_cast', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65) [73]  (1.43 ns)
+	'add' operation ('sum16', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65) [74]  (1.43 ns)
+	'getelementptr' operation ('path_addr_7', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:65) [76]  (0 ns)
+	'load' operation ('path_load_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) on array 'path' [77]  (2.66 ns)
+
+ <State 10>: 4.95ns
+The critical path consists of the following:
+	'load' operation ('path_load_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) on array 'path' [77]  (2.66 ns)
+	'icmp' operation ('icmp_ln64', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) [78]  (1.22 ns)
+	multiplexor before 'phi' operation ('path_load_4_lcssa', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) with incoming values : ('path_load_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) [89]  (1.06 ns)
+
+ <State 11>: 4.95ns
+The critical path consists of the following:
+	'load' operation ('path_load_5', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) on array 'path' [85]  (2.66 ns)
+	'icmp' operation ('icmp_ln64_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) [86]  (1.22 ns)
+	multiplexor before 'phi' operation ('path_load_4_lcssa', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) with incoming values : ('path_load_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) [89]  (1.06 ns)
+
+ <State 12>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('path_load_4_lcssa', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) with incoming values : ('path_load_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64) [89]  (0 ns)
+	'store' operation ('store_ln67', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) of variable 'path_load_4_lcssa', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:64 on array 'path' [94]  (2.66 ns)
+
+ <State 13>: 5.14ns
+The critical path consists of the following:
+	'phi' operation ('cur_2_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) with incoming values : ('add_ln46', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) [100]  (0 ns)
+	'add' operation ('p_sum30_cast', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) [102]  (0 ns)
+	'add' operation ('sum8', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) [103]  (2.47 ns)
+	'getelementptr' operation ('path_addr_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) [105]  (0 ns)
+	'load' operation ('path_load_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45) on array 'path' [106]  (2.66 ns)
+
+ <State 14>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('path_load_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45) on array 'path' [106]  (2.66 ns)
+	'icmp' operation ('icmp_ln45', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:45) [107]  (1.22 ns)
+
+ <State 15>: 1.99ns
+The critical path consists of the following:
+	'phi' operation ('add_ln67_pn', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) with incoming values : ('add_ln67', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) ('p_sum30', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:46) [114]  (0 ns)
+	'add' operation ('cur_1_be_idx', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:67) [115]  (1.99 ns)
+
+ <State 16>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('cur_5_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75) with incoming values : ('add_ln75', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75) [126]  (0 ns)
+	'getelementptr' operation ('path_addr_10', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:75) [127]  (0 ns)
+	'load' operation ('path_load_6', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74) on array 'path' [128]  (2.66 ns)
+
+ <State 17>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('path_load_6', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:74) on array 'path' [128]  (2.66 ns)
+	'icmp' operation ('icmp_ln76', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:76) [133]  (1.22 ns)
+
+ <State 18>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('segp_0_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) with incoming values : ('add_ln107', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [143]  (1.06 ns)
+
+ <State 19>: 4.09ns
+The critical path consists of the following:
+	'phi' operation ('segp_0_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) with incoming values : ('add_ln107', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [143]  (0 ns)
+	'add' operation ('sum26', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [146]  (1.43 ns)
+	'getelementptr' operation ('path_addr_11', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [148]  (0 ns)
+	'load' operation ('path_load_14', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106) on array 'path' [149]  (2.66 ns)
+
+ <State 20>: 4.5ns
+The critical path consists of the following:
+	'load' operation ('path_load_14', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106) on array 'path' [149]  (2.66 ns)
+	'icmp' operation ('empty_9', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106) [151]  (1.22 ns)
+	'or' operation ('empty_11', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:106) [153]  (0.616 ns)
+
+ <State 21>: 4.09ns
+The critical path consists of the following:
+	'add' operation ('add_ln119', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [166]  (1.43 ns)
+	'getelementptr' operation ('path_addr_14', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [168]  (0 ns)
+	'load' operation ('path_load_15', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) on array 'path' [169]  (2.66 ns)
+
+ <State 22>: 4.5ns
+The critical path consists of the following:
+	'load' operation ('path_load_15', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) on array 'path' [169]  (2.66 ns)
+	'icmp' operation ('icmp_ln119_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [170]  (1.22 ns)
+	'and' operation ('and_ln119', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [172]  (0.616 ns)
+
+ <State 23>: 5.14ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [179]  (0 ns)
+	'add' operation ('add_ln119_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [180]  (2.47 ns)
+	'getelementptr' operation ('path_addr_15', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [182]  (0 ns)
+	'load' operation ('path_load_16', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) on array 'path' [183]  (2.66 ns)
+
+ <State 24>: 5.14ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_3', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [187]  (0 ns)
+	'add' operation ('add_ln119_4', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [188]  (2.47 ns)
+	'getelementptr' operation ('path_addr_16', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [190]  (0 ns)
+	'load' operation ('path_load_17', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) on array 'path' [191]  (2.66 ns)
+
+ <State 25>: 4.5ns
+The critical path consists of the following:
+	'load' operation ('path_load_17', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) on array 'path' [191]  (2.66 ns)
+	'icmp' operation ('empty_12', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [192]  (1.22 ns)
+	'or' operation ('empty_14', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:119) [194]  (0.616 ns)
+
+ <State 26>: 5.14ns
+The critical path consists of the following:
+	'phi' operation ('segp_1_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142) with incoming values : ('add_ln142', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142) [203]  (0 ns)
+	'add' operation ('tmp5', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [208]  (0 ns)
+	'add' operation ('sum40', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [209]  (2.47 ns)
+	'getelementptr' operation ('path_addr_18', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:107) [211]  (0 ns)
+	'load' operation ('path_load_18', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142) on array 'path' [213]  (2.66 ns)
+
+ <State 27>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('path_load_18', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142) on array 'path' [213]  (2.66 ns)
+	'store' operation ('store_ln142', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142) of variable 'path_load_18', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:142 on array 'path' [214]  (2.66 ns)
+
+ <State 28>: 4.65ns
+The critical path consists of the following:
+	'phi' operation ('segp_2_idx', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) with incoming values : ('cur_6_idx_load') ('select_ln147', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) [220]  (0 ns)
+	'add' operation ('add_ln147', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) [222]  (1.99 ns)
+	'getelementptr' operation ('segp', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) [223]  (0 ns)
+	'load' operation ('segp_load', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) on array 'path' [224]  (2.66 ns)
+
+ <State 29>: 4.5ns
+The critical path consists of the following:
+	'load' operation ('segp_load', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) on array 'path' [224]  (2.66 ns)
+	'icmp' operation ('icmp_ln147_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) [225]  (1.22 ns)
+	'and' operation ('and_ln147', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:147) [227]  (0.616 ns)
+
+ <State 30>: 5.14ns
+The critical path consists of the following:
+	'phi' operation ('cur_7_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) with incoming values : ('add_ln160', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) [236]  (0 ns)
+	'add' operation ('add_ln160_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) [243]  (0 ns)
+	'add' operation ('add_ln160_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) [244]  (2.47 ns)
+	'getelementptr' operation ('path_addr_24', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) [246]  (0 ns)
+	'load' operation ('path_load_12', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) on array 'path' [247]  (2.66 ns)
+
+ <State 31>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('path_load_12', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) on array 'path' [247]  (2.66 ns)
+	'icmp' operation ('icmp_ln160_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:160) [248]  (1.22 ns)
+
+ <State 32>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln163', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:163) of constant 0 on array 'path' [264]  (2.66 ns)
+
+ <State 33>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('path_load_7', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176) on array 'path' [265]  (2.66 ns)
+
+ <State 34>: 3.89ns
+The critical path consists of the following:
+	'load' operation ('path_load_7', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176) on array 'path' [265]  (2.66 ns)
+	'icmp' operation ('icmp_ln176', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:176) [266]  (1.22 ns)
+
+ <State 35>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('cur_8_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) with incoming values : ('add_ln178_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [271]  (0 ns)
+	'getelementptr' operation ('path_addr_19', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [273]  (0 ns)
+	'load' operation ('path_load_8', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) on array 'path' [274]  (2.66 ns)
+
+ <State 36>: 4.09ns
+The critical path consists of the following:
+	'add' operation ('add_ln178', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [278]  (1.43 ns)
+	'getelementptr' operation ('path_addr_20', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [280]  (0 ns)
+	'load' operation ('path_load_9', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) on array 'path' [281]  (2.66 ns)
+
+ <State 37>: 4.09ns
+The critical path consists of the following:
+	'add' operation ('add_ln178_1', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [285]  (1.43 ns)
+	'getelementptr' operation ('path_addr_22', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [287]  (0 ns)
+	'load' operation ('path_load_10', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) on array 'path' [288]  (2.66 ns)
+
+ <State 38>: 4.65ns
+The critical path consists of the following:
+	'add' operation ('add_ln178_2', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [292]  (1.99 ns)
+	'getelementptr' operation ('path_addr_23', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [293]  (0 ns)
+	'load' operation ('path_load_11', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) on array 'path' [294]  (2.66 ns)
+
+ <State 39>: 4.5ns
+The critical path consists of the following:
+	'load' operation ('path_load_11', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) on array 'path' [294]  (2.66 ns)
+	'icmp' operation ('empty_17', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [295]  (1.22 ns)
+	'or' operation ('empty_19', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:178) [297]  (0.616 ns)
+
+ <State 40>: 4.09ns
+The critical path consists of the following:
+	'phi' operation ('out_3_rec', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185) with incoming values : ('add_ln185', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185) [307]  (0 ns)
+	'add' operation ('sum62', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185) [309]  (1.43 ns)
+	'getelementptr' operation ('path_addr_25', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185) [311]  (0 ns)
+	'load' operation ('path_load_13', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184) on array 'path' [313]  (2.66 ns)
+
+ <State 41>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('path_load_13', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184) on array 'path' [313]  (2.66 ns)
+	'store' operation ('store_ln185', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:185) of variable 'path_load_13', extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:184 on array 'path' [318]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

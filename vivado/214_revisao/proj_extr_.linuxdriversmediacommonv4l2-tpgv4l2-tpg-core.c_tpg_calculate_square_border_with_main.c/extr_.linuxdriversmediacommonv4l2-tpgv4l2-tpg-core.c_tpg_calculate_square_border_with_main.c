@@ -23,7 +23,7 @@ struct tpg_data {unsigned int src_width; unsigned int src_height; int vid_aspect
 #define  TPG_VIDEO_ASPECT_16X9_CENTRE 129 
 #define  TPG_VIDEO_ASPECT_4X3 128 
 
-__attribute__((used)) static void tpg_calculate_square_border(struct tpg_data *tpg)
+void tpg_calculate_square_border(struct tpg_data *tpg)
 {
 	unsigned w = tpg->src_width;
 	unsigned h = tpg->src_height;

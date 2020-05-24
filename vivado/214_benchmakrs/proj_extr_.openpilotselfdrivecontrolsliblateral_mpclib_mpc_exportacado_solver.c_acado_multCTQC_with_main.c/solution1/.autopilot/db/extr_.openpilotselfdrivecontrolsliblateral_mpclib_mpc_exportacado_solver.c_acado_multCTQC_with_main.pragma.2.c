@@ -149,13 +149,13 @@ typedef struct TYPE_2__ TYPE_1__ ;
 
 
 typedef int real_t ;
-struct TYPE_2__ {int* H; } ;
+struct TYPE_2__ {int H[1000]; } ;
 
 
  TYPE_1__ acadoWorkspace ;
 
-void acado_multCTQC( real_t* const Gx1, real_t* const Gx2 )
-{
+void acado_multCTQC( real_t const Gx1[1000], real_t const Gx2[1000] )
+{_ssdm_SpecArrayDimSize(Gx1, 1000);_ssdm_SpecArrayDimSize(Gx2, 1000);
 acadoWorkspace.H[0] += + Gx1[0]*Gx2[0] + Gx1[4]*Gx2[4] + Gx1[8]*Gx2[8] + Gx1[12]*Gx2[12];
 acadoWorkspace.H[1] += + Gx1[0]*Gx2[1] + Gx1[4]*Gx2[5] + Gx1[8]*Gx2[9] + Gx1[12]*Gx2[13];
 acadoWorkspace.H[2] += + Gx1[0]*Gx2[2] + Gx1[4]*Gx2[6] + Gx1[8]*Gx2[10] + Gx1[12]*Gx2[14];

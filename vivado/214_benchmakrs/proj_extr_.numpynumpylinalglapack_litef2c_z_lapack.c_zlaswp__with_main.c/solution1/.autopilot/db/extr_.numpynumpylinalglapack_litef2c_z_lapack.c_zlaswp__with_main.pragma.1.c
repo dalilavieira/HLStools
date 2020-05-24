@@ -154,9 +154,9 @@ typedef TYPE_1__ doublecomplex ;
 
 
 
-int zlaswp_(integer *n, doublecomplex *a, integer *lda,
- integer *k1, integer *k2, integer *ipiv, integer *incx)
-{
+int zlaswp_(integer *n, doublecomplex a[1000], integer *lda,
+ integer *k1, integer *k2, integer ipiv[1000], integer *incx)
+{_ssdm_SpecArrayDimSize(a, 1000);_ssdm_SpecArrayDimSize(ipiv, 1000);
 
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5, i__6;
 

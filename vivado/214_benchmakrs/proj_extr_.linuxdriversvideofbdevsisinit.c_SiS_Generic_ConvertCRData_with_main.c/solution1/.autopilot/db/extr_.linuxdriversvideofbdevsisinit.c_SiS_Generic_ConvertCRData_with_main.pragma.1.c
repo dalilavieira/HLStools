@@ -153,11 +153,11 @@ struct SiS_Private {int dummy; } ;
 
 
 void
-SiS_Generic_ConvertCRData(struct SiS_Private *SiS_Pr, unsigned char *crdata,
+SiS_Generic_ConvertCRData(struct SiS_Private *SiS_Pr, unsigned char crdata[1000],
    int xres, int yres,
    struct fb_var_screeninfo *var, bool writeres
 )
-{
+{_ssdm_SpecArrayDimSize(crdata, 1000);
    unsigned short HRE, HBE, HRS, HBS, HDE, HT;
    unsigned short VRE, VBE, VRS, VBS, VDE, VT;
    unsigned char sr_data, cr_data, cr_data2;

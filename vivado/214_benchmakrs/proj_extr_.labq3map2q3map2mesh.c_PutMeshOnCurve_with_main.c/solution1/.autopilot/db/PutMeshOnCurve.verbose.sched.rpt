@@ -1,0 +1,1581 @@
+
+
+================================================================
+== Vivado HLS Report for 'PutMeshOnCurve'
+================================================================
+* Date:           Sun May 24 18:40:17 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.365|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                 |      Latency      | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1         |  5000999|  5000999|      5001|          -|          -|  1000|    no    |
+        | + Loop 1.1      |     4999|     4999|         5|          -|          -|  1000|    no    |
+        |- Loop 2         |  5000999|  5000999|      5001|          -|          -|  1000|    no    |
+        | + Loop 2.1      |     4999|     4999|         5|          -|          -|  1000|    no    |
+        |- Loop 3         |        ?|        ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 3.1      |        ?|        ?| 96 ~ 180 |          -|          -|     ?|    no    |
+        |  ++ Loop 3.1.1  |       93|      177|  31 ~ 59 |          -|          -|     3|    no    |
+        |- Loop 4         |        ?|        ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 4.1      |        ?|        ?| 95 ~ 179 |          -|          -|     ?|    no    |
+        |  ++ Loop 4.1.1  |       93|      177|  31 ~ 59 |          -|          -|     3|    no    |
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 136
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 3 2 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 9 8 14 
+14 --> 15 76 
+15 --> 16 14 
+16 --> 17 
+17 --> 18 15 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 75 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 17 
+76 --> 77 
+77 --> 78 76 
+78 --> 79 77 
+79 --> 80 
+80 --> 81 
+81 --> 82 
+82 --> 83 
+83 --> 84 
+84 --> 85 
+85 --> 86 
+86 --> 87 
+87 --> 88 
+88 --> 89 
+89 --> 90 
+90 --> 91 
+91 --> 92 
+92 --> 93 
+93 --> 94 
+94 --> 95 
+95 --> 96 
+96 --> 97 
+97 --> 98 
+98 --> 99 
+99 --> 100 
+100 --> 101 
+101 --> 102 
+102 --> 103 
+103 --> 104 
+104 --> 105 
+105 --> 106 
+106 --> 107 
+107 --> 108 136 
+108 --> 109 
+109 --> 110 
+110 --> 111 
+111 --> 112 
+112 --> 113 
+113 --> 114 
+114 --> 115 
+115 --> 116 
+116 --> 117 
+117 --> 118 
+118 --> 119 
+119 --> 120 
+120 --> 121 
+121 --> 122 
+122 --> 123 
+123 --> 124 
+124 --> 125 
+125 --> 126 
+126 --> 127 
+127 --> 128 
+128 --> 129 
+129 --> 130 
+130 --> 131 
+131 --> 132 
+132 --> 133 
+133 --> 134 
+134 --> 135 
+135 --> 136 
+136 --> 78 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 137 [1/1] (0.00ns)   --->   "%in_height_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %in_height)"   --->   Operation 137 'read' 'in_height_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 138 [1/1] (0.00ns)   --->   "%in_width_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %in_width)"   --->   Operation 138 'read' 'in_width_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 139 [1/1] (0.00ns)   --->   "%in_verts_st_buf = alloca [1000000 x double], align 8"   --->   Operation 139 'alloca' 'in_verts_st_buf' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_1 : Operation 140 [1/1] (1.06ns)   --->   "br label %byval.copy5"   --->   Operation 140 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.56>
+ST_2 : Operation 141 [1/1] (0.00ns)   --->   "%invdar6 = phi i10 [ 0, %0 ], [ %indvarinc7, %byval.copy59 ]"   --->   Operation 141 'phi' 'invdar6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 142 [1/1] (0.00ns)   --->   "%phi_mul = phi i20 [ 0, %0 ], [ %next_mul, %byval.copy59 ]"   --->   Operation 142 'phi' 'phi_mul' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 143 [1/1] (1.56ns)   --->   "%next_mul = add i20 %phi_mul, 1000"   --->   Operation 143 'add' 'next_mul' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 144 [1/1] (1.41ns)   --->   "%indvarinc7 = add i10 %invdar6, 1"   --->   Operation 144 'add' 'indvarinc7' <Predicate = true> <Delay = 1.41> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 145 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000)"   --->   Operation 145 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 146 [1/1] (1.06ns)   --->   "br label %byval.copy10"   --->   Operation 146 'br' <Predicate = true> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 4.22>
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "%invdar11 = phi i10 [ 0, %byval.copy5 ], [ %indvarinc12, %byval.copy10 ]"   --->   Operation 147 'phi' 'invdar11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 148 [1/1] (1.41ns)   --->   "%indvarinc12 = add i10 %invdar11, 1"   --->   Operation 148 'add' 'indvarinc12' <Predicate = true> <Delay = 1.41> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 149 [1/1] (0.00ns)   --->   "%p_cast7 = zext i10 %invdar11 to i20"   --->   Operation 149 'zext' 'p_cast7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 150 [1/1] (1.56ns)   --->   "%empty_12 = add i20 %phi_mul, %p_cast7"   --->   Operation 150 'add' 'empty_12' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "%p_cast6 = zext i20 %empty_12 to i64"   --->   Operation 151 'zext' 'p_cast6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%in_verts_st_addr = getelementptr [1000000 x double]* %in_verts_st, i64 0, i64 %p_cast6"   --->   Operation 152 'getelementptr' 'in_verts_st_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 153 [4/4] (2.66ns)   --->   "%in_verts_st_load = load double* %in_verts_st_addr, align 8"   --->   Operation 153 'load' 'in_verts_st_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_3 : Operation 154 [1/1] (1.29ns)   --->   "%empty_13 = icmp eq i10 %invdar11, -25"   --->   Operation 154 'icmp' 'empty_13' <Predicate = true> <Delay = 1.29> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.66>
+ST_4 : Operation 155 [3/4] (2.66ns)   --->   "%in_verts_st_load = load double* %in_verts_st_addr, align 8"   --->   Operation 155 'load' 'in_verts_st_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 5 <SV = 4> <Delay = 2.66>
+ST_5 : Operation 156 [2/4] (2.66ns)   --->   "%in_verts_st_load = load double* %in_verts_st_addr, align 8"   --->   Operation 156 'load' 'in_verts_st_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 6 <SV = 5> <Delay = 5.32>
+ST_6 : Operation 157 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %p_cast6"   --->   Operation 157 'getelementptr' 'in_verts_st_buf_addr' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 158 [1/4] (2.66ns)   --->   "%in_verts_st_load = load double* %in_verts_st_addr, align 8"   --->   Operation 158 'load' 'in_verts_st_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_6 : Operation 159 [2/2] (2.66ns)   --->   "store double %in_verts_st_load, double* %in_verts_st_buf_addr, align 8"   --->   Operation 159 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 7 <SV = 6> <Delay = 2.66>
+ST_7 : Operation 160 [1/2] (2.66ns)   --->   "store double %in_verts_st_load, double* %in_verts_st_buf_addr, align 8"   --->   Operation 160 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_7 : Operation 161 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000)"   --->   Operation 161 'speclooptripcount' 'empty_14' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 162 [1/1] (0.00ns)   --->   "br i1 %empty_13, label %byval.copy59, label %byval.copy10"   --->   Operation 162 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 163 [1/1] (1.29ns)   --->   "%empty_15 = icmp eq i10 %invdar6, -25"   --->   Operation 163 'icmp' 'empty_15' <Predicate = (empty_13)> <Delay = 1.29> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 164 [1/1] (0.00ns)   --->   "br i1 %empty_15, label %1, label %byval.copy5"   --->   Operation 164 'br' <Predicate = (empty_13)> <Delay = 0.00>
+ST_7 : Operation 165 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf = alloca [1000000 x double], align 8"   --->   Operation 165 'alloca' 'in_verts_xyz_buf' <Predicate = (empty_13 & empty_15)> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_7 : Operation 166 [1/1] (1.06ns)   --->   "br label %byval.copy"   --->   Operation 166 'br' <Predicate = (empty_13 & empty_15)> <Delay = 1.06>
+
+State 8 <SV = 7> <Delay = 1.56>
+ST_8 : Operation 167 [1/1] (0.00ns)   --->   "%invdar = phi i10 [ 0, %1 ], [ %indvarinc, %byval.copy1 ]"   --->   Operation 167 'phi' 'invdar' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 168 [1/1] (0.00ns)   --->   "%phi_mul1 = phi i20 [ 0, %1 ], [ %next_mul2, %byval.copy1 ]"   --->   Operation 168 'phi' 'phi_mul1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 169 [1/1] (1.56ns)   --->   "%next_mul2 = add i20 %phi_mul1, 1000"   --->   Operation 169 'add' 'next_mul2' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 170 [1/1] (1.41ns)   --->   "%indvarinc = add i10 %invdar, 1"   --->   Operation 170 'add' 'indvarinc' <Predicate = true> <Delay = 1.41> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 171 [1/1] (0.00ns)   --->   "%empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000)"   --->   Operation 171 'speclooptripcount' 'empty_16' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 172 [1/1] (1.06ns)   --->   "br label %byval.copy2"   --->   Operation 172 'br' <Predicate = true> <Delay = 1.06>
+
+State 9 <SV = 8> <Delay = 4.22>
+ST_9 : Operation 173 [1/1] (0.00ns)   --->   "%invdar3 = phi i10 [ 0, %byval.copy ], [ %indvarinc4, %byval.copy2 ]"   --->   Operation 173 'phi' 'invdar3' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 174 [1/1] (1.41ns)   --->   "%indvarinc4 = add i10 %invdar3, 1"   --->   Operation 174 'add' 'indvarinc4' <Predicate = true> <Delay = 1.41> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 175 [1/1] (0.00ns)   --->   "%p_cast5 = zext i10 %invdar3 to i20"   --->   Operation 175 'zext' 'p_cast5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 176 [1/1] (1.56ns)   --->   "%empty_17 = add i20 %phi_mul1, %p_cast5"   --->   Operation 176 'add' 'empty_17' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 177 [1/1] (0.00ns)   --->   "%p_cast = zext i20 %empty_17 to i64"   --->   Operation 177 'zext' 'p_cast' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 178 [1/1] (0.00ns)   --->   "%in_verts_xyz_addr = getelementptr [1000000 x double]* %in_verts_xyz, i64 0, i64 %p_cast"   --->   Operation 178 'getelementptr' 'in_verts_xyz_addr' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 179 [4/4] (2.66ns)   --->   "%in_verts_xyz_load = load double* %in_verts_xyz_addr, align 8"   --->   Operation 179 'load' 'in_verts_xyz_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_9 : Operation 180 [1/1] (1.29ns)   --->   "%empty_18 = icmp eq i10 %invdar3, -25"   --->   Operation 180 'icmp' 'empty_18' <Predicate = true> <Delay = 1.29> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 2.66>
+ST_10 : Operation 181 [3/4] (2.66ns)   --->   "%in_verts_xyz_load = load double* %in_verts_xyz_addr, align 8"   --->   Operation 181 'load' 'in_verts_xyz_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 11 <SV = 10> <Delay = 2.66>
+ST_11 : Operation 182 [2/4] (2.66ns)   --->   "%in_verts_xyz_load = load double* %in_verts_xyz_addr, align 8"   --->   Operation 182 'load' 'in_verts_xyz_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 12 <SV = 11> <Delay = 5.32>
+ST_12 : Operation 183 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %p_cast"   --->   Operation 183 'getelementptr' 'in_verts_xyz_buf_add' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 184 [1/4] (2.66ns)   --->   "%in_verts_xyz_load = load double* %in_verts_xyz_addr, align 8"   --->   Operation 184 'load' 'in_verts_xyz_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_12 : Operation 185 [2/2] (2.66ns)   --->   "store double %in_verts_xyz_load, double* %in_verts_xyz_buf_add, align 8"   --->   Operation 185 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 13 <SV = 12> <Delay = 2.66>
+ST_13 : Operation 186 [1/2] (2.66ns)   --->   "store double %in_verts_xyz_load, double* %in_verts_xyz_buf_add, align 8"   --->   Operation 186 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_13 : Operation 187 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000)"   --->   Operation 187 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 188 [1/1] (0.00ns)   --->   "br i1 %empty_18, label %byval.copy1, label %byval.copy2"   --->   Operation 188 'br' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 189 [1/1] (1.29ns)   --->   "%empty_20 = icmp eq i10 %invdar, -25"   --->   Operation 189 'icmp' 'empty_20' <Predicate = (empty_18)> <Delay = 1.29> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 190 [1/1] (0.00ns)   --->   "br i1 %empty_20, label %2, label %byval.copy"   --->   Operation 190 'br' <Predicate = (empty_18)> <Delay = 0.00>
+ST_13 : Operation 191 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %in_width), !map !20"   --->   Operation 191 'specbitsmap' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 192 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %in_height), !map !26"   --->   Operation 192 'specbitsmap' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 193 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000000 x double]* %in_verts_xyz), !map !30"   --->   Operation 193 'specbitsmap' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 194 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000000 x double]* %in_verts_st), !map !36"   --->   Operation 194 'specbitsmap' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 195 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000000000 x double]* %in_verts_lightmap), !map !40"   --->   Operation 195 'specbitsmap' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 196 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @PutMeshOnCurve_str) nounwind"   --->   Operation 196 'spectopmodule' <Predicate = (empty_18 & empty_20)> <Delay = 0.00>
+ST_13 : Operation 197 [1/1] (1.06ns)   --->   "br label %.loopexit10" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28]   --->   Operation 197 'br' <Predicate = (empty_18 & empty_20)> <Delay = 1.06>
+
+State 14 <SV = 13> <Delay = 1.76>
+ST_14 : Operation 198 [1/1] (0.00ns)   --->   "%i_0 = phi i31 [ 0, %2 ], [ %i, %.loopexit10.loopexit ]"   --->   Operation 198 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 199 [1/1] (0.00ns)   --->   "%zext_ln28 = zext i31 %i_0 to i32" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28]   --->   Operation 199 'zext' 'zext_ln28' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 200 [1/1] (1.54ns)   --->   "%icmp_ln28 = icmp slt i32 %zext_ln28, %in_width_read" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28]   --->   Operation 200 'icmp' 'icmp_ln28' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 201 [1/1] (1.76ns)   --->   "%i = add i31 %i_0, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28]   --->   Operation 201 'add' 'i' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 202 [1/1] (0.00ns)   --->   "br i1 %icmp_ln28, label %.preheader6.preheader, label %.preheader3.preheader" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28]   --->   Operation 202 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 203 [1/1] (1.06ns)   --->   "br label %.preheader6" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29]   --->   Operation 203 'br' <Predicate = (icmp_ln28)> <Delay = 1.06>
+ST_14 : Operation 204 [1/1] (1.06ns)   --->   "br label %.preheader3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 204 'br' <Predicate = (!icmp_ln28)> <Delay = 1.06>
+
+State 15 <SV = 14> <Delay = 8.36>
+ST_15 : Operation 205 [1/1] (0.00ns)   --->   "%j_0 = phi i32 [ %j, %5 ], [ 1, %.preheader6.preheader ]"   --->   Operation 205 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 206 [1/1] (1.54ns)   --->   "%icmp_ln29 = icmp slt i32 %j_0, %in_height_read" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29]   --->   Operation 206 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 207 [1/1] (0.00ns)   --->   "br i1 %icmp_ln29, label %.preheader5.preheader, label %.loopexit10.loopexit" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29]   --->   Operation 207 'br' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 208 [1/1] (1.78ns)   --->   "%add_ln31 = add nsw i32 %j_0, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 208 'add' 'add_ln31' <Predicate = (icmp_ln29)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 209 [1/1] (1.78ns)   --->   "%add_ln32 = add nsw i32 %j_0, -1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 209 'add' 'add_ln32' <Predicate = (icmp_ln29)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 210 [1/1] (6.58ns)   --->   "%mul_ln31 = mul nsw i32 %in_width_read, %j_0" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 210 'mul' 'mul_ln31' <Predicate = (icmp_ln29)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 211 [1/1] (6.58ns)   --->   "%mul_ln31_1 = mul nsw i32 %in_width_read, %add_ln31" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 211 'mul' 'mul_ln31_1' <Predicate = (icmp_ln29)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 212 [1/1] (6.58ns)   --->   "%mul_ln32 = mul nsw i32 %in_width_read, %add_ln32" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 212 'mul' 'mul_ln32' <Predicate = (icmp_ln29)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 213 [1/1] (0.00ns)   --->   "br label %.loopexit10"   --->   Operation 213 'br' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+
+State 16 <SV = 15> <Delay = 8.36>
+ST_16 : Operation 214 [1/1] (1.78ns)   --->   "%add_ln31_1 = add nsw i32 %mul_ln31, %zext_ln28" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 214 'add' 'add_ln31_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 215 [1/1] (0.00ns)   --->   "%sext_ln37 = sext i32 %add_ln31_1 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 215 'sext' 'sext_ln37' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 216 [1/1] (6.58ns)   --->   "%mul_ln37 = mul i43 %sext_ln37, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 216 'mul' 'mul_ln37' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 217 [1/1] (1.78ns)   --->   "%add_ln31_2 = add nsw i32 %mul_ln31_1, %zext_ln28" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 217 'add' 'add_ln31_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 218 [1/1] (0.00ns)   --->   "%sext_ln37_1 = sext i32 %add_ln31_2 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 218 'sext' 'sext_ln37_1' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 219 [1/1] (6.58ns)   --->   "%mul_ln37_1 = mul i43 %sext_ln37_1, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 219 'mul' 'mul_ln37_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 220 [1/1] (1.78ns)   --->   "%add_ln32_1 = add nsw i32 %mul_ln32, %zext_ln28" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 220 'add' 'add_ln32_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 221 [1/1] (0.00ns)   --->   "%sext_ln38 = sext i32 %add_ln32_1 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 221 'sext' 'sext_ln38' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 222 [1/1] (6.58ns)   --->   "%mul_ln38 = mul i43 %sext_ln38, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 222 'mul' 'mul_ln38' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 223 [1/1] (1.06ns)   --->   "br label %.preheader5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30]   --->   Operation 223 'br' <Predicate = true> <Delay = 1.06>
+
+State 17 <SV = 16> <Delay = 2.66>
+ST_17 : Operation 224 [1/1] (0.00ns)   --->   "%l_0 = phi i2 [ %l, %.loopexit4 ], [ 0, %.preheader5.preheader ]"   --->   Operation 224 'phi' 'l_0' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 225 [1/1] (0.64ns)   --->   "%icmp_ln30 = icmp eq i2 %l_0, -1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30]   --->   Operation 225 'icmp' 'icmp_ln30' <Predicate = true> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 226 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 226 'speclooptripcount' 'empty_21' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 227 [1/1] (1.00ns)   --->   "%l = add i2 %l_0, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30]   --->   Operation 227 'add' 'l' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 228 [1/1] (0.00ns)   --->   "br i1 %icmp_ln30, label %5, label %3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30]   --->   Operation 228 'br' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 229 [1/1] (0.00ns)   --->   "%tmp_27 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln37, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 229 'partselect' 'tmp_27' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 230 [1/1] (0.00ns)   --->   "%tmp_28 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_27, i2 %l_0)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 230 'bitconcatenate' 'tmp_28' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 231 [1/1] (0.00ns)   --->   "%sext_ln37_2 = sext i43 %tmp_28 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 231 'sext' 'sext_ln37_2' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 232 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_1 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln37_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 232 'getelementptr' 'in_verts_st_buf_addr_1' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 233 [1/1] (0.00ns)   --->   "%tmp_29 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln37_1, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 233 'partselect' 'tmp_29' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 234 [1/1] (0.00ns)   --->   "%tmp_31 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln38, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 234 'partselect' 'tmp_31' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 235 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_1 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln37_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 235 'getelementptr' 'in_verts_xyz_buf_add_1' <Predicate = (!icmp_ln30)> <Delay = 0.00>
+ST_17 : Operation 236 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa = load double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 236 'load' 'in_verts_xyz_buf_loa' <Predicate = (!icmp_ln30)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_17 : Operation 237 [1/1] (1.78ns)   --->   "%j = add nsw i32 %j_0, 2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29]   --->   Operation 237 'add' 'j' <Predicate = (icmp_ln30)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 238 [1/1] (0.00ns)   --->   "br label %.preheader6" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29]   --->   Operation 238 'br' <Predicate = (icmp_ln30)> <Delay = 0.00>
+
+State 18 <SV = 17> <Delay = 2.66>
+ST_18 : Operation 239 [1/1] (0.00ns)   --->   "%tmp_30 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_29, i2 %l_0)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 239 'bitconcatenate' 'tmp_30' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 240 [1/1] (0.00ns)   --->   "%sext_ln37_3 = sext i43 %tmp_30 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 240 'sext' 'sext_ln37_3' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 241 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_2 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln37_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 241 'getelementptr' 'in_verts_st_buf_addr_2' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 242 [1/1] (0.00ns)   --->   "%tmp_32 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_31, i2 %l_0)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 242 'bitconcatenate' 'tmp_32' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 243 [1/1] (0.00ns)   --->   "%sext_ln38_1 = sext i43 %tmp_32 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 243 'sext' 'sext_ln38_1' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 244 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_3 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln38_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 244 'getelementptr' 'in_verts_st_buf_addr_3' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 245 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_2 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln37_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 245 'getelementptr' 'in_verts_xyz_buf_add_2' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 246 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_3 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln38_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 246 'getelementptr' 'in_verts_xyz_buf_add_3' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 247 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa = load double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 247 'load' 'in_verts_xyz_buf_loa' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_18 : Operation 248 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_1 = load double* %in_verts_xyz_buf_add_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 248 'load' 'in_verts_xyz_buf_loa_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_18 : Operation 249 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_2 = load double* %in_verts_xyz_buf_add_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 249 'load' 'in_verts_xyz_buf_loa_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_18 : Operation 250 [1/1] (0.00ns)   --->   "%tmp_33 = call i1 @_ssdm_op_BitSelect.i1.i2.i32(i2 %l_0, i32 1)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:36]   --->   Operation 250 'bitselect' 'tmp_33' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 18> <Delay = 2.66>
+ST_19 : Operation 251 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa = load double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 251 'load' 'in_verts_xyz_buf_loa' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_19 : Operation 252 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_1 = load double* %in_verts_xyz_buf_add_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 252 'load' 'in_verts_xyz_buf_loa_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_19 : Operation 253 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_2 = load double* %in_verts_xyz_buf_add_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 253 'load' 'in_verts_xyz_buf_loa_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 20 <SV = 19> <Delay = 2.66>
+ST_20 : Operation 254 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa = load double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 254 'load' 'in_verts_xyz_buf_loa' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_20 : Operation 255 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_1 = load double* %in_verts_xyz_buf_add_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 255 'load' 'in_verts_xyz_buf_loa_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_20 : Operation 256 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_2 = load double* %in_verts_xyz_buf_add_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 256 'load' 'in_verts_xyz_buf_loa_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 21 <SV = 20> <Delay = 2.66>
+ST_21 : Operation 257 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_1 = load double* %in_verts_xyz_buf_add_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 257 'load' 'in_verts_xyz_buf_loa_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_21 : Operation 258 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_2 = load double* %in_verts_xyz_buf_add_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 258 'load' 'in_verts_xyz_buf_loa_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 22 <SV = 21> <Delay = 6.91>
+ST_22 : Operation 259 [5/5] (6.91ns)   --->   "%tmp = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 259 'dadd' 'tmp' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 260 [5/5] (6.91ns)   --->   "%tmp_3 = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 260 'dadd' 'tmp_3' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 6.91>
+ST_23 : Operation 261 [4/5] (6.91ns)   --->   "%tmp = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 261 'dadd' 'tmp' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 262 [4/5] (6.91ns)   --->   "%tmp_3 = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 262 'dadd' 'tmp_3' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 6.91>
+ST_24 : Operation 263 [3/5] (6.91ns)   --->   "%tmp = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 263 'dadd' 'tmp' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 264 [3/5] (6.91ns)   --->   "%tmp_3 = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 264 'dadd' 'tmp_3' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 6.91>
+ST_25 : Operation 265 [2/5] (6.91ns)   --->   "%tmp = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 265 'dadd' 'tmp' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 266 [2/5] (6.91ns)   --->   "%tmp_3 = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 266 'dadd' 'tmp_3' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 6.91>
+ST_26 : Operation 267 [1/5] (6.91ns)   --->   "%tmp = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 267 'dadd' 'tmp' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 268 [1/5] (6.91ns)   --->   "%tmp_3 = fadd double %in_verts_xyz_buf_loa, %in_verts_xyz_buf_loa_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 268 'dadd' 'tmp_3' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 8.33>
+ST_27 : Operation 269 [5/5] (8.33ns)   --->   "%tmp_1 = fmul double %tmp, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 269 'dmul' 'tmp_1' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 270 [5/5] (8.33ns)   --->   "%tmp_4 = fmul double %tmp_3, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 270 'dmul' 'tmp_4' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 8.33>
+ST_28 : Operation 271 [4/5] (8.33ns)   --->   "%tmp_1 = fmul double %tmp, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 271 'dmul' 'tmp_1' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 272 [4/5] (8.33ns)   --->   "%tmp_4 = fmul double %tmp_3, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 272 'dmul' 'tmp_4' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 8.33>
+ST_29 : Operation 273 [3/5] (8.33ns)   --->   "%tmp_1 = fmul double %tmp, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 273 'dmul' 'tmp_1' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 274 [3/5] (8.33ns)   --->   "%tmp_4 = fmul double %tmp_3, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 274 'dmul' 'tmp_4' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 8.33>
+ST_30 : Operation 275 [2/5] (8.33ns)   --->   "%tmp_1 = fmul double %tmp, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 275 'dmul' 'tmp_1' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 276 [2/5] (8.33ns)   --->   "%tmp_4 = fmul double %tmp_3, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 276 'dmul' 'tmp_4' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 8.33>
+ST_31 : Operation 277 [1/5] (8.33ns)   --->   "%tmp_1 = fmul double %tmp, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 277 'dmul' 'tmp_1' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 278 [1/5] (8.33ns)   --->   "%tmp_4 = fmul double %tmp_3, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 278 'dmul' 'tmp_4' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 31> <Delay = 3.32>
+ST_32 : Operation 279 [2/2] (3.32ns)   --->   "%prev = fptrunc double %tmp_1 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 279 'fptrunc' 'prev' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_32 : Operation 280 [2/2] (3.32ns)   --->   "%next = fptrunc double %tmp_4 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 280 'fptrunc' 'next' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 3.32>
+ST_33 : Operation 281 [1/2] (3.32ns)   --->   "%prev = fptrunc double %tmp_1 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31]   --->   Operation 281 'fptrunc' 'prev' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_33 : Operation 282 [1/2] (3.32ns)   --->   "%next = fptrunc double %tmp_4 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:32]   --->   Operation 282 'fptrunc' 'next' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 7.71>
+ST_34 : Operation 283 [4/4] (7.71ns)   --->   "%tmp_6 = fadd float %prev, %next" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 283 'fadd' 'tmp_6' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 7.71>
+ST_35 : Operation 284 [3/4] (7.71ns)   --->   "%tmp_6 = fadd float %prev, %next" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 284 'fadd' 'tmp_6' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 7.71>
+ST_36 : Operation 285 [2/4] (7.71ns)   --->   "%tmp_6 = fadd float %prev, %next" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 285 'fadd' 'tmp_6' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 36> <Delay = 7.71>
+ST_37 : Operation 286 [1/4] (7.71ns)   --->   "%tmp_6 = fadd float %prev, %next" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 286 'fadd' 'tmp_6' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 37> <Delay = 2.78>
+ST_38 : Operation 287 [2/2] (2.78ns)   --->   "%tmp_7 = fpext float %tmp_6 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 287 'fpext' 'tmp_7' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 39 <SV = 38> <Delay = 2.78>
+ST_39 : Operation 288 [1/2] (2.78ns)   --->   "%tmp_7 = fpext float %tmp_6 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 288 'fpext' 'tmp_7' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 40 <SV = 39> <Delay = 8.33>
+ST_40 : Operation 289 [5/5] (8.33ns)   --->   "%tmp_8 = fmul double %tmp_7, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 289 'dmul' 'tmp_8' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 40> <Delay = 8.33>
+ST_41 : Operation 290 [4/5] (8.33ns)   --->   "%tmp_8 = fmul double %tmp_7, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 290 'dmul' 'tmp_8' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 41> <Delay = 8.33>
+ST_42 : Operation 291 [3/5] (8.33ns)   --->   "%tmp_8 = fmul double %tmp_7, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 291 'dmul' 'tmp_8' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 42> <Delay = 8.33>
+ST_43 : Operation 292 [2/5] (8.33ns)   --->   "%tmp_8 = fmul double %tmp_7, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 292 'dmul' 'tmp_8' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 43> <Delay = 8.33>
+ST_44 : Operation 293 [1/5] (8.33ns)   --->   "%tmp_8 = fmul double %tmp_7, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 293 'dmul' 'tmp_8' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 45 <SV = 44> <Delay = 2.66>
+ST_45 : Operation 294 [2/2] (2.66ns)   --->   "store double %tmp_8, double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 294 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 46 <SV = 45> <Delay = 2.66>
+ST_46 : Operation 295 [1/2] (2.66ns)   --->   "store double %tmp_8, double* %in_verts_xyz_buf_add_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33]   --->   Operation 295 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_46 : Operation 296 [1/1] (0.00ns)   --->   "br i1 %tmp_33, label %.loopexit4, label %4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:36]   --->   Operation 296 'br' <Predicate = true> <Delay = 0.00>
+ST_46 : Operation 297 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load = load double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 297 'load' 'in_verts_st_buf_load' <Predicate = (!tmp_33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 47 <SV = 46> <Delay = 2.66>
+ST_47 : Operation 298 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load = load double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 298 'load' 'in_verts_st_buf_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_47 : Operation 299 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load_1 = load double* %in_verts_st_buf_addr_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 299 'load' 'in_verts_st_buf_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_47 : Operation 300 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load_2 = load double* %in_verts_st_buf_addr_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 300 'load' 'in_verts_st_buf_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 48 <SV = 47> <Delay = 2.66>
+ST_48 : Operation 301 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load = load double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 301 'load' 'in_verts_st_buf_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_48 : Operation 302 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load_1 = load double* %in_verts_st_buf_addr_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 302 'load' 'in_verts_st_buf_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_48 : Operation 303 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load_2 = load double* %in_verts_st_buf_addr_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 303 'load' 'in_verts_st_buf_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 49 <SV = 48> <Delay = 2.66>
+ST_49 : Operation 304 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load = load double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 304 'load' 'in_verts_st_buf_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_49 : Operation 305 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load_1 = load double* %in_verts_st_buf_addr_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 305 'load' 'in_verts_st_buf_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_49 : Operation 306 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load_2 = load double* %in_verts_st_buf_addr_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 306 'load' 'in_verts_st_buf_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 50 <SV = 49> <Delay = 2.66>
+ST_50 : Operation 307 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load_1 = load double* %in_verts_st_buf_addr_2, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 307 'load' 'in_verts_st_buf_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_50 : Operation 308 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load_2 = load double* %in_verts_st_buf_addr_3, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 308 'load' 'in_verts_st_buf_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 51 <SV = 50> <Delay = 6.91>
+ST_51 : Operation 309 [5/5] (6.91ns)   --->   "%tmp_9 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 309 'dadd' 'tmp_9' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_51 : Operation 310 [5/5] (6.91ns)   --->   "%tmp_2 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 310 'dadd' 'tmp_2' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 51> <Delay = 6.91>
+ST_52 : Operation 311 [4/5] (6.91ns)   --->   "%tmp_9 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 311 'dadd' 'tmp_9' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_52 : Operation 312 [4/5] (6.91ns)   --->   "%tmp_2 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 312 'dadd' 'tmp_2' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 53 <SV = 52> <Delay = 6.91>
+ST_53 : Operation 313 [3/5] (6.91ns)   --->   "%tmp_9 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 313 'dadd' 'tmp_9' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_53 : Operation 314 [3/5] (6.91ns)   --->   "%tmp_2 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 314 'dadd' 'tmp_2' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 54 <SV = 53> <Delay = 6.91>
+ST_54 : Operation 315 [2/5] (6.91ns)   --->   "%tmp_9 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 315 'dadd' 'tmp_9' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_54 : Operation 316 [2/5] (6.91ns)   --->   "%tmp_2 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 316 'dadd' 'tmp_2' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 55 <SV = 54> <Delay = 6.91>
+ST_55 : Operation 317 [1/5] (6.91ns)   --->   "%tmp_9 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 317 'dadd' 'tmp_9' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_55 : Operation 318 [1/5] (6.91ns)   --->   "%tmp_2 = fadd double %in_verts_st_buf_load, %in_verts_st_buf_load_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 318 'dadd' 'tmp_2' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 55> <Delay = 8.33>
+ST_56 : Operation 319 [5/5] (8.33ns)   --->   "%tmp_s = fmul double %tmp_9, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 319 'dmul' 'tmp_s' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_56 : Operation 320 [5/5] (8.33ns)   --->   "%tmp_5 = fmul double %tmp_2, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 320 'dmul' 'tmp_5' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 57 <SV = 56> <Delay = 8.33>
+ST_57 : Operation 321 [4/5] (8.33ns)   --->   "%tmp_s = fmul double %tmp_9, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 321 'dmul' 'tmp_s' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 322 [4/5] (8.33ns)   --->   "%tmp_5 = fmul double %tmp_2, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 322 'dmul' 'tmp_5' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 58 <SV = 57> <Delay = 8.33>
+ST_58 : Operation 323 [3/5] (8.33ns)   --->   "%tmp_s = fmul double %tmp_9, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 323 'dmul' 'tmp_s' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 324 [3/5] (8.33ns)   --->   "%tmp_5 = fmul double %tmp_2, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 324 'dmul' 'tmp_5' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 59 <SV = 58> <Delay = 8.33>
+ST_59 : Operation 325 [2/5] (8.33ns)   --->   "%tmp_s = fmul double %tmp_9, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 325 'dmul' 'tmp_s' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_59 : Operation 326 [2/5] (8.33ns)   --->   "%tmp_5 = fmul double %tmp_2, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 326 'dmul' 'tmp_5' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 60 <SV = 59> <Delay = 8.33>
+ST_60 : Operation 327 [1/5] (8.33ns)   --->   "%tmp_s = fmul double %tmp_9, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 327 'dmul' 'tmp_s' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_60 : Operation 328 [1/5] (8.33ns)   --->   "%tmp_5 = fmul double %tmp_2, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 328 'dmul' 'tmp_5' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 61 <SV = 60> <Delay = 3.32>
+ST_61 : Operation 329 [2/2] (3.32ns)   --->   "%prev_1 = fptrunc double %tmp_s to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 329 'fptrunc' 'prev_1' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_61 : Operation 330 [2/2] (3.32ns)   --->   "%next_1 = fptrunc double %tmp_5 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 330 'fptrunc' 'next_1' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 62 <SV = 61> <Delay = 3.32>
+ST_62 : Operation 331 [1/2] (3.32ns)   --->   "%prev_1 = fptrunc double %tmp_s to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37]   --->   Operation 331 'fptrunc' 'prev_1' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_62 : Operation 332 [1/2] (3.32ns)   --->   "%next_1 = fptrunc double %tmp_5 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:38]   --->   Operation 332 'fptrunc' 'next_1' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 63 <SV = 62> <Delay = 7.71>
+ST_63 : Operation 333 [4/4] (7.71ns)   --->   "%tmp_10 = fadd float %prev_1, %next_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 333 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 64 <SV = 63> <Delay = 7.71>
+ST_64 : Operation 334 [3/4] (7.71ns)   --->   "%tmp_10 = fadd float %prev_1, %next_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 334 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 65 <SV = 64> <Delay = 7.71>
+ST_65 : Operation 335 [2/4] (7.71ns)   --->   "%tmp_10 = fadd float %prev_1, %next_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 335 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 66 <SV = 65> <Delay = 7.71>
+ST_66 : Operation 336 [1/4] (7.71ns)   --->   "%tmp_10 = fadd float %prev_1, %next_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 336 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 67 <SV = 66> <Delay = 2.78>
+ST_67 : Operation 337 [2/2] (2.78ns)   --->   "%tmp_11 = fpext float %tmp_10 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 337 'fpext' 'tmp_11' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 68 <SV = 67> <Delay = 2.78>
+ST_68 : Operation 338 [1/2] (2.78ns)   --->   "%tmp_11 = fpext float %tmp_10 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 338 'fpext' 'tmp_11' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 69 <SV = 68> <Delay = 8.33>
+ST_69 : Operation 339 [5/5] (8.33ns)   --->   "%tmp_12 = fmul double %tmp_11, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 339 'dmul' 'tmp_12' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 70 <SV = 69> <Delay = 8.33>
+ST_70 : Operation 340 [4/5] (8.33ns)   --->   "%tmp_12 = fmul double %tmp_11, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 340 'dmul' 'tmp_12' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 71 <SV = 70> <Delay = 8.33>
+ST_71 : Operation 341 [3/5] (8.33ns)   --->   "%tmp_12 = fmul double %tmp_11, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 341 'dmul' 'tmp_12' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 72 <SV = 71> <Delay = 8.33>
+ST_72 : Operation 342 [2/5] (8.33ns)   --->   "%tmp_12 = fmul double %tmp_11, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 342 'dmul' 'tmp_12' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 73 <SV = 72> <Delay = 8.33>
+ST_73 : Operation 343 [1/5] (8.33ns)   --->   "%tmp_12 = fmul double %tmp_11, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 343 'dmul' 'tmp_12' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 74 <SV = 73> <Delay = 2.66>
+ST_74 : Operation 344 [2/2] (2.66ns)   --->   "store double %tmp_12, double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 344 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 75 <SV = 74> <Delay = 2.66>
+ST_75 : Operation 345 [1/2] (2.66ns)   --->   "store double %tmp_12, double* %in_verts_st_buf_addr_1, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39]   --->   Operation 345 'store' <Predicate = (!tmp_33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_75 : Operation 346 [1/1] (0.00ns)   --->   "br label %.loopexit4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:41]   --->   Operation 346 'br' <Predicate = (!tmp_33)> <Delay = 0.00>
+ST_75 : Operation 347 [1/1] (0.00ns)   --->   "br label %.preheader5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30]   --->   Operation 347 'br' <Predicate = true> <Delay = 0.00>
+
+State 76 <SV = 14> <Delay = 1.78>
+ST_76 : Operation 348 [1/1] (0.00ns)   --->   "%j_1 = phi i31 [ %j_2, %.preheader3.loopexit ], [ 0, %.preheader3.preheader ]"   --->   Operation 348 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 349 [1/1] (0.00ns)   --->   "%phi_mul3 = phi i32 [ %add_ln52, %.preheader3.loopexit ], [ 0, %.preheader3.preheader ]" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 349 'phi' 'phi_mul3' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 350 [1/1] (1.78ns)   --->   "%add_ln52 = add i32 %phi_mul3, %in_width_read" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 350 'add' 'add_ln52' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 351 [1/1] (0.00ns)   --->   "%zext_ln52 = zext i31 %j_1 to i32" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 351 'zext' 'zext_ln52' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 352 [1/1] (1.54ns)   --->   "%icmp_ln52 = icmp slt i32 %zext_ln52, %in_height_read" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 352 'icmp' 'icmp_ln52' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 353 [1/1] (1.76ns)   --->   "%j_2 = add i31 %j_1, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 353 'add' 'j_2' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 354 [1/1] (0.00ns)   --->   "br i1 %icmp_ln52, label %.preheader2.preheader, label %9" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52]   --->   Operation 354 'br' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 355 [1/1] (1.78ns)   --->   "%add_ln55_1 = add i32 %phi_mul3, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 355 'add' 'add_ln55_1' <Predicate = (icmp_ln52)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 356 [1/1] (1.78ns)   --->   "%add_ln56 = add i32 %phi_mul3, -1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 356 'add' 'add_ln56' <Predicate = (icmp_ln52)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 357 [1/1] (1.06ns)   --->   "br label %.preheader2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53]   --->   Operation 357 'br' <Predicate = (icmp_ln52)> <Delay = 1.06>
+ST_76 : Operation 358 [1/1] (0.00ns)   --->   "ret void" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:75]   --->   Operation 358 'ret' <Predicate = (!icmp_ln52)> <Delay = 0.00>
+
+State 77 <SV = 15> <Delay = 8.36>
+ST_77 : Operation 359 [1/1] (0.00ns)   --->   "%i_1 = phi i32 [ %i_2, %8 ], [ 1, %.preheader2.preheader ]"   --->   Operation 359 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 360 [1/1] (1.54ns)   --->   "%icmp_ln53 = icmp slt i32 %i_1, %in_width_read" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53]   --->   Operation 360 'icmp' 'icmp_ln53' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 361 [1/1] (0.00ns)   --->   "br i1 %icmp_ln53, label %.preheader.preheader, label %.preheader3.loopexit" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53]   --->   Operation 361 'br' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 362 [1/1] (1.78ns)   --->   "%add_ln55 = add nsw i32 %phi_mul3, %i_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 362 'add' 'add_ln55' <Predicate = (icmp_ln53)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 363 [1/1] (0.00ns)   --->   "%sext_ln61 = sext i32 %add_ln55 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 363 'sext' 'sext_ln61' <Predicate = (icmp_ln53)> <Delay = 0.00>
+ST_77 : Operation 364 [1/1] (6.58ns)   --->   "%mul_ln61 = mul i43 %sext_ln61, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 364 'mul' 'mul_ln61' <Predicate = (icmp_ln53)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 365 [1/1] (1.78ns)   --->   "%add_ln55_2 = add i32 %i_1, %add_ln55_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 365 'add' 'add_ln55_2' <Predicate = (icmp_ln53)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 366 [1/1] (0.00ns)   --->   "%sext_ln61_1 = sext i32 %add_ln55_2 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 366 'sext' 'sext_ln61_1' <Predicate = (icmp_ln53)> <Delay = 0.00>
+ST_77 : Operation 367 [1/1] (6.58ns)   --->   "%mul_ln61_1 = mul i43 %sext_ln61_1, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 367 'mul' 'mul_ln61_1' <Predicate = (icmp_ln53)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 368 [1/1] (1.78ns)   --->   "%add_ln56_1 = add i32 %i_1, %add_ln56" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 368 'add' 'add_ln56_1' <Predicate = (icmp_ln53)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 369 [1/1] (0.00ns)   --->   "%sext_ln62 = sext i32 %add_ln56_1 to i43" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 369 'sext' 'sext_ln62' <Predicate = (icmp_ln53)> <Delay = 0.00>
+ST_77 : Operation 370 [1/1] (6.58ns)   --->   "%mul_ln62 = mul i43 %sext_ln62, 1000" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 370 'mul' 'mul_ln62' <Predicate = (icmp_ln53)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 371 [1/1] (1.06ns)   --->   "br label %.preheader" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54]   --->   Operation 371 'br' <Predicate = (icmp_ln53)> <Delay = 1.06>
+ST_77 : Operation 372 [1/1] (0.00ns)   --->   "br label %.preheader3"   --->   Operation 372 'br' <Predicate = (!icmp_ln53)> <Delay = 0.00>
+
+State 78 <SV = 16> <Delay = 2.66>
+ST_78 : Operation 373 [1/1] (0.00ns)   --->   "%l_1 = phi i2 [ %l_2, %.loopexit ], [ 0, %.preheader.preheader ]"   --->   Operation 373 'phi' 'l_1' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 374 [1/1] (0.64ns)   --->   "%icmp_ln54 = icmp eq i2 %l_1, -1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54]   --->   Operation 374 'icmp' 'icmp_ln54' <Predicate = true> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.64> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_78 : Operation 375 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 375 'speclooptripcount' 'empty_22' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 376 [1/1] (1.00ns)   --->   "%l_2 = add i2 %l_1, 1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54]   --->   Operation 376 'add' 'l_2' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_78 : Operation 377 [1/1] (0.00ns)   --->   "br i1 %icmp_ln54, label %8, label %6" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54]   --->   Operation 377 'br' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 378 [1/1] (0.00ns)   --->   "%tmp_34 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln61, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 378 'partselect' 'tmp_34' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 379 [1/1] (0.00ns)   --->   "%tmp_35 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_34, i2 %l_1)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 379 'bitconcatenate' 'tmp_35' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 380 [1/1] (0.00ns)   --->   "%sext_ln61_2 = sext i43 %tmp_35 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 380 'sext' 'sext_ln61_2' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 381 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_4 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln61_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 381 'getelementptr' 'in_verts_st_buf_addr_4' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 382 [1/1] (0.00ns)   --->   "%tmp_36 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln61_1, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 382 'partselect' 'tmp_36' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 383 [1/1] (0.00ns)   --->   "%tmp_38 = call i41 @_ssdm_op_PartSelect.i41.i43.i32.i32(i43 %mul_ln62, i32 2, i32 42)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 383 'partselect' 'tmp_38' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 384 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_4 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln61_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 384 'getelementptr' 'in_verts_xyz_buf_add_4' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_78 : Operation 385 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_3 = load double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 385 'load' 'in_verts_xyz_buf_loa_3' <Predicate = (!icmp_ln54)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_78 : Operation 386 [1/1] (1.78ns)   --->   "%i_2 = add nsw i32 %i_1, 2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53]   --->   Operation 386 'add' 'i_2' <Predicate = (icmp_ln54)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_78 : Operation 387 [1/1] (0.00ns)   --->   "br label %.preheader2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53]   --->   Operation 387 'br' <Predicate = (icmp_ln54)> <Delay = 0.00>
+
+State 79 <SV = 17> <Delay = 2.66>
+ST_79 : Operation 388 [1/1] (0.00ns)   --->   "%tmp_37 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_36, i2 %l_1)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 388 'bitconcatenate' 'tmp_37' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 389 [1/1] (0.00ns)   --->   "%sext_ln61_3 = sext i43 %tmp_37 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 389 'sext' 'sext_ln61_3' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 390 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_5 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln61_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 390 'getelementptr' 'in_verts_st_buf_addr_5' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 391 [1/1] (0.00ns)   --->   "%tmp_39 = call i43 @_ssdm_op_BitConcatenate.i43.i41.i2(i41 %tmp_38, i2 %l_1)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 391 'bitconcatenate' 'tmp_39' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 392 [1/1] (0.00ns)   --->   "%sext_ln62_1 = sext i43 %tmp_39 to i64" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 392 'sext' 'sext_ln62_1' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 393 [1/1] (0.00ns)   --->   "%in_verts_st_buf_addr_6 = getelementptr [1000000 x double]* %in_verts_st_buf, i64 0, i64 %sext_ln62_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 393 'getelementptr' 'in_verts_st_buf_addr_6' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 394 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_5 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln61_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 394 'getelementptr' 'in_verts_xyz_buf_add_5' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 395 [1/1] (0.00ns)   --->   "%in_verts_xyz_buf_add_6 = getelementptr [1000000 x double]* %in_verts_xyz_buf, i64 0, i64 %sext_ln62_1" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 395 'getelementptr' 'in_verts_xyz_buf_add_6' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 396 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_3 = load double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 396 'load' 'in_verts_xyz_buf_loa_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_79 : Operation 397 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_4 = load double* %in_verts_xyz_buf_add_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 397 'load' 'in_verts_xyz_buf_loa_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_79 : Operation 398 [4/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_5 = load double* %in_verts_xyz_buf_add_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 398 'load' 'in_verts_xyz_buf_loa_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_79 : Operation 399 [1/1] (0.00ns)   --->   "%tmp_40 = call i1 @_ssdm_op_BitSelect.i1.i2.i32(i2 %l_1, i32 1)" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:60]   --->   Operation 399 'bitselect' 'tmp_40' <Predicate = true> <Delay = 0.00>
+
+State 80 <SV = 18> <Delay = 2.66>
+ST_80 : Operation 400 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_3 = load double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 400 'load' 'in_verts_xyz_buf_loa_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_80 : Operation 401 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_4 = load double* %in_verts_xyz_buf_add_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 401 'load' 'in_verts_xyz_buf_loa_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_80 : Operation 402 [3/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_5 = load double* %in_verts_xyz_buf_add_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 402 'load' 'in_verts_xyz_buf_loa_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 81 <SV = 19> <Delay = 2.66>
+ST_81 : Operation 403 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_3 = load double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 403 'load' 'in_verts_xyz_buf_loa_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_81 : Operation 404 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_4 = load double* %in_verts_xyz_buf_add_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 404 'load' 'in_verts_xyz_buf_loa_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_81 : Operation 405 [2/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_5 = load double* %in_verts_xyz_buf_add_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 405 'load' 'in_verts_xyz_buf_loa_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 82 <SV = 20> <Delay = 2.66>
+ST_82 : Operation 406 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_4 = load double* %in_verts_xyz_buf_add_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 406 'load' 'in_verts_xyz_buf_loa_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_82 : Operation 407 [1/4] (2.66ns)   --->   "%in_verts_xyz_buf_loa_5 = load double* %in_verts_xyz_buf_add_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 407 'load' 'in_verts_xyz_buf_loa_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 83 <SV = 21> <Delay = 6.91>
+ST_83 : Operation 408 [5/5] (6.91ns)   --->   "%tmp_13 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 408 'dadd' 'tmp_13' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_83 : Operation 409 [5/5] (6.91ns)   --->   "%tmp_15 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 409 'dadd' 'tmp_15' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 84 <SV = 22> <Delay = 6.91>
+ST_84 : Operation 410 [4/5] (6.91ns)   --->   "%tmp_13 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 410 'dadd' 'tmp_13' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_84 : Operation 411 [4/5] (6.91ns)   --->   "%tmp_15 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 411 'dadd' 'tmp_15' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 85 <SV = 23> <Delay = 6.91>
+ST_85 : Operation 412 [3/5] (6.91ns)   --->   "%tmp_13 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 412 'dadd' 'tmp_13' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_85 : Operation 413 [3/5] (6.91ns)   --->   "%tmp_15 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 413 'dadd' 'tmp_15' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 86 <SV = 24> <Delay = 6.91>
+ST_86 : Operation 414 [2/5] (6.91ns)   --->   "%tmp_13 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 414 'dadd' 'tmp_13' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_86 : Operation 415 [2/5] (6.91ns)   --->   "%tmp_15 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 415 'dadd' 'tmp_15' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 87 <SV = 25> <Delay = 6.91>
+ST_87 : Operation 416 [1/5] (6.91ns)   --->   "%tmp_13 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 416 'dadd' 'tmp_13' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 417 [1/5] (6.91ns)   --->   "%tmp_15 = fadd double %in_verts_xyz_buf_loa_3, %in_verts_xyz_buf_loa_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 417 'dadd' 'tmp_15' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 88 <SV = 26> <Delay = 8.33>
+ST_88 : Operation 418 [5/5] (8.33ns)   --->   "%tmp_14 = fmul double %tmp_13, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 418 'dmul' 'tmp_14' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_88 : Operation 419 [5/5] (8.33ns)   --->   "%tmp_16 = fmul double %tmp_15, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 419 'dmul' 'tmp_16' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 89 <SV = 27> <Delay = 8.33>
+ST_89 : Operation 420 [4/5] (8.33ns)   --->   "%tmp_14 = fmul double %tmp_13, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 420 'dmul' 'tmp_14' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_89 : Operation 421 [4/5] (8.33ns)   --->   "%tmp_16 = fmul double %tmp_15, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 421 'dmul' 'tmp_16' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 90 <SV = 28> <Delay = 8.33>
+ST_90 : Operation 422 [3/5] (8.33ns)   --->   "%tmp_14 = fmul double %tmp_13, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 422 'dmul' 'tmp_14' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_90 : Operation 423 [3/5] (8.33ns)   --->   "%tmp_16 = fmul double %tmp_15, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 423 'dmul' 'tmp_16' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 91 <SV = 29> <Delay = 8.33>
+ST_91 : Operation 424 [2/5] (8.33ns)   --->   "%tmp_14 = fmul double %tmp_13, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 424 'dmul' 'tmp_14' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_91 : Operation 425 [2/5] (8.33ns)   --->   "%tmp_16 = fmul double %tmp_15, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 425 'dmul' 'tmp_16' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 92 <SV = 30> <Delay = 8.33>
+ST_92 : Operation 426 [1/5] (8.33ns)   --->   "%tmp_14 = fmul double %tmp_13, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 426 'dmul' 'tmp_14' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_92 : Operation 427 [1/5] (8.33ns)   --->   "%tmp_16 = fmul double %tmp_15, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 427 'dmul' 'tmp_16' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 93 <SV = 31> <Delay = 3.32>
+ST_93 : Operation 428 [2/2] (3.32ns)   --->   "%prev_2 = fptrunc double %tmp_14 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 428 'fptrunc' 'prev_2' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_93 : Operation 429 [2/2] (3.32ns)   --->   "%next_2 = fptrunc double %tmp_16 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 429 'fptrunc' 'next_2' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 94 <SV = 32> <Delay = 3.32>
+ST_94 : Operation 430 [1/2] (3.32ns)   --->   "%prev_2 = fptrunc double %tmp_14 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55]   --->   Operation 430 'fptrunc' 'prev_2' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_94 : Operation 431 [1/2] (3.32ns)   --->   "%next_2 = fptrunc double %tmp_16 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:56]   --->   Operation 431 'fptrunc' 'next_2' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 95 <SV = 33> <Delay = 7.71>
+ST_95 : Operation 432 [4/4] (7.71ns)   --->   "%tmp_17 = fadd float %prev_2, %next_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 432 'fadd' 'tmp_17' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 96 <SV = 34> <Delay = 7.71>
+ST_96 : Operation 433 [3/4] (7.71ns)   --->   "%tmp_17 = fadd float %prev_2, %next_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 433 'fadd' 'tmp_17' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 97 <SV = 35> <Delay = 7.71>
+ST_97 : Operation 434 [2/4] (7.71ns)   --->   "%tmp_17 = fadd float %prev_2, %next_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 434 'fadd' 'tmp_17' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 98 <SV = 36> <Delay = 7.71>
+ST_98 : Operation 435 [1/4] (7.71ns)   --->   "%tmp_17 = fadd float %prev_2, %next_2" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 435 'fadd' 'tmp_17' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 99 <SV = 37> <Delay = 2.78>
+ST_99 : Operation 436 [2/2] (2.78ns)   --->   "%tmp_18 = fpext float %tmp_17 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 436 'fpext' 'tmp_18' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 100 <SV = 38> <Delay = 2.78>
+ST_100 : Operation 437 [1/2] (2.78ns)   --->   "%tmp_18 = fpext float %tmp_17 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 437 'fpext' 'tmp_18' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 101 <SV = 39> <Delay = 8.33>
+ST_101 : Operation 438 [5/5] (8.33ns)   --->   "%tmp_19 = fmul double %tmp_18, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 438 'dmul' 'tmp_19' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 102 <SV = 40> <Delay = 8.33>
+ST_102 : Operation 439 [4/5] (8.33ns)   --->   "%tmp_19 = fmul double %tmp_18, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 439 'dmul' 'tmp_19' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 103 <SV = 41> <Delay = 8.33>
+ST_103 : Operation 440 [3/5] (8.33ns)   --->   "%tmp_19 = fmul double %tmp_18, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 440 'dmul' 'tmp_19' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 104 <SV = 42> <Delay = 8.33>
+ST_104 : Operation 441 [2/5] (8.33ns)   --->   "%tmp_19 = fmul double %tmp_18, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 441 'dmul' 'tmp_19' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 105 <SV = 43> <Delay = 8.33>
+ST_105 : Operation 442 [1/5] (8.33ns)   --->   "%tmp_19 = fmul double %tmp_18, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 442 'dmul' 'tmp_19' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 106 <SV = 44> <Delay = 2.66>
+ST_106 : Operation 443 [2/2] (2.66ns)   --->   "store double %tmp_19, double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 443 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 107 <SV = 45> <Delay = 2.66>
+ST_107 : Operation 444 [1/2] (2.66ns)   --->   "store double %tmp_19, double* %in_verts_xyz_buf_add_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57]   --->   Operation 444 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_107 : Operation 445 [1/1] (0.00ns)   --->   "br i1 %tmp_40, label %.loopexit, label %7" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:60]   --->   Operation 445 'br' <Predicate = true> <Delay = 0.00>
+ST_107 : Operation 446 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load_3 = load double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 446 'load' 'in_verts_st_buf_load_3' <Predicate = (!tmp_40)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 108 <SV = 46> <Delay = 2.66>
+ST_108 : Operation 447 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load_3 = load double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 447 'load' 'in_verts_st_buf_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_108 : Operation 448 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load_4 = load double* %in_verts_st_buf_addr_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 448 'load' 'in_verts_st_buf_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_108 : Operation 449 [4/4] (2.66ns)   --->   "%in_verts_st_buf_load_5 = load double* %in_verts_st_buf_addr_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 449 'load' 'in_verts_st_buf_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 109 <SV = 47> <Delay = 2.66>
+ST_109 : Operation 450 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load_3 = load double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 450 'load' 'in_verts_st_buf_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_109 : Operation 451 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load_4 = load double* %in_verts_st_buf_addr_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 451 'load' 'in_verts_st_buf_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_109 : Operation 452 [3/4] (2.66ns)   --->   "%in_verts_st_buf_load_5 = load double* %in_verts_st_buf_addr_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 452 'load' 'in_verts_st_buf_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 110 <SV = 48> <Delay = 2.66>
+ST_110 : Operation 453 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load_3 = load double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 453 'load' 'in_verts_st_buf_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_110 : Operation 454 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load_4 = load double* %in_verts_st_buf_addr_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 454 'load' 'in_verts_st_buf_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_110 : Operation 455 [2/4] (2.66ns)   --->   "%in_verts_st_buf_load_5 = load double* %in_verts_st_buf_addr_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 455 'load' 'in_verts_st_buf_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 111 <SV = 49> <Delay = 2.66>
+ST_111 : Operation 456 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load_4 = load double* %in_verts_st_buf_addr_5, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 456 'load' 'in_verts_st_buf_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_111 : Operation 457 [1/4] (2.66ns)   --->   "%in_verts_st_buf_load_5 = load double* %in_verts_st_buf_addr_6, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 457 'load' 'in_verts_st_buf_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 112 <SV = 50> <Delay = 6.91>
+ST_112 : Operation 458 [5/5] (6.91ns)   --->   "%tmp_20 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 458 'dadd' 'tmp_20' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_112 : Operation 459 [5/5] (6.91ns)   --->   "%tmp_22 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 459 'dadd' 'tmp_22' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 113 <SV = 51> <Delay = 6.91>
+ST_113 : Operation 460 [4/5] (6.91ns)   --->   "%tmp_20 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 460 'dadd' 'tmp_20' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_113 : Operation 461 [4/5] (6.91ns)   --->   "%tmp_22 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 461 'dadd' 'tmp_22' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 114 <SV = 52> <Delay = 6.91>
+ST_114 : Operation 462 [3/5] (6.91ns)   --->   "%tmp_20 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 462 'dadd' 'tmp_20' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_114 : Operation 463 [3/5] (6.91ns)   --->   "%tmp_22 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 463 'dadd' 'tmp_22' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 115 <SV = 53> <Delay = 6.91>
+ST_115 : Operation 464 [2/5] (6.91ns)   --->   "%tmp_20 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 464 'dadd' 'tmp_20' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_115 : Operation 465 [2/5] (6.91ns)   --->   "%tmp_22 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 465 'dadd' 'tmp_22' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 116 <SV = 54> <Delay = 6.91>
+ST_116 : Operation 466 [1/5] (6.91ns)   --->   "%tmp_20 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_4" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 466 'dadd' 'tmp_20' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_116 : Operation 467 [1/5] (6.91ns)   --->   "%tmp_22 = fadd double %in_verts_st_buf_load_3, %in_verts_st_buf_load_5" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 467 'dadd' 'tmp_22' <Predicate = true> <Delay = 6.91> <Core = "DAddSub">   --->   Core 115 'DAddSub' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 117 <SV = 55> <Delay = 8.33>
+ST_117 : Operation 468 [5/5] (8.33ns)   --->   "%tmp_21 = fmul double %tmp_20, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 468 'dmul' 'tmp_21' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_117 : Operation 469 [5/5] (8.33ns)   --->   "%tmp_23 = fmul double %tmp_22, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 469 'dmul' 'tmp_23' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 118 <SV = 56> <Delay = 8.33>
+ST_118 : Operation 470 [4/5] (8.33ns)   --->   "%tmp_21 = fmul double %tmp_20, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 470 'dmul' 'tmp_21' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_118 : Operation 471 [4/5] (8.33ns)   --->   "%tmp_23 = fmul double %tmp_22, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 471 'dmul' 'tmp_23' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 119 <SV = 57> <Delay = 8.33>
+ST_119 : Operation 472 [3/5] (8.33ns)   --->   "%tmp_21 = fmul double %tmp_20, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 472 'dmul' 'tmp_21' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_119 : Operation 473 [3/5] (8.33ns)   --->   "%tmp_23 = fmul double %tmp_22, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 473 'dmul' 'tmp_23' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 120 <SV = 58> <Delay = 8.33>
+ST_120 : Operation 474 [2/5] (8.33ns)   --->   "%tmp_21 = fmul double %tmp_20, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 474 'dmul' 'tmp_21' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_120 : Operation 475 [2/5] (8.33ns)   --->   "%tmp_23 = fmul double %tmp_22, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 475 'dmul' 'tmp_23' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 121 <SV = 59> <Delay = 8.33>
+ST_121 : Operation 476 [1/5] (8.33ns)   --->   "%tmp_21 = fmul double %tmp_20, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 476 'dmul' 'tmp_21' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_121 : Operation 477 [1/5] (8.33ns)   --->   "%tmp_23 = fmul double %tmp_22, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 477 'dmul' 'tmp_23' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 122 <SV = 60> <Delay = 3.32>
+ST_122 : Operation 478 [2/2] (3.32ns)   --->   "%prev_3 = fptrunc double %tmp_21 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 478 'fptrunc' 'prev_3' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_122 : Operation 479 [2/2] (3.32ns)   --->   "%next_3 = fptrunc double %tmp_23 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 479 'fptrunc' 'next_3' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 123 <SV = 61> <Delay = 3.32>
+ST_123 : Operation 480 [1/2] (3.32ns)   --->   "%prev_3 = fptrunc double %tmp_21 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61]   --->   Operation 480 'fptrunc' 'prev_3' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_123 : Operation 481 [1/2] (3.32ns)   --->   "%next_3 = fptrunc double %tmp_23 to float" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:62]   --->   Operation 481 'fptrunc' 'next_3' <Predicate = true> <Delay = 3.32> <Core = "Double2Float">   --->   Core 123 'Double2Float' <Latency = 1> <II = 1> <Delay = 3.32> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+
+State 124 <SV = 62> <Delay = 7.71>
+ST_124 : Operation 482 [4/4] (7.71ns)   --->   "%tmp_24 = fadd float %prev_3, %next_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 482 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 125 <SV = 63> <Delay = 7.71>
+ST_125 : Operation 483 [3/4] (7.71ns)   --->   "%tmp_24 = fadd float %prev_3, %next_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 483 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 126 <SV = 64> <Delay = 7.71>
+ST_126 : Operation 484 [2/4] (7.71ns)   --->   "%tmp_24 = fadd float %prev_3, %next_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 484 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 127 <SV = 65> <Delay = 7.71>
+ST_127 : Operation 485 [1/4] (7.71ns)   --->   "%tmp_24 = fadd float %prev_3, %next_3" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 485 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 128 <SV = 66> <Delay = 2.78>
+ST_128 : Operation 486 [2/2] (2.78ns)   --->   "%tmp_25 = fpext float %tmp_24 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 486 'fpext' 'tmp_25' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 129 <SV = 67> <Delay = 2.78>
+ST_129 : Operation 487 [1/2] (2.78ns)   --->   "%tmp_25 = fpext float %tmp_24 to double" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 487 'fpext' 'tmp_25' <Predicate = true> <Delay = 2.78> <Core = "Float2Double">   --->   Core 114 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.78> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+
+State 130 <SV = 68> <Delay = 8.33>
+ST_130 : Operation 488 [5/5] (8.33ns)   --->   "%tmp_26 = fmul double %tmp_25, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 488 'dmul' 'tmp_26' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 131 <SV = 69> <Delay = 8.33>
+ST_131 : Operation 489 [4/5] (8.33ns)   --->   "%tmp_26 = fmul double %tmp_25, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 489 'dmul' 'tmp_26' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 132 <SV = 70> <Delay = 8.33>
+ST_132 : Operation 490 [3/5] (8.33ns)   --->   "%tmp_26 = fmul double %tmp_25, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 490 'dmul' 'tmp_26' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 133 <SV = 71> <Delay = 8.33>
+ST_133 : Operation 491 [2/5] (8.33ns)   --->   "%tmp_26 = fmul double %tmp_25, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 491 'dmul' 'tmp_26' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 134 <SV = 72> <Delay = 8.33>
+ST_134 : Operation 492 [1/5] (8.33ns)   --->   "%tmp_26 = fmul double %tmp_25, 5.000000e-01" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 492 'dmul' 'tmp_26' <Predicate = true> <Delay = 8.33> <Core = "DMul">   --->   Core 116 'DMul' <Latency = 4> <II = 1> <Delay = 8.33> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 135 <SV = 73> <Delay = 2.66>
+ST_135 : Operation 493 [2/2] (2.66ns)   --->   "store double %tmp_26, double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 493 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+
+State 136 <SV = 74> <Delay = 2.66>
+ST_136 : Operation 494 [1/2] (2.66ns)   --->   "store double %tmp_26, double* %in_verts_st_buf_addr_4, align 8" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63]   --->   Operation 494 'store' <Predicate = (!tmp_40)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 3> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 1000000> <RAM>
+ST_136 : Operation 495 [1/1] (0.00ns)   --->   "br label %.loopexit" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:65]   --->   Operation 495 'br' <Predicate = (!tmp_40)> <Delay = 0.00>
+ST_136 : Operation 496 [1/1] (0.00ns)   --->   "br label %.preheader" [extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54]   --->   Operation 496 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('invdar6') with incoming values : ('indvarinc7') [11]  (1.06 ns)
+
+ <State 2>: 1.56ns
+The critical path consists of the following:
+	'phi' operation ('phi_mul') with incoming values : ('next_mul') [12]  (0 ns)
+	'add' operation ('next_mul') [13]  (1.56 ns)
+
+ <State 3>: 4.23ns
+The critical path consists of the following:
+	'phi' operation ('invdar11') with incoming values : ('indvarinc12') [18]  (0 ns)
+	'add' operation ('empty_12') [21]  (1.56 ns)
+	'getelementptr' operation ('in_verts_st_addr') [23]  (0 ns)
+	'load' operation ('in_verts_st_load') on array 'in_verts_st' [25]  (2.66 ns)
+
+ <State 4>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_load') on array 'in_verts_st' [25]  (2.66 ns)
+
+ <State 5>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_load') on array 'in_verts_st' [25]  (2.66 ns)
+
+ <State 6>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_load') on array 'in_verts_st' [25]  (2.66 ns)
+	'store' operation ('store_ln0') of variable 'in_verts_st_load' on array 'in_verts_st_buf' [26]  (2.66 ns)
+
+ <State 7>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln0') of variable 'in_verts_st_load' on array 'in_verts_st_buf' [26]  (2.66 ns)
+
+ <State 8>: 1.56ns
+The critical path consists of the following:
+	'phi' operation ('phi_mul1') with incoming values : ('next_mul2') [38]  (0 ns)
+	'add' operation ('next_mul2') [39]  (1.56 ns)
+
+ <State 9>: 4.23ns
+The critical path consists of the following:
+	'phi' operation ('invdar3') with incoming values : ('indvarinc4') [44]  (0 ns)
+	'add' operation ('empty_17') [47]  (1.56 ns)
+	'getelementptr' operation ('in_verts_xyz_addr') [49]  (0 ns)
+	'load' operation ('in_verts_xyz_load') on array 'in_verts_xyz' [51]  (2.66 ns)
+
+ <State 10>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_load') on array 'in_verts_xyz' [51]  (2.66 ns)
+
+ <State 11>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_load') on array 'in_verts_xyz' [51]  (2.66 ns)
+
+ <State 12>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_load') on array 'in_verts_xyz' [51]  (2.66 ns)
+	'store' operation ('store_ln0') of variable 'in_verts_xyz_load' on array 'in_verts_xyz_buf' [52]  (2.66 ns)
+
+ <State 13>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln0') of variable 'in_verts_xyz_load' on array 'in_verts_xyz_buf' [52]  (2.66 ns)
+
+ <State 14>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28) [68]  (0 ns)
+	'add' operation ('i', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:28) [71]  (1.77 ns)
+
+ <State 15>: 8.37ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:29) [76]  (0 ns)
+	'add' operation ('add_ln31', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [80]  (1.78 ns)
+	'mul' operation ('mul_ln31_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [86]  (6.58 ns)
+
+ <State 16>: 8.37ns
+The critical path consists of the following:
+	'add' operation ('add_ln31_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [83]  (1.78 ns)
+	'mul' operation ('mul_ln37', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [85]  (6.58 ns)
+
+ <State 17>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('l') with incoming values : ('l', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:30) [96]  (0 ns)
+	'getelementptr' operation ('in_verts_xyz_buf_add_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [114]  (0 ns)
+	'load' operation ('in_verts_xyz_buf_loa', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) on array 'in_verts_xyz_buf' [117]  (2.66 ns)
+
+ <State 18>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('in_verts_xyz_buf_add_2', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [115]  (0 ns)
+	'load' operation ('in_verts_xyz_buf_loa_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) on array 'in_verts_xyz_buf' [118]  (2.66 ns)
+
+ <State 19>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) on array 'in_verts_xyz_buf' [117]  (2.66 ns)
+
+ <State 20>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) on array 'in_verts_xyz_buf' [117]  (2.66 ns)
+
+ <State 21>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) on array 'in_verts_xyz_buf' [118]  (2.66 ns)
+
+ <State 22>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [119]  (6.92 ns)
+
+ <State 23>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [119]  (6.92 ns)
+
+ <State 24>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [119]  (6.92 ns)
+
+ <State 25>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [119]  (6.92 ns)
+
+ <State 26>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [119]  (6.92 ns)
+
+ <State 27>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [120]  (8.33 ns)
+
+ <State 28>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [120]  (8.33 ns)
+
+ <State 29>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [120]  (8.33 ns)
+
+ <State 30>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [120]  (8.33 ns)
+
+ <State 31>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [120]  (8.33 ns)
+
+ <State 32>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [121]  (3.32 ns)
+
+ <State 33>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:31) [121]  (3.32 ns)
+
+ <State 34>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_6', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [126]  (7.72 ns)
+
+ <State 35>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_6', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [126]  (7.72 ns)
+
+ <State 36>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_6', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [126]  (7.72 ns)
+
+ <State 37>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_6', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [126]  (7.72 ns)
+
+ <State 38>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_7', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [127]  (2.79 ns)
+
+ <State 39>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_7', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [127]  (2.79 ns)
+
+ <State 40>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [128]  (8.33 ns)
+
+ <State 41>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [128]  (8.33 ns)
+
+ <State 42>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [128]  (8.33 ns)
+
+ <State 43>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [128]  (8.33 ns)
+
+ <State 44>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) [128]  (8.33 ns)
+
+ <State 45>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln33', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) of variable 'tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33 on array 'in_verts_xyz_buf' [129]  (2.66 ns)
+
+ <State 46>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln33', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33) of variable 'tmp_8', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:33 on array 'in_verts_xyz_buf' [129]  (2.66 ns)
+
+ <State 47>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) on array 'in_verts_st_buf' [133]  (2.66 ns)
+
+ <State 48>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) on array 'in_verts_st_buf' [133]  (2.66 ns)
+
+ <State 49>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) on array 'in_verts_st_buf' [133]  (2.66 ns)
+
+ <State 50>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) on array 'in_verts_st_buf' [134]  (2.66 ns)
+
+ <State 51>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [135]  (6.92 ns)
+
+ <State 52>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [135]  (6.92 ns)
+
+ <State 53>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [135]  (6.92 ns)
+
+ <State 54>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [135]  (6.92 ns)
+
+ <State 55>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_9', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [135]  (6.92 ns)
+
+ <State 56>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [136]  (8.33 ns)
+
+ <State 57>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [136]  (8.33 ns)
+
+ <State 58>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [136]  (8.33 ns)
+
+ <State 59>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [136]  (8.33 ns)
+
+ <State 60>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [136]  (8.33 ns)
+
+ <State 61>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [137]  (3.32 ns)
+
+ <State 62>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:37) [137]  (3.32 ns)
+
+ <State 63>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [142]  (7.72 ns)
+
+ <State 64>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [142]  (7.72 ns)
+
+ <State 65>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [142]  (7.72 ns)
+
+ <State 66>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [142]  (7.72 ns)
+
+ <State 67>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_11', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [143]  (2.79 ns)
+
+ <State 68>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_11', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [143]  (2.79 ns)
+
+ <State 69>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [144]  (8.33 ns)
+
+ <State 70>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [144]  (8.33 ns)
+
+ <State 71>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [144]  (8.33 ns)
+
+ <State 72>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [144]  (8.33 ns)
+
+ <State 73>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) [144]  (8.33 ns)
+
+ <State 74>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln39', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) of variable 'tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39 on array 'in_verts_st_buf' [145]  (2.66 ns)
+
+ <State 75>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln39', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39) of variable 'tmp_12', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:39 on array 'in_verts_st_buf' [145]  (2.66 ns)
+
+ <State 76>: 1.78ns
+The critical path consists of the following:
+	'phi' operation ('phi_mul3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52) with incoming values : ('add_ln52', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:52) [158]  (0 ns)
+	'add' operation ('add_ln55_1', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [165]  (1.78 ns)
+
+ <State 77>: 8.37ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:53) [169]  (0 ns)
+	'add' operation ('add_ln55', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [173]  (1.78 ns)
+	'mul' operation ('mul_ln61', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [175]  (6.58 ns)
+
+ <State 78>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('l') with incoming values : ('l', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:54) [184]  (0 ns)
+	'getelementptr' operation ('in_verts_xyz_buf_add_4', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [202]  (0 ns)
+	'load' operation ('in_verts_xyz_buf_loa_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) on array 'in_verts_xyz_buf' [205]  (2.66 ns)
+
+ <State 79>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('in_verts_xyz_buf_add_5', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [203]  (0 ns)
+	'load' operation ('in_verts_xyz_buf_loa_4', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) on array 'in_verts_xyz_buf' [206]  (2.66 ns)
+
+ <State 80>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) on array 'in_verts_xyz_buf' [205]  (2.66 ns)
+
+ <State 81>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) on array 'in_verts_xyz_buf' [205]  (2.66 ns)
+
+ <State 82>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_xyz_buf_loa_4', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) on array 'in_verts_xyz_buf' [206]  (2.66 ns)
+
+ <State 83>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_13', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [207]  (6.92 ns)
+
+ <State 84>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_13', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [207]  (6.92 ns)
+
+ <State 85>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_13', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [207]  (6.92 ns)
+
+ <State 86>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_13', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [207]  (6.92 ns)
+
+ <State 87>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_13', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [207]  (6.92 ns)
+
+ <State 88>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_14', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [208]  (8.33 ns)
+
+ <State 89>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_14', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [208]  (8.33 ns)
+
+ <State 90>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_14', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [208]  (8.33 ns)
+
+ <State 91>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_14', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [208]  (8.33 ns)
+
+ <State 92>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_14', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [208]  (8.33 ns)
+
+ <State 93>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [209]  (3.32 ns)
+
+ <State 94>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:55) [209]  (3.32 ns)
+
+ <State 95>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_17', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [214]  (7.72 ns)
+
+ <State 96>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_17', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [214]  (7.72 ns)
+
+ <State 97>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_17', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [214]  (7.72 ns)
+
+ <State 98>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_17', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [214]  (7.72 ns)
+
+ <State 99>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_18', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [215]  (2.79 ns)
+
+ <State 100>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_18', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [215]  (2.79 ns)
+
+ <State 101>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [216]  (8.33 ns)
+
+ <State 102>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [216]  (8.33 ns)
+
+ <State 103>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [216]  (8.33 ns)
+
+ <State 104>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [216]  (8.33 ns)
+
+ <State 105>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) [216]  (8.33 ns)
+
+ <State 106>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln57', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) of variable 'tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57 on array 'in_verts_xyz_buf' [217]  (2.66 ns)
+
+ <State 107>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln57', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57) of variable 'tmp_19', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:57 on array 'in_verts_xyz_buf' [217]  (2.66 ns)
+
+ <State 108>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) on array 'in_verts_st_buf' [221]  (2.66 ns)
+
+ <State 109>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) on array 'in_verts_st_buf' [221]  (2.66 ns)
+
+ <State 110>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load_3', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) on array 'in_verts_st_buf' [221]  (2.66 ns)
+
+ <State 111>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_verts_st_buf_load_4', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) on array 'in_verts_st_buf' [222]  (2.66 ns)
+
+ <State 112>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_20', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [223]  (6.92 ns)
+
+ <State 113>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_20', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [223]  (6.92 ns)
+
+ <State 114>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_20', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [223]  (6.92 ns)
+
+ <State 115>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_20', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [223]  (6.92 ns)
+
+ <State 116>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_20', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [223]  (6.92 ns)
+
+ <State 117>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_21', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [224]  (8.33 ns)
+
+ <State 118>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_21', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [224]  (8.33 ns)
+
+ <State 119>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_21', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [224]  (8.33 ns)
+
+ <State 120>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_21', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [224]  (8.33 ns)
+
+ <State 121>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_21', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [224]  (8.33 ns)
+
+ <State 122>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [225]  (3.32 ns)
+
+ <State 123>: 3.32ns
+The critical path consists of the following:
+	'fptrunc' operation ('prev', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:61) [225]  (3.32 ns)
+
+ <State 124>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_24', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [230]  (7.72 ns)
+
+ <State 125>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_24', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [230]  (7.72 ns)
+
+ <State 126>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_24', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [230]  (7.72 ns)
+
+ <State 127>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_24', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [230]  (7.72 ns)
+
+ <State 128>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_25', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [231]  (2.79 ns)
+
+ <State 129>: 2.79ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_25', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [231]  (2.79 ns)
+
+ <State 130>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [232]  (8.33 ns)
+
+ <State 131>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [232]  (8.33 ns)
+
+ <State 132>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [232]  (8.33 ns)
+
+ <State 133>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [232]  (8.33 ns)
+
+ <State 134>: 8.33ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) [232]  (8.33 ns)
+
+ <State 135>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln63', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) of variable 'tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63 on array 'in_verts_st_buf' [233]  (2.66 ns)
+
+ <State 136>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln63', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63) of variable 'tmp_26', extr_.labq3map2q3map2mesh.c_PutMeshOnCurve_with_main.c:63 on array 'in_verts_st_buf' [233]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+	State 98
+	State 99
+	State 100
+	State 101
+	State 102
+	State 103
+	State 104
+	State 105
+	State 106
+	State 107
+	State 108
+	State 109
+	State 110
+	State 111
+	State 112
+	State 113
+	State 114
+	State 115
+	State 116
+	State 117
+	State 118
+	State 119
+	State 120
+	State 121
+	State 122
+	State 123
+	State 124
+	State 125
+	State 126
+	State 127
+	State 128
+	State 129
+	State 130
+	State 131
+	State 132
+	State 133
+	State 134
+	State 135
+	State 136
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

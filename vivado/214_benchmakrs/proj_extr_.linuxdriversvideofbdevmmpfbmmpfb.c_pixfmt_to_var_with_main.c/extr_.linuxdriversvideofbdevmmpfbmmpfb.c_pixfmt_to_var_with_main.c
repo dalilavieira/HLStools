@@ -37,7 +37,7 @@ struct fb_var_screeninfo {int bits_per_pixel; TYPE_4__ transp; TYPE_3__ blue; TY
 #define  PIXFMT_YVU420P 129 
 #define  PIXFMT_YVU422P 128 
 
-__attribute__((used)) static void pixfmt_to_var(struct fb_var_screeninfo *var, int pix_fmt)
+void pixfmt_to_var(struct fb_var_screeninfo *var, int pix_fmt)
 {
 	switch (pix_fmt) {
 	case PIXFMT_RGB565:

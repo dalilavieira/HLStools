@@ -158,8 +158,8 @@ typedef int ngx_int_t ;
  int* mday ;
 
 time_t
-ngx_parse_http_time(u_char *value, size_t len)
-{
+ngx_parse_http_time(u_char value[1000], size_t len)
+{_ssdm_SpecArrayDimSize(value, 1000);
     u_char *p, *end;
     ngx_int_t month;
     ngx_uint_t day, year, hour, min, sec;

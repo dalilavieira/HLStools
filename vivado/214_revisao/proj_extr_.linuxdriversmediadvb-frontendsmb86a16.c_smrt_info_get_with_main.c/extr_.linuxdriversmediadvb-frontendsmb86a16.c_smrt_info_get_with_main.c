@@ -13,7 +13,7 @@ struct mb86a16_state {int deci; int csel; int rsel; int master_clk; } ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void smrt_info_get(struct mb86a16_state *state, int rate)
+void smrt_info_get(struct mb86a16_state *state, int rate)
 {
 	if (rate >= 37501) {
 		state->deci = 0; state->csel = 0; state->rsel = 0;

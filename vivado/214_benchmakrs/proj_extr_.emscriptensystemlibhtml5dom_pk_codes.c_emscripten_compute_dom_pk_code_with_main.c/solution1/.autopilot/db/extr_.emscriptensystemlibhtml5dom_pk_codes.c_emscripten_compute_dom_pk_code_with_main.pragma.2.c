@@ -305,8 +305,8 @@ typedef int DOM_PK_CODE_TYPE ;
  int DOM_PK_Y ;
  int DOM_PK_Z ;
 
-DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char *keyCodeString)
-{
+DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char keyCodeString[1000])
+{_ssdm_SpecArrayDimSize(keyCodeString, 1000);
   if (!keyCodeString) return 0;
 
 
@@ -480,7 +480,10 @@ DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char *keyCodeString)
   }
 }
 int main() {
-  const char * keyCodeString;
+  const char keyCodeString[1000];
+_ssdm_SpecConstant(keyCodeString);
+# 345 "extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c"
+
   emscripten_compute_dom_pk_code(keyCodeString);
   return 0;
 }

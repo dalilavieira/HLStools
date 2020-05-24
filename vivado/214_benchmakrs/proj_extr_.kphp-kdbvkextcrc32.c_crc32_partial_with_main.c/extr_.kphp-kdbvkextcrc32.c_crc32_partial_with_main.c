@@ -11,12 +11,12 @@ typedef int bool;
 /* Type definitions */
 
 /* Variables and functions */
- unsigned int* crc32_table ; 
- unsigned int* crc32_table0 ; 
- unsigned int* crc32_table1 ; 
- unsigned int* crc32_table2 ; 
+ unsigned int crc32_table[1000] ; 
+ unsigned int crc32_table0[1000]  ; 
+ unsigned int crc32_table1[1000]  ; 
+ unsigned int crc32_table2[1000]  ; 
 
-unsigned crc32_partial (const void *data, int len, unsigned crc) {
+unsigned crc32_partial (const int data[100], int len, unsigned crc) {
   const int *p = (const int *) data;
   int x;
 #define DO_ONE(v) crc ^= v; crc = crc32_table0[crc & 0xff] ^ crc32_table1[(crc & 0xff00) >> 8] ^ crc32_table2[(crc & 0xff0000) >> 16] ^ crc32_table[crc >> 24];
@@ -57,7 +57,7 @@ unsigned crc32_partial (const void *data, int len, unsigned crc) {
   return crc;
 }/* Main routine for crc32_partial */
 int main() {
-  const void * data;
+  const int * data;
   int len;
   unsigned int crc;
   crc32_partial(data, len, crc);

@@ -46,7 +46,7 @@ typedef  TYPE_16__* PPREVIEW_DATA ;
 
 /* Variables and functions */
 
-__attribute__((used)) static VOID
+VOID
 CalculateItemSize(PPREVIEW_DATA pPreviewData)
 {
     int width, height;

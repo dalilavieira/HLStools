@@ -42,7 +42,7 @@ set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
 set SourceFiles {sc {} c ../extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/vivado/HLStools/vivado/214_revisao/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/sol.directive
+set DirectiveFile /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/sol.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -20,8 +20,7 @@ struct php_crypt_extended_data {int old_rawkey0; int old_rawkey1; int* de_keysl;
  int** key_perm_maskr ; 
  scalar_t__* key_shifts ; 
 
-__attribute__((used)) static int
-des_setkey(const char *key, struct php_crypt_extended_data *data)
+int des_setkey(const char *key, struct php_crypt_extended_data data[1000])
 {
 	uint32_t	k0, k1, rawkey0, rawkey1;
 	int	shifts, round;

@@ -186,7 +186,7 @@ typedef int u32 ;
  int MC_CMD_FILTER_OP_EXT_IN_MATCH_UNKNOWN_MCAST_DST_LBN ;
  int MC_CMD_FILTER_OP_EXT_IN_MATCH_UNKNOWN_UCAST_DST_LBN ;
 
-__attribute__((used)) static int efx_ef10_filter_match_flags_from_mcdi(bool encap, u32 mcdi_flags)
+int efx_ef10_filter_match_flags_from_mcdi(bool encap, u32 mcdi_flags)
 {
  int match_flags = 0;
 # 63 "extr_.linuxdriversnetethernetsfcef10.c_efx_ef10_filter_match_flags_from_mcdi_with_main.c"

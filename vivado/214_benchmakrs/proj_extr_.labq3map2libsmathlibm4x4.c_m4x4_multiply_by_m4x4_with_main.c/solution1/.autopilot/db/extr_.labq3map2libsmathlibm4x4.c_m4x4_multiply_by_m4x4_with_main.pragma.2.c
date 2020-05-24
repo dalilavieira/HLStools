@@ -148,11 +148,11 @@ typedef int bool;
 
 
 typedef int vec_t ;
-typedef int* m4x4_t ;
+typedef int m4x4_t [1000];
 
 
 
-void m4x4_multiply_by_m4x4( m4x4_t dst, const m4x4_t src ){
+void m4x4_multiply_by_m4x4( m4x4_t dst, const m4x4_t src ){_ssdm_SpecArrayDimSize(dst, 1000);_ssdm_SpecArrayDimSize(src, 1000);
  vec_t dst0, dst1, dst2, dst3;
 
 
@@ -185,6 +185,9 @@ void m4x4_multiply_by_m4x4( m4x4_t dst, const m4x4_t src ){
 int main() {
   m4x4_t dst;
   const m4x4_t src;
+_ssdm_SpecConstant(src);
+# 79 "extr_.labq3map2libsmathlibm4x4.c_m4x4_multiply_by_m4x4_with_main.c"
+
   m4x4_multiply_by_m4x4(dst, src);
   return 0;
 }

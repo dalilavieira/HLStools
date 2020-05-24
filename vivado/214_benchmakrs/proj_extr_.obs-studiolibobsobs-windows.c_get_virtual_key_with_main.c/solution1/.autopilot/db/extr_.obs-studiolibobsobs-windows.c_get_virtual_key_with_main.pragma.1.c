@@ -237,7 +237,7 @@ typedef int obs_key_t ;
  int VK_XBUTTON1 ;
  int VK_XBUTTON2 ;
 
-__attribute__((used)) static int get_virtual_key(obs_key_t key)
+int get_virtual_key(obs_key_t key)
 {
  switch (key) {
  case 145: return VK_RETURN;

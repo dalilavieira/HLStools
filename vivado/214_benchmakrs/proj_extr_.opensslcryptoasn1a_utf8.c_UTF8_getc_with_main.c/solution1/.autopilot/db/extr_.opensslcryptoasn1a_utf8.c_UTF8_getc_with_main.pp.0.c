@@ -142,8 +142,8 @@ typedef int scalar_t__;
 
 typedef int bool;
 # 15 "extr_.opensslcryptoasn1a_utf8.c_UTF8_getc_with_main.c"
-int UTF8_getc(const unsigned char *str, int len, unsigned long *val)
-{
+int UTF8_getc(const unsigned char str[1000], int len, unsigned long val[1000])
+{_ssdm_SpecArrayDimSize(str, 1000);_ssdm_SpecArrayDimSize(val, 1000);
     const unsigned char *p;
     unsigned long value;
     int ret;

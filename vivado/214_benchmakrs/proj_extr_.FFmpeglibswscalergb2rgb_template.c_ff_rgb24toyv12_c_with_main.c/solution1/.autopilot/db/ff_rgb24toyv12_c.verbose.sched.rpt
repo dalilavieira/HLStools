@@ -1,0 +1,441 @@
+
+
+================================================================
+== Vivado HLS Report for 'ff_rgb24toyv12_c'
+================================================================
+* Date:           Sun May 24 03:25:12 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     6.580|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         6|          -|          -|     ?|    no    |
+        | + Loop 1.2  |    ?|    ?|         6|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 15
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 10 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 4 
+10 --> 11 3 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 10 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.66>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%rgb2yuv_addr = getelementptr [1000 x i32]* %rgb2yuv, i64 0, i64 0" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31]   --->   Operation 16 'getelementptr' 'rgb2yuv_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [2/2] (2.66ns)   --->   "%ry = load i32* %rgb2yuv_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31]   --->   Operation 17 'load' 'ry' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %src) nounwind, !map !65"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %ydst) nounwind, !map !71"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %udst) nounwind, !map !75"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %vdst) nounwind, !map !79"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %width) nounwind, !map !83"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %height) nounwind, !map !89"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %lumStride) nounwind, !map !93"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %chromStride) nounwind, !map !97"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %srcStride) nounwind, !map !101"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %rgb2yuv) nounwind, !map !105"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([17 x i8]* @ff_rgb24toyv12_c_str) nounwind"   --->   Operation 28 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%srcStride_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %srcStride) nounwind" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:27]   --->   Operation 29 'read' 'srcStride_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%chromStride_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %chromStride) nounwind" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:27]   --->   Operation 30 'read' 'chromStride_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%lumStride_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %lumStride) nounwind" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:27]   --->   Operation 31 'read' 'lumStride_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%height_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %height) nounwind" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:27]   --->   Operation 32 'read' 'height_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%width_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %width) nounwind" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:27]   --->   Operation 33 'read' 'width_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/2] (2.66ns)   --->   "%ry = load i32* %rgb2yuv_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31]   --->   Operation 34 'load' 'ry' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%trunc_ln = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %width_read, i32 1, i32 31)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:35]   --->   Operation 35 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%trunc_ln60 = trunc i32 %lumStride_read to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:60]   --->   Operation 36 'trunc' 'trunc_ln60' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%trunc_ln82 = trunc i32 %srcStride_read to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:82]   --->   Operation 37 'trunc' 'trunc_ln82' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%sext_ln82 = sext i32 %chromStride_read to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:82]   --->   Operation 38 'sext' 'sext_ln82' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%shl_ln = call i33 @_ssdm_op_BitConcatenate.i33.i32.i1(i32 %lumStride_read, i1 false)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:83]   --->   Operation 39 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%sext_ln83 = sext i33 %shl_ln to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:83]   --->   Operation 40 'sext' 'sext_ln83' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%shl_ln1 = call i33 @_ssdm_op_BitConcatenate.i33.i32.i1(i32 %srcStride_read, i1 false)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:84]   --->   Operation 41 'bitconcatenate' 'shl_ln1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%sext_ln84 = sext i33 %shl_ln1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:84]   --->   Operation 42 'sext' 'sext_ln84' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node select_ln37_1)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %height_read, i32 31)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 43 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (1.78ns)   --->   "%add_ln37 = add i32 1, %height_read" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 44 'add' 'add_ln37' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 45 [1/1] (0.00ns) (grouped into LUT with out node select_ln37_1)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln37, i32 31)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 45 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node sub_ln37)   --->   "%xor_ln37 = xor i32 %height_read, -1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 46 'xor' 'xor_ln37' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.66> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 47 [1/1] (0.00ns) (grouped into LUT with out node sub_ln37)   --->   "%p_lshr = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %xor_ln37, i32 1, i32 31)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 47 'partselect' 'p_lshr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (1.76ns) (out node of the LUT)   --->   "%sub_ln37 = sub i31 0, %p_lshr" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 48 'sub' 'sub_ln37' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 49 [1/1] (0.00ns) (grouped into LUT with out node select_ln37_1)   --->   "%tmp_2 = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %add_ln37, i32 1, i32 31)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 49 'partselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node select_ln37_1)   --->   "%select_ln37 = select i1 %tmp_1, i31 %sub_ln37, i31 %tmp_2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 50 'select' 'select_ln37' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 51 [1/1] (0.61ns) (out node of the LUT)   --->   "%select_ln37_1 = select i1 %tmp, i31 0, i31 %select_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 51 'select' 'select_ln37_1' <Predicate = true> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_3 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %select_ln37_1, i1 false)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 52 'bitconcatenate' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (1.06ns)   --->   "br label %1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 53 'br' <Predicate = true> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 1.54>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%y_0 = phi i32 [ 0, %0 ], [ %y, %5 ]"   --->   Operation 54 'phi' 'y_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%p_03_rec = phi i64 [ 0, %0 ], [ %add_ln82, %5 ]" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:82]   --->   Operation 55 'phi' 'p_03_rec' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%p_01_rec = phi i64 [ 0, %0 ], [ %add_ln83, %5 ]" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:83]   --->   Operation 56 'phi' 'p_01_rec' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "%p_0_rec = phi i64 [ 0, %0 ], [ %add_ln84, %5 ]" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:84]   --->   Operation 57 'phi' 'p_0_rec' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 58 [1/1] (1.54ns)   --->   "%icmp_ln37 = icmp eq i32 %y_0, %tmp_3" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 58 'icmp' 'icmp_ln37' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "br i1 %icmp_ln37, label %.loopexit, label %.preheader30.preheader" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 59 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (1.06ns)   --->   "br label %.preheader30" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 60 'br' <Predicate = (!icmp_ln37)> <Delay = 1.06>
+
+State 4 <SV = 3> <Delay = 5.52>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%i_0 = phi i30 [ %i, %2 ], [ 0, %.preheader30.preheader ]"   --->   Operation 61 'phi' 'i_0' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%trunc_ln40 = trunc i30 %i_0 to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 62 'trunc' 'trunc_ln40' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%zext_ln39 = zext i30 %i_0 to i31" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39]   --->   Operation 63 'zext' 'zext_ln39' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (1.54ns)   --->   "%icmp_ln39 = icmp slt i31 %zext_ln39, %trunc_ln" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39]   --->   Operation 64 'icmp' 'icmp_ln39' <Predicate = (!icmp_ln37)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 65 [1/1] (1.74ns)   --->   "%i = add i30 1, %i_0" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39]   --->   Operation 65 'add' 'i' <Predicate = (!icmp_ln37)> <Delay = 1.74> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %icmp_ln39, label %2, label %3" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39]   --->   Operation 66 'br' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "%trunc_ln40_1 = trunc i30 %i_0 to i8" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 67 'trunc' 'trunc_ln40_1' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%shl_ln2 = call i11 @_ssdm_op_BitConcatenate.i11.i8.i3(i8 %trunc_ln40_1, i3 0)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 68 'bitconcatenate' 'shl_ln2' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%trunc_ln40_2 = trunc i30 %i_0 to i10" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 69 'trunc' 'trunc_ln40_2' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%zext_ln1 = call i11 @_ssdm_op_BitConcatenate.i11.i10.i1(i10 %trunc_ln40_2, i1 false)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 70 'bitconcatenate' 'zext_ln1' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (1.42ns)   --->   "%sub_ln40 = sub i11 %shl_ln2, %zext_ln1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 71 'sub' 'sub_ln40' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%trunc_ln37 = trunc i64 %p_0_rec to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 72 'trunc' 'trunc_ln37' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (1.42ns)   --->   "%add_ln40 = add i11 %sub_ln40, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 73 'add' 'add_ln40' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%zext_ln40 = zext i11 %add_ln40 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 74 'zext' 'zext_ln40' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%src_addr = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln40" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 75 'getelementptr' 'src_addr' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 76 [2/2] (2.66ns)   --->   "%b = load i32* %src_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 76 'load' 'b' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 77 [1/1] (0.00ns) (grouped into LUT with out node add_ln41)   --->   "%or_ln41 = or i11 %sub_ln40, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 77 'or' 'or_ln41' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (1.42ns) (out node of the LUT)   --->   "%add_ln41 = add i11 %or_ln41, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 78 'add' 'add_ln41' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln41 = zext i11 %add_ln41 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 79 'zext' 'zext_ln41' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%src_addr_1 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln41" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 80 'getelementptr' 'src_addr_1' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 81 [2/2] (2.66ns)   --->   "%g = load i32* %src_addr_1, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 81 'load' 'g' <Predicate = (!icmp_ln37 & icmp_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln62)   --->   "%or_ln62 = or i32 %y_0, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:62]   --->   Operation 82 'or' 'or_ln62' <Predicate = (!icmp_ln37 & !icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 83 [1/1] (1.54ns) (out node of the LUT)   --->   "%icmp_ln62 = icmp eq i32 %or_ln62, %height_read" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:62]   --->   Operation 83 'icmp' 'icmp_ln62' <Predicate = (!icmp_ln37 & !icmp_ln39)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "br i1 %icmp_ln62, label %.loopexit, label %.preheader.preheader" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:62]   --->   Operation 84 'br' <Predicate = (!icmp_ln37 & !icmp_ln39)> <Delay = 0.00>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%trunc_ln37_3 = trunc i64 %p_0_rec to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 85 'trunc' 'trunc_ln37_3' <Predicate = (!icmp_ln37 & !icmp_ln39 & !icmp_ln62)> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (1.42ns)   --->   "%add_ln66 = add i11 %trunc_ln82, %trunc_ln37_3" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 86 'add' 'add_ln66' <Predicate = (!icmp_ln37 & !icmp_ln39 & !icmp_ln62)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 87 [1/1] (0.00ns)   --->   "%trunc_ln37_4 = trunc i64 %p_01_rec to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 87 'trunc' 'trunc_ln37_4' <Predicate = (!icmp_ln37 & !icmp_ln39 & !icmp_ln62)> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (1.42ns)   --->   "%add_ln72 = add i11 %trunc_ln60, %trunc_ln37_4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:72]   --->   Operation 88 'add' 'add_ln72' <Predicate = (!icmp_ln37 & !icmp_ln39 & !icmp_ln62)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 89 [1/1] (1.06ns)   --->   "br label %.preheader" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 89 'br' <Predicate = (!icmp_ln37 & !icmp_ln39 & !icmp_ln62)> <Delay = 1.06>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "ret void" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:86]   --->   Operation 90 'ret' <Predicate = (!icmp_ln39 & icmp_ln62) | (icmp_ln37)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 5.13>
+ST_5 : Operation 91 [1/2] (2.66ns)   --->   "%b = load i32* %src_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40]   --->   Operation 91 'load' 'b' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 92 [1/2] (2.66ns)   --->   "%g = load i32* %src_addr_1, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:41]   --->   Operation 92 'load' 'g' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 93 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln42 = add i11 2, %sub_ln40" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 93 'add' 'add_ln42' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 94 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln42_1 = add i11 %add_ln42, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 94 'add' 'add_ln42_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln42 = zext i11 %add_ln42_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 95 'zext' 'zext_ln42' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "%src_addr_2 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln42" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 96 'getelementptr' 'src_addr_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 97 [2/2] (2.66ns)   --->   "%r = load i32* %src_addr_2, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 97 'load' 'r' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln37_1 = trunc i64 %p_03_rec to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 98 'trunc' 'trunc_ln37_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 99 [1/1] (1.42ns)   --->   "%add_ln48 = add i11 %trunc_ln40, %trunc_ln37_1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:48]   --->   Operation 99 'add' 'add_ln48' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 100 [1/1] (0.00ns)   --->   "%trunc_ln37_2 = trunc i64 %p_01_rec to i11" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 100 'trunc' 'trunc_ln37_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 101 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln52 = add i11 3, %sub_ln40" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 101 'add' 'add_ln52' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 102 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln52_1 = add i11 %add_ln52, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 102 'add' 'add_ln52_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln52 = zext i11 %add_ln52_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 103 'zext' 'zext_ln52' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 104 [1/1] (0.00ns)   --->   "%src_addr_3 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln52" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 104 'getelementptr' 'src_addr_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 105 [2/2] (2.66ns)   --->   "%b_1 = load i32* %src_addr_3, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 105 'load' 'b_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 6 <SV = 5> <Delay = 5.44>
+ST_6 : Operation 106 [1/2] (2.66ns)   --->   "%r = load i32* %src_addr_2, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42]   --->   Operation 106 'load' 'r' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 107 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln44 = add i32 %r, %g" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44]   --->   Operation 107 'add' 'add_ln44' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 108 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln44_1 = add i32 %b, %add_ln44" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44]   --->   Operation 108 'add' 'add_ln44_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 109 [1/2] (2.66ns)   --->   "%b_1 = load i32* %src_addr_3, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:52]   --->   Operation 109 'load' 'b_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 110 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln53 = add i11 4, %sub_ln40" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 110 'add' 'add_ln53' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 111 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln53_1 = add i11 %add_ln53, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 111 'add' 'add_ln53_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 112 [1/1] (0.00ns)   --->   "%zext_ln53 = zext i11 %add_ln53_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 112 'zext' 'zext_ln53' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "%src_addr_4 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln53" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 113 'getelementptr' 'src_addr_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 114 [2/2] (2.66ns)   --->   "%g_1 = load i32* %src_addr_4, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 114 'load' 'g_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 115 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln54 = add i11 5, %sub_ln40" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 115 'add' 'add_ln54' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 116 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln54_1 = add i11 %add_ln54, %trunc_ln37" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 116 'add' 'add_ln54_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln54 = zext i11 %add_ln54_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 117 'zext' 'zext_ln54' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 118 [1/1] (0.00ns)   --->   "%src_addr_5 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln54" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 118 'getelementptr' 'src_addr_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 119 [2/2] (2.66ns)   --->   "%r_1 = load i32* %src_addr_5, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 119 'load' 'r_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 7 <SV = 6> <Delay = 6.58>
+ST_7 : Operation 120 [1/1] (6.58ns)   --->   "%mul_ln44 = mul i32 %add_ln44_1, %ry" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44]   --->   Operation 120 'mul' 'mul_ln44' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 121 [1/2] (2.66ns)   --->   "%g_1 = load i32* %src_addr_4, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:53]   --->   Operation 121 'load' 'g_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 122 [1/2] (2.66ns)   --->   "%r_1 = load i32* %src_addr_5, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:54]   --->   Operation 122 'load' 'r_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 123 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln56 = add i32 %r_1, %g_1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56]   --->   Operation 123 'add' 'add_ln56' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 124 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln56_1 = add i32 %b_1, %add_ln56" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56]   --->   Operation 124 'add' 'add_ln56_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 8 <SV = 7> <Delay = 6.58>
+ST_8 : Operation 125 [1/1] (1.78ns)   --->   "%Y = add i32 16, %mul_ln44" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44]   --->   Operation 125 'add' 'Y' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 126 [1/1] (1.78ns)   --->   "%V = add i32 128, %mul_ln44" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:45]   --->   Operation 126 'add' 'V' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 127 [1/1] (0.00ns)   --->   "%zext_ln48 = zext i11 %add_ln48 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:48]   --->   Operation 127 'zext' 'zext_ln48' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 128 [1/1] (0.00ns)   --->   "%udst_addr = getelementptr [1000 x i32]* %udst, i64 0, i64 %zext_ln48" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:48]   --->   Operation 128 'getelementptr' 'udst_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 129 [1/1] (2.66ns)   --->   "store i32 %V, i32* %udst_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:48]   --->   Operation 129 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 130 [1/1] (0.00ns)   --->   "%vdst_addr = getelementptr [1000 x i32]* %vdst, i64 0, i64 %zext_ln48" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:49]   --->   Operation 130 'getelementptr' 'vdst_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 131 [1/1] (2.66ns)   --->   "store i32 %V, i32* %vdst_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:49]   --->   Operation 131 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 132 [1/1] (1.42ns)   --->   "%add_ln50 = add i11 %zext_ln1, %trunc_ln37_2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:50]   --->   Operation 132 'add' 'add_ln50' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 133 [1/1] (0.00ns)   --->   "%zext_ln50 = zext i11 %add_ln50 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:50]   --->   Operation 133 'zext' 'zext_ln50' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 134 [1/1] (0.00ns)   --->   "%ydst_addr = getelementptr [1000 x i32]* %ydst, i64 0, i64 %zext_ln50" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:50]   --->   Operation 134 'getelementptr' 'ydst_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 135 [1/1] (2.66ns)   --->   "store i32 %Y, i32* %ydst_addr, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:50]   --->   Operation 135 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 136 [1/1] (6.58ns)   --->   "%mul_ln56 = mul i32 %add_ln56_1, %ry" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56]   --->   Operation 136 'mul' 'mul_ln56' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 137 [1/1] (0.00ns) (grouped into LUT with out node add_ln57)   --->   "%or_ln57 = or i11 %zext_ln1, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57]   --->   Operation 137 'or' 'or_ln57' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 138 [1/1] (1.42ns) (out node of the LUT)   --->   "%add_ln57 = add i11 %or_ln57, %trunc_ln37_2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57]   --->   Operation 138 'add' 'add_ln57' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 4.44>
+ST_9 : Operation 139 [1/1] (1.78ns)   --->   "%Y_1 = add i32 16, %mul_ln56" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56]   --->   Operation 139 'add' 'Y_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 140 [1/1] (0.00ns)   --->   "%zext_ln57 = zext i11 %add_ln57 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57]   --->   Operation 140 'zext' 'zext_ln57' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 141 [1/1] (0.00ns)   --->   "%ydst_addr_1 = getelementptr [1000 x i32]* %ydst, i64 0, i64 %zext_ln57" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57]   --->   Operation 141 'getelementptr' 'ydst_addr_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 142 [1/1] (2.66ns)   --->   "store i32 %Y_1, i32* %ydst_addr_1, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57]   --->   Operation 142 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_9 : Operation 143 [1/1] (0.00ns)   --->   "br label %.preheader30" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39]   --->   Operation 143 'br' <Predicate = true> <Delay = 0.00>
+
+State 10 <SV = 4> <Delay = 5.52>
+ST_10 : Operation 144 [1/1] (0.00ns)   --->   "%i_1 = phi i30 [ %i_2, %4 ], [ 0, %.preheader.preheader ]"   --->   Operation 144 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 145 [1/1] (0.00ns)   --->   "%zext_ln65 = zext i30 %i_1 to i31" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 145 'zext' 'zext_ln65' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 146 [1/1] (1.54ns)   --->   "%icmp_ln65 = icmp slt i31 %zext_ln65, %trunc_ln" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 146 'icmp' 'icmp_ln65' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 147 [1/1] (1.74ns)   --->   "%i_2 = add i30 %i_1, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 147 'add' 'i_2' <Predicate = true> <Delay = 1.74> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 148 [1/1] (0.00ns)   --->   "br i1 %icmp_ln65, label %4, label %5" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 148 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 149 [1/1] (0.00ns)   --->   "%trunc_ln66 = trunc i30 %i_1 to i8" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 149 'trunc' 'trunc_ln66' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 150 [1/1] (0.00ns)   --->   "%shl_ln3 = call i11 @_ssdm_op_BitConcatenate.i11.i8.i3(i8 %trunc_ln66, i3 0)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 150 'bitconcatenate' 'shl_ln3' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 151 [1/1] (0.00ns)   --->   "%trunc_ln66_1 = trunc i30 %i_1 to i10" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 151 'trunc' 'trunc_ln66_1' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 152 [1/1] (0.00ns)   --->   "%zext_ln2 = call i11 @_ssdm_op_BitConcatenate.i11.i10.i1(i10 %trunc_ln66_1, i1 false)" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 152 'bitconcatenate' 'zext_ln2' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 153 [1/1] (1.42ns)   --->   "%sub_ln66 = sub i11 %shl_ln3, %zext_ln2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 153 'sub' 'sub_ln66' <Predicate = (icmp_ln65)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 154 [1/1] (1.42ns)   --->   "%add_ln66_1 = add i11 %sub_ln66, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 154 'add' 'add_ln66_1' <Predicate = (icmp_ln65)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 155 [1/1] (0.00ns)   --->   "%zext_ln66 = zext i11 %add_ln66_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 155 'zext' 'zext_ln66' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 156 [1/1] (0.00ns)   --->   "%src_addr_6 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 156 'getelementptr' 'src_addr_6' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 157 [2/2] (2.66ns)   --->   "%b_2 = load i32* %src_addr_6, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 157 'load' 'b_2' <Predicate = (icmp_ln65)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_10 : Operation 158 [1/1] (0.00ns) (grouped into LUT with out node add_ln67)   --->   "%or_ln67 = or i11 %sub_ln66, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 158 'or' 'or_ln67' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 159 [1/1] (1.42ns) (out node of the LUT)   --->   "%add_ln67 = add i11 %or_ln67, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 159 'add' 'add_ln67' <Predicate = (icmp_ln65)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 160 [1/1] (0.00ns)   --->   "%zext_ln67 = zext i11 %add_ln67 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 160 'zext' 'zext_ln67' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 161 [1/1] (0.00ns)   --->   "%src_addr_7 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln67" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 161 'getelementptr' 'src_addr_7' <Predicate = (icmp_ln65)> <Delay = 0.00>
+ST_10 : Operation 162 [2/2] (2.66ns)   --->   "%g_2 = load i32* %src_addr_7, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 162 'load' 'g_2' <Predicate = (icmp_ln65)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_10 : Operation 163 [1/1] (1.98ns)   --->   "%add_ln82 = add i64 %sext_ln82, %p_03_rec" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:82]   --->   Operation 163 'add' 'add_ln82' <Predicate = (!icmp_ln65)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 164 [1/1] (1.98ns)   --->   "%add_ln83 = add i64 %sext_ln83, %p_01_rec" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:83]   --->   Operation 164 'add' 'add_ln83' <Predicate = (!icmp_ln65)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 165 [1/1] (1.98ns)   --->   "%add_ln84 = add i64 %sext_ln84, %p_0_rec" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:84]   --->   Operation 165 'add' 'add_ln84' <Predicate = (!icmp_ln65)> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 166 [1/1] (1.78ns)   --->   "%y = add nsw i32 %y_0, 2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 166 'add' 'y' <Predicate = (!icmp_ln65)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 167 [1/1] (0.00ns)   --->   "br label %1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37]   --->   Operation 167 'br' <Predicate = (!icmp_ln65)> <Delay = 0.00>
+
+State 11 <SV = 5> <Delay = 5.13>
+ST_11 : Operation 168 [1/2] (2.66ns)   --->   "%b_2 = load i32* %src_addr_6, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66]   --->   Operation 168 'load' 'b_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 169 [1/2] (2.66ns)   --->   "%g_2 = load i32* %src_addr_7, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:67]   --->   Operation 169 'load' 'g_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 170 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln68 = add i11 2, %sub_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 170 'add' 'add_ln68' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 171 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln68_1 = add i11 %add_ln68, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 171 'add' 'add_ln68_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 172 [1/1] (0.00ns)   --->   "%zext_ln68 = zext i11 %add_ln68_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 172 'zext' 'zext_ln68' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 173 [1/1] (0.00ns)   --->   "%src_addr_8 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln68" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 173 'getelementptr' 'src_addr_8' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 174 [2/2] (2.66ns)   --->   "%r_2 = load i32* %src_addr_8, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 174 'load' 'r_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 175 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln74 = add i11 3, %sub_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 175 'add' 'add_ln74' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 176 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln74_1 = add i11 %add_ln74, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 176 'add' 'add_ln74_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 177 [1/1] (0.00ns)   --->   "%zext_ln74 = zext i11 %add_ln74_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 177 'zext' 'zext_ln74' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 178 [1/1] (0.00ns)   --->   "%src_addr_9 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln74" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 178 'getelementptr' 'src_addr_9' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 179 [2/2] (2.66ns)   --->   "%b_3 = load i32* %src_addr_9, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 179 'load' 'b_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 12 <SV = 6> <Delay = 5.44>
+ST_12 : Operation 180 [1/2] (2.66ns)   --->   "%r_2 = load i32* %src_addr_8, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68]   --->   Operation 180 'load' 'r_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_12 : Operation 181 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln70 = add i32 %r_2, %g_2" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70]   --->   Operation 181 'add' 'add_ln70' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 182 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln70_1 = add i32 %b_2, %add_ln70" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70]   --->   Operation 182 'add' 'add_ln70_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 183 [1/2] (2.66ns)   --->   "%b_3 = load i32* %src_addr_9, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:74]   --->   Operation 183 'load' 'b_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_12 : Operation 184 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln75 = add i11 4, %sub_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 184 'add' 'add_ln75' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 185 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln75_1 = add i11 %add_ln75, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 185 'add' 'add_ln75_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 186 [1/1] (0.00ns)   --->   "%zext_ln75 = zext i11 %add_ln75_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 186 'zext' 'zext_ln75' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 187 [1/1] (0.00ns)   --->   "%src_addr_10 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln75" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 187 'getelementptr' 'src_addr_10' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 188 [2/2] (2.66ns)   --->   "%g_3 = load i32* %src_addr_10, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 188 'load' 'g_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_12 : Operation 189 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln76 = add i11 5, %sub_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 189 'add' 'add_ln76' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 190 [1/1] (2.47ns) (root node of TernaryAdder)   --->   "%add_ln76_1 = add i11 %add_ln76, %add_ln66" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 190 'add' 'add_ln76_1' <Predicate = true> <Delay = 2.47> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 191 [1/1] (0.00ns)   --->   "%zext_ln76 = zext i11 %add_ln76_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 191 'zext' 'zext_ln76' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 192 [1/1] (0.00ns)   --->   "%src_addr_11 = getelementptr [1000 x i32]* %src, i64 0, i64 %zext_ln76" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 192 'getelementptr' 'src_addr_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 193 [2/2] (2.66ns)   --->   "%r_3 = load i32* %src_addr_11, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 193 'load' 'r_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 13 <SV = 7> <Delay = 6.58>
+ST_13 : Operation 194 [1/1] (6.58ns)   --->   "%mul_ln70 = mul i32 %add_ln70_1, %ry" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70]   --->   Operation 194 'mul' 'mul_ln70' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 195 [1/2] (2.66ns)   --->   "%g_3 = load i32* %src_addr_10, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:75]   --->   Operation 195 'load' 'g_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 196 [1/2] (2.66ns)   --->   "%r_3 = load i32* %src_addr_11, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:76]   --->   Operation 196 'load' 'r_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 197 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln78 = add i32 %r_3, %g_3" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78]   --->   Operation 197 'add' 'add_ln78' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 198 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln78_1 = add i32 %b_3, %add_ln78" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78]   --->   Operation 198 'add' 'add_ln78_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 14 <SV = 8> <Delay = 6.58>
+ST_14 : Operation 199 [1/1] (1.78ns)   --->   "%Y_2 = add i32 16, %mul_ln70" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70]   --->   Operation 199 'add' 'Y_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 200 [1/1] (1.42ns)   --->   "%add_ln72_1 = add i11 %zext_ln2, %add_ln72" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:72]   --->   Operation 200 'add' 'add_ln72_1' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 201 [1/1] (0.00ns)   --->   "%zext_ln72 = zext i11 %add_ln72_1 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:72]   --->   Operation 201 'zext' 'zext_ln72' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 202 [1/1] (0.00ns)   --->   "%ydst_addr_2 = getelementptr [1000 x i32]* %ydst, i64 0, i64 %zext_ln72" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:72]   --->   Operation 202 'getelementptr' 'ydst_addr_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 203 [1/1] (2.66ns)   --->   "store i32 %Y_2, i32* %ydst_addr_2, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:72]   --->   Operation 203 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 204 [1/1] (6.58ns)   --->   "%mul_ln78 = mul i32 %add_ln78_1, %ry" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78]   --->   Operation 204 'mul' 'mul_ln78' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 205 [1/1] (0.00ns) (grouped into LUT with out node add_ln79)   --->   "%or_ln79 = or i11 %zext_ln2, 1" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79]   --->   Operation 205 'or' 'or_ln79' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 206 [1/1] (1.42ns) (out node of the LUT)   --->   "%add_ln79 = add i11 %or_ln79, %add_ln72" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79]   --->   Operation 206 'add' 'add_ln79' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 9> <Delay = 4.44>
+ST_15 : Operation 207 [1/1] (1.78ns)   --->   "%Y_3 = add i32 16, %mul_ln78" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78]   --->   Operation 207 'add' 'Y_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 208 [1/1] (0.00ns)   --->   "%zext_ln79 = zext i11 %add_ln79 to i64" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79]   --->   Operation 208 'zext' 'zext_ln79' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 209 [1/1] (0.00ns)   --->   "%ydst_addr_3 = getelementptr [1000 x i32]* %ydst, i64 0, i64 %zext_ln79" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79]   --->   Operation 209 'getelementptr' 'ydst_addr_3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 210 [1/1] (2.66ns)   --->   "store i32 %Y_3, i32* %ydst_addr_3, align 4" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79]   --->   Operation 210 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_15 : Operation 211 [1/1] (0.00ns)   --->   "br label %.preheader" [extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65]   --->   Operation 211 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('rgb2yuv_addr', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31) [27]  (0 ns)
+	'load' operation ('ry', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31) on array 'rgb2yuv' [28]  (2.66 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('ry', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:31) on array 'rgb2yuv' [28]  (2.66 ns)
+
+ <State 3>: 1.55ns
+The critical path consists of the following:
+	'phi' operation ('y') with incoming values : ('y', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37) [49]  (0 ns)
+	'icmp' operation ('icmp_ln37', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:37) [53]  (1.55 ns)
+
+ <State 4>: 5.52ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:39) [58]  (0 ns)
+	'sub' operation ('sub_ln40', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40) [69]  (1.43 ns)
+	'add' operation ('add_ln40', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40) [71]  (1.43 ns)
+	'getelementptr' operation ('src_addr', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40) [73]  (0 ns)
+	'load' operation ('b', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:40) on array 'src' [74]  (2.66 ns)
+
+ <State 5>: 5.14ns
+The critical path consists of the following:
+	'add' operation ('add_ln42', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42) [80]  (0 ns)
+	'add' operation ('add_ln42_1', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42) [81]  (2.47 ns)
+	'getelementptr' operation ('src_addr_2', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42) [83]  (0 ns)
+	'load' operation ('r', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42) on array 'src' [84]  (2.66 ns)
+
+ <State 6>: 5.44ns
+The critical path consists of the following:
+	'load' operation ('r', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:42) on array 'src' [84]  (2.66 ns)
+	'add' operation ('add_ln44', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44) [85]  (0 ns)
+	'add' operation ('add_ln44_1', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44) [86]  (2.78 ns)
+
+ <State 7>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln44', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:44) [87]  (6.58 ns)
+
+ <State 8>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln56', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56) [119]  (6.58 ns)
+
+ <State 9>: 4.45ns
+The critical path consists of the following:
+	'add' operation ('Y', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56) [120]  (1.78 ns)
+	'store' operation ('store_ln57', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:57) of variable 'Y', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:56 on array 'ydst' [125]  (2.66 ns)
+
+ <State 10>: 5.52ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:65) [138]  (0 ns)
+	'sub' operation ('sub_ln66', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66) [148]  (1.43 ns)
+	'add' operation ('add_ln66_1', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66) [149]  (1.43 ns)
+	'getelementptr' operation ('src_addr_6', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66) [151]  (0 ns)
+	'load' operation ('b', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:66) on array 'src' [152]  (2.66 ns)
+
+ <State 11>: 5.14ns
+The critical path consists of the following:
+	'add' operation ('add_ln68', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68) [158]  (0 ns)
+	'add' operation ('add_ln68_1', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68) [159]  (2.47 ns)
+	'getelementptr' operation ('src_addr_8', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68) [161]  (0 ns)
+	'load' operation ('r', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68) on array 'src' [162]  (2.66 ns)
+
+ <State 12>: 5.44ns
+The critical path consists of the following:
+	'load' operation ('r', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:68) on array 'src' [162]  (2.66 ns)
+	'add' operation ('add_ln70', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70) [163]  (0 ns)
+	'add' operation ('add_ln70_1', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70) [164]  (2.78 ns)
+
+ <State 13>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln70', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:70) [165]  (6.58 ns)
+
+ <State 14>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln78', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78) [188]  (6.58 ns)
+
+ <State 15>: 4.45ns
+The critical path consists of the following:
+	'add' operation ('Y', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78) [189]  (1.78 ns)
+	'store' operation ('store_ln79', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:79) of variable 'Y', extr_.FFmpeglibswscalergb2rgb_template.c_ff_rgb24toyv12_c_with_main.c:78 on array 'ydst' [194]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

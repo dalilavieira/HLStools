@@ -1,11 +1,11 @@
 
-set TopModule "main"
+set TopModule "xmlNormalizeURIPath"
 set ClockPeriod 10
-set ClockList {}
+set ClockList ap_clk
 set HasVivadoClockPeriod 0
-set CombLogicFlag 1
+set CombLogicFlag 0
 set PipelineFlag 0
-set DataflowTaskPipelineFlag 0
+set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
@@ -42,7 +42,7 @@ set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
 set SourceFiles {sc {} c ../extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/vivado/aut/proj_extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c/solution1/solution1.directive
+set DirectiveFile /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c/solution1/solution1.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -54,7 +54,7 @@ set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_ga
 set TBTVFileNotFound {}
 set AppFile ../vivado_hls.app
 set ApsFile solution1.aps
-set AvePath ..
+set AvePath {}
 set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}

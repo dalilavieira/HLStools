@@ -273,7 +273,7 @@ typedef int bool;
  int* _s_8_ ;
  int* _s_9_ ;
 
-void translit_from_en_to_ru (int *s, long long *rh, int *hn) {
+void translit_from_en_to_ru (volatile int *s, long long *rh, int *hn) {
 # 168 "extr_.kphp-kdbhintsutf8_utils.c_translit_from_en_to_ru_with_main.c"
   *hn = 0;
   int *ns = s, i;

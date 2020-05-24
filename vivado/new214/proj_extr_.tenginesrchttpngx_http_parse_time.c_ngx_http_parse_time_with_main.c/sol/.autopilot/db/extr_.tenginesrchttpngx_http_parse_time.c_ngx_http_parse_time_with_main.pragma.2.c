@@ -155,11 +155,11 @@ typedef int ngx_int_t ;
 
 
  int NGX_ERROR ;
- int* mday ;
+ int mday[1000] ;
 
 time_t
-ngx_http_parse_time(u_char *value, size_t len)
-{
+ngx_http_parse_time(u_char value[1000], size_t len)
+{_ssdm_SpecArrayDimSize(value, 1000);
     u_char *p, *end;
     ngx_int_t month;
     ngx_uint_t day, year, hour, min, sec;

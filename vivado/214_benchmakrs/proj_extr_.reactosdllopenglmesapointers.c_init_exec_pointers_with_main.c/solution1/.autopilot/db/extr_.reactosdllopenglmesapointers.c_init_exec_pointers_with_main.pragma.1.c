@@ -326,7 +326,7 @@ struct gl_api_table {int Viewport; int VertexPointer; int Vertex3fv; int Vertex4
  int gl_vertex3fv_nop ;
  int gl_vertex4f_nop ;
 
-__attribute__((used)) static void init_exec_pointers( struct gl_api_table *table )
+void init_exec_pointers( struct gl_api_table *table )
 {
    table->Accum = gl_Accum;
    table->AlphaFunc = gl_AlphaFunc;

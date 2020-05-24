@@ -12,7 +12,7 @@ typedef int bool;
 
 /* Variables and functions */
 
-int UTF8_getc(const unsigned char *str, int len, unsigned long *val)
+int UTF8_getc(const unsigned char str[1000], int len, unsigned long val[1000])
 {
     const unsigned char *p;
     unsigned long value;

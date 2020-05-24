@@ -152,7 +152,7 @@ typedef struct TYPE_4__ TYPE_1__ ;
 
 typedef int ulong ;
 struct TYPE_5__ {int iac1; int iac2; int dac1; int dac2; int dbcr0; int dbcr1; int dbcr2; } ;
-struct TYPE_6__ {int ivpr; int epr; int csrr0; int csrr1; int dsrr0; int dsrr1; int dbsr; int tsr; int tcr; int* ivor; int mcsr; TYPE_2__ dbg_reg; TYPE_1__* shared; } ;
+struct TYPE_6__ {int ivpr; int epr; int csrr0; int csrr1; int dsrr0; int dsrr1; int dbsr; int tsr; int tcr; int ivor[1000]; int mcsr; TYPE_2__ dbg_reg; TYPE_1__* shared; } ;
 struct kvm_vcpu {TYPE_3__ arch; int guest_debug; } ;
 struct TYPE_4__ {int dar; int esr; } ;
 
@@ -177,8 +177,8 @@ struct TYPE_4__ {int dar; int esr; } ;
  int EMULATE_DONE ;
  int EMULATE_FAIL ;
 # 77 "extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c"
-int kvmppc_booke_emulate_mfspr(struct kvm_vcpu *vcpu, int sprn, ulong *spr_val)
-{
+int kvmppc_booke_emulate_mfspr(struct kvm_vcpu vcpu[1100], int sprn, ulong spr_val[1000])
+{_ssdm_SpecArrayDimSize(vcpu, 1100);_ssdm_SpecArrayDimSize(spr_val, 1000);
  int emulated = EMULATE_DONE;
 
  switch (sprn) {

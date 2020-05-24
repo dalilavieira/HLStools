@@ -158,7 +158,7 @@ struct ivtv {TYPE_1__ yuv_info; } ;
  int IVTV_YUV_UPDATE_INVALID ;
  int IVTV_YUV_UPDATE_VERTICAL ;
 
-__attribute__((used)) static u32 ivtv_yuv_window_setup(struct ivtv *itv, struct yuv_frame_info *f)
+u32 ivtv_yuv_window_setup(struct ivtv *itv, struct yuv_frame_info *f)
 {
  struct yuv_frame_info *of = &itv->yuv_info.old_frame_info;
  int osd_crop;

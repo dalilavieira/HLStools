@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.reactosdllopenglmesapointers.c_init_dlist_pointers_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.reactosdllopenglmesapointers.c_init_dlist_pointers_with_main.c" top="init_dlist_pointers">
     <files>
         <file name="extr_.reactosdllopenglmesapointers.c_init_dlist_pointers_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

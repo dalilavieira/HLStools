@@ -1538,3 +1538,251 @@ Command         transform done; 0.38 sec.
 INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:00:57 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 29762 ; free virtual = 39156
 INFO-FLOW: Building ssdm...
 Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/a.o.2.bc -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Command         transform done; 1557.12 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:26:13 ; elapsed = 00:26:54 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 30076 ; free virtual = 39477
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 1560.02 sec.
+Command     elaborate done; 1571.96 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'mark_for_codepoint' ...
+Execute       ap_set_top_model mark_for_codepoint 
+Execute       get_model_list mark_for_codepoint -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model mark_for_codepoint 
+Execute       get_model_list mark_for_codepoint -filter all-wo-channel 
+INFO-FLOW: Model list for configure: mark_for_codepoint
+INFO-FLOW: Configuring Module : mark_for_codepoint ...
+Execute       set_default_model mark_for_codepoint 
+Execute       apply_spec_resource_limit mark_for_codepoint 
+INFO-FLOW: Model list for preprocess: mark_for_codepoint
+INFO-FLOW: Preprocessing Module: mark_for_codepoint ...
+Execute       set_default_model mark_for_codepoint 
+Execute       cdfg_preprocess -model mark_for_codepoint 
+Execute       rtl_gen_preprocess mark_for_codepoint 
+INFO-FLOW: Model list for synthesis: mark_for_codepoint
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mark_for_codepoint' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model mark_for_codepoint 
+Execute       schedule -model mark_for_codepoint 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 62.84 sec.
+INFO: [HLS 200-111]  Elapsed time: 1676.82 seconds; current allocated memory: 176.498 MB.
+Execute       syn_report -verbosereport -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.verbose.sched.rpt 
+Command       syn_report done; 2.82 sec.
+Execute       db_write -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.sched.adb -f 
+Command       db_write done; 2.8 sec.
+INFO-FLOW: Finish scheduling mark_for_codepoint.
+Execute       set_default_model mark_for_codepoint 
+Execute       bind -model mark_for_codepoint 
+BIND OPTION: model=mark_for_codepoint
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command       bind done; 2.98 sec.
+INFO: [HLS 200-111]  Elapsed time: 8.6 seconds; current allocated memory: 190.841 MB.
+Execute       syn_report -verbosereport -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.verbose.bind.rpt 
+Command       syn_report done; 3.07 sec.
+Execute       db_write -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.bind.adb -f 
+Command       db_write done; 4.19 sec.
+INFO-FLOW: Finish binding mark_for_codepoint.
+Execute       get_model_list mark_for_codepoint -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess mark_for_codepoint 
+INFO-FLOW: Model list for RTL generation: mark_for_codepoint
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mark_for_codepoint' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model mark_for_codepoint -vendor xilinx -mg_file /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'mark_for_codepoint/c' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'mark_for_codepoint' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mark_for_codepoint'.
+Command       create_rtl_model done; 6.03 sec.
+INFO: [HLS 200-111]  Elapsed time: 13.3 seconds; current allocated memory: 330.070 MB.
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.rtl_wrap.cfg.tcl 
+Execute       gen_rtl mark_for_codepoint -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/syn/systemc/mark_for_codepoint -synmodules mark_for_codepoint 
+Execute       gen_rtl mark_for_codepoint -istop -style xilinx -f -lang vhdl -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/syn/vhdl/mark_for_codepoint 
+Command       gen_rtl done; 0.37 sec.
+Execute       gen_rtl mark_for_codepoint -istop -style xilinx -f -lang vlog -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/syn/verilog/mark_for_codepoint 
+Command       gen_rtl done; 0.21 sec.
+Execute       syn_report -csynth -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/syn/report/mark_for_codepoint_csynth.rpt 
+Command       syn_report done; 0.19 sec.
+Execute       syn_report -rtlxml -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/syn/report/mark_for_codepoint_csynth.xml 
+Command       syn_report done; 0.18 sec.
+Execute       syn_report -verbosereport -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.verbose.rpt 
+Command       syn_report done; 3.28 sec.
+Execute       db_write -model mark_for_codepoint -f -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.adb 
+Command       db_write done; 4.55 sec.
+Execute       gen_tb_info mark_for_codepoint -p /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint 
+Execute       export_constraint_db -f -tool general -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.constraint.tcl 
+Execute       syn_report -designview -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.design.xml 
+Command       syn_report done; 0.35 sec.
+Execute       get_config_rtl -disable_wave_debug 
+Execute       syn_report -wcfg -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint_dataflow_ana.wcfg 
+Execute       syn_report -protoinst -model mark_for_codepoint -o /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.protoinst 
+Execute       get_config_debug -directory 
+Execute       sc_get_clocks mark_for_codepoint 
+Execute       get_config_export -vivado_clock 
+Execute       sc_get_portdomain mark_for_codepoint 
+INFO-FLOW: Model list for RTL component generation: mark_for_codepoint
+INFO-FLOW: Handling components in module [mark_for_codepoint] ... 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+INFO-FLOW: Append model mark_for_codepoint
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: mark_for_codepoint
+INFO-FLOW: To file: write model mark_for_codepoint
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/common.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.13 sec.
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.18 sec.
+Command       ap_source done; 0.18 sec.
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/common.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/fsl.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.13 sec.
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.18 sec.
+Command       ap_source done; 0.18 sec.
+Execute       source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/kintex7/kintex7_fpv6.gen 
+Execute         source /opt/xilinx/Vivado/2019.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=mark_for_codepoint xml_exists=1
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.rtl_wrap.cfg.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.rtl_wrap.cfg.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.rtl_wrap.cfg.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.tcl 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.constraint.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=6
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=2
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=1 #gSsdmPorts=6
+Execute       source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute         source /opt/xilinx/Vivado/2019.1/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       get_config_export -xo 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       get_config_sdx -target 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.rtl_wrap.cfg.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.compgen.dataonly.tcl 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.constraint.tcl 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7k160t-fbg484-1 -data info -quiet 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/global.setting.tcl 
+Execute       get_config_debug -directory 
+Execute       source /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/mark_for_codepoint.tbgen.tcl 
+Execute       get_config_sdx -target 
+Execute       get_config_sdx -profile 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -stall_sig_gen 
+Execute       get_config_rtl -profile 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/vivado/HLStools/vivado/new214/proj_extr_.kittykittyunicode-data.c_mark_for_codepoint_with_main.c/sol/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:27:47 ; elapsed = 00:28:29 . Memory (MB): peak = 1043.426 ; gain = 343.105 ; free physical = 29880 ; free virtual = 39283
+INFO: [VHDL 208-304] Generating VHDL RTL for mark_for_codepoint.
+INFO: [VLOG 209-307] Generating Verilog RTL for mark_for_codepoint.
+Command     autosyn done; 95.06 sec.
+Command   csynth_design done; 1667.03 sec.

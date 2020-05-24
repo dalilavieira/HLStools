@@ -153,7 +153,7 @@ typedef TYPE_1__ FoSection ;
 
 
 
-__attribute__((used)) static void chebyshev1_fo_section(FoSection *S, double a,
+void chebyshev1_fo_section(FoSection *S, double a,
                                   double c, double tetta_b,
                                   double g0, double si, double b,
                                   double D, double c0)

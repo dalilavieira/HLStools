@@ -148,7 +148,7 @@ typedef int bool;
 typedef struct TYPE_3__ TYPE_1__ ;
 
 
-struct TYPE_3__ {scalar_t__ channels; void** map; } ;
+struct TYPE_3__ {scalar_t__ channels; void* map[1000]; } ;
 typedef TYPE_1__ pa_channel_map ;
 typedef int int64_t ;
 
@@ -201,7 +201,7 @@ typedef int int64_t ;
  void* PA_CHANNEL_POSITION_TOP_REAR_LEFT ;
  void* PA_CHANNEL_POSITION_TOP_REAR_RIGHT ;
 
-__attribute__((used)) static void pulse_map_channels_to_pulse(int64_t channel_layout, pa_channel_map *channel_map)
+void pulse_map_channels_to_pulse(int64_t channel_layout, pa_channel_map *channel_map)
 {
     channel_map->channels = 0;
     if (channel_layout & AV_CH_FRONT_LEFT)
