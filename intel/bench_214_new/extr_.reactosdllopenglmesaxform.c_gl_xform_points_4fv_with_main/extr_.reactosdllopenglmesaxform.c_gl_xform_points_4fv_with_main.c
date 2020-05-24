@@ -66,10 +66,10 @@ void gl_xform_points_4fv( GLuint n, GLfloat q[][4], const GLfloat m[16],
 
 /* Main routine for gl_xform_points_4fv */
 component int main() {
-  GLuint n;
-  GLfloat (*)[4] q;
+  GLuint n = 5;
+  GLfloat [n][4] q;
   const GLfloat * m;
-  GLfloat (*)[4] p;
+  GLfloat [n][4] p;
   gl_xform_points_4fv(n, q, m, p);
   return 0;
 }

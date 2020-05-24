@@ -20,7 +20,7 @@ struct sbc_frame {int subbands; size_t frequency; scalar_t__ mode; int channels;
  int** sbc_offset4 ; 
  int** sbc_offset8 ; 
 
-void ff_sbc_calculate_bits(const struct sbc_frame *frame, int (*bits)[8])
+void ff_sbc_calculate_bits(const struct sbc_frame *frame, int [32][8])
 {
     int subbands = frame->subbands;
     uint8_t sf = frame->frequency;
@@ -217,7 +217,7 @@ void ff_sbc_calculate_bits(const struct sbc_frame *frame, int (*bits)[8])
 /* Main routine for ff_sbc_calculate_bits */
 component int main() {
   const struct sbc_frame * frame;
-  int (*)[8] bits;
+  int [32][8] bits;
   ff_sbc_calculate_bits(frame, bits);
   return 0;
 }

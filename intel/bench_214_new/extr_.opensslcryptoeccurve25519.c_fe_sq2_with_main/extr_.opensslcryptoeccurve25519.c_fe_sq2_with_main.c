@@ -16,7 +16,7 @@ typedef  int* fe ;
  int kTop38Bits ; 
  int kTop39Bits ; 
 
-__attribute__((used)) static void fe_sq2(fe h, const fe f)
+__attribute__((used)) static void fe_sq2(fe h, fe f)
 {
     int32_t f0 = f[0];
     int32_t f1 = f[1];
@@ -162,7 +162,7 @@ __attribute__((used)) static void fe_sq2(fe h, const fe f)
 /* Main routine for fe_sq2 */
 component int main() {
   fe h;
-  const fe f;
+  fe f;
   fe_sq2(h, f);
   return 0;
 }

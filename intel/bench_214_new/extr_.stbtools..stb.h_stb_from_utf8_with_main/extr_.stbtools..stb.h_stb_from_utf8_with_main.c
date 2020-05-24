@@ -4,6 +4,7 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 /* By default, we understand bool (as a convenience). */
 #define false 0
 #define true 1
+#define NULL 0
 
 /* Forward declarations */
 

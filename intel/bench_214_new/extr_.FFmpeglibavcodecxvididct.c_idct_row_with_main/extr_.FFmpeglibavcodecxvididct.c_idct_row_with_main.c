@@ -10,7 +10,7 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 /* Type definitions */
 
 /* Variables and functions */
- int const ROW_SHIFT ; 
+ const int ROW_SHIFT = 0; 
 
 __attribute__((used)) static int idct_row(short *in, const int *const tab, int rnd)
 {
@@ -98,7 +98,7 @@ __attribute__((used)) static int idct_row(short *in, const int *const tab, int r
 /* Main routine for idct_row */
 component int main() {
   short * in;
-  const int *const tab;
+  const int *tab = 0;
   int rnd;
   idct_row(in, tab, rnd);
   return 0;

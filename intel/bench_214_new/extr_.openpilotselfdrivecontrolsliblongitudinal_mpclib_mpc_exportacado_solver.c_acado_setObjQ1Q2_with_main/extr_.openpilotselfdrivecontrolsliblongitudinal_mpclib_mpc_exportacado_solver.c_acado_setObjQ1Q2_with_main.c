@@ -12,7 +12,7 @@ typedef  int real_t ;
 
 /* Variables and functions */
 
-void acado_setObjQ1Q2( real_t* const tmpFx, real_t* const tmpObjS, real_t* const tmpQ1, real_t* const tmpQ2 )
+void acado_setObjQ1Q2( real_t* tmpFx, real_t* tmpObjS, real_t* tmpQ1, real_t* tmpQ2 )
 {
 tmpQ2[0] = + tmpFx[0]*tmpObjS[0] + tmpFx[3]*tmpObjS[4] + tmpFx[6]*tmpObjS[8] + tmpFx[9]*tmpObjS[12];
 tmpQ2[1] = + tmpFx[0]*tmpObjS[1] + tmpFx[3]*tmpObjS[5] + tmpFx[6]*tmpObjS[9] + tmpFx[9]*tmpObjS[13];
@@ -39,10 +39,10 @@ tmpQ1[8] = + tmpQ2[8]*tmpFx[2] + tmpQ2[9]*tmpFx[5] + tmpQ2[10]*tmpFx[8] + tmpQ2[
 
 /* Main routine for acado_setObjQ1Q2 */
 component int main() {
-  real_t *const tmpFx;
-  real_t *const tmpObjS;
-  real_t *const tmpQ1;
-  real_t *const tmpQ2;
+  real_t *tmpFx;
+  real_t *tmpObjS;
+  real_t *tmpQ1;
+  real_t *tmpQ2;
   acado_setObjQ1Q2(tmpFx, tmpObjS, tmpQ1, tmpQ2);
   return 0;
 }

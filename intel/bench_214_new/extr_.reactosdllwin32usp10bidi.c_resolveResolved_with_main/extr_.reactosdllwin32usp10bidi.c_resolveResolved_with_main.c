@@ -11,19 +11,19 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 typedef  scalar_t__ WORD ;
 
 /* Variables and functions */
- scalar_t__ const B ; 
- scalar_t__ const BN ; 
- scalar_t__ const FSI ; 
- scalar_t__ const LRE ; 
- scalar_t__ const LRI ; 
- scalar_t__ const LRO ; 
- scalar_t__ const PDF ; 
- scalar_t__ const PDI ; 
- scalar_t__ const RLE ; 
- scalar_t__ const RLI ; 
- scalar_t__ const RLO ; 
- scalar_t__ const S ; 
- scalar_t__ const WS ; 
+ scalar_t__ const B = 0 ; 
+ scalar_t__ const BN = 0; 
+ scalar_t__ const FSI = 0; 
+ scalar_t__ const LRE = 0; 
+ scalar_t__ const LRI = 0; 
+ scalar_t__ const LRO = 0; 
+ scalar_t__ const PDF = 0; 
+ scalar_t__ const PDI = 0; 
+ scalar_t__ const RLE = 0; 
+ scalar_t__ const RLI = 0; 
+ scalar_t__ const RLO = 0; 
+ scalar_t__ const S = 0; 
+ scalar_t__ const WS = 0; 
 
 __attribute__((used)) static void resolveResolved(unsigned baselevel, const WORD * pcls, WORD *plevel, int sos, int eos)
 {

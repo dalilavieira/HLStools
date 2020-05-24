@@ -17,7 +17,7 @@ typedef  int* felem ;
  int bottom52bits ; 
  int bottom58bits ; 
 
-__attribute__((used)) static void felem_reduce(felem out, const largefelem in)
+__attribute__((used)) static void felem_reduce(felem out, largefelem in)
 {
     u64 overflow1, overflow2;
 
@@ -95,7 +95,7 @@ __attribute__((used)) static void felem_reduce(felem out, const largefelem in)
 /* Main routine for felem_reduce */
 component int main() {
   felem out;
-  const largefelem in;
+  largefelem in;
   felem_reduce(out, in);
   return 0;
 }

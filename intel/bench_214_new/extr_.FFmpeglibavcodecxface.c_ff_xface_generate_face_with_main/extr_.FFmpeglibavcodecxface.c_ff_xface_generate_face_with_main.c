@@ -29,7 +29,7 @@ typedef  int uint8_t ;
  int* g_41 ; 
  int* g_42 ; 
 
-void ff_xface_generate_face(uint8_t *dst, uint8_t * const src)
+void ff_xface_generate_face(uint8_t *dst, uint8_t *src)
 {
     int h, i, j, k, l, m;
 
@@ -61,7 +61,7 @@ void ff_xface_generate_face(uint8_t *dst, uint8_t * const src)
 
             for (l = i - 2; l <= i + 2; l++) {
                 for (m = j - 2; m <= j; m++) {
-                    if (l <= 0 || l >= i && m == j)
+                    if (l <= 0 || (l >= i && m == j))
                         continue;
                     if (l <= XFACE_WIDTH && m > 0)
                         k = 2*k + src[l + m * XFACE_WIDTH];
@@ -134,7 +134,7 @@ void ff_xface_generate_face(uint8_t *dst, uint8_t * const src)
 /* Main routine for ff_xface_generate_face */
 component int main() {
   uint8_t * dst;
-  uint8_t *const src;
+  uint8_t * src;
   ff_xface_generate_face(dst, src);
   return 0;
 }

@@ -25,7 +25,7 @@ const _GLFWfbconfig* _glfwChooseFBConfig(const _GLFWfbconfig* desired,
     unsigned int colorDiff, leastColorDiff = UINT_MAX;
     unsigned int extraDiff, leastExtraDiff = UINT_MAX;
     const _GLFWfbconfig* current;
-    const _GLFWfbconfig* closest = NULL;
+    const _GLFWfbconfig* closest = 0;
 
     for (i = 0;  i < count;  i++)
     {

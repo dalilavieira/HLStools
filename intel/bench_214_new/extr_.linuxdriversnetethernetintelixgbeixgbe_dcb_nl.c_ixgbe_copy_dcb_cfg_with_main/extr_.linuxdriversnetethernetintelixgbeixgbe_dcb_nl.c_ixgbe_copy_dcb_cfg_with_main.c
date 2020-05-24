@@ -31,8 +31,8 @@ __attribute__((used)) static int ixgbe_copy_dcb_cfg(struct ixgbe_adapter *adapte
 {
 	struct ixgbe_dcb_config *scfg = &adapter->temp_dcb_cfg;
 	struct ixgbe_dcb_config *dcfg = &adapter->dcb_cfg;
-	struct tc_configuration *src = NULL;
-	struct tc_configuration *dst = NULL;
+	struct tc_configuration *src = 0;
+	struct tc_configuration *dst = 0;
 	int i, j;
 	int tx = DCB_TX_CONFIG;
 	int rx = DCB_RX_CONFIG;

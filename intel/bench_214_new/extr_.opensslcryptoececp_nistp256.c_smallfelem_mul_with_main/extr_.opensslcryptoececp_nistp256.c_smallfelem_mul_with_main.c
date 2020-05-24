@@ -16,8 +16,8 @@ typedef  int limb ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void smallfelem_mul(longfelem out, const smallfelem small1,
-                           const smallfelem small2)
+__attribute__((used)) static void smallfelem_mul(longfelem out, smallfelem small1,
+                           smallfelem small2)
 {
     limb a;
     u64 high, low;
@@ -122,8 +122,8 @@ __attribute__((used)) static void smallfelem_mul(longfelem out, const smallfelem
 /* Main routine for smallfelem_mul */
 component int main() {
   longfelem out;
-  const smallfelem small1;
-  const smallfelem small2;
+  smallfelem small1;
+  smallfelem small2;
   smallfelem_mul(out, small1, small2);
   return 0;
 }

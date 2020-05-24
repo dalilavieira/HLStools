@@ -125,7 +125,7 @@ __attribute__((used)) static void intel_tlb_lookup(const unsigned char desc)
 
 /* Main routine for intel_tlb_lookup */
 component int main() {
-  const unsigned char desc;
+  const unsigned char desc = '\0';
   intel_tlb_lookup(desc);
   return 0;
 }
