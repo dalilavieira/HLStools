@@ -1,0 +1,137 @@
+
+
+================================================================
+== Vivado HLS Report for 'RCC_GetClocksFreq'
+================================================================
+* Date:           Sat May 23 20:15:02 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.anypixelfirmwaredisplayThirdPartySPLsrcstm32f0xx_rcc.c_RCC_GetClocksFreq_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     0.000|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    5|    5|    5|    5|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      38|    -|
+|Register         |        -|      -|       6|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       6|      38|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  38|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  38|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------+---+----+-----+-----------+
+    |    Name   | FF| LUT| Bits| Const Bits|
+    +-----------+---+----+-----+-----------+
+    |ap_CS_fsm  |  6|   0|    6|          0|
+    +-----------+---+----+-----+-----------+
+    |Total      |  6|   0|    6|          0|
+    +-----------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------------+-----+-----+------------+--------------------------------+--------------+
+|               RTL Ports               | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++---------------------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                                 |  in |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|ap_rst                                 |  in |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|ap_start                               |  in |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|ap_done                                | out |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|ap_idle                                | out |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|ap_ready                               | out |    1| ap_ctrl_hs |        RCC_GetClocksFreq       | return value |
+|RCC_Clocks_SYSCLK_Frequency_i          |  in |   32|   ap_ovld  |   RCC_Clocks_SYSCLK_Frequency  |    pointer   |
+|RCC_Clocks_SYSCLK_Frequency_o          | out |   32|   ap_ovld  |   RCC_Clocks_SYSCLK_Frequency  |    pointer   |
+|RCC_Clocks_SYSCLK_Frequency_o_ap_vld   | out |    1|   ap_ovld  |   RCC_Clocks_SYSCLK_Frequency  |    pointer   |
+|RCC_Clocks_HCLK_Frequency_i            |  in |   32|   ap_ovld  |    RCC_Clocks_HCLK_Frequency   |    pointer   |
+|RCC_Clocks_HCLK_Frequency_o            | out |   32|   ap_ovld  |    RCC_Clocks_HCLK_Frequency   |    pointer   |
+|RCC_Clocks_HCLK_Frequency_o_ap_vld     | out |    1|   ap_ovld  |    RCC_Clocks_HCLK_Frequency   |    pointer   |
+|RCC_Clocks_PCLK_Frequency_i            |  in |   32|   ap_ovld  |    RCC_Clocks_PCLK_Frequency   |    pointer   |
+|RCC_Clocks_PCLK_Frequency_o            | out |   32|   ap_ovld  |    RCC_Clocks_PCLK_Frequency   |    pointer   |
+|RCC_Clocks_PCLK_Frequency_o_ap_vld     | out |    1|   ap_ovld  |    RCC_Clocks_PCLK_Frequency   |    pointer   |
+|RCC_Clocks_ADCCLK_Frequency            | out |   32|   ap_vld   |   RCC_Clocks_ADCCLK_Frequency  |    pointer   |
+|RCC_Clocks_ADCCLK_Frequency_ap_vld     | out |    1|   ap_vld   |   RCC_Clocks_ADCCLK_Frequency  |    pointer   |
+|RCC_Clocks_CECCLK_Frequency            | out |   32|   ap_vld   |   RCC_Clocks_CECCLK_Frequency  |    pointer   |
+|RCC_Clocks_CECCLK_Frequency_ap_vld     | out |    1|   ap_vld   |   RCC_Clocks_CECCLK_Frequency  |    pointer   |
+|RCC_Clocks_I2C1CLK_Frequency           | out |   32|   ap_vld   |  RCC_Clocks_I2C1CLK_Frequency  |    pointer   |
+|RCC_Clocks_I2C1CLK_Frequency_ap_vld    | out |    1|   ap_vld   |  RCC_Clocks_I2C1CLK_Frequency  |    pointer   |
+|RCC_Clocks_USART1CLK_Frequency         | out |   32|   ap_vld   | RCC_Clocks_USART1CLK_Frequency |    pointer   |
+|RCC_Clocks_USART1CLK_Frequency_ap_vld  | out |    1|   ap_vld   | RCC_Clocks_USART1CLK_Frequency |    pointer   |
+|RCC_Clocks_USART2CLK_Frequency         | out |   32|   ap_vld   | RCC_Clocks_USART2CLK_Frequency |    pointer   |
+|RCC_Clocks_USART2CLK_Frequency_ap_vld  | out |    1|   ap_vld   | RCC_Clocks_USART2CLK_Frequency |    pointer   |
+|RCC_Clocks_USBCLK_Frequency            | out |   32|   ap_vld   |   RCC_Clocks_USBCLK_Frequency  |    pointer   |
+|RCC_Clocks_USBCLK_Frequency_ap_vld     | out |    1|   ap_vld   |   RCC_Clocks_USBCLK_Frequency  |    pointer   |
++---------------------------------------+-----+-----+------------+--------------------------------+--------------+
+

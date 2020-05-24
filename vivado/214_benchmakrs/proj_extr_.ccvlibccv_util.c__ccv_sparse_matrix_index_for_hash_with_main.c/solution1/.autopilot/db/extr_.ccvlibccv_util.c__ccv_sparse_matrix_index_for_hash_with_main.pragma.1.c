@@ -151,7 +151,7 @@ typedef unsigned int uint32_t ;
 
 
 
-__attribute__((used)) static uint32_t _ccv_sparse_matrix_index_for_hash(const uint32_t hash, const int prime_index)
+uint32_t _ccv_sparse_matrix_index_for_hash(const uint32_t hash, const int prime_index)
 {
  switch(prime_index)
  {

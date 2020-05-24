@@ -151,8 +151,8 @@ typedef int real_t ;
 
 
 
-void acado_setObjQN1QN2( real_t* const tmpFx, real_t* const tmpObjSEndTerm, real_t* const tmpQN1, real_t* const tmpQN2 )
-{
+void acado_setObjQN1QN2( real_t const tmpFx[1000], real_t const tmpObjSEndTerm[1000], real_t tmpQN1[1000], real_t tmpQN2[1000] )
+{_ssdm_SpecArrayDimSize(tmpFx, 1000);_ssdm_SpecArrayDimSize(tmpObjSEndTerm, 1000);_ssdm_SpecArrayDimSize(tmpQN1, 1000);_ssdm_SpecArrayDimSize(tmpQN2, 1000);
 tmpQN2[0] = + tmpFx[0]*tmpObjSEndTerm[0] + tmpFx[3]*tmpObjSEndTerm[3] + tmpFx[6]*tmpObjSEndTerm[6];
 tmpQN2[1] = + tmpFx[0]*tmpObjSEndTerm[1] + tmpFx[3]*tmpObjSEndTerm[4] + tmpFx[6]*tmpObjSEndTerm[7];
 tmpQN2[2] = + tmpFx[0]*tmpObjSEndTerm[2] + tmpFx[3]*tmpObjSEndTerm[5] + tmpFx[6]*tmpObjSEndTerm[8];

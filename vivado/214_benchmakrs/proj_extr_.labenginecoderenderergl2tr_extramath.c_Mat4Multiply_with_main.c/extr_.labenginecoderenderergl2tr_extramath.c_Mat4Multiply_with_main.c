@@ -9,7 +9,7 @@ typedef int bool;
 /* Forward declarations */
 
 /* Type definitions */
-typedef  int* mat4_t ;
+typedef  int mat4_t [1000];
 
 /* Variables and functions */
 

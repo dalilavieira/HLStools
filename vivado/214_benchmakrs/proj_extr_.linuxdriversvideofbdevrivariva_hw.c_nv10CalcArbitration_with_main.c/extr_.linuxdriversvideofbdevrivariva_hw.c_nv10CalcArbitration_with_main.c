@@ -18,7 +18,7 @@ typedef  TYPE_2__ nv10_fifo_info ;
 
 /* Variables and functions */
 
-__attribute__((used)) static void nv10CalcArbitration 
+void nv10CalcArbitration 
 (
     nv10_fifo_info *fifo,
     nv10_sim_state *arb

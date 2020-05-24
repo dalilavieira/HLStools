@@ -148,7 +148,7 @@ typedef int bool;
 typedef struct TYPE_3__ TYPE_1__ ;
 
 
-struct TYPE_3__ {int w; int h; float* data; } ;
+struct TYPE_3__ {int w; int h; float data[100000]; } ;
 typedef TYPE_1__ image ;
 
 

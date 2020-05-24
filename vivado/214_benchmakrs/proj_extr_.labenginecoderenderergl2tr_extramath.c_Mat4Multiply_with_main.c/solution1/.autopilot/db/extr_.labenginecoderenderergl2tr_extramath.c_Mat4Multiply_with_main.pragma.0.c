@@ -147,12 +147,12 @@ typedef int bool;
 
 
 
-typedef int* mat4_t ;
+typedef int mat4_t [1000];
 
 
 
 void Mat4Multiply( const mat4_t in1, const mat4_t in2, mat4_t out )
-{
+{_ssdm_SpecArrayDimSize(in1, 1000);_ssdm_SpecArrayDimSize(in2, 1000);_ssdm_SpecArrayDimSize(out, 1000);
  out[ 0] = in1[ 0] * in2[ 0] + in1[ 4] * in2[ 1] + in1[ 8] * in2[ 2] + in1[12] * in2[ 3];
  out[ 1] = in1[ 1] * in2[ 0] + in1[ 5] * in2[ 1] + in1[ 9] * in2[ 2] + in1[13] * in2[ 3];
  out[ 2] = in1[ 2] * in2[ 0] + in1[ 6] * in2[ 1] + in1[10] * in2[ 2] + in1[14] * in2[ 3];
@@ -175,7 +175,13 @@ void Mat4Multiply( const mat4_t in1, const mat4_t in2, mat4_t out )
 }
 int main() {
   const mat4_t in1;
+_ssdm_SpecConstant(in1);
+# 39 "extr_.labenginecoderenderergl2tr_extramath.c_Mat4Multiply_with_main.c"
+
   const mat4_t in2;
+_ssdm_SpecConstant(in2);
+# 40 "extr_.labenginecoderenderergl2tr_extramath.c_Mat4Multiply_with_main.c"
+
   mat4_t out;
   Mat4Multiply(in1, in2, out);
   return 0;

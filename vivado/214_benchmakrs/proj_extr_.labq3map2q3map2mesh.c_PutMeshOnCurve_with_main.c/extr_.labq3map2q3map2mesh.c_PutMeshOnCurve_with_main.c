@@ -6,14 +6,15 @@ typedef int bool;
 #define false 0
 #define true 1
 
+struct TYPE_4__ {double xyz[1000]; double st[1000]; double lightmap[1000][1000]; } ;
 /* Forward declarations */
 typedef  struct TYPE_5__   TYPE_2__ ;
 typedef  struct TYPE_4__   TYPE_1__ ;
 
 /* Type definitions */
-struct TYPE_5__ {int width; int height; TYPE_1__* verts; } ;
+struct TYPE_5__ {int width; int height; TYPE_1__ verts[1000]; } ;
 typedef  TYPE_2__ mesh_t ;
-struct TYPE_4__ {double* xyz; double* st; double** lightmap; } ;
+
 
 /* Variables and functions */
  int MAX_LIGHTMAPS ; 

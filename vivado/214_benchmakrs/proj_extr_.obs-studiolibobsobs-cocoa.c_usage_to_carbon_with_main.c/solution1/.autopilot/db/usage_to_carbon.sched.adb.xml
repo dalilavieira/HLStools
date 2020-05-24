@@ -1,0 +1,1788 @@
+<stg><name>usage_to_carbon</name>
+
+
+<trans_list>
+
+<trans id="120" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:3  %usage_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %usage) nounwind
+
+]]></Node>
+<StgValue><ssdm name="usage_read"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:4  %icmp_ln304 = icmp eq i32 %usage_read, 198
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304"/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:5  %icmp_ln304_1 = icmp ne i32 %usage_read, 289
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_1"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:6  %icmp_ln304_2 = icmp ne i32 %usage_read, 162
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_2"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:7  %and_ln304 = and i1 %icmp_ln304_2, %icmp_ln304_1
+
+]]></Node>
+<StgValue><ssdm name="and_ln304"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="10" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:8  %and_ln304_1 = and i1 %icmp_ln304, %and_ln304
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_1"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:9  %icmp_ln304_3 = icmp ne i32 %usage_read, 275
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_3"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:10  %icmp_ln304_4 = icmp ne i32 %usage_read, 157
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_4"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:11  %and_ln304_2 = and i1 %icmp_ln304_4, %icmp_ln304_3
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_2"/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:12  %and_ln304_3 = and i1 %and_ln304_1, %and_ln304_2
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_3"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:13  %icmp_ln304_5 = icmp ne i32 %usage_read, 185
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_5"/></StgValue>
+</operation>
+
+<operation id="14" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:14  %icmp_ln304_6 = icmp ne i32 %usage_read, 277
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_6"/></StgValue>
+</operation>
+
+<operation id="15" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:15  %and_ln304_4 = and i1 %icmp_ln304_6, %icmp_ln304_5
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_4"/></StgValue>
+</operation>
+
+<operation id="16" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:16  %and_ln304_5 = and i1 %and_ln304_3, %and_ln304_4
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_5"/></StgValue>
+</operation>
+
+<operation id="17" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:17  %icmp_ln304_7 = icmp ne i32 %usage_read, 197
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_7"/></StgValue>
+</operation>
+
+<operation id="18" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:18  %icmp_ln304_8 = icmp ne i32 %usage_read, 237
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_8"/></StgValue>
+</operation>
+
+<operation id="19" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:19  %and_ln304_6 = and i1 %icmp_ln304_8, %icmp_ln304_7
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_6"/></StgValue>
+</operation>
+
+<operation id="20" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:20  %and_ln304_7 = and i1 %and_ln304_5, %and_ln304_6
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_7"/></StgValue>
+</operation>
+
+<operation id="21" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="23" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:21  %icmp_ln304_9 = icmp ne i32 %usage_read, 154
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_9"/></StgValue>
+</operation>
+
+<operation id="22" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:22  %icmp_ln304_10 = icmp ne i32 %usage_read, 153
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_10"/></StgValue>
+</operation>
+
+<operation id="23" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="25" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:23  %and_ln304_8 = and i1 %icmp_ln304_10, %icmp_ln304_9
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_8"/></StgValue>
+</operation>
+
+<operation id="24" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="26" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:24  %and_ln304_9 = and i1 %and_ln304_7, %and_ln304_8
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_9"/></StgValue>
+</operation>
+
+<operation id="25" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="27" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:25  %icmp_ln304_11 = icmp ne i32 %usage_read, 201
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_11"/></StgValue>
+</operation>
+
+<operation id="26" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:26  %icmp_ln304_12 = icmp ne i32 %usage_read, 202
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_12"/></StgValue>
+</operation>
+
+<operation id="27" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="29" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:27  %and_ln304_10 = and i1 %icmp_ln304_12, %icmp_ln304_11
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_10"/></StgValue>
+</operation>
+
+<operation id="28" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="30" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:28  %and_ln304_11 = and i1 %and_ln304_9, %and_ln304_10
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_11"/></StgValue>
+</operation>
+
+<operation id="29" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="31" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:29  %icmp_ln304_13 = icmp ne i32 %usage_read, 136
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_13"/></StgValue>
+</operation>
+
+<operation id="30" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="32" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:30  %icmp_ln304_14 = icmp ne i32 %usage_read, 200
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_14"/></StgValue>
+</operation>
+
+<operation id="31" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="33" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:31  %and_ln304_12 = and i1 %icmp_ln304_14, %icmp_ln304_13
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_12"/></StgValue>
+</operation>
+
+<operation id="32" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:32  %and_ln304_13 = and i1 %and_ln304_11, %and_ln304_12
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_13"/></StgValue>
+</operation>
+
+<operation id="33" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:33  %icmp_ln304_15 = icmp ne i32 %usage_read, 228
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_15"/></StgValue>
+</operation>
+
+<operation id="34" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="36" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:34  %icmp_ln304_16 = icmp ne i32 %usage_read, 133
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_16"/></StgValue>
+</operation>
+
+<operation id="35" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="37" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:35  %and_ln304_14 = and i1 %icmp_ln304_16, %icmp_ln304_15
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_14"/></StgValue>
+</operation>
+
+<operation id="36" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:36  %and_ln304_15 = and i1 %and_ln304_13, %and_ln304_14
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_15"/></StgValue>
+</operation>
+
+<operation id="37" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="39" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:37  %icmp_ln304_17 = icmp ne i32 %usage_read, 226
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_17"/></StgValue>
+</operation>
+
+<operation id="38" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="40" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:38  %icmp_ln304_18 = icmp ne i32 %usage_read, 227
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_18"/></StgValue>
+</operation>
+
+<operation id="39" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:39  %and_ln304_16 = and i1 %icmp_ln304_18, %icmp_ln304_17
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_16"/></StgValue>
+</operation>
+
+<operation id="40" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:40  %and_ln304_17 = and i1 %and_ln304_15, %and_ln304_16
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_17"/></StgValue>
+</operation>
+
+<operation id="41" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="43" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:41  %icmp_ln304_19 = icmp ne i32 %usage_read, 224
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_19"/></StgValue>
+</operation>
+
+<operation id="42" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="44" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:42  %icmp_ln304_20 = icmp ne i32 %usage_read, 225
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_20"/></StgValue>
+</operation>
+
+<operation id="43" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="45" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:43  %and_ln304_18 = and i1 %icmp_ln304_20, %icmp_ln304_19
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_18"/></StgValue>
+</operation>
+
+<operation id="44" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="46" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:44  %and_ln304_19 = and i1 %and_ln304_17, %and_ln304_18
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_19"/></StgValue>
+</operation>
+
+<operation id="45" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="47" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:45  %icmp_ln304_21 = icmp ne i32 %usage_read, 222
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_21"/></StgValue>
+</operation>
+
+<operation id="46" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="48" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:46  %icmp_ln304_22 = icmp ne i32 %usage_read, 223
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_22"/></StgValue>
+</operation>
+
+<operation id="47" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="49" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:47  %and_ln304_20 = and i1 %icmp_ln304_22, %icmp_ln304_21
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_20"/></StgValue>
+</operation>
+
+<operation id="48" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="50" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:48  %and_ln304_21 = and i1 %and_ln304_19, %and_ln304_20
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_21"/></StgValue>
+</operation>
+
+<operation id="49" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="51" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:49  %icmp_ln304_23 = icmp ne i32 %usage_read, 220
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_23"/></StgValue>
+</operation>
+
+<operation id="50" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="52" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:50  %icmp_ln304_24 = icmp ne i32 %usage_read, 221
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_24"/></StgValue>
+</operation>
+
+<operation id="51" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="53" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:51  %and_ln304_22 = and i1 %icmp_ln304_24, %icmp_ln304_23
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_22"/></StgValue>
+</operation>
+
+<operation id="52" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="54" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:52  %and_ln304_23 = and i1 %and_ln304_21, %and_ln304_22
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_23"/></StgValue>
+</operation>
+
+<operation id="53" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="55" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:53  %icmp_ln304_25 = icmp ne i32 %usage_read, 215
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_25"/></StgValue>
+</operation>
+
+<operation id="54" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="56" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:54  %icmp_ln304_26 = icmp ne i32 %usage_read, 216
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_26"/></StgValue>
+</operation>
+
+<operation id="55" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="57" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:55  %and_ln304_24 = and i1 %icmp_ln304_26, %icmp_ln304_25
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_24"/></StgValue>
+</operation>
+
+<operation id="56" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:56  %and_ln304_25 = and i1 %and_ln304_23, %and_ln304_24
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_25"/></StgValue>
+</operation>
+
+<operation id="57" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="59" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:57  %icmp_ln304_27 = icmp ne i32 %usage_read, 213
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_27"/></StgValue>
+</operation>
+
+<operation id="58" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="60" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:58  %icmp_ln304_28 = icmp ne i32 %usage_read, 214
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_28"/></StgValue>
+</operation>
+
+<operation id="59" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="61" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:59  %and_ln304_26 = and i1 %icmp_ln304_28, %icmp_ln304_27
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_26"/></StgValue>
+</operation>
+
+<operation id="60" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="62" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:60  %and_ln304_27 = and i1 %and_ln304_25, %and_ln304_26
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_27"/></StgValue>
+</operation>
+
+<operation id="61" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:61  %icmp_ln304_29 = icmp ne i32 %usage_read, 211
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_29"/></StgValue>
+</operation>
+
+<operation id="62" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="64" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:62  %icmp_ln304_30 = icmp ne i32 %usage_read, 212
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_30"/></StgValue>
+</operation>
+
+<operation id="63" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="65" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:63  %and_ln304_28 = and i1 %icmp_ln304_30, %icmp_ln304_29
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_28"/></StgValue>
+</operation>
+
+<operation id="64" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:64  %and_ln304_29 = and i1 %and_ln304_27, %and_ln304_28
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_29"/></StgValue>
+</operation>
+
+<operation id="65" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:65  %icmp_ln304_31 = icmp ne i32 %usage_read, 209
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_31"/></StgValue>
+</operation>
+
+<operation id="66" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="68" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:66  %icmp_ln304_32 = icmp ne i32 %usage_read, 210
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_32"/></StgValue>
+</operation>
+
+<operation id="67" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="69" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:67  %and_ln304_30 = and i1 %icmp_ln304_32, %icmp_ln304_31
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_30"/></StgValue>
+</operation>
+
+<operation id="68" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="70" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:68  %and_ln304_31 = and i1 %and_ln304_29, %and_ln304_30
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_31"/></StgValue>
+</operation>
+
+<operation id="69" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:69  %icmp_ln304_33 = icmp ne i32 %usage_read, 288
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_33"/></StgValue>
+</operation>
+
+<operation id="70" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="72" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:70  %icmp_ln304_34 = icmp ne i32 %usage_read, 208
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_34"/></StgValue>
+</operation>
+
+<operation id="71" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="73" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:71  %and_ln304_32 = and i1 %icmp_ln304_34, %icmp_ln304_33
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_32"/></StgValue>
+</operation>
+
+<operation id="72" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="74" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:72  %and_ln304_33 = and i1 %and_ln304_31, %and_ln304_32
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_33"/></StgValue>
+</operation>
+
+<operation id="73" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="75" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:73  %icmp_ln304_35 = icmp ne i32 %usage_read, 283
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_35"/></StgValue>
+</operation>
+
+<operation id="74" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="76" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:74  %icmp_ln304_36 = icmp ne i32 %usage_read, 161
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_36"/></StgValue>
+</operation>
+
+<operation id="75" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="77" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:75  %and_ln304_34 = and i1 %icmp_ln304_36, %icmp_ln304_35
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_34"/></StgValue>
+</operation>
+
+<operation id="76" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="78" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:76  %and_ln304_35 = and i1 %and_ln304_33, %and_ln304_34
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_35"/></StgValue>
+</operation>
+
+<operation id="77" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="79" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:77  %icmp_ln304_37 = icmp ne i32 %usage_read, 180
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_37"/></StgValue>
+</operation>
+
+<operation id="78" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="80" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:78  %icmp_ln304_38 = icmp ne i32 %usage_read, 281
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_38"/></StgValue>
+</operation>
+
+<operation id="79" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="81" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:79  %and_ln304_36 = and i1 %icmp_ln304_38, %icmp_ln304_37
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_36"/></StgValue>
+</operation>
+
+<operation id="80" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="82" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:80  %and_ln304_37 = and i1 %and_ln304_35, %and_ln304_36
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_37"/></StgValue>
+</operation>
+
+<operation id="81" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="83" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:81  %icmp_ln304_39 = icmp ne i32 %usage_read, 165
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_39"/></StgValue>
+</operation>
+
+<operation id="82" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="84" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:82  %icmp_ln304_40 = icmp ne i32 %usage_read, 176
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_40"/></StgValue>
+</operation>
+
+<operation id="83" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="85" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:83  %and_ln304_38 = and i1 %icmp_ln304_40, %icmp_ln304_39
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_38"/></StgValue>
+</operation>
+
+<operation id="84" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:84  %and_ln304_39 = and i1 %and_ln304_37, %and_ln304_38
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_39"/></StgValue>
+</operation>
+
+<operation id="85" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="87" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:85  %icmp_ln304_41 = icmp ne i32 %usage_read, 191
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_41"/></StgValue>
+</operation>
+
+<operation id="86" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="88" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:86  %icmp_ln304_42 = icmp ne i32 %usage_read, 190
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_42"/></StgValue>
+</operation>
+
+<operation id="87" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="89" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:87  %and_ln304_40 = and i1 %icmp_ln304_42, %icmp_ln304_41
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_40"/></StgValue>
+</operation>
+
+<operation id="88" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="90" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:88  %and_ln304_41 = and i1 %and_ln304_39, %and_ln304_40
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_41"/></StgValue>
+</operation>
+
+<operation id="89" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="91" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:89  %icmp_ln304_43 = icmp ne i32 %usage_read, 276
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_43"/></StgValue>
+</operation>
+
+<operation id="90" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="92" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:90  %icmp_ln304_44 = icmp ne i32 %usage_read, 280
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_44"/></StgValue>
+</operation>
+
+<operation id="91" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="93" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:91  %and_ln304_42 = and i1 %icmp_ln304_44, %icmp_ln304_43
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_42"/></StgValue>
+</operation>
+
+<operation id="92" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="94" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:92  %and_ln304_43 = and i1 %and_ln304_41, %and_ln304_42
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_43"/></StgValue>
+</operation>
+
+<operation id="93" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="95" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:93  %icmp_ln304_45 = icmp ne i32 %usage_read, 205
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_45"/></StgValue>
+</operation>
+
+<operation id="94" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="96" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:94  %icmp_ln304_46 = icmp ne i32 %usage_read, 264
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_46"/></StgValue>
+</operation>
+
+<operation id="95" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="99" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:97  %icmp_ln304_47 = icmp ne i32 %usage_read, 207
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_47"/></StgValue>
+</operation>
+
+<operation id="96" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="100" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:98  %icmp_ln304_48 = icmp ne i32 %usage_read, 203
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_48"/></StgValue>
+</operation>
+
+<operation id="97" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="103" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:101  %icmp_ln304_49 = icmp ne i32 %usage_read, 172
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_49"/></StgValue>
+</operation>
+
+<operation id="98" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="104" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:102  %icmp_ln304_50 = icmp ne i32 %usage_read, 204
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_50"/></StgValue>
+</operation>
+
+<operation id="99" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="107" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:105  %icmp_ln304_51 = icmp ne i32 %usage_read, 174
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_51"/></StgValue>
+</operation>
+
+<operation id="100" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="108" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:106  %icmp_ln304_52 = icmp ne i32 %usage_read, 170
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_52"/></StgValue>
+</operation>
+
+<operation id="101" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="112" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:110  %icmp_ln304_53 = icmp eq i32 %usage_read, 171
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_53"/></StgValue>
+</operation>
+
+<operation id="102" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="113" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+._crit_edge:111  %icmp_ln304_54 = icmp eq i32 %usage_read, 148
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln304_54"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="103" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="2" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+._crit_edge:0  call void (...)* @_ssdm_op_SpecBitsMap(i32 %usage) nounwind, !map !575
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="104" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+._crit_edge:1  call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !581
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="105" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+._crit_edge:2  call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @usage_to_carbon_str) nounwind
+
+]]></Node>
+<StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
+</operation>
+
+<operation id="106" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="97" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:95  %and_ln304_44 = and i1 %icmp_ln304_46, %icmp_ln304_45
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_44"/></StgValue>
+</operation>
+
+<operation id="107" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="98" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:96  %and_ln304_45 = and i1 %and_ln304_43, %and_ln304_44
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_45"/></StgValue>
+</operation>
+
+<operation id="108" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="101" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:99  %and_ln304_46 = and i1 %icmp_ln304_48, %icmp_ln304_47
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_46"/></StgValue>
+</operation>
+
+<operation id="109" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="102" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:100  %and_ln304_47 = and i1 %and_ln304_45, %and_ln304_46
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_47"/></StgValue>
+</operation>
+
+<operation id="110" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="105" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:103  %and_ln304_48 = and i1 %icmp_ln304_50, %icmp_ln304_49
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_48"/></StgValue>
+</operation>
+
+<operation id="111" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="106" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:104  %and_ln304_49 = and i1 %and_ln304_47, %and_ln304_48
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_49"/></StgValue>
+</operation>
+
+<operation id="112" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="109" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:107  %and_ln304_50 = and i1 %icmp_ln304_52, %icmp_ln304_51
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_50"/></StgValue>
+</operation>
+
+<operation id="113" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="110" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:108  %and_ln304_51 = and i1 %and_ln304_49, %and_ln304_50
+
+]]></Node>
+<StgValue><ssdm name="and_ln304_51"/></StgValue>
+</operation>
+
+<operation id="114" st_id="2" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="111" bw="7" op_0_bw="1" op_1_bw="7" op_2_bw="7">
+<![CDATA[
+._crit_edge:109  %select_ln304 = select i1 %and_ln304_51, i7 -1, i7 0
+
+]]></Node>
+<StgValue><ssdm name="select_ln304"/></StgValue>
+</operation>
+
+<operation id="115" st_id="2" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="114" bw="7" op_0_bw="1" op_1_bw="7" op_2_bw="7">
+<![CDATA[
+._crit_edge:112  %select_ln304_54_cast = select i1 %icmp_ln304_54, i7 0, i7 54
+
+]]></Node>
+<StgValue><ssdm name="select_ln304_54_cast"/></StgValue>
+</operation>
+
+<operation id="116" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="115" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge:113  %empty = or i1 %icmp_ln304_54, %icmp_ln304_53
+
+]]></Node>
+<StgValue><ssdm name="empty"/></StgValue>
+</operation>
+
+<operation id="117" st_id="2" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="116" bw="7" op_0_bw="1" op_1_bw="7" op_2_bw="7">
+<![CDATA[
+._crit_edge:114  %p_0 = select i1 %empty, i7 %select_ln304_54_cast, i7 %select_ln304
+
+]]></Node>
+<StgValue><ssdm name="p_0"/></StgValue>
+</operation>
+
+<operation id="118" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="117" bw="32" op_0_bw="7">
+<![CDATA[
+._crit_edge:115  %p_0_cast = zext i7 %p_0 to i32
+
+]]></Node>
+<StgValue><ssdm name="p_0_cast"/></StgValue>
+</operation>
+
+<operation id="119" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="118" bw="0" op_0_bw="32">
+<![CDATA[
+._crit_edge:116  ret i32 %p_0_cast
+
+]]></Node>
+<StgValue><ssdm name="ret_ln504"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+</ports>
+
+
+<dataflows>
+</dataflows>
+
+
+</stg>

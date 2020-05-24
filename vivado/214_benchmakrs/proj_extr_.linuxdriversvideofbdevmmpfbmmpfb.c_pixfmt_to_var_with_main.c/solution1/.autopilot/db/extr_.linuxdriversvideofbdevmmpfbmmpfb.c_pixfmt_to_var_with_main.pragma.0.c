@@ -157,7 +157,7 @@ struct TYPE_6__ {int offset; int length; } ;
 struct TYPE_5__ {int offset; int length; } ;
 struct fb_var_screeninfo {int bits_per_pixel; TYPE_4__ transp; TYPE_3__ blue; TYPE_2__ green; TYPE_1__ red; } ;
 # 40 "extr_.linuxdriversvideofbdevmmpfbmmpfb.c_pixfmt_to_var_with_main.c"
-__attribute__((used)) static void pixfmt_to_var(struct fb_var_screeninfo *var, int pix_fmt)
+void pixfmt_to_var(struct fb_var_screeninfo *var, int pix_fmt)
 {
  switch (pix_fmt) {
  case 138:

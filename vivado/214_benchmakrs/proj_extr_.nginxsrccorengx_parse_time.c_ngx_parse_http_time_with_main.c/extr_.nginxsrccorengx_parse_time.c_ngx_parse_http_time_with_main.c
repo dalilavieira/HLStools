@@ -17,10 +17,10 @@ typedef  int ngx_int_t ;
 
 /* Variables and functions */
  int /*<<< orphan*/  NGX_ERROR ; 
- int* mday ; 
+ int mday[1000] ; 
 
 time_t
-ngx_parse_http_time(u_char *value, size_t len)
+ngx_parse_http_time(u_char value[1000], size_t len)
 {
     u_char      *p, *end;
     ngx_int_t    month;

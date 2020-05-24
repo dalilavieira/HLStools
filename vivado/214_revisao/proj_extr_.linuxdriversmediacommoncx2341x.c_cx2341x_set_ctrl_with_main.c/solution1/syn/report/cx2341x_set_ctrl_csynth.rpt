@@ -1,0 +1,240 @@
+
+
+================================================================
+== Vivado HLS Report for 'cx2341x_set_ctrl'
+================================================================
+* Date:           Sun May 24 19:02:10 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.linuxdriversmediacommoncx2341x.c_cx2341x_set_ctrl_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     4.370|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     432|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|     788|     476|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     244|    -|
+|Register         |        -|      -|     229|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|    1017|    1152|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |       1|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------------+---------------------------------------------+---------+-------+-----+-----+-----+
+    |                    Instance                    |                    Module                   | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +------------------------------------------------+---------------------------------------------+---------+-------+-----+-----+-----+
+    |cx2341x_set_ctrl_srem_32ns_32ns_32_36_seq_1_U1  |cx2341x_set_ctrl_srem_32ns_32ns_32_36_seq_1  |        0|      0|  394|  238|    0|
+    |cx2341x_set_ctrl_srem_32ns_32ns_32_36_seq_1_U2  |cx2341x_set_ctrl_srem_32ns_32ns_32_36_seq_1  |        0|      0|  394|  238|    0|
+    +------------------------------------------------+---------------------------------------------+---------+-------+-----+-----+-----+
+    |Total                                           |                                             |        0|      0|  788|  476|    0|
+    +------------------------------------------------+---------------------------------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |add_ln113_fu_544_p2     |     +    |      0|  0|  39|          32|          32|
+    |add_ln122_fu_526_p2     |     +    |      0|  0|  39|          32|          32|
+    |b_1_fu_520_p2           |     +    |      0|  0|  39|          32|           1|
+    |b_fu_538_p2             |     +    |      0|  0|  39|          32|           1|
+    |sub_ln113_fu_561_p2     |     -    |      0|  0|  39|          32|          32|
+    |sub_ln116_fu_583_p2     |     -    |      0|  0|  39|          32|          32|
+    |sub_ln122_fu_556_p2     |     -    |      0|  0|  39|          32|          32|
+    |sub_ln125_fu_572_p2     |     -    |      0|  0|  39|          32|          32|
+    |ap_condition_632        |    and   |      0|  0|   6|           1|           1|
+    |icmp_ln115_fu_577_p2    |   icmp   |      0|  0|  18|          32|           6|
+    |icmp_ln124_fu_566_p2    |   icmp   |      0|  0|  18|          32|           6|
+    |icmp_ln136_1_fu_508_p2  |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln136_fu_502_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln155_fu_491_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln66_fu_485_p2     |   icmp   |      0|  0|  18|          32|           1|
+    |or_ln136_fu_514_p2      |    or    |      0|  0|   6|           1|           1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 432|         450|         212|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------+-----+-----------+-----+-----------+
+    |            Name           | LUT | Input Size| Bits| Total Bits|
+    +---------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                  |  169|         38|    1|         38|
+    |ctrl_value_o               |    9|          2|   32|         64|
+    |params_video_b_frames_o    |    9|          2|   32|         64|
+    |params_video_bitrate_mode  |   15|          3|   32|         96|
+    |params_video_encoding_o    |    9|          2|   32|         64|
+    |params_video_gop_size_o    |   15|          3|   32|         96|
+    |storemerge1_reg_475        |    9|          2|   32|         64|
+    |storemerge_reg_464         |    9|          2|   32|         64|
+    +---------------------------+-----+-----------+-----+-----------+
+    |Total                      |  244|         54|  225|        550|
+    +---------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------+----+----+-----+-----------+
+    |         Name        | FF | LUT| Bits| Const Bits|
+    +---------------------+----+----+-----+-----------+
+    |add_ln113_reg_618    |  32|   0|   32|          0|
+    |add_ln122_reg_606    |  32|   0|   32|          0|
+    |ap_CS_fsm            |  37|   0|   37|          0|
+    |b_1_reg_600          |  32|   0|   32|          0|
+    |b_reg_612            |  32|   0|   32|          0|
+    |storemerge1_reg_475  |  32|   0|   32|          0|
+    |storemerge_reg_464   |  32|   0|   32|          0|
+    +---------------------+----+----+-----+-----------+
+    |Total                | 229|   0|  229|          0|
+    +---------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------------------------+-----+-----+------------+------------------------------------------+--------------+
+|                    RTL Ports                    | Dir | Bits|  Protocol  |               Source Object              |    C Type    |
++-------------------------------------------------+-----+-----+------------+------------------------------------------+--------------+
+|ap_clk                                           |  in |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_rst                                           |  in |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_start                                         |  in |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_done                                          | out |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_idle                                          | out |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_ready                                         | out |    1| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|ap_return                                        | out |   32| ap_ctrl_hs |             cx2341x_set_ctrl             | return value |
+|params_audio_sampling_freq                       | out |   32|   ap_vld   |        params_audio_sampling_freq        |    pointer   |
+|params_audio_sampling_freq_ap_vld                | out |    1|   ap_vld   |        params_audio_sampling_freq        |    pointer   |
+|params_capabilities                              |  in |   32|   ap_none  |            params_capabilities           |    pointer   |
+|params_audio_encoding                            | out |   32|   ap_vld   |           params_audio_encoding          |    pointer   |
+|params_audio_encoding_ap_vld                     | out |    1|   ap_vld   |           params_audio_encoding          |    pointer   |
+|params_audio_l2_bitrate                          | out |   32|   ap_vld   |          params_audio_l2_bitrate         |    pointer   |
+|params_audio_l2_bitrate_ap_vld                   | out |    1|   ap_vld   |          params_audio_l2_bitrate         |    pointer   |
+|params_audio_ac3_bitrate                         |  in |   32|   ap_none  |         params_audio_ac3_bitrate         |    pointer   |
+|params_audio_mode                                | out |   32|   ap_vld   |             params_audio_mode            |    pointer   |
+|params_audio_mode_ap_vld                         | out |    1|   ap_vld   |             params_audio_mode            |    pointer   |
+|params_audio_mode_extension                      | out |   32|   ap_vld   |        params_audio_mode_extension       |    pointer   |
+|params_audio_mode_extension_ap_vld               | out |    1|   ap_vld   |        params_audio_mode_extension       |    pointer   |
+|params_audio_emphasis                            | out |   32|   ap_vld   |           params_audio_emphasis          |    pointer   |
+|params_audio_emphasis_ap_vld                     | out |    1|   ap_vld   |           params_audio_emphasis          |    pointer   |
+|params_audio_crc                                 | out |   32|   ap_vld   |             params_audio_crc             |    pointer   |
+|params_audio_crc_ap_vld                          | out |    1|   ap_vld   |             params_audio_crc             |    pointer   |
+|params_audio_mute                                | out |   32|   ap_vld   |             params_audio_mute            |    pointer   |
+|params_audio_mute_ap_vld                         | out |    1|   ap_vld   |             params_audio_mute            |    pointer   |
+|params_video_aspect                              | out |   32|   ap_vld   |            params_video_aspect           |    pointer   |
+|params_video_aspect_ap_vld                       | out |    1|   ap_vld   |            params_video_aspect           |    pointer   |
+|params_video_gop_size_i                          |  in |   32|   ap_ovld  |           params_video_gop_size          |    pointer   |
+|params_video_gop_size_o                          | out |   32|   ap_ovld  |           params_video_gop_size          |    pointer   |
+|params_video_gop_size_o_ap_vld                   | out |    1|   ap_ovld  |           params_video_gop_size          |    pointer   |
+|params_video_b_frames_i                          |  in |   32|   ap_ovld  |           params_video_b_frames          |    pointer   |
+|params_video_b_frames_o                          | out |   32|   ap_ovld  |           params_video_b_frames          |    pointer   |
+|params_video_b_frames_o_ap_vld                   | out |    1|   ap_ovld  |           params_video_b_frames          |    pointer   |
+|params_video_gop_closure                         | out |   32|   ap_vld   |         params_video_gop_closure         |    pointer   |
+|params_video_gop_closure_ap_vld                  | out |    1|   ap_vld   |         params_video_gop_closure         |    pointer   |
+|params_video_bitrate_mode                        | out |   32|   ap_vld   |         params_video_bitrate_mode        |    pointer   |
+|params_video_bitrate_mode_ap_vld                 | out |    1|   ap_vld   |         params_video_bitrate_mode        |    pointer   |
+|params_video_bitrate                             | out |   32|   ap_vld   |           params_video_bitrate           |    pointer   |
+|params_video_bitrate_ap_vld                      | out |    1|   ap_vld   |           params_video_bitrate           |    pointer   |
+|params_video_bitrate_peak                        | out |   32|   ap_vld   |         params_video_bitrate_peak        |    pointer   |
+|params_video_bitrate_peak_ap_vld                 | out |    1|   ap_vld   |         params_video_bitrate_peak        |    pointer   |
+|params_video_temporal_decimation                 | out |   32|   ap_vld   |     params_video_temporal_decimation     |    pointer   |
+|params_video_temporal_decimation_ap_vld          | out |    1|   ap_vld   |     params_video_temporal_decimation     |    pointer   |
+|params_video_mute                                | out |   32|   ap_vld   |             params_video_mute            |    pointer   |
+|params_video_mute_ap_vld                         | out |    1|   ap_vld   |             params_video_mute            |    pointer   |
+|params_video_mute_yuv                            | out |   32|   ap_vld   |           params_video_mute_yuv          |    pointer   |
+|params_video_mute_yuv_ap_vld                     | out |    1|   ap_vld   |           params_video_mute_yuv          |    pointer   |
+|params_stream_type                               | out |   32|   ap_vld   |            params_stream_type            |    pointer   |
+|params_stream_type_ap_vld                        | out |    1|   ap_vld   |            params_stream_type            |    pointer   |
+|params_stream_vbi_fmt                            | out |   32|   ap_vld   |           params_stream_vbi_fmt          |    pointer   |
+|params_stream_vbi_fmt_ap_vld                     | out |    1|   ap_vld   |           params_stream_vbi_fmt          |    pointer   |
+|params_video_spatial_filter_mode                 | out |   32|   ap_vld   |     params_video_spatial_filter_mode     |    pointer   |
+|params_video_spatial_filter_mode_ap_vld          | out |    1|   ap_vld   |     params_video_spatial_filter_mode     |    pointer   |
+|params_video_spatial_filter                      | out |   32|   ap_vld   |        params_video_spatial_filter       |    pointer   |
+|params_video_spatial_filter_ap_vld               | out |    1|   ap_vld   |        params_video_spatial_filter       |    pointer   |
+|params_video_luma_spatial_filter_type            | out |   32|   ap_vld   |   params_video_luma_spatial_filter_type  |    pointer   |
+|params_video_luma_spatial_filter_type_ap_vld     | out |    1|   ap_vld   |   params_video_luma_spatial_filter_type  |    pointer   |
+|params_video_chroma_spatial_filter_type          | out |   32|   ap_vld   |  params_video_chroma_spatial_filter_type |    pointer   |
+|params_video_chroma_spatial_filter_type_ap_vld   | out |    1|   ap_vld   |  params_video_chroma_spatial_filter_type |    pointer   |
+|params_video_temporal_filter_mode                | out |   32|   ap_vld   |     params_video_temporal_filter_mode    |    pointer   |
+|params_video_temporal_filter_mode_ap_vld         | out |    1|   ap_vld   |     params_video_temporal_filter_mode    |    pointer   |
+|params_video_temporal_filter                     | out |   32|   ap_vld   |       params_video_temporal_filter       |    pointer   |
+|params_video_temporal_filter_ap_vld              | out |    1|   ap_vld   |       params_video_temporal_filter       |    pointer   |
+|params_video_median_filter_type                  | out |   32|   ap_vld   |      params_video_median_filter_type     |    pointer   |
+|params_video_median_filter_type_ap_vld           | out |    1|   ap_vld   |      params_video_median_filter_type     |    pointer   |
+|params_video_luma_median_filter_top              | out |   32|   ap_vld   |    params_video_luma_median_filter_top   |    pointer   |
+|params_video_luma_median_filter_top_ap_vld       | out |    1|   ap_vld   |    params_video_luma_median_filter_top   |    pointer   |
+|params_video_luma_median_filter_bottom           | out |   32|   ap_vld   |  params_video_luma_median_filter_bottom  |    pointer   |
+|params_video_luma_median_filter_bottom_ap_vld    | out |    1|   ap_vld   |  params_video_luma_median_filter_bottom  |    pointer   |
+|params_video_chroma_median_filter_top            | out |   32|   ap_vld   |   params_video_chroma_median_filter_top  |    pointer   |
+|params_video_chroma_median_filter_top_ap_vld     | out |    1|   ap_vld   |   params_video_chroma_median_filter_top  |    pointer   |
+|params_video_chroma_median_filter_bottom         | out |   32|   ap_vld   | params_video_chroma_median_filter_bottom |    pointer   |
+|params_video_chroma_median_filter_bottom_ap_vld  | out |    1|   ap_vld   | params_video_chroma_median_filter_bottom |    pointer   |
+|params_stream_insert_nav_packets                 | out |   32|   ap_vld   |     params_stream_insert_nav_packets     |    pointer   |
+|params_stream_insert_nav_packets_ap_vld          | out |    1|   ap_vld   |     params_stream_insert_nav_packets     |    pointer   |
+|params_video_encoding_i                          |  in |   32|   ap_ovld  |           params_video_encoding          |    pointer   |
+|params_video_encoding_o                          | out |   32|   ap_ovld  |           params_video_encoding          |    pointer   |
+|params_video_encoding_o_ap_vld                   | out |    1|   ap_ovld  |           params_video_encoding          |    pointer   |
+|busy                                             |  in |   32|   ap_none  |                   busy                   |    scalar    |
+|ctrl_id                                          |  in |   32|   ap_none  |                  ctrl_id                 |    pointer   |
+|ctrl_value_i                                     |  in |   32|   ap_ovld  |                ctrl_value                |    pointer   |
+|ctrl_value_o                                     | out |   32|   ap_ovld  |                ctrl_value                |    pointer   |
+|ctrl_value_o_ap_vld                              | out |    1|   ap_ovld  |                ctrl_value                |    pointer   |
++-------------------------------------------------+-----+-----+------------+------------------------------------------+--------------+
+

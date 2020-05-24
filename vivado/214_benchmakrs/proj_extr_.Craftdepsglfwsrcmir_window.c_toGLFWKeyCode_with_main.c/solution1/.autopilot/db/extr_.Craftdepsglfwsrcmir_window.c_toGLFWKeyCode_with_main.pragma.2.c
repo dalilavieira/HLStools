@@ -268,7 +268,7 @@ typedef int uint32_t ;
  int GLFW_KEY_Y ;
  int GLFW_KEY_Z ;
 # 249 "extr_.Craftdepsglfwsrcmir_window.c_toGLFWKeyCode_with_main.c"
-__attribute__((used)) static int toGLFWKeyCode(uint32_t key)
+int toGLFWKeyCode(uint32_t key)
 {
     switch (key)
     {
@@ -388,7 +388,7 @@ __attribute__((used)) static int toGLFWKeyCode(uint32_t key)
         case 173: return GLFW_KEY_KP_DECIMAL;
         case 170: return GLFW_KEY_KP_EQUAL;
         case 171: return GLFW_KEY_KP_ENTER;
-        default: return GLFW_KEY_UNKNOWN;
+
     }
 }
 int main() {

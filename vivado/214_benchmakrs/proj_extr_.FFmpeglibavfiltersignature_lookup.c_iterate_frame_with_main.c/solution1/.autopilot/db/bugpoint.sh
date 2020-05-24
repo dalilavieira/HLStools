@@ -3,5 +3,5 @@ export LD_LIBRARY_PATH=/opt/xilinx/Vivado/2019.1/lnx64/tools/gdb_v7_2:/opt/xilin
 export HDI_APPROOT=/opt/xilinx/Vivado/2019.1
 export XILINX_OPENCL_CLANG=/opt/xilinx/Vivado/2019.1/lnx64/tools/clang
 export RDI_PLATFORM=lnx64
-bugpoint -mlimit=32000  --load libhls_support.so  --load libhls_bugpoint.so  -hls -strip  /home/vivado/aut/proj_extr_.FFmpeglibavfiltersignature_lookup.c_iterate_frame_with_main.c/solution1/.autopilot/db/a.g.1.bc
+bugpoint -mlimit=32000  --load libhls_support.so  --load libhls_bugpoint.so  -hls -strip  /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.FFmpeglibavfiltersignature_lookup.c_iterate_frame_with_main.c/solution1/.autopilot/db/a.g.1.bc
 llvm-dis bugpoint-reduced-simplified.bc 

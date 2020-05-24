@@ -268,7 +268,7 @@ typedef int uint32_t ;
  int GLFW_KEY_Y ;
  int GLFW_KEY_Z ;
 # 249 "extr_.Craftdepsglfwsrcwl_init.c_toGLFWKeyCode_with_main.c"
-__attribute__((used)) static int toGLFWKeyCode(uint32_t key)
+int toGLFWKeyCode(uint32_t key)
 {
     switch (key)
     {

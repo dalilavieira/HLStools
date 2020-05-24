@@ -199,9 +199,9 @@ typedef enum mtk_ddp_comp_id { ____Placeholder_mtk_ddp_comp_id } mtk_ddp_comp_id
  unsigned int RDMA2_SOUT_DSI3 ;
  unsigned int UFOE_MOUT_EN_DSI0 ;
 
-__attribute__((used)) static unsigned int mtk_ddp_mout_en(enum mtk_ddp_comp_id cur,
+unsigned int mtk_ddp_mout_en(enum mtk_ddp_comp_id cur,
         enum mtk_ddp_comp_id next,
-        unsigned int *addr)
+        volatile unsigned int *addr)
 {
  unsigned int value;
 

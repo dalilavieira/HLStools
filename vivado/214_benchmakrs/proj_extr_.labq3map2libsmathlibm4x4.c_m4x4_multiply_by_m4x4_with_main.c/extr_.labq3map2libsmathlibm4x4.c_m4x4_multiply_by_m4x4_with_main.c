@@ -10,7 +10,7 @@ typedef int bool;
 
 /* Type definitions */
 typedef  int vec_t ;
-typedef  int* m4x4_t ;
+typedef  int m4x4_t [1000];
 
 /* Variables and functions */
 

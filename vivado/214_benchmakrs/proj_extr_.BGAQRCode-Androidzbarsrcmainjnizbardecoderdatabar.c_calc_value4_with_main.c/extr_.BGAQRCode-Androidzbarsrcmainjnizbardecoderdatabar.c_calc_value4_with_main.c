@@ -12,8 +12,7 @@ typedef int bool;
 
 /* Variables and functions */
 
-__attribute__((used)) static inline int
-calc_value4 (unsigned sig,
+ int calc_value4 (unsigned sig,
              unsigned n,
              unsigned wmax,
              unsigned nonarrow)

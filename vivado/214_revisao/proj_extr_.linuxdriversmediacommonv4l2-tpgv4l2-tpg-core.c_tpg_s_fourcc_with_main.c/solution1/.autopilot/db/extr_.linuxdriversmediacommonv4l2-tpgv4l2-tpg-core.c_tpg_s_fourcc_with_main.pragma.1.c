@@ -156,8 +156,8 @@ struct tpg_data {int fourcc; int planes; int buffers; int recalc_colors; int int
  void* TGP_COLOR_ENC_RGB ;
  void* TGP_COLOR_ENC_YCBCR ;
 # 88 "extr_.linuxdriversmediacommonv4l2-tpgv4l2-tpg-core.c_tpg_s_fourcc_with_main.c"
-bool tpg_s_fourcc(struct tpg_data *tpg, u32 fourcc)
-{
+bool tpg_s_fourcc(struct tpg_data tpg[1000], u32 fourcc)
+{_ssdm_SpecArrayDimSize(tpg, 1000);
  tpg->fourcc = fourcc;
  tpg->planes = 1;
  tpg->buffers = 1;

@@ -58,7 +58,7 @@ struct cx2341x_mpeg_params {int audio_sampling_freq; int capabilities; int audio
  int /*<<< orphan*/  V4L2_MPEG_VIDEO_ENCODING_MPEG_1 ; 
  int /*<<< orphan*/  V4L2_MPEG_VIDEO_ENCODING_MPEG_2 ; 
 
-__attribute__((used)) static int cx2341x_set_ctrl(struct cx2341x_mpeg_params *params, int busy,
+int cx2341x_set_ctrl(struct cx2341x_mpeg_params *params, int busy,
 		struct v4l2_ext_control *ctrl)
 {
 	switch (ctrl->id) {

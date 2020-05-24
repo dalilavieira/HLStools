@@ -155,12 +155,12 @@ struct TYPE_4__ {int SYSCLK_Frequency; int HCLK_Frequency; int PCLK_Frequency; i
 typedef TYPE_1__ RCC_ClocksTypeDef ;
 
 
- int* APBAHBPrescTable ;
+ int APBAHBPrescTable [1000];
  int HSE_VALUE ;
  int HSI14_VALUE ;
- void* HSI48_VALUE ;
+ int HSI48_VALUE ;
  int HSI_VALUE ;
- void* LSE_VALUE ;
+ int LSE_VALUE ;
  TYPE_3__* RCC ;
  int RCC_CFGR2_PREDIV1 ;
  int RCC_CFGR3_ADCSW ;
@@ -180,7 +180,7 @@ typedef TYPE_1__ RCC_ClocksTypeDef ;
  int RCC_CFGR_PPRE ;
  int RCC_CFGR_SWS ;
 
-void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
+void RCC_GetClocksFreq(volatile RCC_ClocksTypeDef* RCC_Clocks)
 {
   uint32_t tmp = 0, pllmull = 0, pllsource = 0, prediv1factor = 0, presc = 0, pllclk = 0;
 
@@ -340,5 +340,6 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
 int main() {
   RCC_ClocksTypeDef * RCC_Clocks;
   RCC_GetClocksFreq(RCC_Clocks);
+  printf("%d\n",RCC_Clocks->SYSCLK_Frequency);
   return 0;
 }

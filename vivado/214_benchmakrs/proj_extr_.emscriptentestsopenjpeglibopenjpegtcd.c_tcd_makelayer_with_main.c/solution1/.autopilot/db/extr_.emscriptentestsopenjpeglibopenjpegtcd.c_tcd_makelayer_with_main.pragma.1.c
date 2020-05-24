@@ -159,7 +159,7 @@ typedef struct TYPE_12__ TYPE_10__ ;
 
 struct TYPE_14__ {int numresolutions; TYPE_5__* resolutions; } ;
 typedef TYPE_2__ opj_tcd_tilecomp_t ;
-struct TYPE_15__ {double* distolayer; int numcomps; TYPE_2__* comps; } ;
+struct TYPE_15__ {double distolayer[1000]; int numcomps; TYPE_2__* comps; } ;
 typedef TYPE_3__ opj_tcd_tile_t ;
 struct TYPE_16__ {TYPE_3__* tcd_tile; } ;
 typedef TYPE_4__ opj_tcd_t ;
@@ -179,7 +179,7 @@ typedef TYPE_10__ opj_tcd_band_t ;
 
 
 
-void tcd_makelayer(opj_tcd_t *tcd, int layno, double thresh, int final) {
+void tcd_makelayer(volatile opj_tcd_t *tcd, int layno, double thresh, int final) {
  int compno, resno, bandno, precno, cblkno, passno;
 
  opj_tcd_tile_t *tcd_tile = tcd->tcd_tile;

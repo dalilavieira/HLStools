@@ -151,8 +151,8 @@ typedef int IDWTELEM ;
 
 
 
-void ff_snow_horizontal_compose97i(IDWTELEM *b, IDWTELEM *temp, int width)
-{
+void ff_snow_horizontal_compose97i(IDWTELEM b[1000], IDWTELEM temp[1000], int width)
+{_ssdm_SpecArrayDimSize(b, 1000);_ssdm_SpecArrayDimSize(temp, 1000);
     const int w2 = (width + 1) >> 1;
     int x;
 
@@ -179,8 +179,8 @@ void ff_snow_horizontal_compose97i(IDWTELEM *b, IDWTELEM *temp, int width)
         b[x - 1] = temp[x - 1] + 3 * b[x - 2];
 }
 int main() {
-  IDWTELEM * b;
-  IDWTELEM * temp;
+  IDWTELEM b[1000];
+  IDWTELEM temp[1000];
   int width;
   ff_snow_horizontal_compose97i(b, temp, width);
   return 0;

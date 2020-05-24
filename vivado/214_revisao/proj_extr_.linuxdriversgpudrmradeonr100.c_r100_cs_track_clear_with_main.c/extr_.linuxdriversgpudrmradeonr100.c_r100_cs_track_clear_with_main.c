@@ -18,7 +18,7 @@ typedef  struct TYPE_7__   TYPE_1__ ;
 struct radeon_device {scalar_t__ family; } ;
 struct TYPE_10__ {int pitch; int cpp; scalar_t__ offset; int /*<<< orphan*/ * robj; } ;
 struct TYPE_8__ {int /*<<< orphan*/ * robj; } ;
-struct r100_cs_track {int cb_dirty; int zb_dirty; int tex_dirty; int aa_dirty; int num_cb; int num_texture; int maxy; int separate_cube; int aaresolve; int z_enabled; int vtx_size; int immd_dwords; int num_arrays; int max_indx; TYPE_6__* textures; TYPE_5__* arrays; TYPE_4__ zb; TYPE_3__* cb; TYPE_2__ aa; } ;
+struct r100_cs_track {int cb_dirty; int zb_dirty; int tex_dirty; int aa_dirty; int num_cb; int num_texture; int maxy; int separate_cube; int aaresolve; int z_enabled; int vtx_size; int immd_dwords; int num_arrays; int max_indx; TYPE_6__ textures[100]; TYPE_5__ arrays[100]; TYPE_4__ zb; TYPE_3__ cb[100]; TYPE_2__ aa; } ;
 struct TYPE_12__ {int pitch; int width; int height; int width_11; int height_11; int num_levels; int tex_coord_type; int txdepth; int cpp; int enabled; int lookup_disable; int roundup_w; int roundup_h; TYPE_1__* cube_info; int /*<<< orphan*/ * robj; int /*<<< orphan*/  compress_format; } ;
 struct TYPE_11__ {int esize; int /*<<< orphan*/ * robj; } ;
 struct TYPE_9__ {int pitch; int cpp; scalar_t__ offset; int /*<<< orphan*/ * robj; } ;

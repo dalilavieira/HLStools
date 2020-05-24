@@ -142,8 +142,7 @@ typedef int scalar_t__;
 
 typedef int bool;
 # 15 "extr_.BGAQRCode-Androidzbarsrcmainjnizbardecoderdatabar.c_calc_value4_with_main.c"
-__attribute__((used)) static inline int
-calc_value4 (unsigned sig,
+ int calc_value4 (unsigned sig,
              unsigned n,
              unsigned wmax,
              unsigned nonarrow)

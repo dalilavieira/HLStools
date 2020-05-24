@@ -299,7 +299,7 @@ typedef  int UInt16 ;
  int kVK_VolumeDown ; 
  int kVK_VolumeUp ; 
 
-__attribute__((used)) static UInt16 usage_to_carbon(UInt32 usage)
+UInt16 usage_to_carbon(UInt32 usage)
 {
 	switch (usage)
 	{

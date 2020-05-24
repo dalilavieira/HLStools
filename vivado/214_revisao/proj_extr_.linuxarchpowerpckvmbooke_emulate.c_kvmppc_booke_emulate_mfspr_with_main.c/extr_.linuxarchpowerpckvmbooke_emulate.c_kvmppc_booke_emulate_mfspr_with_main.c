@@ -14,7 +14,7 @@ typedef  struct TYPE_4__   TYPE_1__ ;
 /* Type definitions */
 typedef  int ulong ;
 struct TYPE_5__ {int iac1; int iac2; int dac1; int dac2; int dbcr0; int dbcr1; int dbcr2; } ;
-struct TYPE_6__ {int ivpr; int epr; int csrr0; int csrr1; int dsrr0; int dsrr1; int dbsr; int tsr; int tcr; int* ivor; int mcsr; TYPE_2__ dbg_reg; TYPE_1__* shared; } ;
+struct TYPE_6__ {int ivpr; int epr; int csrr0; int csrr1; int dsrr0; int dsrr1; int dbsr; int tsr; int tcr; int ivor[1000]; int mcsr; TYPE_2__ dbg_reg; TYPE_1__* shared; } ;
 struct kvm_vcpu {TYPE_3__ arch; int /*<<< orphan*/  guest_debug; } ;
 struct TYPE_4__ {int dar; int esr; } ;
 
@@ -74,7 +74,7 @@ struct TYPE_4__ {int dar; int esr; } ;
 #define  SPRN_TCR 129 
 #define  SPRN_TSR 128 
 
-int kvmppc_booke_emulate_mfspr(struct kvm_vcpu *vcpu, int sprn, ulong *spr_val)
+int kvmppc_booke_emulate_mfspr(struct kvm_vcpu vcpu[1100], int sprn, ulong spr_val[1000])
 {
 	int emulated = EMULATE_DONE;
 

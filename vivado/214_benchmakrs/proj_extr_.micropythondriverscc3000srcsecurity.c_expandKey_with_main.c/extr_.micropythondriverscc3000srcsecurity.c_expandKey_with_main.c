@@ -13,10 +13,10 @@ typedef  size_t UINT8 ;
 typedef  int UINT16 ;
 
 /* Variables and functions */
- size_t* Rcon ; 
- size_t* sbox ; 
+ size_t Rcon [1000]; 
+ size_t sbox [1000]; 
 
-void expandKey(UINT8 *expandedKey, UINT8 *key)
+void expandKey(UINT8 expandedKey[1000], UINT8 key[1000])
 {
   UINT16 ii, buf1;
   for (ii=0;ii<16;ii++)

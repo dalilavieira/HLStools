@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.radare2librbinpdbtpi.c_init_stype_info_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.radare2librbinpdbtpi.c_init_stype_info_with_main.c" top="init_stype_info">
     <files>
         <file name="extr_.radare2librbinpdbtpi.c_init_stype_info_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

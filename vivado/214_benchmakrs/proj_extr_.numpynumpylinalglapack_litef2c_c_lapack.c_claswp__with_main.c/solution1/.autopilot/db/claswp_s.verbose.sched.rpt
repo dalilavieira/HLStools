@@ -1,0 +1,442 @@
+
+
+================================================================
+== Vivado HLS Report for 'claswp_s'
+================================================================
+* Date:           Sun May 24 20:24:43 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.365|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1         |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |  ++ Loop 1.1.1  |    ?|    ?|         4|          -|          -|     ?|    no    |
+        |- Loop 2         |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 2.1      |    ?|    ?|         4|          -|          -|     ?|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 15
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 10 
+2 --> 3 
+3 --> 4 10 
+4 --> 5 3 
+5 --> 6 
+6 --> 7 4 
+7 --> 8 
+8 --> 9 
+9 --> 6 
+10 --> 11 
+11 --> 12 
+12 --> 13 10 
+13 --> 14 
+14 --> 15 
+15 --> 12 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 8.36>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %n), !map !13"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %a_i), !map !19"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %a_r), !map !25"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %lda), !map !29"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %k1), !map !33"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %k2), !map !37"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %ipiv), !map !41"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %incx), !map !45"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !49"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @claswp_str) nounwind"   --->   Operation 25 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%a_dim1 = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %lda)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:87]   --->   Operation 26 'read' 'a_dim1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln88 = trunc i32 %a_dim1 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:88]   --->   Operation 27 'trunc' 'trunc_ln88' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (1.42ns)   --->   "%add_ln93 = add i11 1, %trunc_ln88" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:93]   --->   Operation 28 'add' 'add_ln93' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%incx_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %incx)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:93]   --->   Operation 29 'read' 'incx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (1.54ns)   --->   "%icmp_ln93 = icmp sgt i32 %incx_read, 0" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:93]   --->   Operation 30 'icmp' 'icmp_ln93' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%k1_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %k1)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94]   --->   Operation 31 'read' 'k1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%k2_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %k2)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96]   --->   Operation 32 'read' 'k2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (1.06ns)   --->   "br i1 %icmp_ln93, label %3, label %1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:93]   --->   Operation 33 'br' <Predicate = true> <Delay = 1.06>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %incx_read, i32 31)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:98]   --->   Operation 34 'bitselect' 'tmp' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "br i1 %tmp, label %2, label %._crit_edge" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:98]   --->   Operation 35 'br' <Predicate = (!icmp_ln93)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (1.78ns)   --->   "%sub_ln99 = sub nsw i32 1, %k2_read" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 36 'sub' 'sub_ln99' <Predicate = (!icmp_ln93 & tmp)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (6.58ns)   --->   "%mul_ln99 = mul nsw i32 %incx_read, %sub_ln99" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 37 'mul' 'mul_ln99' <Predicate = (!icmp_ln93 & tmp)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 6.66>
+ST_2 : Operation 38 [1/1] (1.78ns)   --->   "%add_ln99 = add nsw i32 %mul_ln99, 1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 38 'add' 'add_ln99' <Predicate = (!icmp_ln93)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (1.06ns)   --->   "br label %3"   --->   Operation 39 'br' <Predicate = (!icmp_ln93)> <Delay = 1.06>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%storemerge49 = phi i32 [ %add_ln99, %2 ], [ %k1_read, %0 ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 40 'phi' 'storemerge49' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%storemerge = phi i32 [ %k2_read, %2 ], [ %k1_read, %0 ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96]   --->   Operation 41 'phi' 'storemerge' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%storemerge27 = phi i32 [ %k1_read, %2 ], [ %k2_read, %0 ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94]   --->   Operation 42 'phi' 'storemerge27' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%i_3_1 = phi i2 [ -1, %2 ], [ 1, %0 ]"   --->   Operation 43 'phi' 'i_3_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "store i32 %storemerge49, i32* @ix0, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 44 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "store i32 %storemerge, i32* @i1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:95]   --->   Operation 45 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "store i32 %storemerge27, i32* @i2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:101]   --->   Operation 46 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%i_2_1 = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %n)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 47 'read' 'i_2_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %i_2_1, i32 31)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 48 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (1.78ns)   --->   "%sub_ln107 = sub i32 0, %i_2_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 49 'sub' 'sub_ln107' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%trunc_ln107_1 = call i27 @_ssdm_op_PartSelect.i27.i32.i32.i32(i32 %sub_ln107, i32 5, i32 31)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 50 'partselect' 'trunc_ln107_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (1.69ns)   --->   "%sub_ln107_1 = sub i27 0, %trunc_ln107_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 51 'sub' 'sub_ln107_1' <Predicate = true> <Delay = 1.69> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%trunc_ln107_2 = call i27 @_ssdm_op_PartSelect.i27.i32.i32.i32(i32 %i_2_1, i32 5, i32 31)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 52 'partselect' 'trunc_ln107_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.59ns)   --->   "%select_ln107 = select i1 %tmp_1, i27 %sub_ln107_1, i27 %trunc_ln107_2" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 53 'select' 'select_ln107' <Predicate = true> <Delay = 0.59> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.62> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%i_1 = call i32 @_ssdm_op_BitConcatenate.i32.i27.i5(i27 %select_ln107, i5 0)" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107]   --->   Operation 54 'bitconcatenate' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (1.53ns)   --->   "%icmp_ln108 = icmp eq i27 %select_ln107, 0" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:108]   --->   Operation 55 'icmp' 'icmp_ln108' <Predicate = true> <Delay = 1.53> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 56 [1/1] (1.06ns)   --->   "br i1 %icmp_ln108, label %.loopexit25, label %.preheader.preheader" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:108]   --->   Operation 56 'br' <Predicate = true> <Delay = 1.06>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%i_3 = sext i2 %i_3_1 to i32" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:113]   --->   Operation 57 'sext' 'i_3' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.64ns)   --->   "%icmp_ln114 = icmp eq i2 %i_3_1, -1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 58 'icmp' 'icmp_ln114' <Predicate = (!icmp_ln108)> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (1.06ns)   --->   "br label %.preheader" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 59 'br' <Predicate = (!icmp_ln108)> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 2.25>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%i1_load_137 = phi i32 [ %i1_load, %10 ], [ %storemerge, %.preheader.preheader ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 60 'phi' 'i1_load_137' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "%i_1_133 = phi i32 [ %i_2, %10 ], [ %storemerge27, %.preheader.preheader ]"   --->   Operation 61 'phi' 'i_1_133' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%ix0_load_130 = phi i32 [ %ix0_load, %10 ], [ %storemerge49, %.preheader.preheader ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111]   --->   Operation 62 'phi' 'ix0_load_130' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "%storemerge10 = phi i32 [ %add_ln110, %10 ], [ 1, %.preheader.preheader ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 63 'phi' 'storemerge10' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "store i32 %storemerge10, i32* @j, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 64 'store' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (1.54ns)   --->   "%icmp_ln110 = icmp sgt i32 %storemerge10, %i_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 65 'icmp' 'icmp_ln110' <Predicate = (!icmp_ln108)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %icmp_ln110, label %.loopexit25.loopexit, label %4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 66 'br' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%ix0_load = load i32* @ix0, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111]   --->   Operation 67 'load' 'ix0_load' <Predicate = (!icmp_ln108 & !icmp_ln110)> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (1.19ns)   --->   "store i32 %ix0_load, i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111]   --->   Operation 68 'store' <Predicate = (!icmp_ln108 & !icmp_ln110)> <Delay = 1.19>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%i_2 = load i32* @i2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:112]   --->   Operation 69 'load' 'i_2' <Predicate = (!icmp_ln108 & !icmp_ln110)> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%i1_load = load i32* @i1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 70 'load' 'i1_load' <Predicate = (!icmp_ln108 & !icmp_ln110)> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (1.06ns)   --->   "br label %5" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 71 'br' <Predicate = (!icmp_ln108 & !icmp_ln110)> <Delay = 1.06>
+ST_3 : Operation 72 [1/1] (1.06ns)   --->   "br label %.loopexit25"   --->   Operation 72 'br' <Predicate = (!icmp_ln108 & icmp_ln110)> <Delay = 1.06>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%i1_load_1 = phi i32 [ %storemerge, %3 ], [ %i1_load_137, %.loopexit25.loopexit ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96]   --->   Operation 73 'phi' 'i1_load_1' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%i_1_1 = phi i32 [ %storemerge27, %3 ], [ %i_1_133, %.loopexit25.loopexit ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94]   --->   Operation 74 'phi' 'i_1_1' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%ix0_load_1 = phi i32 [ %storemerge49, %3 ], [ %ix0_load_130, %.loopexit25.loopexit ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99]   --->   Operation 75 'phi' 'ix0_load_1' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%sext_ln136 = sext i2 %i_3_1 to i32" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:136]   --->   Operation 76 'sext' 'sext_ln136' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (1.54ns)   --->   "%icmp_ln136 = icmp eq i32 %i_1, %i_2_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:136]   --->   Operation 77 'icmp' 'icmp_ln136' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "br i1 %icmp_ln136, label %.loopexit23.new, label %11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:136]   --->   Operation 78 'br' <Predicate = (icmp_ln110) | (icmp_ln108)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%or_ln137 = or i32 %i_1, 1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:137]   --->   Operation 79 'or' 'or_ln137' <Predicate = (icmp_ln110 & !icmp_ln136) | (icmp_ln108 & !icmp_ln136)> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (1.19ns)   --->   "store i32 %ix0_load_1, i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:138]   --->   Operation 80 'store' <Predicate = (icmp_ln110 & !icmp_ln136) | (icmp_ln108 & !icmp_ln136)> <Delay = 1.19>
+ST_3 : Operation 81 [1/1] (0.64ns)   --->   "%icmp_ln141 = icmp eq i2 %i_3_1, -1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 81 'icmp' 'icmp_ln141' <Predicate = (icmp_ln110 & !icmp_ln136) | (icmp_ln108 & !icmp_ln136)> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 82 [1/1] (1.06ns)   --->   "br label %12" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 82 'br' <Predicate = (icmp_ln110 & !icmp_ln136) | (icmp_ln108 & !icmp_ln136)> <Delay = 1.06>
+
+State 4 <SV = 3> <Delay = 4.09>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%empty = phi i32 [ %i1_load, %4 ], [ %add_ln114, %.loopexit24 ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 83 'phi' 'empty' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (1.06ns)   --->   "store i32 %empty, i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 84 'store' <Predicate = true> <Delay = 1.06>
+ST_4 : Operation 85 [1/1] (1.54ns)   --->   "%icmp_ln114_1 = icmp slt i32 %empty, %i_2" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 85 'icmp' 'icmp_ln114_1' <Predicate = (icmp_ln114)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node select_ln114)   --->   "%xor_ln114 = xor i1 %icmp_ln114_1, true" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 86 'xor' 'xor_ln114' <Predicate = (icmp_ln114)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 87 [1/1] (1.54ns)   --->   "%icmp_ln114_2 = icmp slt i32 %i_2, %empty" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 87 'icmp' 'icmp_ln114_2' <Predicate = (!icmp_ln114)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node select_ln114)   --->   "%xor_ln114_1 = xor i1 %icmp_ln114_2, true" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 88 'xor' 'xor_ln114_1' <Predicate = (!icmp_ln114)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 89 [1/1] (0.62ns) (out node of the LUT)   --->   "%select_ln114 = select i1 %icmp_ln114, i1 %xor_ln114, i1 %xor_ln114_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 89 'select' 'select_ln114' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.62> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "br i1 %select_ln114, label %6, label %10" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 90 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%ix_load = load i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 91 'load' 'ix_load' <Predicate = (select_ln114)> <Delay = 0.00>
+ST_4 : Operation 92 [1/1] (0.00ns)   --->   "%trunc_ln116 = trunc i32 %ix_load to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 92 'trunc' 'trunc_ln116' <Predicate = (select_ln114)> <Delay = 0.00>
+ST_4 : Operation 93 [1/1] (1.42ns)   --->   "%add_ln116 = add i11 -1, %trunc_ln116" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 93 'add' 'add_ln116' <Predicate = (select_ln114)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 94 [1/1] (0.00ns)   --->   "%sext_ln116 = sext i11 %add_ln116 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 94 'sext' 'sext_ln116' <Predicate = (select_ln114)> <Delay = 0.00>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "%ipiv_addr = getelementptr [1000 x i32]* %ipiv, i64 0, i64 %sext_ln116" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 95 'getelementptr' 'ipiv_addr' <Predicate = (select_ln114)> <Delay = 0.00>
+ST_4 : Operation 96 [2/2] (2.66ns)   --->   "%ipiv_load = load i32* %ipiv_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 96 'load' 'ipiv_load' <Predicate = (select_ln114)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 97 [1/1] (0.00ns)   --->   "%j_load = load i32* @j, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 97 'load' 'j_load' <Predicate = (!select_ln114)> <Delay = 0.00>
+ST_4 : Operation 98 [1/1] (1.78ns)   --->   "%add_ln110 = add nsw i32 %j_load, 32" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 98 'add' 'add_ln110' <Predicate = (!select_ln114)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "br label %.preheader" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:110]   --->   Operation 99 'br' <Predicate = (!select_ln114)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 4.21>
+ST_5 : Operation 100 [1/2] (2.66ns)   --->   "%ipiv_load = load i32* %ipiv_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 100 'load' 'ipiv_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 101 [1/1] (1.06ns)   --->   "store i32 %ipiv_load, i32* @ip, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116]   --->   Operation 101 'store' <Predicate = true> <Delay = 1.06>
+ST_5 : Operation 102 [1/1] (1.54ns)   --->   "%icmp_ln117 = icmp eq i32 %ipiv_load, %empty" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:117]   --->   Operation 102 'icmp' 'icmp_ln117' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 103 [1/1] (0.00ns)   --->   "br i1 %icmp_ln117, label %.loopexit24, label %7" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:117]   --->   Operation 103 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 104 [1/1] (0.00ns)   --->   "%j_load_1 = load i32* @j, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:118]   --->   Operation 104 'load' 'j_load_1' <Predicate = (!icmp_ln117)> <Delay = 0.00>
+ST_5 : Operation 105 [1/1] (1.78ns)   --->   "%i_4 = add nsw i32 %j_load_1, 31" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:118]   --->   Operation 105 'add' 'i_4' <Predicate = (!icmp_ln117)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 106 [1/1] (1.06ns)   --->   "br label %8" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119]   --->   Operation 106 'br' <Predicate = (!icmp_ln117)> <Delay = 1.06>
+
+State 6 <SV = 5> <Delay = 8.36>
+ST_6 : Operation 107 [1/1] (0.00ns)   --->   "%k_load_1 = phi i32 [ %j_load_1, %7 ], [ %add_ln119, %9 ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:118]   --->   Operation 107 'phi' 'k_load_1' <Predicate = (!icmp_ln117)> <Delay = 0.00>
+ST_6 : Operation 108 [1/1] (1.54ns)   --->   "%icmp_ln119 = icmp sgt i32 %k_load_1, %i_4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119]   --->   Operation 108 'icmp' 'icmp_ln119' <Predicate = (!icmp_ln117)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 109 [1/1] (0.00ns)   --->   "br i1 %icmp_ln119, label %.loopexit24.loopexit, label %9" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119]   --->   Operation 109 'br' <Predicate = (!icmp_ln117)> <Delay = 0.00>
+ST_6 : Operation 110 [1/1] (0.00ns)   --->   "%i_load = load i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:120]   --->   Operation 110 'load' 'i_load' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 0.00>
+ST_6 : Operation 111 [1/1] (6.58ns)   --->   "%mul_ln120 = mul nsw i32 %a_dim1, %k_load_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:120]   --->   Operation 111 'mul' 'mul_ln120' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 112 [1/1] (1.78ns)   --->   "%i_5 = add nsw i32 %i_load, %mul_ln120" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:120]   --->   Operation 112 'add' 'i_5' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "%trunc_ln121 = trunc i32 %i_5 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 113 'trunc' 'trunc_ln121' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 0.00>
+ST_6 : Operation 114 [1/1] (0.00ns)   --->   "%ip_load = load i32* @ip, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:123]   --->   Operation 114 'load' 'ip_load' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 0.00>
+ST_6 : Operation 115 [1/1] (1.78ns)   --->   "%i_6 = add nsw i32 %ip_load, %mul_ln120" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:123]   --->   Operation 115 'add' 'i_6' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 116 [1/1] (0.00ns)   --->   "%trunc_ln124 = trunc i32 %i_6 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 116 'trunc' 'trunc_ln124' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 0.00>
+ST_6 : Operation 117 [1/1] (1.78ns)   --->   "%add_ln119 = add nsw i32 1, %k_load_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119]   --->   Operation 117 'add' 'add_ln119' <Predicate = (!icmp_ln117 & !icmp_ln119)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 118 [1/1] (0.00ns)   --->   "br label %.loopexit24"   --->   Operation 118 'br' <Predicate = (!icmp_ln117 & icmp_ln119)> <Delay = 0.00>
+ST_6 : Operation 119 [1/1] (1.78ns)   --->   "%add_ln130 = add nsw i32 %ix_load, %incx_read" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:130]   --->   Operation 119 'add' 'add_ln130' <Predicate = (icmp_ln119) | (icmp_ln117)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 120 [1/1] (1.19ns)   --->   "store i32 %add_ln130, i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:130]   --->   Operation 120 'store' <Predicate = (icmp_ln119) | (icmp_ln117)> <Delay = 1.19>
+ST_6 : Operation 121 [1/1] (0.00ns)   --->   "%i_load_1 = load i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 121 'load' 'i_load_1' <Predicate = (icmp_ln119) | (icmp_ln117)> <Delay = 0.00>
+ST_6 : Operation 122 [1/1] (1.78ns)   --->   "%add_ln114 = add nsw i32 %i_load_1, %i_3" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 122 'add' 'add_ln114' <Predicate = (icmp_ln119) | (icmp_ln117)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 123 [1/1] (0.00ns)   --->   "br label %5" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114]   --->   Operation 123 'br' <Predicate = (icmp_ln119) | (icmp_ln117)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 4.09>
+ST_7 : Operation 124 [1/1] (1.42ns)   --->   "%sub_ln121 = sub i11 %trunc_ln121, %add_ln93" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 124 'sub' 'sub_ln121' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 125 [1/1] (0.00ns)   --->   "%sext_ln121 = sext i11 %sub_ln121 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 125 'sext' 'sext_ln121' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 126 [1/1] (0.00ns)   --->   "%a_r_addr = getelementptr [1000 x i32]* %a_r, i64 0, i64 %sext_ln121" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 126 'getelementptr' 'a_r_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 127 [2/2] (2.66ns)   --->   "%a_r_load = load i32* %a_r_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 127 'load' 'a_r_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 128 [1/1] (0.00ns)   --->   "%a_i_addr = getelementptr [1000 x i32]* %a_i, i64 0, i64 %sext_ln121" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 128 'getelementptr' 'a_i_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 129 [2/2] (2.66ns)   --->   "%a_i_load = load i32* %a_i_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 129 'load' 'a_i_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 130 [1/1] (1.42ns)   --->   "%sub_ln124 = sub i11 %trunc_ln124, %add_ln93" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 130 'sub' 'sub_ln124' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 131 [1/1] (0.00ns)   --->   "%sext_ln124 = sext i11 %sub_ln124 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 131 'sext' 'sext_ln124' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 132 [1/1] (0.00ns)   --->   "%a_r_addr_1 = getelementptr [1000 x i32]* %a_r, i64 0, i64 %sext_ln124" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 132 'getelementptr' 'a_r_addr_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 133 [2/2] (2.66ns)   --->   "%a_r_load_1 = load i32* %a_r_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 133 'load' 'a_r_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 134 [1/1] (0.00ns)   --->   "%a_i_addr_1 = getelementptr [1000 x i32]* %a_i, i64 0, i64 %sext_ln124" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 134 'getelementptr' 'a_i_addr_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 135 [2/2] (2.66ns)   --->   "%a_i_load_1 = load i32* %a_i_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 135 'load' 'a_i_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 8 <SV = 7> <Delay = 5.32>
+ST_8 : Operation 136 [1/2] (2.66ns)   --->   "%a_r_load = load i32* %a_r_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 136 'load' 'a_r_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 137 [1/2] (2.66ns)   --->   "%a_i_load = load i32* %a_i_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121]   --->   Operation 137 'load' 'a_i_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 138 [1/2] (2.66ns)   --->   "%a_r_load_1 = load i32* %a_r_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 138 'load' 'a_r_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 139 [1/1] (2.66ns)   --->   "store i32 %a_r_load_1, i32* %a_r_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 139 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 140 [1/2] (2.66ns)   --->   "%a_i_load_1 = load i32* %a_i_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 140 'load' 'a_i_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 141 [1/1] (2.66ns)   --->   "store i32 %a_i_load_1, i32* %a_i_addr, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124]   --->   Operation 141 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 9 <SV = 8> <Delay = 2.66>
+ST_9 : Operation 142 [1/1] (2.66ns)   --->   "store i32 %a_r_load, i32* %a_r_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:126]   --->   Operation 142 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_9 : Operation 143 [1/1] (2.66ns)   --->   "store i32 %a_i_load, i32* %a_i_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:126]   --->   Operation 143 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_9 : Operation 144 [1/1] (0.00ns)   --->   "br label %8" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119]   --->   Operation 144 'br' <Predicate = true> <Delay = 0.00>
+
+State 10 <SV = 3> <Delay = 4.09>
+ST_10 : Operation 145 [1/1] (0.00ns)   --->   "%empty_4 = phi i32 [ %i1_load_1, %11 ], [ %add_ln141, %.loopexit ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96]   --->   Operation 145 'phi' 'empty_4' <Predicate = (tmp & !icmp_ln136) | (icmp_ln93 & !icmp_ln136)> <Delay = 0.00>
+ST_10 : Operation 146 [1/1] (1.06ns)   --->   "store i32 %empty_4, i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 146 'store' <Predicate = (tmp & !icmp_ln136) | (icmp_ln93 & !icmp_ln136)> <Delay = 1.06>
+ST_10 : Operation 147 [1/1] (1.54ns)   --->   "%icmp_ln141_1 = icmp slt i32 %empty_4, %i_1_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 147 'icmp' 'icmp_ln141_1' <Predicate = (tmp & !icmp_ln136 & icmp_ln141) | (icmp_ln93 & !icmp_ln136 & icmp_ln141)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node select_ln141)   --->   "%xor_ln141 = xor i1 %icmp_ln141_1, true" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 148 'xor' 'xor_ln141' <Predicate = (tmp & !icmp_ln136 & icmp_ln141) | (icmp_ln93 & !icmp_ln136 & icmp_ln141)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 149 [1/1] (1.54ns)   --->   "%icmp_ln141_2 = icmp slt i32 %i_1_1, %empty_4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 149 'icmp' 'icmp_ln141_2' <Predicate = (tmp & !icmp_ln136 & !icmp_ln141) | (icmp_ln93 & !icmp_ln136 & !icmp_ln141)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 150 [1/1] (0.00ns) (grouped into LUT with out node select_ln141)   --->   "%xor_ln141_1 = xor i1 %icmp_ln141_2, true" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 150 'xor' 'xor_ln141_1' <Predicate = (tmp & !icmp_ln136 & !icmp_ln141) | (icmp_ln93 & !icmp_ln136 & !icmp_ln141)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 151 [1/1] (0.62ns) (out node of the LUT)   --->   "%select_ln141 = select i1 %icmp_ln141, i1 %xor_ln141, i1 %xor_ln141_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 151 'select' 'select_ln141' <Predicate = (tmp & !icmp_ln136) | (icmp_ln93 & !icmp_ln136)> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.62> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 152 [1/1] (0.00ns)   --->   "br i1 %select_ln141, label %13, label %.loopexit23.new.loopexit" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 152 'br' <Predicate = (tmp & !icmp_ln136) | (icmp_ln93 & !icmp_ln136)> <Delay = 0.00>
+ST_10 : Operation 153 [1/1] (0.00ns)   --->   "%ix_load_1 = load i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 153 'load' 'ix_load_1' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 0.00>
+ST_10 : Operation 154 [1/1] (0.00ns)   --->   "%trunc_ln142 = trunc i32 %ix_load_1 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 154 'trunc' 'trunc_ln142' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 0.00>
+ST_10 : Operation 155 [1/1] (1.42ns)   --->   "%add_ln142 = add i11 -1, %trunc_ln142" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 155 'add' 'add_ln142' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln142 = sext i11 %add_ln142 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 156 'sext' 'sext_ln142' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 0.00>
+ST_10 : Operation 157 [1/1] (0.00ns)   --->   "%ipiv_addr_1 = getelementptr [1000 x i32]* %ipiv, i64 0, i64 %sext_ln142" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 157 'getelementptr' 'ipiv_addr_1' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 0.00>
+ST_10 : Operation 158 [2/2] (2.66ns)   --->   "%ipiv_load_1 = load i32* %ipiv_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 158 'load' 'ipiv_load_1' <Predicate = (tmp & !icmp_ln136 & select_ln141) | (icmp_ln93 & !icmp_ln136 & select_ln141)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_10 : Operation 159 [1/1] (0.00ns)   --->   "br label %.loopexit23.new"   --->   Operation 159 'br' <Predicate = (tmp & !icmp_ln136 & !select_ln141) | (icmp_ln93 & !icmp_ln136 & !select_ln141)> <Delay = 0.00>
+ST_10 : Operation 160 [1/1] (0.00ns)   --->   "br label %._crit_edge" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:161]   --->   Operation 160 'br' <Predicate = (tmp & !select_ln141) | (tmp & icmp_ln136) | (icmp_ln93 & !select_ln141) | (icmp_ln93 & icmp_ln136)> <Delay = 0.00>
+ST_10 : Operation 161 [1/1] (0.00ns)   --->   "ret i32 0" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:165]   --->   Operation 161 'ret' <Predicate = (!select_ln141) | (icmp_ln136) | (!icmp_ln93 & !tmp)> <Delay = 0.00>
+
+State 11 <SV = 4> <Delay = 4.21>
+ST_11 : Operation 162 [1/2] (2.66ns)   --->   "%ipiv_load_1 = load i32* %ipiv_addr_1, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 162 'load' 'ipiv_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 163 [1/1] (1.06ns)   --->   "store i32 %ipiv_load_1, i32* @ip, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142]   --->   Operation 163 'store' <Predicate = true> <Delay = 1.06>
+ST_11 : Operation 164 [1/1] (1.54ns)   --->   "%icmp_ln143 = icmp eq i32 %ipiv_load_1, %empty_4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:143]   --->   Operation 164 'icmp' 'icmp_ln143' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 165 [1/1] (0.00ns)   --->   "br i1 %icmp_ln143, label %.loopexit, label %.preheader50.preheader" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:143]   --->   Operation 165 'br' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 166 [1/1] (1.06ns)   --->   "br label %.preheader50" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 166 'br' <Predicate = (!icmp_ln143)> <Delay = 1.06>
+
+State 12 <SV = 5> <Delay = 8.36>
+ST_12 : Operation 167 [1/1] (0.00ns)   --->   "%k_load_3 = phi i32 [ %add_ln145, %14 ], [ %or_ln137, %.preheader50.preheader ]" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 167 'phi' 'k_load_3' <Predicate = (!icmp_ln143)> <Delay = 0.00>
+ST_12 : Operation 168 [1/1] (1.54ns)   --->   "%icmp_ln145 = icmp sgt i32 %k_load_3, %i_2_1" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 168 'icmp' 'icmp_ln145' <Predicate = (!icmp_ln143)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 169 [1/1] (0.00ns)   --->   "br i1 %icmp_ln145, label %.loopexit.loopexit, label %14" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 169 'br' <Predicate = (!icmp_ln143)> <Delay = 0.00>
+ST_12 : Operation 170 [1/1] (0.00ns)   --->   "%i_load_2 = load i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:146]   --->   Operation 170 'load' 'i_load_2' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 0.00>
+ST_12 : Operation 171 [1/1] (6.58ns)   --->   "%mul_ln146 = mul nsw i32 %a_dim1, %k_load_3" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:146]   --->   Operation 171 'mul' 'mul_ln146' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 172 [1/1] (1.78ns)   --->   "%i_4_1 = add nsw i32 %i_load_2, %mul_ln146" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:146]   --->   Operation 172 'add' 'i_4_1' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 173 [1/1] (0.00ns)   --->   "%trunc_ln147 = trunc i32 %i_4_1 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 173 'trunc' 'trunc_ln147' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 0.00>
+ST_12 : Operation 174 [1/1] (0.00ns)   --->   "%ip_load_1 = load i32* @ip, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:149]   --->   Operation 174 'load' 'ip_load_1' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 0.00>
+ST_12 : Operation 175 [1/1] (1.78ns)   --->   "%i_5_3 = add nsw i32 %ip_load_1, %mul_ln146" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:149]   --->   Operation 175 'add' 'i_5_3' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 176 [1/1] (0.00ns)   --->   "%trunc_ln150 = trunc i32 %i_5_3 to i11" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 176 'trunc' 'trunc_ln150' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 0.00>
+ST_12 : Operation 177 [1/1] (1.78ns)   --->   "%add_ln145 = add nsw i32 1, %k_load_3" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 177 'add' 'add_ln145' <Predicate = (!icmp_ln143 & !icmp_ln145)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 178 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 178 'br' <Predicate = (!icmp_ln143 & icmp_ln145)> <Delay = 0.00>
+ST_12 : Operation 179 [1/1] (1.78ns)   --->   "%add_ln156 = add nsw i32 %ix_load_1, %incx_read" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:156]   --->   Operation 179 'add' 'add_ln156' <Predicate = (icmp_ln145) | (icmp_ln143)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 180 [1/1] (1.19ns)   --->   "store i32 %add_ln156, i32* @ix, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:156]   --->   Operation 180 'store' <Predicate = (icmp_ln145) | (icmp_ln143)> <Delay = 1.19>
+ST_12 : Operation 181 [1/1] (0.00ns)   --->   "%i_load_3 = load i32* @i_s, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 181 'load' 'i_load_3' <Predicate = (icmp_ln145) | (icmp_ln143)> <Delay = 0.00>
+ST_12 : Operation 182 [1/1] (1.78ns)   --->   "%add_ln141 = add nsw i32 %i_load_3, %sext_ln136" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 182 'add' 'add_ln141' <Predicate = (icmp_ln145) | (icmp_ln143)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 183 [1/1] (0.00ns)   --->   "br label %12" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:141]   --->   Operation 183 'br' <Predicate = (icmp_ln145) | (icmp_ln143)> <Delay = 0.00>
+
+State 13 <SV = 6> <Delay = 4.09>
+ST_13 : Operation 184 [1/1] (1.42ns)   --->   "%sub_ln147 = sub i11 %trunc_ln147, %add_ln93" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 184 'sub' 'sub_ln147' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 185 [1/1] (0.00ns)   --->   "%sext_ln147 = sext i11 %sub_ln147 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 185 'sext' 'sext_ln147' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 186 [1/1] (0.00ns)   --->   "%a_r_addr_2 = getelementptr [1000 x i32]* %a_r, i64 0, i64 %sext_ln147" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 186 'getelementptr' 'a_r_addr_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 187 [2/2] (2.66ns)   --->   "%a_r_load_2 = load i32* %a_r_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 187 'load' 'a_r_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 188 [1/1] (0.00ns)   --->   "%a_i_addr_2 = getelementptr [1000 x i32]* %a_i, i64 0, i64 %sext_ln147" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 188 'getelementptr' 'a_i_addr_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 189 [2/2] (2.66ns)   --->   "%a_i_load_2 = load i32* %a_i_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 189 'load' 'a_i_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 190 [1/1] (1.42ns)   --->   "%sub_ln150 = sub i11 %trunc_ln150, %add_ln93" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 190 'sub' 'sub_ln150' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 191 [1/1] (0.00ns)   --->   "%sext_ln150 = sext i11 %sub_ln150 to i64" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 191 'sext' 'sext_ln150' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 192 [1/1] (0.00ns)   --->   "%a_r_addr_3 = getelementptr [1000 x i32]* %a_r, i64 0, i64 %sext_ln150" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 192 'getelementptr' 'a_r_addr_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 193 [2/2] (2.66ns)   --->   "%a_r_load_3 = load i32* %a_r_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 193 'load' 'a_r_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 194 [1/1] (0.00ns)   --->   "%a_i_addr_3 = getelementptr [1000 x i32]* %a_i, i64 0, i64 %sext_ln150" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 194 'getelementptr' 'a_i_addr_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 195 [2/2] (2.66ns)   --->   "%a_i_load_3 = load i32* %a_i_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 195 'load' 'a_i_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 14 <SV = 7> <Delay = 5.32>
+ST_14 : Operation 196 [1/2] (2.66ns)   --->   "%a_r_load_2 = load i32* %a_r_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 196 'load' 'a_r_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 197 [1/2] (2.66ns)   --->   "%a_i_load_2 = load i32* %a_i_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147]   --->   Operation 197 'load' 'a_i_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 198 [1/2] (2.66ns)   --->   "%a_r_load_3 = load i32* %a_r_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 198 'load' 'a_r_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 199 [1/1] (2.66ns)   --->   "store i32 %a_r_load_3, i32* %a_r_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 199 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 200 [1/2] (2.66ns)   --->   "%a_i_load_3 = load i32* %a_i_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 200 'load' 'a_i_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_14 : Operation 201 [1/1] (2.66ns)   --->   "store i32 %a_i_load_3, i32* %a_i_addr_2, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150]   --->   Operation 201 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 15 <SV = 8> <Delay = 2.66>
+ST_15 : Operation 202 [1/1] (2.66ns)   --->   "store i32 %a_r_load_2, i32* %a_r_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:152]   --->   Operation 202 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_15 : Operation 203 [1/1] (2.66ns)   --->   "store i32 %a_i_load_2, i32* %a_i_addr_3, align 4" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:152]   --->   Operation 203 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_15 : Operation 204 [1/1] (0.00ns)   --->   "br label %.preheader50" [extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145]   --->   Operation 204 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.37ns
+The critical path consists of the following:
+	wire read on port 'k2' (extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96) [32]  (0 ns)
+	'sub' operation ('sub_ln99', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) [38]  (1.78 ns)
+	'mul' operation ('mul_ln99', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) [39]  (6.58 ns)
+
+ <State 2>: 6.66ns
+The critical path consists of the following:
+	wire read on port 'n' (extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107) [50]  (0 ns)
+	'sub' operation ('sub_ln107', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107) [52]  (1.78 ns)
+	'sub' operation ('sub_ln107_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107) [54]  (1.69 ns)
+	'select' operation ('select_ln107', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:107) [56]  (0.593 ns)
+	'icmp' operation ('icmp_ln108', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:108) [58]  (1.53 ns)
+	multiplexor before 'phi' operation ('i1_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96) with incoming values : ('k1_read', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94) ('k2_read', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:96) ('i1_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:114) [146]  (1.06 ns)
+
+ <State 3>: 2.26ns
+The critical path consists of the following:
+	'phi' operation ('ix0_load_130', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111) with incoming values : ('k1_read', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94) ('add_ln99', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) ('ix0_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111) [67]  (0 ns)
+	multiplexor before 'phi' operation ('ix0_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) with incoming values : ('k1_read', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94) ('add_ln99', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) ('ix0_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111) [148]  (1.06 ns)
+	'phi' operation ('ix0_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) with incoming values : ('k1_read', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:94) ('add_ln99', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99) ('ix0_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:111) [148]  (0 ns)
+	'store' operation ('store_ln138', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:138) of variable 'ix0_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:99 on static variable 'ix' [154]  (1.2 ns)
+
+ <State 4>: 4.09ns
+The critical path consists of the following:
+	'load' operation ('ix_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116) on static variable 'ix' [88]  (0 ns)
+	'add' operation ('add_ln116', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116) [90]  (1.43 ns)
+	'getelementptr' operation ('ipiv_addr', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116) [92]  (0 ns)
+	'load' operation ('ipiv_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116) on array 'ipiv' [93]  (2.66 ns)
+
+ <State 5>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('ipiv_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:116) on array 'ipiv' [93]  (2.66 ns)
+	'icmp' operation ('icmp_ln117', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:117) [95]  (1.55 ns)
+
+ <State 6>: 8.37ns
+The critical path consists of the following:
+	'phi' operation ('k_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:118) with incoming values : ('j_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:118) ('add_ln119', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:119) [102]  (0 ns)
+	'mul' operation ('mul_ln120', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:120) [107]  (6.58 ns)
+	'add' operation ('i__5', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:120) [108]  (1.78 ns)
+
+ <State 7>: 4.09ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln121', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121) [110]  (1.43 ns)
+	'getelementptr' operation ('a_r_addr', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121) [112]  (0 ns)
+	'load' operation ('a_r_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121) on array 'a_r' [113]  (2.66 ns)
+
+ <State 8>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('a_r_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124) on array 'a_r' [122]  (2.66 ns)
+	'store' operation ('store_ln124', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124) of variable 'a_r_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:124 on array 'a_r' [123]  (2.66 ns)
+
+ <State 9>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln126', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:126) of variable 'a_r_load', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:121 on array 'a_r' [127]  (2.66 ns)
+
+ <State 10>: 4.09ns
+The critical path consists of the following:
+	'load' operation ('ix_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142) on static variable 'ix' [167]  (0 ns)
+	'add' operation ('add_ln142', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142) [169]  (1.43 ns)
+	'getelementptr' operation ('ipiv_addr_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142) [171]  (0 ns)
+	'load' operation ('ipiv_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142) on array 'ipiv' [172]  (2.66 ns)
+
+ <State 11>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('ipiv_load_1', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:142) on array 'ipiv' [172]  (2.66 ns)
+	'icmp' operation ('icmp_ln143', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:143) [174]  (1.55 ns)
+
+ <State 12>: 8.37ns
+The critical path consists of the following:
+	'phi' operation ('k_load_3', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145) with incoming values : ('or_ln137', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:137) ('add_ln145', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:145) [179]  (0 ns)
+	'mul' operation ('mul_ln146', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:146) [184]  (6.58 ns)
+	'add' operation ('i__4', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:146) [185]  (1.78 ns)
+
+ <State 13>: 4.09ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln147', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147) [187]  (1.43 ns)
+	'getelementptr' operation ('a_r_addr_2', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147) [189]  (0 ns)
+	'load' operation ('a_r_load_2', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147) on array 'a_r' [190]  (2.66 ns)
+
+ <State 14>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('a_r_load_3', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150) on array 'a_r' [199]  (2.66 ns)
+	'store' operation ('store_ln150', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150) of variable 'a_r_load_3', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:150 on array 'a_r' [200]  (2.66 ns)
+
+ <State 15>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln152', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:152) of variable 'a_r_load_2', extr_.numpynumpylinalglapack_litef2c_c_lapack.c_claswp__with_main.c:147 on array 'a_r' [204]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

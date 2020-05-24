@@ -143,7 +143,7 @@ typedef int scalar_t__;
 typedef int bool;
 # 15 "extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c"
 int
-xmlNormalizeURIPath(char *path) {
+xmlNormalizeURIPath(char path[1000]) {_ssdm_SpecArrayDimSize(path, 1000);
     char *cur, *out;
 
     if (path == ((void*)0))

@@ -24,9 +24,9 @@ typedef  unsigned int int32_t ;
  size_t RV_IDX ; 
  size_t RY_IDX ; 
 
-void ff_rgb24toyv12_c(const uint8_t *src, uint8_t *ydst, uint8_t *udst,
-                   uint8_t *vdst, int width, int height, int lumStride,
-                   int chromStride, int srcStride, int32_t *rgb2yuv)
+void ff_rgb24toyv12_c(const uint8_t src[1000], uint8_t ydst[1000], uint8_t udst[1000],
+                   uint8_t vdst[1000], int width, int height, int lumStride,
+                   int chromStride, int srcStride, int32_t rgb2yuv[1000])
 {
     int32_t ry = rgb2yuv[RY_IDX], gy = rgb2yuv[GY_IDX], by = rgb2yuv[BY_IDX];
     int32_t ru = rgb2yuv[RU_IDX], gu = rgb2yuv[GU_IDX], bu = rgb2yuv[BU_IDX];

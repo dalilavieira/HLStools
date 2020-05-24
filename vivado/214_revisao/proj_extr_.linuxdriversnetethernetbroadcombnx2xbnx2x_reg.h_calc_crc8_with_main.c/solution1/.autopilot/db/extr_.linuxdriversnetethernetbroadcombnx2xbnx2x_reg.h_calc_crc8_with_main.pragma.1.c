@@ -152,7 +152,7 @@ typedef int u32 ;
 
 
 
-__attribute__((used)) static inline u8 calc_crc8(u32 data, u8 crc)
+inline u8 calc_crc8(u32 data, u8 crc)
 {
  u8 D[32];
  u8 NewCRC[8];

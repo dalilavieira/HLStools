@@ -142,12 +142,12 @@ typedef int scalar_t__;
 
 typedef int bool;
 # 14 "extr_.kphp-kdbvkextcrc32.c_crc32_partial_with_main.c"
- unsigned int* crc32_table ;
- unsigned int* crc32_table0 ;
- unsigned int* crc32_table1 ;
- unsigned int* crc32_table2 ;
+ unsigned int crc32_table[1000] ;
+ unsigned int crc32_table0[1000] ;
+ unsigned int crc32_table1[1000] ;
+ unsigned int crc32_table2[1000] ;
 
-unsigned crc32_partial (const void *data, int len, unsigned crc) {
+unsigned crc32_partial (const int data[100], int len, unsigned crc) {_ssdm_SpecArrayDimSize(data, 100);
   const int *p = (const int *) data;
   int x;
 
@@ -188,7 +188,7 @@ unsigned crc32_partial (const void *data, int len, unsigned crc) {
   return crc;
 }
 int main() {
-  const void * data;
+  const int * data;
   int len;
   unsigned int crc;
   crc32_partial(data, len, crc);

@@ -1,0 +1,135 @@
+
+
+================================================================
+== Vivado HLS Report for 'emscripten_compute_dom_pk_code'
+================================================================
+* Date:           Sat May 23 21:24:35 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.888|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      82|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      30|    -|
+|Register         |        -|      -|     131|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     131|     112|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |add_ln176_fu_41_p2   |     +    |      0|  0|  71|          64|           1|
+    |icmp_ln176_fu_47_p2  |   icmp   |      0|  0|  11|           8|           1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |Total                |          |      0|  0|  82|          72|           2|
+    +---------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------+----+-----------+-----+-----------+
+    |       Name      | LUT| Input Size| Bits| Total Bits|
+    +-----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm        |  21|          4|    1|          4|
+    |p_01_rec_reg_29  |   9|          2|   64|        128|
+    +-----------------+----+-----------+-----+-----------+
+    |Total            |  30|          6|   65|        132|
+    +-----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------+----+----+-----+-----------+
+    |       Name       | FF | LUT| Bits| Const Bits|
+    +------------------+----+----+-----+-----------+
+    |add_ln176_reg_58  |  64|   0|   64|          0|
+    |ap_CS_fsm         |   3|   0|    3|          0|
+    |p_01_rec_reg_29   |  64|   0|   64|          0|
+    +------------------+----+----+-----+-----------+
+    |Total             | 131|   0|  131|          0|
+    +------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                  |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_rst                  |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_start                |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_done                 | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_ready                | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_return               | out |   32| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|keyCodeString_address0  | out |   10|  ap_memory |          keyCodeString         |     array    |
+|keyCodeString_ce0       | out |    1|  ap_memory |          keyCodeString         |     array    |
+|keyCodeString_q0        |  in |    8|  ap_memory |          keyCodeString         |     array    |
++------------------------+-----+-----+------------+--------------------------------+--------------+
+

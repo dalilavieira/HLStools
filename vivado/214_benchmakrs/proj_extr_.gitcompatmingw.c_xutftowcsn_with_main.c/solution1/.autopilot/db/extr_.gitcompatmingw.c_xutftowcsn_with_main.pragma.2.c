@@ -155,7 +155,7 @@ typedef char wchar_t ;
  int INT_MAX ;
  int errno ;
 
-int xutftowcsn(wchar_t *wcs, const char *utfs, size_t wcslen, int utflen)
+int xutftowcsn(wchar_t *wcs, volatile const char *utfs, size_t wcslen, int utflen)
 {
  int upos = 0, wpos = 0;
  const unsigned char *utf = (const unsigned char*) utfs;

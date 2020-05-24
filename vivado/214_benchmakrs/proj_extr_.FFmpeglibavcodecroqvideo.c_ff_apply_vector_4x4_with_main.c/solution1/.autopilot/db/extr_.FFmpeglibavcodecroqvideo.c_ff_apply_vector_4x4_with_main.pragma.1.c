@@ -153,7 +153,7 @@ typedef struct TYPE_6__ TYPE_1__ ;
 struct TYPE_7__ {unsigned char* y; unsigned char u; unsigned char v; } ;
 typedef TYPE_2__ roq_cell ;
 struct TYPE_8__ {TYPE_1__* current_frame; } ;
-struct TYPE_6__ {int* linesize; unsigned char** data; } ;
+struct TYPE_6__ {int linesize[1000]; unsigned char data[1000]; } ;
 typedef TYPE_3__ RoqContext ;
 
 

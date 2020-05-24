@@ -13,7 +13,7 @@ typedef  int real_t ;
 
 /* Variables and functions */
 
-void acado_multGxGx( real_t* const Gx1, real_t* const Gx2, real_t* const Gx3 )
+void acado_multGxGx( real_t const Gx1[1000] , real_t const Gx2[1000] , real_t Gx3[1000] )
 {
 Gx3[0] = + Gx1[0]*Gx2[0] + Gx1[1]*Gx2[4] + Gx1[2]*Gx2[8] + Gx1[3]*Gx2[12];
 Gx3[1] = + Gx1[0]*Gx2[1] + Gx1[1]*Gx2[5] + Gx1[2]*Gx2[9] + Gx1[3]*Gx2[13];

@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.nginxsrccorengx_parse_time.c_ngx_parse_http_time_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.nginxsrccorengx_parse_time.c_ngx_parse_http_time_with_main.c" top="ngx_parse_http_time">
     <files>
         <file name="extr_.nginxsrccorengx_parse_time.c_ngx_parse_http_time_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

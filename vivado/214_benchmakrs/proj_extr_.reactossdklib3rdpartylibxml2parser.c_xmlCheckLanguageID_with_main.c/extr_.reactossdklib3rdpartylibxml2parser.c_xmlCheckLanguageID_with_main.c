@@ -14,7 +14,7 @@ typedef  char xmlChar ;
 /* Variables and functions */
 
 int
-xmlCheckLanguageID(const xmlChar * lang)
+xmlCheckLanguageID(const xmlChar lang[1000])
 {
     const xmlChar *cur = lang, *nxt;
 

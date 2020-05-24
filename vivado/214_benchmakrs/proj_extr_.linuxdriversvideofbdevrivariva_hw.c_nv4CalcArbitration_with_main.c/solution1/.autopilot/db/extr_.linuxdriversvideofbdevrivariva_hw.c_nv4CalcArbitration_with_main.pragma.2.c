@@ -156,7 +156,7 @@ typedef TYPE_2__ nv4_fifo_info ;
 
 
 
-__attribute__((used)) static void nv4CalcArbitration
+void nv4CalcArbitration
 (
     nv4_fifo_info *fifo,
     nv4_sim_state *arb

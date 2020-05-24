@@ -148,7 +148,7 @@ typedef int bool;
 typedef struct TYPE_3__ TYPE_1__ ;
 
 
-typedef scalar_t__* vec3_t ;
+typedef scalar_t__ vec3_t[1000] ;
 struct TYPE_3__ {int type; float dist; int signbits; scalar_t__* normal; } ;
 typedef TYPE_1__ plane_t ;
 
@@ -158,7 +158,7 @@ typedef TYPE_1__ plane_t ;
  int PSIDE_FRONT ;
 
 int BoxOnPlaneSide (vec3_t emins, vec3_t emaxs, plane_t *p)
-{
+{_ssdm_SpecArrayDimSize(emins, 1000);_ssdm_SpecArrayDimSize(emaxs, 1000);
  float dist1, dist2;
  int sides;
 

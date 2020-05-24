@@ -1,0 +1,494 @@
+
+
+================================================================
+== Vivado HLS Report for 'emscripten_compute_dom_pk_code'
+================================================================
+* Date:           Sat May 23 21:24:35 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.888|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      82|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      30|    -|
+|Register         |        -|      -|     131|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     131|     112|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |add_ln176_fu_41_p2   |     +    |      0|  0|  71|          64|           1|
+    |icmp_ln176_fu_47_p2  |   icmp   |      0|  0|  11|           8|           1|
+    +---------------------+----------+-------+---+----+------------+------------+
+    |Total                |          |      0|  0|  82|          72|           2|
+    +---------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------+----+-----------+-----+-----------+
+    |       Name      | LUT| Input Size| Bits| Total Bits|
+    +-----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm        |  21|          4|    1|          4|
+    |p_01_rec_reg_29  |   9|          2|   64|        128|
+    +-----------------+----+-----------+-----+-----------+
+    |Total            |  30|          6|   65|        132|
+    +-----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------+----+----+-----+-----------+
+    |       Name       | FF | LUT| Bits| Const Bits|
+    +------------------+----+----+-----+-----------+
+    |add_ln176_reg_58  |  64|   0|   64|          0|
+    |ap_CS_fsm         |   3|   0|    3|          0|
+    |p_01_rec_reg_29   |  64|   0|   64|          0|
+    +------------------+----+----+-----+-----------+
+    |Total             | 131|   0|  131|          0|
+    +------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                  |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_rst                  |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_start                |  in |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_done                 | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_ready                | out |    1| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|ap_return               | out |   32| ap_ctrl_hs | emscripten_compute_dom_pk_code | return value |
+|keyCodeString_address0  | out |   10|  ap_memory |          keyCodeString         |     array    |
+|keyCodeString_ce0       | out |    1|  ap_memory |          keyCodeString         |     array    |
+|keyCodeString_q0        |  in |    8|  ap_memory |          keyCodeString         |     array    |
++------------------------+-----+-----+------------+--------------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i8]* %keyCodeString) nounwind, !map !785"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !791"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([31 x i8]* @emscripten_compute_d) nounwind"   --->   Operation 6 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.06ns)   --->   "br label %.preheader"   --->   Operation 7 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%p_01_rec = phi i64 [ 0, %.preheader.preheader ], [ %add_ln176, %.preheader ]" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 8 'phi' 'p_01_rec' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%keyCodeString_addr = getelementptr [1000 x i8]* %keyCodeString, i64 0, i64 %p_01_rec" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 9 'getelementptr' 'keyCodeString_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [2/2] (2.66ns)   --->   "%keyCodeString_load = load i8* %keyCodeString_addr, align 1" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 10 'load' 'keyCodeString_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_2 : Operation 11 [1/1] (1.98ns)   --->   "%add_ln176 = add i64 %p_01_rec, 1" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 11 'add' 'add_ln176' <Predicate = true> <Delay = 1.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 3.88>
+ST_3 : Operation 12 [1/2] (2.66ns)   --->   "%keyCodeString_load = load i8* %keyCodeString_addr, align 1" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 12 'load' 'keyCodeString_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 1000> <RAM>
+ST_3 : Operation 13 [1/1] (1.22ns)   --->   "%icmp_ln176 = icmp eq i8 %keyCodeString_load, 0" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 13 'icmp' 'icmp_ln176' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.22> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %icmp_ln176, label %._crit_edge, label %.preheader" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:176]   --->   Operation 14 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "ret i32 0" [extr_.emscriptensystemlibhtml5dom_pk_codes.c_emscripten_compute_dom_pk_code_with_main.c:343]   --->   Operation 15 'ret' <Predicate = (icmp_ln176)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ keyCodeString]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+specbitsmap_ln0    (specbitsmap  ) [ 0000]
+specbitsmap_ln0    (specbitsmap  ) [ 0000]
+spectopmodule_ln0  (spectopmodule) [ 0000]
+br_ln0             (br           ) [ 0111]
+p_01_rec           (phi          ) [ 0010]
+keyCodeString_addr (getelementptr) [ 0001]
+add_ln176          (add          ) [ 0111]
+keyCodeString_load (load         ) [ 0000]
+icmp_ln176         (icmp         ) [ 0011]
+br_ln176           (br           ) [ 0111]
+ret_ln343          (ret          ) [ 0000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="keyCodeString">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="keyCodeString"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1001" name="const_2">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1001" name="const_4">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1001" name="const_6">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="emscripten_compute_d"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1004" name="keyCodeString_addr_gep_fu_16">
+<pin_list>
+<pin id="17" dir="0" index="0" bw="8" slack="0"/>
+<pin id="18" dir="0" index="1" bw="1" slack="0"/>
+<pin id="19" dir="0" index="2" bw="64" slack="0"/>
+<pin id="20" dir="1" index="3" bw="10" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="keyCodeString_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="23" class="1004" name="grp_access_fu_23">
+<pin_list>
+<pin id="24" dir="0" index="0" bw="10" slack="0"/>
+<pin id="25" dir="0" index="1" bw="8" slack="2147483647"/>
+<pin id="26" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="27" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="keyCodeString_load/2 "/>
+</bind>
+</comp>
+
+<comp id="29" class="1005" name="p_01_rec_reg_29">
+<pin_list>
+<pin id="30" dir="0" index="0" bw="64" slack="1"/>
+<pin id="31" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="p_01_rec (phireg) "/>
+</bind>
+</comp>
+
+<comp id="33" class="1004" name="p_01_rec_phi_fu_33">
+<pin_list>
+<pin id="34" dir="0" index="0" bw="1" slack="1"/>
+<pin id="35" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="36" dir="0" index="2" bw="64" slack="0"/>
+<pin id="37" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="38" dir="1" index="4" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="p_01_rec/2 "/>
+</bind>
+</comp>
+
+<comp id="41" class="1004" name="add_ln176_fu_41">
+<pin_list>
+<pin id="42" dir="0" index="0" bw="64" slack="0"/>
+<pin id="43" dir="0" index="1" bw="1" slack="0"/>
+<pin id="44" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln176/2 "/>
+</bind>
+</comp>
+
+<comp id="47" class="1004" name="icmp_ln176_fu_47">
+<pin_list>
+<pin id="48" dir="0" index="0" bw="8" slack="0"/>
+<pin id="49" dir="0" index="1" bw="8" slack="0"/>
+<pin id="50" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln176/3 "/>
+</bind>
+</comp>
+
+<comp id="53" class="1005" name="keyCodeString_addr_reg_53">
+<pin_list>
+<pin id="54" dir="0" index="0" bw="10" slack="1"/>
+<pin id="55" dir="1" index="1" bw="10" slack="1"/>
+</pin_list>
+<bind>
+<opset="keyCodeString_addr "/>
+</bind>
+</comp>
+
+<comp id="58" class="1005" name="add_ln176_reg_58">
+<pin_list>
+<pin id="59" dir="0" index="0" bw="64" slack="0"/>
+<pin id="60" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opset="add_ln176 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="21"><net_src comp="0" pin="0"/><net_sink comp="16" pin=0"/></net>
+
+<net id="22"><net_src comp="10" pin="0"/><net_sink comp="16" pin=1"/></net>
+
+<net id="28"><net_src comp="16" pin="3"/><net_sink comp="23" pin=0"/></net>
+
+<net id="32"><net_src comp="10" pin="0"/><net_sink comp="29" pin=0"/></net>
+
+<net id="39"><net_src comp="29" pin="1"/><net_sink comp="33" pin=0"/></net>
+
+<net id="40"><net_src comp="33" pin="4"/><net_sink comp="16" pin=2"/></net>
+
+<net id="45"><net_src comp="33" pin="4"/><net_sink comp="41" pin=0"/></net>
+
+<net id="46"><net_src comp="12" pin="0"/><net_sink comp="41" pin=1"/></net>
+
+<net id="51"><net_src comp="23" pin="3"/><net_sink comp="47" pin=0"/></net>
+
+<net id="52"><net_src comp="14" pin="0"/><net_sink comp="47" pin=1"/></net>
+
+<net id="56"><net_src comp="16" pin="3"/><net_sink comp="53" pin=0"/></net>
+
+<net id="57"><net_src comp="53" pin="1"/><net_sink comp="23" pin=0"/></net>
+
+<net id="61"><net_src comp="41" pin="2"/><net_sink comp="58" pin=0"/></net>
+
+<net id="62"><net_src comp="58" pin="1"/><net_sink comp="33" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+	Port: emscripten_compute_dom_pk_code : keyCodeString | {2 3 }
+  - Chain level:
+	State 1
+	State 2
+		keyCodeString_addr : 1
+		keyCodeString_load : 2
+		add_ln176 : 1
+	State 3
+		icmp_ln176 : 1
+		br_ln176 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|------------------|---------|---------|
+| Operation|  Functional Unit |    FF   |   LUT   |
+|----------|------------------|---------|---------|
+|    add   |  add_ln176_fu_41 |    0    |    71   |
+|----------|------------------|---------|---------|
+|   icmp   | icmp_ln176_fu_47 |    0    |    11   |
+|----------|------------------|---------|---------|
+|   Total  |                  |    0    |    82   |
+|----------|------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-------------------------+--------+
+|                         |   FF   |
++-------------------------+--------+
+|     add_ln176_reg_58    |   64   |
+|keyCodeString_addr_reg_53|   10   |
+|     p_01_rec_reg_29     |   64   |
++-------------------------+--------+
+|          Total          |   138  |
++-------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|------------------|------|------|------|--------||---------||---------|
+|       Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|------------------|------|------|------|--------||---------||---------|
+| grp_access_fu_23 |  p0  |   2  |  10  |   20   ||    9    |
+|------------------|------|------|------|--------||---------||---------|
+|       Total      |      |      |      |   20   ||  1.061  ||    9    |
+|------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |    0   |   82   |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    1   |    -   |    9   |
+|  Register |    -   |   138  |    -   |
++-----------+--------+--------+--------+
+|   Total   |    1   |   138  |   91   |
++-----------+--------+--------+--------+

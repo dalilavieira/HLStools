@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.c" top="main">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="proj_extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.c" top="xmlCheckLanguageID">
     <files>
         <file name="extr_.reactossdklib3rdpartylibxml2parser.c_xmlCheckLanguageID_with_main.c" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>

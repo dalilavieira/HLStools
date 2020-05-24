@@ -152,24 +152,24 @@ typedef int uint8_t ;
 
  int XFACE_HEIGHT ;
 
- int* g_00 ;
- int* g_01 ;
- int* g_02 ;
- int* g_10 ;
- int* g_11 ;
- int* g_12 ;
- int* g_20 ;
- int* g_21 ;
- int* g_22 ;
- int* g_30 ;
- int* g_31 ;
- int* g_32 ;
- int* g_40 ;
- int* g_41 ;
- int* g_42 ;
+ volatile int* g_00 ;
+ volatile int* g_01 ;
+ volatile int* g_02 ;
+ volatile int* g_10 ;
+ volatile int* g_11 ;
+ volatile int* g_12 ;
+ volatile int* g_20 ;
+ volatile int* g_21 ;
+ volatile int* g_22 ;
+ volatile int* g_30 ;
+ volatile int* g_31 ;
+ volatile int* g_32 ;
+ volatile int* g_40 ;
+ volatile int* g_41 ;
+ volatile int* g_42 ;
 
-void ff_xface_generate_face(uint8_t *dst, uint8_t * const src)
-{
+void ff_xface_generate_face(uint8_t *dst, uint8_t const src[1000])
+{_ssdm_SpecArrayDimSize(src, 1000);
     int h, i, j, k, l, m;
 
     for (j = 0; j < XFACE_HEIGHT; j++) {

@@ -111,7 +111,7 @@ typedef  TYPE_1__ STypeInfo ;
  scalar_t__ is_struct_class_fwdref ; 
  scalar_t__ is_union_fwdref ; 
 
-__attribute__((used)) static void init_stype_info(STypeInfo *type_info)
+void init_stype_info(STypeInfo *type_info)
 {
 	type_info->free_ = 0;
 	type_info->get_members = 0;

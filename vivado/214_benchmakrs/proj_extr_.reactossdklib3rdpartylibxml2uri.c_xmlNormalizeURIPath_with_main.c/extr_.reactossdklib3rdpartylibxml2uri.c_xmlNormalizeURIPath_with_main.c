@@ -13,7 +13,7 @@ typedef int bool;
 /* Variables and functions */
 
 int
-xmlNormalizeURIPath(char *path) {
+xmlNormalizeURIPath(char path[1000]) {
     char *cur, *out;
 
     if (path == NULL)

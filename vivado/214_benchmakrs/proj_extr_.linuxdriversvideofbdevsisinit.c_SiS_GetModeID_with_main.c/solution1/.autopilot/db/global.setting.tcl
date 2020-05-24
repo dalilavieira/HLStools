@@ -1,5 +1,5 @@
 
-set TopModule "main"
+set TopModule "SiS_GetModeID"
 set ClockPeriod 10
 set ClockList {}
 set HasVivadoClockPeriod 0
@@ -13,7 +13,7 @@ set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
-set HasDSPModule 0
+set HasDSPModule 1
 set ResetLevelFlag 1
 set ResetStyle control
 set ResetSyncFlag 1
@@ -42,7 +42,7 @@ set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
 set SourceFiles {sc {} c ../extr_.linuxdriversvideofbdevsisinit.c_SiS_GetModeID_with_main.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/vivado/aut/proj_extr_.linuxdriversvideofbdevsisinit.c_SiS_GetModeID_with_main.c/solution1/solution1.directive
+set DirectiveFile /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.linuxdriversvideofbdevsisinit.c_SiS_GetModeID_with_main.c/solution1/solution1.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -54,7 +54,7 @@ set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_ga
 set TBTVFileNotFound {}
 set AppFile ../vivado_hls.app
 set ApsFile solution1.aps
-set AvePath ..
+set AvePath {}
 set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}

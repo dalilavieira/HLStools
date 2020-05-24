@@ -15,7 +15,7 @@ struct SiS_Private {int dummy; } ;
 /* Variables and functions */
 
 void
-SiS_Generic_ConvertCRData(struct SiS_Private *SiS_Pr, unsigned char *crdata,
+SiS_Generic_ConvertCRData(struct SiS_Private *SiS_Pr, unsigned char crdata[1000],
 			int xres, int yres,
 			struct fb_var_screeninfo *var, bool writeres
 )

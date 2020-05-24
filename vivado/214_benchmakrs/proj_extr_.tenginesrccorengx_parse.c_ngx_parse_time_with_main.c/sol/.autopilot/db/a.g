@@ -1,0 +1,4 @@
+#!/bin/sh
+lli=${LLVMINTERP-lli}
+exec $lli \
+    /home/vivado/HLStools/vivado/new214/proj_extr_.tenginesrccorengx_parse.c_ngx_parse_time_with_main.c/sol/.autopilot/db/a.g.bc ${1+"$@"}

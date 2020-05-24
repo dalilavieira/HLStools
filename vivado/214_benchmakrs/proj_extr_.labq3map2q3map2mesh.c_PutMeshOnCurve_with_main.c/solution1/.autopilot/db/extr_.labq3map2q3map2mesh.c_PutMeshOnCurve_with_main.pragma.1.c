@@ -144,14 +144,15 @@ typedef int bool;
 
 
 
+struct TYPE_4__ {double xyz[1000]; double st[1000]; double lightmap[1000][1000]; } ;
 
 typedef struct TYPE_5__ TYPE_2__ ;
 typedef struct TYPE_4__ TYPE_1__ ;
 
 
-struct TYPE_5__ {int width; int height; TYPE_1__* verts; } ;
+struct TYPE_5__ {int width; int height; TYPE_1__ verts[1000]; } ;
 typedef TYPE_2__ mesh_t ;
-struct TYPE_4__ {double* xyz; double* st; double** lightmap; } ;
+
 
 
  int MAX_LIGHTMAPS ;

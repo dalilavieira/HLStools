@@ -419,7 +419,7 @@ typedef int obs_key_t ;
  int XK_underscore ;
  int XK_yen ;
 
-__attribute__((used)) static int get_keysym(obs_key_t key)
+int get_keysym(obs_key_t key)
 {
  switch (key) {
  case 164: return XK_Return;
