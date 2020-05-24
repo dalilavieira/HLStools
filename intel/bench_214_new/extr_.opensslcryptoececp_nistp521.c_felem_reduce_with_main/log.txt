@@ -109,9 +109,19 @@ bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.o
 bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:86:22: warning: shift count >= width of type [-Wshift-count-overflow]
     out[1] += out[0] >> 58;
                      ^  ~~
-bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:98:20: error: default initialization of an object of const type 'const largefelem' (aka 'int *const')
-  const largefelem in;
-                   ^
-                      = nullptr
-37 warnings and 1 error generated.
-HLS FPGA Parse FAILED.
+bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:99:16: warning: variable 'out' is uninitialized when used here [-Wuninitialized]
+  felem_reduce(out, in);
+               ^~~
+bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:97:12: note: initialize the variable 'out' to silence this warning
+  felem out;
+           ^
+            = nullptr
+bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:99:21: warning: variable 'in' is uninitialized when used here [-Wuninitialized]
+  felem_reduce(out, in);
+                    ^~
+bench_214_new/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main/extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c:98:16: note: initialize the variable 'in' to silence this warning
+  largefelem in;
+               ^
+                = nullptr
+39 warnings generated.
+Compiler Warning: Program does not terminate.

@@ -1,5 +1,35 @@
-bench_214_new/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:18:17: error: use of undeclared identifier 'NULL'
-    if (path == NULL)
-                ^
-1 error generated.
-HLS FPGA Parse FAILED.
+bench_214_new/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:196:23: warning: variable 'path' is uninitialized when used here [-Wuninitialized]
+  xmlNormalizeURIPath(path);
+                      ^~~~
+bench_214_new/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:195:14: note: initialize the variable 'path' to silence this warning
+  char * path;
+             ^
+              = nullptr
+1 warning generated.
+aocl-opt: /build/psgswbuild/nightly/19.4/64/l64/p4/acl/llvm/include/llvm/IR/Type.h:99: void llvm::Type::setSubclassData(unsigned int): Assertion `getSubclassData() == val && "Subclass data too large for field"' failed.
+Stack dump:
+0.	Program arguments: /opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt -HLS -O3 -march=fpga -pass-remarks-output=opt.rpt.yaml --soft-elementary-math=false -board /opt/altera_pro/19.4/hls/share/models/bm/A10.xml -nocaching -noprefetching -fmax-search-upper-bound=240 fpga.linked.bc -o fpga.opt.bc 
+1.	Running pass 'Function Pass Manager' on module 'fpga.linked.bc'.
+2.	Running pass 'InferFPGAAddrSpaces: infer address spaces used by FPGA' on function '@main'
+ #0 0x00007face5ca520a llvm::sys::PrintStackTrace(llvm::raw_ostream&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2320a)
+ #1 0x00007face5ca287c llvm::sys::RunSignalHandlers() (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2087c)
+ #2 0x00007face5ca29cc SignalHandler(int) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe209cc)
+ #3 0x00007face4c76390 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x11390)
+ #4 0x00007face35ca428 gsignal /build/glibc-LK5gWL/glibc-2.23/signal/../sysdeps/unix/sysv/linux/raise.c:54:0
+ #5 0x00007face35cc02a abort /build/glibc-LK5gWL/glibc-2.23/stdlib/abort.c:91:0
+ #6 0x00007face35c2bd7 __assert_fail_base /build/glibc-LK5gWL/glibc-2.23/assert/assert.c:92:0
+ #7 0x00007face35c2c82 (/lib/x86_64-linux-gnu/libc.so.6+0x2dc82)
+ #8 0x00007face5e39788 (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xfb7788)
+ #9 0x00007face5e3abb7 llvm::PointerType::get(llvm::Type*, unsigned int) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xfb8bb7)
+#10 0x00007face6763da3 cloneInstructionWithNewAddressSpace(llvm::Instruction*, unsigned int, llvm::ValueMap<llvm::Value const*, llvm::WeakTrackingVH, llvm::ValueMapConfig<llvm::Value const*, llvm::sys::SmartMutex<false> > > const&, llvm::SmallVectorImpl<llvm::Use const*>*) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x18e1da3)
+#11 0x00007face67682a2 (anonymous namespace)::InferAddressSpaces::rewriteWithNewAddressSpaces(llvm::TargetTransformInfo const&, llvm::ArrayRef<llvm::WeakTrackingVH>, llvm::DenseMap<llvm::Value const*, llvm::AddrSpaceSet, llvm::DenseMapInfo<llvm::Value const*>, llvm::detail::DenseMapPair<llvm::Value const*, llvm::AddrSpaceSet> > const&, llvm::Function*) const (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x18e62a2)
+#12 0x00007face676a701 llvm::InferAddrSpaces(llvm::TargetTransformInfo const&, unsigned int, llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x18e8701)
+#13 0x00007face7231c4a llvm::InferFPGAAddrSpaces::runImpl(llvm::Function&, llvm::TargetTransformInfo const&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x23afc4a)
+#14 0x00007face7231dfa InferFPGAAddrSpacesLegacyPass::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x23afdfa)
+#15 0x00007face5de74a6 llvm::FPPassManager::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf654a6)
+#16 0x00007face5de771c llvm::FPPassManager::runOnModule(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf6571c)
+#17 0x00007face5de8561 llvm::legacy::PassManagerImpl::run(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf66561)
+#18 0x000055cd6cb9bb11 main (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2ab11)
+#19 0x00007face35b5830 __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:325:0
+#20 0x000055cd6cb9c6f1 _start (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2b6f1)
+HLS Main Optimizer FAILED.

@@ -1,10 +1,15 @@
-bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:13:12: error: default initialization of an object of const type 'const int'
- int const ROW_SHIFT ; 
-           ^
-                     = 0
-bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:101:20: error: default initialization of an object of const type 'const int *const'
-  const int *const tab;
-                   ^
-                       = nullptr
-2 errors generated.
-HLS FPGA Parse FAILED.
+bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:103:12: warning: variable 'in' is uninitialized when used here [-Wuninitialized]
+  idct_row(in, tab, rnd);
+           ^~
+bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:100:13: note: initialize the variable 'in' to silence this warning
+  short * in;
+            ^
+             = nullptr
+bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:103:21: warning: variable 'rnd' is uninitialized when used here [-Wuninitialized]
+  idct_row(in, tab, rnd);
+                    ^~~
+bench_214_new/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main/extr_.FFmpeglibavcodecxvididct.c_idct_row_with_main.c:102:10: note: initialize the variable 'rnd' to silence this warning
+  int rnd;
+         ^
+          = 0
+2 warnings generated.
