@@ -89,8 +89,8 @@ void make_cube_faces(
 /* Main routine for make_cube_faces */
 component int main() {
   float * data;
-  float (*)[4] ao;
-  float (*)[4] light;
+  float [6][4] ao;
+  float [6][4] light;
   int left;
   int right;
   int top;

@@ -36,8 +36,8 @@ __attribute__((used)) static void sbr_autocorrelate_c(const float x[40][2], floa
 
 /* Main routine for sbr_autocorrelate_c */
 component int main() {
-  const float (*)[2] x;
-  float (*)[2][2] phi;
+  const float [40][2] x;
+  float [3][2][2] phi;
   sbr_autocorrelate_c(x, phi);
   return 0;
 }

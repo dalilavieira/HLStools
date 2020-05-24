@@ -8,11 +8,11 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 /* Forward declarations */
 
 /* Type definitions */
-typedef  int* mat4_t ;
+typedef  int* mat4_t;
 
 /* Variables and functions */
 
-void Mat4Multiply( const mat4_t in1, const mat4_t in2, mat4_t out )
+void Mat4Multiply( mat4_t in1, mat4_t in2, mat4_t out )
 {
 	out[ 0] = in1[ 0] * in2[ 0] + in1[ 4] * in2[ 1] + in1[ 8] * in2[ 2] + in1[12] * in2[ 3];
 	out[ 1] = in1[ 1] * in2[ 0] + in1[ 5] * in2[ 1] + in1[ 9] * in2[ 2] + in1[13] * in2[ 3];
@@ -37,8 +37,8 @@ void Mat4Multiply( const mat4_t in1, const mat4_t in2, mat4_t out )
 
 /* Main routine for Mat4Multiply */
 component int main() {
-  const mat4_t in1;
-  const mat4_t in2;
+  mat4_t in1;
+  mat4_t in2;
   mat4_t out;
   Mat4Multiply(in1, in2, out);
   return 0;

@@ -9,7 +9,7 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 
 /* Type definitions */
 struct Decorr {int value; int* samplesA; int* samplesB; } ;
-typedef  void* int32_t ;
+typedef  int int32_t ;
 
 /* Variables and functions */
  int MAX_TERM ; 

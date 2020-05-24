@@ -31,8 +31,8 @@ __attribute__((used)) static int
 bnad_per_q_stats_fill(struct bnad *bnad, u64 *buf, int bi)
 {
 	int i, j;
-	struct bna_rcb *rcb = NULL;
-	struct bna_tcb *tcb = NULL;
+	struct bna_rcb *rcb = 0;
+	struct bna_tcb *tcb = 0;
 
 	for (i = 0; i < bnad->num_rx; i++) {
 		if (!bnad->rx_info[i].rx)

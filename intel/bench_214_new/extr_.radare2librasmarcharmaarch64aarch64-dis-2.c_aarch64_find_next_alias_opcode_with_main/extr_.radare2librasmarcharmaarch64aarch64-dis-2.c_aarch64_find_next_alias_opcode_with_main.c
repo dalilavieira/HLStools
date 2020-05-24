@@ -191,7 +191,7 @@ aarch64_find_next_alias_opcode (const aarch64_opcode *opcode)
     case 1228: value = 1717; break;	/* movs --> orrs.  */
     case 1223: value = 1779; break;	/* mov --> sel.  */
     case 1226: value = 1780; break;	/* mov --> sel.  */
-    default: return NULL;
+    default: return 0;
     }
 
   return aarch64_opcode_table + value;

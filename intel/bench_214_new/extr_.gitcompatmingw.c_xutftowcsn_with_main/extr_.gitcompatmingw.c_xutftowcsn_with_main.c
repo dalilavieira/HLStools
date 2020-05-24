@@ -8,7 +8,7 @@ typedef int scalar_t__;  // Either arithmetic or pointer type.
 /* Forward declarations */
 
 /* Type definitions */
-typedef  char wchar_t ;
+
 
 /* Variables and functions */
  int /*<<< orphan*/  EINVAL ; 
@@ -16,7 +16,7 @@ typedef  char wchar_t ;
  int INT_MAX ; 
  int /*<<< orphan*/  errno ; 
 
-int xutftowcsn(wchar_t *wcs, const char *utfs, size_t wcslen, int utflen)
+int xutftowcsn(char *wcs, const char *utfs, size_t wcslen, int utflen)
 {
 	int upos = 0, wpos = 0;
 	const unsigned char *utf = (const unsigned char*) utfs;
@@ -90,7 +90,7 @@ int xutftowcsn(wchar_t *wcs, const char *utfs, size_t wcslen, int utflen)
 
 /* Main routine for xutftowcsn */
 component int main() {
-  wchar_t * wcs;
+  char * wcs;
   const char * utfs;
   size_t wcslen;
   int utflen;

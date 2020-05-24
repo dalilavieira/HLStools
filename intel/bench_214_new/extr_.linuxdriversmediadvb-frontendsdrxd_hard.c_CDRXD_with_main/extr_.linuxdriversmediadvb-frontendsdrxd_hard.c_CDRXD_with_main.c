@@ -154,7 +154,7 @@ __attribute__((used)) static int CDRXD(struct drxd_state *state, u32 Intermediat
 		state->m_HiI2cPatch = DRXD_HiI2cPatch_3;
 		break;
 	default:
-		state->m_HiI2cPatch = NULL;
+		state->m_HiI2cPatch = 0;
 	}
 
 	/* modify tuner and clock attributes */

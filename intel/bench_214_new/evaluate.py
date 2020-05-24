@@ -13,12 +13,12 @@ if __name__ == "__main__":
         path = line + "/a.prj"
         size = line + "/log.txt"
 
-        result = "ok"
+        result = "v"
         if (not os.path.exists(path)):
             result = "x"
         elif (os.path.getsize(size) > 0):
             #print("size ", os.path.getsize(size))
-            result = "v"
+            result = "w"
         
         print("%d, %s, %s" %(c, line, result))
         c += 1

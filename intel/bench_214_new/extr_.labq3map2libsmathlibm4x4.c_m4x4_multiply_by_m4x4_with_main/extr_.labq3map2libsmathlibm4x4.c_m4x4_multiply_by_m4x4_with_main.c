@@ -13,7 +13,7 @@ typedef  int* m4x4_t ;
 
 /* Variables and functions */
 
-void m4x4_multiply_by_m4x4( m4x4_t dst, const m4x4_t src ){
+void m4x4_multiply_by_m4x4( m4x4_t dst, m4x4_t src ){
 	vec_t dst0, dst1, dst2, dst3;
 
 #if 1
@@ -77,7 +77,7 @@ void m4x4_multiply_by_m4x4( m4x4_t dst, const m4x4_t src ){
 /* Main routine for m4x4_multiply_by_m4x4 */
 component int main() {
   m4x4_t dst;
-  const m4x4_t src;
+  m4x4_t src;
   m4x4_multiply_by_m4x4(dst, src);
   return 0;
 }

@@ -51,17 +51,17 @@ void r100_cs_track_clear(struct radeon_device *rdev, struct r100_cs_track *track
 		track->maxy = 4096;
 		track->separate_cube = 0;
 		track->aaresolve = false;
-		track->aa.robj = NULL;
+		track->aa.robj = 0;
 	}
 
 	for (i = 0; i < track->num_cb; i++) {
-		track->cb[i].robj = NULL;
+		track->cb[i].robj = 0;
 		track->cb[i].pitch = 8192;
 		track->cb[i].cpp = 16;
 		track->cb[i].offset = 0;
 	}
 	track->z_enabled = true;
-	track->zb.robj = NULL;
+	track->zb.robj = 0;
 	track->zb.pitch = 8192;
 	track->zb.cpp = 4;
 	track->zb.offset = 0;
@@ -70,7 +70,7 @@ void r100_cs_track_clear(struct radeon_device *rdev, struct r100_cs_track *track
 	track->num_arrays = 11;
 	track->max_indx = 0x00FFFFFFUL;
 	for (i = 0; i < track->num_arrays; i++) {
-		track->arrays[i].robj = NULL;
+		track->arrays[i].robj = 0;
 		track->arrays[i].esize = 0x7F;
 	}
 	for (i = 0; i < track->num_texture; i++) {
@@ -89,7 +89,7 @@ void r100_cs_track_clear(struct radeon_device *rdev, struct r100_cs_track *track
 			track->textures[i].tex_coord_type = 1;
 		}
 		track->textures[i].cpp = 64;
-		track->textures[i].robj = NULL;
+		track->textures[i].robj = 0;
 		/* CS IB emission code makes sure texture unit are disabled */
 		track->textures[i].enabled = false;
 		track->textures[i].lookup_disable = false;
@@ -97,7 +97,7 @@ void r100_cs_track_clear(struct radeon_device *rdev, struct r100_cs_track *track
 		track->textures[i].roundup_h = true;
 		if (track->separate_cube)
 			for (face = 0; face < 5; face++) {
-				track->textures[i].cube_info[face].robj = NULL;
+				track->textures[i].cube_info[face].robj = 0;
 				track->textures[i].cube_info[face].width = 16536;
 				track->textures[i].cube_info[face].height = 16536;
 				track->textures[i].cube_info[face].offset = 0;

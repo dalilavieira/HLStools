@@ -61,7 +61,7 @@ __attribute__((used)) static int
 hkscs2008_wctomb (conv_t conv, unsigned char *r, ucs4_t wc, size_t n)
 {
   if (n >= 2) {
-    const Summary16 *summary = NULL;
+    const Summary16 *summary = 0;
     if (wc >= 0x3400 && wc < 0x34f0)
       summary = &hkscs2008_uni2indx_page34[(wc>>4)-0x340];
     else if (wc >= 0x3800 && wc < 0x3880)

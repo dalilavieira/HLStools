@@ -71,7 +71,7 @@ __attribute__((used)) static int
 hkscs2001_wctomb (conv_t conv, unsigned char *r, ucs4_t wc, size_t n)
 {
   if (n >= 2) {
-    const Summary16 *summary = NULL;
+    const Summary16 *summary = 0;
     if (wc < 0x9f00) {
       if (wc < 0x6900) {
         if (wc >= 0x3500 && wc < 0x3560)

@@ -32,7 +32,7 @@ ngx_parse_http_time(u_char *value, size_t len)
         isoc      /* Tue Dec 10 23:50:13 2002    */
     } fmt;
 
-    fmt = 0;
+    //fmt = 0;
     end = value + len;
 
 #if (NGX_SUPPRESS_WARN)

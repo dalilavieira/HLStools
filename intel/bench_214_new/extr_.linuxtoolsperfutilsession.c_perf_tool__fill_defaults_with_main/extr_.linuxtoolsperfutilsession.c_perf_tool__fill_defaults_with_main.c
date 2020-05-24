@@ -18,10 +18,10 @@ struct perf_tool {int /*<<< orphan*/ * feature; int /*<<< orphan*/ * time_conv; 
  int /*<<< orphan*/ * perf_event__process_switch ; 
  int /*<<< orphan*/ * process_event_auxtrace_stub ; 
  int /*<<< orphan*/ * process_event_cpu_map_stub ; 
- void* process_event_op2_stub ; 
- void* process_event_sample_stub ; 
+ int* process_event_op2_stub ; 
+ int* process_event_sample_stub ; 
  int /*<<< orphan*/ * process_event_stat_config_stub ; 
- void* process_event_stub ; 
+ int* process_event_stub ; 
  int /*<<< orphan*/ * process_event_synth_attr_stub ; 
  int /*<<< orphan*/ * process_event_synth_event_update_stub ; 
  int /*<<< orphan*/ * process_event_synth_tracing_data_stub ; 
@@ -33,71 +33,71 @@ struct perf_tool {int /*<<< orphan*/ * feature; int /*<<< orphan*/ * time_conv; 
 
 void perf_tool__fill_defaults(struct perf_tool *tool)
 {
-	if (tool->sample == NULL)
+	if (tool->sample == 0)
 		tool->sample = process_event_sample_stub;
-	if (tool->mmap == NULL)
+	if (tool->mmap == 0)
 		tool->mmap = process_event_stub;
-	if (tool->mmap2 == NULL)
+	if (tool->mmap2 == 0)
 		tool->mmap2 = process_event_stub;
-	if (tool->comm == NULL)
+	if (tool->comm == 0)
 		tool->comm = process_event_stub;
-	if (tool->namespaces == NULL)
+	if (tool->namespaces == 0)
 		tool->namespaces = process_event_stub;
-	if (tool->fork == NULL)
+	if (tool->fork == 0)
 		tool->fork = process_event_stub;
-	if (tool->exit == NULL)
+	if (tool->exit == 0)
 		tool->exit = process_event_stub;
-	if (tool->lost == NULL)
+	if (tool->lost == 0)
 		tool->lost = perf_event__process_lost;
-	if (tool->lost_samples == NULL)
+	if (tool->lost_samples == 0)
 		tool->lost_samples = perf_event__process_lost_samples;
-	if (tool->aux == NULL)
+	if (tool->aux == 0)
 		tool->aux = perf_event__process_aux;
-	if (tool->itrace_start == NULL)
+	if (tool->itrace_start == 0)
 		tool->itrace_start = perf_event__process_itrace_start;
-	if (tool->context_switch == NULL)
+	if (tool->context_switch == 0)
 		tool->context_switch = perf_event__process_switch;
-	if (tool->read == NULL)
+	if (tool->read == 0)
 		tool->read = process_event_sample_stub;
-	if (tool->throttle == NULL)
+	if (tool->throttle == 0)
 		tool->throttle = process_event_stub;
-	if (tool->unthrottle == NULL)
+	if (tool->unthrottle == 0)
 		tool->unthrottle = process_event_stub;
-	if (tool->attr == NULL)
+	if (tool->attr == 0)
 		tool->attr = process_event_synth_attr_stub;
-	if (tool->event_update == NULL)
+	if (tool->event_update == 0)
 		tool->event_update = process_event_synth_event_update_stub;
-	if (tool->tracing_data == NULL)
+	if (tool->tracing_data == 0)
 		tool->tracing_data = process_event_synth_tracing_data_stub;
-	if (tool->build_id == NULL)
+	if (tool->build_id == 0)
 		tool->build_id = process_event_op2_stub;
-	if (tool->finished_round == NULL) {
+	if (tool->finished_round == 0) {
 		if (tool->ordered_events)
 			tool->finished_round = process_finished_round;
 		else
 			tool->finished_round = process_finished_round_stub;
 	}
-	if (tool->id_index == NULL)
+	if (tool->id_index == 0)
 		tool->id_index = process_event_op2_stub;
-	if (tool->auxtrace_info == NULL)
+	if (tool->auxtrace_info == 0)
 		tool->auxtrace_info = process_event_op2_stub;
-	if (tool->auxtrace == NULL)
+	if (tool->auxtrace == 0)
 		tool->auxtrace = process_event_auxtrace_stub;
-	if (tool->auxtrace_error == NULL)
+	if (tool->auxtrace_error == 0)
 		tool->auxtrace_error = process_event_op2_stub;
-	if (tool->thread_map == NULL)
+	if (tool->thread_map == 0)
 		tool->thread_map = process_event_thread_map_stub;
-	if (tool->cpu_map == NULL)
+	if (tool->cpu_map == 0)
 		tool->cpu_map = process_event_cpu_map_stub;
-	if (tool->stat_config == NULL)
+	if (tool->stat_config == 0)
 		tool->stat_config = process_event_stat_config_stub;
-	if (tool->stat == NULL)
+	if (tool->stat == 0)
 		tool->stat = process_stat_stub;
-	if (tool->stat_round == NULL)
+	if (tool->stat_round == 0)
 		tool->stat_round = process_stat_round_stub;
-	if (tool->time_conv == NULL)
+	if (tool->time_conv == 0)
 		tool->time_conv = process_event_op2_stub;
-	if (tool->feature == NULL)
+	if (tool->feature == 0)
 		tool->feature = process_event_op2_stub;
 }
 

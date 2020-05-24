@@ -19,9 +19,9 @@ typedef  TYPE_1__ RCC_ClocksTypeDef ;
  int* APBAHBPrescTable ; 
  int HSE_VALUE ; 
  int HSI14_VALUE ; 
- void* HSI48_VALUE ; 
+ int HSI48_VALUE ; 
  int HSI_VALUE ; 
- void* LSE_VALUE ; 
+ int LSE_VALUE ; 
  TYPE_3__* RCC ; 
  int RCC_CFGR2_PREDIV1 ; 
  int RCC_CFGR3_ADCSW ; 
@@ -76,7 +76,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
       RCC_Clocks->SYSCLK_Frequency = pllclk;      
       break;
     case 0x0C:  /* HSI48 used as system clock */
-      RCC_Clocks->SYSCLK_Frequency = HSI48_VALUE;
+      RCC_Clocks->SYSCLK_Frequency = *HSI48_VALUE;
       break;
     default: /* HSI used as system clock */
       RCC_Clocks->SYSCLK_Frequency = HSI_VALUE;

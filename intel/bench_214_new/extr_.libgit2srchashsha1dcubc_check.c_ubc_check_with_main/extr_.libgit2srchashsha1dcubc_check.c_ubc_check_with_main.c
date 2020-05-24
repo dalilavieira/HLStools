@@ -312,7 +312,7 @@ if (mask) {
 
 /* Main routine for ubc_check */
 component int main() {
-  const uint32_t * W;
+  const uint32_t * W = 0;
   uint32_t * dvmask;
   ubc_check(W, dvmask);
   return 0;

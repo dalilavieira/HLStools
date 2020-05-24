@@ -54,7 +54,7 @@ component int main() {
   int width;
   int height;
   int log2_scale;
-  const uint8_t (*)[8] dither;
+  const uint8_t [8][8] dither;
   int depth;
   store_slice16_c(dst, src, dst_linesize, src_linesize, width, height, log2_scale, dither, depth);
   return 0;

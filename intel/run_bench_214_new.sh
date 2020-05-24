@@ -1,4 +1,5 @@
 # set environment quartus 19.4
+/opt/synopsys/scl/licenses/start_license_server &> /dev/null
 export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 
 # initializate variables hls

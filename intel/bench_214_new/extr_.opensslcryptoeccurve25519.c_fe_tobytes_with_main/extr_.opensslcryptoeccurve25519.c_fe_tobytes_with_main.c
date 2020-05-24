@@ -17,7 +17,7 @@ typedef  int* fe ;
  int kBottom25Bits ; 
  int kBottom26Bits ; 
 
-__attribute__((used)) static void fe_tobytes(uint8_t *s, const fe h)
+__attribute__((used)) static void fe_tobytes(uint8_t *s, fe h)
 {
     int32_t h0 = h[0];
     int32_t h1 = h[1];
@@ -102,7 +102,7 @@ __attribute__((used)) static void fe_tobytes(uint8_t *s, const fe h)
 /* Main routine for fe_tobytes */
 component int main() {
   uint8_t * s;
-  const fe h;
+  fe h;
   fe_tobytes(s, h);
   return 0;
 }
