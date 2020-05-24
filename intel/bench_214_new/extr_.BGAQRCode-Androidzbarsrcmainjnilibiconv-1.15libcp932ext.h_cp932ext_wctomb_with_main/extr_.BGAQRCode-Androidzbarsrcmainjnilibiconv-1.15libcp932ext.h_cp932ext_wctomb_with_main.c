@@ -33,6 +33,7 @@ typedef  TYPE_1__ Summary16 ;
  TYPE_1__* cp932ext_uni2indx_pagef9 ; 
  TYPE_1__* cp932ext_uni2indx_pageff ; 
 
+component 
 __attribute__((used)) static int
 cp932ext_wctomb (conv_t conv, unsigned char *r, ucs4_t wc, size_t n)
 {
@@ -89,7 +90,7 @@ cp932ext_wctomb (conv_t conv, unsigned char *r, ucs4_t wc, size_t n)
 }
 
 /* Main routine for cp932ext_wctomb */
-component int main() {
+int main() {
   conv_t conv;
   unsigned char * r;
   ucs4_t wc;
