@@ -41,7 +41,6 @@ typedef  TYPE_1__ RCC_ClocksTypeDef ;
  int RCC_CFGR_PPRE ; 
  int RCC_CFGR_SWS ; 
 
-component
 void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
 {
   uint32_t tmp = 0, pllmull = 0, pllsource = 0, prediv1factor = 0, presc = 0, pllclk = 0;
@@ -202,7 +201,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
 
 /* Main routine for RCC_GetClocksFreq */
 component int main() {
-  RCC_ClocksTypeDef * RCC_Clocks;
+  RCC_ClocksTypeDef * RCC_Clocks = nullptr;
   RCC_GetClocksFreq(RCC_Clocks);
   return 0;
 }
