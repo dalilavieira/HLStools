@@ -7,8 +7,8 @@ source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
 
 BENCHMARKS=(
     #'extr_.anypixelfirmwaredisplayThirdPartySPLsrcstm32f0xx_rcc.c_RCC_GetClocksFreq_with_main' 
-    'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libcp50221_0212_ext.h_cp50221_0212_ext_wctomb_with_main' 
-    #'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libcp932ext.h_cp932ext_wctomb_with_main' 
+    #'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libcp50221_0212_ext.h_cp50221_0212_ext_wctomb_with_main' 
+    'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libcp932ext.h_cp932ext_wctomb_with_main' 
     #'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libgb18030ext.h_gb18030ext_wctomb_with_main' 
     #'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libhkscs1999.h_hkscs1999_wctomb_with_main' 
     #'extr_.BGAQRCode-Androidzbarsrcmainjnilibiconv-1.15libhkscs2001.h_hkscs2001_wctomb_with_main' 
