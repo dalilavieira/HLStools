@@ -1,0 +1,116 @@
+{
+  "nodes":
+  [
+    {
+      "name":"afs_abort_to_error"
+      , "id":1432259624
+      , "type":"component"
+      , "children":
+      [
+        {
+          "name":"Stream Write"
+          , "id":1432552712
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"afs_abort_to_error.B1.start"
+              , "Width":"32 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_214/extr_.linuxfsafsmisc.c_afs_abort_to_error_with_main/extr_.linuxfsafsmisc.c_afs_abort_to_error_with_main.c"
+                , "line":203
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+        , {
+          "name":"Stream Read"
+          , "id":1432422936
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Basic Block":"afs_abort_to_error.B1.start"
+              , "Width":"2304 bits"
+              , "Depth":"0"
+              , "Stall-free":"No"
+              , "Latency":"0"
+            }
+          ]
+          , "debug":
+          [
+            [
+              {
+                "filename":"bench_214/extr_.linuxfsafsmisc.c_afs_abort_to_error_with_main/extr_.linuxfsafsmisc.c_afs_abort_to_error_with_main.c"
+                , "line":104
+              }
+            ]
+          ]
+          , "type":"inst"
+        }
+      ]
+    }
+    , {
+      "name":"call.afs_abort_to_error"
+      , "id":1432258472
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"2304 bits"
+          , "Depth":"0"
+          , "Reday Latency":"0"
+          , "Bits per Symbol":"2304 bits"
+          , "Uses Packets":"No"
+          , "Uses Valid":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+    , {
+      "name":"return.afs_abort_to_error"
+      , "id":1432262632
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Width":"32 bits"
+          , "Depth":"0"
+          , "Ready Latency":"0"
+          , "Bits per Symbol":"32 bits"
+          , "Uses Packets":"No"
+          , "Uses Ready":"Yes"
+          , "Uses Empty":"No"
+          , "First symbol in high order bits":"No"
+        }
+      ]
+      , "type":"stream"
+    }
+  ]
+  , "links":
+  [
+    {
+      "from":1432258472
+      , "to":1432422936
+    }
+    , {
+      "from":1432552712
+      , "to":1432262632
+    }
+    , {
+      "from":1432422936
+      , "to":1432552712
+    }
+  ]
+}

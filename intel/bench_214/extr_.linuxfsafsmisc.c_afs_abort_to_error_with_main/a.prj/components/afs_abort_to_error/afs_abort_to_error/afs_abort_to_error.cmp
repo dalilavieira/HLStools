@@ -1,0 +1,54 @@
+	component afs_abort_to_error is
+		port (
+			clock                : in  std_logic                     := 'X';             -- clk
+			resetn               : in  std_logic                     := 'X';             -- reset_n
+			start                : in  std_logic                     := 'X';             -- valid
+			busy                 : out std_logic;                                        -- stall
+			done                 : out std_logic;                                        -- valid
+			stall                : in  std_logic                     := 'X';             -- stall
+			returndata           : out std_logic_vector(31 downto 0);                    -- data
+			abort_code           : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			EACCES               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EAGAIN               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EBADRQC              : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EBUSY                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EDEADLK              : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EDOM                 : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EDQUOT               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EEXIST               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EFBIG                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EINVAL               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EIO                  : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EISDIR               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EKEYEXPIRED          : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EKEYREJECTED         : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EMLINK               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENAMETOOLONG         : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENODEV               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOENT               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOLCK               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOMEDIUM            : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOMEM               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOSPC               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOTCONN             : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOTDIR              : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOTEMPTY            : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENOTSUPP             : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ENXIO                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EPERM                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EPROTO               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ERANGE               : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EREMOTEIO            : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EROFS                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			ETIMEDOUT            : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EWOULDBLOCK          : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			EXDEV                : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			avmm_0_rw_address    : out std_logic_vector(63 downto 0);                    -- address
+			avmm_0_rw_byteenable : out std_logic_vector(7 downto 0);                     -- byteenable
+			avmm_0_rw_read       : out std_logic;                                        -- read
+			avmm_0_rw_readdata   : in  std_logic_vector(63 downto 0) := (others => 'X'); -- readdata
+			avmm_0_rw_write      : out std_logic;                                        -- write
+			avmm_0_rw_writedata  : out std_logic_vector(63 downto 0)                     -- writedata
+		);
+	end component afs_abort_to_error;
+

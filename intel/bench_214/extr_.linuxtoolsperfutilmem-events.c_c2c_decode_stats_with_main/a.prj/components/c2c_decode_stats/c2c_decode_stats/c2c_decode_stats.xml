@@ -1,0 +1,2484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2020.05.24.22:37:33"
+ outputDirectory="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Arria 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10AX115U1F45I1SG"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLOCK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVMM_0_RW_ADDRESS_MAP"
+     type="AddressMap"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AVMM_0_RW_ADDRESS_WIDTH"
+     type="AddressWidthType"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clock" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="resetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="call" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="start" direction="input" role="valid" width="1" />
+   <port name="busy" direction="output" role="stall" width="1" />
+  </interface>
+  <interface name="return" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="done" direction="output" role="valid" width="1" />
+   <port name="stall" direction="input" role="stall" width="1" />
+  </interface>
+  <interface name="returndata" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="returndata" direction="output" role="data" width="32" />
+  </interface>
+  <interface name="stats" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="stats" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="mi" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="mi" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LOCK_LOCKED" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LOCK_LOCKED" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_HIT" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_HIT" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_IO" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_IO" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_L1" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_L1" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_L2" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_L2" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_L3" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_L3" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_LFB" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_LFB" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_LOC_RAM" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_LOC_RAM" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_MISS" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_MISS" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_LVL_UNC" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_LVL_UNC" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_OP_LOAD" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_OP_LOAD" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_OP_STORE" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_OP_STORE" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_SNOOP_HIT" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_SNOOP_HIT" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="PERF_MEM_SNOOP_HITM" kind="conduit" start="0">
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="prSafe" value="false" />
+   <port name="PERF_MEM_SNOOP_HITM" direction="input" role="data" width="64" />
+  </interface>
+  <interface name="avmm_0_rw" kind="avalon" start="1">
+   <property name="adaptsTo" value="" />
+   <property name="addressGroup" value="0" />
+   <property name="addressUnits" value="SYMBOLS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="clock" />
+   <property name="associatedReset" value="reset" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="burstOnBurstBoundariesOnly" value="false" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="dBSBigEndian" value="false" />
+   <property name="doStreamReads" value="false" />
+   <property name="doStreamWrites" value="false" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isAsynchronous" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isReadable" value="false" />
+   <property name="isWriteable" value="false" />
+   <property name="linewrapBursts" value="false" />
+   <property name="maxAddressWidth" value="32" />
+   <property name="maximumPendingReadTransactions" value="0" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumReadLatency" value="1" />
+   <property name="minimumResponseLatency" value="1" />
+   <property name="prSafe" value="false" />
+   <property name="readLatency" value="1" />
+   <property name="readWaitTime" value="0" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="waitrequestAllowance" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port name="avmm_0_rw_address" direction="output" role="address" width="64" />
+   <port
+       name="avmm_0_rw_byteenable"
+       direction="output"
+       role="byteenable"
+       width="8" />
+   <port name="avmm_0_rw_read" direction="output" role="read" width="1" />
+   <port
+       name="avmm_0_rw_readdata"
+       direction="input"
+       role="readdata"
+       width="64" />
+   <port name="avmm_0_rw_write" direction="output" role="write" width="1" />
+   <port
+       name="avmm_0_rw_writedata"
+       direction="output"
+       role="writedata"
+       width="64" />
+  </interface>
+ </perimeter>
+ <entity kind="c2c_decode_stats" version="1.0" name="c2c_decode_stats">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLOCK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_AVMM_0_RW_ADDRESS_WIDTH" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="10AX115U1F45I1SG" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria 10" />
+  <parameter name="AUTO_AVMM_0_RW_ADDRESS_MAP" value="" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="1" />
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/synth/c2c_decode_stats.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/synth/c2c_decode_stats.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats_internal_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="c2c_decode_stats">"Generating: c2c_decode_stats"</message>
+   <message level="Info" culprit="c2c_decode_stats">"Generating: c2c_decode_stats_internal"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="c2c_decode_stats_internal"
+   version="1.0"
+   name="c2c_decode_stats_internal">
+  <generatedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_iowr_bl_return_unnameA000000Zs8_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm10432_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm10432_17.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm10633_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm10633_18.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm11134_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm11134_19.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm12335_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm12335_20.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm12737_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm12737_22.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm13238_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm13238_23.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm1521_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm1521_6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm17044_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm17044_29.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm19750_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm19750_35.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm20351_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm20351_36.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm20_4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm2722_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm2722_7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm3923_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm3923_8.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm4924_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm4924_9.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm5725_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm5725_10.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm6426_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm6426_11.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm7227_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm7227_12.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm7928_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm7928_13.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm8629_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm8629_14.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm9730_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm9730_15.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm9931_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm9931_16.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_42818_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_42917_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43016_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43115_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43214_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43313_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43412_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43511_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43610_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4379_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4388_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4397_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4406_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4415_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4424_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4433_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4442_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml23049_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml23049_34.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml23348_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml23348_33.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml24247_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml24247_32.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml24846_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml24846_31.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml25145_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml25145_30.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26343_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26343_28.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26642_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26642_27.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26941_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26941_26.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml28140_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml28140_25.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml28439_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml28439_24.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml29036_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml29036_21.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml52_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml52_37.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_1_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_1_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_2_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_2_c2c_decode_stats1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_3_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_3_c2c_decode_stats2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_4_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_4_c2c_decode_stats3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_5_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_5_c2c_decode_stats5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi111_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi111_pop12_55_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi128_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi128_pop13_12_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi149_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi149_pop14_57_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi166_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi166_pop15_14_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi187_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi187_pop16_59_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi204_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi204_pop17_16_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi225_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi225_pop18_61_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi242_pop19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi242_pop19_18_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi262_pop20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi262_pop20_63_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi278_pop21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi278_pop21_65_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi294_pop22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi294_pop22_20_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi307_pop23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi307_pop23_740_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi308_pop24_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi308_pop24_22_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi321_pop25_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi321_pop25_67_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi331_pop26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi331_pop26_24_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi345_pop27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi345_pop27_69_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi356_pop28_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi356_pop28_647_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi357_pop29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi357_pop29_26_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi374_pop30_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi374_pop30_71_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi387_pop31_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi387_pop31_28_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi408_pop32_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi408_pop32_73_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi425_pop33_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi425_pop33_569_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi426_pop34_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi426_pop34_30_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi446_pop35_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi446_pop35_75_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi461_pop36_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi461_pop36_77_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi476_pop37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi476_pop37_32_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi496_pop38_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi496_pop38_79_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi512_pop39_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi512_pop39_34_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi535_pop40_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi535_pop40_81_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi552_pop41_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi552_pop41_36_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi55_pop4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi55_pop4_5_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi572_pop42_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi572_pop42_83_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi57_pop5_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi57_pop5_48_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi589_pop43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi589_pop43_85_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi59_pop6_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi59_pop6_6_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi606_pop44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi606_pop44_38_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi63_pop7_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi63_pop7_49_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi65_pop8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi65_pop8_8_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi70_pop9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi70_pop9_51_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi73_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi73_pop10_53_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi90_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi90_pop11_10_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi_pop3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi_pop3_117_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi111_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi111_push12_270_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi128_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi128_push13_295_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi149_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi149_push14_313_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi166_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi166_push15_337_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi187_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi187_push16_353_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi204_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi204_push17_378_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi225_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi225_push18_395_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi242_push19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi242_push19_417_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi262_push20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi262_push20_432_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi278_push21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi278_push21_439_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi294_push22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi294_push22_466_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi307_push23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi307_push23_741_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi308_push24_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi308_push24_480_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi321_push25_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi321_push25_495_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi331_push26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi331_push26_518_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi345_push27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi345_push27_531_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi356_push28_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi356_push28_648_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi357_push29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi357_push29_579_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi374_push30_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi374_push30_594_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi387_push31_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi387_push31_610_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi408_push32_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi408_push32_621_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi425_push33_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi425_push33_645_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi426_push34_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi426_push34_657_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi446_push35_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi446_push35_677_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi461_push36_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi461_push36_695_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi476_push37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi476_push37_718_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi496_push38_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi496_push38_731_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi512_push39_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi512_push39_748_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi535_push40_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi535_push40_756_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi552_push41_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi552_push41_775_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi55_push4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi55_push4_90_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi572_push42_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi572_push42_788_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi57_push5_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi57_push5_110_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi589_push43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi589_push43_799_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi59_push6_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi59_push6_139_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi606_push44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi606_push44_831_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi63_push7_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi63_push7_159_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi65_push8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi65_push8_187_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi70_push9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi70_push9_216_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi73_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi73_push10_225_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi90_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi90_push11_251_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi_push3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi_push3_118_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_notexitcond_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_iord_bl_call_unnamed_A000000Zs0_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_to_avm.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_internal.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/dspba_library_ver.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_data_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_altera_syncram_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_scfifo_wrapped.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc_decoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc_encoder.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ecc.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ll_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ll_ram_fifo.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_dspba_valid_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_staging_reg.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_mid_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_latency_one_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_latency_zero_ram_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_fifo_zero_width.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_high_speed_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_low_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_zero_latency_fifo.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fanout_pipeline.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_std_synchronizer_nocut.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_tessellated_incr_decr_threshold.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_tessellated_incr_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_reset_handler.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_lfsr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_pop.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_push.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_token_fifo_counter.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_pipeline.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_dspba_buffer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/st_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_top.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_permute_address.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_pipelined.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_enabled.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_basic_coalescer.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_simple.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_streaming.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_master.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_bursting_load_stores.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_non_aligned_write.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_read_cache.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_atomic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_prefetch_block.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_wide_wrapper.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_streaming_prefetch.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_aligned_burst_coalesced_lsu.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_toggle_detect.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_debug_mem.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_coalesced_pipelined_write.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/lsu_burst_coalesced_pipelined_read.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_fifo_stall_valid_lookahead.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_parameter_assert.svh"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_global_load_store.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_burst_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_coalescer_dynamic_timeout.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_data_aligner.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_read_cache.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_read_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_unaligned_controller.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_word_coalescer.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_write_data_alignment.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/hld_lsu_write_kernel_downstream.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_shift_register_no_reset.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_reset_wire.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_function_wrapper.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_function.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B0_runOnce.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B0_runOnce_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_token_i1_wt_limpop_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_token_i1_wt_limpop_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_token_i1_wt_limpush_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_token_i1_wt_limpush_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B0_runOnce_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start_stall_region.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_iowr_bl_return_unnameA000000Zs8_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm10432_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm10432_17.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm10633_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm10633_18.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm11134_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm11134_19.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm12335_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm12335_20.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm12737_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm12737_22.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm13238_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm13238_23.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm1521_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm1521_6.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm17044_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm17044_29.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm19750_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm19750_35.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm20351_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm20351_36.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm20_4.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm2722_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm2722_7.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm3923_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm3923_8.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm4924_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm4924_9.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm5725_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm5725_10.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm6426_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm6426_11.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm7227_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm7227_12.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm7928_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm7928_13.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm8629_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm8629_14.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm9730_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm9730_15.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_lm9931_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_lm9931_16.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_42818_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_42917_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43016_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43115_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43214_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43313_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43412_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43511_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_43610_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4379_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4388_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4397_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4406_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4415_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4424_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4433_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_memdep_4442_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml23049_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml23049_34.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml23348_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml23348_33.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml24247_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml24247_32.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml24846_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml24846_31.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml25145_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml25145_30.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26343_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26343_28.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26642_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26642_27.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml26941_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml26941_26.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml28140_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml28140_25.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml28439_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml28439_24.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml29036_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml29036_21.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_ml52_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_ml52_37.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_1_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_1_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_2_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_2_c2c_decode_stats1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_3_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_3_c2c_decode_stats2.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_4_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_4_c2c_decode_stats3.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_mem_unnamed_5_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_readdata_reg_unnamed_5_c2c_decode_stats5.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi111_pop12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi111_pop12_55_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi128_pop13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi128_pop13_12_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi149_pop14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi149_pop14_57_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi166_pop15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi166_pop15_14_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi187_pop16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi187_pop16_59_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi204_pop17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi204_pop17_16_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi225_pop18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi225_pop18_61_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi242_pop19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi242_pop19_18_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi262_pop20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi262_pop20_63_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi278_pop21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi278_pop21_65_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi294_pop22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi294_pop22_20_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi307_pop23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi307_pop23_740_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi308_pop24_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi308_pop24_22_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi321_pop25_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi321_pop25_67_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi331_pop26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi331_pop26_24_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi345_pop27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi345_pop27_69_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi356_pop28_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi356_pop28_647_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi357_pop29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi357_pop29_26_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi374_pop30_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi374_pop30_71_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi387_pop31_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi387_pop31_28_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi408_pop32_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi408_pop32_73_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi425_pop33_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi425_pop33_569_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi426_pop34_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi426_pop34_30_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi446_pop35_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi446_pop35_75_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi461_pop36_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi461_pop36_77_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi476_pop37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi476_pop37_32_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi496_pop38_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi496_pop38_79_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi512_pop39_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi512_pop39_34_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi535_pop40_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi535_pop40_81_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi552_pop41_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi552_pop41_36_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi55_pop4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi55_pop4_5_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi572_pop42_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi572_pop42_83_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi57_pop5_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi57_pop5_48_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi589_pop43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi589_pop43_85_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi59_pop6_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi59_pop6_6_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi606_pop44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi606_pop44_38_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi63_pop7_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi63_pop7_49_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi65_pop8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi65_pop8_8_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi70_pop9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi70_pop9_51_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi73_pop10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi73_pop10_53_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi90_pop11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi90_pop11_10_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi_pop3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pop_i1_memdep_phi_pop3_117_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi111_push12_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi111_push12_270_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi128_push13_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi128_push13_295_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi149_push14_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi149_push14_313_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi166_push15_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi166_push15_337_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi187_push16_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi187_push16_353_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi204_push17_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi204_push17_378_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi225_push18_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi225_push18_395_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi242_push19_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi242_push19_417_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi262_push20_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi262_push20_432_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi278_push21_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi278_push21_439_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi294_push22_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi294_push22_466_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi307_push23_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi307_push23_741_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi308_push24_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi308_push24_480_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi321_push25_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi321_push25_495_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi331_push26_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi331_push26_518_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi345_push27_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi345_push27_531_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi356_push28_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi356_push28_648_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi357_push29_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi357_push29_579_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi374_push30_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi374_push30_594_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi387_push31_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi387_push31_610_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi408_push32_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi408_push32_621_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi425_push33_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi425_push33_645_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi426_push34_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi426_push34_657_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi446_push35_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi446_push35_677_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi461_push36_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi461_push36_695_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi476_push37_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi476_push37_718_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi496_push38_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi496_push38_731_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi512_push39_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi512_push39_748_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi535_push40_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi535_push40_756_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi552_push41_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi552_push41_775_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi55_push4_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi55_push4_90_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi572_push42_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi572_push42_788_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi57_push5_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi57_push5_110_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi589_push43_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi589_push43_799_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi59_push6_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi59_push6_139_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi606_push44_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi606_push44_831_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi63_push7_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi63_push7_159_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi65_push8_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi65_push8_187_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi70_push9_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi70_push9_216_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi73_push10_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi73_push10_225_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi90_push11_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi90_push11_251_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi_push3_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_memdep_phi_push3_118_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_notexitcond_0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_push_i1_notexitcond_1_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_merge_reg.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_iord_bl_call_unnamed_A000000Zs0_c2c_decode_stats0.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_branch.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_B1_start_merge.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_i_llvm_fpga_pipeline_keep_going_0_sr.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_bb_B1_start_sr_1.sv"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_avm_to_ic.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_master_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_arb_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_intf.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_endpoint.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_rrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_slave_wrp.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_arb2.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/acl_ic_to_avm.v"
+       attributes="" />
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats/c2c_decode_stats_internal_10/synth/c2c_decode_stats_internal.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/home/canesche/HLStools/intel/a.prj/components/c2c_decode_stats/c2c_decode_stats_internal_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="c2c_decode_stats" as="c2c_decode_stats_internal_inst" />
+  <messages>
+   <message level="Info" culprit="c2c_decode_stats">"Generating: c2c_decode_stats_internal"</message>
+  </messages>
+ </entity>
+</deploy>

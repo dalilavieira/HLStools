@@ -1,5 +1,24 @@
-bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:6:13: error: redeclaration of C++ built-in type 'bool'
-typedef int bool;
-            ^
-1 error generated.
-HLS FPGA Parse FAILED.
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:214:30: warning: variable 'vcpu' is uninitialized when used here [-Wuninitialized]
+  kvmppc_booke_emulate_mfspr(vcpu, sprn, spr_val);
+                             ^~~~
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:211:25: note: initialize the variable 'vcpu' to silence this warning
+  struct kvm_vcpu * vcpu;
+                        ^
+                         = nullptr
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:214:36: warning: variable 'sprn' is uninitialized when used here [-Wuninitialized]
+  kvmppc_booke_emulate_mfspr(vcpu, sprn, spr_val);
+                                   ^~~~
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:212:11: note: initialize the variable 'sprn' to silence this warning
+  int sprn;
+          ^
+           = 0
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:214:42: warning: variable 'spr_val' is uninitialized when used here [-Wuninitialized]
+  kvmppc_booke_emulate_mfspr(vcpu, sprn, spr_val);
+                                         ^~~~~~~
+bench_214/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main/extr_.linuxarchpowerpckvmbooke_emulate.c_kvmppc_booke_emulate_mfspr_with_main.c:213:18: note: initialize the variable 'spr_val' to silence this warning
+  ulong * spr_val;
+                 ^
+                  = nullptr
+3 warnings generated.
+Compiler Error: Illegal argument vcpu in component kvmppc_booke_emulate_mfspr(kvm_vcpu*, int, int*).  Pointer-to-pointer types are not supported in synthesized code.
+HLS Main Optimizer FAILED.

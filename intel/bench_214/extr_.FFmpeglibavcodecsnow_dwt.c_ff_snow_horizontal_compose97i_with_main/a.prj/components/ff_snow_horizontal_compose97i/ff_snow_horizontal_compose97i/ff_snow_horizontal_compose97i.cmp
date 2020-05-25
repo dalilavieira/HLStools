@@ -1,0 +1,20 @@
+	component ff_snow_horizontal_compose97i is
+		port (
+			clock                : in  std_logic                     := 'X';             -- clk
+			resetn               : in  std_logic                     := 'X';             -- reset_n
+			start                : in  std_logic                     := 'X';             -- valid
+			busy                 : out std_logic;                                        -- stall
+			done                 : out std_logic;                                        -- valid
+			stall                : in  std_logic                     := 'X';             -- stall
+			b                    : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			temp                 : in  std_logic_vector(63 downto 0) := (others => 'X'); -- data
+			width                : in  std_logic_vector(31 downto 0) := (others => 'X'); -- data
+			avmm_0_rw_address    : out std_logic_vector(63 downto 0);                    -- address
+			avmm_0_rw_byteenable : out std_logic_vector(7 downto 0);                     -- byteenable
+			avmm_0_rw_read       : out std_logic;                                        -- read
+			avmm_0_rw_readdata   : in  std_logic_vector(63 downto 0) := (others => 'X'); -- readdata
+			avmm_0_rw_write      : out std_logic;                                        -- write
+			avmm_0_rw_writedata  : out std_logic_vector(63 downto 0)                     -- writedata
+		);
+	end component ff_snow_horizontal_compose97i;
+

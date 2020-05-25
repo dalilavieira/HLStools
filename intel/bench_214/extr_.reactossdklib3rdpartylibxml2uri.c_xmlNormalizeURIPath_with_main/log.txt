@@ -1,5 +1,30 @@
-bench_214/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:6:13: error: redeclaration of C++ built-in type 'bool'
-typedef int bool;
-            ^
-1 error generated.
-HLS FPGA Parse FAILED.
+bench_214/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:194:23: warning: variable 'path' is uninitialized when used here [-Wuninitialized]
+  xmlNormalizeURIPath(path);
+                      ^~~~
+bench_214/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main/extr_.reactossdklib3rdpartylibxml2uri.c_xmlNormalizeURIPath_with_main.c:193:14: note: initialize the variable 'path' to silence this warning
+  char * path;
+             ^
+              = nullptr
+1 warning generated.
+
+******* Error: Assert failure at /build/psgswbuild/nightly/19.4/64/l64/p4/acl/llvm/lib/Transforms/FPGATransforms/ComplexBranchPredication.cpp(257) *******
+!Pred->getTerminator()->getMetadata(LLVMContext::MD_loop) FAILED
+Stack dump:
+0.	Program arguments: /opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt -HLS -O3 -march=fpga -pass-remarks-output=opt.rpt.yaml --soft-elementary-math=false -board /opt/altera_pro/19.4/hls/share/models/bm/A10.xml -nocaching -noprefetching -fmax-search-upper-bound=240 fpga.linked.bc -o fpga.opt.bc 
+1.	Running pass 'Function Pass Manager' on module 'fpga.linked.bc'.
+2.	Running pass 'ComplexBranchPredication: Use fancier techniques to handle predication in the presence of loops.' on function '@xmlNormalizeURIPath'
+ #0 0x00007f30eef9b20a llvm::sys::PrintStackTrace(llvm::raw_ostream&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2320a)
+ #1 0x00007f30eef9887c llvm::sys::RunSignalHandlers() (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2087c)
+ #2 0x00007f30eef989cc SignalHandler(int) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe209cc)
+ #3 0x00007f30edf6c390 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x11390)
+ #4 0x00007f30ec8c0428 gsignal /build/glibc-LK5gWL/glibc-2.23/signal/../sysdeps/unix/sysv/linux/raise.c:54:0
+ #5 0x00007f30ec8c202a abort /build/glibc-LK5gWL/glibc-2.23/stdlib/abort.c:91:0
+ #6 0x00007f30f0479389 (anonymous namespace)::ComplexBranchPredication::moveSingleEntrySingleExitBlocksIntoPred(llvm::BasicBlock*) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x2301389)
+ #7 0x00007f30f047d202 (anonymous namespace)::ComplexBranchPredication::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x2305202)
+ #8 0x00007f30ef0dd4a6 llvm::FPPassManager::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf654a6)
+ #9 0x00007f30ef0dd71c llvm::FPPassManager::runOnModule(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf6571c)
+#10 0x00007f30ef0de561 llvm::legacy::PassManagerImpl::run(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf66561)
+#11 0x000055741a849b11 main (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2ab11)
+#12 0x00007f30ec8ab830 __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:325:0
+#13 0x000055741a84a6f1 _start (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2b6f1)
+HLS Main Optimizer FAILED.
