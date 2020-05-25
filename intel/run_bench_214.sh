@@ -1,4 +1,5 @@
 # set environment quartus 19.4
+/opt/synopsys/scl/licenses/start_license_server &> /dev/null
 export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 
 # initializate variables hls
@@ -221,15 +222,14 @@ BENCHMARKS=(
     'extr_.tmuxscreen.c_screen_check_selection_with_main' 
 )
 
-
 #SIMULATOR=modelsim
 SIMULATOR=none
 
 for ((i=0; i < ${#BENCHMARKS[@]}; i++)) do
-    echo "RUNNING "${BENCHMARKS[i]}
+    echo "RUNNING $i: "${BENCHMARKS[i]}
+    rm -rf "bench_214/"${BENCHMARKS[i]}"/log.txt"
     error=$(i++ -march=Arria10 --simulator $SIMULATOR "bench_214/"${BENCHMARKS[i]}"/"${BENCHMARKS[i]}".c" &> "bench_214/"${BENCHMARKS[i]}"/log.txt")
     # version changed
-    error=$(i++ -march=Arria10 --simulator $SIMULATOR "bench_214_work/"${BENCHMARKS[i]}"/"${BENCHMARKS[i]}".c" &> "bench_214_work/"${BENCHMARKS[i]}"/log.txt")
-    rm -rf "bench_214_work/"${BENCHMARKS[i]}"/a.prj"
-    mv "a.prj" "bench_214_work/"${BENCHMARKS[i]}
+    rm -rf "bench_214/"${BENCHMARKS[i]}"/a.prj"
+    mv "a.prj" "bench_214/"${BENCHMARKS[i]}
 done
