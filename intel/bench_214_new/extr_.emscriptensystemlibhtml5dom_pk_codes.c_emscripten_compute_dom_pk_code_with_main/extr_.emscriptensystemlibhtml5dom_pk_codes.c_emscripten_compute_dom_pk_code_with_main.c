@@ -166,7 +166,7 @@ typedef  int /*<<< orphan*/  DOM_PK_CODE_TYPE ;
  int /*<<< orphan*/  DOM_PK_Y ; 
  int /*<<< orphan*/  DOM_PK_Z ; 
 
-DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char *keyCodeString)
+component DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char *keyCodeString)
 {
   if (!keyCodeString) return 0;
 
@@ -342,7 +342,7 @@ DOM_PK_CODE_TYPE emscripten_compute_dom_pk_code(const char *keyCodeString)
 }
 
 /* Main routine for emscripten_compute_dom_pk_code */
-component int main() {
+int main() {
   const char * keyCodeString;
   emscripten_compute_dom_pk_code(keyCodeString);
   return 0;
