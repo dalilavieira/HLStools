@@ -1,5 +1,5 @@
 #include "HLS/hls.h"
-#define NULL ((void*)0)
+#define NULL 0
 typedef unsigned long size_t;  // Customize by platform.
 typedef int scalar_t__;  // Either arithmetic or pointer type.
 /* By default, we understand bool (as a convenience). */
