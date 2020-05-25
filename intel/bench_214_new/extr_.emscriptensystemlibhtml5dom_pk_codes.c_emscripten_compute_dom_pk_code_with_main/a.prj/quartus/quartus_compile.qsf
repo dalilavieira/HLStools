@@ -10,13 +10,13 @@ set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:generate_report.tc
 # Files implementing a basic registered instance of each component
 set_global_assignment -name TOP_LEVEL_ENTITY quartus_compile
 set_global_assignment -name SDC_FILE quartus_compile.sdc
-set_global_assignment -name IP_FILE ../components/main/main.ip
+set_global_assignment -name IP_FILE ../components/emscripten_compute_dom_pk_code/emscripten_compute_dom_pk_code.ip
 set_global_assignment -name SYSTEMVERILOG_FILE quartus_compile.sv
 
 # Partitions are used to separate the component logic from the project harness when tallying area results
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id component_partition
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id component_partition
-set_instance_assignment -name PARTITION component_main -to "main:main_inst"
+set_instance_assignment -name PARTITION component_emscripten_compute_dom_pk_code -to "emscripten_compute_dom_pk_code:emscripten_compute_dom_pk_code_inst"
 
 # No need to generate a bitstream for this compile so save time by skipping the assembler
 set_global_assignment -name FLOW_DISABLE_ASSEMBLER ON
