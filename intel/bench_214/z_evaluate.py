@@ -24,11 +24,14 @@ if __name__ == "__main__":
             	result = "e"
         
         print("%s," %(result), end="")
+        if c == 72 and c == 144:
+            print()
         c += 1
     print()
     
-    print("bechmark,",end="")
-    for i in range(c-1):
-    	print("%d," %i, end="")
-    print()
+    #print("bechmark,",end="")
+    #for i in range(c-1):
+    #	print("%d," %i, end="")
+        
+    #print()
 

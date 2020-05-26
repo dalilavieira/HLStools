@@ -13,6 +13,8 @@ if __name__ == "__main__":
         path = line + "/a.prj"
         size = line + "/log.txt"
 
+        
+
         result = "v"
         if (not os.path.exists(path)):
             result = "x"
@@ -21,5 +23,6 @@ if __name__ == "__main__":
             result = "w"
         
         print("%d, %s, %s" %(c, line, result))
+        
         c += 1
 
