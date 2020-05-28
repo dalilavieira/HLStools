@@ -11,16 +11,17 @@ if __name__ == "__main__":
         
         line = line.replace("\n", "")
         path = line + "/a.prj"
+        path_empty = path + "/a.v"
         size = line + "/log.txt"
-
-        
 
         result = "v"
         if (not os.path.exists(path)):
             result = "x"
         elif (os.path.getsize(size) > 0):
-            #print("size ", os.path.getsize(size))
-            result = "w"
+            if (not os.path.exists(path_empty)):
+            	result = "w"
+            else:
+            	result = "e"
         
         print("%d, %s, %s" %(c, line, result))
         
