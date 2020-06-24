@@ -1,0 +1,126 @@
+
+
+================================================================
+== Vivado HLS Report for 'idct_col'
+================================================================
+* Date:           Tue May 26 00:26:48 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibavcodecalphasimple_idct_alpha.c_idct_col_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.664|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    3|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      81|    -|
+|Register         |        -|      -|       4|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       4|      81|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +--------------+----+-----------+-----+-----------+
+    |     Name     | LUT| Input Size| Bits| Total Bits|
+    +--------------+----+-----------+-----+-----------+
+    |ap_NS_fsm     |  27|          5|    1|          5|
+    |col_address0  |  27|          5|    7|         35|
+    |col_address1  |  27|          5|    7|         35|
+    +--------------+----+-----------+-----+-----------+
+    |Total         |  81|         15|   15|         75|
+    +--------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------+---+----+-----+-----------+
+    |    Name   | FF| LUT| Bits| Const Bits|
+    +-----------+---+----+-----+-----------+
+    |ap_CS_fsm  |  4|   0|    4|          0|
+    +-----------+---+----+-----+-----------+
+    |Total      |  4|   0|    4|          0|
+    +-----------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------+-----+-----+------------+--------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------+-----+-----+------------+--------------+--------------+
+|ap_clk        |  in |    1| ap_ctrl_hs |   idct_col   | return value |
+|ap_rst        |  in |    1| ap_ctrl_hs |   idct_col   | return value |
+|ap_start      |  in |    1| ap_ctrl_hs |   idct_col   | return value |
+|ap_done       | out |    1| ap_ctrl_hs |   idct_col   | return value |
+|ap_idle       | out |    1| ap_ctrl_hs |   idct_col   | return value |
+|ap_ready      | out |    1| ap_ctrl_hs |   idct_col   | return value |
+|col_address0  | out |    7|  ap_memory |      col     |     array    |
+|col_ce0       | out |    1|  ap_memory |      col     |     array    |
+|col_we0       | out |    1|  ap_memory |      col     |     array    |
+|col_d0        | out |   32|  ap_memory |      col     |     array    |
+|col_address1  | out |    7|  ap_memory |      col     |     array    |
+|col_ce1       | out |    1|  ap_memory |      col     |     array    |
+|col_we1       | out |    1|  ap_memory |      col     |     array    |
+|col_d1        | out |   32|  ap_memory |      col     |     array    |
++--------------+-----+-----+------------+--------------+--------------+
+

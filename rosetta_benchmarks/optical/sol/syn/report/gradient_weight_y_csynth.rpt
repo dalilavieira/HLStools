@@ -1,0 +1,216 @@
+
+
+================================================================
+== Vivado HLS Report for 'gradient_weight_y'
+================================================================
+* Date:           Wed Jun 24 04:23:21 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        optical
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.286|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+----------+--------+----------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min  |    max   |   min  |    max   |   Type  |
+    +--------+----------+--------+----------+---------+
+    |  899951|  29220719|  899951|  29220719|   none  |
+    +--------+----------+--------+----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+        |                 |      Latency      |   Iteration  |  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min  |    max   |    Latency   |  achieved |   target  | Count| Pipelined|
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+        |- Loop 1         |  899950|  29220718| 2050 ~ 66562 |          -|          -|   439|    no    |
+        | + Loop 1.1      |    2048|     66560|    2 ~ 65    |          -|          -|  1024|    no    |
+        |  ++ Loop 1.1.1  |      63|        63|             9|          -|          -|     7|    no    |
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     240|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|     15|    1065|    1056|    -|
+|Memory           |        0|      -|      32|       4|    -|
+|Multiplexer      |        -|      -|       -|     200|    -|
+|Register         |        -|      -|     458|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|     15|    1555|    1500|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      2|   ~0   |       1|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |                      Instance                      |                     Module                     | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1_U16  |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1_U17  |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1_U18  |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U19   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U20   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U21   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |Total                                               |                                                |        0|     15| 1065| 1056|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +---------------+-------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |     Memory    |             Module            | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +---------------+-------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |GRAD_FILTER_U  |gradient_weight_y_GRAD_FILTER  |        0|  32|   4|    0|     7|   32|     1|          224|
+    +---------------+-------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total          |                               |        0|  32|   4|    0|     7|   32|     1|          224|
+    +---------------+-------------------------------+---------+----+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln84_fu_405_p2     |     +    |      0|  0|  27|          20|          20|
+    |add_ln88_fu_359_p2     |     +    |      0|  0|  27|          20|          20|
+    |add_ln92_1_fu_343_p2   |     +    |      0|  0|  27|          20|          20|
+    |add_ln92_fu_313_p2     |     +    |      0|  0|  17|          10|           3|
+    |c_fu_333_p2            |     +    |      0|  0|  18|          11|           1|
+    |i_fu_381_p2            |     +    |      0|  0|  12|           3|           1|
+    |r_fu_283_p2            |     +    |      0|  0|  16|           9|           1|
+    |sub_ln84_fu_387_p2     |     -    |      0|  0|  16|           9|           9|
+    |and_ln80_fu_301_p2     |    and   |      0|  0|   6|           1|           1|
+    |icmp_ln72_fu_277_p2    |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln74_fu_327_p2    |   icmp   |      0|  0|  13|          11|          12|
+    |icmp_ln80_1_fu_295_p2  |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln80_fu_289_p2    |   icmp   |      0|  0|  13|           9|           3|
+    |icmp_ln82_fu_375_p2    |   icmp   |      0|  0|   9|           3|           2|
+    |icmp_ln90_fu_307_p2    |   icmp   |      0|  0|  13|           9|           2|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 240|         153|         111|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------+----+-----------+-----+-----------+
+    |         Name         | LUT| Input Size| Bits| Total Bits|
+    +----------------------+----+-----------+-----+-----------+
+    |acc_0_0_reg_222       |   9|          2|   32|         64|
+    |acc_1_0_reg_209       |   9|          2|   32|         64|
+    |acc_2_0_reg_196       |   9|          2|   32|         64|
+    |ap_NS_fsm             |  56|         13|    1|         13|
+    |c_0_reg_185           |   9|          2|   11|         22|
+    |filt_grad_x_address0  |  15|          3|   19|         57|
+    |filt_grad_x_d0        |  15|          3|   32|         96|
+    |filt_grad_y_address0  |  15|          3|   19|         57|
+    |filt_grad_y_d0        |  15|          3|   32|         96|
+    |filt_grad_z_address0  |  15|          3|   19|         57|
+    |filt_grad_z_d0        |  15|          3|   32|         96|
+    |i_0_reg_235           |   9|          2|    3|          6|
+    |r_0_reg_173           |   9|          2|    9|         18|
+    +----------------------+----+-----------+-----+-----------+
+    |Total                 | 200|         43|  273|        710|
+    +----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+----+----+-----+-----------+
+    |            Name            | FF | LUT| Bits| Const Bits|
+    +----------------------------+----+----+-----+-----------+
+    |GRAD_FILTER_load_reg_505    |  32|   0|   32|          0|
+    |acc_0_0_reg_222             |  32|   0|   32|          0|
+    |acc_1_0_reg_209             |  32|   0|   32|          0|
+    |acc_2_0_reg_196             |  32|   0|   32|          0|
+    |and_ln80_reg_430            |   1|   0|    1|          0|
+    |ap_CS_fsm                   |  12|   0|   12|          0|
+    |c_0_reg_185                 |  11|   0|   11|          0|
+    |c_reg_447                   |  11|   0|   11|          0|
+    |filt_grad_x_addr_1_reg_457  |  19|   0|   19|          0|
+    |filt_grad_y_addr_1_reg_462  |  19|   0|   19|          0|
+    |filt_grad_z_addr_1_reg_467  |  19|   0|   19|          0|
+    |gradient_x_load_reg_500     |  32|   0|   32|          0|
+    |gradient_y_load_reg_512     |  32|   0|   32|          0|
+    |gradient_z_load_reg_517     |  32|   0|   32|          0|
+    |i_0_reg_235                 |   3|   0|    3|          0|
+    |i_reg_475                   |   3|   0|    3|          0|
+    |icmp_ln90_reg_434           |   1|   0|    1|          0|
+    |r_0_reg_173                 |   9|   0|    9|          0|
+    |r_reg_425                   |   9|   0|    9|          0|
+    |tmp_1_reg_532               |  32|   0|   32|          0|
+    |tmp_3_reg_438               |  10|   0|   20|         10|
+    |tmp_reg_522                 |  32|   0|   32|          0|
+    |tmp_s_reg_527               |  32|   0|   32|          0|
+    |zext_ln88_reg_452           |  11|   0|   20|          9|
+    +----------------------------+----+----+-----+-----------+
+    |Total                       | 458|   0|  477|         19|
+    +----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+-------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++----------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|ap_start              |  in |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|ap_done               | out |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | gradient_weight_y | return value |
+|filt_grad_x_address0  | out |   19|  ap_memory |    filt_grad_x    |     array    |
+|filt_grad_x_ce0       | out |    1|  ap_memory |    filt_grad_x    |     array    |
+|filt_grad_x_we0       | out |    1|  ap_memory |    filt_grad_x    |     array    |
+|filt_grad_x_d0        | out |   32|  ap_memory |    filt_grad_x    |     array    |
+|filt_grad_y_address0  | out |   19|  ap_memory |    filt_grad_y    |     array    |
+|filt_grad_y_ce0       | out |    1|  ap_memory |    filt_grad_y    |     array    |
+|filt_grad_y_we0       | out |    1|  ap_memory |    filt_grad_y    |     array    |
+|filt_grad_y_d0        | out |   32|  ap_memory |    filt_grad_y    |     array    |
+|filt_grad_z_address0  | out |   19|  ap_memory |    filt_grad_z    |     array    |
+|filt_grad_z_ce0       | out |    1|  ap_memory |    filt_grad_z    |     array    |
+|filt_grad_z_we0       | out |    1|  ap_memory |    filt_grad_z    |     array    |
+|filt_grad_z_d0        | out |   32|  ap_memory |    filt_grad_z    |     array    |
+|gradient_x_address0   | out |   19|  ap_memory |     gradient_x    |     array    |
+|gradient_x_ce0        | out |    1|  ap_memory |     gradient_x    |     array    |
+|gradient_x_q0         |  in |   32|  ap_memory |     gradient_x    |     array    |
+|gradient_y_address0   | out |   19|  ap_memory |     gradient_y    |     array    |
+|gradient_y_ce0        | out |    1|  ap_memory |     gradient_y    |     array    |
+|gradient_y_q0         |  in |   32|  ap_memory |     gradient_y    |     array    |
+|gradient_z_address0   | out |   19|  ap_memory |     gradient_z    |     array    |
+|gradient_z_ce0        | out |    1|  ap_memory |     gradient_z    |     array    |
+|gradient_z_q0         |  in |   32|  ap_memory |     gradient_z    |     array    |
++----------------------+-----+-----+------------+-------------------+--------------+
+

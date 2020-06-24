@@ -1,0 +1,602 @@
+
+
+================================================================
+== Vivado HLS Report for 'rendering_sw'
+================================================================
+* Date:           Wed Jun 24 04:15:31 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        3d
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.702|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- TRIANGLES  |    ?|    ?|         ?|          -|          -|  3192|    no    |
+        | + RAST2     |    ?|    ?|        21|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 29
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 26 5 
+5 --> 6 26 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 5 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%max_min_0_read_assi = alloca i8"   --->   Operation 30 'alloca' 'max_min_0_read_assi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%max_min_2_read_assi = alloca i8"   --->   Operation 31 'alloca' 'max_min_2_read_assi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%max_min_4_read_assi = alloca i8"   --->   Operation 32 'alloca' 'max_min_4_read_assi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%max_index_0_1 = alloca i32"   --->   Operation 33 'alloca' 'max_index_0_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_x0), !map !55"   --->   Operation 34 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_y0), !map !61"   --->   Operation 35 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_z0), !map !65"   --->   Operation 36 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_x1), !map !69"   --->   Operation 37 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_y1), !map !73"   --->   Operation 38 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_z1), !map !77"   --->   Operation 39 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_x2), !map !81"   --->   Operation 40 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_y2), !map !85"   --->   Operation 41 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3192 x i8]* %triangle_3ds_z2), !map !89"   --->   Operation 42 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([65536 x i8]* %output_r), !map !93"   --->   Operation 43 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @rendering_sw_str) nounwind"   --->   Operation 44 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%fragment_x = alloca [500 x i8], align 1" [rendering_sw.cpp:270]   --->   Operation 45 'alloca' 'fragment_x' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%fragment_y = alloca [500 x i8], align 1" [rendering_sw.cpp:270]   --->   Operation 46 'alloca' 'fragment_y' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%fragment_z = alloca [500 x i8], align 1" [rendering_sw.cpp:270]   --->   Operation 47 'alloca' 'fragment_z' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%fragment_color = alloca [500 x i8], align 1" [rendering_sw.cpp:270]   --->   Operation 48 'alloca' 'fragment_color' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%pixels_x = alloca [500 x i8], align 1" [rendering_sw.cpp:273]   --->   Operation 49 'alloca' 'pixels_x' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%pixels_y = alloca [500 x i8], align 1" [rendering_sw.cpp:273]   --->   Operation 50 'alloca' 'pixels_y' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%pixels_color = alloca [500 x i8], align 1" [rendering_sw.cpp:273]   --->   Operation 51 'alloca' 'pixels_color' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (1.06ns)   --->   "br label %1" [rendering_sw.cpp:276]   --->   Operation 52 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%i_0 = phi i12 [ 0, %0 ], [ %i_1, %rasterization2.exit ]"   --->   Operation 53 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (1.36ns)   --->   "%icmp_ln276 = icmp eq i12 %i_0, -904" [rendering_sw.cpp:276]   --->   Operation 54 'icmp' 'icmp_ln276' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3192, i64 3192, i64 3192)"   --->   Operation 55 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (1.44ns)   --->   "%i_1 = add i12 %i_0, 1" [rendering_sw.cpp:276]   --->   Operation 56 'add' 'i_1' <Predicate = true> <Delay = 1.44> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %icmp_ln276, label %5, label %2" [rendering_sw.cpp:276]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%zext_ln279 = zext i12 %i_0 to i64" [rendering_sw.cpp:279]   --->   Operation 58 'zext' 'zext_ln279' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%triangle_3ds_x0_addr = getelementptr [3192 x i8]* %triangle_3ds_x0, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 59 'getelementptr' 'triangle_3ds_x0_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 60 [2/2] (2.66ns)   --->   "%triangle_2ds_x0 = load i8* %triangle_3ds_x0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 60 'load' 'triangle_2ds_x0' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%triangle_3ds_y0_addr = getelementptr [3192 x i8]* %triangle_3ds_y0, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 61 'getelementptr' 'triangle_3ds_y0_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 62 [2/2] (2.66ns)   --->   "%triangle_2ds_y0 = load i8* %triangle_3ds_y0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 62 'load' 'triangle_2ds_y0' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%triangle_3ds_z0_addr = getelementptr [3192 x i8]* %triangle_3ds_z0, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 63 'getelementptr' 'triangle_3ds_z0_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 64 [2/2] (2.66ns)   --->   "%triangle_3ds_z0_load = load i8* %triangle_3ds_z0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 64 'load' 'triangle_3ds_z0_load' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%triangle_3ds_x1_addr = getelementptr [3192 x i8]* %triangle_3ds_x1, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 65 'getelementptr' 'triangle_3ds_x1_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 66 [2/2] (2.66ns)   --->   "%triangle_2ds_x1 = load i8* %triangle_3ds_x1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 66 'load' 'triangle_2ds_x1' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%triangle_3ds_y1_addr = getelementptr [3192 x i8]* %triangle_3ds_y1, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 67 'getelementptr' 'triangle_3ds_y1_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 68 [2/2] (2.66ns)   --->   "%triangle_2ds_y1 = load i8* %triangle_3ds_y1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 68 'load' 'triangle_2ds_y1' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%triangle_3ds_z1_addr = getelementptr [3192 x i8]* %triangle_3ds_z1, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 69 'getelementptr' 'triangle_3ds_z1_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 70 [2/2] (2.66ns)   --->   "%triangle_3ds_z1_load = load i8* %triangle_3ds_z1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 70 'load' 'triangle_3ds_z1_load' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%triangle_3ds_x2_addr = getelementptr [3192 x i8]* %triangle_3ds_x2, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 71 'getelementptr' 'triangle_3ds_x2_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 72 [2/2] (2.66ns)   --->   "%triangle_2ds_x2 = load i8* %triangle_3ds_x2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 72 'load' 'triangle_2ds_x2' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%triangle_3ds_y2_addr = getelementptr [3192 x i8]* %triangle_3ds_y2, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 73 'getelementptr' 'triangle_3ds_y2_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 74 [2/2] (2.66ns)   --->   "%triangle_2ds_y2 = load i8* %triangle_3ds_y2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 74 'load' 'triangle_2ds_y2' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%triangle_3ds_z2_addr = getelementptr [3192 x i8]* %triangle_3ds_z2, i64 0, i64 %zext_ln279" [rendering_sw.cpp:279]   --->   Operation 75 'getelementptr' 'triangle_3ds_z2_addr' <Predicate = (!icmp_ln276)> <Delay = 0.00>
+ST_2 : Operation 76 [2/2] (2.66ns)   --->   "%triangle_3ds_z2_load = load i8* %triangle_3ds_z2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 76 'load' 'triangle_3ds_z2_load' <Predicate = (!icmp_ln276)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "ret void" [rendering_sw.cpp:286]   --->   Operation 77 'ret' <Predicate = (icmp_ln276)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 8.70>
+ST_3 : Operation 78 [1/2] (2.66ns)   --->   "%triangle_2ds_x0 = load i8* %triangle_3ds_x0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 78 'load' 'triangle_2ds_x0' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 79 [1/2] (2.66ns)   --->   "%triangle_2ds_y0 = load i8* %triangle_3ds_y0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 79 'load' 'triangle_2ds_y0' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 80 [1/2] (2.66ns)   --->   "%triangle_3ds_z0_load = load i8* %triangle_3ds_z0_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 80 'load' 'triangle_3ds_z0_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 81 [1/2] (2.66ns)   --->   "%triangle_2ds_x1 = load i8* %triangle_3ds_x1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 81 'load' 'triangle_2ds_x1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 82 [1/2] (2.66ns)   --->   "%triangle_2ds_y1 = load i8* %triangle_3ds_y1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 82 'load' 'triangle_2ds_y1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 83 [1/2] (2.66ns)   --->   "%triangle_3ds_z1_load = load i8* %triangle_3ds_z1_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 83 'load' 'triangle_3ds_z1_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 84 [1/2] (2.66ns)   --->   "%triangle_2ds_x2 = load i8* %triangle_3ds_x2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 84 'load' 'triangle_2ds_x2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 85 [1/2] (2.66ns)   --->   "%triangle_2ds_y2 = load i8* %triangle_3ds_y2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 85 'load' 'triangle_2ds_y2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 86 [1/2] (2.66ns)   --->   "%triangle_3ds_z2_load = load i8* %triangle_3ds_z2_addr, align 1" [rendering_sw.cpp:279]   --->   Operation 86 'load' 'triangle_3ds_z2_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln121 = zext i8 %triangle_3ds_z0_load to i18" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 87 'zext' 'zext_ln121' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (3.61ns)   --->   "%mul_ln121 = mul i18 342, %zext_ln121" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 88 'mul' 'mul_ln121' <Predicate = true> <Delay = 3.61> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%udiv_ln = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln121, i32 10, i32 17)" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 89 'partselect' 'udiv_ln' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%zext_ln121_1 = zext i8 %triangle_3ds_z1_load to i18" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 90 'zext' 'zext_ln121_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (3.61ns)   --->   "%mul_ln121_1 = mul i18 342, %zext_ln121_1" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 91 'mul' 'mul_ln121_1' <Predicate = true> <Delay = 3.61> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%udiv_ln121_1 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln121_1, i32 10, i32 17)" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 92 'partselect' 'udiv_ln121_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%zext_ln121_2 = zext i8 %triangle_3ds_z2_load to i18" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 93 'zext' 'zext_ln121_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (3.61ns)   --->   "%mul_ln121_2 = mul i18 342, %zext_ln121_2" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 94 'mul' 'mul_ln121_2' <Predicate = true> <Delay = 3.61> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "%udiv_ln121_2 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln121_2, i32 10, i32 17)" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 95 'partselect' 'udiv_ln121_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln121 = add i8 %udiv_ln121_2, %udiv_ln121_1" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 96 'add' 'add_ln121' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.21> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 97 [1/1] (2.42ns) (root node of TernaryAdder)   --->   "%triangle_2ds_z = add i8 %udiv_ln, %add_ln121" [rendering_sw.cpp:121->rendering_sw.cpp:279]   --->   Operation 97 'add' 'triangle_2ds_z' <Predicate = true> <Delay = 2.42> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.21> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%zext_ln24 = zext i8 %triangle_2ds_x2 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 98 'zext' 'zext_ln24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln24_1 = zext i8 %triangle_2ds_x0 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 99 'zext' 'zext_ln24_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (1.39ns)   --->   "%sub_ln24 = sub i9 %zext_ln24, %zext_ln24_1" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 100 'sub' 'sub_ln24' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%sext_ln24 = sext i9 %sub_ln24 to i18" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 101 'sext' 'sext_ln24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%zext_ln24_2 = zext i8 %triangle_2ds_y1 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 102 'zext' 'zext_ln24_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln24_3 = zext i8 %triangle_2ds_y0 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 103 'zext' 'zext_ln24_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 104 [1/1] (1.39ns)   --->   "%sub_ln24_1 = sub i9 %zext_ln24_2, %zext_ln24_3" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 104 'sub' 'sub_ln24_1' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%sext_ln24_1 = sext i9 %sub_ln24_1 to i18" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 105 'sext' 'sext_ln24_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 106 [1/1] (2.88ns)   --->   "%mul_ln24 = mul i18 %sext_ln24, %sext_ln24_1" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 106 'mul' 'mul_ln24' <Predicate = true> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "%trunc_ln24 = trunc i18 %mul_ln24 to i17" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 107 'trunc' 'trunc_ln24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%zext_ln24_4 = zext i8 %triangle_2ds_y2 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 108 'zext' 'zext_ln24_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (1.39ns)   --->   "%sub_ln24_2 = sub i9 %zext_ln24_4, %zext_ln24_3" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 109 'sub' 'sub_ln24_2' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%sext_ln24_2 = sext i9 %sub_ln24_2 to i18" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 110 'sext' 'sext_ln24_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%zext_ln24_5 = zext i8 %triangle_2ds_x1 to i9" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 111 'zext' 'zext_ln24_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 112 [1/1] (1.39ns)   --->   "%sub_ln24_3 = sub i9 %zext_ln24_5, %zext_ln24_1" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 112 'sub' 'sub_ln24_3' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%sext_ln24_3 = sext i9 %sub_ln24_3 to i18" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 113 'sext' 'sext_ln24_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 114 [1/1] (2.88ns)   --->   "%mul_ln24_1 = mul i18 %sext_ln24_2, %sext_ln24_3" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 114 'mul' 'mul_ln24_1' <Predicate = true> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%trunc_ln24_1 = trunc i18 %mul_ln24_1 to i17" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 115 'trunc' 'trunc_ln24_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (1.52ns)   --->   "%cw = sub i18 %mul_ln24, %mul_ln24_1" [rendering_sw.cpp:24->rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 116 'sub' 'cw' <Predicate = true> <Delay = 1.52> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 117 [1/1] (1.50ns)   --->   "%flag = icmp eq i17 %trunc_ln24, %trunc_ln24_1" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 117 'icmp' 'flag' <Predicate = true> <Delay = 1.50> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i18.i32(i18 %cw, i32 17)" [rendering_sw.cpp:153->rendering_sw.cpp:280]   --->   Operation 118 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 8.34>
+ST_4 : Operation 119 [1/1] (0.00ns)   --->   "%max_min_0_read_assi_1 = load i8* %max_min_0_read_assi" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 119 'load' 'max_min_0_read_assi_1' <Predicate = (flag)> <Delay = 0.00>
+ST_4 : Operation 120 [1/1] (0.00ns)   --->   "%max_min_2_read_assi_1 = load i8* %max_min_2_read_assi" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 120 'load' 'max_min_2_read_assi_1' <Predicate = (flag)> <Delay = 0.00>
+ST_4 : Operation 121 [1/1] (0.00ns)   --->   "%max_min_4_read_assi_1 = load i8* %max_min_4_read_assi" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 121 'load' 'max_min_4_read_assi_1' <Predicate = (flag)> <Delay = 0.00>
+ST_4 : Operation 122 [1/1] (0.00ns)   --->   "%max_index_0_1_load = load i32* %max_index_0_1" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 122 'load' 'max_index_0_1_load' <Predicate = (flag)> <Delay = 0.00>
+ST_4 : Operation 123 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str7) nounwind" [rendering_sw.cpp:277]   --->   Operation 123 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 124 [1/1] (0.74ns)   --->   "%select_ln153 = select i1 %tmp, i8 %triangle_2ds_x1, i8 %triangle_2ds_x0" [rendering_sw.cpp:153->rendering_sw.cpp:280]   --->   Operation 124 'select' 'select_ln153' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 125 [1/1] (0.74ns)   --->   "%select_ln153_1 = select i1 %tmp, i8 %triangle_2ds_y1, i8 %triangle_2ds_y0" [rendering_sw.cpp:153->rendering_sw.cpp:280]   --->   Operation 125 'select' 'select_ln153_1' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 126 [1/1] (0.74ns)   --->   "%select_ln153_2 = select i1 %tmp, i8 %triangle_2ds_x0, i8 %triangle_2ds_x1" [rendering_sw.cpp:153->rendering_sw.cpp:280]   --->   Operation 126 'select' 'select_ln153_2' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 127 [1/1] (0.74ns)   --->   "%select_ln153_3 = select i1 %tmp, i8 %triangle_2ds_y0, i8 %triangle_2ds_y1" [rendering_sw.cpp:153->rendering_sw.cpp:280]   --->   Operation 127 'select' 'select_ln153_3' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 128 [1/1] (1.22ns)   --->   "%icmp_ln68 = icmp ult i8 %select_ln153, %select_ln153_2" [rendering_sw.cpp:68->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 128 'icmp' 'icmp_ln68' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 129 [1/1] (1.22ns)   --->   "%icmp_ln70 = icmp ult i8 %select_ln153, %triangle_2ds_x2" [rendering_sw.cpp:70->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 129 'icmp' 'icmp_ln70' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node select_ln68)   --->   "%select_ln70 = select i1 %icmp_ln70, i8 %select_ln153, i8 %triangle_2ds_x2" [rendering_sw.cpp:70->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 130 'select' 'select_ln70' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 131 [1/1] (1.22ns)   --->   "%icmp_ln77 = icmp ult i8 %select_ln153_2, %triangle_2ds_x2" [rendering_sw.cpp:77->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 131 'icmp' 'icmp_ln77' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 132 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln77 = select i1 %icmp_ln77, i8 %select_ln153_2, i8 %triangle_2ds_x2" [rendering_sw.cpp:77->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 132 'select' 'select_ln77' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 133 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln68 = select i1 %icmp_ln68, i8 %select_ln70, i8 %select_ln77" [rendering_sw.cpp:68->rendering_sw.cpp:157->rendering_sw.cpp:280]   --->   Operation 133 'select' 'select_ln68' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 134 [1/1] (1.22ns)   --->   "%icmp_ln88 = icmp ugt i8 %select_ln153, %select_ln153_2" [rendering_sw.cpp:88->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 134 'icmp' 'icmp_ln88' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 135 [1/1] (1.22ns)   --->   "%icmp_ln90 = icmp ugt i8 %select_ln153, %triangle_2ds_x2" [rendering_sw.cpp:90->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 135 'icmp' 'icmp_ln90' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 136 [1/1] (0.00ns) (grouped into LUT with out node select_ln88)   --->   "%select_ln90 = select i1 %icmp_ln90, i8 %select_ln153, i8 %triangle_2ds_x2" [rendering_sw.cpp:90->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 136 'select' 'select_ln90' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 137 [1/1] (1.22ns)   --->   "%icmp_ln97 = icmp ugt i8 %select_ln153_2, %triangle_2ds_x2" [rendering_sw.cpp:97->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 137 'icmp' 'icmp_ln97' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 138 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln97 = select i1 %icmp_ln97, i8 %select_ln153_2, i8 %triangle_2ds_x2" [rendering_sw.cpp:97->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 138 'select' 'select_ln97' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 139 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln88 = select i1 %icmp_ln88, i8 %select_ln90, i8 %select_ln97" [rendering_sw.cpp:88->rendering_sw.cpp:158->rendering_sw.cpp:280]   --->   Operation 139 'select' 'select_ln88' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 140 [1/1] (1.22ns)   --->   "%icmp_ln68_1 = icmp ult i8 %select_ln153_1, %select_ln153_3" [rendering_sw.cpp:68->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 140 'icmp' 'icmp_ln68_1' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 141 [1/1] (1.22ns)   --->   "%icmp_ln70_1 = icmp ult i8 %select_ln153_1, %triangle_2ds_y2" [rendering_sw.cpp:70->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 141 'icmp' 'icmp_ln70_1' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node select_ln68_1)   --->   "%select_ln70_1 = select i1 %icmp_ln70_1, i8 %select_ln153_1, i8 %triangle_2ds_y2" [rendering_sw.cpp:70->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 142 'select' 'select_ln70_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 143 [1/1] (1.22ns)   --->   "%icmp_ln77_1 = icmp ult i8 %select_ln153_3, %triangle_2ds_y2" [rendering_sw.cpp:77->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 143 'icmp' 'icmp_ln77_1' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 144 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln77_1 = select i1 %icmp_ln77_1, i8 %select_ln153_3, i8 %triangle_2ds_y2" [rendering_sw.cpp:77->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 144 'select' 'select_ln77_1' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 145 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln68_1 = select i1 %icmp_ln68_1, i8 %select_ln70_1, i8 %select_ln77_1" [rendering_sw.cpp:68->rendering_sw.cpp:159->rendering_sw.cpp:280]   --->   Operation 145 'select' 'select_ln68_1' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 146 [1/1] (1.22ns)   --->   "%icmp_ln88_1 = icmp ugt i8 %select_ln153_1, %select_ln153_3" [rendering_sw.cpp:88->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 146 'icmp' 'icmp_ln88_1' <Predicate = (!flag)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 147 [1/1] (1.22ns)   --->   "%icmp_ln90_1 = icmp ugt i8 %select_ln153_1, %triangle_2ds_y2" [rendering_sw.cpp:90->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 147 'icmp' 'icmp_ln90_1' <Predicate = (!flag)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node sub_ln164_1)   --->   "%select_ln90_1 = select i1 %icmp_ln90_1, i8 %select_ln153_1, i8 %triangle_2ds_y2" [rendering_sw.cpp:90->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 148 'select' 'select_ln90_1' <Predicate = (!flag)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 149 [1/1] (1.22ns)   --->   "%icmp_ln97_1 = icmp ugt i8 %select_ln153_3, %triangle_2ds_y2" [rendering_sw.cpp:97->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 149 'icmp' 'icmp_ln97_1' <Predicate = (!flag)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 150 [1/1] (0.74ns) (out node of the LUT)   --->   "%select_ln97_1 = select i1 %icmp_ln97_1, i8 %select_ln153_3, i8 %triangle_2ds_y2" [rendering_sw.cpp:97->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 150 'select' 'select_ln97_1' <Predicate = (!flag)> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 151 [1/1] (0.00ns) (grouped into LUT with out node sub_ln164_1)   --->   "%select_ln88_1 = select i1 %icmp_ln88_1, i8 %select_ln90_1, i8 %select_ln97_1" [rendering_sw.cpp:88->rendering_sw.cpp:160->rendering_sw.cpp:280]   --->   Operation 151 'select' 'select_ln88_1' <Predicate = (!flag)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 152 [1/1] (1.39ns)   --->   "%sub_ln161 = sub i8 %select_ln88, %select_ln68" [rendering_sw.cpp:161->rendering_sw.cpp:280]   --->   Operation 152 'sub' 'sub_ln161' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 153 [1/1] (0.00ns)   --->   "%zext_ln164 = zext i8 %select_ln88 to i9" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 153 'zext' 'zext_ln164' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 154 [1/1] (0.00ns)   --->   "%zext_ln164_1 = zext i8 %select_ln68 to i9" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 154 'zext' 'zext_ln164_1' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 155 [1/1] (1.39ns)   --->   "%sub_ln164 = sub i9 %zext_ln164, %zext_ln164_1" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 155 'sub' 'sub_ln164' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln164 = sext i9 %sub_ln164 to i18" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 156 'sext' 'sext_ln164' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 157 [1/1] (0.00ns) (grouped into LUT with out node sub_ln164_1)   --->   "%zext_ln164_2 = zext i8 %select_ln88_1 to i9" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 157 'zext' 'zext_ln164_2' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 158 [1/1] (0.00ns) (grouped into LUT with out node sub_ln164_1)   --->   "%zext_ln164_3 = zext i8 %select_ln68_1 to i9" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 158 'zext' 'zext_ln164_3' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 159 [1/1] (1.39ns) (out node of the LUT)   --->   "%sub_ln164_1 = sub i9 %zext_ln164_2, %zext_ln164_3" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 159 'sub' 'sub_ln164_1' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 160 [1/1] (0.00ns)   --->   "%sext_ln164_1 = sext i9 %sub_ln164_1 to i18" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 160 'sext' 'sext_ln164_1' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 161 [1/1] (2.88ns)   --->   "%mul_ln164 = mul i18 %sext_ln164, %sext_ln164_1" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 161 'mul' 'mul_ln164' <Predicate = (!flag)> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 162 [1/1] (0.00ns)   --->   "%sext_ln164_2 = sext i18 %mul_ln164 to i32" [rendering_sw.cpp:164->rendering_sw.cpp:280]   --->   Operation 162 'sext' 'sext_ln164_2' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 163 [1/1] (0.74ns)   --->   "%max_min_2 = select i1 %flag, i8 %max_min_2_read_assi_1, i8 %select_ln68_1" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 163 'select' 'max_min_2' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 164 [1/1] (0.74ns)   --->   "%max_min_4 = select i1 %flag, i8 %max_min_4_read_assi_1, i8 %sub_ln161" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 164 'select' 'max_min_4' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 165 [1/1] (0.63ns)   --->   "%max_index_0 = select i1 %flag, i32 %max_index_0_1_load, i32 %sext_ln164_2" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 165 'select' 'max_index_0' <Predicate = true> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 166 [1/1] (0.74ns)   --->   "%max_min_0 = select i1 %flag, i8 %max_min_0_read_assi_1, i8 %select_ln68" [rendering_sw.cpp:151->rendering_sw.cpp:280]   --->   Operation 166 'select' 'max_min_0' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.74> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 167 [1/1] (0.00ns)   --->   "store i32 %max_index_0, i32* %max_index_0_1" [rendering_sw.cpp:173->rendering_sw.cpp:281]   --->   Operation 167 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 168 [1/1] (0.00ns)   --->   "store i8 %max_min_4, i8* %max_min_4_read_assi" [rendering_sw.cpp:173->rendering_sw.cpp:281]   --->   Operation 168 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 169 [1/1] (0.00ns)   --->   "store i8 %max_min_2, i8* %max_min_2_read_assi" [rendering_sw.cpp:173->rendering_sw.cpp:281]   --->   Operation 169 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 170 [1/1] (0.00ns)   --->   "store i8 %max_min_0, i8* %max_min_0_read_assi" [rendering_sw.cpp:173->rendering_sw.cpp:281]   --->   Operation 170 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 171 [1/1] (1.06ns)   --->   "br i1 %flag, label %rasterization2.exit, label %.preheader.i.preheader" [rendering_sw.cpp:173->rendering_sw.cpp:281]   --->   Operation 171 'br' <Predicate = true> <Delay = 1.06>
+ST_4 : Operation 172 [1/1] (0.00ns)   --->   "%zext_ln58 = zext i8 %max_min_4 to i16" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 172 'zext' 'zext_ln58' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 173 [1/1] (1.39ns)   --->   "%sub_ln59 = sub i9 %zext_ln24_4, %zext_ln24_2" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 173 'sub' 'sub_ln59' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 174 [1/1] (0.00ns)   --->   "%sext_ln59 = sext i9 %sub_ln59 to i18" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 174 'sext' 'sext_ln59' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 175 [1/1] (1.39ns)   --->   "%sub_ln59_1 = sub i9 %zext_ln24, %zext_ln24_5" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 175 'sub' 'sub_ln59_1' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 176 [1/1] (0.00ns)   --->   "%sext_ln59_1 = sext i9 %sub_ln59_1 to i18" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 176 'sext' 'sext_ln59_1' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 177 [1/1] (1.39ns)   --->   "%sub_ln60 = sub i9 %zext_ln24_3, %zext_ln24_4" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 177 'sub' 'sub_ln60' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 178 [1/1] (0.00ns)   --->   "%sext_ln60 = sext i9 %sub_ln60 to i18" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 178 'sext' 'sext_ln60' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 179 [1/1] (1.39ns)   --->   "%sub_ln60_1 = sub i9 %zext_ln24_1, %zext_ln24" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 179 'sub' 'sub_ln60_1' <Predicate = (!flag)> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 180 [1/1] (0.00ns)   --->   "%sext_ln60_1 = sext i9 %sub_ln60_1 to i18" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 180 'sext' 'sext_ln60_1' <Predicate = (!flag)> <Delay = 0.00>
+ST_4 : Operation 181 [1/1] (1.06ns)   --->   "br label %.preheader.i" [rendering_sw.cpp:181->rendering_sw.cpp:281]   --->   Operation 181 'br' <Predicate = (!flag)> <Delay = 1.06>
+
+State 5 <SV = 4> <Delay = 2.33>
+ST_5 : Operation 182 [1/1] (0.00ns)   --->   "%i_0_i = phi i32 [ 0, %.preheader.i.preheader ], [ %i_0_i_be, %.preheader.i.backedge ]" [rendering_sw.cpp:192->rendering_sw.cpp:281]   --->   Operation 182 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 183 [1/1] (0.00ns)   --->   "%k_0_i = phi i16 [ 0, %.preheader.i.preheader ], [ %k, %.preheader.i.backedge ]"   --->   Operation 183 'phi' 'k_0_i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 184 [1/1] (0.00ns)   --->   "%zext_ln181 = zext i16 %k_0_i to i32" [rendering_sw.cpp:181->rendering_sw.cpp:281]   --->   Operation 184 'zext' 'zext_ln181' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 185 [1/1] (1.54ns)   --->   "%icmp_ln181 = icmp slt i32 %zext_ln181, %max_index_0" [rendering_sw.cpp:181->rendering_sw.cpp:281]   --->   Operation 185 'icmp' 'icmp_ln181' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 186 [1/1] (1.48ns)   --->   "%k = add i16 %k_0_i, 1" [rendering_sw.cpp:181->rendering_sw.cpp:281]   --->   Operation 186 'add' 'k' <Predicate = true> <Delay = 1.48> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 187 [1/1] (0.00ns)   --->   "br i1 %icmp_ln181, label %3, label %rasterization2.exit.loopexit" [rendering_sw.cpp:181->rendering_sw.cpp:281]   --->   Operation 187 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 188 [20/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 188 'urem' 'urem_ln183' <Predicate = (icmp_ln181)> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 189 [20/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 189 'udiv' 'udiv_ln184' <Predicate = (icmp_ln181)> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 190 [1/1] (1.06ns)   --->   "br label %rasterization2.exit"   --->   Operation 190 'br' <Predicate = (!icmp_ln181)> <Delay = 1.06>
+
+State 6 <SV = 5> <Delay = 2.33>
+ST_6 : Operation 191 [19/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 191 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 192 [19/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 192 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 2.33>
+ST_7 : Operation 193 [18/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 193 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 194 [18/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 194 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 2.33>
+ST_8 : Operation 195 [17/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 195 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 196 [17/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 196 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 2.33>
+ST_9 : Operation 197 [16/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 197 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 198 [16/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 198 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 2.33>
+ST_10 : Operation 199 [15/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 199 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 200 [15/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 200 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 2.33>
+ST_11 : Operation 201 [14/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 201 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 202 [14/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 202 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.33>
+ST_12 : Operation 203 [13/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 203 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 204 [13/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 204 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 2.33>
+ST_13 : Operation 205 [12/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 205 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 206 [12/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 206 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 2.33>
+ST_14 : Operation 207 [11/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 207 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 208 [11/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 208 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 2.33>
+ST_15 : Operation 209 [10/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 209 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 210 [10/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 210 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 2.33>
+ST_16 : Operation 211 [9/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 211 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 212 [9/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 212 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 2.33>
+ST_17 : Operation 213 [8/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 213 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 214 [8/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 214 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 2.33>
+ST_18 : Operation 215 [7/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 215 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 216 [7/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 216 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 2.33>
+ST_19 : Operation 217 [6/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 217 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 218 [6/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 218 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 2.33>
+ST_20 : Operation 219 [5/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 219 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 220 [5/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 220 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 2.33>
+ST_21 : Operation 221 [4/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 221 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 222 [4/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 222 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 2.33>
+ST_22 : Operation 223 [3/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 223 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 224 [3/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 224 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 2.33>
+ST_23 : Operation 225 [2/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 225 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 226 [2/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 226 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 7.99>
+ST_24 : Operation 227 [1/20] (2.33ns)   --->   "%urem_ln183 = urem i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 227 'urem' 'urem_ln183' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 228 [1/1] (0.00ns)   --->   "%trunc_ln183 = trunc i16 %urem_ln183 to i8" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 228 'trunc' 'trunc_ln183' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 229 [1/1] (1.39ns)   --->   "%x = add i8 %max_min_0, %trunc_ln183" [rendering_sw.cpp:183->rendering_sw.cpp:281]   --->   Operation 229 'add' 'x' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 230 [1/20] (2.33ns)   --->   "%udiv_ln184 = udiv i16 %k_0_i, %zext_ln58" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 230 'udiv' 'udiv_ln184' <Predicate = true> <Delay = 2.33> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 19> <II = 8> <Delay = 2.33> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 231 [1/1] (0.00ns)   --->   "%trunc_ln184 = trunc i16 %udiv_ln184 to i8" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 231 'trunc' 'trunc_ln184' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 232 [1/1] (1.39ns)   --->   "%y = add i8 %max_min_2, %trunc_ln184" [rendering_sw.cpp:184->rendering_sw.cpp:281]   --->   Operation 232 'add' 'y' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 233 [1/1] (0.00ns)   --->   "%zext_ln58_1 = zext i8 %x to i9" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 233 'zext' 'zext_ln58_1' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 234 [1/1] (1.39ns)   --->   "%sub_ln58 = sub i9 %zext_ln58_1, %zext_ln24_1" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 234 'sub' 'sub_ln58' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 235 [1/1] (0.00ns)   --->   "%sext_ln58 = sext i9 %sub_ln58 to i18" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 235 'sext' 'sext_ln58' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 236 [1/1] (2.88ns)   --->   "%mul_ln58 = mul i18 %sext_ln58, %sext_ln24_1" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 236 'mul' 'mul_ln58' <Predicate = true> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 237 [1/1] (0.00ns)   --->   "%zext_ln58_2 = zext i8 %y to i9" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 237 'zext' 'zext_ln58_2' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 238 [1/1] (1.39ns)   --->   "%sub_ln58_1 = sub i9 %zext_ln58_2, %zext_ln24_3" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 238 'sub' 'sub_ln58_1' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 239 [1/1] (1.39ns)   --->   "%sub_ln59_2 = sub i9 %zext_ln58_1, %zext_ln24_5" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 239 'sub' 'sub_ln59_2' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 240 [1/1] (0.00ns)   --->   "%sext_ln59_2 = sext i9 %sub_ln59_2 to i18" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 240 'sext' 'sext_ln59_2' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 241 [1/1] (2.88ns)   --->   "%mul_ln59 = mul i18 %sext_ln59_2, %sext_ln59" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 241 'mul' 'mul_ln59' <Predicate = true> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 242 [1/1] (1.39ns)   --->   "%sub_ln59_3 = sub i9 %zext_ln58_2, %zext_ln24_2" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 242 'sub' 'sub_ln59_3' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 243 [1/1] (1.39ns)   --->   "%sub_ln60_2 = sub i9 %zext_ln58_1, %zext_ln24" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 243 'sub' 'sub_ln60_2' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 244 [1/1] (0.00ns)   --->   "%sext_ln60_2 = sext i9 %sub_ln60_2 to i18" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 244 'sext' 'sext_ln60_2' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 245 [1/1] (2.88ns)   --->   "%mul_ln60 = mul i18 %sext_ln60, %sext_ln60_2" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 245 'mul' 'mul_ln60' <Predicate = true> <Delay = 2.88> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 2.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 246 [1/1] (1.39ns)   --->   "%sub_ln60_3 = sub i9 %zext_ln58_2, %zext_ln24_4" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 246 'sub' 'sub_ln60_3' <Predicate = true> <Delay = 1.39> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 7.50>
+ST_25 : Operation 247 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([6 x i8]* @p_str) nounwind" [rendering_sw.cpp:182->rendering_sw.cpp:281]   --->   Operation 247 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 248 [1/1] (0.00ns)   --->   "%sext_ln58_1 = sext i9 %sub_ln58_1 to i18" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 248 'sext' 'sext_ln58_1' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 249 [1/1] (2.84ns) (grouped into DSP with root node pi0)   --->   "%mul_ln58_1 = mul i18 %sext_ln58_1, %sext_ln24_3" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 249 'mul' 'mul_ln58_1' <Predicate = true> <Delay = 2.84> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 250 [1/1] (2.95ns) (root node of the DSP)   --->   "%pi0 = sub i18 %mul_ln58, %mul_ln58_1" [rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 250 'sub' 'pi0' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 251 [1/1] (0.00ns)   --->   "%sext_ln59_3 = sext i9 %sub_ln59_3 to i18" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 251 'sext' 'sext_ln59_3' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 252 [1/1] (2.84ns) (grouped into DSP with root node pi1)   --->   "%mul_ln59_1 = mul i18 %sext_ln59_3, %sext_ln59_1" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 252 'mul' 'mul_ln59_1' <Predicate = true> <Delay = 2.84> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 253 [1/1] (2.95ns) (root node of the DSP)   --->   "%pi1 = sub i18 %mul_ln59, %mul_ln59_1" [rendering_sw.cpp:59->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 253 'sub' 'pi1' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 254 [1/1] (0.00ns)   --->   "%sext_ln60_3 = sext i9 %sub_ln60_3 to i18" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 254 'sext' 'sext_ln60_3' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 255 [1/1] (2.84ns) (grouped into DSP with root node pi2)   --->   "%mul_ln60_1 = mul i18 %sext_ln60_3, %sext_ln60_1" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 255 'mul' 'mul_ln60_1' <Predicate = true> <Delay = 2.84> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 256 [1/1] (2.95ns) (root node of the DSP)   --->   "%pi2 = sub i18 %mul_ln60, %mul_ln60_1" [rendering_sw.cpp:60->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 256 'sub' 'pi2' <Predicate = true> <Delay = 2.95> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 5.79> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_25 : Operation 257 [1/1] (0.00ns) (grouped into LUT with out node or_ln62_1)   --->   "%or_ln62 = or i18 %pi0, %pi1" [rendering_sw.cpp:62->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 257 'or' 'or_ln62' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.65> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 258 [1/1] (0.65ns) (out node of the LUT)   --->   "%or_ln62_1 = or i18 %or_ln62, %pi2" [rendering_sw.cpp:62->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 258 'or' 'or_ln62_1' <Predicate = true> <Delay = 0.65> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.65> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 259 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i18.i32(i18 %or_ln62_1, i32 17)" [rendering_sw.cpp:62->rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 259 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 260 [1/1] (1.06ns)   --->   "br i1 %tmp_1, label %.preheader.i.backedge, label %4" [rendering_sw.cpp:186->rendering_sw.cpp:281]   --->   Operation 260 'br' <Predicate = true> <Delay = 1.06>
+ST_25 : Operation 261 [1/1] (0.00ns)   --->   "%sext_ln188 = sext i32 %i_0_i to i64" [rendering_sw.cpp:188->rendering_sw.cpp:281]   --->   Operation 261 'sext' 'sext_ln188' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_25 : Operation 262 [1/1] (0.00ns)   --->   "%fragment_x_addr = getelementptr [500 x i8]* %fragment_x, i64 0, i64 %sext_ln188" [rendering_sw.cpp:188->rendering_sw.cpp:281]   --->   Operation 262 'getelementptr' 'fragment_x_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_25 : Operation 263 [1/1] (2.66ns)   --->   "store i8 %x, i8* %fragment_x_addr, align 1" [rendering_sw.cpp:188->rendering_sw.cpp:281]   --->   Operation 263 'store' <Predicate = (!tmp_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_25 : Operation 264 [1/1] (0.00ns)   --->   "%fragment_y_addr = getelementptr [500 x i8]* %fragment_y, i64 0, i64 %sext_ln188" [rendering_sw.cpp:189->rendering_sw.cpp:281]   --->   Operation 264 'getelementptr' 'fragment_y_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_25 : Operation 265 [1/1] (2.66ns)   --->   "store i8 %y, i8* %fragment_y_addr, align 1" [rendering_sw.cpp:189->rendering_sw.cpp:281]   --->   Operation 265 'store' <Predicate = (!tmp_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_25 : Operation 266 [1/1] (0.00ns)   --->   "%fragment_z_addr = getelementptr [500 x i8]* %fragment_z, i64 0, i64 %sext_ln188" [rendering_sw.cpp:190->rendering_sw.cpp:281]   --->   Operation 266 'getelementptr' 'fragment_z_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_25 : Operation 267 [1/1] (2.66ns)   --->   "store i8 %triangle_2ds_z, i8* %fragment_z_addr, align 1" [rendering_sw.cpp:190->rendering_sw.cpp:281]   --->   Operation 267 'store' <Predicate = (!tmp_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_25 : Operation 268 [1/1] (0.00ns)   --->   "%fragment_color_addr = getelementptr [500 x i8]* %fragment_color, i64 0, i64 %sext_ln188" [rendering_sw.cpp:191->rendering_sw.cpp:281]   --->   Operation 268 'getelementptr' 'fragment_color_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_25 : Operation 269 [1/1] (2.66ns)   --->   "store i8 100, i8* %fragment_color_addr, align 1" [rendering_sw.cpp:191->rendering_sw.cpp:281]   --->   Operation 269 'store' <Predicate = (!tmp_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 500> <RAM>
+ST_25 : Operation 270 [1/1] (1.78ns)   --->   "%i = add nsw i32 %i_0_i, 1" [rendering_sw.cpp:192->rendering_sw.cpp:281]   --->   Operation 270 'add' 'i' <Predicate = (!tmp_1)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 271 [1/1] (1.06ns)   --->   "br label %.preheader.i.backedge" [rendering_sw.cpp:193->rendering_sw.cpp:281]   --->   Operation 271 'br' <Predicate = (!tmp_1)> <Delay = 1.06>
+ST_25 : Operation 272 [1/1] (0.00ns)   --->   "%i_0_i_be = phi i32 [ %i, %4 ], [ %i_0_i, %3 ]"   --->   Operation 272 'phi' 'i_0_i_be' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 273 [1/1] (0.00ns)   --->   "br label %.preheader.i"   --->   Operation 273 'br' <Predicate = true> <Delay = 0.00>
+
+State 26 <SV = 5> <Delay = 1.36>
+ST_26 : Operation 274 [1/1] (0.00ns)   --->   "%size_fragment = phi i32 [ 0, %2 ], [ %i_0_i, %rasterization2.exit.loopexit ]" [rendering_sw.cpp:192->rendering_sw.cpp:281]   --->   Operation 274 'phi' 'size_fragment' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 275 [2/2] (1.36ns)   --->   "%size_pixels = call fastcc i32 @zculling(i12 %i_0, [500 x i8]* %fragment_x, [500 x i8]* %fragment_y, [500 x i8]* %fragment_z, [500 x i8]* %fragment_color, i32 %size_fragment, [500 x i8]* %pixels_x, [500 x i8]* %pixels_y, [500 x i8]* %pixels_color)" [rendering_sw.cpp:282]   --->   Operation 275 'call' 'size_pixels' <Predicate = true> <Delay = 1.36> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 27 <SV = 6> <Delay = 0.00>
+ST_27 : Operation 276 [1/2] (0.00ns)   --->   "%size_pixels = call fastcc i32 @zculling(i12 %i_0, [500 x i8]* %fragment_x, [500 x i8]* %fragment_y, [500 x i8]* %fragment_z, [500 x i8]* %fragment_color, i32 %size_fragment, [500 x i8]* %pixels_x, [500 x i8]* %pixels_y, [500 x i8]* %pixels_color)" [rendering_sw.cpp:282]   --->   Operation 276 'call' 'size_pixels' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 28 <SV = 7> <Delay = 1.36>
+ST_28 : Operation 277 [2/2] (1.36ns)   --->   "call fastcc void @coloringFB(i12 %i_0, i32 %size_pixels, [500 x i8]* %pixels_x, [500 x i8]* %pixels_y, [500 x i8]* %pixels_color, [65536 x i8]* %output_r)" [rendering_sw.cpp:283]   --->   Operation 277 'call' <Predicate = true> <Delay = 1.36> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 29 <SV = 8> <Delay = 0.00>
+ST_29 : Operation 278 [1/2] (0.00ns)   --->   "call fastcc void @coloringFB(i12 %i_0, i32 %size_pixels, [500 x i8]* %pixels_x, [500 x i8]* %pixels_y, [500 x i8]* %pixels_color, [65536 x i8]* %output_r)" [rendering_sw.cpp:283]   --->   Operation 278 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_29 : Operation 279 [1/1] (0.00ns)   --->   "br label %1" [rendering_sw.cpp:276]   --->   Operation 279 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', rendering_sw.cpp:276) [36]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', rendering_sw.cpp:276) [36]  (0 ns)
+	'getelementptr' operation ('triangle_3ds_x0_addr', rendering_sw.cpp:279) [48]  (0 ns)
+	'load' operation ('triangle_2d.x0', rendering_sw.cpp:279) on array 'triangle_3ds_x0' [49]  (2.66 ns)
+
+ <State 3>: 8.7ns
+The critical path consists of the following:
+	'load' operation ('triangle_3ds_z0_load', rendering_sw.cpp:279) on array 'triangle_3ds_z0' [53]  (2.66 ns)
+	'mul' operation ('mul_ln121', rendering_sw.cpp:121->rendering_sw.cpp:279) [67]  (3.61 ns)
+	'add' operation ('triangle_2d.z', rendering_sw.cpp:121->rendering_sw.cpp:279) [76]  (2.43 ns)
+
+ <State 4>: 8.35ns
+The critical path consists of the following:
+	'select' operation ('in1', rendering_sw.cpp:153->rendering_sw.cpp:280) [100]  (0.74 ns)
+	'icmp' operation ('icmp_ln97', rendering_sw.cpp:97->rendering_sw.cpp:158->rendering_sw.cpp:280) [111]  (1.22 ns)
+	'select' operation ('select_ln97', rendering_sw.cpp:97->rendering_sw.cpp:158->rendering_sw.cpp:280) [112]  (0.74 ns)
+	'select' operation ('select_ln88', rendering_sw.cpp:88->rendering_sw.cpp:158->rendering_sw.cpp:280) [113]  (0.74 ns)
+	'sub' operation ('sub_ln164', rendering_sw.cpp:164->rendering_sw.cpp:280) [129]  (1.39 ns)
+	'mul' operation ('mul_ln164', rendering_sw.cpp:164->rendering_sw.cpp:280) [135]  (2.88 ns)
+	'select' operation ('max_index[0]', rendering_sw.cpp:151->rendering_sw.cpp:280) [139]  (0.631 ns)
+
+ <State 5>: 2.33ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', rendering_sw.cpp:181->rendering_sw.cpp:281) [159]  (0 ns)
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 6>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 7>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 8>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 9>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 10>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 11>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 12>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 13>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 14>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 15>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 16>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 17>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 18>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 19>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 20>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 21>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 22>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 23>: 2.33ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+
+ <State 24>: 8ns
+The critical path consists of the following:
+	'urem' operation ('urem_ln183', rendering_sw.cpp:183->rendering_sw.cpp:281) [166]  (2.33 ns)
+	'add' operation ('x', rendering_sw.cpp:183->rendering_sw.cpp:281) [168]  (1.39 ns)
+	'sub' operation ('sub_ln58', rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281) [173]  (1.39 ns)
+	'mul' operation ('mul_ln58', rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281) [175]  (2.88 ns)
+
+ <State 25>: 7.51ns
+The critical path consists of the following:
+	'mul' operation of DSP[180] ('mul_ln58_1', rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281) [179]  (2.84 ns)
+	'sub' operation of DSP[180] ('pi0', rendering_sw.cpp:58->rendering_sw.cpp:186->rendering_sw.cpp:281) [180]  (2.95 ns)
+	'or' operation ('or_ln62', rendering_sw.cpp:62->rendering_sw.cpp:186->rendering_sw.cpp:281) [195]  (0 ns)
+	'or' operation ('or_ln62_1', rendering_sw.cpp:62->rendering_sw.cpp:186->rendering_sw.cpp:281) [196]  (0.658 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', rendering_sw.cpp:192->rendering_sw.cpp:281) [212]  (1.06 ns)
+	'phi' operation ('i') with incoming values : ('i', rendering_sw.cpp:192->rendering_sw.cpp:281) [212]  (0 ns)
+
+ <State 26>: 1.36ns
+The critical path consists of the following:
+	'phi' operation ('size_fragment', rendering_sw.cpp:192->rendering_sw.cpp:281) with incoming values : ('i', rendering_sw.cpp:192->rendering_sw.cpp:281) [217]  (0 ns)
+	'call' operation ('size_pixels', rendering_sw.cpp:282) to 'zculling' [218]  (1.36 ns)
+
+ <State 27>: 0ns
+The critical path consists of the following:
+
+ <State 28>: 1.36ns
+The critical path consists of the following:
+	'call' operation ('call_ln283', rendering_sw.cpp:283) to 'coloringFB' [219]  (1.36 ns)
+
+ <State 29>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

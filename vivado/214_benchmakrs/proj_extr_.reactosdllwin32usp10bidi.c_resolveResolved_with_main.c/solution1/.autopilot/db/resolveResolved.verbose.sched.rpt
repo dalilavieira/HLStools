@@ -1,0 +1,243 @@
+
+
+================================================================
+== Vivado HLS Report for 'resolveResolved'
+================================================================
+* Date:           Tue May 26 03:40:14 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     4.449|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        | + Loop 1.2  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 5 4 
+4 --> 5 
+5 --> 4 6 8 
+6 --> 8 7 
+7 --> 8 
+8 --> 7 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %baselevel) nounwind, !map !80"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([200 x i32]* %pcls) nounwind, !map !86"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([200 x i32]* %plevel) nounwind, !map !92"   --->   Operation 11 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %sos) nounwind, !map !96"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %eos) nounwind, !map !100"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @resolveResolved_str) nounwind"   --->   Operation 14 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%eos_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %eos) nounwind" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29]   --->   Operation 15 'read' 'eos_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%sos_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %sos) nounwind" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29]   --->   Operation 16 'read' 'sos_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%baselevel_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %baselevel) nounwind" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29]   --->   Operation 17 'read' 'baselevel_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%sext_ln51 = sext i32 %eos_read to i64" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 18 'sext' 'sext_ln51' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%pcls_addr_2 = getelementptr [200 x i32]* %pcls, i64 0, i64 %sext_ln51" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 19 'getelementptr' 'pcls_addr_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.06ns)   --->   "br label %1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34]   --->   Operation 20 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%j_1 = phi i32 [ %sos_read, %0 ], [ %i, %._crit_edge42 ]"   --->   Operation 21 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.54ns)   --->   "%icmp_ln34 = icmp sgt i32 %j_1, %eos_read" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34]   --->   Operation 22 'icmp' 'icmp_ln34' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br i1 %icmp_ln34, label %7, label %2" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34]   --->   Operation 23 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%sext_ln36 = sext i32 %j_1 to i64" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 24 'sext' 'sext_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%pcls_addr = getelementptr [200 x i32]* %pcls, i64 0, i64 %sext_ln36" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 25 'getelementptr' 'pcls_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 26 [2/2] (2.66ns)   --->   "%pcls_load = load i32* %pcls_addr, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 26 'load' 'pcls_load' <Predicate = (!icmp_ln34)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "ret void" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:63]   --->   Operation 27 'ret' <Predicate = (icmp_ln34)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.21>
+ST_3 : Operation 28 [1/2] (2.66ns)   --->   "%pcls_load = load i32* %pcls_addr, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 28 'load' 'pcls_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_3 : Operation 29 [1/1] (1.54ns)   --->   "%icmp_ln36 = icmp eq i32 %pcls_load, 0" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 29 'icmp' 'icmp_ln36' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %icmp_ln36, label %._crit_edge, label %._crit_edge40" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (1.54ns)   --->   "%icmp_ln39 = icmp slt i32 %sos_read, %j_1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 31 'icmp' 'icmp_ln39' <Predicate = (icmp_ln36)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (0.61ns)   --->   "%xor_ln39 = xor i1 %icmp_ln39, true" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 32 'xor' 'xor_ln39' <Predicate = (icmp_ln36)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (1.06ns)   --->   "br label %3" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 33 'br' <Predicate = (icmp_ln36)> <Delay = 1.06>
+
+State 4 <SV = 3> <Delay = 4.44>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%j_0_in = phi i32 [ %j_1, %._crit_edge ], [ %j, %.critedge1 ]"   --->   Operation 34 'phi' 'j_0_in' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (1.78ns)   --->   "%j = add nsw i32 %j_0_in, -1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:38]   --->   Operation 35 'add' 'j' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 36 [1/1] (1.54ns)   --->   "%icmp_ln39_1 = icmp slt i32 %j, %sos_read" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 36 'icmp' 'icmp_ln39_1' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 37 [1/1] (0.61ns)   --->   "%or_ln39 = or i1 %xor_ln39, %icmp_ln39_1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 37 'or' 'or_ln39' <Predicate = true> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "br i1 %or_ln39, label %.critedge, label %4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 38 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%sext_ln39 = sext i32 %j to i64" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 39 'sext' 'sext_ln39' <Predicate = (!or_ln39)> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%pcls_addr_1 = getelementptr [200 x i32]* %pcls, i64 0, i64 %sext_ln39" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 40 'getelementptr' 'pcls_addr_1' <Predicate = (!or_ln39)> <Delay = 0.00>
+ST_4 : Operation 41 [2/2] (2.66ns)   --->   "%pcls_load_1 = load i32* %pcls_addr_1, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 41 'load' 'pcls_load_1' <Predicate = (!or_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+
+State 5 <SV = 4> <Delay = 4.21>
+ST_5 : Operation 42 [1/2] (2.66ns)   --->   "%pcls_load_1 = load i32* %pcls_addr_1, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 42 'load' 'pcls_load_1' <Predicate = (icmp_ln36 & !or_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_5 : Operation 43 [1/1] (1.54ns)   --->   "%icmp_ln39_2 = icmp eq i32 %pcls_load_1, 0" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 43 'icmp' 'icmp_ln39_2' <Predicate = (icmp_ln36 & !or_ln39)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "br i1 %icmp_ln39_2, label %.critedge1, label %.critedge" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39]   --->   Operation 44 'br' <Predicate = (icmp_ln36 & !or_ln39)> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%plevel_addr = getelementptr [200 x i32]* %plevel, i64 0, i64 %sext_ln39" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:43]   --->   Operation 45 'getelementptr' 'plevel_addr' <Predicate = (icmp_ln36 & !or_ln39 & icmp_ln39_2)> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (2.66ns)   --->   "store i32 %baselevel_read, i32* %plevel_addr, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:43]   --->   Operation 46 'store' <Predicate = (icmp_ln36 & !or_ln39 & icmp_ln39_2)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "br label %3" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:43]   --->   Operation 47 'br' <Predicate = (icmp_ln36 & !or_ln39 & icmp_ln39_2)> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%plevel_addr_1 = getelementptr [200 x i32]* %plevel, i64 0, i64 %sext_ln36" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:44]   --->   Operation 48 'getelementptr' 'plevel_addr_1' <Predicate = (icmp_ln36 & !icmp_ln39_2) | (icmp_ln36 & or_ln39)> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (2.66ns)   --->   "store i32 %baselevel_read, i32* %plevel_addr_1, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:44]   --->   Operation 49 'store' <Predicate = (icmp_ln36 & !icmp_ln39_2) | (icmp_ln36 & or_ln39)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "br label %._crit_edge40" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:45]   --->   Operation 50 'br' <Predicate = (icmp_ln36 & !icmp_ln39_2) | (icmp_ln36 & or_ln39)> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (1.54ns)   --->   "%icmp_ln51 = icmp eq i32 %j_1, %eos_read" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 51 'icmp' 'icmp_ln51' <Predicate = (!icmp_ln39_2) | (or_ln39) | (!icmp_ln36)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "br i1 %icmp_ln51, label %5, label %._crit_edge42" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 52 'br' <Predicate = (!icmp_ln39_2) | (or_ln39) | (!icmp_ln36)> <Delay = 0.00>
+ST_5 : Operation 53 [2/2] (2.66ns)   --->   "%pcls_load_2 = load i32* %pcls_addr_2, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 53 'load' 'pcls_load_2' <Predicate = (!icmp_ln39_2 & icmp_ln51) | (or_ln39 & icmp_ln51) | (!icmp_ln36 & icmp_ln51)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+
+State 6 <SV = 5> <Delay = 4.21>
+ST_6 : Operation 54 [1/2] (2.66ns)   --->   "%pcls_load_2 = load i32* %pcls_addr_2, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 54 'load' 'pcls_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_6 : Operation 55 [1/1] (1.54ns)   --->   "%icmp_ln51_1 = icmp eq i32 %pcls_load_2, 0" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 55 'icmp' 'icmp_ln51_1' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "br i1 %icmp_ln51_1, label %._crit_edge43.preheader, label %._crit_edge42" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51]   --->   Operation 56 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (1.06ns)   --->   "br label %._crit_edge43" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 57 'br' <Predicate = (icmp_ln51_1)> <Delay = 1.06>
+
+State 7 <SV = 6> <Delay = 2.66>
+ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%j1_0 = phi i32 [ %j_2, %.critedge12 ], [ %eos_read, %._crit_edge43.preheader ]"   --->   Operation 58 'phi' 'j1_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 59 [1/1] (1.54ns)   --->   "%icmp_ln57 = icmp slt i32 %j1_0, %sos_read" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 59 'icmp' 'icmp_ln57' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "br i1 %icmp_ln57, label %.critedge11, label %6" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 60 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%sext_ln57 = sext i32 %j1_0 to i64" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 61 'sext' 'sext_ln57' <Predicate = (!icmp_ln57)> <Delay = 0.00>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%pcls_addr_3 = getelementptr [200 x i32]* %pcls, i64 0, i64 %sext_ln57" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 62 'getelementptr' 'pcls_addr_3' <Predicate = (!icmp_ln57)> <Delay = 0.00>
+ST_7 : Operation 63 [2/2] (2.66ns)   --->   "%pcls_load_3 = load i32* %pcls_addr_3, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 63 'load' 'pcls_load_3' <Predicate = (!icmp_ln57)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+
+State 8 <SV = 7> <Delay = 4.21>
+ST_8 : Operation 64 [1/2] (2.66ns)   --->   "%pcls_load_3 = load i32* %pcls_addr_3, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 64 'load' 'pcls_load_3' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_8 : Operation 65 [1/1] (1.54ns)   --->   "%icmp_ln57_1 = icmp eq i32 %pcls_load_3, 0" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 65 'icmp' 'icmp_ln57_1' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %icmp_ln57_1, label %.critedge12, label %.critedge11" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57]   --->   Operation 66 'br' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57)> <Delay = 0.00>
+ST_8 : Operation 67 [1/1] (1.78ns)   --->   "%j_2 = add nsw i32 %j1_0, -1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:60]   --->   Operation 67 'add' 'j_2' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57 & icmp_ln57_1)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 68 [1/1] (0.00ns)   --->   "%plevel_addr_2 = getelementptr [200 x i32]* %plevel, i64 0, i64 %sext_ln57" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:60]   --->   Operation 68 'getelementptr' 'plevel_addr_2' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57 & icmp_ln57_1)> <Delay = 0.00>
+ST_8 : Operation 69 [1/1] (2.66ns)   --->   "store i32 %baselevel_read, i32* %plevel_addr_2, align 4" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:60]   --->   Operation 69 'store' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57 & icmp_ln57_1)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 200> <RAM>
+ST_8 : Operation 70 [1/1] (0.00ns)   --->   "br label %._crit_edge43" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:60]   --->   Operation 70 'br' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57 & icmp_ln57_1)> <Delay = 0.00>
+ST_8 : Operation 71 [1/1] (0.00ns)   --->   "br label %._crit_edge42" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:61]   --->   Operation 71 'br' <Predicate = (icmp_ln51 & icmp_ln51_1 & !icmp_ln57_1) | (icmp_ln51 & icmp_ln51_1 & icmp_ln57)> <Delay = 0.00>
+ST_8 : Operation 72 [1/1] (1.78ns)   --->   "%i = add nsw i32 %j_1, 1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34]   --->   Operation 72 'add' 'i' <Predicate = (!icmp_ln57_1) | (icmp_ln57) | (!icmp_ln51_1) | (!icmp_ln51)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 73 [1/1] (0.00ns)   --->   "br label %1" [extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34]   --->   Operation 73 'br' <Predicate = (!icmp_ln57_1) | (icmp_ln57) | (!icmp_ln51_1) | (!icmp_ln51)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('sos', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29) ('i', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34) [19]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('sos', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29) ('i', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34) [19]  (0 ns)
+	'getelementptr' operation ('pcls_addr', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36) [24]  (0 ns)
+	'load' operation ('pcls_load', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36) on array 'pcls' [25]  (2.66 ns)
+
+ <State 3>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('pcls_load', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36) on array 'pcls' [25]  (2.66 ns)
+	'icmp' operation ('icmp_ln36', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:36) [26]  (1.55 ns)
+
+ <State 4>: 4.45ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('sos', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29) ('j', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:38) ('i', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:34) [33]  (0 ns)
+	'add' operation ('j', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:38) [34]  (1.78 ns)
+	'getelementptr' operation ('pcls_addr_1', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39) [40]  (0 ns)
+	'load' operation ('pcls_load_1', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39) on array 'pcls' [41]  (2.66 ns)
+
+ <State 5>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('pcls_load_1', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39) on array 'pcls' [41]  (2.66 ns)
+	'icmp' operation ('icmp_ln39_2', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:39) [42]  (1.55 ns)
+
+ <State 6>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('pcls_load_2', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51) on array 'pcls' [56]  (2.66 ns)
+	'icmp' operation ('icmp_ln51_1', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:51) [57]  (1.55 ns)
+
+ <State 7>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('eos', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:29) ('j', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:60) [62]  (0 ns)
+	'getelementptr' operation ('pcls_addr_3', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57) [67]  (0 ns)
+	'load' operation ('pcls_load_3', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57) on array 'pcls' [68]  (2.66 ns)
+
+ <State 8>: 4.21ns
+The critical path consists of the following:
+	'load' operation ('pcls_load_3', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57) on array 'pcls' [68]  (2.66 ns)
+	'icmp' operation ('icmp_ln57_1', extr_.reactosdllwin32usp10bidi.c_resolveResolved_with_main.c:57) [69]  (1.55 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

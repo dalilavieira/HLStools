@@ -1,0 +1,564 @@
+
+
+================================================================
+== Vivado HLS Report for 'ttaenc_filter_process_c'
+================================================================
+* Date:           Tue May 26 00:46:30 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.365|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    9|   15|    9|   15|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 22
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 10 3 9 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 16 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 9 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.42>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%error_addr = getelementptr [10 x i32]* %error, i64 0, i64 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:17]   --->   Operation 23 'getelementptr' 'error_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [2/2] (1.42ns)   --->   "%error_load = load i32* %error_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19]   --->   Operation 24 'load' 'error_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 2 <SV = 1> <Delay = 2.97>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([10 x i32]* %qm) nounwind, !map !13"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([10 x i32]* %dx) nounwind, !map !19"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([10 x i32]* %dl) nounwind, !map !23"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([10 x i32]* %error) nounwind, !map !27"   --->   Operation 28 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([10 x i32]* %in_r) nounwind, !map !31"   --->   Operation 29 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %shift) nounwind, !map !35"   --->   Operation 30 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %round) nounwind, !map !41"   --->   Operation 31 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%round_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %round) nounwind" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:17]   --->   Operation 32 'read' 'round_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%shift_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %shift) nounwind" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:17]   --->   Operation 33 'read' 'shift_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%in_addr = getelementptr [10 x i32]* %in_r, i64 0, i64 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:17]   --->   Operation 34 'getelementptr' 'in_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%dl_addr = getelementptr [10 x i32]* %dl, i64 0, i64 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:16]   --->   Operation 35 'getelementptr' 'dl_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%dx_addr = getelementptr [10 x i32]* %dx, i64 0, i64 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:16]   --->   Operation 36 'getelementptr' 'dx_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%qm_addr = getelementptr [10 x i32]* %qm, i64 0, i64 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:16]   --->   Operation 37 'getelementptr' 'qm_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([24 x i8]* @ttaenc_filter_proces) nounwind"   --->   Operation 38 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/2] (1.42ns)   --->   "%error_load = load i32* %error_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19]   --->   Operation 39 'load' 'error_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %error_load, i32 31)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19]   --->   Operation 40 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "br i1 %tmp, label %1, label %2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19]   --->   Operation 41 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (1.54ns)   --->   "%icmp_ln22 = icmp sgt i32 %error_load, 0" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:22]   --->   Operation 42 'icmp' 'icmp_ln22' <Predicate = (!tmp)> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "br i1 %icmp_ln22, label %3, label %._crit_edge" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:22]   --->   Operation 43 'br' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 44 [2/2] (1.42ns)   --->   "%qm_load_8 = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 44 'load' 'qm_load_8' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%qm_addr_8 = getelementptr [10 x i32]* %qm, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 45 'getelementptr' 'qm_addr_8' <Predicate = (!tmp & icmp_ln22)> <Delay = 0.00>
+ST_2 : Operation 46 [2/2] (1.42ns)   --->   "%qm_load_9 = load i32* %qm_addr_8, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 46 'load' 'qm_load_9' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_2 : Operation 47 [2/2] (1.42ns)   --->   "%qm_load = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 47 'load' 'qm_load' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%qm_addr_1 = getelementptr [10 x i32]* %qm, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 48 'getelementptr' 'qm_addr_1' <Predicate = (tmp)> <Delay = 0.00>
+ST_2 : Operation 49 [2/2] (1.42ns)   --->   "%qm_load_1 = load i32* %qm_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 49 'load' 'qm_load_1' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 3 <SV = 2> <Delay = 1.42>
+ST_3 : Operation 50 [1/2] (1.42ns)   --->   "%qm_load_8 = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 50 'load' 'qm_load_8' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_3 : Operation 51 [1/2] (1.42ns)   --->   "%qm_load_9 = load i32* %qm_addr_8, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 51 'load' 'qm_load_9' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%qm_addr_9 = getelementptr [10 x i32]* %qm, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 52 'getelementptr' 'qm_addr_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 53 [2/2] (1.42ns)   --->   "%qm_load_10 = load i32* %qm_addr_9, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 53 'load' 'qm_load_10' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%qm_addr_10 = getelementptr [10 x i32]* %qm, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 54 'getelementptr' 'qm_addr_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [2/2] (1.42ns)   --->   "%qm_load_11 = load i32* %qm_addr_10, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 55 'load' 'qm_load_11' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 4 <SV = 3> <Delay = 1.42>
+ST_4 : Operation 56 [1/2] (1.42ns)   --->   "%qm_load_10 = load i32* %qm_addr_9, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 56 'load' 'qm_load_10' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_4 : Operation 57 [1/2] (1.42ns)   --->   "%qm_load_11 = load i32* %qm_addr_10, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 57 'load' 'qm_load_11' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%qm_addr_11 = getelementptr [10 x i32]* %qm, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 58 'getelementptr' 'qm_addr_11' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [2/2] (1.42ns)   --->   "%qm_load_12 = load i32* %qm_addr_11, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 59 'load' 'qm_load_12' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%qm_addr_12 = getelementptr [10 x i32]* %qm, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 60 'getelementptr' 'qm_addr_12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 61 [2/2] (1.42ns)   --->   "%qm_load_13 = load i32* %qm_addr_12, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 61 'load' 'qm_load_13' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 5 <SV = 4> <Delay = 1.42>
+ST_5 : Operation 62 [2/2] (1.42ns)   --->   "%dx_load_8 = load i32* %dx_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 62 'load' 'dx_load_8' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%dx_addr_8 = getelementptr [10 x i32]* %dx, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 63 'getelementptr' 'dx_addr_8' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [2/2] (1.42ns)   --->   "%dx_load_9 = load i32* %dx_addr_8, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 64 'load' 'dx_load_9' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_5 : Operation 65 [1/2] (1.42ns)   --->   "%qm_load_12 = load i32* %qm_addr_11, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 65 'load' 'qm_load_12' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_5 : Operation 66 [1/2] (1.42ns)   --->   "%qm_load_13 = load i32* %qm_addr_12, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 66 'load' 'qm_load_13' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%qm_addr_13 = getelementptr [10 x i32]* %qm, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 67 'getelementptr' 'qm_addr_13' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 68 [2/2] (1.42ns)   --->   "%qm_load_14 = load i32* %qm_addr_13, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 68 'load' 'qm_load_14' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%qm_addr_14 = getelementptr [10 x i32]* %qm, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 69 'getelementptr' 'qm_addr_14' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 70 [2/2] (1.42ns)   --->   "%qm_load_15 = load i32* %qm_addr_14, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 70 'load' 'qm_load_15' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 6 <SV = 5> <Delay = 4.63>
+ST_6 : Operation 71 [1/2] (1.42ns)   --->   "%dx_load_8 = load i32* %dx_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 71 'load' 'dx_load_8' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 72 [1/1] (1.78ns)   --->   "%add_ln23 = add nsw i32 %qm_load_8, %dx_load_8" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 72 'add' 'add_ln23' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 73 [1/1] (1.42ns)   --->   "store i32 %add_ln23, i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 73 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 74 [1/2] (1.42ns)   --->   "%dx_load_9 = load i32* %dx_addr_8, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 74 'load' 'dx_load_9' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 75 [1/1] (1.78ns)   --->   "%add_ln23_1 = add nsw i32 %qm_load_9, %dx_load_9" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 75 'add' 'add_ln23_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 76 [1/1] (1.42ns)   --->   "store i32 %add_ln23_1, i32* %qm_addr_8, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 76 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 77 [1/1] (0.00ns)   --->   "%dx_addr_9 = getelementptr [10 x i32]* %dx, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 77 'getelementptr' 'dx_addr_9' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 78 [2/2] (1.42ns)   --->   "%dx_load_10 = load i32* %dx_addr_9, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 78 'load' 'dx_load_10' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%dx_addr_10 = getelementptr [10 x i32]* %dx, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 79 'getelementptr' 'dx_addr_10' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 80 [2/2] (1.42ns)   --->   "%dx_load_11 = load i32* %dx_addr_10, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 80 'load' 'dx_load_11' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 81 [1/2] (1.42ns)   --->   "%qm_load_14 = load i32* %qm_addr_13, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 81 'load' 'qm_load_14' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_6 : Operation 82 [1/2] (1.42ns)   --->   "%qm_load_15 = load i32* %qm_addr_14, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 82 'load' 'qm_load_15' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 7 <SV = 6> <Delay = 4.63>
+ST_7 : Operation 83 [1/2] (1.42ns)   --->   "%dx_load_10 = load i32* %dx_addr_9, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 83 'load' 'dx_load_10' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_7 : Operation 84 [1/1] (1.78ns)   --->   "%add_ln23_2 = add nsw i32 %qm_load_10, %dx_load_10" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 84 'add' 'add_ln23_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 85 [1/1] (1.42ns)   --->   "store i32 %add_ln23_2, i32* %qm_addr_9, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 85 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_7 : Operation 86 [1/2] (1.42ns)   --->   "%dx_load_11 = load i32* %dx_addr_10, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 86 'load' 'dx_load_11' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_7 : Operation 87 [1/1] (1.78ns)   --->   "%add_ln23_3 = add nsw i32 %qm_load_11, %dx_load_11" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 87 'add' 'add_ln23_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 88 [1/1] (1.42ns)   --->   "store i32 %add_ln23_3, i32* %qm_addr_10, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23]   --->   Operation 88 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_7 : Operation 89 [1/1] (0.00ns)   --->   "%dx_addr_11 = getelementptr [10 x i32]* %dx, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 89 'getelementptr' 'dx_addr_11' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 90 [2/2] (1.42ns)   --->   "%dx_load_12 = load i32* %dx_addr_11, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 90 'load' 'dx_load_12' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_7 : Operation 91 [1/1] (0.00ns)   --->   "%dx_addr_12 = getelementptr [10 x i32]* %dx, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 91 'getelementptr' 'dx_addr_12' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 92 [2/2] (1.42ns)   --->   "%dx_load_13 = load i32* %dx_addr_12, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 92 'load' 'dx_load_13' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 8 <SV = 7> <Delay = 4.63>
+ST_8 : Operation 93 [1/2] (1.42ns)   --->   "%dx_load_12 = load i32* %dx_addr_11, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 93 'load' 'dx_load_12' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_8 : Operation 94 [1/1] (1.78ns)   --->   "%add_ln24 = add nsw i32 %qm_load_12, %dx_load_12" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 94 'add' 'add_ln24' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 95 [1/1] (1.42ns)   --->   "store i32 %add_ln24, i32* %qm_addr_11, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 95 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_8 : Operation 96 [1/2] (1.42ns)   --->   "%dx_load_13 = load i32* %dx_addr_12, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 96 'load' 'dx_load_13' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_8 : Operation 97 [1/1] (1.78ns)   --->   "%add_ln24_1 = add nsw i32 %qm_load_13, %dx_load_13" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 97 'add' 'add_ln24_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 98 [1/1] (1.42ns)   --->   "store i32 %add_ln24_1, i32* %qm_addr_12, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 98 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_8 : Operation 99 [1/1] (0.00ns)   --->   "%dx_addr_13 = getelementptr [10 x i32]* %dx, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 99 'getelementptr' 'dx_addr_13' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 100 [2/2] (1.42ns)   --->   "%dx_load_14 = load i32* %dx_addr_13, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 100 'load' 'dx_load_14' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_8 : Operation 101 [1/1] (0.00ns)   --->   "%dx_addr_14 = getelementptr [10 x i32]* %dx, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 101 'getelementptr' 'dx_addr_14' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 102 [2/2] (1.42ns)   --->   "%dx_load_15 = load i32* %dx_addr_14, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 102 'load' 'dx_load_15' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 9 <SV = 8> <Delay = 4.63>
+ST_9 : Operation 103 [1/2] (1.42ns)   --->   "%dx_load_14 = load i32* %dx_addr_13, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 103 'load' 'dx_load_14' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 104 [1/1] (1.78ns)   --->   "%add_ln24_2 = add nsw i32 %qm_load_14, %dx_load_14" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 104 'add' 'add_ln24_2' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 105 [1/1] (1.42ns)   --->   "store i32 %add_ln24_2, i32* %qm_addr_13, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 105 'store' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 106 [1/2] (1.42ns)   --->   "%dx_load_15 = load i32* %dx_addr_14, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 106 'load' 'dx_load_15' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 107 [1/1] (1.78ns)   --->   "%add_ln24_3 = add nsw i32 %qm_load_15, %dx_load_15" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 107 'add' 'add_ln24_3' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 108 [1/1] (1.42ns)   --->   "store i32 %add_ln24_3, i32* %qm_addr_14, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24]   --->   Operation 108 'store' <Predicate = (!tmp & icmp_ln22)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "br label %._crit_edge" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:25]   --->   Operation 109 'br' <Predicate = (!tmp & icmp_ln22)> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (0.00ns)   --->   "br label %4"   --->   Operation 110 'br' <Predicate = (!tmp)> <Delay = 0.00>
+ST_9 : Operation 111 [1/2] (1.42ns)   --->   "%dx_load_6 = load i32* %dx_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 111 'load' 'dx_load_6' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 112 [1/1] (1.78ns)   --->   "%sub_ln21_2 = sub nsw i32 %qm_load_6, %dx_load_6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 112 'sub' 'sub_ln21_2' <Predicate = (tmp)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 113 [1/1] (1.42ns)   --->   "store i32 %sub_ln21_2, i32* %qm_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 113 'store' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 114 [1/2] (1.42ns)   --->   "%dx_load_7 = load i32* %dx_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 114 'load' 'dx_load_7' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 115 [1/1] (1.78ns)   --->   "%sub_ln21_3 = sub nsw i32 %qm_load_7, %dx_load_7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 115 'sub' 'sub_ln21_3' <Predicate = (tmp)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 116 [1/1] (1.42ns)   --->   "store i32 %sub_ln21_3, i32* %qm_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 116 'store' <Predicate = (tmp)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 117 [1/1] (0.00ns)   --->   "br label %4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:22]   --->   Operation 117 'br' <Predicate = (tmp)> <Delay = 0.00>
+ST_9 : Operation 118 [2/2] (1.42ns)   --->   "%dl_load = load i32* %dl_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 118 'load' 'dl_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 119 [1/1] (0.00ns)   --->   "%dl_addr_1 = getelementptr [10 x i32]* %dl, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 119 'getelementptr' 'dl_addr_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 120 [2/2] (1.42ns)   --->   "%dl_load_1 = load i32* %dl_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 120 'load' 'dl_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 121 [1/1] (0.00ns)   --->   "%dx_addr_15 = getelementptr [10 x i32]* %dx, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 121 'getelementptr' 'dx_addr_15' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 122 [2/2] (1.42ns)   --->   "%dx_load_16 = load i32* %dx_addr_15, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 122 'load' 'dx_load_16' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_9 : Operation 123 [1/1] (0.00ns)   --->   "%dx_addr_16 = getelementptr [10 x i32]* %dx, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 123 'getelementptr' 'dx_addr_16' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 124 [2/2] (1.42ns)   --->   "%dx_load_17 = load i32* %dx_addr_16, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 124 'load' 'dx_load_17' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 10 <SV = 2> <Delay = 1.42>
+ST_10 : Operation 125 [1/2] (1.42ns)   --->   "%qm_load = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 125 'load' 'qm_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_10 : Operation 126 [1/2] (1.42ns)   --->   "%qm_load_1 = load i32* %qm_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 126 'load' 'qm_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_10 : Operation 127 [1/1] (0.00ns)   --->   "%qm_addr_2 = getelementptr [10 x i32]* %qm, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 127 'getelementptr' 'qm_addr_2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 128 [2/2] (1.42ns)   --->   "%qm_load_2 = load i32* %qm_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 128 'load' 'qm_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_10 : Operation 129 [1/1] (0.00ns)   --->   "%qm_addr_3 = getelementptr [10 x i32]* %qm, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 129 'getelementptr' 'qm_addr_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 130 [2/2] (1.42ns)   --->   "%qm_load_3 = load i32* %qm_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 130 'load' 'qm_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 11 <SV = 3> <Delay = 1.42>
+ST_11 : Operation 131 [1/2] (1.42ns)   --->   "%qm_load_2 = load i32* %qm_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 131 'load' 'qm_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_11 : Operation 132 [1/2] (1.42ns)   --->   "%qm_load_3 = load i32* %qm_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 132 'load' 'qm_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_11 : Operation 133 [1/1] (0.00ns)   --->   "%qm_addr_4 = getelementptr [10 x i32]* %qm, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 133 'getelementptr' 'qm_addr_4' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 134 [2/2] (1.42ns)   --->   "%qm_load_4 = load i32* %qm_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 134 'load' 'qm_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_11 : Operation 135 [1/1] (0.00ns)   --->   "%qm_addr_5 = getelementptr [10 x i32]* %qm, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 135 'getelementptr' 'qm_addr_5' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 136 [2/2] (1.42ns)   --->   "%qm_load_5 = load i32* %qm_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 136 'load' 'qm_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 12 <SV = 4> <Delay = 1.42>
+ST_12 : Operation 137 [2/2] (1.42ns)   --->   "%dx_load = load i32* %dx_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 137 'load' 'dx_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_12 : Operation 138 [1/1] (0.00ns)   --->   "%dx_addr_1 = getelementptr [10 x i32]* %dx, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 138 'getelementptr' 'dx_addr_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 139 [2/2] (1.42ns)   --->   "%dx_load_1 = load i32* %dx_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 139 'load' 'dx_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_12 : Operation 140 [1/2] (1.42ns)   --->   "%qm_load_4 = load i32* %qm_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 140 'load' 'qm_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_12 : Operation 141 [1/2] (1.42ns)   --->   "%qm_load_5 = load i32* %qm_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 141 'load' 'qm_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_12 : Operation 142 [1/1] (0.00ns)   --->   "%qm_addr_6 = getelementptr [10 x i32]* %qm, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 142 'getelementptr' 'qm_addr_6' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 143 [2/2] (1.42ns)   --->   "%qm_load_6 = load i32* %qm_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 143 'load' 'qm_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_12 : Operation 144 [1/1] (0.00ns)   --->   "%qm_addr_7 = getelementptr [10 x i32]* %qm, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 144 'getelementptr' 'qm_addr_7' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 145 [2/2] (1.42ns)   --->   "%qm_load_7 = load i32* %qm_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 145 'load' 'qm_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 13 <SV = 5> <Delay = 4.63>
+ST_13 : Operation 146 [1/2] (1.42ns)   --->   "%dx_load = load i32* %dx_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 146 'load' 'dx_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 147 [1/1] (1.78ns)   --->   "%sub_ln20 = sub nsw i32 %qm_load, %dx_load" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 147 'sub' 'sub_ln20' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 148 [1/1] (1.42ns)   --->   "store i32 %sub_ln20, i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 148 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 149 [1/2] (1.42ns)   --->   "%dx_load_1 = load i32* %dx_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 149 'load' 'dx_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 150 [1/1] (1.78ns)   --->   "%sub_ln20_1 = sub nsw i32 %qm_load_1, %dx_load_1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 150 'sub' 'sub_ln20_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 151 [1/1] (1.42ns)   --->   "store i32 %sub_ln20_1, i32* %qm_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 151 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 152 [1/1] (0.00ns)   --->   "%dx_addr_2 = getelementptr [10 x i32]* %dx, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 152 'getelementptr' 'dx_addr_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 153 [2/2] (1.42ns)   --->   "%dx_load_2 = load i32* %dx_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 153 'load' 'dx_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 154 [1/1] (0.00ns)   --->   "%dx_addr_3 = getelementptr [10 x i32]* %dx, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 154 'getelementptr' 'dx_addr_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 155 [2/2] (1.42ns)   --->   "%dx_load_3 = load i32* %dx_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 155 'load' 'dx_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 156 [1/2] (1.42ns)   --->   "%qm_load_6 = load i32* %qm_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 156 'load' 'qm_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_13 : Operation 157 [1/2] (1.42ns)   --->   "%qm_load_7 = load i32* %qm_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 157 'load' 'qm_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 14 <SV = 6> <Delay = 4.63>
+ST_14 : Operation 158 [1/2] (1.42ns)   --->   "%dx_load_2 = load i32* %dx_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 158 'load' 'dx_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_14 : Operation 159 [1/1] (1.78ns)   --->   "%sub_ln20_2 = sub nsw i32 %qm_load_2, %dx_load_2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 159 'sub' 'sub_ln20_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 160 [1/1] (1.42ns)   --->   "store i32 %sub_ln20_2, i32* %qm_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 160 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_14 : Operation 161 [1/2] (1.42ns)   --->   "%dx_load_3 = load i32* %dx_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 161 'load' 'dx_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_14 : Operation 162 [1/1] (1.78ns)   --->   "%sub_ln20_3 = sub nsw i32 %qm_load_3, %dx_load_3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 162 'sub' 'sub_ln20_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 163 [1/1] (1.42ns)   --->   "store i32 %sub_ln20_3, i32* %qm_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20]   --->   Operation 163 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_14 : Operation 164 [1/1] (0.00ns)   --->   "%dx_addr_4 = getelementptr [10 x i32]* %dx, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 164 'getelementptr' 'dx_addr_4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 165 [2/2] (1.42ns)   --->   "%dx_load_4 = load i32* %dx_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 165 'load' 'dx_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_14 : Operation 166 [1/1] (0.00ns)   --->   "%dx_addr_5 = getelementptr [10 x i32]* %dx, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 166 'getelementptr' 'dx_addr_5' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 167 [2/2] (1.42ns)   --->   "%dx_load_5 = load i32* %dx_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 167 'load' 'dx_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 15 <SV = 7> <Delay = 4.63>
+ST_15 : Operation 168 [1/2] (1.42ns)   --->   "%dx_load_4 = load i32* %dx_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 168 'load' 'dx_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_15 : Operation 169 [1/1] (1.78ns)   --->   "%sub_ln21 = sub nsw i32 %qm_load_4, %dx_load_4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 169 'sub' 'sub_ln21' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 170 [1/1] (1.42ns)   --->   "store i32 %sub_ln21, i32* %qm_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 170 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_15 : Operation 171 [1/2] (1.42ns)   --->   "%dx_load_5 = load i32* %dx_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 171 'load' 'dx_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_15 : Operation 172 [1/1] (1.78ns)   --->   "%sub_ln21_1 = sub nsw i32 %qm_load_5, %dx_load_5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 172 'sub' 'sub_ln21_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 173 [1/1] (1.42ns)   --->   "store i32 %sub_ln21_1, i32* %qm_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 173 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_15 : Operation 174 [1/1] (0.00ns)   --->   "%dx_addr_6 = getelementptr [10 x i32]* %dx, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 174 'getelementptr' 'dx_addr_6' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 175 [2/2] (1.42ns)   --->   "%dx_load_6 = load i32* %dx_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 175 'load' 'dx_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_15 : Operation 176 [1/1] (0.00ns)   --->   "%dx_addr_7 = getelementptr [10 x i32]* %dx, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 176 'getelementptr' 'dx_addr_7' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 177 [2/2] (1.42ns)   --->   "%dx_load_7 = load i32* %dx_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21]   --->   Operation 177 'load' 'dx_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 16 <SV = 9> <Delay = 1.42>
+ST_16 : Operation 178 [1/2] (1.42ns)   --->   "%dl_load = load i32* %dl_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 178 'load' 'dl_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 179 [2/2] (1.42ns)   --->   "%qm_load_16 = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 179 'load' 'qm_load_16' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 180 [1/2] (1.42ns)   --->   "%dl_load_1 = load i32* %dl_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 180 'load' 'dl_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 181 [1/1] (0.00ns)   --->   "%qm_addr_15 = getelementptr [10 x i32]* %qm, i64 0, i64 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 181 'getelementptr' 'qm_addr_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 182 [2/2] (1.42ns)   --->   "%qm_load_17 = load i32* %qm_addr_15, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 182 'load' 'qm_load_17' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 183 [1/1] (0.00ns)   --->   "%dl_addr_2 = getelementptr [10 x i32]* %dl, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 183 'getelementptr' 'dl_addr_2' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 184 [2/2] (1.42ns)   --->   "%dl_load_2 = load i32* %dl_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 184 'load' 'dl_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 185 [1/1] (0.00ns)   --->   "%dl_addr_3 = getelementptr [10 x i32]* %dl, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 185 'getelementptr' 'dl_addr_3' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 186 [2/2] (1.42ns)   --->   "%dl_load_3 = load i32* %dl_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 186 'load' 'dl_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 187 [1/2] (1.42ns)   --->   "%dx_load_16 = load i32* %dx_addr_15, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 187 'load' 'dx_load_16' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 188 [1/2] (1.42ns)   --->   "%dx_load_17 = load i32* %dx_addr_16, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 188 'load' 'dx_load_17' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 189 [1/1] (0.00ns)   --->   "%dx_addr_17 = getelementptr [10 x i32]* %dx, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 189 'getelementptr' 'dx_addr_17' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 190 [2/2] (1.42ns)   --->   "%dx_load_18 = load i32* %dx_addr_17, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 190 'load' 'dx_load_18' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_16 : Operation 191 [1/1] (0.00ns)   --->   "%dx_addr_18 = getelementptr [10 x i32]* %dx, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 191 'getelementptr' 'dx_addr_18' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 192 [2/2] (1.42ns)   --->   "%dx_load_19 = load i32* %dx_addr_18, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 192 'load' 'dx_load_19' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 17 <SV = 10> <Delay = 8.00>
+ST_17 : Operation 193 [1/2] (1.42ns)   --->   "%qm_load_16 = load i32* %qm_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 193 'load' 'qm_load_16' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 194 [1/1] (6.58ns)   --->   "%mul_ln27 = mul nsw i32 %qm_load_16, %dl_load" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 194 'mul' 'mul_ln27' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 195 [1/2] (1.42ns)   --->   "%qm_load_17 = load i32* %qm_addr_15, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 195 'load' 'qm_load_17' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 196 [1/2] (1.42ns)   --->   "%dl_load_2 = load i32* %dl_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 196 'load' 'dl_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 197 [1/1] (0.00ns)   --->   "%qm_addr_16 = getelementptr [10 x i32]* %qm, i64 0, i64 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 197 'getelementptr' 'qm_addr_16' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 198 [2/2] (1.42ns)   --->   "%qm_load_18 = load i32* %qm_addr_16, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 198 'load' 'qm_load_18' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 199 [1/2] (1.42ns)   --->   "%dl_load_3 = load i32* %dl_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 199 'load' 'dl_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 200 [1/1] (0.00ns)   --->   "%qm_addr_17 = getelementptr [10 x i32]* %qm, i64 0, i64 3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 200 'getelementptr' 'qm_addr_17' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 201 [2/2] (1.42ns)   --->   "%qm_load_19 = load i32* %qm_addr_17, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 201 'load' 'qm_load_19' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 202 [1/1] (0.00ns)   --->   "%dl_addr_4 = getelementptr [10 x i32]* %dl, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 202 'getelementptr' 'dl_addr_4' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 203 [2/2] (1.42ns)   --->   "%dl_load_4 = load i32* %dl_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 203 'load' 'dl_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 204 [1/1] (0.00ns)   --->   "%dl_addr_5 = getelementptr [10 x i32]* %dl, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 204 'getelementptr' 'dl_addr_5' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 205 [2/2] (1.42ns)   --->   "%dl_load_5 = load i32* %dl_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 205 'load' 'dl_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 206 [1/1] (1.42ns)   --->   "store i32 %dx_load_16, i32* %dx_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 206 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 207 [1/1] (1.42ns)   --->   "store i32 %dx_load_17, i32* %dx_addr_15, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 207 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 208 [1/2] (1.42ns)   --->   "%dx_load_18 = load i32* %dx_addr_17, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 208 'load' 'dx_load_18' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_17 : Operation 209 [1/2] (1.42ns)   --->   "%dx_load_19 = load i32* %dx_addr_18, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 209 'load' 'dx_load_19' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 18 <SV = 11> <Delay = 8.00>
+ST_18 : Operation 210 [1/1] (6.58ns)   --->   "%mul_ln27_1 = mul nsw i32 %qm_load_17, %dl_load_1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 210 'mul' 'mul_ln27_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 211 [1/2] (1.42ns)   --->   "%qm_load_18 = load i32* %qm_addr_16, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 211 'load' 'qm_load_18' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 212 [1/1] (6.58ns)   --->   "%mul_ln27_2 = mul nsw i32 %qm_load_18, %dl_load_2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 212 'mul' 'mul_ln27_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 213 [1/2] (1.42ns)   --->   "%qm_load_19 = load i32* %qm_addr_17, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 213 'load' 'qm_load_19' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 214 [1/2] (1.42ns)   --->   "%dl_load_4 = load i32* %dl_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 214 'load' 'dl_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 215 [1/1] (0.00ns)   --->   "%qm_addr_18 = getelementptr [10 x i32]* %qm, i64 0, i64 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 215 'getelementptr' 'qm_addr_18' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 216 [2/2] (1.42ns)   --->   "%qm_load_20 = load i32* %qm_addr_18, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 216 'load' 'qm_load_20' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 217 [1/2] (1.42ns)   --->   "%dl_load_5 = load i32* %dl_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 217 'load' 'dl_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 218 [1/1] (0.00ns)   --->   "%qm_addr_19 = getelementptr [10 x i32]* %qm, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 218 'getelementptr' 'qm_addr_19' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 219 [2/2] (1.42ns)   --->   "%qm_load_21 = load i32* %qm_addr_19, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 219 'load' 'qm_load_21' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 220 [1/1] (0.00ns)   --->   "%dl_addr_6 = getelementptr [10 x i32]* %dl, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 220 'getelementptr' 'dl_addr_6' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 221 [2/2] (1.42ns)   --->   "%dl_load_6 = load i32* %dl_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 221 'load' 'dl_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 222 [1/1] (0.00ns)   --->   "%dl_addr_7 = getelementptr [10 x i32]* %dl, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 222 'getelementptr' 'dl_addr_7' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 223 [2/2] (1.42ns)   --->   "%dl_load_7 = load i32* %dl_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 223 'load' 'dl_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 224 [1/1] (1.78ns)   --->   "%add_ln27 = add i32 %mul_ln27, %round_read" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 224 'add' 'add_ln27' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 225 [1/1] (1.42ns)   --->   "store i32 %dx_load_18, i32* %dx_addr_16, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 225 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 226 [1/1] (1.42ns)   --->   "store i32 %dx_load_19, i32* %dx_addr_17, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:30]   --->   Operation 226 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_18 : Operation 227 [1/1] (0.00ns)   --->   "%trunc_ln = call i2 @_ssdm_op_PartSelect.i2.i32.i32.i32(i32 %dl_load_4, i32 30, i32 31)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:33]   --->   Operation 227 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 228 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %dl_load_5, i32 31)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 228 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 12> <Delay = 2.77>
+ST_19 : Operation 229 [1/2] (1.42ns)   --->   "%qm_load_20 = load i32* %qm_addr_18, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 229 'load' 'qm_load_20' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 230 [1/2] (1.42ns)   --->   "%qm_load_21 = load i32* %qm_addr_19, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 230 'load' 'qm_load_21' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 231 [1/2] (1.42ns)   --->   "%dl_load_6 = load i32* %dl_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 231 'load' 'dl_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 232 [1/1] (0.00ns)   --->   "%qm_addr_20 = getelementptr [10 x i32]* %qm, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 232 'getelementptr' 'qm_addr_20' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 233 [2/2] (1.42ns)   --->   "%qm_load_22 = load i32* %qm_addr_20, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 233 'load' 'qm_load_22' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 234 [1/2] (1.42ns)   --->   "%dl_load_7 = load i32* %dl_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 234 'load' 'dl_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 235 [1/1] (0.00ns)   --->   "%qm_addr_21 = getelementptr [10 x i32]* %qm, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 235 'getelementptr' 'qm_addr_21' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 236 [2/2] (1.42ns)   --->   "%qm_load_23 = load i32* %qm_addr_21, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 236 'load' 'qm_load_23' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 237 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln27_1 = add i32 %mul_ln27_2, %mul_ln27_1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 237 'add' 'add_ln27_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_19 : Operation 238 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln27_2 = add i32 %add_ln27, %add_ln27_1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 238 'add' 'add_ln27_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_19 : Operation 239 [1/1] (1.42ns)   --->   "store i32 %dl_load_1, i32* %dl_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:31]   --->   Operation 239 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 240 [1/1] (1.42ns)   --->   "store i32 %dl_load_2, i32* %dl_addr_1, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:31]   --->   Operation 240 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 241 [1/1] (0.00ns)   --->   "%sext_ln33 = sext i2 %trunc_ln to i32" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:33]   --->   Operation 241 'sext' 'sext_ln33' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 242 [1/1] (0.00ns)   --->   "%or_ln33 = or i32 %sext_ln33, 1" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:33]   --->   Operation 242 'or' 'or_ln33' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 243 [1/1] (1.42ns)   --->   "store i32 %or_ln33, i32* %dx_addr_18, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:33]   --->   Operation 243 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 244 [1/1] (0.00ns)   --->   "%and_ln = call i3 @_ssdm_op_BitConcatenate.i3.i1.i2(i1 %tmp_1, i2 0)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 244 'bitconcatenate' 'and_ln' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 245 [1/1] (0.00ns)   --->   "%or_ln34 = or i3 %and_ln, 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 245 'or' 'or_ln34' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 246 [1/1] (0.00ns)   --->   "%sext_ln34 = sext i3 %or_ln34 to i32" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 246 'sext' 'sext_ln34' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 247 [1/1] (0.00ns)   --->   "%dx_addr_19 = getelementptr [10 x i32]* %dx, i64 0, i64 5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 247 'getelementptr' 'dx_addr_19' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 248 [1/1] (1.42ns)   --->   "store i32 %sext_ln34, i32* %dx_addr_19, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:34]   --->   Operation 248 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_19 : Operation 249 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %dl_load_6, i32 31)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 249 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 250 [1/1] (0.00ns)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %dl_load_7, i32 31)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 250 'bitselect' 'tmp_3' <Predicate = true> <Delay = 0.00>
+
+State 20 <SV = 13> <Delay = 8.36>
+ST_20 : Operation 251 [1/1] (6.58ns)   --->   "%mul_ln27_3 = mul nsw i32 %qm_load_19, %dl_load_3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 251 'mul' 'mul_ln27_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 252 [1/1] (6.58ns)   --->   "%mul_ln27_4 = mul nsw i32 %qm_load_20, %dl_load_4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 252 'mul' 'mul_ln27_4' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 253 [1/1] (6.58ns)   --->   "%mul_ln27_5 = mul nsw i32 %qm_load_21, %dl_load_5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 253 'mul' 'mul_ln27_5' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 254 [1/2] (1.42ns)   --->   "%qm_load_22 = load i32* %qm_addr_20, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 254 'load' 'qm_load_22' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 255 [1/1] (6.58ns)   --->   "%mul_ln27_6 = mul nsw i32 %qm_load_22, %dl_load_6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 255 'mul' 'mul_ln27_6' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 256 [1/2] (1.42ns)   --->   "%qm_load_23 = load i32* %qm_addr_21, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 256 'load' 'qm_load_23' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 257 [1/1] (6.58ns)   --->   "%mul_ln27_7 = mul nsw i32 %qm_load_23, %dl_load_7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 257 'mul' 'mul_ln27_7' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 258 [1/1] (1.78ns)   --->   "%add_ln27_3 = add i32 %mul_ln27_4, %mul_ln27_3" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 258 'add' 'add_ln27_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 259 [1/1] (1.42ns)   --->   "store i32 %dl_load_3, i32* %dl_addr_2, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:31]   --->   Operation 259 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 260 [1/1] (1.42ns)   --->   "store i32 %dl_load_4, i32* %dl_addr_3, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:31]   --->   Operation 260 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 261 [1/1] (0.00ns)   --->   "%and_ln1 = call i3 @_ssdm_op_BitConcatenate.i3.i1.i2(i1 %tmp_2, i2 0)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 261 'bitconcatenate' 'and_ln1' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 262 [1/1] (0.00ns)   --->   "%or_ln35 = or i3 %and_ln1, 2" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 262 'or' 'or_ln35' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 263 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i3 %or_ln35 to i32" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 263 'sext' 'sext_ln35' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 264 [1/1] (0.00ns)   --->   "%dx_addr_20 = getelementptr [10 x i32]* %dx, i64 0, i64 6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 264 'getelementptr' 'dx_addr_20' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 265 [1/1] (1.42ns)   --->   "store i32 %sext_ln35, i32* %dx_addr_20, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:35]   --->   Operation 265 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 266 [1/1] (0.00ns)   --->   "%and_ln2 = call i4 @_ssdm_op_BitConcatenate.i4.i1.i3(i1 %tmp_3, i3 0)" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 266 'bitconcatenate' 'and_ln2' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 267 [1/1] (0.00ns)   --->   "%or_ln36 = or i4 %and_ln2, 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 267 'or' 'or_ln36' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 268 [1/1] (0.00ns)   --->   "%sext_ln36 = sext i4 %or_ln36 to i32" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 268 'sext' 'sext_ln36' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 269 [1/1] (0.00ns)   --->   "%dx_addr_21 = getelementptr [10 x i32]* %dx, i64 0, i64 7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 269 'getelementptr' 'dx_addr_21' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 270 [1/1] (1.42ns)   --->   "store i32 %sext_ln36, i32* %dx_addr_21, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:36]   --->   Operation 270 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_20 : Operation 271 [2/2] (1.42ns)   --->   "%in_load = load i32* %in_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:39]   --->   Operation 271 'load' 'in_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+
+State 21 <SV = 14> <Delay = 7.91>
+ST_21 : Operation 272 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln27_4 = add i32 %mul_ln27_7, %mul_ln27_6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 272 'add' 'add_ln27_4' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 273 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln27_5 = add i32 %mul_ln27_5, %add_ln27_4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 273 'add' 'add_ln27_5' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 274 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln27_6 = add i32 %add_ln27_3, %add_ln27_5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 274 'add' 'add_ln27_6' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 275 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln27_7 = add i32 %add_ln27_2, %add_ln27_6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27]   --->   Operation 275 'add' 'add_ln27_7' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 276 [1/2] (1.42ns)   --->   "%in_load = load i32* %in_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:39]   --->   Operation 276 'load' 'in_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_21 : Operation 277 [1/1] (1.78ns)   --->   "%sub_ln39 = sub nsw i32 %in_load, %dl_load_7" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:39]   --->   Operation 277 'sub' 'sub_ln39' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 278 [1/1] (1.42ns)   --->   "store i32 %sub_ln39, i32* %dl_addr_6, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:39]   --->   Operation 278 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_21 : Operation 279 [1/1] (1.42ns)   --->   "store i32 %in_load, i32* %dl_addr_7, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:39]   --->   Operation 279 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_21 : Operation 280 [1/1] (1.78ns)   --->   "%sub_ln40 = sub i32 %sub_ln39, %dl_load_6" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40]   --->   Operation 280 'sub' 'sub_ln40' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 281 [1/1] (0.00ns) (grouped into LUT with out node sub_ln42)   --->   "%ashr_ln42 = ashr i32 %add_ln27_7, %shift_read" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:42]   --->   Operation 281 'ashr' 'ashr_ln42' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 282 [1/1] (2.36ns) (out node of the LUT)   --->   "%sub_ln42 = sub nsw i32 %in_load, %ashr_ln42" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:42]   --->   Operation 282 'sub' 'sub_ln42' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 15> <Delay = 3.21>
+ST_22 : Operation 283 [1/1] (1.42ns)   --->   "store i32 %sub_ln40, i32* %dl_addr_5, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40]   --->   Operation 283 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_22 : Operation 284 [1/1] (1.78ns)   --->   "%sub_ln40_1 = sub i32 %sub_ln40, %dl_load_5" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40]   --->   Operation 284 'sub' 'sub_ln40_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 285 [1/1] (1.42ns)   --->   "store i32 %sub_ln40_1, i32* %dl_addr_4, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40]   --->   Operation 285 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_22 : Operation 286 [1/1] (1.42ns)   --->   "store i32 %sub_ln42, i32* %in_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:42]   --->   Operation 286 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_22 : Operation 287 [1/1] (1.42ns)   --->   "store i32 %sub_ln42, i32* %error_addr, align 4" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:43]   --->   Operation 287 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 10> <RAM>
+ST_22 : Operation 288 [1/1] (0.00ns)   --->   "ret void" [extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:44]   --->   Operation 288 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.43ns
+The critical path consists of the following:
+	'getelementptr' operation ('error_addr', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:17) [18]  (0 ns)
+	'load' operation ('error_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19) on array 'error' [23]  (1.43 ns)
+
+ <State 2>: 2.97ns
+The critical path consists of the following:
+	'load' operation ('error_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:19) on array 'error' [23]  (1.43 ns)
+	'icmp' operation ('icmp_ln22', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:22) [27]  (1.55 ns)
+
+ <State 3>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('qm_load_8', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) on array 'qm' [31]  (1.43 ns)
+
+ <State 4>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('qm_load_10', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) on array 'qm' [43]  (1.43 ns)
+
+ <State 5>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('dx_load_8', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) on array 'dx' [30]  (1.43 ns)
+
+ <State 6>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_8', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) on array 'dx' [30]  (1.43 ns)
+	'add' operation ('add_ln23', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) [32]  (1.78 ns)
+	'store' operation ('store_ln23', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) of variable 'add_ln23', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23 on array 'qm' [33]  (1.43 ns)
+
+ <State 7>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_10', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) on array 'dx' [41]  (1.43 ns)
+	'add' operation ('add_ln23_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) [44]  (1.78 ns)
+	'store' operation ('store_ln23', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23) of variable 'add_ln23_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:23 on array 'qm' [45]  (1.43 ns)
+
+ <State 8>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_12', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) on array 'dx' [53]  (1.43 ns)
+	'add' operation ('add_ln24', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) [56]  (1.78 ns)
+	'store' operation ('store_ln24', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) of variable 'add_ln24', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24 on array 'qm' [57]  (1.43 ns)
+
+ <State 9>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_14', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) on array 'dx' [65]  (1.43 ns)
+	'add' operation ('add_ln24_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) [68]  (1.78 ns)
+	'store' operation ('store_ln24', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24) of variable 'add_ln24_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:24 on array 'qm' [69]  (1.43 ns)
+
+ <State 10>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('qm_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) on array 'qm' [81]  (1.43 ns)
+
+ <State 11>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('qm_load_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) on array 'qm' [93]  (1.43 ns)
+
+ <State 12>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('dx_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) on array 'dx' [80]  (1.43 ns)
+
+ <State 13>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) on array 'dx' [80]  (1.43 ns)
+	'sub' operation ('sub_ln20', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) [82]  (1.78 ns)
+	'store' operation ('store_ln20', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) of variable 'sub_ln20', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20 on array 'qm' [83]  (1.43 ns)
+
+ <State 14>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) on array 'dx' [91]  (1.43 ns)
+	'sub' operation ('sub_ln20_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) [94]  (1.78 ns)
+	'store' operation ('store_ln20', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20) of variable 'sub_ln20_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:20 on array 'qm' [95]  (1.43 ns)
+
+ <State 15>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('dx_load_4', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21) on array 'dx' [103]  (1.43 ns)
+	'sub' operation ('sub_ln21', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21) [106]  (1.78 ns)
+	'store' operation ('store_ln21', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21) of variable 'sub_ln21', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:21 on array 'qm' [107]  (1.43 ns)
+
+ <State 16>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('dl_load', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) on array 'dl' [128]  (1.43 ns)
+
+ <State 17>: 8.01ns
+The critical path consists of the following:
+	'load' operation ('qm_load_16', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) on array 'qm' [129]  (1.43 ns)
+	'mul' operation ('mul_ln27', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [130]  (6.58 ns)
+
+ <State 18>: 8.01ns
+The critical path consists of the following:
+	'load' operation ('qm_load_18', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) on array 'qm' [139]  (1.43 ns)
+	'mul' operation ('mul_ln27_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [140]  (6.58 ns)
+
+ <State 19>: 2.78ns
+The critical path consists of the following:
+	'add' operation ('add_ln27_1', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [167]  (0 ns)
+	'add' operation ('add_ln27_2', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [168]  (2.78 ns)
+
+ <State 20>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln27_3', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [145]  (6.58 ns)
+	'add' operation ('add_ln27_3', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [169]  (1.78 ns)
+
+ <State 21>: 7.92ns
+The critical path consists of the following:
+	'add' operation ('add_ln27_4', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [170]  (0 ns)
+	'add' operation ('add_ln27_5', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [171]  (2.78 ns)
+	'add' operation ('add_ln27_6', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [172]  (0 ns)
+	'add' operation ('round', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:27) [173]  (2.78 ns)
+	'ashr' operation ('ashr_ln42', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:42) [220]  (0 ns)
+	'sub' operation ('sub_ln42', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:42) [221]  (2.36 ns)
+
+ <State 22>: 3.21ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln40_1', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40) [218]  (1.78 ns)
+	'store' operation ('store_ln40', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40) of variable 'sub_ln40_1', extr_.FFmpeglibavcodecttaencdsp.c_ttaenc_filter_process_c_with_main.c:40 on array 'dl' [219]  (1.43 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

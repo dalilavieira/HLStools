@@ -1,0 +1,176 @@
+
+
+================================================================
+== Vivado HLS Report for 'XGI_AjustCRT2Rate'
+================================================================
+* Date:           Tue May 26 02:16:34 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.913|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|         1|          -|          -|  inf |    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 0
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 5 6 
+6 --> 6 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%pVBInfo_VBInfo_load = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %pVBInfo_VBInfo)" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:61]   --->   Operation 7 'read' 'pVBInfo_VBInfo_load' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%pVBInfo_VBInfo_load_1 = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %pVBInfo_VBInfo)" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:69]   --->   Operation 8 'read' 'pVBInfo_VBInfo_load_1' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.42>
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%i_addr = getelementptr [20 x i16]* %i, i64 0, i64 0" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:51]   --->   Operation 9 'getelementptr' 'i_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 10 [2/2] (1.42ns)   --->   "%i_load = load i16* %i_addr, align 2" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:58]   --->   Operation 10 'load' 'i_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 20> <RAM>
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%pVBInfo_VBInfo_load_2 = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %pVBInfo_VBInfo)" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:79]   --->   Operation 11 'read' 'pVBInfo_VBInfo_load_2' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 1.42>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i16 %ModeIdIndex), !map !172"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i16 %RefreshRateTableIndex), !map !178"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([20 x i16]* %i), !map !182"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %pVBInfo_VBInfo), !map !188"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %pVBInfo_VBType), !map !192"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %pVBInfo_LCDResInfo), !map !196"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %pVBInfo_LCDInfo), !map !200"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %pVBInfo_SetFlag), !map !204"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8 0) nounwind, !map !208"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @XGI_AjustCRT2Rate_st) nounwind"   --->   Operation 21 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/2] (1.42ns)   --->   "%i_load = load i16* %i_addr, align 2" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:58]   --->   Operation 22 'load' 'i_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 20> <RAM>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%pVBInfo_VBInfo_load_3 = call i32 @_ssdm_op_Read.ap_auto.volatile.i32P(i32* %pVBInfo_VBInfo)" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:86]   --->   Operation 23 'read' 'pVBInfo_VBInfo_load_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (1.06ns)   --->   "br label %0" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:102]   --->   Operation 24 'br' <Predicate = true> <Delay = 1.06>
+
+State 5 <SV = 4> <Delay = 2.91>
+ST_5 : Operation 25 [1/1] (0.00ns)   --->   "%empty = phi i16 [ %add_ln103, %1 ], [ %i_load, %._crit_edge ]" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103]   --->   Operation 25 'phi' 'empty' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 26 [1/1] (1.49ns)   --->   "%icmp_ln108 = icmp eq i16 %empty, 0" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:108]   --->   Operation 26 'icmp' 'icmp_ln108' <Predicate = true> <Delay = 1.49> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.49> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln108, label %.loopexit.preheader, label %1" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:108]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 28 [1/1] (1.48ns)   --->   "%add_ln103 = add i16 %empty, -1" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103]   --->   Operation 28 'add' 'add_ln103' <Predicate = (!icmp_ln108)> <Delay = 1.48> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 29 [1/1] (1.42ns)   --->   "store i16 %add_ln103, i16* %i_addr, align 2" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103]   --->   Operation 29 'store' <Predicate = (!icmp_ln108)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 20> <RAM>
+ST_5 : Operation 30 [1/1] (0.00ns)   --->   "br label %0" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103]   --->   Operation 30 'br' <Predicate = (!icmp_ln108)> <Delay = 0.00>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "br label %.loopexit" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:112]   --->   Operation 31 'br' <Predicate = (icmp_ln108)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 32 [1/1] (0.00ns)   --->   "br label %.loopexit" [extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:112]   --->   Operation 32 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 1.43ns
+The critical path consists of the following:
+	'getelementptr' operation ('i_addr', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:51) [17]  (0 ns)
+	'load' operation ('i_load', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:58) on array 'i' [20]  (1.43 ns)
+
+ <State 4>: 1.43ns
+The critical path consists of the following:
+	'load' operation ('i_load', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:58) on array 'i' [20]  (1.43 ns)
+
+ <State 5>: 2.91ns
+The critical path consists of the following:
+	'phi' operation ('empty', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103) with incoming values : ('i_load', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:58) ('add_ln103', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103) [27]  (0 ns)
+	'add' operation ('add_ln103', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103) [31]  (1.49 ns)
+	'store' operation ('store_ln103', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103) of variable 'add_ln103', extr_.linuxdriversstagingxgifbvb_setmode.c_XGI_AjustCRT2Rate_with_main.c:103 on array 'i' [32]  (1.43 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

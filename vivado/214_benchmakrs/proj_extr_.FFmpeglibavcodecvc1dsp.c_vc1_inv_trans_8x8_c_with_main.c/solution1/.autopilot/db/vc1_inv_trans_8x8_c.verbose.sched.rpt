@@ -1,0 +1,608 @@
+
+
+================================================================
+== Vivado HLS Report for 'vc1_inv_trans_8x8_c'
+================================================================
+* Date:           Tue May 26 00:47:56 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.328|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  146|  146|  146|  146|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   72|   72|         9|          -|          -|     8|    no    |
+        |- Loop 2  |   72|   72|         9|          -|          -|     8|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 19
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 11 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 2 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 11 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %block_r) nounwind, !map !13"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([20 x i8]* @vc1_inv_trans_8x8_c_s) nounwind"   --->   Operation 21 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%temp = alloca [64 x i29], align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20]   --->   Operation 22 'alloca' 'temp' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_1 : Operation 23 [1/1] (1.06ns)   --->   "br label %1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:24]   --->   Operation 23 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%src_0_rec = phi i4 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 24 'phi' 'src_0_rec' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%dst_0_rec = phi i7 [ 0, %0 ], [ %add_ln50, %2 ]" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:50]   --->   Operation 25 'phi' 'dst_0_rec' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%src_0_rec_cast17 = zext i4 %src_0_rec to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49]   --->   Operation 26 'zext' 'src_0_rec_cast17' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%src_0_rec_cast = zext i4 %src_0_rec to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49]   --->   Operation 27 'zext' 'src_0_rec_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%dst_0_rec_cast = zext i7 %dst_0_rec to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:50]   --->   Operation 28 'zext' 'dst_0_rec_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%temp_addr = getelementptr [64 x i29]* %temp, i64 0, i64 %dst_0_rec_cast" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:50]   --->   Operation 29 'getelementptr' 'temp_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%block_addr = getelementptr [64 x i32]* %block_r, i64 0, i64 %src_0_rec_cast" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49]   --->   Operation 30 'getelementptr' 'block_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (1.08ns)   --->   "%icmp_ln24 = icmp eq i4 %src_0_rec, -8" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:24]   --->   Operation 31 'icmp' 'icmp_ln24' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 32 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (1.32ns)   --->   "%i = add i4 %src_0_rec, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49]   --->   Operation 33 'add' 'i' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "br i1 %icmp_ln24, label %.preheader.preheader, label %2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:24]   --->   Operation 34 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [2/2] (2.66ns)   --->   "%block_load = load i32* %block_addr, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 35 'load' 'block_load' <Predicate = (!icmp_ln24)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%or_ln = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 -2, i4 %src_0_rec)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 36 'bitconcatenate' 'or_ln' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln25 = zext i6 %or_ln to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 37 'zext' 'zext_ln25' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%block_addr_2 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln25" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 38 'getelementptr' 'block_addr_2' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_2 : Operation 39 [2/2] (2.66ns)   --->   "%block_load_1 = load i32* %block_addr_2, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 39 'load' 'block_load_1' <Predicate = (!icmp_ln24)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%empty_5 = trunc i7 %dst_0_rec to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:50]   --->   Operation 40 'trunc' 'empty_5' <Predicate = (!icmp_ln24)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (1.37ns)   --->   "%add_ln50 = add i7 8, %dst_0_rec" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:50]   --->   Operation 41 'add' 'add_ln50' <Predicate = (!icmp_ln24)> <Delay = 1.37> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 42 [1/1] (1.06ns)   --->   "br label %.preheader"   --->   Operation 42 'br' <Predicate = (icmp_ln24)> <Delay = 1.06>
+
+State 3 <SV = 2> <Delay = 2.66>
+ST_3 : Operation 43 [1/2] (2.66ns)   --->   "%block_load = load i32* %block_addr, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 43 'load' 'block_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 44 [1/2] (2.66ns)   --->   "%block_load_1 = load i32* %block_addr_2, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 44 'load' 'block_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%or_ln1 = call i5 @_ssdm_op_BitConcatenate.i5.i1.i4(i1 true, i4 %src_0_rec)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 45 'bitconcatenate' 'or_ln1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%zext_ln27 = zext i5 %or_ln1 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 46 'zext' 'zext_ln27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%block_addr_3 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln27" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 47 'getelementptr' 'block_addr_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [2/2] (2.66ns)   --->   "%block_load_2 = load i32* %block_addr_3, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 48 'load' 'block_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "%sext_ln27 = sext i5 %or_ln1 to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 49 'sext' 'sext_ln27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%zext_ln27_1 = zext i6 %sext_ln27 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 50 'zext' 'zext_ln27_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%block_addr_4 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln27_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 51 'getelementptr' 'block_addr_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [2/2] (2.66ns)   --->   "%block_load_3 = load i32* %block_addr_4, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 52 'load' 'block_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 4 <SV = 3> <Delay = 3.28>
+ST_4 : Operation 53 [1/2] (2.66ns)   --->   "%block_load_2 = load i32* %block_addr_3, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 53 'load' 'block_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_4 : Operation 54 [1/2] (2.66ns)   --->   "%block_load_3 = load i32* %block_addr_4, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 54 'load' 'block_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_4 : Operation 55 [1/1] (0.61ns)   --->   "%xor_ln35 = xor i4 %src_0_rec, -8" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 55 'xor' 'xor_ln35' <Predicate = true> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%zext_ln35 = zext i4 %xor_ln35 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 56 'zext' 'zext_ln35' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%block_addr_5 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln35" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 57 'getelementptr' 'block_addr_5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [2/2] (2.66ns)   --->   "%block_load_4 = load i32* %block_addr_5, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 58 'load' 'block_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i4 %xor_ln35 to i5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 59 'sext' 'sext_ln35' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln35_1 = zext i5 %sext_ln35 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 60 'zext' 'zext_ln35_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%block_addr_6 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln35_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 61 'getelementptr' 'block_addr_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 62 [2/2] (2.66ns)   --->   "%block_load_5 = load i32* %block_addr_6, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 62 'load' 'block_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 5 <SV = 4> <Delay = 4.02>
+ST_5 : Operation 63 [1/2] (2.66ns)   --->   "%block_load_4 = load i32* %block_addr_5, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 63 'load' 'block_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_5 : Operation 64 [1/2] (2.66ns)   --->   "%block_load_5 = load i32* %block_addr_6, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 64 'load' 'block_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_5 : Operation 65 [1/1] (1.35ns)   --->   "%add_ln35 = add i6 -24, %src_0_rec_cast17" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 65 'add' 'add_ln35' <Predicate = true> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln35_2 = zext i6 %add_ln35 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 66 'zext' 'zext_ln35_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%block_addr_7 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln35_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 67 'getelementptr' 'block_addr_7' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 68 [2/2] (2.66ns)   --->   "%block_load_6 = load i32* %block_addr_7, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 68 'load' 'block_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%sext_ln35_1 = sext i4 %xor_ln35 to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 69 'sext' 'sext_ln35_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 70 [1/1] (0.00ns)   --->   "%zext_ln35_3 = zext i6 %sext_ln35_1 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 70 'zext' 'zext_ln35_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%block_addr_8 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln35_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 71 'getelementptr' 'block_addr_8' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 72 [2/2] (2.66ns)   --->   "%block_load_7 = load i32* %block_addr_8, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 72 'load' 'block_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 6 <SV = 5> <Delay = 8.21>
+ST_6 : Operation 73 [1/1] (1.78ns)   --->   "%add_ln25 = add nsw i32 %block_load_1, %block_load" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 73 'add' 'add_ln25' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 74 [1/1] (0.00ns)   --->   "%shl_ln25 = shl i32 %add_ln25, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 74 'shl' 'shl_ln25' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%shl_ln25_1 = shl i32 %add_ln25, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 75 'shl' 'shl_ln25_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 76 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln25 = sub i32 %shl_ln25, %shl_ln25_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 76 'sub' 'sub_ln25' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 77 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t1 = add nsw i32 4, %sub_ln25" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25]   --->   Operation 77 'add' 't1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 78 [1/1] (1.78ns)   --->   "%sub_ln26 = sub nsw i32 %block_load, %block_load_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:26]   --->   Operation 78 'sub' 'sub_ln26' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%shl_ln26 = shl i32 %sub_ln26, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:26]   --->   Operation 79 'shl' 'shl_ln26' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%shl_ln26_1 = shl i32 %sub_ln26, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:26]   --->   Operation 80 'shl' 'shl_ln26_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 81 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln26_1 = sub i32 %shl_ln26, %shl_ln26_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:26]   --->   Operation 81 'sub' 'sub_ln26_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 82 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t2 = add nsw i32 4, %sub_ln26_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:26]   --->   Operation 82 'add' 't2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 83 [1/1] (0.00ns)   --->   "%shl_ln27 = shl i32 %block_load_2, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 83 'shl' 'shl_ln27' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 84 [1/1] (0.00ns)   --->   "%shl_ln27_1 = shl i32 %block_load_3, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 84 'shl' 'shl_ln27_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "%shl_ln27_2 = shl i32 %block_load_3, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 85 'shl' 'shl_ln27_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 86 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln27 = sub i32 %shl_ln27_1, %shl_ln27_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 86 'sub' 'sub_ln27' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 87 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t3 = add nsw i32 %sub_ln27, %shl_ln27" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:27]   --->   Operation 87 'add' 't3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%shl_ln28 = shl i32 %block_load_2, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:28]   --->   Operation 88 'shl' 'shl_ln28' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%shl_ln28_1 = shl i32 %block_load_2, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:28]   --->   Operation 89 'shl' 'shl_ln28_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 90 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln28 = sub i32 %shl_ln28, %shl_ln28_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:28]   --->   Operation 90 'sub' 'sub_ln28' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 91 [1/1] (0.00ns)   --->   "%shl_ln28_2 = shl i32 %block_load_3, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:28]   --->   Operation 91 'shl' 'shl_ln28_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 92 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t4 = sub nsw i32 %sub_ln28, %shl_ln28_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:28]   --->   Operation 92 'sub' 't4' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 93 [1/1] (0.00ns)   --->   "%shl_ln35 = shl i32 %block_load_4, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 93 'shl' 'shl_ln35' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "%shl_ln35_1 = shl i32 %block_load_5, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 94 'shl' 'shl_ln35_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 95 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln35 = sub i32 %shl_ln35_1, %block_load_5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 95 'sub' 'sub_ln35' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 96 [1/2] (2.66ns)   --->   "%block_load_6 = load i32* %block_addr_7, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 96 'load' 'block_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_6 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node add_ln35_2)   --->   "%shl_ln35_2 = shl i32 %block_load_6, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 97 'shl' 'shl_ln35_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 98 [1/2] (2.66ns)   --->   "%block_load_7 = load i32* %block_addr_8, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 98 'load' 'block_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_6 : Operation 99 [1/1] (0.00ns) (grouped into LUT with out node add_ln35_2)   --->   "%shl_ln35_3 = shl i32 %block_load_7, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 99 'shl' 'shl_ln35_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 100 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln35_1 = add i32 %sub_ln35, %block_load_6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 100 'add' 'add_ln35_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 101 [1/1] (1.78ns) (out node of the LUT)   --->   "%add_ln35_2 = add i32 %shl_ln35_3, %shl_ln35_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 101 'add' 'add_ln35_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 102 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln35_3 = add i32 %shl_ln35, %add_ln35_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 102 'add' 'add_ln35_3' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 103 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t1_1 = add i32 %add_ln35_1, %add_ln35_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35]   --->   Operation 103 'add' 't1_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 104 [1/1] (1.78ns)   --->   "%sub_ln36 = sub i32 %shl_ln35, %block_load_4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 104 'sub' 'sub_ln36' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 105 [1/1] (0.00ns)   --->   "%shl_ln36 = shl i32 %block_load_5, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 105 'shl' 'shl_ln36' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 106 [1/1] (0.00ns)   --->   "%shl_ln36_1 = shl i32 %block_load_6, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 106 'shl' 'shl_ln36_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 107 [1/1] (0.00ns) (grouped into LUT with out node sub_ln36_1)   --->   "%shl_ln36_2 = shl i32 %block_load_7, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 107 'shl' 'shl_ln36_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 108 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln36_1 = sub i32 0, %shl_ln36_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 108 'sub' 'sub_ln36_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 109 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln36_2 = sub i32 %sub_ln36_1, %block_load_7" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 109 'sub' 'sub_ln36_2' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 110 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln36_3 = sub i32 %sub_ln36, %shl_ln36" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 110 'sub' 'sub_ln36_3' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 111 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln36_4 = sub i32 %sub_ln36_3, %shl_ln36_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 111 'sub' 'sub_ln36_4' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 112 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t2_1 = add i32 %sub_ln36_4, %sub_ln36_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:36]   --->   Operation 112 'add' 't2_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "%shl_ln37 = shl i32 %block_load_4, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 113 'shl' 'shl_ln37' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 114 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln37 = add i32 %shl_ln37, %block_load_4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 114 'add' 'add_ln37' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 115 [1/1] (0.00ns)   --->   "%shl_ln37_1 = shl i32 %block_load_6, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 115 'shl' 'shl_ln37_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 116 [1/1] (0.00ns)   --->   "%shl_ln37_2 = shl i32 %block_load_7, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 116 'shl' 'shl_ln37_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 117 [1/1] (1.78ns)   --->   "%sub_ln37 = sub i32 %shl_ln37_2, %block_load_7" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 117 'sub' 'sub_ln37' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 118 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln37_1 = sub i32 %add_ln37, %shl_ln35_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 118 'sub' 'sub_ln37_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 119 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln37_1 = add i32 %sub_ln37, %sub_ln37_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 119 'add' 'add_ln37_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 120 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t3_1 = add i32 %shl_ln37_1, %add_ln37_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:37]   --->   Operation 120 'add' 't3_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 121 [1/1] (0.00ns) (grouped into LUT with out node sub_ln38)   --->   "%shl_ln38_1 = shl i32 %block_load_5, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 121 'shl' 'shl_ln38_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 122 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln38 = sub i32 0, %shl_ln38_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 122 'sub' 'sub_ln38' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 123 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln38_1 = sub i32 %sub_ln38, %block_load_5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 123 'sub' 'sub_ln38_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 124 [1/1] (1.78ns)   --->   "%sub_ln38_2 = sub i32 %shl_ln36_1, %block_load_6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 124 'sub' 'sub_ln38_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 125 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln38 = add i32 %sub_ln38_2, %sub_ln38_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 125 'add' 'add_ln38' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 7 <SV = 6> <Delay = 6.23>
+ST_7 : Operation 126 [1/1] (1.78ns)   --->   "%t5 = add nsw i32 %t3, %t1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:30]   --->   Operation 126 'add' 't5' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 127 [1/1] (1.78ns)   --->   "%t6 = add nsw i32 %t4, %t2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:31]   --->   Operation 127 'add' 't6' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 128 [1/1] (1.78ns)   --->   "%t7 = sub nsw i32 %t2, %t4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:32]   --->   Operation 128 'sub' 't7' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 129 [1/1] (1.78ns)   --->   "%t8 = sub nsw i32 %t1, %t3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:33]   --->   Operation 129 'sub' 't8' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 130 [1/1] (0.00ns)   --->   "%shl_ln38 = shl i32 %block_load_4, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 130 'shl' 'shl_ln38' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 131 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln38_1 = add i32 %shl_ln38, %add_ln38" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 131 'add' 'add_ln38_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 132 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t4_1 = sub i32 %add_ln38_1, %shl_ln37_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:38]   --->   Operation 132 'sub' 't4_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 133 [1/1] (1.78ns)   --->   "%add_ln40 = add nsw i32 %t1_1, %t5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40]   --->   Operation 133 'add' 'add_ln40' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 134 [1/1] (0.00ns)   --->   "%trunc_ln = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %add_ln40, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40]   --->   Operation 134 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 135 [1/1] (2.66ns)   --->   "store i29 %trunc_ln, i29* %temp_addr, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40]   --->   Operation 135 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_7 : Operation 136 [1/1] (1.78ns)   --->   "%add_ln41 = add nsw i32 %t2_1, %t6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 136 'add' 'add_ln41' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 137 [1/1] (0.00ns)   --->   "%trunc_ln1 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %add_ln41, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 137 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 138 [1/1] (0.00ns)   --->   "%or_ln41 = or i6 %empty_5, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 138 'or' 'or_ln41' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 139 [1/1] (0.00ns)   --->   "%zext_ln41 = zext i6 %or_ln41 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 139 'zext' 'zext_ln41' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 140 [1/1] (0.00ns)   --->   "%temp_addr_1 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln41" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 140 'getelementptr' 'temp_addr_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 141 [1/1] (2.66ns)   --->   "store i29 %trunc_ln1, i29* %temp_addr_1, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:41]   --->   Operation 141 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_7 : Operation 142 [1/1] (1.78ns)   --->   "%add_ln42 = add nsw i32 %t3_1, %t7" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 142 'add' 'add_ln42' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 143 [1/1] (0.00ns)   --->   "%trunc_ln2 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %add_ln42, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 143 'partselect' 'trunc_ln2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 144 [1/1] (1.78ns)   --->   "%add_ln43 = add nsw i32 %t4_1, %t8" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 144 'add' 'add_ln43' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 145 [1/1] (0.00ns)   --->   "%trunc_ln3 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %add_ln43, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 145 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 146 [1/1] (1.78ns)   --->   "%sub_ln44 = sub nsw i32 %t8, %t4_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 146 'sub' 'sub_ln44' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 147 [1/1] (0.00ns)   --->   "%trunc_ln4 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %sub_ln44, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 147 'partselect' 'trunc_ln4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 148 [1/1] (1.78ns)   --->   "%sub_ln45 = sub nsw i32 %t7, %t3_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 148 'sub' 'sub_ln45' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 149 [1/1] (0.00ns)   --->   "%trunc_ln5 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %sub_ln45, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 149 'partselect' 'trunc_ln5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 150 [1/1] (1.78ns)   --->   "%sub_ln46 = sub nsw i32 %t6, %t2_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 150 'sub' 'sub_ln46' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 151 [1/1] (0.00ns)   --->   "%trunc_ln6 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %sub_ln46, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 151 'partselect' 'trunc_ln6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 152 [1/1] (1.78ns)   --->   "%sub_ln47 = sub nsw i32 %t5, %t1_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 152 'sub' 'sub_ln47' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 153 [1/1] (0.00ns)   --->   "%trunc_ln7 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %sub_ln47, i32 3, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 153 'partselect' 'trunc_ln7' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 7> <Delay = 2.66>
+ST_8 : Operation 154 [1/1] (0.00ns)   --->   "%or_ln42 = or i6 %empty_5, 2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 154 'or' 'or_ln42' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 155 [1/1] (0.00ns)   --->   "%zext_ln42 = zext i6 %or_ln42 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 155 'zext' 'zext_ln42' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 156 [1/1] (0.00ns)   --->   "%temp_addr_2 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln42" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 156 'getelementptr' 'temp_addr_2' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 157 [1/1] (2.66ns)   --->   "store i29 %trunc_ln2, i29* %temp_addr_2, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42]   --->   Operation 157 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_8 : Operation 158 [1/1] (0.00ns)   --->   "%or_ln43 = or i6 %empty_5, 3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 158 'or' 'or_ln43' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln43 = zext i6 %or_ln43 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 159 'zext' 'zext_ln43' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 160 [1/1] (0.00ns)   --->   "%temp_addr_3 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln43" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 160 'getelementptr' 'temp_addr_3' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 161 [1/1] (2.66ns)   --->   "store i29 %trunc_ln3, i29* %temp_addr_3, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:43]   --->   Operation 161 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 9 <SV = 8> <Delay = 2.66>
+ST_9 : Operation 162 [1/1] (0.00ns)   --->   "%or_ln44 = or i6 %empty_5, 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 162 'or' 'or_ln44' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 163 [1/1] (0.00ns)   --->   "%zext_ln44 = zext i6 %or_ln44 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 163 'zext' 'zext_ln44' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 164 [1/1] (0.00ns)   --->   "%temp_addr_4 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln44" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 164 'getelementptr' 'temp_addr_4' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 165 [1/1] (2.66ns)   --->   "store i29 %trunc_ln4, i29* %temp_addr_4, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44]   --->   Operation 165 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_9 : Operation 166 [1/1] (0.00ns)   --->   "%or_ln45 = or i6 %empty_5, 5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 166 'or' 'or_ln45' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 167 [1/1] (0.00ns)   --->   "%zext_ln45 = zext i6 %or_ln45 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 167 'zext' 'zext_ln45' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 168 [1/1] (0.00ns)   --->   "%temp_addr_5 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln45" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 168 'getelementptr' 'temp_addr_5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 169 [1/1] (2.66ns)   --->   "store i29 %trunc_ln5, i29* %temp_addr_5, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:45]   --->   Operation 169 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 10 <SV = 9> <Delay = 2.66>
+ST_10 : Operation 170 [1/1] (0.00ns)   --->   "%or_ln46 = or i6 %empty_5, 6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 170 'or' 'or_ln46' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 171 [1/1] (0.00ns)   --->   "%zext_ln46 = zext i6 %or_ln46 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 171 'zext' 'zext_ln46' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 172 [1/1] (0.00ns)   --->   "%temp_addr_6 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln46" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 172 'getelementptr' 'temp_addr_6' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 173 [1/1] (2.66ns)   --->   "store i29 %trunc_ln6, i29* %temp_addr_6, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46]   --->   Operation 173 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_10 : Operation 174 [1/1] (0.00ns)   --->   "%or_ln47 = or i6 %empty_5, 7" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 174 'or' 'or_ln47' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 175 [1/1] (0.00ns)   --->   "%zext_ln47 = zext i6 %or_ln47 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 175 'zext' 'zext_ln47' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 176 [1/1] (0.00ns)   --->   "%temp_addr_7 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln47" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 176 'getelementptr' 'temp_addr_7' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 177 [1/1] (2.66ns)   --->   "store i29 %trunc_ln7, i29* %temp_addr_7, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:47]   --->   Operation 177 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_10 : Operation 178 [1/1] (0.00ns)   --->   "br label %1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:24]   --->   Operation 178 'br' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 2> <Delay = 2.66>
+ST_11 : Operation 179 [1/1] (0.00ns)   --->   "%src_1_rec = phi i4 [ %i_1, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 179 'phi' 'src_1_rec' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 180 [1/1] (0.00ns)   --->   "%src_1_rec_cast14 = zext i4 %src_1_rec to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80]   --->   Operation 180 'zext' 'src_1_rec_cast14' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 181 [1/1] (0.00ns)   --->   "%src_1_rec_cast = zext i4 %src_1_rec to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80]   --->   Operation 181 'zext' 'src_1_rec_cast' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 182 [1/1] (0.00ns)   --->   "%block_addr_1 = getelementptr [64 x i32]* %block_r, i64 0, i64 %src_1_rec_cast" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80]   --->   Operation 182 'getelementptr' 'block_addr_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 183 [1/1] (0.00ns)   --->   "%temp_addr_8 = getelementptr [64 x i29]* %temp, i64 0, i64 %src_1_rec_cast" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80]   --->   Operation 183 'getelementptr' 'temp_addr_8' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 184 [1/1] (1.08ns)   --->   "%icmp_ln55 = icmp eq i4 %src_1_rec, -8" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:55]   --->   Operation 184 'icmp' 'icmp_ln55' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 185 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 185 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 186 [1/1] (1.32ns)   --->   "%i_1 = add i4 %src_1_rec, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80]   --->   Operation 186 'add' 'i_1' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 187 [1/1] (0.00ns)   --->   "br i1 %icmp_ln55, label %4, label %3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:55]   --->   Operation 187 'br' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 188 [2/2] (2.66ns)   --->   "%temp_load = load i29* %temp_addr_8, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 188 'load' 'temp_load' <Predicate = (!icmp_ln55)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_11 : Operation 189 [1/1] (0.00ns)   --->   "%or_ln2 = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 -2, i4 %src_1_rec)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 189 'bitconcatenate' 'or_ln2' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_11 : Operation 190 [1/1] (0.00ns)   --->   "%zext_ln56 = zext i6 %or_ln2 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 190 'zext' 'zext_ln56' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_11 : Operation 191 [1/1] (0.00ns)   --->   "%temp_addr_9 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln56" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 191 'getelementptr' 'temp_addr_9' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_11 : Operation 192 [2/2] (2.66ns)   --->   "%temp_load_1 = load i29* %temp_addr_9, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 192 'load' 'temp_load_1' <Predicate = (!icmp_ln55)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_11 : Operation 193 [1/1] (0.00ns)   --->   "ret void" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:83]   --->   Operation 193 'ret' <Predicate = (icmp_ln55)> <Delay = 0.00>
+
+State 12 <SV = 3> <Delay = 2.66>
+ST_12 : Operation 194 [1/2] (2.66ns)   --->   "%temp_load = load i29* %temp_addr_8, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 194 'load' 'temp_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_12 : Operation 195 [1/2] (2.66ns)   --->   "%temp_load_1 = load i29* %temp_addr_9, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 195 'load' 'temp_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_12 : Operation 196 [1/1] (0.00ns)   --->   "%or_ln3 = call i5 @_ssdm_op_BitConcatenate.i5.i1.i4(i1 true, i4 %src_1_rec)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 196 'bitconcatenate' 'or_ln3' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 197 [1/1] (0.00ns)   --->   "%zext_ln58 = zext i5 %or_ln3 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 197 'zext' 'zext_ln58' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 198 [1/1] (0.00ns)   --->   "%temp_addr_10 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln58" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 198 'getelementptr' 'temp_addr_10' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 199 [2/2] (2.66ns)   --->   "%temp_load_2 = load i29* %temp_addr_10, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 199 'load' 'temp_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_12 : Operation 200 [1/1] (0.00ns)   --->   "%sext_ln58 = sext i5 %or_ln3 to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 200 'sext' 'sext_ln58' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 201 [1/1] (0.00ns)   --->   "%zext_ln58_1 = zext i6 %sext_ln58 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 201 'zext' 'zext_ln58_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 202 [1/1] (0.00ns)   --->   "%temp_addr_11 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln58_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 202 'getelementptr' 'temp_addr_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 203 [2/2] (2.66ns)   --->   "%temp_load_3 = load i29* %temp_addr_11, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 203 'load' 'temp_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 13 <SV = 4> <Delay = 5.44>
+ST_13 : Operation 204 [1/2] (2.66ns)   --->   "%temp_load_2 = load i29* %temp_addr_10, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 204 'load' 'temp_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_13 : Operation 205 [1/1] (0.00ns)   --->   "%trunc_ln58 = trunc i29 %temp_load_2 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 205 'trunc' 'trunc_ln58' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 206 [1/1] (0.00ns)   --->   "%shl_ln = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln58, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 206 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 207 [1/2] (2.66ns)   --->   "%temp_load_3 = load i29* %temp_addr_11, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 207 'load' 'temp_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_13 : Operation 208 [1/1] (0.00ns)   --->   "%shl_ln58_1 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_3, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 208 'bitconcatenate' 'shl_ln58_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 209 [1/1] (0.00ns)   --->   "%shl_ln58_2 = call i30 @_ssdm_op_BitConcatenate.i30.i29.i1(i29 %temp_load_3, i1 false)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 209 'bitconcatenate' 'shl_ln58_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 210 [1/1] (0.00ns)   --->   "%sext_ln58_1 = sext i30 %shl_ln58_2 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 210 'sext' 'sext_ln58_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 211 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln58 = sub i32 %shl_ln58_1, %sext_ln58_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 211 'sub' 'sub_ln58' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 212 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t3_2 = add nsw i32 %shl_ln, %sub_ln58" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58]   --->   Operation 212 'add' 't3_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 213 [1/1] (0.00ns)   --->   "%shl_ln59_1 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_2, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 213 'bitconcatenate' 'shl_ln59_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 214 [1/1] (0.00ns)   --->   "%shl_ln59_2 = call i30 @_ssdm_op_BitConcatenate.i30.i29.i1(i29 %temp_load_2, i1 false)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 214 'bitconcatenate' 'shl_ln59_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 215 [1/1] (0.00ns)   --->   "%sext_ln59 = sext i30 %shl_ln59_2 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 215 'sext' 'sext_ln59' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 216 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln59 = sub i32 %shl_ln59_1, %sext_ln59" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 216 'sub' 'sub_ln59' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 217 [1/1] (0.00ns)   --->   "%trunc_ln59 = trunc i29 %temp_load_3 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 217 'trunc' 'trunc_ln59' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 218 [1/1] (0.00ns)   --->   "%shl_ln1 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln59, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 218 'bitconcatenate' 'shl_ln1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 219 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t4_2 = sub nsw i32 %sub_ln59, %shl_ln1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:59]   --->   Operation 219 'sub' 't4_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 220 [1/1] (0.61ns)   --->   "%xor_ln66 = xor i4 %src_1_rec, -8" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 220 'xor' 'xor_ln66' <Predicate = true> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 221 [1/1] (0.00ns)   --->   "%zext_ln66 = zext i4 %xor_ln66 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 221 'zext' 'zext_ln66' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 222 [1/1] (0.00ns)   --->   "%temp_addr_12 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln66" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 222 'getelementptr' 'temp_addr_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 223 [2/2] (2.66ns)   --->   "%temp_load_4 = load i29* %temp_addr_12, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 223 'load' 'temp_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_13 : Operation 224 [1/1] (0.00ns)   --->   "%sext_ln66_1 = sext i4 %xor_ln66 to i5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 224 'sext' 'sext_ln66_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 225 [1/1] (0.00ns)   --->   "%zext_ln66_1 = zext i5 %sext_ln66_1 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 225 'zext' 'zext_ln66_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 226 [1/1] (0.00ns)   --->   "%temp_addr_13 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln66_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 226 'getelementptr' 'temp_addr_13' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 227 [2/2] (2.66ns)   --->   "%temp_load_5 = load i29* %temp_addr_13, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 227 'load' 'temp_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 14 <SV = 5> <Delay = 4.02>
+ST_14 : Operation 228 [1/2] (2.66ns)   --->   "%temp_load_4 = load i29* %temp_addr_12, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 228 'load' 'temp_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_14 : Operation 229 [1/1] (0.00ns)   --->   "%trunc_ln66 = trunc i29 %temp_load_4 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 229 'trunc' 'trunc_ln66' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 230 [1/2] (2.66ns)   --->   "%temp_load_5 = load i29* %temp_addr_13, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 230 'load' 'temp_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_14 : Operation 231 [1/1] (0.00ns)   --->   "%trunc_ln66_1 = trunc i29 %temp_load_5 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 231 'trunc' 'trunc_ln66_1' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 232 [1/1] (1.35ns)   --->   "%add_ln66 = add i6 -24, %src_1_rec_cast14" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 232 'add' 'add_ln66' <Predicate = true> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 233 [1/1] (0.00ns)   --->   "%zext_ln66_2 = zext i6 %add_ln66 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 233 'zext' 'zext_ln66_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 234 [1/1] (0.00ns)   --->   "%temp_addr_14 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln66_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 234 'getelementptr' 'temp_addr_14' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 235 [2/2] (2.66ns)   --->   "%temp_load_6 = load i29* %temp_addr_14, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 235 'load' 'temp_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_14 : Operation 236 [1/1] (0.00ns)   --->   "%sext_ln66_4 = sext i4 %xor_ln66 to i6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 236 'sext' 'sext_ln66_4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 237 [1/1] (0.00ns)   --->   "%zext_ln66_3 = zext i6 %sext_ln66_4 to i64" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 237 'zext' 'zext_ln66_3' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 238 [1/1] (0.00ns)   --->   "%temp_addr_15 = getelementptr [64 x i29]* %temp, i64 0, i64 %zext_ln66_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 238 'getelementptr' 'temp_addr_15' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 239 [2/2] (2.66ns)   --->   "%temp_load_7 = load i29* %temp_addr_15, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 239 'load' 'temp_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 15 <SV = 6> <Delay = 8.32>
+ST_15 : Operation 240 [1/1] (0.00ns)   --->   "%sext_ln56 = sext i29 %temp_load to i30" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 240 'sext' 'sext_ln56' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 241 [1/1] (0.00ns)   --->   "%sext_ln56_1 = sext i29 %temp_load_1 to i30" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 241 'sext' 'sext_ln56_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 242 [1/1] (1.72ns)   --->   "%add_ln56 = add i30 %sext_ln56, %sext_ln56_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 242 'add' 'add_ln56' <Predicate = true> <Delay = 1.72> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 243 [1/1] (0.00ns)   --->   "%trunc_ln56 = trunc i30 %add_ln56 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 243 'trunc' 'trunc_ln56' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 244 [1/1] (0.00ns)   --->   "%shl_ln8 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln56, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 244 'bitconcatenate' 'shl_ln8' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 245 [1/1] (0.00ns)   --->   "%shl_ln56_1 = call i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30 %add_ln56, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 245 'bitconcatenate' 'shl_ln56_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 246 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln56 = sub i32 %shl_ln8, %shl_ln56_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 246 'sub' 'sub_ln56' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 247 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t1_2 = add nsw i32 64, %sub_ln56" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56]   --->   Operation 247 'add' 't1_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 248 [1/1] (1.72ns)   --->   "%sub_ln57 = sub i30 %sext_ln56, %sext_ln56_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 248 'sub' 'sub_ln57' <Predicate = true> <Delay = 1.72> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 249 [1/1] (0.00ns)   --->   "%trunc_ln57 = trunc i30 %sub_ln57 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 249 'trunc' 'trunc_ln57' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 250 [1/1] (0.00ns)   --->   "%shl_ln9 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln57, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 250 'bitconcatenate' 'shl_ln9' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 251 [1/1] (0.00ns)   --->   "%shl_ln57_1 = call i32 @_ssdm_op_BitConcatenate.i32.i30.i2(i30 %sub_ln57, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 251 'bitconcatenate' 'shl_ln57_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 252 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln57_1 = sub i32 %shl_ln9, %shl_ln57_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 252 'sub' 'sub_ln57_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 253 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t2_2 = add nsw i32 64, %sub_ln57_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:57]   --->   Operation 253 'add' 't2_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 254 [1/1] (0.00ns)   --->   "%sext_ln66 = sext i29 %temp_load_4 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 254 'sext' 'sext_ln66' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 255 [1/1] (0.00ns)   --->   "%shl_ln66_1 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln66, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 255 'bitconcatenate' 'shl_ln66_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 256 [1/1] (0.00ns)   --->   "%sext_ln66_2 = sext i29 %temp_load_5 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 256 'sext' 'sext_ln66_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 257 [1/1] (0.00ns)   --->   "%shl_ln66_2 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln66_1, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 257 'bitconcatenate' 'shl_ln66_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 258 [1/1] (1.78ns)   --->   "%sub_ln66 = sub i32 %shl_ln66_2, %sext_ln66_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 258 'sub' 'sub_ln66' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 259 [1/2] (2.66ns)   --->   "%temp_load_6 = load i29* %temp_addr_14, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 259 'load' 'temp_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_15 : Operation 260 [1/1] (0.00ns)   --->   "%sext_ln66_3 = sext i29 %temp_load_6 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 260 'sext' 'sext_ln66_3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 261 [1/1] (0.00ns)   --->   "%shl_ln66_3 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_6, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 261 'bitconcatenate' 'shl_ln66_3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 262 [1/2] (2.66ns)   --->   "%temp_load_7 = load i29* %temp_addr_15, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 262 'load' 'temp_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_15 : Operation 263 [1/1] (0.00ns)   --->   "%sext_ln66_5 = sext i29 %temp_load_7 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 263 'sext' 'sext_ln66_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 264 [1/1] (0.00ns)   --->   "%shl_ln2 = call i31 @_ssdm_op_BitConcatenate.i31.i29.i2(i29 %temp_load_7, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 264 'bitconcatenate' 'shl_ln2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 265 [1/1] (0.00ns)   --->   "%sext_ln66_6 = sext i31 %shl_ln2 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 265 'sext' 'sext_ln66_6' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 266 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln66_1 = add i32 %sext_ln66_3, %sub_ln66" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 266 'add' 'add_ln66_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 267 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln66_2 = add i32 %shl_ln66_3, %sext_ln66_6" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 267 'add' 'add_ln66_2' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 268 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln66_3 = add i32 %add_ln66_2, %shl_ln66_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 268 'add' 'add_ln66_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 269 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t1_3 = add i32 %add_ln66_3, %add_ln66_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66]   --->   Operation 269 'add' 't1_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 270 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln67 = sub i32 %shl_ln66_1, %sext_ln66" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 270 'sub' 'sub_ln67' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 271 [1/1] (0.00ns)   --->   "%shl_ln3 = call i31 @_ssdm_op_BitConcatenate.i31.i29.i2(i29 %temp_load_5, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 271 'bitconcatenate' 'shl_ln3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 272 [1/1] (0.00ns)   --->   "%sext_ln67 = sext i31 %shl_ln3 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 272 'sext' 'sext_ln67' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 273 [1/1] (0.00ns)   --->   "%trunc_ln67 = trunc i29 %temp_load_6 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 273 'trunc' 'trunc_ln67' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 274 [1/1] (0.00ns)   --->   "%shl_ln67_1 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln67, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 274 'bitconcatenate' 'shl_ln67_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 275 [1/1] (0.00ns)   --->   "%shl_ln67_2 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_7, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 275 'bitconcatenate' 'shl_ln67_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 276 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln67_1 = sub i32 0, %shl_ln67_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 276 'sub' 'sub_ln67_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 277 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln67_2 = sub i32 %sub_ln67_1, %sext_ln66_5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 277 'sub' 'sub_ln67_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 278 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln67_3 = sub i32 %sub_ln67, %sext_ln67" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 278 'sub' 'sub_ln67_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 279 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln67_4 = sub i32 %sub_ln67_3, %shl_ln67_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 279 'sub' 'sub_ln67_4' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 280 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t2_3 = add i32 %sub_ln67_2, %sub_ln67_4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:67]   --->   Operation 280 'add' 't2_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 281 [1/1] (0.00ns)   --->   "%shl_ln4 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_4, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 281 'bitconcatenate' 'shl_ln4' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 282 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln68 = add i32 %sext_ln66, %shl_ln4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 282 'add' 'add_ln68' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 283 [1/1] (0.00ns)   --->   "%shl_ln68_1 = call i31 @_ssdm_op_BitConcatenate.i31.i29.i2(i29 %temp_load_6, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 283 'bitconcatenate' 'shl_ln68_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 284 [1/1] (0.00ns)   --->   "%sext_ln68 = sext i31 %shl_ln68_1 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 284 'sext' 'sext_ln68' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 285 [1/1] (0.00ns)   --->   "%trunc_ln68 = trunc i29 %temp_load_7 to i28" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 285 'trunc' 'trunc_ln68' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 286 [1/1] (0.00ns)   --->   "%shl_ln68_2 = call i32 @_ssdm_op_BitConcatenate.i32.i28.i4(i28 %trunc_ln68, i4 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 286 'bitconcatenate' 'shl_ln68_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 287 [1/1] (1.78ns)   --->   "%sub_ln68 = sub i32 %shl_ln68_2, %sext_ln66_5" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 287 'sub' 'sub_ln68' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 288 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln68_1 = sub i32 %add_ln68, %shl_ln66_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 288 'sub' 'sub_ln68_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 289 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln68_1 = add i32 %sub_ln68_1, %sub_ln68" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 289 'add' 'add_ln68_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 290 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t3_3 = add i32 %add_ln68_1, %sext_ln68" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:68]   --->   Operation 290 'add' 't3_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 291 [1/1] (0.00ns)   --->   "%shl_ln5 = call i31 @_ssdm_op_BitConcatenate.i31.i29.i2(i29 %temp_load_4, i2 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 291 'bitconcatenate' 'shl_ln5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 292 [1/1] (0.00ns)   --->   "%sext_ln69 = sext i31 %shl_ln5 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 292 'sext' 'sext_ln69' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 293 [1/1] (0.00ns)   --->   "%shl_ln69_1 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %temp_load_5, i3 0)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 293 'bitconcatenate' 'shl_ln69_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 294 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln69 = sub i32 0, %shl_ln69_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 294 'sub' 'sub_ln69' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 295 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%sub_ln69_1 = sub i32 %sub_ln69, %sext_ln66_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 295 'sub' 'sub_ln69_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 296 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln69_2 = sub i32 %shl_ln67_1, %sext_ln66_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 296 'sub' 'sub_ln69_2' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 297 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln69 = add i32 %sub_ln69_1, %sub_ln69_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 297 'add' 'add_ln69' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 298 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln69_1 = add i32 %add_ln69, %sext_ln69" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 298 'add' 'add_ln69_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 299 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%t4_3 = sub i32 %add_ln69_1, %shl_ln68_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69]   --->   Operation 299 'sub' 't4_3' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 16 <SV = 7> <Delay = 6.23>
+ST_16 : Operation 300 [1/1] (1.78ns)   --->   "%t5_1 = add nsw i32 %t1_2, %t3_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:61]   --->   Operation 300 'add' 't5_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 301 [1/1] (1.78ns)   --->   "%t6_1 = add nsw i32 %t2_2, %t4_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:62]   --->   Operation 301 'add' 't6_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 302 [1/1] (1.78ns)   --->   "%t7_1 = sub nsw i32 %t2_2, %t4_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:63]   --->   Operation 302 'sub' 't7_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 303 [1/1] (1.78ns)   --->   "%t8_1 = sub nsw i32 %t1_2, %t3_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:64]   --->   Operation 303 'sub' 't8_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 304 [1/1] (1.78ns)   --->   "%add_ln71 = add nsw i32 %t5_1, %t1_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71]   --->   Operation 304 'add' 'add_ln71' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 305 [1/1] (0.00ns)   --->   "%trunc_ln8 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %add_ln71, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71]   --->   Operation 305 'partselect' 'trunc_ln8' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 306 [1/1] (1.78ns)   --->   "%add_ln72 = add nsw i32 %t6_1, %t2_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72]   --->   Operation 306 'add' 'add_ln72' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 307 [1/1] (0.00ns)   --->   "%trunc_ln9 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %add_ln72, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72]   --->   Operation 307 'partselect' 'trunc_ln9' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 308 [1/1] (0.00ns)   --->   "%sext_ln72 = sext i25 %trunc_ln9 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72]   --->   Operation 308 'sext' 'sext_ln72' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 309 [1/1] (0.00ns)   --->   "%block_addr_9 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln66" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72]   --->   Operation 309 'getelementptr' 'block_addr_9' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 310 [1/1] (2.66ns)   --->   "store i32 %sext_ln72, i32* %block_addr_9, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72]   --->   Operation 310 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_16 : Operation 311 [1/1] (1.78ns)   --->   "%add_ln73 = add nsw i32 %t7_1, %t3_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:73]   --->   Operation 311 'add' 'add_ln73' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 312 [1/1] (0.00ns)   --->   "%trunc_ln10 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %add_ln73, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:73]   --->   Operation 312 'partselect' 'trunc_ln10' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 313 [1/1] (0.00ns)   --->   "%sext_ln73 = sext i25 %trunc_ln10 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:73]   --->   Operation 313 'sext' 'sext_ln73' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 314 [1/1] (0.00ns)   --->   "%block_addr_10 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln58" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:73]   --->   Operation 314 'getelementptr' 'block_addr_10' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 315 [1/1] (2.66ns)   --->   "store i32 %sext_ln73, i32* %block_addr_10, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:73]   --->   Operation 315 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_16 : Operation 316 [1/1] (1.78ns)   --->   "%add_ln74 = add nsw i32 %t8_1, %t4_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:74]   --->   Operation 316 'add' 'add_ln74' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 317 [1/1] (0.00ns)   --->   "%trunc_ln11 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %add_ln74, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:74]   --->   Operation 317 'partselect' 'trunc_ln11' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 318 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75)   --->   "%or_ln75 = or i32 %t8_1, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 318 'or' 'or_ln75' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 319 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln75 = sub i32 %or_ln75, %t4_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 319 'sub' 'sub_ln75' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 320 [1/1] (0.00ns)   --->   "%trunc_ln12 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %sub_ln75, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 320 'partselect' 'trunc_ln12' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 321 [1/1] (0.00ns) (grouped into LUT with out node sub_ln76)   --->   "%or_ln76 = or i32 %t7_1, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 321 'or' 'or_ln76' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 322 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln76 = sub i32 %or_ln76, %t3_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 322 'sub' 'sub_ln76' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 323 [1/1] (0.00ns)   --->   "%trunc_ln13 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %sub_ln76, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 323 'partselect' 'trunc_ln13' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 324 [1/1] (0.00ns) (grouped into LUT with out node sub_ln77)   --->   "%or_ln77 = or i32 %t6_1, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 324 'or' 'or_ln77' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 325 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln77 = sub i32 %or_ln77, %t2_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 325 'sub' 'sub_ln77' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 326 [1/1] (0.00ns)   --->   "%trunc_ln14 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %sub_ln77, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 326 'partselect' 'trunc_ln14' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 327 [1/1] (0.00ns) (grouped into LUT with out node sub_ln78)   --->   "%or_ln78 = or i32 %t5_1, 1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 327 'or' 'or_ln78' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 328 [1/1] (1.78ns) (out node of the LUT)   --->   "%sub_ln78 = sub i32 %or_ln78, %t1_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 328 'sub' 'sub_ln78' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 329 [1/1] (0.00ns)   --->   "%trunc_ln15 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %sub_ln78, i32 7, i32 31)" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 329 'partselect' 'trunc_ln15' <Predicate = true> <Delay = 0.00>
+
+State 17 <SV = 8> <Delay = 2.66>
+ST_17 : Operation 330 [1/1] (0.00ns)   --->   "%sext_ln71 = sext i25 %trunc_ln8 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71]   --->   Operation 330 'sext' 'sext_ln71' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 331 [1/1] (2.66ns)   --->   "store i32 %sext_ln71, i32* %block_addr_1, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71]   --->   Operation 331 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_17 : Operation 332 [1/1] (0.00ns)   --->   "%sext_ln74 = sext i25 %trunc_ln11 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:74]   --->   Operation 332 'sext' 'sext_ln74' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 333 [1/1] (0.00ns)   --->   "%block_addr_11 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln66_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:74]   --->   Operation 333 'getelementptr' 'block_addr_11' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 334 [1/1] (2.66ns)   --->   "store i32 %sext_ln74, i32* %block_addr_11, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:74]   --->   Operation 334 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 18 <SV = 9> <Delay = 2.66>
+ST_18 : Operation 335 [1/1] (0.00ns)   --->   "%sext_ln75 = sext i25 %trunc_ln12 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 335 'sext' 'sext_ln75' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 336 [1/1] (0.00ns)   --->   "%block_addr_12 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln56" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 336 'getelementptr' 'block_addr_12' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 337 [1/1] (2.66ns)   --->   "store i32 %sext_ln75, i32* %block_addr_12, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75]   --->   Operation 337 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_18 : Operation 338 [1/1] (0.00ns)   --->   "%sext_ln76 = sext i25 %trunc_ln13 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 338 'sext' 'sext_ln76' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 339 [1/1] (0.00ns)   --->   "%block_addr_13 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln66_2" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 339 'getelementptr' 'block_addr_13' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 340 [1/1] (2.66ns)   --->   "store i32 %sext_ln76, i32* %block_addr_13, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:76]   --->   Operation 340 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 19 <SV = 10> <Delay = 2.66>
+ST_19 : Operation 341 [1/1] (0.00ns)   --->   "%sext_ln77 = sext i25 %trunc_ln14 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 341 'sext' 'sext_ln77' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 342 [1/1] (0.00ns)   --->   "%block_addr_14 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln58_1" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 342 'getelementptr' 'block_addr_14' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 343 [1/1] (2.66ns)   --->   "store i32 %sext_ln77, i32* %block_addr_14, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77]   --->   Operation 343 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_19 : Operation 344 [1/1] (0.00ns)   --->   "%sext_ln78 = sext i25 %trunc_ln15 to i32" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 344 'sext' 'sext_ln78' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 345 [1/1] (0.00ns)   --->   "%block_addr_15 = getelementptr [64 x i32]* %block_r, i64 0, i64 %zext_ln66_3" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 345 'getelementptr' 'block_addr_15' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 346 [1/1] (2.66ns)   --->   "store i32 %sext_ln78, i32* %block_addr_15, align 4" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:78]   --->   Operation 346 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_19 : Operation 347 [1/1] (0.00ns)   --->   "br label %.preheader" [extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:55]   --->   Operation 347 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49) [7]  (1.06 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49) [7]  (0 ns)
+	'getelementptr' operation ('block_addr', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:49) [13]  (0 ns)
+	'load' operation ('block_load', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25) on array 'block_r' [19]  (2.66 ns)
+
+ <State 3>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('block_load', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:25) on array 'block_r' [19]  (2.66 ns)
+
+ <State 4>: 3.28ns
+The critical path consists of the following:
+	'xor' operation ('xor_ln35', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [56]  (0.616 ns)
+	'getelementptr' operation ('block_addr_5', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [58]  (0 ns)
+	'load' operation ('block_load_4', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) on array 'block_r' [59]  (2.66 ns)
+
+ <State 5>: 4.02ns
+The critical path consists of the following:
+	'add' operation ('add_ln35', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [67]  (1.36 ns)
+	'getelementptr' operation ('block_addr_7', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [69]  (0 ns)
+	'load' operation ('block_load_6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) on array 'block_r' [70]  (2.66 ns)
+
+ <State 6>: 8.22ns
+The critical path consists of the following:
+	'load' operation ('block_load_6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) on array 'block_r' [70]  (2.66 ns)
+	'add' operation ('add_ln35_1', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [77]  (2.78 ns)
+	'add' operation ('t1', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:35) [80]  (2.78 ns)
+
+ <State 7>: 6.23ns
+The critical path consists of the following:
+	'add' operation ('t5', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:30) [52]  (1.78 ns)
+	'add' operation ('add_ln40', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40) [106]  (1.78 ns)
+	'store' operation ('store_ln40', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40) of variable 'trunc_ln', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:40 on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [108]  (2.66 ns)
+
+ <State 8>: 2.66ns
+The critical path consists of the following:
+	'or' operation ('or_ln42', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42) [118]  (0 ns)
+	'getelementptr' operation ('temp_addr_2', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42) [120]  (0 ns)
+	'store' operation ('store_ln42', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42) of variable 'trunc_ln2', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:42 on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [121]  (2.66 ns)
+
+ <State 9>: 2.66ns
+The critical path consists of the following:
+	'or' operation ('or_ln44', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44) [130]  (0 ns)
+	'getelementptr' operation ('temp_addr_4', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44) [132]  (0 ns)
+	'store' operation ('store_ln44', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44) of variable 'trunc_ln4', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:44 on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [133]  (2.66 ns)
+
+ <State 10>: 2.66ns
+The critical path consists of the following:
+	'or' operation ('or_ln46', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46) [142]  (0 ns)
+	'getelementptr' operation ('temp_addr_6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46) [144]  (0 ns)
+	'store' operation ('store_ln46', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46) of variable 'trunc_ln6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:46 on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [145]  (2.66 ns)
+
+ <State 11>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80) [157]  (0 ns)
+	'getelementptr' operation ('temp_addr_8', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:80) [161]  (0 ns)
+	'load' operation ('temp_load', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56) on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [167]  (2.66 ns)
+
+ <State 12>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('temp_load', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:56) on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [167]  (2.66 ns)
+
+ <State 13>: 5.44ns
+The critical path consists of the following:
+	'load' operation ('temp_load_2', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58) on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [189]  (2.66 ns)
+	'add' operation ('t3', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:58) [200]  (2.78 ns)
+
+ <State 14>: 4.02ns
+The critical path consists of the following:
+	'add' operation ('add_ln66', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66) [227]  (1.36 ns)
+	'getelementptr' operation ('temp_addr_14', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66) [229]  (0 ns)
+	'load' operation ('temp_load_6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:66) on array 'temp', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:20 [230]  (2.66 ns)
+
+ <State 15>: 8.33ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln69_1', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69) [269]  (2.78 ns)
+	'add' operation ('add_ln69', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69) [271]  (2.78 ns)
+	'add' operation ('add_ln69_1', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69) [272]  (0 ns)
+	'sub' operation ('t4', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:69) [273]  (2.78 ns)
+
+ <State 16>: 6.23ns
+The critical path consists of the following:
+	'add' operation ('t6', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:62) [209]  (1.78 ns)
+	'add' operation ('add_ln72', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72) [278]  (1.78 ns)
+	'store' operation ('store_ln72', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72) of variable 'sext_ln72', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:72 on array 'block_r' [282]  (2.66 ns)
+
+ <State 17>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln71', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71) of variable 'sext_ln71', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:71 on array 'block_r' [277]  (2.66 ns)
+
+ <State 18>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln75', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75) of variable 'sext_ln75', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:75 on array 'block_r' [298]  (2.66 ns)
+
+ <State 19>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln77', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77) of variable 'sext_ln77', extr_.FFmpeglibavcodecvc1dsp.c_vc1_inv_trans_8x8_c_with_main.c:77 on array 'block_r' [310]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,144 @@
+
+
+================================================================
+== Vivado HLS Report for 'ip22zilog_convert_to_zs'
+================================================================
+* Date:           Tue May 26 02:23:06 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.linuxdriversttyserialip22zilog.c_ip22zilog_convert_to_zs_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.328|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   12|   12|   12|   12|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     209|    -|
+|Register         |        -|      -|      85|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|      85|     209|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                   |  59|         14|    1|         14|
+    |reg_132                     |   9|          2|   32|         64|
+    |up_curregs_address0         |  33|          6|    7|         42|
+    |up_curregs_address1         |  27|          5|    7|         35|
+    |up_curregs_d0               |  33|          6|   32|        192|
+    |up_curregs_d1               |  33|          6|   32|        192|
+    |up_port_ignore_status_mask  |  15|          3|   32|         96|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 209|         42|  143|        635|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------+----+----+-----+-----------+
+    |         Name         | FF | LUT| Bits| Const Bits|
+    +----------------------+----+----+-----+-----------+
+    |ap_CS_fsm             |  13|   0|   13|          0|
+    |reg_132               |  32|   0|   32|          0|
+    |reg_139               |  32|   0|   32|          0|
+    |trunc_ln74_1_reg_214  |   8|   0|    8|          0|
+    +----------------------+----+----+-----+-----------+
+    |Total                 |  85|   0|   85|          0|
+    +----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------+-----+-----+------------+----------------------------+--------------+
+|             RTL Ports             | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++-----------------------------------+-----+-----+------------+----------------------------+--------------+
+|ap_clk                             |  in |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|ap_rst                             |  in |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|ap_start                           |  in |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|ap_done                            | out |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|ap_idle                            | out |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|ap_ready                           | out |    1| ap_ctrl_hs |   ip22zilog_convert_to_zs  | return value |
+|up_curregs_address0                | out |    7|  ap_memory |         up_curregs         |     array    |
+|up_curregs_ce0                     | out |    1|  ap_memory |         up_curregs         |     array    |
+|up_curregs_we0                     | out |    1|  ap_memory |         up_curregs         |     array    |
+|up_curregs_d0                      | out |   32|  ap_memory |         up_curregs         |     array    |
+|up_curregs_q0                      |  in |   32|  ap_memory |         up_curregs         |     array    |
+|up_curregs_address1                | out |    7|  ap_memory |         up_curregs         |     array    |
+|up_curregs_ce1                     | out |    1|  ap_memory |         up_curregs         |     array    |
+|up_curregs_we1                     | out |    1|  ap_memory |         up_curregs         |     array    |
+|up_curregs_d1                      | out |   32|  ap_memory |         up_curregs         |     array    |
+|up_curregs_q1                      |  in |   32|  ap_memory |         up_curregs         |     array    |
+|up_parity_mask                     | out |   32|   ap_vld   |       up_parity_mask       |    pointer   |
+|up_parity_mask_ap_vld              | out |    1|   ap_vld   |       up_parity_mask       |    pointer   |
+|up_port_read_status_mask           | out |   32|   ap_vld   |  up_port_read_status_mask  |    pointer   |
+|up_port_read_status_mask_ap_vld    | out |    1|   ap_vld   |  up_port_read_status_mask  |    pointer   |
+|up_port_ignore_status_mask         | out |   32|   ap_vld   | up_port_ignore_status_mask |    pointer   |
+|up_port_ignore_status_mask_ap_vld  | out |    1|   ap_vld   | up_port_ignore_status_mask |    pointer   |
+|cflag                              |  in |   32|   ap_none  |            cflag           |    scalar    |
+|iflag                              |  in |   32|   ap_none  |            iflag           |    scalar    |
+|brg                                |  in |   32|   ap_none  |             brg            |    scalar    |
++-----------------------------------+-----+-----+------------+----------------------------+--------------+
+

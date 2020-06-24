@@ -1,0 +1,432 @@
+
+
+================================================================
+== Vivado HLS Report for 'gradient_xy_calc'
+================================================================
+* Date:           Wed Jun 24 04:23:12 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        optical
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.286|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+----------+--------+----------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min  |    max   |   min  |    max   |   Type  |
+    +--------+----------+--------+----------+---------+
+    |  899653|  34154365|  899653|  34154365|   none  |
+    +--------+----------+--------+----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+        |                 |      Latency      |   Iteration  |  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min  |    max   |    Latency   |  achieved |   target  | Count| Pipelined|
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+        |- Loop 1         |  899652|  34154364| 2054 ~ 77978 |          -|          -|   438|    no    |
+        | + Loop 1.1      |    2052|     77976|    2 ~ 76    |          -|          -|  1026|    no    |
+        |  ++ Loop 1.1.1  |      65|        65|            13|          -|          -|     5|    no    |
+        +-----------------+--------+----------+--------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 25
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 25 4 2 
+4 --> 5 17 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 4 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 3 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 26 [1/1] (1.06ns)   --->   "br label %.loopexit" [optical_flow_sw.cpp:18]   --->   Operation 26 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.87>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%r_0 = phi i9 [ 0, %0 ], [ %r, %.loopexit.loopexit ]"   --->   Operation 27 'phi' 'r_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln18 = zext i9 %r_0 to i10" [optical_flow_sw.cpp:18]   --->   Operation 28 'zext' 'zext_ln18' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (1.25ns)   --->   "%icmp_ln18 = icmp eq i9 %r_0, -74" [optical_flow_sw.cpp:18]   --->   Operation 29 'icmp' 'icmp_ln18' <Predicate = true> <Delay = 1.25> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 438, i64 438, i64 438)"   --->   Operation 30 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (1.40ns)   --->   "%r = add i9 %r_0, 1" [optical_flow_sw.cpp:18]   --->   Operation 31 'add' 'r' <Predicate = true> <Delay = 1.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "br i1 %icmp_ln18, label %7, label %.preheader4.preheader" [optical_flow_sw.cpp:18]   --->   Operation 32 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%tmp_12 = call i7 @_ssdm_op_PartSelect.i7.i9.i32.i32(i9 %r_0, i32 2, i32 8)" [optical_flow_sw.cpp:24]   --->   Operation 33 'partselect' 'tmp_12' <Predicate = (!icmp_ln18)> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (1.18ns)   --->   "%icmp_ln24 = icmp ne i7 %tmp_12, 0" [optical_flow_sw.cpp:24]   --->   Operation 34 'icmp' 'icmp_ln24' <Predicate = (!icmp_ln18)> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (1.25ns)   --->   "%icmp_ln24_1 = icmp ult i9 %r_0, -76" [optical_flow_sw.cpp:24]   --->   Operation 35 'icmp' 'icmp_ln24_1' <Predicate = (!icmp_ln18)> <Delay = 1.25> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%tmp_13 = call i8 @_ssdm_op_PartSelect.i8.i9.i32.i32(i9 %r_0, i32 1, i32 8)" [optical_flow_sw.cpp:34]   --->   Operation 36 'partselect' 'tmp_13' <Predicate = (!icmp_ln18)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (1.22ns)   --->   "%icmp_ln34 = icmp ne i8 %tmp_13, 0" [optical_flow_sw.cpp:34]   --->   Operation 37 'icmp' 'icmp_ln34' <Predicate = (!icmp_ln18)> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 38 [1/1] (1.40ns)   --->   "%add_ln36 = add i10 %zext_ln18, -2" [optical_flow_sw.cpp:36]   --->   Operation 38 'add' 'add_ln36' <Predicate = (!icmp_ln18)> <Delay = 1.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_1 = call i20 @_ssdm_op_BitConcatenate.i20.i10.i10(i10 %add_ln36, i10 0)" [optical_flow_sw.cpp:28]   --->   Operation 39 'bitconcatenate' 'tmp_1' <Predicate = (!icmp_ln18)> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.61ns)   --->   "%and_ln24 = and i1 %icmp_ln24, %icmp_ln24_1" [optical_flow_sw.cpp:24]   --->   Operation 40 'and' 'and_ln24' <Predicate = (!icmp_ln18)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 41 [1/1] (1.06ns)   --->   "br label %.preheader4" [optical_flow_sw.cpp:20]   --->   Operation 41 'br' <Predicate = (!icmp_ln18)> <Delay = 1.06>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "ret void" [optical_flow_sw.cpp:41]   --->   Operation 42 'ret' <Predicate = (icmp_ln18)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 5.65>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%c_0 = phi i11 [ %c, %6 ], [ 0, %.preheader4.preheader ]"   --->   Operation 43 'phi' 'c_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (1.32ns)   --->   "%icmp_ln20 = icmp eq i11 %c_0, -1022" [optical_flow_sw.cpp:20]   --->   Operation 44 'icmp' 'icmp_ln20' <Predicate = true> <Delay = 1.32> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1026, i64 1026, i64 1026)"   --->   Operation 45 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (1.42ns)   --->   "%c = add i11 %c_0, 1" [optical_flow_sw.cpp:20]   --->   Operation 46 'add' 'c' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %icmp_ln20, label %.loopexit.loopexit, label %1" [optical_flow_sw.cpp:20]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_14 = call i9 @_ssdm_op_PartSelect.i9.i11.i32.i32(i11 %c_0, i32 2, i32 10)" [optical_flow_sw.cpp:24]   --->   Operation 48 'partselect' 'tmp_14' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (1.25ns)   --->   "%icmp_ln24_2 = icmp ne i9 %tmp_14, 0" [optical_flow_sw.cpp:24]   --->   Operation 49 'icmp' 'icmp_ln24_2' <Predicate = (!icmp_ln20)> <Delay = 1.25> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node and_ln24_2)   --->   "%tmp_16 = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %c_0, i32 10)" [optical_flow_sw.cpp:24]   --->   Operation 50 'bitselect' 'tmp_16' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns) (grouped into LUT with out node and_ln24_2)   --->   "%xor_ln24 = xor i1 %tmp_16, true" [optical_flow_sw.cpp:24]   --->   Operation 51 'xor' 'xor_ln24' <Predicate = (!icmp_ln20)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node and_ln24_2)   --->   "%and_ln24_1 = and i1 %icmp_ln24_2, %xor_ln24" [optical_flow_sw.cpp:24]   --->   Operation 52 'and' 'and_ln24_1' <Predicate = (!icmp_ln20)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (0.61ns) (out node of the LUT)   --->   "%and_ln24_2 = and i1 %and_ln24_1, %and_ln24" [optical_flow_sw.cpp:24]   --->   Operation 53 'and' 'and_ln24_2' <Predicate = (!icmp_ln20)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "br i1 %and_ln24_2, label %.preheader.preheader, label %4" [optical_flow_sw.cpp:24]   --->   Operation 54 'br' <Predicate = (!icmp_ln20)> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%tmp_17 = call i10 @_ssdm_op_PartSelect.i10.i11.i32.i32(i11 %c_0, i32 1, i32 10)" [optical_flow_sw.cpp:34]   --->   Operation 55 'partselect' 'tmp_17' <Predicate = (!icmp_ln20 & !and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (1.29ns)   --->   "%icmp_ln34_1 = icmp ne i10 %tmp_17, 0" [optical_flow_sw.cpp:34]   --->   Operation 56 'icmp' 'icmp_ln34_1' <Predicate = (!icmp_ln20 & !and_ln24_2)> <Delay = 1.29> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 57 [1/1] (0.61ns)   --->   "%and_ln34 = and i1 %icmp_ln34, %icmp_ln34_1" [optical_flow_sw.cpp:34]   --->   Operation 57 'and' 'and_ln34' <Predicate = (!icmp_ln20 & !and_ln24_2)> <Delay = 0.61> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "br i1 %and_ln34, label %5, label %._crit_edge" [optical_flow_sw.cpp:34]   --->   Operation 58 'br' <Predicate = (!icmp_ln20 & !and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (1.42ns)   --->   "%add_ln36_1 = add i11 %c_0, -2" [optical_flow_sw.cpp:36]   --->   Operation 59 'add' 'add_ln36_1' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln36 = zext i11 %add_ln36_1 to i20" [optical_flow_sw.cpp:36]   --->   Operation 60 'zext' 'zext_ln36' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (1.56ns)   --->   "%add_ln36_2 = add i20 %tmp_1, %zext_ln36" [optical_flow_sw.cpp:36]   --->   Operation 61 'add' 'add_ln36_2' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%sext_ln36 = sext i20 %add_ln36_2 to i64" [optical_flow_sw.cpp:36]   --->   Operation 62 'sext' 'sext_ln36' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "%gradient_x_addr = getelementptr [446464 x float]* %gradient_x, i64 0, i64 %sext_ln36" [optical_flow_sw.cpp:36]   --->   Operation 63 'getelementptr' 'gradient_x_addr' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%gradient_y_addr = getelementptr [446464 x float]* %gradient_y, i64 0, i64 %sext_ln36" [optical_flow_sw.cpp:37]   --->   Operation 64 'getelementptr' 'gradient_y_addr' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (2.66ns)   --->   "store float 0.000000e+00, float* %gradient_x_addr, align 4" [optical_flow_sw.cpp:36]   --->   Operation 65 'store' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_3 : Operation 66 [1/1] (2.66ns)   --->   "store float 0.000000e+00, float* %gradient_y_addr, align 4" [optical_flow_sw.cpp:37]   --->   Operation 66 'store' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "br label %._crit_edge" [optical_flow_sw.cpp:38]   --->   Operation 67 'br' <Predicate = (!icmp_ln20 & !and_ln24_2 & and_ln34)> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "br label %6"   --->   Operation 68 'br' <Predicate = (!icmp_ln20 & !and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (1.42ns)   --->   "%add_ln29 = add i11 %c_0, -2" [optical_flow_sw.cpp:29]   --->   Operation 69 'add' 'add_ln29' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i11 %add_ln29 to i20" [optical_flow_sw.cpp:31]   --->   Operation 70 'zext' 'zext_ln31' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (1.56ns)   --->   "%add_ln31 = add i20 %tmp_1, %zext_ln31" [optical_flow_sw.cpp:31]   --->   Operation 71 'add' 'add_ln31' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%sext_ln31 = sext i20 %add_ln31 to i64" [optical_flow_sw.cpp:31]   --->   Operation 72 'sext' 'sext_ln31' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%gradient_x_addr_1 = getelementptr [446464 x float]* %gradient_x, i64 0, i64 %sext_ln31" [optical_flow_sw.cpp:31]   --->   Operation 73 'getelementptr' 'gradient_x_addr_1' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%gradient_y_addr_1 = getelementptr [446464 x float]* %gradient_y, i64 0, i64 %sext_ln31" [optical_flow_sw.cpp:32]   --->   Operation 74 'getelementptr' 'gradient_y_addr_1' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (1.06ns)   --->   "br label %.preheader" [optical_flow_sw.cpp:26]   --->   Operation 75 'br' <Predicate = (!icmp_ln20 & and_ln24_2)> <Delay = 1.06>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 76 'br' <Predicate = (icmp_ln20)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 8.19>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "%y_grad_0 = phi float [ %y_grad, %2 ], [ 0.000000e+00, %.preheader.preheader ]"   --->   Operation 77 'phi' 'y_grad_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%x_grad_0 = phi float [ %x_grad, %2 ], [ 0.000000e+00, %.preheader.preheader ]"   --->   Operation 78 'phi' 'x_grad_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ %i, %2 ], [ 0, %.preheader.preheader ]"   --->   Operation 79 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln26 = zext i3 %i_0 to i9" [optical_flow_sw.cpp:26]   --->   Operation 80 'zext' 'zext_ln26' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln26_1 = zext i3 %i_0 to i11" [optical_flow_sw.cpp:26]   --->   Operation 81 'zext' 'zext_ln26_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (0.86ns)   --->   "%icmp_ln26 = icmp eq i3 %i_0, -3" [optical_flow_sw.cpp:26]   --->   Operation 82 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)"   --->   Operation 83 'speclooptripcount' 'empty_20' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (1.16ns)   --->   "%i = add i3 %i_0, 1" [optical_flow_sw.cpp:26]   --->   Operation 84 'add' 'i' <Predicate = true> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %3, label %2" [optical_flow_sw.cpp:26]   --->   Operation 85 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (1.42ns)   --->   "%sub_ln28 = sub i11 %c_0, %zext_ln26_1" [optical_flow_sw.cpp:28]   --->   Operation 86 'sub' 'sub_ln28' <Predicate = (!icmp_ln26)> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln28 = zext i11 %sub_ln28 to i20" [optical_flow_sw.cpp:28]   --->   Operation 87 'zext' 'zext_ln28' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (1.56ns)   --->   "%add_ln28 = add i20 %zext_ln28, %tmp_1" [optical_flow_sw.cpp:28]   --->   Operation 88 'add' 'add_ln28' <Predicate = (!icmp_ln26)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 89 [1/1] (1.16ns)   --->   "%sub_ln28_1 = sub i3 -4, %i_0" [optical_flow_sw.cpp:28]   --->   Operation 89 'sub' 'sub_ln28_1' <Predicate = (!icmp_ln26)> <Delay = 1.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "%zext_ln28_1 = zext i3 %sub_ln28_1 to i64" [optical_flow_sw.cpp:28]   --->   Operation 90 'zext' 'zext_ln28_1' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%GRAD_WEIGHTS_addr = getelementptr [5 x i5]* @GRAD_WEIGHTS, i64 0, i64 %zext_ln28_1" [optical_flow_sw.cpp:28]   --->   Operation 91 'getelementptr' 'GRAD_WEIGHTS_addr' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_4 : Operation 92 [2/2] (2.66ns)   --->   "%GRAD_WEIGHTS_load = load i5* %GRAD_WEIGHTS_addr, align 1" [optical_flow_sw.cpp:28]   --->   Operation 92 'load' 'GRAD_WEIGHTS_load' <Predicate = (!icmp_ln26)> <Delay = 2.66> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 5> <Depth = 5> <ROM>
+ST_4 : Operation 93 [1/1] (1.40ns)   --->   "%sub_ln29 = sub i9 %r_0, %zext_ln26" [optical_flow_sw.cpp:29]   --->   Operation 93 'sub' 'sub_ln29' <Predicate = (!icmp_ln26)> <Delay = 1.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 94 [1/1] (0.00ns)   --->   "%tmp_2 = call i19 @_ssdm_op_BitConcatenate.i19.i9.i10(i9 %sub_ln29, i10 0)" [optical_flow_sw.cpp:29]   --->   Operation 94 'bitconcatenate' 'tmp_2' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln29 = zext i19 %tmp_2 to i20" [optical_flow_sw.cpp:29]   --->   Operation 95 'zext' 'zext_ln29' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_4 : Operation 96 [1/1] (1.54ns)   --->   "%add_ln29_1 = add i20 %zext_ln31, %zext_ln29" [optical_flow_sw.cpp:29]   --->   Operation 96 'add' 'add_ln29_1' <Predicate = (!icmp_ln26)> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 97 [9/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 97 'fdiv' 'tmp' <Predicate = (icmp_ln26)> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 98 [9/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 98 'fdiv' 'tmp_s' <Predicate = (icmp_ln26)> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 2.66>
+ST_5 : Operation 99 [1/2] (2.66ns)   --->   "%GRAD_WEIGHTS_load = load i5* %GRAD_WEIGHTS_addr, align 1" [optical_flow_sw.cpp:28]   --->   Operation 99 'load' 'GRAD_WEIGHTS_load' <Predicate = true> <Delay = 2.66> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 5> <Depth = 5> <ROM>
+
+State 6 <SV = 5> <Delay = 6.67>
+ST_6 : Operation 100 [1/1] (0.00ns)   --->   "%sext_ln28_1 = sext i5 %GRAD_WEIGHTS_load to i32" [optical_flow_sw.cpp:28]   --->   Operation 100 'sext' 'sext_ln28_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 101 [4/4] (6.67ns)   --->   "%tmp_7 = sitofp i32 %sext_ln28_1 to float" [optical_flow_sw.cpp:28]   --->   Operation 101 'sitofp' 'tmp_7' <Predicate = true> <Delay = 6.67> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 3> <II = 1> <Delay = 6.67> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 6.67>
+ST_7 : Operation 102 [3/4] (6.67ns)   --->   "%tmp_7 = sitofp i32 %sext_ln28_1 to float" [optical_flow_sw.cpp:28]   --->   Operation 102 'sitofp' 'tmp_7' <Predicate = true> <Delay = 6.67> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 3> <II = 1> <Delay = 6.67> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 6.67>
+ST_8 : Operation 103 [1/1] (0.00ns)   --->   "%sext_ln28 = sext i20 %add_ln28 to i64" [optical_flow_sw.cpp:28]   --->   Operation 103 'sext' 'sext_ln28' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 104 [1/1] (0.00ns)   --->   "%frame_addr = getelementptr [446464 x float]* %frame, i64 0, i64 %sext_ln28" [optical_flow_sw.cpp:28]   --->   Operation 104 'getelementptr' 'frame_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 105 [2/2] (2.66ns)   --->   "%frame_load = load float* %frame_addr, align 4" [optical_flow_sw.cpp:28]   --->   Operation 105 'load' 'frame_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_8 : Operation 106 [2/4] (6.67ns)   --->   "%tmp_7 = sitofp i32 %sext_ln28_1 to float" [optical_flow_sw.cpp:28]   --->   Operation 106 'sitofp' 'tmp_7' <Predicate = true> <Delay = 6.67> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 3> <II = 1> <Delay = 6.67> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln29_1 = zext i20 %add_ln29_1 to i64" [optical_flow_sw.cpp:29]   --->   Operation 107 'zext' 'zext_ln29_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 108 [1/1] (0.00ns)   --->   "%frame_addr_1 = getelementptr [446464 x float]* %frame, i64 0, i64 %zext_ln29_1" [optical_flow_sw.cpp:29]   --->   Operation 108 'getelementptr' 'frame_addr_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 109 [2/2] (2.66ns)   --->   "%frame_load_1 = load float* %frame_addr_1, align 4" [optical_flow_sw.cpp:29]   --->   Operation 109 'load' 'frame_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+
+State 9 <SV = 8> <Delay = 6.67>
+ST_9 : Operation 110 [1/2] (2.66ns)   --->   "%frame_load = load float* %frame_addr, align 4" [optical_flow_sw.cpp:28]   --->   Operation 110 'load' 'frame_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_9 : Operation 111 [1/4] (6.67ns)   --->   "%tmp_7 = sitofp i32 %sext_ln28_1 to float" [optical_flow_sw.cpp:28]   --->   Operation 111 'sitofp' 'tmp_7' <Predicate = true> <Delay = 6.67> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 3> <II = 1> <Delay = 6.67> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 112 [1/2] (2.66ns)   --->   "%frame_load_1 = load float* %frame_addr_1, align 4" [optical_flow_sw.cpp:29]   --->   Operation 112 'load' 'frame_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+
+State 10 <SV = 9> <Delay = 8.28>
+ST_10 : Operation 113 [3/3] (8.28ns)   --->   "%tmp_8 = fmul float %frame_load, %tmp_7" [optical_flow_sw.cpp:28]   --->   Operation 113 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 114 [3/3] (8.28ns)   --->   "%tmp_9 = fmul float %frame_load_1, %tmp_7" [optical_flow_sw.cpp:29]   --->   Operation 114 'fmul' 'tmp_9' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 8.28>
+ST_11 : Operation 115 [2/3] (8.28ns)   --->   "%tmp_8 = fmul float %frame_load, %tmp_7" [optical_flow_sw.cpp:28]   --->   Operation 115 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 116 [2/3] (8.28ns)   --->   "%tmp_9 = fmul float %frame_load_1, %tmp_7" [optical_flow_sw.cpp:29]   --->   Operation 116 'fmul' 'tmp_9' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 8.28>
+ST_12 : Operation 117 [1/3] (8.28ns)   --->   "%tmp_8 = fmul float %frame_load, %tmp_7" [optical_flow_sw.cpp:28]   --->   Operation 117 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 118 [1/3] (8.28ns)   --->   "%tmp_9 = fmul float %frame_load_1, %tmp_7" [optical_flow_sw.cpp:29]   --->   Operation 118 'fmul' 'tmp_9' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 7.71>
+ST_13 : Operation 119 [4/4] (7.71ns)   --->   "%x_grad = fadd float %x_grad_0, %tmp_8" [optical_flow_sw.cpp:28]   --->   Operation 119 'fadd' 'x_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 120 [4/4] (7.71ns)   --->   "%y_grad = fadd float %y_grad_0, %tmp_9" [optical_flow_sw.cpp:29]   --->   Operation 120 'fadd' 'y_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 7.71>
+ST_14 : Operation 121 [3/4] (7.71ns)   --->   "%x_grad = fadd float %x_grad_0, %tmp_8" [optical_flow_sw.cpp:28]   --->   Operation 121 'fadd' 'x_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 122 [3/4] (7.71ns)   --->   "%y_grad = fadd float %y_grad_0, %tmp_9" [optical_flow_sw.cpp:29]   --->   Operation 122 'fadd' 'y_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 7.71>
+ST_15 : Operation 123 [2/4] (7.71ns)   --->   "%x_grad = fadd float %x_grad_0, %tmp_8" [optical_flow_sw.cpp:28]   --->   Operation 123 'fadd' 'x_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 124 [2/4] (7.71ns)   --->   "%y_grad = fadd float %y_grad_0, %tmp_9" [optical_flow_sw.cpp:29]   --->   Operation 124 'fadd' 'y_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 7.71>
+ST_16 : Operation 125 [1/4] (7.71ns)   --->   "%x_grad = fadd float %x_grad_0, %tmp_8" [optical_flow_sw.cpp:28]   --->   Operation 125 'fadd' 'x_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 126 [1/4] (7.71ns)   --->   "%y_grad = fadd float %y_grad_0, %tmp_9" [optical_flow_sw.cpp:29]   --->   Operation 126 'fadd' 'y_grad' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 127 [1/1] (0.00ns)   --->   "br label %.preheader" [optical_flow_sw.cpp:26]   --->   Operation 127 'br' <Predicate = true> <Delay = 0.00>
+
+State 17 <SV = 4> <Delay = 8.19>
+ST_17 : Operation 128 [8/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 128 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 129 [8/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 129 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 5> <Delay = 8.19>
+ST_18 : Operation 130 [7/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 130 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 131 [7/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 131 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 6> <Delay = 8.19>
+ST_19 : Operation 132 [6/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 132 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 133 [6/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 133 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 7> <Delay = 8.19>
+ST_20 : Operation 134 [5/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 134 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 135 [5/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 135 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 8> <Delay = 8.19>
+ST_21 : Operation 136 [4/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 136 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 137 [4/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 137 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 9> <Delay = 8.19>
+ST_22 : Operation 138 [3/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 138 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 139 [3/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 139 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 10> <Delay = 8.19>
+ST_23 : Operation 140 [2/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 140 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 141 [2/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 141 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 11> <Delay = 8.19>
+ST_24 : Operation 142 [1/9] (8.19ns)   --->   "%tmp = fdiv float %x_grad_0, 1.200000e+01" [optical_flow_sw.cpp:31]   --->   Operation 142 'fdiv' 'tmp' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 143 [1/9] (8.19ns)   --->   "%tmp_s = fdiv float %y_grad_0, 1.200000e+01" [optical_flow_sw.cpp:32]   --->   Operation 143 'fdiv' 'tmp_s' <Predicate = true> <Delay = 8.19> <Core = "FDiv">   --->   Core 107 'FDiv' <Latency = 8> <II = 1> <Delay = 8.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 12> <Delay = 2.66>
+ST_25 : Operation 144 [1/1] (2.66ns)   --->   "store float %tmp, float* %gradient_x_addr_1, align 4" [optical_flow_sw.cpp:31]   --->   Operation 144 'store' <Predicate = (and_ln24_2)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_25 : Operation 145 [1/1] (2.66ns)   --->   "store float %tmp_s, float* %gradient_y_addr_1, align 4" [optical_flow_sw.cpp:32]   --->   Operation 145 'store' <Predicate = (and_ln24_2)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 446464> <RAM>
+ST_25 : Operation 146 [1/1] (0.00ns)   --->   "br label %6" [optical_flow_sw.cpp:33]   --->   Operation 146 'br' <Predicate = (and_ln24_2)> <Delay = 0.00>
+ST_25 : Operation 147 [1/1] (0.00ns)   --->   "br label %.preheader4" [optical_flow_sw.cpp:20]   --->   Operation 147 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('r') with incoming values : ('r', optical_flow_sw.cpp:18) [7]  (1.06 ns)
+
+ <State 2>: 1.87ns
+The critical path consists of the following:
+	'phi' operation ('r') with incoming values : ('r', optical_flow_sw.cpp:18) [7]  (0 ns)
+	'icmp' operation ('icmp_ln24_1', optical_flow_sw.cpp:24) [16]  (1.26 ns)
+	'and' operation ('and_ln24', optical_flow_sw.cpp:24) [21]  (0.616 ns)
+
+ <State 3>: 5.65ns
+The critical path consists of the following:
+	'phi' operation ('c') with incoming values : ('c', optical_flow_sw.cpp:20) [24]  (0 ns)
+	'add' operation ('add_ln36_1', optical_flow_sw.cpp:36) [43]  (1.43 ns)
+	'add' operation ('add_ln36_2', optical_flow_sw.cpp:36) [45]  (1.56 ns)
+	'getelementptr' operation ('gradient_x_addr', optical_flow_sw.cpp:36) [47]  (0 ns)
+	'store' operation ('store_ln36', optical_flow_sw.cpp:36) of constant 0 on array 'gradient_x' [49]  (2.66 ns)
+
+ <State 4>: 8.2ns
+The critical path consists of the following:
+	'phi' operation ('y_grad') with incoming values : ('y_grad', optical_flow_sw.cpp:29) [63]  (0 ns)
+	'fdiv' operation ('tmp_s', optical_flow_sw.cpp:32) [100]  (8.2 ns)
+
+ <State 5>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('GRAD_WEIGHTS_load', optical_flow_sw.cpp:28) on array 'GRAD_WEIGHTS' [82]  (2.66 ns)
+
+ <State 6>: 6.67ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_7', optical_flow_sw.cpp:28) [84]  (6.67 ns)
+
+ <State 7>: 6.67ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_7', optical_flow_sw.cpp:28) [84]  (6.67 ns)
+
+ <State 8>: 6.67ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_7', optical_flow_sw.cpp:28) [84]  (6.67 ns)
+
+ <State 9>: 6.67ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_7', optical_flow_sw.cpp:28) [84]  (6.67 ns)
+
+ <State 10>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', optical_flow_sw.cpp:28) [85]  (8.29 ns)
+
+ <State 11>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', optical_flow_sw.cpp:28) [85]  (8.29 ns)
+
+ <State 12>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', optical_flow_sw.cpp:28) [85]  (8.29 ns)
+
+ <State 13>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('x_grad', optical_flow_sw.cpp:28) [86]  (7.72 ns)
+
+ <State 14>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('x_grad', optical_flow_sw.cpp:28) [86]  (7.72 ns)
+
+ <State 15>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('x_grad', optical_flow_sw.cpp:28) [86]  (7.72 ns)
+
+ <State 16>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('x_grad', optical_flow_sw.cpp:28) [86]  (7.72 ns)
+
+ <State 17>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 18>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 19>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 20>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 21>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 22>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 23>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 24>: 8.2ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp', optical_flow_sw.cpp:31) [98]  (8.2 ns)
+
+ <State 25>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln31', optical_flow_sw.cpp:31) of variable 'tmp', optical_flow_sw.cpp:31 on array 'gradient_x' [99]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

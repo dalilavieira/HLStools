@@ -1,0 +1,152 @@
+
+
+================================================================
+== Vivado HLS Report for 'felem_reduce'
+================================================================
+* Date:           Tue May 26 02:55:40 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.opensslcryptoececp_nistp521.c_felem_reduce_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.343|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    5|    5|    5|    5|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      60|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     218|    -|
+|Register         |        -|      -|      10|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|      10|     278|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln78_fu_318_p2     |     +    |      0|  0|  10|           2|           2|
+    |add_ln87_1_fu_352_p2   |     +    |      0|  0|  10|           2|           2|
+    |add_ln87_fu_361_p2     |     +    |      0|  0|  12|           3|           3|
+    |grp_fu_259_p2          |     +    |      0|  0|  10|           2|           2|
+    |grp_fu_269_p2          |     +    |      0|  0|  10|           2|           2|
+    |grp_fu_235_p3          |  select  |      0|  0|   2|           1|           2|
+    |grp_fu_251_p3          |  select  |      0|  0|   2|           1|           2|
+    |select_ln77_fu_310_p3  |  select  |      0|  0|   2|           1|           2|
+    |select_ln87_fu_344_p3  |  select  |      0|  0|   2|           1|           2|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0|  60|          15|          19|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm       |  38|          7|    1|          7|
+    |in_r_address0   |  33|          6|   10|         60|
+    |in_r_address1   |  27|          5|   10|         50|
+    |out_r_address0  |  33|          6|   10|         60|
+    |out_r_address1  |  27|          5|   10|         50|
+    |out_r_d0        |  33|          6|   32|        192|
+    |out_r_d1        |  27|          5|   32|        160|
+    +----------------+----+-----------+-----+-----------+
+    |Total           | 218|         40|  105|        579|
+    +----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------+---+----+-----+-----------+
+    |         Name        | FF| LUT| Bits| Const Bits|
+    +---------------------+---+----+-----+-----------+
+    |ap_CS_fsm            |  6|   0|    6|          0|
+    |reg_265              |  2|   0|    2|          0|
+    |select_ln45_reg_392  |  2|   0|    2|          0|
+    +---------------------+---+----+-----+-----------+
+    |Total                | 10|   0|   10|          0|
+    +---------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+--------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------+-----+-----+------------+--------------+--------------+
+|ap_clk          |  in |    1| ap_ctrl_hs | felem_reduce | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs | felem_reduce | return value |
+|ap_start        |  in |    1| ap_ctrl_hs | felem_reduce | return value |
+|ap_done         | out |    1| ap_ctrl_hs | felem_reduce | return value |
+|ap_idle         | out |    1| ap_ctrl_hs | felem_reduce | return value |
+|ap_ready        | out |    1| ap_ctrl_hs | felem_reduce | return value |
+|out_r_address0  | out |   10|  ap_memory |     out_r    |     array    |
+|out_r_ce0       | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_we0       | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_d0        | out |   32|  ap_memory |     out_r    |     array    |
+|out_r_address1  | out |   10|  ap_memory |     out_r    |     array    |
+|out_r_ce1       | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_we1       | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_d1        | out |   32|  ap_memory |     out_r    |     array    |
+|in_r_address0   | out |   10|  ap_memory |     in_r     |     array    |
+|in_r_ce0        | out |    1|  ap_memory |     in_r     |     array    |
+|in_r_q0         |  in |   32|  ap_memory |     in_r     |     array    |
+|in_r_address1   | out |   10|  ap_memory |     in_r     |     array    |
+|in_r_ce1        | out |    1|  ap_memory |     in_r     |     array    |
+|in_r_q1         |  in |   32|  ap_memory |     in_r     |     array    |
++----------------+-----+-----+------------+--------------+--------------+
+

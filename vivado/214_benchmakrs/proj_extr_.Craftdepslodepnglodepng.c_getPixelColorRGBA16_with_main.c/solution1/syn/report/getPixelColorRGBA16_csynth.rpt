@@ -1,0 +1,189 @@
+
+
+================================================================
+== Vivado HLS Report for 'getPixelColorRGBA16'
+================================================================
+* Date:           Tue May 26 00:08:49 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.Craftdepslodepnglodepng.c_getPixelColorRGBA16_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.494|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    2|    3|    2|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      91|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      45|    -|
+|Register         |        -|      -|      10|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|      10|     136|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |icmp_ln25_fu_206_p2    |   icmp   |      0|  0|  18|          32|           5|
+    |icmp_ln27_fu_212_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln30_1_fu_266_p2  |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln30_fu_260_p2    |   icmp   |      0|  0|  18|          32|           1|
+    |or_ln29_fu_234_p2      |    or    |      0|  0|  11|          11|           1|
+    |or_ln30_fu_272_p2      |    or    |      0|  0|   6|           1|           1|
+    |a_d0                   |  select  |      0|  0|   2|           1|           2|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0|  91|         141|          43|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+----+-----------+-----+-----------+
+    |             Name             | LUT| Input Size| Bits| Total Bits|
+    +------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                     |  27|          5|    1|          5|
+    |ap_phi_mux_p_0_phi_fu_195_p6  |   9|          2|    4|          8|
+    |p_0_reg_191                   |   9|          2|    4|          8|
+    +------------------------------+----+-----------+-----+-----------+
+    |Total                         |  45|          9|    9|         21|
+    +------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------+---+----+-----+-----------+
+    |        Name       | FF| LUT| Bits| Const Bits|
+    +-------------------+---+----+-----+-----------+
+    |ap_CS_fsm          |  4|   0|    4|          0|
+    |icmp_ln25_reg_336  |  1|   0|    1|          0|
+    |icmp_ln27_reg_340  |  1|   0|    1|          0|
+    |p_0_reg_191        |  4|   0|    7|          3|
+    +-------------------+---+----+-----+-----------+
+    |Total              | 10|   0|   13|          3|
+    +-------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+---------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++---------------------------+-----+-----+------------+---------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_done                    | out |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|ap_return                  | out |   32| ap_ctrl_hs | getPixelColorRGBA16 | return value |
+|r_address0                 | out |   10|  ap_memory |          r          |     array    |
+|r_ce0                      | out |    1|  ap_memory |          r          |     array    |
+|r_we0                      | out |    1|  ap_memory |          r          |     array    |
+|r_d0                       | out |   16|  ap_memory |          r          |     array    |
+|g_address0                 | out |   10|  ap_memory |          g          |     array    |
+|g_ce0                      | out |    1|  ap_memory |          g          |     array    |
+|g_we0                      | out |    1|  ap_memory |          g          |     array    |
+|g_d0                       | out |   16|  ap_memory |          g          |     array    |
+|b_address0                 | out |   10|  ap_memory |          b          |     array    |
+|b_ce0                      | out |    1|  ap_memory |          b          |     array    |
+|b_we0                      | out |    1|  ap_memory |          b          |     array    |
+|b_d0                       | out |   16|  ap_memory |          b          |     array    |
+|a_address0                 | out |   10|  ap_memory |          a          |     array    |
+|a_ce0                      | out |    1|  ap_memory |          a          |     array    |
+|a_we0                      | out |    1|  ap_memory |          a          |     array    |
+|a_d0                       | out |   16|  ap_memory |          a          |     array    |
+|in_r_address0              | out |   10|  ap_memory |         in_r        |     array    |
+|in_r_ce0                   | out |    1|  ap_memory |         in_r        |     array    |
+|in_r_q0                    |  in |    8|  ap_memory |         in_r        |     array    |
+|in_r_address1              | out |   10|  ap_memory |         in_r        |     array    |
+|in_r_ce1                   | out |    1|  ap_memory |         in_r        |     array    |
+|in_r_q1                    |  in |    8|  ap_memory |         in_r        |     array    |
+|i                          |  in |   64|   ap_none  |          i          |    scalar    |
+|mode_bitdepth_address0     | out |   10|  ap_memory |    mode_bitdepth    |     array    |
+|mode_bitdepth_ce0          | out |    1|  ap_memory |    mode_bitdepth    |     array    |
+|mode_bitdepth_q0           |  in |   32|  ap_memory |    mode_bitdepth    |     array    |
+|mode_colortype_address0    | out |   10|  ap_memory |    mode_colortype   |     array    |
+|mode_colortype_ce0         | out |    1|  ap_memory |    mode_colortype   |     array    |
+|mode_colortype_q0          |  in |   32|  ap_memory |    mode_colortype   |     array    |
+|mode_key_r_address0        | out |   10|  ap_memory |      mode_key_r     |     array    |
+|mode_key_r_ce0             | out |    1|  ap_memory |      mode_key_r     |     array    |
+|mode_key_r_q0              |  in |   32|  ap_memory |      mode_key_r     |     array    |
+|mode_key_g_address0        | out |   10|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_ce0             | out |    1|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_we0             | out |    1|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_d0              | out |   32|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_q0              |  in |   32|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_address1        | out |   10|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_ce1             | out |    1|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_we1             | out |    1|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_d1              | out |   32|  ap_memory |      mode_key_g     |     array    |
+|mode_key_g_q1              |  in |   32|  ap_memory |      mode_key_g     |     array    |
+|mode_key_b_address0        | out |   10|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_ce0             | out |    1|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_we0             | out |    1|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_d0              | out |   32|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_q0              |  in |   32|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_address1        | out |   10|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_ce1             | out |    1|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_we1             | out |    1|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_d1              | out |   32|  ap_memory |      mode_key_b     |     array    |
+|mode_key_b_q1              |  in |   32|  ap_memory |      mode_key_b     |     array    |
+|mode_key_defined_address0  | out |   10|  ap_memory |   mode_key_defined  |     array    |
+|mode_key_defined_ce0       | out |    1|  ap_memory |   mode_key_defined  |     array    |
+|mode_key_defined_q0        |  in |   32|  ap_memory |   mode_key_defined  |     array    |
++---------------------------+-----+-----+------------+---------------------+--------------+
+

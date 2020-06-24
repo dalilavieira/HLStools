@@ -1,0 +1,452 @@
+
+
+================================================================
+== Vivado HLS Report for 'store_slice_c'
+================================================================
+* Date:           Tue May 26 00:56:08 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.073|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         9|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 11
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 3 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([8 x i32]* %dst) nounwind, !map !13"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([8 x i32]* %src) nounwind, !map !19"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %dst_linesize) nounwind, !map !23"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %src_linesize) nounwind, !map !29"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %width) nounwind, !map !33"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %height) nounwind, !map !37"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %log2_scale) nounwind, !map !41"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %dither) nounwind, !map !45"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([14 x i8]* @store_slice_c_str) nounwind"   --->   Operation 20 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%log2_scale_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %log2_scale) nounwind" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:17]   --->   Operation 21 'read' 'log2_scale_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%height_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %height) nounwind" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:17]   --->   Operation 22 'read' 'height_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%width_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %width) nounwind" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:17]   --->   Operation 23 'read' 'width_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%src_linesize_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %src_linesize) nounwind" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:17]   --->   Operation 24 'read' 'src_linesize_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%dst_linesize_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %dst_linesize) nounwind" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:17]   --->   Operation 25 'read' 'dst_linesize_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.06ns)   --->   "br label %.loopexit" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 26 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 4.09>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%y_0 = phi i31 [ 0, %0 ], [ %y, %.loopexit.loopexit ]"   --->   Operation 27 'phi' 'y_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%phi_mul = phi i32 [ 0, %0 ], [ %add_ln31_1, %.loopexit.loopexit ]" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 28 'phi' 'phi_mul' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%phi_mul1 = phi i32 [ 0, %0 ], [ %add_ln31, %.loopexit.loopexit ]" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 29 'phi' 'phi_mul1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (1.78ns)   --->   "%add_ln31 = add i32 %phi_mul1, %dst_linesize_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 30 'add' 'add_ln31' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 31 [1/1] (1.78ns)   --->   "%add_ln31_1 = add i32 %phi_mul, %src_linesize_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 31 'add' 'add_ln31_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i31 %y_0 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 32 'zext' 'zext_ln31' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (1.54ns)   --->   "%icmp_ln31 = icmp slt i32 %zext_ln31, %height_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 33 'icmp' 'icmp_ln31' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (1.76ns)   --->   "%y = add i31 %y_0, 1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 34 'add' 'y' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "br i1 %icmp_ln31, label %1, label %3" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31]   --->   Operation 35 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%tmp = call i34 @_ssdm_op_BitConcatenate.i34.i31.i3(i31 %y_0, i3 0)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:32]   --->   Operation 36 'bitconcatenate' 'tmp' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln32 = zext i34 %tmp to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:32]   --->   Operation 37 'zext' 'zext_ln32' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%d = getelementptr [64 x i32]* %dither, i64 0, i64 %zext_ln32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:32]   --->   Operation 38 'getelementptr' 'd' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%or_ln36_1 = or i34 %tmp, 1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 39 'or' 'or_ln36_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_1 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln36_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 40 'bitconcatenate' 'tmp_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%dither_addr = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 41 'getelementptr' 'dither_addr' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%or_ln37_1 = or i34 %tmp, 2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 42 'or' 'or_ln37_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_2 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln37_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 43 'bitconcatenate' 'tmp_2' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%dither_addr_1 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 44 'getelementptr' 'dither_addr_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%or_ln38_1 = or i34 %tmp, 3" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 45 'or' 'or_ln38_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_3 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln38_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 46 'bitconcatenate' 'tmp_3' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%dither_addr_2 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_3" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 47 'getelementptr' 'dither_addr_2' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%or_ln39_1 = or i34 %tmp, 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 48 'or' 'or_ln39_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%tmp_4 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln39_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 49 'bitconcatenate' 'tmp_4' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%dither_addr_3 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 50 'getelementptr' 'dither_addr_3' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%or_ln40_1 = or i34 %tmp, 5" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 51 'or' 'or_ln40_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_5 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln40_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 52 'bitconcatenate' 'tmp_5' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%dither_addr_4 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_5" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 53 'getelementptr' 'dither_addr_4' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%or_ln41_1 = or i34 %tmp, 6" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 54 'or' 'or_ln41_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%tmp_6 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln41_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 55 'bitconcatenate' 'tmp_6' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%dither_addr_5 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_6" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 56 'getelementptr' 'dither_addr_5' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%or_ln42_1 = or i34 %tmp, 7" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 57 'or' 'or_ln42_1' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%tmp_7 = call i64 @_ssdm_op_BitConcatenate.i64.i30.i34(i30 0, i34 %or_ln42_1)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 58 'bitconcatenate' 'tmp_7' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%dither_addr_6 = getelementptr [64 x i32]* %dither, i64 0, i64 %tmp_7" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 59 'getelementptr' 'dither_addr_6' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns) (grouped into LUT with out node select_ln33_1)   --->   "%tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %width_read, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 60 'bitselect' 'tmp_8' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (1.78ns)   --->   "%add_ln33 = add i32 %width_read, 7" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 61 'add' 'add_ln33' <Predicate = (icmp_ln31)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node select_ln33_1)   --->   "%tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln33, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 62 'bitselect' 'tmp_9' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (1.78ns)   --->   "%sub_ln33 = sub i32 -7, %width_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 63 'sub' 'sub_ln33' <Predicate = (icmp_ln31)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%p_lshr = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %sub_ln33, i32 3, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 64 'partselect' 'p_lshr' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (1.72ns)   --->   "%sub_ln33_1 = sub i29 0, %p_lshr" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 65 'sub' 'sub_ln33_1' <Predicate = (icmp_ln31)> <Delay = 1.72> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node select_ln33_1)   --->   "%tmp_10 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %add_ln33, i32 3, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 66 'partselect' 'tmp_10' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node select_ln33_1)   --->   "%select_ln33 = select i1 %tmp_9, i29 %sub_ln33_1, i29 %tmp_10" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 67 'select' 'select_ln33' <Predicate = (icmp_ln31)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 68 [1/1] (0.58ns) (out node of the LUT)   --->   "%select_ln33_1 = select i1 %tmp_8, i29 0, i29 %select_ln33" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 68 'select' 'select_ln33_1' <Predicate = (icmp_ln31)> <Delay = 0.58> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%tmp_11 = call i32 @_ssdm_op_BitConcatenate.i32.i29.i3(i29 %select_ln33_1, i3 0)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 69 'bitconcatenate' 'tmp_11' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (1.06ns)   --->   "br label %2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 70 'br' <Predicate = (icmp_ln31)> <Delay = 1.06>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "ret void" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:45]   --->   Operation 71 'ret' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.21>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%x_0 = phi i32 [ 0, %1 ], [ %x, %_ifconv ]"   --->   Operation 72 'phi' 'x_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (1.54ns)   --->   "%icmp_ln33 = icmp eq i32 %x_0, %tmp_11" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 73 'icmp' 'icmp_ln33' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "br i1 %icmp_ln33, label %.loopexit.loopexit, label %_ifconv" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 74 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (1.78ns)   --->   "%add_ln35 = add i32 %phi_mul, %x_0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 75 'add' 'add_ln35' <Predicate = (!icmp_ln33)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i32 %add_ln35 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 76 'sext' 'sext_ln35' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%src_addr = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln35" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 77 'getelementptr' 'src_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_3 : Operation 78 [2/2] (1.42ns)   --->   "%src_load = load i32* %src_addr, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 78 'load' 'src_load' <Predicate = (!icmp_ln33)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 79 [2/2] (2.66ns)   --->   "%d_load = load i32* %d, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 79 'load' 'd_load' <Predicate = (!icmp_ln33)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 80 'br' <Predicate = (icmp_ln33)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 7.07>
+ST_4 : Operation 81 [1/2] (1.42ns)   --->   "%src_load = load i32* %src_addr, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 81 'load' 'src_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node add_ln35_1)   --->   "%shl_ln35 = shl i32 %src_load, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 82 'shl' 'shl_ln35' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 83 [1/2] (2.66ns)   --->   "%d_load = load i32* %d, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 83 'load' 'd_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 84 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln35_1 = add nsw i32 %d_load, %shl_ln35" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 84 'add' 'add_ln35_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node temp_1)   --->   "%trunc_ln = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln35_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 85 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node temp_1)   --->   "%tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln35_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 86 'bitselect' 'tmp_12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node temp_1)   --->   "%tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln35_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 87 'bitselect' 'tmp_13' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node temp_1)   --->   "%temp = xor i1 %tmp_13, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 88 'xor' 'temp' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 89 [1/1] (0.00ns) (grouped into LUT with out node temp_1)   --->   "%select_ln35 = select i1 %temp, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 89 'select' 'select_ln35' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 90 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_1 = select i1 %tmp_12, i26 %select_ln35, i26 %trunc_ln" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 90 'select' 'temp_1' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%sext_ln35_2 = sext i26 %temp_1 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 91 'sext' 'sext_ln35_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 92 [1/1] (1.78ns)   --->   "%add_ln35_2 = add i32 %phi_mul1, %x_0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 92 'add' 'add_ln35_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 93 [1/1] (0.00ns)   --->   "%sext_ln35_1 = sext i32 %add_ln35_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 93 'sext' 'sext_ln35_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 94 [1/1] (0.00ns)   --->   "%dst_addr = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln35_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 94 'getelementptr' 'dst_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 95 [1/1] (1.42ns)   --->   "store i32 %sext_ln35_2, i32* %dst_addr, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35]   --->   Operation 95 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 96 [1/1] (0.00ns)   --->   "%or_ln36 = or i32 %x_0, 1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 96 'or' 'or_ln36' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 97 [1/1] (1.78ns)   --->   "%add_ln36 = add i32 %or_ln36, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 97 'add' 'add_ln36' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 98 [1/1] (0.00ns)   --->   "%sext_ln36 = sext i32 %add_ln36 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 98 'sext' 'sext_ln36' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%src_addr_1 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln36" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 99 'getelementptr' 'src_addr_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 100 [2/2] (1.42ns)   --->   "%src_load_1 = load i32* %src_addr_1, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 100 'load' 'src_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 101 [2/2] (2.66ns)   --->   "%dither_load = load i32* %dither_addr, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 101 'load' 'dither_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 5 <SV = 4> <Delay = 7.07>
+ST_5 : Operation 102 [1/2] (1.42ns)   --->   "%src_load_1 = load i32* %src_addr_1, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 102 'load' 'src_load_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 103 [1/1] (0.00ns) (grouped into LUT with out node add_ln36_1)   --->   "%shl_ln36 = shl i32 %src_load_1, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 103 'shl' 'shl_ln36' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 104 [1/2] (2.66ns)   --->   "%dither_load = load i32* %dither_addr, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 104 'load' 'dither_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 105 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln36_1 = add nsw i32 %dither_load, %shl_ln36" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 105 'add' 'add_ln36_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 106 [1/1] (0.00ns) (grouped into LUT with out node temp_3)   --->   "%trunc_ln1 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln36_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 106 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 107 [1/1] (0.00ns) (grouped into LUT with out node temp_3)   --->   "%tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln36_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 107 'bitselect' 'tmp_14' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 108 [1/1] (0.00ns) (grouped into LUT with out node temp_3)   --->   "%tmp_15 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln36_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 108 'bitselect' 'tmp_15' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 109 [1/1] (0.00ns) (grouped into LUT with out node temp_3)   --->   "%temp_2 = xor i1 %tmp_15, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 109 'xor' 'temp_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 110 [1/1] (0.00ns) (grouped into LUT with out node temp_3)   --->   "%select_ln36 = select i1 %temp_2, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 110 'select' 'select_ln36' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 111 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_3 = select i1 %tmp_14, i26 %select_ln36, i26 %trunc_ln1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 111 'select' 'temp_3' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 112 [1/1] (0.00ns)   --->   "%sext_ln36_2 = sext i26 %temp_3 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 112 'sext' 'sext_ln36_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 113 [1/1] (1.78ns)   --->   "%add_ln36_2 = add i32 %or_ln36, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 113 'add' 'add_ln36_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 114 [1/1] (0.00ns)   --->   "%sext_ln36_1 = sext i32 %add_ln36_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 114 'sext' 'sext_ln36_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 115 [1/1] (0.00ns)   --->   "%dst_addr_1 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln36_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 115 'getelementptr' 'dst_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 116 [1/1] (1.42ns)   --->   "store i32 %sext_ln36_2, i32* %dst_addr_1, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36]   --->   Operation 116 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 117 [1/1] (0.00ns)   --->   "%or_ln37 = or i32 %x_0, 2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 117 'or' 'or_ln37' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 118 [1/1] (1.78ns)   --->   "%add_ln37 = add i32 %or_ln37, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 118 'add' 'add_ln37' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 119 [1/1] (0.00ns)   --->   "%sext_ln37 = sext i32 %add_ln37 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 119 'sext' 'sext_ln37' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 120 [1/1] (0.00ns)   --->   "%src_addr_2 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln37" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 120 'getelementptr' 'src_addr_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 121 [2/2] (1.42ns)   --->   "%src_load_2 = load i32* %src_addr_2, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 121 'load' 'src_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 122 [2/2] (2.66ns)   --->   "%dither_load_1 = load i32* %dither_addr_1, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 122 'load' 'dither_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 6 <SV = 5> <Delay = 7.07>
+ST_6 : Operation 123 [1/2] (1.42ns)   --->   "%src_load_2 = load i32* %src_addr_2, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 123 'load' 'src_load_2' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 124 [1/1] (0.00ns) (grouped into LUT with out node add_ln37_1)   --->   "%shl_ln37 = shl i32 %src_load_2, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 124 'shl' 'shl_ln37' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 125 [1/2] (2.66ns)   --->   "%dither_load_1 = load i32* %dither_addr_1, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 125 'load' 'dither_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 126 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln37_1 = add nsw i32 %dither_load_1, %shl_ln37" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 126 'add' 'add_ln37_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 127 [1/1] (0.00ns) (grouped into LUT with out node temp_5)   --->   "%trunc_ln2 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln37_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 127 'partselect' 'trunc_ln2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 128 [1/1] (0.00ns) (grouped into LUT with out node temp_5)   --->   "%tmp_16 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln37_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 128 'bitselect' 'tmp_16' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 129 [1/1] (0.00ns) (grouped into LUT with out node temp_5)   --->   "%tmp_17 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln37_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 129 'bitselect' 'tmp_17' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node temp_5)   --->   "%temp_4 = xor i1 %tmp_17, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 130 'xor' 'temp_4' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 131 [1/1] (0.00ns) (grouped into LUT with out node temp_5)   --->   "%select_ln37 = select i1 %temp_4, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 131 'select' 'select_ln37' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 132 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_5 = select i1 %tmp_16, i26 %select_ln37, i26 %trunc_ln2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 132 'select' 'temp_5' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 133 [1/1] (0.00ns)   --->   "%sext_ln37_2 = sext i26 %temp_5 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 133 'sext' 'sext_ln37_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 134 [1/1] (1.78ns)   --->   "%add_ln37_2 = add i32 %or_ln37, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 134 'add' 'add_ln37_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 135 [1/1] (0.00ns)   --->   "%sext_ln37_1 = sext i32 %add_ln37_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 135 'sext' 'sext_ln37_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 136 [1/1] (0.00ns)   --->   "%dst_addr_2 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln37_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 136 'getelementptr' 'dst_addr_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 137 [1/1] (1.42ns)   --->   "store i32 %sext_ln37_2, i32* %dst_addr_2, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37]   --->   Operation 137 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 138 [1/1] (0.00ns)   --->   "%or_ln38 = or i32 %x_0, 3" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 138 'or' 'or_ln38' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 139 [1/1] (1.78ns)   --->   "%add_ln38 = add i32 %or_ln38, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 139 'add' 'add_ln38' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 140 [1/1] (0.00ns)   --->   "%sext_ln38 = sext i32 %add_ln38 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 140 'sext' 'sext_ln38' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 141 [1/1] (0.00ns)   --->   "%src_addr_3 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln38" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 141 'getelementptr' 'src_addr_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 142 [2/2] (1.42ns)   --->   "%src_load_3 = load i32* %src_addr_3, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 142 'load' 'src_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 143 [2/2] (2.66ns)   --->   "%dither_load_2 = load i32* %dither_addr_2, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 143 'load' 'dither_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 7 <SV = 6> <Delay = 7.07>
+ST_7 : Operation 144 [1/2] (1.42ns)   --->   "%src_load_3 = load i32* %src_addr_3, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 144 'load' 'src_load_3' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_7 : Operation 145 [1/1] (0.00ns) (grouped into LUT with out node add_ln38_1)   --->   "%shl_ln38 = shl i32 %src_load_3, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 145 'shl' 'shl_ln38' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 146 [1/2] (2.66ns)   --->   "%dither_load_2 = load i32* %dither_addr_2, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 146 'load' 'dither_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_7 : Operation 147 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln38_1 = add nsw i32 %dither_load_2, %shl_ln38" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 147 'add' 'add_ln38_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node temp_7)   --->   "%trunc_ln3 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln38_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 148 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 149 [1/1] (0.00ns) (grouped into LUT with out node temp_7)   --->   "%tmp_18 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln38_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 149 'bitselect' 'tmp_18' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 150 [1/1] (0.00ns) (grouped into LUT with out node temp_7)   --->   "%tmp_19 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln38_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 150 'bitselect' 'tmp_19' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 151 [1/1] (0.00ns) (grouped into LUT with out node temp_7)   --->   "%temp_6 = xor i1 %tmp_19, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 151 'xor' 'temp_6' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 152 [1/1] (0.00ns) (grouped into LUT with out node temp_7)   --->   "%select_ln38 = select i1 %temp_6, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 152 'select' 'select_ln38' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 153 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_7 = select i1 %tmp_18, i26 %select_ln38, i26 %trunc_ln3" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 153 'select' 'temp_7' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 154 [1/1] (0.00ns)   --->   "%sext_ln38_2 = sext i26 %temp_7 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 154 'sext' 'sext_ln38_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 155 [1/1] (1.78ns)   --->   "%add_ln38_2 = add i32 %or_ln38, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 155 'add' 'add_ln38_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln38_1 = sext i32 %add_ln38_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 156 'sext' 'sext_ln38_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 157 [1/1] (0.00ns)   --->   "%dst_addr_3 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln38_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 157 'getelementptr' 'dst_addr_3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 158 [1/1] (1.42ns)   --->   "store i32 %sext_ln38_2, i32* %dst_addr_3, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38]   --->   Operation 158 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_7 : Operation 159 [1/1] (0.00ns)   --->   "%or_ln39 = or i32 %x_0, 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 159 'or' 'or_ln39' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 160 [1/1] (1.78ns)   --->   "%add_ln39 = add i32 %or_ln39, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 160 'add' 'add_ln39' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 161 [1/1] (0.00ns)   --->   "%sext_ln39 = sext i32 %add_ln39 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 161 'sext' 'sext_ln39' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 162 [1/1] (0.00ns)   --->   "%src_addr_4 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln39" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 162 'getelementptr' 'src_addr_4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 163 [2/2] (1.42ns)   --->   "%src_load_4 = load i32* %src_addr_4, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 163 'load' 'src_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_7 : Operation 164 [2/2] (2.66ns)   --->   "%dither_load_3 = load i32* %dither_addr_3, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 164 'load' 'dither_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 8 <SV = 7> <Delay = 7.07>
+ST_8 : Operation 165 [1/2] (1.42ns)   --->   "%src_load_4 = load i32* %src_addr_4, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 165 'load' 'src_load_4' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 166 [1/1] (0.00ns) (grouped into LUT with out node add_ln39_1)   --->   "%shl_ln39 = shl i32 %src_load_4, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 166 'shl' 'shl_ln39' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 167 [1/2] (2.66ns)   --->   "%dither_load_3 = load i32* %dither_addr_3, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 167 'load' 'dither_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 168 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln39_1 = add nsw i32 %dither_load_3, %shl_ln39" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 168 'add' 'add_ln39_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 169 [1/1] (0.00ns) (grouped into LUT with out node temp_9)   --->   "%trunc_ln4 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln39_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 169 'partselect' 'trunc_ln4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 170 [1/1] (0.00ns) (grouped into LUT with out node temp_9)   --->   "%tmp_20 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln39_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 170 'bitselect' 'tmp_20' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 171 [1/1] (0.00ns) (grouped into LUT with out node temp_9)   --->   "%tmp_21 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln39_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 171 'bitselect' 'tmp_21' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 172 [1/1] (0.00ns) (grouped into LUT with out node temp_9)   --->   "%temp_8 = xor i1 %tmp_21, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 172 'xor' 'temp_8' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node temp_9)   --->   "%select_ln39 = select i1 %temp_8, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 173 'select' 'select_ln39' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 174 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_9 = select i1 %tmp_20, i26 %select_ln39, i26 %trunc_ln4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 174 'select' 'temp_9' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 175 [1/1] (0.00ns)   --->   "%sext_ln39_2 = sext i26 %temp_9 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 175 'sext' 'sext_ln39_2' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 176 [1/1] (1.78ns)   --->   "%add_ln39_2 = add i32 %or_ln39, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 176 'add' 'add_ln39_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 177 [1/1] (0.00ns)   --->   "%sext_ln39_1 = sext i32 %add_ln39_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 177 'sext' 'sext_ln39_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 178 [1/1] (0.00ns)   --->   "%dst_addr_4 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln39_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 178 'getelementptr' 'dst_addr_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 179 [1/1] (1.42ns)   --->   "store i32 %sext_ln39_2, i32* %dst_addr_4, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39]   --->   Operation 179 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 180 [1/1] (0.00ns)   --->   "%or_ln40 = or i32 %x_0, 5" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 180 'or' 'or_ln40' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 181 [1/1] (1.78ns)   --->   "%add_ln40 = add i32 %or_ln40, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 181 'add' 'add_ln40' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 182 [1/1] (0.00ns)   --->   "%sext_ln40 = sext i32 %add_ln40 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 182 'sext' 'sext_ln40' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 183 [1/1] (0.00ns)   --->   "%src_addr_5 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln40" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 183 'getelementptr' 'src_addr_5' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 184 [2/2] (1.42ns)   --->   "%src_load_5 = load i32* %src_addr_5, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 184 'load' 'src_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 185 [2/2] (2.66ns)   --->   "%dither_load_4 = load i32* %dither_addr_4, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 185 'load' 'dither_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 9 <SV = 8> <Delay = 7.07>
+ST_9 : Operation 186 [1/2] (1.42ns)   --->   "%src_load_5 = load i32* %src_addr_5, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 186 'load' 'src_load_5' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 187 [1/1] (0.00ns) (grouped into LUT with out node add_ln40_1)   --->   "%shl_ln40 = shl i32 %src_load_5, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 187 'shl' 'shl_ln40' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 188 [1/2] (2.66ns)   --->   "%dither_load_4 = load i32* %dither_addr_4, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 188 'load' 'dither_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 189 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln40_1 = add nsw i32 %dither_load_4, %shl_ln40" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 189 'add' 'add_ln40_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 190 [1/1] (0.00ns) (grouped into LUT with out node temp_11)   --->   "%trunc_ln5 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln40_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 190 'partselect' 'trunc_ln5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 191 [1/1] (0.00ns) (grouped into LUT with out node temp_11)   --->   "%tmp_22 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln40_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 191 'bitselect' 'tmp_22' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 192 [1/1] (0.00ns) (grouped into LUT with out node temp_11)   --->   "%tmp_23 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln40_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 192 'bitselect' 'tmp_23' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 193 [1/1] (0.00ns) (grouped into LUT with out node temp_11)   --->   "%temp_10 = xor i1 %tmp_23, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 193 'xor' 'temp_10' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 194 [1/1] (0.00ns) (grouped into LUT with out node temp_11)   --->   "%select_ln40 = select i1 %temp_10, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 194 'select' 'select_ln40' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 195 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_11 = select i1 %tmp_22, i26 %select_ln40, i26 %trunc_ln5" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 195 'select' 'temp_11' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 196 [1/1] (0.00ns)   --->   "%sext_ln40_2 = sext i26 %temp_11 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 196 'sext' 'sext_ln40_2' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 197 [1/1] (1.78ns)   --->   "%add_ln40_2 = add i32 %or_ln40, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 197 'add' 'add_ln40_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 198 [1/1] (0.00ns)   --->   "%sext_ln40_1 = sext i32 %add_ln40_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 198 'sext' 'sext_ln40_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 199 [1/1] (0.00ns)   --->   "%dst_addr_5 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln40_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 199 'getelementptr' 'dst_addr_5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 200 [1/1] (1.42ns)   --->   "store i32 %sext_ln40_2, i32* %dst_addr_5, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40]   --->   Operation 200 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 201 [1/1] (0.00ns)   --->   "%or_ln41 = or i32 %x_0, 6" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 201 'or' 'or_ln41' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 202 [1/1] (1.78ns)   --->   "%add_ln41 = add i32 %or_ln41, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 202 'add' 'add_ln41' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 203 [1/1] (0.00ns)   --->   "%sext_ln41 = sext i32 %add_ln41 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 203 'sext' 'sext_ln41' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 204 [1/1] (0.00ns)   --->   "%src_addr_6 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln41" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 204 'getelementptr' 'src_addr_6' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 205 [2/2] (1.42ns)   --->   "%src_load_6 = load i32* %src_addr_6, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 205 'load' 'src_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 206 [2/2] (2.66ns)   --->   "%dither_load_5 = load i32* %dither_addr_5, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 206 'load' 'dither_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 207 [1/1] (1.78ns)   --->   "%add_ln41_2 = add i32 %or_ln41, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 207 'add' 'add_ln41_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 208 [1/1] (0.00ns)   --->   "%or_ln42 = or i32 %x_0, 7" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 208 'or' 'or_ln42' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 209 [1/1] (1.78ns)   --->   "%add_ln42 = add i32 %or_ln42, %phi_mul" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 209 'add' 'add_ln42' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 210 [1/1] (0.00ns)   --->   "%sext_ln42 = sext i32 %add_ln42 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 210 'sext' 'sext_ln42' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 211 [1/1] (0.00ns)   --->   "%src_addr_7 = getelementptr [8 x i32]* %src, i64 0, i64 %sext_ln42" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 211 'getelementptr' 'src_addr_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 212 [2/2] (1.42ns)   --->   "%src_load_7 = load i32* %src_addr_7, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 212 'load' 'src_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 213 [2/2] (2.66ns)   --->   "%dither_load_6 = load i32* %dither_addr_6, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 213 'load' 'dither_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 214 [1/1] (1.78ns)   --->   "%add_ln42_2 = add i32 %or_ln42, %phi_mul1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 214 'add' 'add_ln42_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 215 [1/1] (1.78ns)   --->   "%x = add nsw i32 8, %x_0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 215 'add' 'x' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 7.07>
+ST_10 : Operation 216 [1/2] (1.42ns)   --->   "%src_load_6 = load i32* %src_addr_6, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 216 'load' 'src_load_6' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 217 [1/1] (0.00ns) (grouped into LUT with out node add_ln41_1)   --->   "%shl_ln41 = shl i32 %src_load_6, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 217 'shl' 'shl_ln41' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 218 [1/2] (2.66ns)   --->   "%dither_load_5 = load i32* %dither_addr_5, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 218 'load' 'dither_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 219 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln41_1 = add nsw i32 %dither_load_5, %shl_ln41" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 219 'add' 'add_ln41_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 220 [1/1] (0.00ns) (grouped into LUT with out node temp_13)   --->   "%trunc_ln6 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln41_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 220 'partselect' 'trunc_ln6' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 221 [1/1] (0.00ns) (grouped into LUT with out node temp_13)   --->   "%tmp_24 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln41_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 221 'bitselect' 'tmp_24' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 222 [1/1] (0.00ns) (grouped into LUT with out node temp_13)   --->   "%tmp_25 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln41_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 222 'bitselect' 'tmp_25' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 223 [1/1] (0.00ns) (grouped into LUT with out node temp_13)   --->   "%temp_12 = xor i1 %tmp_25, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 223 'xor' 'temp_12' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 224 [1/1] (0.00ns) (grouped into LUT with out node temp_13)   --->   "%select_ln41 = select i1 %temp_12, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 224 'select' 'select_ln41' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 225 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_13 = select i1 %tmp_24, i26 %select_ln41, i26 %trunc_ln6" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 225 'select' 'temp_13' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 226 [1/1] (0.00ns)   --->   "%sext_ln41_2 = sext i26 %temp_13 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 226 'sext' 'sext_ln41_2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 227 [1/1] (0.00ns)   --->   "%sext_ln41_1 = sext i32 %add_ln41_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 227 'sext' 'sext_ln41_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 228 [1/1] (0.00ns)   --->   "%dst_addr_6 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln41_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 228 'getelementptr' 'dst_addr_6' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 229 [1/1] (1.42ns)   --->   "store i32 %sext_ln41_2, i32* %dst_addr_6, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41]   --->   Operation 229 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 230 [1/2] (1.42ns)   --->   "%src_load_7 = load i32* %src_addr_7, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 230 'load' 'src_load_7' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 231 [1/1] (0.00ns) (grouped into LUT with out node add_ln42_1)   --->   "%shl_ln42 = shl i32 %src_load_7, %log2_scale_read" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 231 'shl' 'shl_ln42' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.36> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 232 [1/2] (2.66ns)   --->   "%dither_load_6 = load i32* %dither_addr_6, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 232 'load' 'dither_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 233 [1/1] (2.36ns) (out node of the LUT)   --->   "%add_ln42_1 = add nsw i32 %dither_load_6, %shl_ln42" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 233 'add' 'add_ln42_1' <Predicate = true> <Delay = 2.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 234 [1/1] (0.00ns) (grouped into LUT with out node temp_15)   --->   "%trunc_ln7 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %add_ln42_1, i32 6, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 234 'partselect' 'trunc_ln7' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 235 [1/1] (0.00ns) (grouped into LUT with out node temp_15)   --->   "%tmp_26 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln42_1, i32 14)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 235 'bitselect' 'tmp_26' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 236 [1/1] (0.00ns) (grouped into LUT with out node temp_15)   --->   "%tmp_27 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %add_ln42_1, i32 31)" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 236 'bitselect' 'tmp_27' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 237 [1/1] (0.00ns) (grouped into LUT with out node temp_15)   --->   "%temp_14 = xor i1 %tmp_27, true" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 237 'xor' 'temp_14' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 238 [1/1] (0.00ns) (grouped into LUT with out node temp_15)   --->   "%select_ln42 = select i1 %temp_14, i26 -1, i26 0" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 238 'select' 'select_ln42' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 239 [1/1] (0.62ns) (out node of the LUT)   --->   "%temp_15 = select i1 %tmp_26, i26 %select_ln42, i26 %trunc_ln7" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 239 'select' 'temp_15' <Predicate = true> <Delay = 0.62> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 1.42>
+ST_11 : Operation 240 [1/1] (0.00ns)   --->   "%sext_ln42_2 = sext i26 %temp_15 to i32" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 240 'sext' 'sext_ln42_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 241 [1/1] (0.00ns)   --->   "%sext_ln42_1 = sext i32 %add_ln42_2 to i64" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 241 'sext' 'sext_ln42_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 242 [1/1] (0.00ns)   --->   "%dst_addr_7 = getelementptr [8 x i32]* %dst, i64 0, i64 %sext_ln42_1" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 242 'getelementptr' 'dst_addr_7' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 243 [1/1] (1.42ns)   --->   "store i32 %sext_ln42_2, i32* %dst_addr_7, align 4" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42]   --->   Operation 243 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_11 : Operation 244 [1/1] (0.00ns)   --->   "br label %2" [extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33]   --->   Operation 244 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('y') with incoming values : ('y', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:31) [25]  (1.06 ns)
+
+ <State 2>: 4.1ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln33', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33) [62]  (1.78 ns)
+	'sub' operation ('sub_ln33_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33) [64]  (1.73 ns)
+	'select' operation ('select_ln33', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33) [66]  (0 ns)
+	'select' operation ('select_ln33_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33) [67]  (0.584 ns)
+
+ <State 3>: 3.21ns
+The critical path consists of the following:
+	'phi' operation ('x') with incoming values : ('x', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:33) [71]  (0 ns)
+	'add' operation ('add_ln35', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) [75]  (1.78 ns)
+	'getelementptr' operation ('src_addr', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) [77]  (0 ns)
+	'load' operation ('src_load', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) on array 'src' [78]  (1.43 ns)
+
+ <State 4>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('d_load', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) on array 'dither' [80]  (2.66 ns)
+	'add' operation ('add_ln35_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) [81]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) [87]  (0.62 ns)
+	'store' operation ('store_ln35', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35) of variable 'sext_ln35_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:35 on array 'dst' [92]  (1.43 ns)
+
+ <State 5>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36) on array 'dither' [99]  (2.66 ns)
+	'add' operation ('add_ln36_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36) [100]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36) [106]  (0.62 ns)
+	'store' operation ('store_ln36', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36) of variable 'sext_ln36_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:36 on array 'dst' [111]  (1.43 ns)
+
+ <State 6>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37) on array 'dither' [118]  (2.66 ns)
+	'add' operation ('add_ln37_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37) [119]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37) [125]  (0.62 ns)
+	'store' operation ('store_ln37', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37) of variable 'sext_ln37_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:37 on array 'dst' [130]  (1.43 ns)
+
+ <State 7>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38) on array 'dither' [137]  (2.66 ns)
+	'add' operation ('add_ln38_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38) [138]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38) [144]  (0.62 ns)
+	'store' operation ('store_ln38', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38) of variable 'sext_ln38_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:38 on array 'dst' [149]  (1.43 ns)
+
+ <State 8>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load_3', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) on array 'dither' [156]  (2.66 ns)
+	'add' operation ('add_ln39_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) [157]  (2.36 ns)
+	'xor' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) [161]  (0 ns)
+	'select' operation ('select_ln39', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) [162]  (0 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) [163]  (0.62 ns)
+	'store' operation ('store_ln39', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39) of variable 'sext_ln39_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:39 on array 'dst' [168]  (1.43 ns)
+
+ <State 9>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load_4', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40) on array 'dither' [175]  (2.66 ns)
+	'add' operation ('add_ln40_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40) [176]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40) [182]  (0.62 ns)
+	'store' operation ('store_ln40', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40) of variable 'sext_ln40_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:40 on array 'dst' [187]  (1.43 ns)
+
+ <State 10>: 7.07ns
+The critical path consists of the following:
+	'load' operation ('dither_load_5', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41) on array 'dither' [194]  (2.66 ns)
+	'add' operation ('add_ln41_1', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41) [195]  (2.36 ns)
+	'select' operation ('temp', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41) [201]  (0.62 ns)
+	'store' operation ('store_ln41', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41) of variable 'sext_ln41_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:41 on array 'dst' [206]  (1.43 ns)
+
+ <State 11>: 1.43ns
+The critical path consists of the following:
+	'store' operation ('store_ln42', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42) of variable 'sext_ln42_2', extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c:42 on array 'dst' [225]  (1.43 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,4 @@
+#!/bin/sh
+lli=${LLVMINTERP-lli}
+exec $lli \
+    /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.FFmpeglibavcodecsbc.c_ff_sbc_calculate_bits_with_main.c/solution1/.autopilot/db/a.g.bc ${1+"$@"}

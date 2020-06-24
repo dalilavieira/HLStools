@@ -1,0 +1,684 @@
+
+
+================================================================
+== Vivado HLS Report for 'sbr_autocorrelate_c'
+================================================================
+* Date:           Tue May 26 00:43:09 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.286|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  544|  544|  544|  544|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  518|  518|        14|          -|          -|    37|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 40
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 26 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 12 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.66>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%x_addr = getelementptr [80 x float]* %x, i64 0, i64 0" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 41 'getelementptr' 'x_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%x_addr_1 = getelementptr [80 x float]* %x, i64 0, i64 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 42 'getelementptr' 'x_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [2/2] (2.66ns)   --->   "%x_load = load float* %x_addr, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 43 'load' 'x_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_1 : Operation 44 [2/2] (2.66ns)   --->   "%x_load_1 = load float* %x_addr_1, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 44 'load' 'x_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%x_addr_2 = getelementptr [80 x float]* %x, i64 0, i64 1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 45 'getelementptr' 'x_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%x_addr_3 = getelementptr [80 x float]* %x, i64 0, i64 5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 46 'getelementptr' 'x_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 47 [1/2] (2.66ns)   --->   "%x_load = load float* %x_addr, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 47 'load' 'x_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_2 : Operation 48 [1/2] (2.66ns)   --->   "%x_load_1 = load float* %x_addr_1, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 48 'load' 'x_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_2 : Operation 49 [2/2] (2.66ns)   --->   "%x_load_2 = load float* %x_addr_2, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 49 'load' 'x_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_2 : Operation 50 [2/2] (2.66ns)   --->   "%x_load_3 = load float* %x_addr_3, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 50 'load' 'x_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 3 <SV = 2> <Delay = 2.66>
+ST_3 : Operation 51 [1/2] (2.66ns)   --->   "%x_load_2 = load float* %x_addr_2, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 51 'load' 'x_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_3 : Operation 52 [1/2] (2.66ns)   --->   "%x_load_3 = load float* %x_addr_3, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 52 'load' 'x_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 4 <SV = 3> <Delay = 8.28>
+ST_4 : Operation 53 [3/3] (8.28ns)   --->   "%tmp = fmul float %x_load, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 53 'fmul' 'tmp' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 54 [3/3] (8.28ns)   --->   "%tmp_1 = fmul float %x_load_2, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 54 'fmul' 'tmp_1' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 55 [3/3] (8.28ns)   --->   "%tmp_3 = fmul float %x_load, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 55 'fmul' 'tmp_3' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [3/3] (8.28ns)   --->   "%tmp_4 = fmul float %x_load_2, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 56 'fmul' 'tmp_4' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 8.28>
+ST_5 : Operation 57 [2/3] (8.28ns)   --->   "%tmp = fmul float %x_load, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 57 'fmul' 'tmp' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 58 [2/3] (8.28ns)   --->   "%tmp_1 = fmul float %x_load_2, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 58 'fmul' 'tmp_1' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 59 [2/3] (8.28ns)   --->   "%tmp_3 = fmul float %x_load, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 59 'fmul' 'tmp_3' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 60 [2/3] (8.28ns)   --->   "%tmp_4 = fmul float %x_load_2, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 60 'fmul' 'tmp_4' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 8.28>
+ST_6 : Operation 61 [1/3] (8.28ns)   --->   "%tmp = fmul float %x_load, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 61 'fmul' 'tmp' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 62 [1/3] (8.28ns)   --->   "%tmp_1 = fmul float %x_load_2, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 62 'fmul' 'tmp_1' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/3] (8.28ns)   --->   "%tmp_3 = fmul float %x_load, %x_load_3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 63 'fmul' 'tmp_3' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 64 [1/3] (8.28ns)   --->   "%tmp_4 = fmul float %x_load_2, %x_load_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 64 'fmul' 'tmp_4' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 7.71>
+ST_7 : Operation 65 [4/4] (7.71ns)   --->   "%real_sum2 = fadd float %tmp, %tmp_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 65 'fadd' 'real_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 66 [4/4] (7.71ns)   --->   "%imag_sum2 = fsub float %tmp_3, %tmp_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 66 'fsub' 'imag_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 7.71>
+ST_8 : Operation 67 [3/4] (7.71ns)   --->   "%real_sum2 = fadd float %tmp, %tmp_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 67 'fadd' 'real_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 68 [3/4] (7.71ns)   --->   "%imag_sum2 = fsub float %tmp_3, %tmp_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 68 'fsub' 'imag_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 7.71>
+ST_9 : Operation 69 [2/4] (7.71ns)   --->   "%real_sum2 = fadd float %tmp, %tmp_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 69 'fadd' 'real_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 70 [2/4] (7.71ns)   --->   "%imag_sum2 = fsub float %tmp_3, %tmp_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 70 'fsub' 'imag_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 7.71>
+ST_10 : Operation 71 [1/4] (7.71ns)   --->   "%real_sum2 = fadd float %tmp, %tmp_1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 71 'fadd' 'real_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 72 [1/4] (7.71ns)   --->   "%imag_sum2 = fsub float %tmp_3, %tmp_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:18]   --->   Operation 72 'fsub' 'imag_sum2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 1.06>
+ST_11 : Operation 73 [1/1] (0.00ns)   --->   "%x_addr_4 = getelementptr [80 x float]* %x, i64 0, i64 76" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 73 'getelementptr' 'x_addr_4' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 74 [1/1] (0.00ns)   --->   "%x_addr_5 = getelementptr [80 x float]* %x, i64 0, i64 77" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 74 'getelementptr' 'x_addr_5' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 75 [1/1] (0.00ns)   --->   "%x_addr_6 = getelementptr [80 x float]* %x, i64 0, i64 2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 75 'getelementptr' 'x_addr_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 76 [1/1] (0.00ns)   --->   "%x_addr_7 = getelementptr [80 x float]* %x, i64 0, i64 3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 76 'getelementptr' 'x_addr_7' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 77 [1/1] (0.00ns)   --->   "%x_addr_8 = getelementptr [80 x float]* %x, i64 0, i64 78" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 77 'getelementptr' 'x_addr_8' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 78 [1/1] (0.00ns)   --->   "%x_addr_9 = getelementptr [80 x float]* %x, i64 0, i64 79" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 78 'getelementptr' 'x_addr_9' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 79 [1/1] (0.00ns)   --->   "%phi_addr = getelementptr [12 x float]* %phi, i64 0, i64 2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:28]   --->   Operation 79 'getelementptr' 'phi_addr' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 80 [1/1] (0.00ns)   --->   "%phi_addr_1 = getelementptr [12 x float]* %phi, i64 0, i64 3" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:29]   --->   Operation 80 'getelementptr' 'phi_addr_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 81 [1/1] (0.00ns)   --->   "%phi_addr_2 = getelementptr [12 x float]* %phi, i64 0, i64 10" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 81 'getelementptr' 'phi_addr_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 82 [1/1] (0.00ns)   --->   "%phi_addr_3 = getelementptr [12 x float]* %phi, i64 0, i64 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 82 'getelementptr' 'phi_addr_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 83 [1/1] (0.00ns)   --->   "%phi_addr_4 = getelementptr [12 x float]* %phi, i64 0, i64 6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 83 'getelementptr' 'phi_addr_4' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 84 [1/1] (0.00ns)   --->   "%phi_addr_5 = getelementptr [12 x float]* %phi, i64 0, i64 7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 84 'getelementptr' 'phi_addr_5' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 85 [1/1] (0.00ns)   --->   "%phi_addr_6 = getelementptr [12 x float]* %phi, i64 0, i64 0" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 85 'getelementptr' 'phi_addr_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 86 [1/1] (0.00ns)   --->   "%phi_addr_7 = getelementptr [12 x float]* %phi, i64 0, i64 1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 86 'getelementptr' 'phi_addr_7' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 87 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([80 x float]* %x) nounwind, !map !13"   --->   Operation 87 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 88 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([12 x float]* %phi) nounwind, !map !20"   --->   Operation 88 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 89 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([20 x i8]* @sbr_autocorrelate_c_s) nounwind"   --->   Operation 89 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 90 [1/1] (1.06ns)   --->   "br label %1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:21]   --->   Operation 90 'br' <Predicate = true> <Delay = 1.06>
+
+State 12 <SV = 11> <Delay = 8.28>
+ST_12 : Operation 91 [1/1] (0.00ns)   --->   "%empty = phi float [ %x_load_3, %0 ], [ %x_load_13, %2 ]" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 91 'phi' 'empty' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 92 [1/1] (0.00ns)   --->   "%empty_2 = phi float [ %x_load_1, %0 ], [ %x_load_12, %2 ]" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17]   --->   Operation 92 'phi' 'empty_2' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 93 [1/1] (0.00ns)   --->   "%imag_sum1_0 = phi float [ 0.000000e+00, %0 ], [ %imag_sum1, %2 ]"   --->   Operation 93 'phi' 'imag_sum1_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 94 [1/1] (0.00ns)   --->   "%real_sum1_0 = phi float [ 0.000000e+00, %0 ], [ %real_sum1, %2 ]"   --->   Operation 94 'phi' 'real_sum1_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 95 [1/1] (0.00ns)   --->   "%imag_sum2_0 = phi float [ %imag_sum2, %0 ], [ %imag_sum2_1, %2 ]"   --->   Operation 95 'phi' 'imag_sum2_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 96 [1/1] (0.00ns)   --->   "%real_sum2_0 = phi float [ %real_sum2, %0 ], [ %real_sum2_1, %2 ]"   --->   Operation 96 'phi' 'real_sum2_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 97 [1/1] (0.00ns)   --->   "%real_sum0_0 = phi float [ 0.000000e+00, %0 ], [ %real_sum0, %2 ]"   --->   Operation 97 'phi' 'real_sum0_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 98 [1/1] (0.00ns)   --->   "%i_0 = phi i6 [ 1, %0 ], [ %i, %2 ]"   --->   Operation 98 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 99 [1/1] (1.15ns)   --->   "%icmp_ln21 = icmp eq i6 %i_0, -26" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:21]   --->   Operation 99 'icmp' 'icmp_ln21' <Predicate = true> <Delay = 1.15> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.15> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 100 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 37, i64 37, i64 37) nounwind"   --->   Operation 100 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 101 [1/1] (0.00ns)   --->   "br i1 %icmp_ln21, label %3, label %2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:21]   --->   Operation 101 'br' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 102 [1/1] (0.00ns)   --->   "%tmp_42 = call i7 @_ssdm_op_BitConcatenate.i7.i6.i1(i6 %i_0, i1 false)" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 102 'bitconcatenate' 'tmp_42' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln22 = zext i7 %tmp_42 to i64" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 103 'zext' 'zext_ln22' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 104 [1/1] (0.00ns)   --->   "%x_addr_10 = getelementptr [80 x float]* %x, i64 0, i64 %zext_ln22" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 104 'getelementptr' 'x_addr_10' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 105 [1/1] (0.00ns)   --->   "%or_ln22 = or i7 %tmp_42, 1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 105 'or' 'or_ln22' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_43 = call i64 @_ssdm_op_BitConcatenate.i64.i57.i7(i57 0, i7 %or_ln22)" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 106 'bitconcatenate' 'tmp_43' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 107 [1/1] (0.00ns)   --->   "%x_addr_11 = getelementptr [80 x float]* %x, i64 0, i64 %tmp_43" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 107 'getelementptr' 'x_addr_11' <Predicate = (!icmp_ln21)> <Delay = 0.00>
+ST_12 : Operation 108 [2/2] (2.66ns)   --->   "%x_load_10 = load float* %x_addr_10, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 108 'load' 'x_load_10' <Predicate = (!icmp_ln21)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_12 : Operation 109 [2/2] (2.66ns)   --->   "%x_load_11 = load float* %x_addr_11, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 109 'load' 'x_load_11' <Predicate = (!icmp_ln21)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_12 : Operation 110 [1/1] (1.42ns)   --->   "store float %real_sum2_0, float* %phi_addr, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:28]   --->   Operation 110 'store' <Predicate = (icmp_ln21)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_12 : Operation 111 [1/1] (1.42ns)   --->   "store float %imag_sum2_0, float* %phi_addr_1, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:29]   --->   Operation 111 'store' <Predicate = (icmp_ln21)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_12 : Operation 112 [3/3] (8.28ns)   --->   "%tmp_6 = fmul float %x_load, %x_load" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 112 'fmul' 'tmp_6' <Predicate = (icmp_ln21)> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 113 [2/2] (2.66ns)   --->   "%x_load_4 = load float* %x_addr_4, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 113 'load' 'x_load_4' <Predicate = (icmp_ln21)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_12 : Operation 114 [2/2] (2.66ns)   --->   "%x_load_6 = load float* %x_addr_6, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 114 'load' 'x_load_6' <Predicate = (icmp_ln21)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 13 <SV = 12> <Delay = 4.02>
+ST_13 : Operation 115 [1/2] (2.66ns)   --->   "%x_load_10 = load float* %x_addr_10, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 115 'load' 'x_load_10' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_13 : Operation 116 [1/2] (2.66ns)   --->   "%x_load_11 = load float* %x_addr_11, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 116 'load' 'x_load_11' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_13 : Operation 117 [1/1] (1.35ns)   --->   "%i = add i6 %i_0, 1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 117 'add' 'i' <Predicate = true> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.35> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 118 [1/1] (1.35ns)   --->   "%add_ln25 = add i6 %i_0, 2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 118 'add' 'add_ln25' <Predicate = true> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.35> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 119 [1/1] (0.00ns)   --->   "%tmp_44 = call i7 @_ssdm_op_BitConcatenate.i7.i6.i1(i6 %add_ln25, i1 false)" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 119 'bitconcatenate' 'tmp_44' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln25 = zext i7 %tmp_44 to i64" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 120 'zext' 'zext_ln25' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 121 [1/1] (0.00ns)   --->   "%x_addr_12 = getelementptr [80 x float]* %x, i64 0, i64 %zext_ln25" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 121 'getelementptr' 'x_addr_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 122 [1/1] (0.00ns)   --->   "%or_ln25 = or i7 %tmp_44, 1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 122 'or' 'or_ln25' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_45 = call i64 @_ssdm_op_BitConcatenate.i64.i57.i7(i57 0, i7 %or_ln25)" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 123 'bitconcatenate' 'tmp_45' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 124 [1/1] (0.00ns)   --->   "%x_addr_13 = getelementptr [80 x float]* %x, i64 0, i64 %tmp_45" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 124 'getelementptr' 'x_addr_13' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 125 [2/2] (2.66ns)   --->   "%x_load_12 = load float* %x_addr_12, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 125 'load' 'x_load_12' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_13 : Operation 126 [2/2] (2.66ns)   --->   "%x_load_13 = load float* %x_addr_13, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 126 'load' 'x_load_13' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 14 <SV = 13> <Delay = 8.28>
+ST_14 : Operation 127 [3/3] (8.28ns)   --->   "%tmp_27 = fmul float %x_load_10, %x_load_10" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 127 'fmul' 'tmp_27' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 128 [3/3] (8.28ns)   --->   "%tmp_28 = fmul float %x_load_11, %x_load_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 128 'fmul' 'tmp_28' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 129 [3/3] (8.28ns)   --->   "%tmp_30 = fmul float %x_load_10, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 129 'fmul' 'tmp_30' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 130 [3/3] (8.28ns)   --->   "%tmp_31 = fmul float %x_load_11, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 130 'fmul' 'tmp_31' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 131 [3/3] (8.28ns)   --->   "%tmp_33 = fmul float %x_load_10, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 131 'fmul' 'tmp_33' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 132 [3/3] (8.28ns)   --->   "%tmp_34 = fmul float %x_load_11, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 132 'fmul' 'tmp_34' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 133 [1/2] (2.66ns)   --->   "%x_load_12 = load float* %x_addr_12, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 133 'load' 'x_load_12' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_14 : Operation 134 [1/2] (2.66ns)   --->   "%x_load_13 = load float* %x_addr_13, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 134 'load' 'x_load_13' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 15 <SV = 14> <Delay = 8.28>
+ST_15 : Operation 135 [2/3] (8.28ns)   --->   "%tmp_27 = fmul float %x_load_10, %x_load_10" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 135 'fmul' 'tmp_27' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 136 [2/3] (8.28ns)   --->   "%tmp_28 = fmul float %x_load_11, %x_load_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 136 'fmul' 'tmp_28' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 137 [2/3] (8.28ns)   --->   "%tmp_30 = fmul float %x_load_10, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 137 'fmul' 'tmp_30' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 138 [2/3] (8.28ns)   --->   "%tmp_31 = fmul float %x_load_11, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 138 'fmul' 'tmp_31' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 139 [2/3] (8.28ns)   --->   "%tmp_33 = fmul float %x_load_10, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 139 'fmul' 'tmp_33' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 140 [2/3] (8.28ns)   --->   "%tmp_34 = fmul float %x_load_11, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 140 'fmul' 'tmp_34' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 141 [3/3] (8.28ns)   --->   "%tmp_36 = fmul float %x_load_10, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 141 'fmul' 'tmp_36' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 142 [3/3] (8.28ns)   --->   "%tmp_37 = fmul float %x_load_11, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 142 'fmul' 'tmp_37' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 143 [3/3] (8.28ns)   --->   "%tmp_39 = fmul float %x_load_10, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 143 'fmul' 'tmp_39' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 144 [3/3] (8.28ns)   --->   "%tmp_40 = fmul float %x_load_11, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 144 'fmul' 'tmp_40' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 8.28>
+ST_16 : Operation 145 [1/3] (8.28ns)   --->   "%tmp_27 = fmul float %x_load_10, %x_load_10" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 145 'fmul' 'tmp_27' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 146 [1/3] (8.28ns)   --->   "%tmp_28 = fmul float %x_load_11, %x_load_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 146 'fmul' 'tmp_28' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 147 [1/3] (8.28ns)   --->   "%tmp_30 = fmul float %x_load_10, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 147 'fmul' 'tmp_30' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 148 [1/3] (8.28ns)   --->   "%tmp_31 = fmul float %x_load_11, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 148 'fmul' 'tmp_31' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 149 [1/3] (8.28ns)   --->   "%tmp_33 = fmul float %x_load_10, %empty" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 149 'fmul' 'tmp_33' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 150 [1/3] (8.28ns)   --->   "%tmp_34 = fmul float %x_load_11, %empty_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 150 'fmul' 'tmp_34' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 151 [2/3] (8.28ns)   --->   "%tmp_36 = fmul float %x_load_10, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 151 'fmul' 'tmp_36' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 152 [2/3] (8.28ns)   --->   "%tmp_37 = fmul float %x_load_11, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 152 'fmul' 'tmp_37' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 153 [2/3] (8.28ns)   --->   "%tmp_39 = fmul float %x_load_10, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 153 'fmul' 'tmp_39' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 154 [2/3] (8.28ns)   --->   "%tmp_40 = fmul float %x_load_11, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 154 'fmul' 'tmp_40' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 8.28>
+ST_17 : Operation 155 [4/4] (7.71ns)   --->   "%tmp_29 = fadd float %tmp_27, %tmp_28" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 155 'fadd' 'tmp_29' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 156 [4/4] (7.71ns)   --->   "%tmp_32 = fadd float %tmp_30, %tmp_31" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 156 'fadd' 'tmp_32' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 157 [4/4] (7.71ns)   --->   "%tmp_35 = fsub float %tmp_33, %tmp_34" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 157 'fsub' 'tmp_35' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 158 [1/3] (8.28ns)   --->   "%tmp_36 = fmul float %x_load_10, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 158 'fmul' 'tmp_36' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 159 [1/3] (8.28ns)   --->   "%tmp_37 = fmul float %x_load_11, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 159 'fmul' 'tmp_37' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 160 [1/3] (8.28ns)   --->   "%tmp_39 = fmul float %x_load_10, %x_load_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 160 'fmul' 'tmp_39' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 161 [1/3] (8.28ns)   --->   "%tmp_40 = fmul float %x_load_11, %x_load_12" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 161 'fmul' 'tmp_40' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 7.71>
+ST_18 : Operation 162 [3/4] (7.71ns)   --->   "%tmp_29 = fadd float %tmp_27, %tmp_28" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 162 'fadd' 'tmp_29' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 163 [3/4] (7.71ns)   --->   "%tmp_32 = fadd float %tmp_30, %tmp_31" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 163 'fadd' 'tmp_32' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 164 [3/4] (7.71ns)   --->   "%tmp_35 = fsub float %tmp_33, %tmp_34" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 164 'fsub' 'tmp_35' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 165 [4/4] (7.71ns)   --->   "%tmp_38 = fadd float %tmp_36, %tmp_37" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 165 'fadd' 'tmp_38' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 166 [4/4] (7.71ns)   --->   "%tmp_41 = fsub float %tmp_39, %tmp_40" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 166 'fsub' 'tmp_41' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 7.71>
+ST_19 : Operation 167 [2/4] (7.71ns)   --->   "%tmp_29 = fadd float %tmp_27, %tmp_28" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 167 'fadd' 'tmp_29' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 168 [2/4] (7.71ns)   --->   "%tmp_32 = fadd float %tmp_30, %tmp_31" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 168 'fadd' 'tmp_32' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 169 [2/4] (7.71ns)   --->   "%tmp_35 = fsub float %tmp_33, %tmp_34" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 169 'fsub' 'tmp_35' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 170 [3/4] (7.71ns)   --->   "%tmp_38 = fadd float %tmp_36, %tmp_37" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 170 'fadd' 'tmp_38' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 171 [3/4] (7.71ns)   --->   "%tmp_41 = fsub float %tmp_39, %tmp_40" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 171 'fsub' 'tmp_41' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 7.71>
+ST_20 : Operation 172 [1/4] (7.71ns)   --->   "%tmp_29 = fadd float %tmp_27, %tmp_28" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 172 'fadd' 'tmp_29' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 173 [1/4] (7.71ns)   --->   "%tmp_32 = fadd float %tmp_30, %tmp_31" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 173 'fadd' 'tmp_32' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 174 [1/4] (7.71ns)   --->   "%tmp_35 = fsub float %tmp_33, %tmp_34" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 174 'fsub' 'tmp_35' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 175 [2/4] (7.71ns)   --->   "%tmp_38 = fadd float %tmp_36, %tmp_37" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 175 'fadd' 'tmp_38' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 176 [2/4] (7.71ns)   --->   "%tmp_41 = fsub float %tmp_39, %tmp_40" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 176 'fsub' 'tmp_41' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 7.71>
+ST_21 : Operation 177 [4/4] (7.71ns)   --->   "%real_sum0 = fadd float %real_sum0_0, %tmp_29" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 177 'fadd' 'real_sum0' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 178 [4/4] (7.71ns)   --->   "%real_sum1 = fadd float %real_sum1_0, %tmp_32" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 178 'fadd' 'real_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 179 [4/4] (7.71ns)   --->   "%imag_sum1 = fadd float %imag_sum1_0, %tmp_35" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 179 'fadd' 'imag_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 180 [1/4] (7.71ns)   --->   "%tmp_38 = fadd float %tmp_36, %tmp_37" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 180 'fadd' 'tmp_38' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 181 [1/4] (7.71ns)   --->   "%tmp_41 = fsub float %tmp_39, %tmp_40" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 181 'fsub' 'tmp_41' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 7.71>
+ST_22 : Operation 182 [3/4] (7.71ns)   --->   "%real_sum0 = fadd float %real_sum0_0, %tmp_29" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 182 'fadd' 'real_sum0' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 183 [3/4] (7.71ns)   --->   "%real_sum1 = fadd float %real_sum1_0, %tmp_32" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 183 'fadd' 'real_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 184 [3/4] (7.71ns)   --->   "%imag_sum1 = fadd float %imag_sum1_0, %tmp_35" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 184 'fadd' 'imag_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 185 [4/4] (7.71ns)   --->   "%real_sum2_1 = fadd float %real_sum2_0, %tmp_38" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 185 'fadd' 'real_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 186 [4/4] (7.71ns)   --->   "%imag_sum2_1 = fadd float %imag_sum2_0, %tmp_41" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 186 'fadd' 'imag_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 7.71>
+ST_23 : Operation 187 [2/4] (7.71ns)   --->   "%real_sum0 = fadd float %real_sum0_0, %tmp_29" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 187 'fadd' 'real_sum0' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 188 [2/4] (7.71ns)   --->   "%real_sum1 = fadd float %real_sum1_0, %tmp_32" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 188 'fadd' 'real_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 189 [2/4] (7.71ns)   --->   "%imag_sum1 = fadd float %imag_sum1_0, %tmp_35" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 189 'fadd' 'imag_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 190 [3/4] (7.71ns)   --->   "%real_sum2_1 = fadd float %real_sum2_0, %tmp_38" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 190 'fadd' 'real_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 191 [3/4] (7.71ns)   --->   "%imag_sum2_1 = fadd float %imag_sum2_0, %tmp_41" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 191 'fadd' 'imag_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 7.71>
+ST_24 : Operation 192 [1/4] (7.71ns)   --->   "%real_sum0 = fadd float %real_sum0_0, %tmp_29" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22]   --->   Operation 192 'fadd' 'real_sum0' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 193 [1/4] (7.71ns)   --->   "%real_sum1 = fadd float %real_sum1_0, %tmp_32" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:23]   --->   Operation 193 'fadd' 'real_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 194 [1/4] (7.71ns)   --->   "%imag_sum1 = fadd float %imag_sum1_0, %tmp_35" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:24]   --->   Operation 194 'fadd' 'imag_sum1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 195 [2/4] (7.71ns)   --->   "%real_sum2_1 = fadd float %real_sum2_0, %tmp_38" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 195 'fadd' 'real_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 196 [2/4] (7.71ns)   --->   "%imag_sum2_1 = fadd float %imag_sum2_0, %tmp_41" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 196 'fadd' 'imag_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 7.71>
+ST_25 : Operation 197 [1/4] (7.71ns)   --->   "%real_sum2_1 = fadd float %real_sum2_0, %tmp_38" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25]   --->   Operation 197 'fadd' 'real_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 198 [1/4] (7.71ns)   --->   "%imag_sum2_1 = fadd float %imag_sum2_0, %tmp_41" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:26]   --->   Operation 198 'fadd' 'imag_sum2_1' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 199 [1/1] (0.00ns)   --->   "br label %1" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:21]   --->   Operation 199 'br' <Predicate = true> <Delay = 0.00>
+
+State 26 <SV = 12> <Delay = 8.28>
+ST_26 : Operation 200 [2/3] (8.28ns)   --->   "%tmp_6 = fmul float %x_load, %x_load" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 200 'fmul' 'tmp_6' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 201 [1/2] (2.66ns)   --->   "%x_load_4 = load float* %x_addr_4, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 201 'load' 'x_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_26 : Operation 202 [1/2] (2.66ns)   --->   "%x_load_6 = load float* %x_addr_6, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 202 'load' 'x_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_26 : Operation 203 [2/2] (2.66ns)   --->   "%x_load_7 = load float* %x_addr_7, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 203 'load' 'x_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_26 : Operation 204 [2/2] (2.66ns)   --->   "%x_load_8 = load float* %x_addr_8, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 204 'load' 'x_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 27 <SV = 13> <Delay = 8.28>
+ST_27 : Operation 205 [1/3] (8.28ns)   --->   "%tmp_6 = fmul float %x_load, %x_load" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 205 'fmul' 'tmp_6' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 206 [3/3] (8.28ns)   --->   "%tmp_s = fmul float %x_load_4, %x_load_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 206 'fmul' 'tmp_s' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 207 [3/3] (8.28ns)   --->   "%tmp_11 = fmul float %x_load, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 207 'fmul' 'tmp_11' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 208 [1/2] (2.66ns)   --->   "%x_load_7 = load float* %x_addr_7, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 208 'load' 'x_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_27 : Operation 209 [1/2] (2.66ns)   --->   "%x_load_8 = load float* %x_addr_8, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 209 'load' 'x_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_27 : Operation 210 [2/2] (2.66ns)   --->   "%x_load_9 = load float* %x_addr_9, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 210 'load' 'x_load_9' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 28 <SV = 14> <Delay = 8.28>
+ST_28 : Operation 211 [4/4] (7.71ns)   --->   "%tmp_7 = fadd float %real_sum0_0, %tmp_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 211 'fadd' 'tmp_7' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 212 [2/3] (8.28ns)   --->   "%tmp_s = fmul float %x_load_4, %x_load_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 212 'fmul' 'tmp_s' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 213 [2/3] (8.28ns)   --->   "%tmp_11 = fmul float %x_load, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 213 'fmul' 'tmp_11' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 214 [3/3] (8.28ns)   --->   "%tmp_15 = fmul float %x_load, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 214 'fmul' 'tmp_15' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 215 [3/3] (8.28ns)   --->   "%tmp_19 = fmul float %x_load_4, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 215 'fmul' 'tmp_19' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 216 [1/2] (2.66ns)   --->   "%x_load_9 = load float* %x_addr_9, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 216 'load' 'x_load_9' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+
+State 29 <SV = 15> <Delay = 8.28>
+ST_29 : Operation 217 [3/4] (7.71ns)   --->   "%tmp_7 = fadd float %real_sum0_0, %tmp_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 217 'fadd' 'tmp_7' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 218 [3/3] (8.28ns)   --->   "%tmp_8 = fmul float %x_load_2, %x_load_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 218 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 219 [1/3] (8.28ns)   --->   "%tmp_s = fmul float %x_load_4, %x_load_4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 219 'fmul' 'tmp_s' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 220 [2/2] (2.66ns)   --->   "%x_load_5 = load float* %x_addr_5, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 220 'load' 'x_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_29 : Operation 221 [1/3] (8.28ns)   --->   "%tmp_11 = fmul float %x_load, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 221 'fmul' 'tmp_11' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 222 [3/3] (8.28ns)   --->   "%tmp_13 = fmul float %x_load_2, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 222 'fmul' 'tmp_13' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 223 [2/3] (8.28ns)   --->   "%tmp_15 = fmul float %x_load, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 223 'fmul' 'tmp_15' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 224 [3/3] (8.28ns)   --->   "%tmp_17 = fmul float %x_load_2, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 224 'fmul' 'tmp_17' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 225 [2/3] (8.28ns)   --->   "%tmp_19 = fmul float %x_load_4, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 225 'fmul' 'tmp_19' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 226 [3/3] (8.28ns)   --->   "%tmp_23 = fmul float %x_load_4, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 226 'fmul' 'tmp_23' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 16> <Delay = 8.28>
+ST_30 : Operation 227 [2/4] (7.71ns)   --->   "%tmp_7 = fadd float %real_sum0_0, %tmp_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 227 'fadd' 'tmp_7' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 228 [2/3] (8.28ns)   --->   "%tmp_8 = fmul float %x_load_2, %x_load_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 228 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 229 [4/4] (7.71ns)   --->   "%tmp_2 = fadd float %real_sum0_0, %tmp_s" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 229 'fadd' 'tmp_2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 230 [1/2] (2.66ns)   --->   "%x_load_5 = load float* %x_addr_5, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 230 'load' 'x_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_30 : Operation 231 [4/4] (7.71ns)   --->   "%tmp_12 = fadd float %real_sum1_0, %tmp_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 231 'fadd' 'tmp_12' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 232 [2/3] (8.28ns)   --->   "%tmp_13 = fmul float %x_load_2, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 232 'fmul' 'tmp_13' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 233 [1/3] (8.28ns)   --->   "%tmp_15 = fmul float %x_load, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 233 'fmul' 'tmp_15' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 234 [2/3] (8.28ns)   --->   "%tmp_17 = fmul float %x_load_2, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 234 'fmul' 'tmp_17' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 235 [1/3] (8.28ns)   --->   "%tmp_19 = fmul float %x_load_4, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 235 'fmul' 'tmp_19' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 236 [2/3] (8.28ns)   --->   "%tmp_23 = fmul float %x_load_4, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 236 'fmul' 'tmp_23' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 17> <Delay = 8.28>
+ST_31 : Operation 237 [1/4] (7.71ns)   --->   "%tmp_7 = fadd float %real_sum0_0, %tmp_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 237 'fadd' 'tmp_7' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 238 [1/3] (8.28ns)   --->   "%tmp_8 = fmul float %x_load_2, %x_load_2" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 238 'fmul' 'tmp_8' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 239 [3/4] (7.71ns)   --->   "%tmp_2 = fadd float %real_sum0_0, %tmp_s" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 239 'fadd' 'tmp_2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 240 [3/3] (8.28ns)   --->   "%tmp_5 = fmul float %x_load_5, %x_load_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 240 'fmul' 'tmp_5' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 241 [3/4] (7.71ns)   --->   "%tmp_12 = fadd float %real_sum1_0, %tmp_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 241 'fadd' 'tmp_12' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 242 [1/3] (8.28ns)   --->   "%tmp_13 = fmul float %x_load_2, %x_load_7" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 242 'fmul' 'tmp_13' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 243 [4/4] (7.71ns)   --->   "%tmp_16 = fadd float %imag_sum1_0, %tmp_15" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 243 'fadd' 'tmp_16' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 244 [1/3] (8.28ns)   --->   "%tmp_17 = fmul float %x_load_2, %x_load_6" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 244 'fmul' 'tmp_17' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 245 [4/4] (7.71ns)   --->   "%tmp_20 = fadd float %real_sum1_0, %tmp_19" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 245 'fadd' 'tmp_20' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 246 [3/3] (8.28ns)   --->   "%tmp_21 = fmul float %x_load_5, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 246 'fmul' 'tmp_21' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 247 [1/3] (8.28ns)   --->   "%tmp_23 = fmul float %x_load_4, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 247 'fmul' 'tmp_23' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 248 [3/3] (8.28ns)   --->   "%tmp_25 = fmul float %x_load_5, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 248 'fmul' 'tmp_25' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 18> <Delay = 8.28>
+ST_32 : Operation 249 [4/4] (7.71ns)   --->   "%tmp_9 = fadd float %tmp_7, %tmp_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 249 'fadd' 'tmp_9' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 250 [2/4] (7.71ns)   --->   "%tmp_2 = fadd float %real_sum0_0, %tmp_s" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 250 'fadd' 'tmp_2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 251 [2/3] (8.28ns)   --->   "%tmp_5 = fmul float %x_load_5, %x_load_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 251 'fmul' 'tmp_5' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 252 [2/4] (7.71ns)   --->   "%tmp_12 = fadd float %real_sum1_0, %tmp_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 252 'fadd' 'tmp_12' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 253 [3/4] (7.71ns)   --->   "%tmp_16 = fadd float %imag_sum1_0, %tmp_15" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 253 'fadd' 'tmp_16' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 254 [3/4] (7.71ns)   --->   "%tmp_20 = fadd float %real_sum1_0, %tmp_19" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 254 'fadd' 'tmp_20' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 255 [2/3] (8.28ns)   --->   "%tmp_21 = fmul float %x_load_5, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 255 'fmul' 'tmp_21' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 256 [4/4] (7.71ns)   --->   "%tmp_24 = fadd float %imag_sum1_0, %tmp_23" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 256 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 257 [2/3] (8.28ns)   --->   "%tmp_25 = fmul float %x_load_5, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 257 'fmul' 'tmp_25' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 19> <Delay = 8.28>
+ST_33 : Operation 258 [3/4] (7.71ns)   --->   "%tmp_9 = fadd float %tmp_7, %tmp_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 258 'fadd' 'tmp_9' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 259 [1/4] (7.71ns)   --->   "%tmp_2 = fadd float %real_sum0_0, %tmp_s" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 259 'fadd' 'tmp_2' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 260 [1/3] (8.28ns)   --->   "%tmp_5 = fmul float %x_load_5, %x_load_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 260 'fmul' 'tmp_5' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 261 [1/4] (7.71ns)   --->   "%tmp_12 = fadd float %real_sum1_0, %tmp_11" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 261 'fadd' 'tmp_12' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 262 [2/4] (7.71ns)   --->   "%tmp_16 = fadd float %imag_sum1_0, %tmp_15" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 262 'fadd' 'tmp_16' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 263 [2/4] (7.71ns)   --->   "%tmp_20 = fadd float %real_sum1_0, %tmp_19" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 263 'fadd' 'tmp_20' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 264 [1/3] (8.28ns)   --->   "%tmp_21 = fmul float %x_load_5, %x_load_9" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 264 'fmul' 'tmp_21' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 265 [3/4] (7.71ns)   --->   "%tmp_24 = fadd float %imag_sum1_0, %tmp_23" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 265 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 266 [1/3] (8.28ns)   --->   "%tmp_25 = fmul float %x_load_5, %x_load_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 266 'fmul' 'tmp_25' <Predicate = true> <Delay = 8.28> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 2> <II = 1> <Delay = 8.28> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 20> <Delay = 7.71>
+ST_34 : Operation 267 [2/4] (7.71ns)   --->   "%tmp_9 = fadd float %tmp_7, %tmp_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 267 'fadd' 'tmp_9' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 268 [4/4] (7.71ns)   --->   "%tmp_10 = fadd float %tmp_2, %tmp_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 268 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 269 [4/4] (7.71ns)   --->   "%tmp_14 = fadd float %tmp_12, %tmp_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 269 'fadd' 'tmp_14' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 270 [1/4] (7.71ns)   --->   "%tmp_16 = fadd float %imag_sum1_0, %tmp_15" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 270 'fadd' 'tmp_16' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 271 [1/4] (7.71ns)   --->   "%tmp_20 = fadd float %real_sum1_0, %tmp_19" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 271 'fadd' 'tmp_20' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 272 [2/4] (7.71ns)   --->   "%tmp_24 = fadd float %imag_sum1_0, %tmp_23" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 272 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 21> <Delay = 7.71>
+ST_35 : Operation 273 [1/4] (7.71ns)   --->   "%tmp_9 = fadd float %tmp_7, %tmp_8" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 273 'fadd' 'tmp_9' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 274 [3/4] (7.71ns)   --->   "%tmp_10 = fadd float %tmp_2, %tmp_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 274 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 275 [3/4] (7.71ns)   --->   "%tmp_14 = fadd float %tmp_12, %tmp_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 275 'fadd' 'tmp_14' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 276 [4/4] (7.71ns)   --->   "%tmp_18 = fsub float %tmp_16, %tmp_17" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 276 'fsub' 'tmp_18' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 277 [4/4] (7.71ns)   --->   "%tmp_22 = fadd float %tmp_20, %tmp_21" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 277 'fadd' 'tmp_22' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 278 [1/4] (7.71ns)   --->   "%tmp_24 = fadd float %imag_sum1_0, %tmp_23" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 278 'fadd' 'tmp_24' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 22> <Delay = 7.71>
+ST_36 : Operation 279 [1/1] (1.42ns)   --->   "store float %tmp_9, float* %phi_addr_2, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30]   --->   Operation 279 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_36 : Operation 280 [2/4] (7.71ns)   --->   "%tmp_10 = fadd float %tmp_2, %tmp_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 280 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 281 [2/4] (7.71ns)   --->   "%tmp_14 = fadd float %tmp_12, %tmp_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 281 'fadd' 'tmp_14' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 282 [3/4] (7.71ns)   --->   "%tmp_18 = fsub float %tmp_16, %tmp_17" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 282 'fsub' 'tmp_18' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 283 [3/4] (7.71ns)   --->   "%tmp_22 = fadd float %tmp_20, %tmp_21" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 283 'fadd' 'tmp_22' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 284 [4/4] (7.71ns)   --->   "%tmp_26 = fsub float %tmp_24, %tmp_25" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 284 'fsub' 'tmp_26' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 23> <Delay = 7.71>
+ST_37 : Operation 285 [1/4] (7.71ns)   --->   "%tmp_10 = fadd float %tmp_2, %tmp_5" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 285 'fadd' 'tmp_10' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 286 [1/4] (7.71ns)   --->   "%tmp_14 = fadd float %tmp_12, %tmp_13" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 286 'fadd' 'tmp_14' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 287 [2/4] (7.71ns)   --->   "%tmp_18 = fsub float %tmp_16, %tmp_17" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 287 'fsub' 'tmp_18' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 288 [2/4] (7.71ns)   --->   "%tmp_22 = fadd float %tmp_20, %tmp_21" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 288 'fadd' 'tmp_22' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 289 [3/4] (7.71ns)   --->   "%tmp_26 = fsub float %tmp_24, %tmp_25" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 289 'fsub' 'tmp_26' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 24> <Delay = 7.71>
+ST_38 : Operation 290 [1/1] (1.42ns)   --->   "store float %tmp_10, float* %phi_addr_3, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31]   --->   Operation 290 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_38 : Operation 291 [1/1] (1.42ns)   --->   "store float %tmp_14, float* %phi_addr_4, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:32]   --->   Operation 291 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_38 : Operation 292 [1/4] (7.71ns)   --->   "%tmp_18 = fsub float %tmp_16, %tmp_17" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 292 'fsub' 'tmp_18' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 293 [1/4] (7.71ns)   --->   "%tmp_22 = fadd float %tmp_20, %tmp_21" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 293 'fadd' 'tmp_22' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 294 [2/4] (7.71ns)   --->   "%tmp_26 = fsub float %tmp_24, %tmp_25" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 294 'fsub' 'tmp_26' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 25> <Delay = 7.71>
+ST_39 : Operation 295 [1/1] (1.42ns)   --->   "store float %tmp_18, float* %phi_addr_5, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33]   --->   Operation 295 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_39 : Operation 296 [1/1] (1.42ns)   --->   "store float %tmp_22, float* %phi_addr_6, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:34]   --->   Operation 296 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_39 : Operation 297 [1/4] (7.71ns)   --->   "%tmp_26 = fsub float %tmp_24, %tmp_25" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 297 'fsub' 'tmp_26' <Predicate = true> <Delay = 7.71> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 3> <II = 1> <Delay = 7.71> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 26> <Delay = 1.42>
+ST_40 : Operation 298 [1/1] (1.42ns)   --->   "store float %tmp_26, float* %phi_addr_7, align 4" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35]   --->   Operation 298 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 12> <RAM>
+ST_40 : Operation 299 [1/1] (0.00ns)   --->   "ret void" [extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:36]   --->   Operation 299 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('x_addr', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [3]  (0 ns)
+	'load' operation ('x_load', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) on array 'x' [24]  (2.66 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('x_addr_2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [5]  (0 ns)
+	'load' operation ('x_load_2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) on array 'x' [27]  (2.66 ns)
+
+ <State 3>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('x_load_2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) on array 'x' [27]  (2.66 ns)
+
+ <State 4>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [26]  (8.29 ns)
+
+ <State 5>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [26]  (8.29 ns)
+
+ <State 6>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [26]  (8.29 ns)
+
+ <State 7>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [30]  (7.72 ns)
+
+ <State 8>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [30]  (7.72 ns)
+
+ <State 9>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [30]  (7.72 ns)
+
+ <State 10>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) [30]  (7.72 ns)
+
+ <State 11>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('empty', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) with incoming values : ('x_load_3', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:17) ('x_load_13', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) [36]  (1.06 ns)
+
+ <State 12>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_6', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [90]  (8.29 ns)
+
+ <State 13>: 4.02ns
+The critical path consists of the following:
+	'add' operation ('add_ln25', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) [69]  (1.36 ns)
+	'getelementptr' operation ('x_addr_12', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) [72]  (0 ns)
+	'load' operation ('x_load_12', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) on array 'x' [76]  (2.66 ns)
+
+ <State 14>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_27', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [55]  (8.29 ns)
+
+ <State 15>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_27', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [55]  (8.29 ns)
+
+ <State 16>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_27', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [55]  (8.29 ns)
+
+ <State 17>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_36', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) [77]  (8.29 ns)
+
+ <State 18>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_29', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [58]  (7.72 ns)
+
+ <State 19>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_29', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [58]  (7.72 ns)
+
+ <State 20>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_29', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [58]  (7.72 ns)
+
+ <State 21>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum0', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [59]  (7.72 ns)
+
+ <State 22>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum0', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [59]  (7.72 ns)
+
+ <State 23>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum0', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [59]  (7.72 ns)
+
+ <State 24>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum0', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:22) [59]  (7.72 ns)
+
+ <State 25>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('real_sum2', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:25) [81]  (7.72 ns)
+
+ <State 26>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_6', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [90]  (8.29 ns)
+
+ <State 27>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_6', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [90]  (8.29 ns)
+
+ <State 28>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_s', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31) [96]  (8.29 ns)
+
+ <State 29>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [92]  (8.29 ns)
+
+ <State 30>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [92]  (8.29 ns)
+
+ <State 31>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_8', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [92]  (8.29 ns)
+
+ <State 32>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31) [99]  (8.29 ns)
+
+ <State 33>: 8.29ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31) [99]  (8.29 ns)
+
+ <State 34>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_9', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [93]  (7.72 ns)
+
+ <State 35>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_9', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:30) [93]  (7.72 ns)
+
+ <State 36>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31) [100]  (7.72 ns)
+
+ <State 37>: 7.72ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_10', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:31) [100]  (7.72 ns)
+
+ <State 38>: 7.72ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_18', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:33) [112]  (7.72 ns)
+
+ <State 39>: 7.72ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_26', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35) [124]  (7.72 ns)
+
+ <State 40>: 1.43ns
+The critical path consists of the following:
+	'store' operation ('store_ln35', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35) of variable 'tmp_26', extr_.FFmpeglibavcodecsbrdsp.c_sbr_autocorrelate_c_with_main.c:35 on array 'phi' [125]  (1.43 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

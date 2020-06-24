@@ -1,0 +1,227 @@
+
+
+================================================================
+== Vivado HLS Report for 'key_schedule'
+================================================================
+* Date:           Tue May 26 01:45:33 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.328|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    7|    7|    7|    7|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.66>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%k_addr = getelementptr [1000 x i32]* %k, i64 0, i64 0" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:20]   --->   Operation 9 'getelementptr' 'k_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:34]   --->   Operation 10 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%k_addr_1 = getelementptr [1000 x i32]* %k, i64 0, i64 1" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:35]   --->   Operation 11 'getelementptr' 'k_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_1, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:35]   --->   Operation 12 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%k_addr_2 = getelementptr [1000 x i32]* %k, i64 0, i64 2" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:37]   --->   Operation 13 'getelementptr' 'k_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_2, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:37]   --->   Operation 14 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%k_addr_3 = getelementptr [1000 x i32]* %k, i64 0, i64 3" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:39]   --->   Operation 15 'getelementptr' 'k_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_3, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:39]   --->   Operation 16 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 3 <SV = 2> <Delay = 2.66>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%k_addr_4 = getelementptr [1000 x i32]* %k, i64 0, i64 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:50]   --->   Operation 17 'getelementptr' 'k_addr_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_4, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:50]   --->   Operation 18 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%k_addr_5 = getelementptr [1000 x i32]* %k, i64 0, i64 5" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:52]   --->   Operation 19 'getelementptr' 'k_addr_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_5, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:52]   --->   Operation 20 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 4 <SV = 3> <Delay = 2.66>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%k_addr_6 = getelementptr [1000 x i32]* %k, i64 0, i64 6" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:54]   --->   Operation 21 'getelementptr' 'k_addr_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_6, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:54]   --->   Operation 22 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%k_addr_7 = getelementptr [1000 x i32]* %k, i64 0, i64 7" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:55]   --->   Operation 23 'getelementptr' 'k_addr_7' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_7, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:55]   --->   Operation 24 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 5 <SV = 4> <Delay = 2.66>
+ST_5 : Operation 25 [1/1] (0.00ns)   --->   "%x_addr = getelementptr [1000 x i32]* %x, i64 0, i64 0" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:20]   --->   Operation 25 'getelementptr' 'x_addr' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 26 [2/2] (2.66ns)   --->   "%x_load = load i32* %x_addr, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 26 'load' 'x_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 27 [1/1] (0.00ns)   --->   "%x_addr_1 = getelementptr [1000 x i32]* %x, i64 0, i64 3" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 27 'getelementptr' 'x_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 28 [2/2] (2.66ns)   --->   "%x_load_1 = load i32* %x_addr_1, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 28 'load' 'x_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 29 [1/1] (0.00ns)   --->   "%k_addr_8 = getelementptr [1000 x i32]* %k, i64 0, i64 8" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:66]   --->   Operation 29 'getelementptr' 'k_addr_8' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 30 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_8, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:66]   --->   Operation 30 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%k_addr_9 = getelementptr [1000 x i32]* %k, i64 0, i64 9" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:68]   --->   Operation 31 'getelementptr' 'k_addr_9' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_9, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:68]   --->   Operation 32 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 6 <SV = 5> <Delay = 5.32>
+ST_6 : Operation 33 [1/1] (0.00ns)   --->   "%z_addr = getelementptr [1000 x i32]* %z, i64 0, i64 0" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:20]   --->   Operation 33 'getelementptr' 'z_addr' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 34 [1/2] (2.66ns)   --->   "%x_load = load i32* %x_addr, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 34 'load' 'x_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 35 [1/2] (2.66ns)   --->   "%x_load_1 = load i32* %x_addr_1, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 35 'load' 'x_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 36 [1/1] (0.00ns)   --->   "%x_addr_2 = getelementptr [1000 x i32]* %x, i64 0, i64 2" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 36 'getelementptr' 'x_addr_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 37 [2/2] (2.66ns)   --->   "%x_load_2 = load i32* %x_addr_2, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 37 'load' 'x_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 38 [1/1] (0.00ns)   --->   "%x_addr_3 = getelementptr [1000 x i32]* %x, i64 0, i64 1" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:32]   --->   Operation 38 'getelementptr' 'x_addr_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 39 [2/2] (2.66ns)   --->   "%x_load_3 = load i32* %x_addr_3, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:32]   --->   Operation 39 'load' 'x_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 40 [1/1] (0.00ns)   --->   "%z_addr_3 = getelementptr [1000 x i32]* %z, i64 0, i64 3" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:32]   --->   Operation 40 'getelementptr' 'z_addr_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 41 [1/1] (2.66ns)   --->   "store i32 %x_load_1, i32* %z_addr, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:58]   --->   Operation 41 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 42 [1/1] (2.66ns)   --->   "store i32 %x_load, i32* %z_addr_3, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:64]   --->   Operation 42 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%k_addr_10 = getelementptr [1000 x i32]* %k, i64 0, i64 10" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:70]   --->   Operation 43 'getelementptr' 'k_addr_10' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_10, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:70]   --->   Operation 44 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%k_addr_11 = getelementptr [1000 x i32]* %k, i64 0, i64 11" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:71]   --->   Operation 45 'getelementptr' 'k_addr_11' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_11, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:71]   --->   Operation 46 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 7 <SV = 6> <Delay = 5.32>
+ST_7 : Operation 47 [1/2] (2.66ns)   --->   "%x_load_2 = load i32* %x_addr_2, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26]   --->   Operation 47 'load' 'x_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 48 [1/1] (0.00ns)   --->   "%z_addr_1 = getelementptr [1000 x i32]* %z, i64 0, i64 1" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:28]   --->   Operation 48 'getelementptr' 'z_addr_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 49 [1/1] (0.00ns)   --->   "%z_addr_2 = getelementptr [1000 x i32]* %z, i64 0, i64 2" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:30]   --->   Operation 49 'getelementptr' 'z_addr_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 50 [1/2] (2.66ns)   --->   "%x_load_3 = load i32* %x_addr_3, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:32]   --->   Operation 50 'load' 'x_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 51 [1/1] (2.66ns)   --->   "store i32 %x_load_2, i32* %z_addr_1, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:60]   --->   Operation 51 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 52 [1/1] (2.66ns)   --->   "store i32 %x_load_3, i32* %z_addr_2, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:62]   --->   Operation 52 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 53 [1/1] (2.66ns)   --->   "store i32 %x_load_3, i32* %x_addr, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:74]   --->   Operation 53 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 54 [1/1] (2.66ns)   --->   "store i32 %x_load_1, i32* %x_addr_3, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:76]   --->   Operation 54 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%k_addr_12 = getelementptr [1000 x i32]* %k, i64 0, i64 12" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:82]   --->   Operation 55 'getelementptr' 'k_addr_12' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 56 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_12, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:82]   --->   Operation 56 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%k_addr_13 = getelementptr [1000 x i32]* %k, i64 0, i64 13" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:83]   --->   Operation 57 'getelementptr' 'k_addr_13' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 58 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_13, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:83]   --->   Operation 58 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 8 <SV = 7> <Delay = 2.66>
+ST_8 : Operation 59 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %x) nounwind, !map !35"   --->   Operation 59 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %z) nounwind, !map !39"   --->   Operation 60 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 61 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %k) nounwind, !map !43"   --->   Operation 61 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @key_schedule_str) nounwind"   --->   Operation 62 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 63 [1/1] (2.66ns)   --->   "store i32 %x_load, i32* %x_addr_1, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:80]   --->   Operation 63 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 64 [1/1] (0.00ns)   --->   "%k_addr_14 = getelementptr [1000 x i32]* %k, i64 0, i64 14" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:85]   --->   Operation 64 'getelementptr' 'k_addr_14' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 65 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_14, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:85]   --->   Operation 65 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 66 [1/1] (0.00ns)   --->   "%k_addr_15 = getelementptr [1000 x i32]* %k, i64 0, i64 15" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:87]   --->   Operation 66 'getelementptr' 'k_addr_15' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 67 [1/1] (2.66ns)   --->   "store i32 0, i32* %k_addr_15, align 4" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:87]   --->   Operation 67 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 68 [1/1] (0.00ns)   --->   "ret void" [extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:92]   --->   Operation 68 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('k_addr', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:20) [7]  (0 ns)
+	'store' operation ('store_ln34', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:34) of constant 0 on array 'k' [21]  (2.66 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('k_addr_2', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:37) [24]  (0 ns)
+	'store' operation ('store_ln37', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:37) of constant 0 on array 'k' [25]  (2.66 ns)
+
+ <State 3>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('k_addr_4', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:50) [28]  (0 ns)
+	'store' operation ('store_ln50', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:50) of constant 0 on array 'k' [29]  (2.66 ns)
+
+ <State 4>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('k_addr_6', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:54) [32]  (0 ns)
+	'store' operation ('store_ln54', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:54) of constant 0 on array 'k' [33]  (2.66 ns)
+
+ <State 5>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('x_addr', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:20) [9]  (0 ns)
+	'load' operation ('x_load', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26) on array 'x' [11]  (2.66 ns)
+
+ <State 6>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('x_load', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26) on array 'x' [11]  (2.66 ns)
+	'store' operation ('store_ln64', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:64) of variable 'x_load', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26 on array 'z' [39]  (2.66 ns)
+
+ <State 7>: 5.33ns
+The critical path consists of the following:
+	'load' operation ('x_load_2', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26) on array 'x' [15]  (2.66 ns)
+	'store' operation ('store_ln60', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:60) of variable 'x_load_2', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26 on array 'z' [37]  (2.66 ns)
+
+ <State 8>: 2.66ns
+The critical path consists of the following:
+	'store' operation ('store_ln80', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:80) of variable 'x_load', extr_.linuxcryptocast5_generic.c_key_schedule_with_main.c:26 on array 'x' [50]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

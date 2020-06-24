@@ -1,0 +1,27 @@
+#include "hls_design_meta.h"
+const Port_Property HLS_Design_Meta::port_props[]={
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_start", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_done", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_idle", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_ready", 1, hls_out, -1, "", "", 1),
+	Port_Property("state_dummy", 32, hls_in, 0, "ap_none", "in_data", 1),
+	Port_Property("i", 32, hls_in, 1, "ap_none", "in_data", 1),
+	Port_Property("v", 32, hls_in, 2, "ap_none", "in_data", 1),
+	Port_Property("V_r_address0", 10, hls_out, 3, "ap_memory", "mem_address", 1),
+	Port_Property("V_r_ce0", 1, hls_out, 3, "ap_memory", "mem_ce", 1),
+	Port_Property("V_r_q0", 32, hls_in, 3, "ap_memory", "mem_dout", 1),
+	Port_Property("vmax", 32, hls_in, 4, "ap_none", "in_data", 1),
+	Port_Property("vmin", 32, hls_in, 5, "ap_none", "in_data", 1),
+	Port_Property("SIGMIN", 32, hls_in, 6, "ap_none", "in_data", 1),
+	Port_Property("fOSC", 32, hls_in, 7, "ap_none", "in_data", 1),
+	Port_Property("afcex_freq", 32, hls_in, 8, "ap_none", "in_data", 1),
+	Port_Property("swp_ofs", 32, hls_in, 9, "ap_none", "in_data", 1),
+	Port_Property("SIG1_address0", 10, hls_out, 10, "ap_memory", "mem_address", 1),
+	Port_Property("SIG1_ce0", 1, hls_out, 10, "ap_memory", "mem_ce", 1),
+	Port_Property("SIG1_we0", 1, hls_out, 10, "ap_memory", "mem_we", 1),
+	Port_Property("SIG1_d0", 8, hls_out, 10, "ap_memory", "mem_din", 1),
+	Port_Property("ap_return", 32, hls_out, -1, "", "", 1),
+};
+const char* HLS_Design_Meta::dut_name = "swp_freq_calcuation";

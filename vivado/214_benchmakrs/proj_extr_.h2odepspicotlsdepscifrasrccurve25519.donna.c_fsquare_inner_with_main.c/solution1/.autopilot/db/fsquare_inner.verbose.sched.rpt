@@ -1,0 +1,410 @@
+
+
+================================================================
+== Vivado HLS Report for 'fsquare_inner'
+================================================================
+* Date:           Tue May 26 01:10:44 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c
+* Solution:       solution1
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.365|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   12|   12|   12|   12|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 13
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.66>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%in_addr = getelementptr [1000 x i32]* %in_r, i64 0, i64 0" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:17]   --->   Operation 14 'getelementptr' 'in_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [2/2] (2.66ns)   --->   "%in_load = load i32* %in_addr, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18]   --->   Operation 15 'load' 'in_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%in_addr_1 = getelementptr [1000 x i32]* %in_r, i64 0, i64 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 16 'getelementptr' 'in_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [2/2] (2.66ns)   --->   "%in_load_1 = load i32* %in_addr_1, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 17 'load' 'in_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 2 <SV = 1> <Delay = 2.66>
+ST_2 : Operation 18 [1/2] (2.66ns)   --->   "%in_load = load i32* %in_addr, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18]   --->   Operation 18 'load' 'in_load' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_2 : Operation 19 [1/2] (2.66ns)   --->   "%in_load_1 = load i32* %in_addr_1, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 19 'load' 'in_load_1' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%in_addr_2 = getelementptr [1000 x i32]* %in_r, i64 0, i64 2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 20 'getelementptr' 'in_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [2/2] (2.66ns)   --->   "%in_load_2 = load i32* %in_addr_2, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 21 'load' 'in_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%in_addr_3 = getelementptr [1000 x i32]* %in_r, i64 0, i64 3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 22 'getelementptr' 'in_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (2.66ns)   --->   "%in_load_3 = load i32* %in_addr_3, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 23 'load' 'in_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 3 <SV = 2> <Delay = 6.58>
+ST_3 : Operation 24 [1/1] (6.58ns)   --->   "%mul_ln18 = mul nsw i32 %in_load, %in_load" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18]   --->   Operation 24 'mul' 'mul_ln18' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (6.58ns)   --->   "%mul_ln19 = mul i32 %in_load, %in_load_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 25 'mul' 'mul_ln19' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 26 [1/2] (2.66ns)   --->   "%in_load_2 = load i32* %in_addr_2, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 26 'load' 'in_load_2' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_3 : Operation 27 [1/2] (2.66ns)   --->   "%in_load_3 = load i32* %in_addr_3, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 27 'load' 'in_load_3' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%in_addr_4 = getelementptr [1000 x i32]* %in_r, i64 0, i64 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 28 'getelementptr' 'in_addr_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [2/2] (2.66ns)   --->   "%in_load_4 = load i32* %in_addr_4, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 29 'load' 'in_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%in_addr_5 = getelementptr [1000 x i32]* %in_r, i64 0, i64 5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 30 'getelementptr' 'in_addr_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [2/2] (2.66ns)   --->   "%in_load_5 = load i32* %in_addr_5, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 31 'load' 'in_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 4 <SV = 3> <Delay = 8.36>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%output_addr = getelementptr [1000 x i32]* %output_r, i64 0, i64 0" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:17]   --->   Operation 32 'getelementptr' 'output_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (2.66ns)   --->   "store i32 %mul_ln18, i32* %output_addr, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18]   --->   Operation 33 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%shl_ln19 = shl i32 %mul_ln19, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 34 'shl' 'shl_ln19' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%output_addr_1 = getelementptr [1000 x i32]* %output_r, i64 0, i64 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 35 'getelementptr' 'output_addr_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (2.66ns)   --->   "store i32 %shl_ln19, i32* %output_addr_1, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:19]   --->   Operation 36 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 37 [1/1] (6.58ns)   --->   "%mul_ln20 = mul nsw i32 %in_load_1, %in_load_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 37 'mul' 'mul_ln20' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 38 [1/1] (6.58ns)   --->   "%mul_ln20_1 = mul nsw i32 %in_load, %in_load_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 38 'mul' 'mul_ln20_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 39 [1/1] (1.78ns)   --->   "%add_ln20 = add nsw i32 %mul_ln20, %mul_ln20_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 39 'add' 'add_ln20' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 40 [1/1] (6.58ns)   --->   "%mul_ln22 = mul nsw i32 %in_load_1, %in_load_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 40 'mul' 'mul_ln22' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 41 [1/1] (6.58ns)   --->   "%mul_ln22_1 = mul nsw i32 %in_load, %in_load_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 41 'mul' 'mul_ln22_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 42 [1/1] (1.78ns)   --->   "%add_ln22 = add nsw i32 %mul_ln22, %mul_ln22_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 42 'add' 'add_ln22' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 43 [1/2] (2.66ns)   --->   "%in_load_4 = load i32* %in_addr_4, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 43 'load' 'in_load_4' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 44 [1/2] (2.66ns)   --->   "%in_load_5 = load i32* %in_addr_5, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 44 'load' 'in_load_5' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%in_addr_6 = getelementptr [1000 x i32]* %in_r, i64 0, i64 6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 45 'getelementptr' 'in_addr_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [2/2] (2.66ns)   --->   "%in_load_6 = load i32* %in_addr_6, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 46 'load' 'in_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%in_addr_7 = getelementptr [1000 x i32]* %in_r, i64 0, i64 7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 47 'getelementptr' 'in_addr_7' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [2/2] (2.66ns)   --->   "%in_load_7 = load i32* %in_addr_7, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 48 'load' 'in_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 5 <SV = 4> <Delay = 6.58>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%shl_ln20 = shl i32 %add_ln20, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 49 'shl' 'shl_ln20' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%output_addr_2 = getelementptr [1000 x i32]* %output_r, i64 0, i64 2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 50 'getelementptr' 'output_addr_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (2.66ns)   --->   "store i32 %shl_ln20, i32* %output_addr_2, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20]   --->   Operation 51 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%shl_ln22 = shl i32 %add_ln22, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 52 'shl' 'shl_ln22' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%output_addr_3 = getelementptr [1000 x i32]* %output_r, i64 0, i64 3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 53 'getelementptr' 'output_addr_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (2.66ns)   --->   "store i32 %shl_ln22, i32* %output_addr_3, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:22]   --->   Operation 54 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 55 [1/1] (6.58ns)   --->   "%mul_ln24 = mul nsw i32 %in_load_2, %in_load_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 55 'mul' 'mul_ln24' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 56 [1/1] (6.58ns)   --->   "%mul_ln24_1 = mul i32 %in_load_1, %in_load_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 56 'mul' 'mul_ln24_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 57 [1/1] (6.58ns)   --->   "%mul_ln24_2 = mul i32 %in_load, %in_load_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 57 'mul' 'mul_ln24_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 58 [1/1] (6.58ns)   --->   "%mul_ln27 = mul nsw i32 %in_load_2, %in_load_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 58 'mul' 'mul_ln27' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 59 [1/1] (6.58ns)   --->   "%mul_ln27_1 = mul nsw i32 %in_load_1, %in_load_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 59 'mul' 'mul_ln27_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 60 [1/1] (6.58ns)   --->   "%mul_ln27_2 = mul nsw i32 %in_load, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 60 'mul' 'mul_ln27_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 61 [1/2] (2.66ns)   --->   "%in_load_6 = load i32* %in_addr_6, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 61 'load' 'in_load_6' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 62 [1/2] (2.66ns)   --->   "%in_load_7 = load i32* %in_addr_7, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 62 'load' 'in_load_7' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%in_addr_8 = getelementptr [1000 x i32]* %in_r, i64 0, i64 8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 63 'getelementptr' 'in_addr_8' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [2/2] (2.66ns)   --->   "%in_load_8 = load i32* %in_addr_8, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 64 'load' 'in_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%in_addr_9 = getelementptr [1000 x i32]* %in_r, i64 0, i64 9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 65 'getelementptr' 'in_addr_9' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 66 [2/2] (2.66ns)   --->   "%in_load_9 = load i32* %in_addr_9, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 66 'load' 'in_load_9' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 6 <SV = 5> <Delay = 8.36>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%shl_ln24 = shl i32 %mul_ln24_1, 2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 67 'shl' 'shl_ln24' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 68 [1/1] (0.00ns)   --->   "%shl_ln24_1 = shl i32 %mul_ln24_2, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 68 'shl' 'shl_ln24_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 69 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln24 = add i32 %shl_ln24_1, %mul_ln24" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 69 'add' 'add_ln24' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 70 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln24_1 = add i32 %shl_ln24, %add_ln24" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 70 'add' 'add_ln24_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%output_addr_4 = getelementptr [1000 x i32]* %output_r, i64 0, i64 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 71 'getelementptr' 'output_addr_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 72 [1/1] (2.66ns)   --->   "store i32 %add_ln24_1, i32* %output_addr_4, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24]   --->   Operation 72 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 73 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln27 = add i32 %mul_ln27_2, %mul_ln27" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 73 'add' 'add_ln27' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 74 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln27_1 = add i32 %mul_ln27_1, %add_ln27" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 74 'add' 'add_ln27_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%shl_ln27 = shl i32 %add_ln27_1, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 75 'shl' 'shl_ln27' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "%output_addr_5 = getelementptr [1000 x i32]* %output_r, i64 0, i64 5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 76 'getelementptr' 'output_addr_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 77 [1/1] (2.66ns)   --->   "store i32 %shl_ln27, i32* %output_addr_5, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:27]   --->   Operation 77 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 78 [1/1] (6.58ns)   --->   "%mul_ln30 = mul nsw i32 %in_load_3, %in_load_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 78 'mul' 'mul_ln30' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 79 [1/1] (6.58ns)   --->   "%mul_ln30_1 = mul nsw i32 %in_load_2, %in_load_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 79 'mul' 'mul_ln30_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 80 [1/1] (6.58ns)   --->   "%mul_ln30_2 = mul nsw i32 %in_load, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 80 'mul' 'mul_ln30_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 81 [1/1] (6.58ns)   --->   "%mul_ln30_3 = mul i32 %in_load_1, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 81 'mul' 'mul_ln30_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%trunc_ln30 = trunc i32 %mul_ln30_3 to i30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 82 'trunc' 'trunc_ln30' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (6.58ns)   --->   "%mul_ln34 = mul nsw i32 %in_load_3, %in_load_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 83 'mul' 'mul_ln34' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 84 [1/1] (6.58ns)   --->   "%mul_ln34_1 = mul nsw i32 %in_load_2, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 84 'mul' 'mul_ln34_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 85 [1/1] (6.58ns)   --->   "%mul_ln34_2 = mul nsw i32 %in_load_1, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 85 'mul' 'mul_ln34_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 86 [1/1] (6.58ns)   --->   "%mul_ln34_3 = mul nsw i32 %in_load, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 86 'mul' 'mul_ln34_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 87 [1/1] (1.78ns)   --->   "%add_ln34 = add i32 %mul_ln34, %mul_ln34_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 87 'add' 'add_ln34' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 88 [1/1] (1.78ns)   --->   "%add_ln34_1 = add i32 %mul_ln34_3, %mul_ln34_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 88 'add' 'add_ln34_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%trunc_ln34 = trunc i32 %add_ln34 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 89 'trunc' 'trunc_ln34' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 90 [1/1] (0.00ns)   --->   "%trunc_ln34_1 = trunc i32 %add_ln34_1 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 90 'trunc' 'trunc_ln34_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 91 [1/2] (2.66ns)   --->   "%in_load_8 = load i32* %in_addr_8, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 91 'load' 'in_load_8' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_6 : Operation 92 [1/2] (2.66ns)   --->   "%in_load_9 = load i32* %in_addr_9, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 92 'load' 'in_load_9' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+
+State 7 <SV = 6> <Delay = 8.36>
+ST_7 : Operation 93 [1/1] (0.00ns)   --->   "%shl_ln30_1 = call i31 @_ssdm_op_BitConcatenate.i31.i30.i1(i30 %trunc_ln30, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 93 'bitconcatenate' 'shl_ln30_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 94 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln30 = add i32 %mul_ln30_2, %mul_ln30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 94 'add' 'add_ln30' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 95 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln30_1 = add i32 %mul_ln30_1, %add_ln30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 95 'add' 'add_ln30_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "%trunc_ln30_1 = trunc i32 %add_ln30_1 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 96 'trunc' 'trunc_ln30_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 97 [1/1] (1.76ns)   --->   "%add_ln30_2 = add i31 %trunc_ln30_1, %shl_ln30_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 97 'add' 'add_ln30_2' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 98 [1/1] (0.00ns)   --->   "%shl_ln5 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln30_2, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 98 'bitconcatenate' 'shl_ln5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 99 [1/1] (0.00ns)   --->   "%output_addr_6 = getelementptr [1000 x i32]* %output_r, i64 0, i64 6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 99 'getelementptr' 'output_addr_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 100 [1/1] (2.66ns)   --->   "store i32 %shl_ln5, i32* %output_addr_6, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:30]   --->   Operation 100 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 101 [1/1] (1.76ns)   --->   "%add_ln34_2 = add i31 %trunc_ln34_1, %trunc_ln34" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 101 'add' 'add_ln34_2' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 102 [1/1] (0.00ns)   --->   "%shl_ln6 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln34_2, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 102 'bitconcatenate' 'shl_ln6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 103 [1/1] (0.00ns)   --->   "%output_addr_7 = getelementptr [1000 x i32]* %output_r, i64 0, i64 7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 103 'getelementptr' 'output_addr_7' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 104 [1/1] (2.66ns)   --->   "store i32 %shl_ln6, i32* %output_addr_7, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34]   --->   Operation 104 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_7 : Operation 105 [1/1] (6.58ns)   --->   "%mul_ln38 = mul nsw i32 %in_load_4, %in_load_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 105 'mul' 'mul_ln38' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 106 [1/1] (6.58ns)   --->   "%mul_ln38_1 = mul nsw i32 %in_load_2, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 106 'mul' 'mul_ln38_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 107 [1/1] (6.58ns)   --->   "%mul_ln38_2 = mul nsw i32 %in_load, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 107 'mul' 'mul_ln38_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 108 [1/1] (6.58ns)   --->   "%mul_ln38_3 = mul nsw i32 %in_load_1, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 108 'mul' 'mul_ln38_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 109 [1/1] (6.58ns)   --->   "%mul_ln38_4 = mul nsw i32 %in_load_3, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 109 'mul' 'mul_ln38_4' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 110 [1/1] (1.78ns)   --->   "%add_ln38 = add nsw i32 %mul_ln38_3, %mul_ln38_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 110 'add' 'add_ln38' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 111 [1/1] (0.00ns)   --->   "%trunc_ln38 = trunc i32 %add_ln38 to i30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 111 'trunc' 'trunc_ln38' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 112 [1/1] (1.78ns)   --->   "%add_ln38_1 = add i32 %mul_ln38_1, %mul_ln38_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 112 'add' 'add_ln38_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 113 [1/1] (0.00ns)   --->   "%trunc_ln38_1 = trunc i32 %add_ln38_1 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 113 'trunc' 'trunc_ln38_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 114 [1/1] (6.58ns)   --->   "%mul_ln43 = mul nsw i32 %in_load_4, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 114 'mul' 'mul_ln43' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 115 [1/1] (6.58ns)   --->   "%mul_ln43_1 = mul nsw i32 %in_load_3, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 115 'mul' 'mul_ln43_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 116 [1/1] (6.58ns)   --->   "%mul_ln43_2 = mul nsw i32 %in_load_2, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 116 'mul' 'mul_ln43_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 117 [1/1] (6.58ns)   --->   "%mul_ln43_3 = mul nsw i32 %in_load_1, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 117 'mul' 'mul_ln43_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 118 [1/1] (6.58ns)   --->   "%mul_ln43_4 = mul nsw i32 %in_load, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 118 'mul' 'mul_ln43_4' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 119 [1/1] (1.78ns)   --->   "%add_ln43 = add i32 %mul_ln43, %mul_ln43_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 119 'add' 'add_ln43' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 120 [1/1] (0.00ns)   --->   "%trunc_ln43 = trunc i32 %add_ln43 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 120 'trunc' 'trunc_ln43' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 121 [1/1] (6.58ns)   --->   "%mul_ln48 = mul nsw i32 %in_load_5, %in_load_5" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 121 'mul' 'mul_ln48' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 122 [1/1] (6.58ns)   --->   "%mul_ln48_1 = mul nsw i32 %in_load_4, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 122 'mul' 'mul_ln48_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 123 [1/1] (6.58ns)   --->   "%mul_ln48_2 = mul nsw i32 %in_load_2, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 123 'mul' 'mul_ln48_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 124 [1/1] (6.58ns)   --->   "%mul_ln48_3 = mul nsw i32 %in_load_3, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 124 'mul' 'mul_ln48_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 125 [1/1] (6.58ns)   --->   "%mul_ln48_4 = mul nsw i32 %in_load_1, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 125 'mul' 'mul_ln48_4' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 126 [1/1] (1.78ns)   --->   "%add_ln48 = add nsw i32 %mul_ln48_3, %mul_ln48_4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 126 'add' 'add_ln48' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 127 [1/1] (0.00ns)   --->   "%trunc_ln48 = trunc i32 %add_ln48 to i30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 127 'trunc' 'trunc_ln48' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 128 [1/1] (6.58ns)   --->   "%mul_ln53_2 = mul nsw i32 %in_load_3, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 128 'mul' 'mul_ln53_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 129 [1/1] (6.58ns)   --->   "%mul_ln53_3 = mul nsw i32 %in_load_2, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 129 'mul' 'mul_ln53_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 130 [1/1] (1.78ns)   --->   "%add_ln53_1 = add i32 %mul_ln53_3, %mul_ln53_2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 130 'add' 'add_ln53_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 131 [1/1] (0.00ns)   --->   "%trunc_ln53_1 = trunc i32 %add_ln53_1 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 131 'trunc' 'trunc_ln53_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 132 [1/1] (6.58ns)   --->   "%mul_ln57_2 = mul nsw i32 %in_load_5, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 132 'mul' 'mul_ln57_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 133 [1/1] (6.58ns)   --->   "%mul_ln57_3 = mul nsw i32 %in_load_3, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 133 'mul' 'mul_ln57_3' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 134 [1/1] (1.78ns)   --->   "%add_ln57 = add nsw i32 %mul_ln57_2, %mul_ln57_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 134 'add' 'add_ln57' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 8.36>
+ST_8 : Operation 135 [1/1] (0.00ns)   --->   "%shl_ln7 = call i31 @_ssdm_op_BitConcatenate.i31.i30.i1(i30 %trunc_ln38, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 135 'bitconcatenate' 'shl_ln7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 136 [1/1] (1.76ns)   --->   "%add_ln38_2 = add i31 %trunc_ln38_1, %shl_ln7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 136 'add' 'add_ln38_2' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 137 [1/1] (0.00ns)   --->   "%shl_ln38_1 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln38_2, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 137 'bitconcatenate' 'shl_ln38_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 138 [1/1] (1.78ns)   --->   "%add_ln38_3 = add nsw i32 %mul_ln38, %shl_ln38_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 138 'add' 'add_ln38_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 139 [1/1] (0.00ns)   --->   "%output_addr_8 = getelementptr [1000 x i32]* %output_r, i64 0, i64 8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 139 'getelementptr' 'output_addr_8' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 140 [1/1] (2.66ns)   --->   "store i32 %add_ln38_3, i32* %output_addr_8, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38]   --->   Operation 140 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 141 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln43_1 = add i32 %mul_ln43_4, %mul_ln43_3" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 141 'add' 'add_ln43_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 142 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln43_2 = add i32 %mul_ln43_2, %add_ln43_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 142 'add' 'add_ln43_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 143 [1/1] (0.00ns)   --->   "%trunc_ln43_1 = trunc i32 %add_ln43_2 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 143 'trunc' 'trunc_ln43_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 144 [1/1] (1.76ns)   --->   "%add_ln43_3 = add i31 %trunc_ln43_1, %trunc_ln43" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 144 'add' 'add_ln43_3' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 145 [1/1] (0.00ns)   --->   "%shl_ln8 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln43_3, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 145 'bitconcatenate' 'shl_ln8' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 146 [1/1] (0.00ns)   --->   "%output_addr_9 = getelementptr [1000 x i32]* %output_r, i64 0, i64 9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 146 'getelementptr' 'output_addr_9' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 147 [1/1] (2.66ns)   --->   "store i32 %shl_ln8, i32* %output_addr_9, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:43]   --->   Operation 147 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_8 : Operation 148 [1/1] (0.00ns)   --->   "%shl_ln48_1 = call i31 @_ssdm_op_BitConcatenate.i31.i30.i1(i30 %trunc_ln48, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 148 'bitconcatenate' 'shl_ln48_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 149 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln48_1 = add i32 %mul_ln48_2, %mul_ln48" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 149 'add' 'add_ln48_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 150 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln48_2 = add i32 %mul_ln48_1, %add_ln48_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 150 'add' 'add_ln48_2' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 151 [1/1] (0.00ns)   --->   "%trunc_ln48_1 = trunc i32 %add_ln48_2 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 151 'trunc' 'trunc_ln48_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 152 [1/1] (1.76ns)   --->   "%add_ln48_3 = add i31 %trunc_ln48_1, %shl_ln48_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 152 'add' 'add_ln48_3' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 153 [1/1] (6.58ns)   --->   "%mul_ln53 = mul nsw i32 %in_load_5, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 153 'mul' 'mul_ln53' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 154 [1/1] (6.58ns)   --->   "%mul_ln53_1 = mul nsw i32 %in_load_4, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 154 'mul' 'mul_ln53_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 155 [1/1] (1.78ns)   --->   "%add_ln53 = add i32 %mul_ln53, %mul_ln53_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 155 'add' 'add_ln53' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 156 [1/1] (0.00ns)   --->   "%trunc_ln53 = trunc i32 %add_ln53 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 156 'trunc' 'trunc_ln53' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 157 [1/1] (6.58ns)   --->   "%mul_ln57_1 = mul nsw i32 %in_load_4, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 157 'mul' 'mul_ln57_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 158 [1/1] (0.00ns) (grouped into LUT with out node add_ln57_1)   --->   "%shl_ln57 = shl i32 %add_ln57, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 158 'shl' 'shl_ln57' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 159 [1/1] (1.78ns) (out node of the LUT)   --->   "%add_ln57_1 = add nsw i32 %mul_ln57_1, %shl_ln57" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 159 'add' 'add_ln57_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 160 [1/1] (6.58ns)   --->   "%mul_ln61 = mul nsw i32 %in_load_6, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 160 'mul' 'mul_ln61' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 161 [1/1] (6.58ns)   --->   "%mul_ln61_1 = mul nsw i32 %in_load_5, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 161 'mul' 'mul_ln61_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 162 [1/1] (6.58ns)   --->   "%mul_ln61_2 = mul nsw i32 %in_load_4, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 162 'mul' 'mul_ln61_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 163 [1/1] (6.58ns)   --->   "%mul_ln64_2 = mul i32 %in_load_5, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 163 'mul' 'mul_ln64_2' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 164 [1/1] (0.00ns)   --->   "%trunc_ln64 = trunc i32 %mul_ln64_2 to i30" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 164 'trunc' 'trunc_ln64' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 8> <Delay = 8.36>
+ST_9 : Operation 165 [1/1] (0.00ns)   --->   "%shl_ln9 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln48_3, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 165 'bitconcatenate' 'shl_ln9' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 166 [1/1] (0.00ns)   --->   "%output_addr_10 = getelementptr [1000 x i32]* %output_r, i64 0, i64 10" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 166 'getelementptr' 'output_addr_10' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 167 [1/1] (2.66ns)   --->   "store i32 %shl_ln9, i32* %output_addr_10, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:48]   --->   Operation 167 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_9 : Operation 168 [1/1] (1.76ns)   --->   "%add_ln53_2 = add i31 %trunc_ln53_1, %trunc_ln53" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 168 'add' 'add_ln53_2' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 169 [1/1] (0.00ns)   --->   "%shl_ln = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln53_2, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 169 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 170 [1/1] (0.00ns)   --->   "%output_addr_11 = getelementptr [1000 x i32]* %output_r, i64 0, i64 11" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 170 'getelementptr' 'output_addr_11' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 171 [1/1] (2.66ns)   --->   "store i32 %shl_ln, i32* %output_addr_11, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53]   --->   Operation 171 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_9 : Operation 172 [1/1] (6.58ns)   --->   "%mul_ln57 = mul nsw i32 %in_load_6, %in_load_6" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 172 'mul' 'mul_ln57' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node add_ln57_2)   --->   "%shl_ln57_1 = shl i32 %add_ln57_1, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 173 'shl' 'shl_ln57_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 174 [1/1] (1.78ns) (out node of the LUT)   --->   "%add_ln57_2 = add nsw i32 %mul_ln57, %shl_ln57_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 174 'add' 'add_ln57_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 175 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln61 = add i32 %mul_ln61_2, %mul_ln61" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 175 'add' 'add_ln61' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 176 [1/1] (2.77ns) (root node of TernaryAdder)   --->   "%add_ln61_1 = add i32 %mul_ln61_1, %add_ln61" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 176 'add' 'add_ln61_1' <Predicate = true> <Delay = 2.77> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.38> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 10 <SV = 9> <Delay = 8.36>
+ST_10 : Operation 177 [1/1] (0.00ns)   --->   "%output_addr_12 = getelementptr [1000 x i32]* %output_r, i64 0, i64 12" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 177 'getelementptr' 'output_addr_12' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 178 [1/1] (2.66ns)   --->   "store i32 %add_ln57_2, i32* %output_addr_12, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57]   --->   Operation 178 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_10 : Operation 179 [1/1] (0.00ns)   --->   "%shl_ln61 = shl i32 %add_ln61_1, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 179 'shl' 'shl_ln61' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 180 [1/1] (0.00ns)   --->   "%output_addr_13 = getelementptr [1000 x i32]* %output_r, i64 0, i64 13" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 180 'getelementptr' 'output_addr_13' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 181 [1/1] (2.66ns)   --->   "store i32 %shl_ln61, i32* %output_addr_13, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:61]   --->   Operation 181 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_10 : Operation 182 [1/1] (6.58ns)   --->   "%mul_ln64 = mul nsw i32 %in_load_7, %in_load_7" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 182 'mul' 'mul_ln64' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 183 [1/1] (6.58ns)   --->   "%mul_ln64_1 = mul nsw i32 %in_load_6, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 183 'mul' 'mul_ln64_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 184 [1/1] (1.78ns)   --->   "%add_ln64 = add i32 %mul_ln64, %mul_ln64_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 184 'add' 'add_ln64' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 185 [1/1] (0.00ns)   --->   "%trunc_ln64_1 = trunc i32 %add_ln64 to i31" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 185 'trunc' 'trunc_ln64_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 186 [1/1] (6.58ns)   --->   "%mul_ln67 = mul nsw i32 %in_load_7, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 186 'mul' 'mul_ln67' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 187 [1/1] (6.58ns)   --->   "%mul_ln67_1 = mul nsw i32 %in_load_6, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 187 'mul' 'mul_ln67_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 188 [1/1] (1.78ns)   --->   "%add_ln67 = add nsw i32 %mul_ln67, %mul_ln67_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 188 'add' 'add_ln67' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 8.36>
+ST_11 : Operation 189 [1/1] (0.00ns)   --->   "%shl_ln64_1 = call i31 @_ssdm_op_BitConcatenate.i31.i30.i1(i30 %trunc_ln64, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 189 'bitconcatenate' 'shl_ln64_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 190 [1/1] (1.76ns)   --->   "%add_ln64_1 = add i31 %trunc_ln64_1, %shl_ln64_1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 190 'add' 'add_ln64_1' <Predicate = true> <Delay = 1.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 191 [1/1] (0.00ns)   --->   "%shl_ln1 = call i32 @_ssdm_op_BitConcatenate.i32.i31.i1(i31 %add_ln64_1, i1 false)" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 191 'bitconcatenate' 'shl_ln1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 192 [1/1] (0.00ns)   --->   "%output_addr_14 = getelementptr [1000 x i32]* %output_r, i64 0, i64 14" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 192 'getelementptr' 'output_addr_14' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 193 [1/1] (2.66ns)   --->   "store i32 %shl_ln1, i32* %output_addr_14, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64]   --->   Operation 193 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 194 [1/1] (0.00ns)   --->   "%shl_ln67 = shl i32 %add_ln67, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 194 'shl' 'shl_ln67' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 195 [1/1] (0.00ns)   --->   "%output_addr_15 = getelementptr [1000 x i32]* %output_r, i64 0, i64 15" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 195 'getelementptr' 'output_addr_15' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 196 [1/1] (2.66ns)   --->   "store i32 %shl_ln67, i32* %output_addr_15, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:67]   --->   Operation 196 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_11 : Operation 197 [1/1] (6.58ns)   --->   "%mul_ln69 = mul nsw i32 %in_load_8, %in_load_8" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 197 'mul' 'mul_ln69' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 198 [1/1] (6.58ns)   --->   "%mul_ln69_1 = mul i32 %in_load_7, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 198 'mul' 'mul_ln69_1' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 199 [1/1] (0.00ns) (grouped into LUT with out node add_ln69)   --->   "%shl_ln69 = shl i32 %mul_ln69_1, 2" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 199 'shl' 'shl_ln69' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 200 [1/1] (1.78ns) (out node of the LUT)   --->   "%add_ln69 = add nsw i32 %mul_ln69, %shl_ln69" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 200 'add' 'add_ln69' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 201 [1/1] (6.58ns)   --->   "%mul_ln71 = mul i32 %in_load_8, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:71]   --->   Operation 201 'mul' 'mul_ln71' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 6.58>
+ST_12 : Operation 202 [1/1] (0.00ns)   --->   "%output_addr_16 = getelementptr [1000 x i32]* %output_r, i64 0, i64 16" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 202 'getelementptr' 'output_addr_16' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 203 [1/1] (2.66ns)   --->   "store i32 %add_ln69, i32* %output_addr_16, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69]   --->   Operation 203 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_12 : Operation 204 [1/1] (0.00ns)   --->   "%shl_ln71 = shl i32 %mul_ln71, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:71]   --->   Operation 204 'shl' 'shl_ln71' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 205 [1/1] (0.00ns)   --->   "%output_addr_17 = getelementptr [1000 x i32]* %output_r, i64 0, i64 17" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:71]   --->   Operation 205 'getelementptr' 'output_addr_17' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 206 [1/1] (2.66ns)   --->   "store i32 %shl_ln71, i32* %output_addr_17, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:71]   --->   Operation 206 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_12 : Operation 207 [1/1] (6.58ns)   --->   "%mul_ln72 = mul i32 %in_load_9, %in_load_9" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72]   --->   Operation 207 'mul' 'mul_ln72' <Predicate = true> <Delay = 6.58> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.58> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 2.66>
+ST_13 : Operation 208 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %output_r) nounwind, !map !13"   --->   Operation 208 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 209 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x i32]* %in_r) nounwind, !map !19"   --->   Operation 209 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 210 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([14 x i8]* @fsquare_inner_str) nounwind"   --->   Operation 210 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 211 [1/1] (0.00ns)   --->   "%shl_ln72 = shl i32 %mul_ln72, 1" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72]   --->   Operation 211 'shl' 'shl_ln72' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 212 [1/1] (0.00ns)   --->   "%output_addr_18 = getelementptr [1000 x i32]* %output_r, i64 0, i64 18" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72]   --->   Operation 212 'getelementptr' 'output_addr_18' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 213 [1/1] (2.66ns)   --->   "store i32 %shl_ln72, i32* %output_addr_18, align 4" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72]   --->   Operation 213 'store' <Predicate = true> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1000> <RAM>
+ST_13 : Operation 214 [1/1] (0.00ns)   --->   "ret void" [extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:73]   --->   Operation 214 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.66ns
+The critical path consists of the following:
+	'getelementptr' operation ('in_addr', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:17) [5]  (0 ns)
+	'load' operation ('in_load', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18) on array 'in_r' [8]  (2.66 ns)
+
+ <State 2>: 2.66ns
+The critical path consists of the following:
+	'load' operation ('in_load', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18) on array 'in_r' [8]  (2.66 ns)
+
+ <State 3>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln18', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:18) [9]  (6.58 ns)
+
+ <State 4>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln20', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20) [17]  (6.58 ns)
+	'add' operation ('add_ln20', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:20) [21]  (1.78 ns)
+
+ <State 5>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln24', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:24) [33]  (6.58 ns)
+
+ <State 6>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln34', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34) [69]  (6.58 ns)
+	'add' operation ('add_ln34', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:34) [75]  (1.78 ns)
+
+ <State 7>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln38_1', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38) [84]  (6.58 ns)
+	'add' operation ('add_ln38_1', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:38) [93]  (1.78 ns)
+
+ <State 8>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln53', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53) [131]  (6.58 ns)
+	'add' operation ('add_ln53', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:53) [135]  (1.78 ns)
+
+ <State 9>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln57', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57) [143]  (6.58 ns)
+	'add' operation ('add_ln57_2', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:57) [151]  (1.78 ns)
+
+ <State 10>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln64', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64) [162]  (6.58 ns)
+	'add' operation ('add_ln64', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:64) [167]  (1.78 ns)
+
+ <State 11>: 8.37ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln69', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69) [179]  (6.58 ns)
+	'add' operation ('add_ln69', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:69) [182]  (1.78 ns)
+
+ <State 12>: 6.58ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln72', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72) [189]  (6.58 ns)
+
+ <State 13>: 2.66ns
+The critical path consists of the following:
+	'shl' operation ('shl_ln72', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72) [190]  (0 ns)
+	'store' operation ('store_ln72', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72) of variable 'shl_ln72', extr_.h2odepspicotlsdepscifrasrccurve25519.donna.c_fsquare_inner_with_main.c:72 on array 'output_r' [192]  (2.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
