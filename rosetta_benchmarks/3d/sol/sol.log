@@ -204,3 +204,101 @@ INFO: [VHDL 208-304] Generating VHDL RTL for DigitRec_sw.
 INFO: [VLOG 209-307] Generating Verilog RTL for DigitRec_sw.
 INFO: [HLS 200-10] Creating and opening project '/home/vivado/rosetta-master/vivado/face'.
 INFO: [HLS 200-10] Creating and opening solution '/home/vivado/rosetta-master/vivado/face/sol'.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7k160t-fbg484-1'
+INFO: [HLS 200-10] Adding design file 'rendering_sw.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'rendering_sw.h' to the project
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Cannot find source file digitrec_sw.h; skipping it.
+WARNING: [HLS 200-40] Cannot find source file digitrec_sw.cpp; skipping it.
+INFO: [HLS 200-10] Analyzing design file 'rendering_sw.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:14 ; elapsed = 00:00:57 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13622 ; free virtual = 36529
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:14 ; elapsed = 00:00:57 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13622 ; free virtual = 36529
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:15 ; elapsed = 00:00:59 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13614 ; free virtual = 36527
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'check_clockwise' into 'rasterization1' (rendering_sw.cpp:151) automatically.
+INFO: [XFORM 203-602] Inlining function 'clockwise_vertices' into 'rasterization1' (rendering_sw.cpp:154) automatically.
+INFO: [XFORM 203-602] Inlining function 'find_min' into 'rasterization1' (rendering_sw.cpp:157) automatically.
+INFO: [XFORM 203-602] Inlining function 'find_max' into 'rasterization1' (rendering_sw.cpp:158) automatically.
+INFO: [XFORM 203-602] Inlining function 'pixel_in_triangle' into 'rasterization2' (rendering_sw.cpp:186) automatically.
+INFO: [XFORM 203-602] Inlining function 'projection' into 'rendering_sw' (rendering_sw.cpp:279) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:15 ; elapsed = 00:00:59 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13614 ; free virtual = 36527
+INFO: [XFORM 203-102] Partitioning array 'max_min' (rendering_sw.cpp:266) automatically.
+INFO: [XFORM 203-102] Partitioning array 'max_index' (rendering_sw.cpp:267) automatically.
+INFO: [XFORM 203-602] Inlining function 'check_clockwise' into 'rasterization1' (rendering_sw.cpp:151) automatically.
+INFO: [XFORM 203-602] Inlining function 'clockwise_vertices' into 'rasterization1' (rendering_sw.cpp:154) automatically.
+INFO: [XFORM 203-602] Inlining function 'find_min' into 'rasterization1' (rendering_sw.cpp:157) automatically.
+INFO: [XFORM 203-602] Inlining function 'find_max' into 'rasterization1' (rendering_sw.cpp:158) automatically.
+INFO: [XFORM 203-602] Inlining function 'pixel_in_triangle' into 'rasterization2' (rendering_sw.cpp:186) automatically.
+INFO: [XFORM 203-602] Inlining function 'projection' into 'rendering_sw' (rendering_sw.cpp:279) automatically.
+INFO: [XFORM 203-602] Inlining function 'rasterization2' into 'rendering_sw' (rendering_sw.cpp:281) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (rendering_sw.cpp:148:53) to (rendering_sw.cpp:167:1) in function 'rasterization1'... converting 15 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'rasterization1' into 'rendering_sw' (rendering_sw.cpp:280) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:01:00 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13595 ; free virtual = 36508
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:16 ; elapsed = 00:01:00 . Memory (MB): peak = 899.422 ; gain = 199.102 ; free physical = 13585 ; free virtual = 36499
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rendering_sw' ...
+WARNING: [SYN 201-107] Renaming port name 'rendering_sw/output' to 'rendering_sw/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'zculling' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 60.05 seconds; current allocated memory: 119.474 MB.
+INFO: [HLS 200-434] Only 0 loops out of a total 3 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 119.894 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'coloringFB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 120.054 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 120.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rendering_sw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 121.018 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 121.867 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'zculling' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'zculling'.
+INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 122.436 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'coloringFB' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'coloringFB'.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 123.887 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rendering_sw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_x0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_y0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_z0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_x1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_y1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_z1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_x2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rendering_sw/triangle_3ds_y2' to 'ap_memory'.

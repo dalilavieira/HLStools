@@ -1,5 +1,5 @@
 
-set TopModule "DigitRec_sw"
+set TopModule "rendering_sw"
 set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
@@ -40,9 +40,9 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
-set SourceFiles {sc {} c ../../digit/digitrec_sw.cpp}
+set SourceFiles {sc {} c ../rendering_sw.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/vivado/rosetta-master/vivado/3d/sol/sol.directive
+set DirectiveFile /home/vivado/HLStools/rosetta_benchmarks/3d/sol/sol.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -54,7 +54,7 @@ set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_ga
 set TBTVFileNotFound {}
 set AppFile ../vivado_hls.app
 set ApsFile sol.aps
-set AvePath ../../digit
+set AvePath ..
 set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}
