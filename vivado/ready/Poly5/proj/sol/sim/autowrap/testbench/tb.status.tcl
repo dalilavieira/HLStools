@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Poly5/proj/sol/./sim/autowrap/testbench/poly5.cpp_pre.cpp.tb.cpp

@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Sgfilter/proj/sol/./sim/autowrap/testbench/sgfilter.cpp_pre.cpp.tb.cpp

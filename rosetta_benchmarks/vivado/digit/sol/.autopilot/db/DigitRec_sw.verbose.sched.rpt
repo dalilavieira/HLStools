@@ -1,0 +1,312 @@
+
+
+================================================================
+== Vivado HLS Report for 'DigitRec_sw'
+================================================================
+* Date:           Wed Jun 24 13:47:46 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        digit
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.449|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----------+-----------+-----------+-----------+---------+
+    |        Latency        |        Interval       | Pipeline|
+    |    min    |    max    |    min    |    max    |   Type  |
+    +-----------+-----------+-----------+-----------+---------+
+    |  864088001|  864088001|  864088001|  864088001|   none  |
+    +-----------+-----------+-----------+-----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+-----------+-----------+----------+-----------+-----------+-------+----------+
+        |                  |        Latency        | Iteration|  Initiation Interval  |  Trip |          |
+        |     Loop Name    |    min    |    max    |  Latency |  achieved |   target  | Count | Pipelined|
+        +------------------+-----------+-----------+----------+-----------+-----------+-------+----------+
+        |- TEST_LOOP       |  864088000|  864088000|    432044|          -|          -|   2000|    no    |
+        | + SET_KNN_SET    |          3|          3|         1|          -|          -|      3|    no    |
+        | + TRAINING_LOOP  |     432000|     432000|        24|          -|          -|  18000|    no    |
+        | + memset_votes   |          9|          9|         1|          -|          -|     10|    no    |
+        | + TEST_LOOP.4    |          6|          6|         2|          -|          -|      3|    no    |
+        | + TEST_LOOP.5    |         20|         20|         2|          -|          -|     10|    no    |
+        +------------------+-----------+-----------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 10
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 3 4 
+4 --> 5 6 
+5 --> 4 
+6 --> 6 7 
+7 --> 8 9 
+8 --> 7 
+9 --> 10 2 
+10 --> 9 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.06>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%votes = alloca [10 x i32], align 16" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 11 'alloca' 'votes' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([72000 x i64]* %training_set) nounwind, !map !29"   --->   Operation 12 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([8000 x i64]* %test_set) nounwind, !map !35"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([2000 x i8]* %results) nounwind, !map !41"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @DigitRec_sw_str) nounwind"   --->   Operation 15 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.06ns)   --->   "br label %1" [digitrec_sw.cpp:96]   --->   Operation 16 'br' <Predicate = true> <Delay = 1.06>
+
+State 2 <SV = 1> <Delay = 1.42>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%labels_2_0 = phi i32 [ undef, %0 ], [ %labels_2_read_assig, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 17 'phi' 'labels_2_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%labels_1_0 = phi i32 [ undef, %0 ], [ %labels_1_read_assig, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 18 'phi' 'labels_1_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%labels_0_0 = phi i32 [ undef, %0 ], [ %labels_0_read_assig, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 19 'phi' 'labels_0_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%dists_2_0 = phi i32 [ undef, %0 ], [ %dists_2_3, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 20 'phi' 'dists_2_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%dists_1_0 = phi i32 [ undef, %0 ], [ %dists_1_3, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 21 'phi' 'dists_1_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%dists_0_0 = phi i32 [ undef, %0 ], [ %dists_0_3, %TEST_LOOP_end ]" [digitrec_sw.cpp:99]   --->   Operation 22 'phi' 'dists_0_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%t_0 = phi i11 [ 0, %0 ], [ %t, %TEST_LOOP_end ]"   --->   Operation 23 'phi' 't_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (1.32ns)   --->   "%icmp_ln96 = icmp eq i11 %t_0, -48" [digitrec_sw.cpp:96]   --->   Operation 24 'icmp' 'icmp_ln96' <Predicate = true> <Delay = 1.32> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2000, i64 2000, i64 2000) nounwind"   --->   Operation 25 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (1.42ns)   --->   "%t = add i11 %t_0, 1" [digitrec_sw.cpp:96]   --->   Operation 26 'add' 't' <Predicate = true> <Delay = 1.42> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln96, label %5, label %TEST_LOOP_begin" [digitrec_sw.cpp:96]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str1) nounwind" [digitrec_sw.cpp:97]   --->   Operation 28 'specloopname' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str1) nounwind" [digitrec_sw.cpp:97]   --->   Operation 29 'specregionbegin' 'tmp' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (1.06ns)   --->   "br label %2" [digitrec_sw.cpp:99]   --->   Operation 30 'br' <Predicate = (!icmp_ln96)> <Delay = 1.06>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "ret void" [digitrec_sw.cpp:116]   --->   Operation 31 'ret' <Predicate = (icmp_ln96)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.26>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%labels_2_112 = phi i32 [ %labels_2_0, %TEST_LOOP_begin ], [ %labels_2_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 32 'phi' 'labels_2_112' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%labels_1_111 = phi i32 [ %labels_1_0, %TEST_LOOP_begin ], [ %labels_1_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 33 'phi' 'labels_1_111' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%labels_0_110 = phi i32 [ %labels_0_0, %TEST_LOOP_begin ], [ %labels_0_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 34 'phi' 'labels_0_110' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%dists_2_1 = phi i32 [ %dists_2_0, %TEST_LOOP_begin ], [ %dists_2_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 35 'phi' 'dists_2_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%dists_1_1 = phi i32 [ %dists_1_0, %TEST_LOOP_begin ], [ %dists_1_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 36 'phi' 'dists_1_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%dists_0_1 = phi i32 [ %dists_0_0, %TEST_LOOP_begin ], [ %dists_0_2, %branch0 ]" [digitrec_sw.cpp:108]   --->   Operation 37 'phi' 'dists_0_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%i_0 = phi i2 [ 0, %TEST_LOOP_begin ], [ %i, %branch0 ]"   --->   Operation 38 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.64ns)   --->   "%icmp_ln99 = icmp eq i2 %i_0, -1" [digitrec_sw.cpp:99]   --->   Operation 39 'icmp' 'icmp_ln99' <Predicate = true> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%empty_619 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"   --->   Operation 40 'speclooptripcount' 'empty_619' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (1.00ns)   --->   "%i = add i2 %i_0, 1" [digitrec_sw.cpp:99]   --->   Operation 41 'add' 'i' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "br i1 %icmp_ln99, label %.preheader.preheader, label %branch0" [digitrec_sw.cpp:99]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str2) nounwind" [digitrec_sw.cpp:100]   --->   Operation 43 'specloopname' <Predicate = (!icmp_ln99)> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (1.26ns)   --->   "%dists_0_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 256, i32 %dists_0_1, i32 %dists_0_1, i32 %dists_0_1, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 44 'mux' 'dists_0_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (1.26ns)   --->   "%dists_1_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %dists_1_1, i32 256, i32 %dists_1_1, i32 %dists_1_1, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 45 'mux' 'dists_1_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (1.26ns)   --->   "%dists_2_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %dists_2_1, i32 %dists_2_1, i32 256, i32 256, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 46 'mux' 'dists_2_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 47 [1/1] (1.26ns)   --->   "%labels_0_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 0, i32 %labels_0_110, i32 %labels_0_110, i32 %labels_0_110, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 47 'mux' 'labels_0_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 48 [1/1] (1.26ns)   --->   "%labels_1_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %labels_1_111, i32 0, i32 %labels_1_111, i32 %labels_1_111, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 48 'mux' 'labels_1_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (1.26ns)   --->   "%labels_2_2 = call i32 @_ssdm_op_Mux.ap_auto.4i32.i2(i32 %labels_2_112, i32 %labels_2_112, i32 0, i32 0, i2 %i_0) nounwind" [digitrec_sw.cpp:108]   --->   Operation 49 'mux' 'labels_2_2' <Predicate = (!icmp_ln99)> <Delay = 1.26> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "br label %2" [digitrec_sw.cpp:99]   --->   Operation 50 'br' <Predicate = (!icmp_ln99)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%shl_ln = call i13 @_ssdm_op_BitConcatenate.i13.i11.i2(i11 %t_0, i2 0)" [digitrec_sw.cpp:108]   --->   Operation 51 'bitconcatenate' 'shl_ln' <Predicate = (icmp_ln99)> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (1.06ns)   --->   "br label %.preheader" [digitrec_sw.cpp:107]   --->   Operation 52 'br' <Predicate = (icmp_ln99)> <Delay = 1.06>
+
+State 4 <SV = 3> <Delay = 1.74>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%labels_2_read_assig = phi i32 [ %labels_2_112, %.preheader.preheader ], [ %labels_2, %3 ]"   --->   Operation 53 'phi' 'labels_2_read_assig' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%labels_1_read_assig = phi i32 [ %labels_1_111, %.preheader.preheader ], [ %labels_1, %3 ]"   --->   Operation 54 'phi' 'labels_1_read_assig' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%labels_0_read_assig = phi i32 [ %labels_0_110, %.preheader.preheader ], [ %labels_0, %3 ]"   --->   Operation 55 'phi' 'labels_0_read_assig' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%dists_2_3 = phi i32 [ %dists_2_1, %.preheader.preheader ], [ %dists_2, %3 ]"   --->   Operation 56 'phi' 'dists_2_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%dists_1_3 = phi i32 [ %dists_1_1, %.preheader.preheader ], [ %dists_1, %3 ]"   --->   Operation 57 'phi' 'dists_1_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%dists_0_3 = phi i32 [ %dists_0_1, %.preheader.preheader ], [ %dists_0, %3 ]"   --->   Operation 58 'phi' 'dists_0_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%i1_0 = phi i15 [ 0, %.preheader.preheader ], [ %i_1, %3 ]"   --->   Operation 59 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%phi_mul = phi i30 [ 0, %.preheader.preheader ], [ %add_ln108, %3 ]" [digitrec_sw.cpp:108]   --->   Operation 60 'phi' 'phi_mul' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (1.46ns)   --->   "%icmp_ln107 = icmp eq i15 %i1_0, -14768" [digitrec_sw.cpp:107]   --->   Operation 61 'icmp' 'icmp_ln107' <Predicate = true> <Delay = 1.46> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%empty_620 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 18000, i64 18000, i64 18000) nounwind"   --->   Operation 62 'speclooptripcount' 'empty_620' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (1.47ns)   --->   "%i_1 = add i15 %i1_0, 1" [digitrec_sw.cpp:107]   --->   Operation 63 'add' 'i_1' <Predicate = true> <Delay = 1.47> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %icmp_ln107, label %meminst.i.preheader, label %3" [digitrec_sw.cpp:107]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%shl_ln108_1 = call i17 @_ssdm_op_BitConcatenate.i17.i15.i2(i15 %i1_0, i2 0)" [digitrec_sw.cpp:108]   --->   Operation 65 'bitconcatenate' 'shl_ln108_1' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (1.74ns)   --->   "%add_ln108 = add i30 %phi_mul, 37283" [digitrec_sw.cpp:108]   --->   Operation 66 'add' 'add_ln108' <Predicate = (!icmp_ln107)> <Delay = 1.74> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "%trunc_ln = call i4 @_ssdm_op_PartSelect.i4.i30.i32.i32(i30 %phi_mul, i32 26, i32 29)" [digitrec_sw.cpp:108]   --->   Operation 67 'partselect' 'trunc_ln' <Predicate = (!icmp_ln107)> <Delay = 0.00>
+ST_4 : Operation 68 [2/2] (0.00ns)   --->   "%call_ret = call fastcc { i32, i32, i32, i32, i32, i32 } @update_knn([72000 x i64]* %training_set, i17 %shl_ln108_1, [8000 x i64]* %test_set, i13 %shl_ln, i32 %dists_0_3, i32 %dists_0_3, i32 %dists_1_3, i32 %dists_1_3, i32 %dists_2_3, i32 %dists_2_3, i32 %labels_0_read_assig, i32 %labels_1_read_assig, i32 %labels_2_read_assig, i4 %trunc_ln) nounwind" [digitrec_sw.cpp:108]   --->   Operation 68 'call' 'call_ret' <Predicate = (!icmp_ln107)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 69 [1/1] (1.06ns)   --->   "br label %meminst.i" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 69 'br' <Predicate = (icmp_ln107)> <Delay = 1.06>
+
+State 5 <SV = 4> <Delay = 0.63>
+ST_5 : Operation 70 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @p_str3) nounwind" [digitrec_sw.cpp:108]   --->   Operation 70 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 71 [1/2] (0.63ns)   --->   "%call_ret = call fastcc { i32, i32, i32, i32, i32, i32 } @update_knn([72000 x i64]* %training_set, i17 %shl_ln108_1, [8000 x i64]* %test_set, i13 %shl_ln, i32 %dists_0_3, i32 %dists_0_3, i32 %dists_1_3, i32 %dists_1_3, i32 %dists_2_3, i32 %dists_2_3, i32 %labels_0_read_assig, i32 %labels_1_read_assig, i32 %labels_2_read_assig, i4 %trunc_ln) nounwind" [digitrec_sw.cpp:108]   --->   Operation 71 'call' 'call_ret' <Predicate = true> <Delay = 0.63> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "%labels_0 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 0" [digitrec_sw.cpp:108]   --->   Operation 72 'extractvalue' 'labels_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 73 [1/1] (0.00ns)   --->   "%labels_1 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 1" [digitrec_sw.cpp:108]   --->   Operation 73 'extractvalue' 'labels_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 74 [1/1] (0.00ns)   --->   "%labels_2 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 2" [digitrec_sw.cpp:108]   --->   Operation 74 'extractvalue' 'labels_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%dists_0 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 3" [digitrec_sw.cpp:108]   --->   Operation 75 'extractvalue' 'dists_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 76 [1/1] (0.00ns)   --->   "%dists_1 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 4" [digitrec_sw.cpp:108]   --->   Operation 76 'extractvalue' 'dists_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 77 [1/1] (0.00ns)   --->   "%dists_2 = extractvalue { i32, i32, i32, i32, i32, i32 } %call_ret, 5" [digitrec_sw.cpp:108]   --->   Operation 77 'extractvalue' 'dists_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 78 [1/1] (0.00ns)   --->   "br label %.preheader" [digitrec_sw.cpp:107]   --->   Operation 78 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 1.42>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%phi_ln67_i = phi i4 [ %add_ln67, %meminst.i ], [ 0, %meminst.i.preheader ]" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 79 'phi' 'phi_ln67_i' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (1.32ns)   --->   "%add_ln67 = add i4 %phi_ln67_i, 1" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 80 'add' 'add_ln67' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln67 = zext i4 %phi_ln67_i to i64" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 81 'zext' 'zext_ln67' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%votes_addr = getelementptr [10 x i32]* %votes, i64 0, i64 %zext_ln67" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 82 'getelementptr' 'votes_addr' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (1.42ns)   --->   "store i32 0, i32* %votes_addr, align 4" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 83 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_6 : Operation 84 [1/1] (1.08ns)   --->   "%icmp_ln67 = icmp eq i4 %phi_ln67_i, -7" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 84 'icmp' 'icmp_ln67' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @memset_votes_str)"   --->   Operation 85 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 86 [1/1] (0.00ns)   --->   "%empty_621 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10) nounwind"   --->   Operation 86 'speclooptripcount' 'empty_621' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 87 [1/1] (0.00ns)   --->   "br i1 %icmp_ln67, label %.preheader1.i.preheader, label %meminst.i" [digitrec_sw.cpp:67->digitrec_sw.cpp:111]   --->   Operation 87 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 88 [1/1] (1.06ns)   --->   "br label %.preheader1.i" [digitrec_sw.cpp:69->digitrec_sw.cpp:111]   --->   Operation 88 'br' <Predicate = (icmp_ln67)> <Delay = 1.06>
+
+State 7 <SV = 5> <Delay = 2.56>
+ST_7 : Operation 89 [1/1] (0.00ns)   --->   "%i_0_i = phi i2 [ %i_2, %4 ], [ 0, %.preheader1.i.preheader ]"   --->   Operation 89 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 90 [1/1] (0.64ns)   --->   "%icmp_ln69 = icmp eq i2 %i_0_i, -1" [digitrec_sw.cpp:69->digitrec_sw.cpp:111]   --->   Operation 90 'icmp' 'icmp_ln69' <Predicate = true> <Delay = 0.64> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 91 [1/1] (0.00ns)   --->   "%empty_622 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"   --->   Operation 91 'speclooptripcount' 'empty_622' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 92 [1/1] (1.00ns)   --->   "%i_2 = add i2 %i_0_i, 1" [digitrec_sw.cpp:69->digitrec_sw.cpp:111]   --->   Operation 92 'add' 'i_2' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 93 [1/1] (0.00ns)   --->   "br i1 %icmp_ln69, label %.preheader.i.preheader, label %4" [digitrec_sw.cpp:69->digitrec_sw.cpp:111]   --->   Operation 93 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 94 [1/1] (1.14ns)   --->   "%tmp_1 = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %labels_0_read_assig, i32 %labels_1_read_assig, i32 %labels_2_read_assig, i2 %i_0_i) nounwind" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 94 'mux' 'tmp_1' <Predicate = (!icmp_ln69)> <Delay = 1.14> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 95 [1/1] (0.00ns)   --->   "%sext_ln70 = sext i32 %tmp_1 to i64" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 95 'sext' 'sext_ln70' <Predicate = (!icmp_ln69)> <Delay = 0.00>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "%votes_addr_1 = getelementptr inbounds [10 x i32]* %votes, i64 0, i64 %sext_ln70" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 96 'getelementptr' 'votes_addr_1' <Predicate = (!icmp_ln69)> <Delay = 0.00>
+ST_7 : Operation 97 [2/2] (1.42ns)   --->   "%votes_load = load i32* %votes_addr_1, align 4" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 97 'load' 'votes_load' <Predicate = (!icmp_ln69)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_7 : Operation 98 [1/1] (1.06ns)   --->   "br label %.preheader.i" [digitrec_sw.cpp:72->digitrec_sw.cpp:111]   --->   Operation 98 'br' <Predicate = (icmp_ln69)> <Delay = 1.06>
+
+State 8 <SV = 6> <Delay = 4.63>
+ST_8 : Operation 99 [1/2] (1.42ns)   --->   "%votes_load = load i32* %votes_addr_1, align 4" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 99 'load' 'votes_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_8 : Operation 100 [1/1] (1.78ns)   --->   "%add_ln70 = add nsw i32 %votes_load, 1" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 100 'add' 'add_ln70' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 101 [1/1] (1.42ns)   --->   "store i32 %add_ln70, i32* %votes_addr_1, align 4" [digitrec_sw.cpp:70->digitrec_sw.cpp:111]   --->   Operation 101 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_8 : Operation 102 [1/1] (0.00ns)   --->   "br label %.preheader1.i" [digitrec_sw.cpp:69->digitrec_sw.cpp:111]   --->   Operation 102 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 6> <Delay = 2.66>
+ST_9 : Operation 103 [1/1] (0.00ns)   --->   "%max_vote = phi i8 [ %select_ln74, %._crit_edge.i ], [ 0, %.preheader.i.preheader ]" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 103 'phi' 'max_vote' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 104 [1/1] (0.00ns)   --->   "%max_vote_0_i = phi i32 [ %select_ln74_1, %._crit_edge.i ], [ 0, %.preheader.i.preheader ]" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 104 'phi' 'max_vote_0_i' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 105 [1/1] (0.00ns)   --->   "%i1_0_i = phi i4 [ %i_3, %._crit_edge.i ], [ 0, %.preheader.i.preheader ]"   --->   Operation 105 'phi' 'i1_0_i' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 106 [1/1] (1.08ns)   --->   "%icmp_ln72 = icmp eq i4 %i1_0_i, -6" [digitrec_sw.cpp:72->digitrec_sw.cpp:111]   --->   Operation 106 'icmp' 'icmp_ln72' <Predicate = true> <Delay = 1.08> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 107 [1/1] (0.00ns)   --->   "%empty_623 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10) nounwind"   --->   Operation 107 'speclooptripcount' 'empty_623' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 108 [1/1] (1.32ns)   --->   "%i_3 = add i4 %i1_0_i, 1" [digitrec_sw.cpp:72->digitrec_sw.cpp:111]   --->   Operation 108 'add' 'i_3' <Predicate = true> <Delay = 1.32> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "br i1 %icmp_ln72, label %TEST_LOOP_end, label %._crit_edge.i" [digitrec_sw.cpp:72->digitrec_sw.cpp:111]   --->   Operation 109 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (0.00ns)   --->   "%zext_ln74 = zext i4 %i1_0_i to i64" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 110 'zext' 'zext_ln74' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%votes_addr_2 = getelementptr inbounds [10 x i32]* %votes, i64 0, i64 %zext_ln74" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 111 'getelementptr' 'votes_addr_2' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_9 : Operation 112 [2/2] (1.42ns)   --->   "%max_vote_1 = load i32* %votes_addr_2, align 4" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 112 'load' 'max_vote_1' <Predicate = (!icmp_ln72)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "%zext_ln112 = zext i11 %t_0 to i64" [digitrec_sw.cpp:112]   --->   Operation 113 'zext' 'zext_ln112' <Predicate = (icmp_ln72)> <Delay = 0.00>
+ST_9 : Operation 114 [1/1] (0.00ns)   --->   "%results_addr = getelementptr [2000 x i8]* %results, i64 0, i64 %zext_ln112" [digitrec_sw.cpp:112]   --->   Operation 114 'getelementptr' 'results_addr' <Predicate = (icmp_ln72)> <Delay = 0.00>
+ST_9 : Operation 115 [1/1] (2.66ns)   --->   "store i8 %max_vote, i8* %results_addr, align 1" [digitrec_sw.cpp:112]   --->   Operation 115 'store' <Predicate = (icmp_ln72)> <Delay = 2.66> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_9 : Operation 116 [1/1] (0.00ns)   --->   "%empty_624 = call i32 (...)* @_ssdm_op_SpecRegionEnd([10 x i8]* @p_str1, i32 %tmp) nounwind" [digitrec_sw.cpp:114]   --->   Operation 116 'specregionend' 'empty_624' <Predicate = (icmp_ln72)> <Delay = 0.00>
+ST_9 : Operation 117 [1/1] (0.00ns)   --->   "br label %1" [digitrec_sw.cpp:96]   --->   Operation 117 'br' <Predicate = (icmp_ln72)> <Delay = 0.00>
+
+State 10 <SV = 7> <Delay = 3.71>
+ST_10 : Operation 118 [1/2] (1.42ns)   --->   "%max_vote_1 = load i32* %votes_addr_2, align 4" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 118 'load' 'max_vote_1' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2000> <RAM>
+ST_10 : Operation 119 [1/1] (1.54ns)   --->   "%icmp_ln74 = icmp sgt i32 %max_vote_1, %max_vote_0_i" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 119 'icmp' 'icmp_ln74' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 120 [1/1] (0.00ns)   --->   "%max_label = zext i4 %i1_0_i to i8" [digitrec_sw.cpp:77->digitrec_sw.cpp:111]   --->   Operation 120 'zext' 'max_label' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 121 [1/1] (0.74ns)   --->   "%select_ln74 = select i1 %icmp_ln74, i8 %max_label, i8 %max_vote" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 121 'select' 'select_ln74' <Predicate = true> <Delay = 0.74> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 122 [1/1] (0.63ns)   --->   "%select_ln74_1 = select i1 %icmp_ln74, i32 %max_vote_1, i32 %max_vote_0_i" [digitrec_sw.cpp:74->digitrec_sw.cpp:111]   --->   Operation 122 'select' 'select_ln74_1' <Predicate = true> <Delay = 0.63> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 123 [1/1] (0.00ns)   --->   "br label %.preheader.i" [digitrec_sw.cpp:72->digitrec_sw.cpp:111]   --->   Operation 123 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.06ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('labels_2_0', digitrec_sw.cpp:99) with incoming values : ('labels_2_2', digitrec_sw.cpp:108) ('labels[2]', digitrec_sw.cpp:108) [11]  (1.06 ns)
+
+ <State 2>: 1.43ns
+The critical path consists of the following:
+	'phi' operation ('t') with incoming values : ('t', digitrec_sw.cpp:96) [17]  (0 ns)
+	'add' operation ('t', digitrec_sw.cpp:96) [20]  (1.43 ns)
+
+ <State 3>: 1.26ns
+The critical path consists of the following:
+	'phi' operation ('labels_2_112', digitrec_sw.cpp:108) with incoming values : ('labels_2_2', digitrec_sw.cpp:108) ('labels[2]', digitrec_sw.cpp:108) [27]  (0 ns)
+	'mux' operation ('labels_2_2', digitrec_sw.cpp:108) [45]  (1.26 ns)
+
+ <State 4>: 1.75ns
+The critical path consists of the following:
+	'phi' operation ('phi_mul', digitrec_sw.cpp:108) with incoming values : ('add_ln108', digitrec_sw.cpp:108) [58]  (0 ns)
+	'add' operation ('add_ln108', digitrec_sw.cpp:108) [66]  (1.75 ns)
+
+ <State 5>: 0.631ns
+The critical path consists of the following:
+	'call' operation ('call_ret', digitrec_sw.cpp:108) to 'update_knn' [68]  (0.631 ns)
+
+ <State 6>: 1.43ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln67_i', digitrec_sw.cpp:67->digitrec_sw.cpp:111) with incoming values : ('add_ln67', digitrec_sw.cpp:67->digitrec_sw.cpp:111) [79]  (0 ns)
+	'getelementptr' operation ('votes_addr', digitrec_sw.cpp:67->digitrec_sw.cpp:111) [82]  (0 ns)
+	'store' operation ('store_ln67', digitrec_sw.cpp:67->digitrec_sw.cpp:111) of constant 0 on array 'votes', digitrec_sw.cpp:67->digitrec_sw.cpp:111 [83]  (1.43 ns)
+
+ <State 7>: 2.57ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', digitrec_sw.cpp:69->digitrec_sw.cpp:111) [91]  (0 ns)
+	'mux' operation ('tmp_1', digitrec_sw.cpp:70->digitrec_sw.cpp:111) [97]  (1.14 ns)
+	'getelementptr' operation ('votes_addr_1', digitrec_sw.cpp:70->digitrec_sw.cpp:111) [99]  (0 ns)
+	'load' operation ('votes_load', digitrec_sw.cpp:70->digitrec_sw.cpp:111) on array 'votes', digitrec_sw.cpp:67->digitrec_sw.cpp:111 [100]  (1.43 ns)
+
+ <State 8>: 4.63ns
+The critical path consists of the following:
+	'load' operation ('votes_load', digitrec_sw.cpp:70->digitrec_sw.cpp:111) on array 'votes', digitrec_sw.cpp:67->digitrec_sw.cpp:111 [100]  (1.43 ns)
+	'add' operation ('add_ln70', digitrec_sw.cpp:70->digitrec_sw.cpp:111) [101]  (1.78 ns)
+	'store' operation ('store_ln70', digitrec_sw.cpp:70->digitrec_sw.cpp:111) of variable 'add_ln70', digitrec_sw.cpp:70->digitrec_sw.cpp:111 on array 'votes', digitrec_sw.cpp:67->digitrec_sw.cpp:111 [102]  (1.43 ns)
+
+ <State 9>: 2.66ns
+The critical path consists of the following:
+	'phi' operation ('max_vote', digitrec_sw.cpp:74->digitrec_sw.cpp:111) with incoming values : ('select_ln74', digitrec_sw.cpp:74->digitrec_sw.cpp:111) [107]  (0 ns)
+	'store' operation ('store_ln112', digitrec_sw.cpp:112) of variable 'max_vote', digitrec_sw.cpp:74->digitrec_sw.cpp:111 on array 'results' [126]  (2.66 ns)
+
+ <State 10>: 3.71ns
+The critical path consists of the following:
+	'load' operation ('max_vote', digitrec_sw.cpp:74->digitrec_sw.cpp:111) on array 'votes', digitrec_sw.cpp:67->digitrec_sw.cpp:111 [117]  (1.43 ns)
+	'icmp' operation ('icmp_ln74', digitrec_sw.cpp:74->digitrec_sw.cpp:111) [118]  (1.55 ns)
+	'select' operation ('select_ln74', digitrec_sw.cpp:74->digitrec_sw.cpp:111) [120]  (0.74 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

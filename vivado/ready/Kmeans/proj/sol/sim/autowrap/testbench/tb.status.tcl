@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Kmeans/proj/sol/./sim/autowrap/testbench/kmeans.cpp_pre.cpp.tb.cpp

@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Fir/proj/sol/./sim/autowrap/testbench/fir.cpp_pre.cpp.tb.cpp

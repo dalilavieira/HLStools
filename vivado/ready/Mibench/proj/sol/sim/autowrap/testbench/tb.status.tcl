@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/dalila/HLStools/vivado/ready/Mibench/proj/sol/./sim/autowrap/testbench/mibench.cpp_pre.cpp.tb.cpp

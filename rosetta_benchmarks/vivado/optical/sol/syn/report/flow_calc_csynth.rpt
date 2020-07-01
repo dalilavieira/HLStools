@@ -1,0 +1,210 @@
+
+
+================================================================
+== Vivado HLS Report for 'flow_calc'
+================================================================
+* Date:           Wed Jun 24 04:23:24 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        optical
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.286|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+---------+--------+---------+---------+
+    |      Latency     |     Interval     | Pipeline|
+    |   min  |   max   |   min  |   max   |   Type  |
+    +--------+---------+--------+---------+---------+
+    |  893801|  8483689|  893801|  8483689|   none  |
+    +--------+---------+--------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+--------+---------+--------------+-----------+-----------+------+----------+
+        |             |      Latency     |   Iteration  |  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min  |   max   |    Latency   |  achieved |   target  | Count| Pipelined|
+        +-------------+--------+---------+--------------+-----------+-----------+------+----------+
+        |- Loop 1     |  893800|  8483688| 2050 ~ 19458 |          -|          -|   436|    no    |
+        | + Loop 1.1  |    2048|    19456|    2 ~ 19    |          -|          -|  1024|    no    |
+        +-------------+--------+---------+--------------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     155|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|     24|    2271|    3074|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     171|    -|
+|Register         |        -|      -|     654|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|     24|    2925|    3400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      4|       1|       3|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |                      Instance                      |                     Module                     | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |optical_flow_sw_fdiv_32ns_32ns_32_9_1_U63           |optical_flow_sw_fdiv_32ns_32ns_32_9_1           |        0|      0|  411|  802|    0|
+    |optical_flow_sw_fdiv_32ns_32ns_32_9_1_U64           |optical_flow_sw_fdiv_32ns_32ns_32_9_1           |        0|      0|  411|  802|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U57   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U58   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U59   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U60   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U61   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U62   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|  128|  138|    0|
+    |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1_U54  |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1_U55  |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1_U56  |optical_flow_sw_fsub_32ns_32ns_32_4_full_dsp_1  |        0|      2|  227|  214|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+    |Total                                               |                                                |        0|     24| 2271| 3074|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |add_ln223_fu_326_p2     |     +    |      0|  0|  27|          20|          20|
+    |c_fu_283_p2             |     +    |      0|  0|  18|          11|           1|
+    |r_fu_231_p2             |     +    |      0|  0|  16|           9|           1|
+    |and_ln220_1_fu_311_p2   |    and   |      0|  0|   6|           1|           1|
+    |and_ln220_2_fu_317_p2   |    and   |      0|  0|   6|           1|           1|
+    |and_ln220_fu_271_p2     |    and   |      0|  0|   6|           1|           1|
+    |icmp_ln216_fu_225_p2    |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln218_fu_277_p2    |   icmp   |      0|  0|  13|          11|          12|
+    |icmp_ln220_1_fu_253_p2  |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln220_2_fu_299_p2  |   icmp   |      0|  0|  13|          10|           1|
+    |icmp_ln220_3_fu_305_p2  |   icmp   |      0|  0|  13|          11|          10|
+    |icmp_ln220_fu_247_p2    |   icmp   |      0|  0|  11|           8|           1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 155|         101|          65|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------+-----+-----------+-----+-----------+
+    |                 Name                | LUT | Input Size| Bits| Total Bits|
+    +-------------------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                            |  105|         22|    1|         22|
+    |ap_phi_mux_storemerge_phi_fu_173_p4  |    9|          2|   32|         64|
+    |c_0_reg_158                          |    9|          2|   11|         22|
+    |output_x_address0                    |   15|          3|   19|         57|
+    |output_x_d0                          |   15|          3|   32|         96|
+    |r_0_reg_147                          |    9|          2|    9|         18|
+    |storemerge_reg_169                   |    9|          2|   32|         64|
+    +-------------------------------------+-----+-----------+-----+-----------+
+    |Total                                |  171|         36|  136|        343|
+    +-------------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------+----+----+-----+-----------+
+    |            Name           | FF | LUT| Bits| Const Bits|
+    +---------------------------+----+----+-----+-----------+
+    |and_ln220_2_reg_368        |   1|   0|    1|          0|
+    |and_ln220_reg_355          |   1|   0|    1|          0|
+    |ap_CS_fsm                  |  21|   0|   21|          0|
+    |c_0_reg_158                |  11|   0|   11|          0|
+    |c_reg_363                  |  11|   0|   11|          0|
+    |denom_reg_469              |  32|   0|   32|          0|
+    |output_x_addr_reg_397      |  19|   0|   19|          0|
+    |output_y_addr_reg_402      |  19|   0|   19|          0|
+    |r_0_reg_147                |   9|   0|    9|          0|
+    |r_reg_345                  |   9|   0|    9|          0|
+    |storemerge_reg_169         |  32|   0|   32|          0|
+    |tensor_val_0_load_reg_407  |  32|   0|   32|          0|
+    |tensor_val_1_load_reg_413  |  32|   0|   32|          0|
+    |tensor_val_3_load_reg_419  |  32|   0|   32|          0|
+    |tensor_val_4_load_reg_433  |  32|   0|   32|          0|
+    |tensor_val_5_load_reg_427  |  32|   0|   32|          0|
+    |tmp_1_reg_490              |  32|   0|   32|          0|
+    |tmp_3_reg_449              |  32|   0|   32|          0|
+    |tmp_4_reg_454              |  32|   0|   32|          0|
+    |tmp_5_reg_475              |  32|   0|   32|          0|
+    |tmp_6_reg_485              |  32|   0|   32|          0|
+    |tmp_7_reg_459              |  32|   0|   32|          0|
+    |tmp_8_reg_464              |  32|   0|   32|          0|
+    |tmp_9_reg_480              |  32|   0|   32|          0|
+    |tmp_reg_439                |  32|   0|   32|          0|
+    |tmp_s_reg_444              |  32|   0|   32|          0|
+    |zext_ln220_reg_350         |   9|   0|   20|         11|
+    +---------------------------+----+----+-----+-----------+
+    |Total                      | 654|   0|  665|         11|
+    +---------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+--------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-----------------------+-----+-----+------------+--------------+--------------+
+|ap_clk                 |  in |    1| ap_ctrl_hs |   flow_calc  | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs |   flow_calc  | return value |
+|ap_start               |  in |    1| ap_ctrl_hs |   flow_calc  | return value |
+|ap_done                | out |    1| ap_ctrl_hs |   flow_calc  | return value |
+|ap_idle                | out |    1| ap_ctrl_hs |   flow_calc  | return value |
+|ap_ready               | out |    1| ap_ctrl_hs |   flow_calc  | return value |
+|output_x_address0      | out |   19|  ap_memory |   output_x   |     array    |
+|output_x_ce0           | out |    1|  ap_memory |   output_x   |     array    |
+|output_x_we0           | out |    1|  ap_memory |   output_x   |     array    |
+|output_x_d0            | out |   32|  ap_memory |   output_x   |     array    |
+|output_y_address0      | out |   19|  ap_memory |   output_y   |     array    |
+|output_y_ce0           | out |    1|  ap_memory |   output_y   |     array    |
+|output_y_we0           | out |    1|  ap_memory |   output_y   |     array    |
+|output_y_d0            | out |   32|  ap_memory |   output_y   |     array    |
+|tensor_val_0_address0  | out |   19|  ap_memory | tensor_val_0 |     array    |
+|tensor_val_0_ce0       | out |    1|  ap_memory | tensor_val_0 |     array    |
+|tensor_val_0_q0        |  in |   32|  ap_memory | tensor_val_0 |     array    |
+|tensor_val_1_address0  | out |   19|  ap_memory | tensor_val_1 |     array    |
+|tensor_val_1_ce0       | out |    1|  ap_memory | tensor_val_1 |     array    |
+|tensor_val_1_q0        |  in |   32|  ap_memory | tensor_val_1 |     array    |
+|tensor_val_3_address0  | out |   19|  ap_memory | tensor_val_3 |     array    |
+|tensor_val_3_ce0       | out |    1|  ap_memory | tensor_val_3 |     array    |
+|tensor_val_3_q0        |  in |   32|  ap_memory | tensor_val_3 |     array    |
+|tensor_val_5_address0  | out |   19|  ap_memory | tensor_val_5 |     array    |
+|tensor_val_5_ce0       | out |    1|  ap_memory | tensor_val_5 |     array    |
+|tensor_val_5_q0        |  in |   32|  ap_memory | tensor_val_5 |     array    |
+|tensor_val_4_address0  | out |   19|  ap_memory | tensor_val_4 |     array    |
+|tensor_val_4_ce0       | out |    1|  ap_memory | tensor_val_4 |     array    |
+|tensor_val_4_q0        |  in |   32|  ap_memory | tensor_val_4 |     array    |
++-----------------------+-----+-----+------------+--------------+--------------+
+

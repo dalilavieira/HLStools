@@ -1,0 +1,318 @@
+
+
+================================================================
+== Vivado HLS Report for 'optical_flow_sw'
+================================================================
+* Date:           Wed Jun 24 04:23:25 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        optical
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     9.137|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +----------+-----------+----------+-----------+---------+
+    |        Latency       |       Interval       | Pipeline|
+    |    min   |    max    |    min   |    max    |   Type  |
+    +----------+-----------+----------+-----------+---------+
+    |  30842229|  329007633|  30842229|  329007633|   none  |
+    +----------+-----------+----------+-----------+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------+-------------------+---------+-----------+---------+-----------+---------+
+        |                              |                   |       Latency       |       Interval      | Pipeline|
+        |           Instance           |       Module      |   min   |    max    |   min   |    max    |   Type  |
+        +------------------------------+-------------------+---------+-----------+---------+-----------+---------+
+        |grp_flow_calc_fu_338          |flow_calc          |   893801|    8483689|   893801|    8483689|   none  |
+        |grp_gradient_xy_calc_fu_356   |gradient_xy_calc   |   899653|   34154365|   899653|   34154365|   none  |
+        |grp_gradient_weight_y_fu_368  |gradient_weight_y  |   899951|   29220719|   899951|   29220719|   none  |
+        |grp_gradient_weight_x_fu_386  |gradient_weight_x  |   896417|   29106053|   896417|   29106053|   none  |
+        |grp_tensor_weight_y_fu_404    |tensor_weight_y    |  4475755|  105160555|  4475755|  105160555|   none  |
+        |grp_tensor_weight_x_fu_412    |tensor_weight_x    |  4469873|  104575473|  4469873|  104575473|   none  |
+        +------------------------------+-------------------+---------+-----------+---------+-----------+---------+
+
+        * Loop: 
+        +-------------+----------+----------+----------+-----------+-----------+------+----------+
+        |             |       Latency       | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |    min   |    max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+----------+----------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  14287720|  14287720|     32770|          -|          -|   436|    no    |
+        | + Loop 1.1  |     32768|     32768|        32|          -|          -|  1024|    no    |
+        |- Loop 2     |   4019048|   4019048|      9218|          -|          -|   436|    no    |
+        | + Loop 2.1  |      9216|      9216|         9|          -|          -|  1024|    no    |
+        +-------------+----------+----------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     380|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        0|     88|   10702|   13307|    0|
+|Memory           |    30720|      -|     128|       0|    0|
+|Multiplexer      |        -|      -|       -|    1124|    -|
+|Register         |        -|      -|     731|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |    30720|     88|   11561|   14811|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |     4726|     14|       5|      14|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------+------------------------------------------------+---------+-------+------+------+-----+
+    |                      Instance                      |                     Module                     | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+------+------+-----+
+    |grp_flow_calc_fu_338                                |flow_calc                                       |        0|     24|  2925|  3400|    0|
+    |grp_gradient_weight_x_fu_386                        |gradient_weight_x                               |        0|     15|  1485|  1511|    0|
+    |grp_gradient_weight_y_fu_368                        |gradient_weight_y                               |        0|     15|  1555|  1500|    0|
+    |grp_gradient_xy_calc_fu_356                         |gradient_xy_calc                                |        0|     10|  2171|  3236|    0|
+    |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1_U73  |optical_flow_sw_fadd_32ns_32ns_32_4_full_dsp_1  |        0|      2|   227|   214|    0|
+    |optical_flow_sw_fdiv_32ns_32ns_32_9_1_U78           |optical_flow_sw_fdiv_32ns_32ns_32_9_1           |        0|      0|   411|   802|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U74   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|   128|   138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U75   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|   128|   138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U76   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|   128|   138|    0|
+    |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1_U77   |optical_flow_sw_fmul_32ns_32ns_32_3_max_dsp_1   |        0|      3|   128|   138|    0|
+    |grp_tensor_weight_x_fu_412                          |tensor_weight_x                                 |        0|      5|   710|   909|    0|
+    |grp_tensor_weight_y_fu_404                          |tensor_weight_y                                 |        0|      5|   706|  1183|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+------+------+-----+
+    |Total                                               |                                                |        0|     88| 10702| 13307|    0|
+    +----------------------------------------------------+------------------------------------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +-----------------------+---------------------------------+---------+----+----+-----+---------+-----+------+-------------+
+    |         Memory        |              Module             | BRAM_18K| FF | LUT| URAM|  Words  | Bits| Banks| W*Bits*Banks|
+    +-----------------------+---------------------------------+---------+----+----+-----+---------+-----+------+-------------+
+    |gradient_x_U           |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |gradient_y_U           |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |gradient_z_U           |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |y_filtered_x_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |y_filtered_y_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |y_filtered_z_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |filtered_gradient_x_U  |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |filtered_gradient_y_U  |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |filtered_gradient_z_U  |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |tensor_val_0_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |tensor_val_1_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |tensor_val_3_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |tensor_val_4_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |tensor_val_5_U         |optical_flow_sw_gradient_x       |     1024|   0|   0|    0|   446464|   32|     1|     14286848|
+    |out_product_val_U      |optical_flow_sw_out_product_val  |     8192|  64|   0|    0|  2678784|   32|     1|     85721088|
+    |tensor_y_val_U         |optical_flow_sw_out_product_val  |     8192|  64|   0|    0|  2678784|   32|     1|     85721088|
+    +-----------------------+---------------------------------+---------+----+----+-----+---------+-----+------+-------------+
+    |Total                  |                                 |    30720| 128|   0|    0| 11608064|  512|    16|    371458048|
+    +-----------------------+---------------------------------+---------+----+----+-----+---------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln136_fu_573_p2    |     +    |      0|  0|  27|          20|          20|
+    |add_ln144_1_fu_635_p2  |     +    |      0|  0|  30|          23|           2|
+    |add_ln144_2_fu_645_p2  |     +    |      0|  0|  30|          23|           3|
+    |add_ln144_3_fu_655_p2  |     +    |      0|  0|  30|          23|           3|
+    |add_ln144_fu_625_p2    |     +    |      0|  0|  30|          23|           2|
+    |add_ln55_fu_509_p2     |     +    |      0|  0|  27|          20|          20|
+    |c_1_fu_563_p2          |     +    |      0|  0|  18|          11|           1|
+    |c_fu_499_p2            |     +    |      0|  0|  18|          11|           1|
+    |r_1_fu_539_p2          |     +    |      0|  0|  16|           9|           1|
+    |r_fu_475_p2            |     +    |      0|  0|  16|           9|           1|
+    |sub_ln144_fu_603_p2    |     -    |      0|  0|  30|          23|          23|
+    |icmp_ln132_fu_533_p2   |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln134_fu_557_p2   |   icmp   |      0|  0|  13|          11|          12|
+    |icmp_ln51_fu_469_p2    |   icmp   |      0|  0|  13|           9|           8|
+    |icmp_ln53_fu_493_p2    |   icmp   |      0|  0|  13|          11|          12|
+    |or_ln144_fu_614_p2     |    or    |      0|  0|  23|          23|           1|
+    |xor_ln60_fu_522_p2     |    xor   |      0|  0|  33|          32|          33|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 380|         290|         151|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+-----+-----------+-----+-----------+
+    |             Name             | LUT | Input Size| Bits| Total Bits|
+    +------------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                     |  233|         54|    1|         54|
+    |c_0_i9_reg_327                |    9|          2|   11|         22|
+    |c_0_i_reg_305                 |    9|          2|   11|         22|
+    |filtered_gradient_x_address0  |   15|          3|   19|         57|
+    |filtered_gradient_x_ce0       |   15|          3|    1|          3|
+    |filtered_gradient_x_we0       |    9|          2|    1|          2|
+    |filtered_gradient_y_address0  |   15|          3|   19|         57|
+    |filtered_gradient_y_ce0       |   15|          3|    1|          3|
+    |filtered_gradient_y_we0       |    9|          2|    1|          2|
+    |filtered_gradient_z_address0  |   15|          3|   19|         57|
+    |filtered_gradient_z_ce0       |   15|          3|    1|          3|
+    |filtered_gradient_z_we0       |    9|          2|    1|          2|
+    |frame2_address0               |   15|          3|   19|         57|
+    |frame2_ce0                    |   15|          3|    1|          3|
+    |frame2_ce1                    |    9|          2|    1|          2|
+    |gradient_x_address0           |   15|          3|   19|         57|
+    |gradient_x_ce0                |   15|          3|    1|          3|
+    |gradient_x_we0                |    9|          2|    1|          2|
+    |gradient_y_address0           |   15|          3|   19|         57|
+    |gradient_y_ce0                |   15|          3|    1|          3|
+    |gradient_y_we0                |    9|          2|    1|          2|
+    |gradient_z_address0           |   15|          3|   19|         57|
+    |gradient_z_ce0                |   15|          3|    1|          3|
+    |grp_fu_428_p0                 |   15|          3|   32|         96|
+    |grp_fu_428_p1                 |   21|          4|   32|        128|
+    |grp_fu_433_p0                 |   33|          6|   32|        192|
+    |grp_fu_433_p1                 |   33|          6|   32|        192|
+    |grp_fu_440_p0                 |   15|          3|   32|         96|
+    |out_product_val_address0      |   27|          5|   22|        110|
+    |out_product_val_address1      |   21|          4|   22|         88|
+    |out_product_val_ce0           |   15|          3|    1|          3|
+    |out_product_val_d0            |   21|          4|   32|        128|
+    |out_product_val_d1            |   21|          4|   32|        128|
+    |r_0_i7_reg_316                |    9|          2|    9|         18|
+    |r_0_i_reg_294                 |    9|          2|    9|         18|
+    |tensor_val_0_address0         |   15|          3|   19|         57|
+    |tensor_val_0_ce0              |   15|          3|    1|          3|
+    |tensor_val_0_we0              |    9|          2|    1|          2|
+    |tensor_val_1_address0         |   15|          3|   19|         57|
+    |tensor_val_1_ce0              |   15|          3|    1|          3|
+    |tensor_val_1_we0              |    9|          2|    1|          2|
+    |tensor_val_3_address0         |   15|          3|   19|         57|
+    |tensor_val_3_ce0              |   15|          3|    1|          3|
+    |tensor_val_3_we0              |    9|          2|    1|          2|
+    |tensor_val_4_address0         |   15|          3|   19|         57|
+    |tensor_val_4_ce0              |   15|          3|    1|          3|
+    |tensor_val_4_we0              |    9|          2|    1|          2|
+    |tensor_val_5_address0         |   15|          3|   19|         57|
+    |tensor_val_5_ce0              |   15|          3|    1|          3|
+    |tensor_val_5_we0              |    9|          2|    1|          2|
+    |tensor_y_val_address0         |   15|          3|   22|         66|
+    |tensor_y_val_ce0              |   15|          3|    1|          3|
+    |tensor_y_val_ce1              |    9|          2|    1|          2|
+    |tensor_y_val_we0              |    9|          2|    1|          2|
+    |tensor_y_val_we1              |    9|          2|    1|          2|
+    |y_filtered_x_address0         |   15|          3|   19|         57|
+    |y_filtered_x_ce0              |   15|          3|    1|          3|
+    |y_filtered_x_we0              |    9|          2|    1|          2|
+    |y_filtered_y_address0         |   15|          3|   19|         57|
+    |y_filtered_y_ce0              |   15|          3|    1|          3|
+    |y_filtered_y_we0              |    9|          2|    1|          2|
+    |y_filtered_z_address0         |   15|          3|   19|         57|
+    |y_filtered_z_ce0              |   15|          3|    1|          3|
+    |y_filtered_z_we0              |    9|          2|    1|          2|
+    +------------------------------+-----+-----------+-----+-----------+
+    |Total                         | 1124|        234|  650|       2298|
+    +------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------+----+----+-----+-----------+
+    |                    Name                   | FF | LUT| Bits| Const Bits|
+    +-------------------------------------------+----+----+-----+-----------+
+    |add_ln136_reg_776                          |  20|   0|   20|          0|
+    |ap_CS_fsm                                  |  53|   0|   53|          0|
+    |c_0_i9_reg_327                             |  11|   0|   11|          0|
+    |c_0_i_reg_305                              |  11|   0|   11|          0|
+    |c_1_reg_771                                |  11|   0|   11|          0|
+    |c_reg_681                                  |  11|   0|   11|          0|
+    |frame0_load_reg_705                        |  32|   0|   32|          0|
+    |frame1_load_reg_710                        |  32|   0|   32|          0|
+    |frame2_load_reg_720                        |  32|   0|   32|          0|
+    |frame3_load_reg_730                        |  32|   0|   32|          0|
+    |frame4_load_reg_740                        |  32|   0|   32|          0|
+    |grad_x_reg_797                             |  32|   0|   32|          0|
+    |grad_y_reg_805                             |  32|   0|   32|          0|
+    |grad_z_reg_812                             |  32|   0|   32|          0|
+    |grp_flow_calc_fu_338_ap_start_reg          |   1|   0|    1|          0|
+    |grp_gradient_weight_x_fu_386_ap_start_reg  |   1|   0|    1|          0|
+    |grp_gradient_weight_y_fu_368_ap_start_reg  |   1|   0|    1|          0|
+    |grp_gradient_xy_calc_fu_356_ap_start_reg   |   1|   0|    1|          0|
+    |grp_tensor_weight_x_fu_412_ap_start_reg    |   1|   0|    1|          0|
+    |grp_tensor_weight_y_fu_404_ap_start_reg    |   1|   0|    1|          0|
+    |r_0_i7_reg_316                             |   9|   0|    9|          0|
+    |r_0_i_reg_294                              |   9|   0|    9|          0|
+    |r_1_reg_758                                |   9|   0|    9|          0|
+    |r_reg_668                                  |   9|   0|    9|          0|
+    |reg_457                                    |  32|   0|   32|          0|
+    |reg_463                                    |  32|   0|   32|          0|
+    |sub_ln144_reg_825                          |  22|   0|   23|          1|
+    |tmp_3_i1_reg_820                           |  32|   0|   32|          0|
+    |tmp_4_i_reg_843                            |  32|   0|   32|          0|
+    |tmp_5_i1_reg_848                           |  32|   0|   32|          0|
+    |tmp_6_i1_reg_853                           |  32|   0|   32|          0|
+    |tmp_6_i_reg_750                            |  32|   0|   32|          0|
+    |tmp_7_i_reg_858                            |  32|   0|   32|          0|
+    |zext_ln134_reg_763                         |   9|   0|   20|         11|
+    |zext_ln53_reg_673                          |   9|   0|   20|         11|
+    |zext_ln55_1_reg_686                        |  20|   0|   64|         44|
+    +-------------------------------------------+----+----+-----+-----------+
+    |Total                                      | 731|   0|  798|         67|
+    +-------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+-----------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
++--------------------+-----+-----+------------+-----------------+--------------+
+|ap_clk              |  in |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|ap_rst              |  in |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|ap_start            |  in |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|ap_done             | out |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|ap_idle             | out |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|ap_ready            | out |    1| ap_ctrl_hs | optical_flow_sw | return value |
+|frame0_address0     | out |   19|  ap_memory |      frame0     |     array    |
+|frame0_ce0          | out |    1|  ap_memory |      frame0     |     array    |
+|frame0_q0           |  in |   32|  ap_memory |      frame0     |     array    |
+|frame1_address0     | out |   19|  ap_memory |      frame1     |     array    |
+|frame1_ce0          | out |    1|  ap_memory |      frame1     |     array    |
+|frame1_q0           |  in |   32|  ap_memory |      frame1     |     array    |
+|frame2_address0     | out |   19|  ap_memory |      frame2     |     array    |
+|frame2_ce0          | out |    1|  ap_memory |      frame2     |     array    |
+|frame2_q0           |  in |   32|  ap_memory |      frame2     |     array    |
+|frame2_address1     | out |   19|  ap_memory |      frame2     |     array    |
+|frame2_ce1          | out |    1|  ap_memory |      frame2     |     array    |
+|frame2_q1           |  in |   32|  ap_memory |      frame2     |     array    |
+|frame3_address0     | out |   19|  ap_memory |      frame3     |     array    |
+|frame3_ce0          | out |    1|  ap_memory |      frame3     |     array    |
+|frame3_q0           |  in |   32|  ap_memory |      frame3     |     array    |
+|frame4_address0     | out |   19|  ap_memory |      frame4     |     array    |
+|frame4_ce0          | out |    1|  ap_memory |      frame4     |     array    |
+|frame4_q0           |  in |   32|  ap_memory |      frame4     |     array    |
+|outputs_x_address0  | out |   19|  ap_memory |    outputs_x    |     array    |
+|outputs_x_ce0       | out |    1|  ap_memory |    outputs_x    |     array    |
+|outputs_x_we0       | out |    1|  ap_memory |    outputs_x    |     array    |
+|outputs_x_d0        | out |   32|  ap_memory |    outputs_x    |     array    |
+|outputs_y_address0  | out |   19|  ap_memory |    outputs_y    |     array    |
+|outputs_y_ce0       | out |    1|  ap_memory |    outputs_y    |     array    |
+|outputs_y_we0       | out |    1|  ap_memory |    outputs_y    |     array    |
+|outputs_y_d0        | out |   32|  ap_memory |    outputs_y    |     array    |
++--------------------+-----+-----+------------+-----------------+--------------+
+
