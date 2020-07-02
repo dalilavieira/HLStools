@@ -1,4 +1,0 @@
-module tb (
-	);
-endmodule
-
