@@ -26,7 +26,7 @@ We would like LegUp, Xilinx, and Intel to support.
   
   - [Josué Campos](https://www.linkedin.com/in/josuecampos-729a8216b/)
   - [Michael Canesche](https://canesche.github.io/)
-  - [Dalila Maria Vieira](https://www.linkedin.com/in/maria-dalila-vieira/)
+  - [Maria Dalila Vieira](https://www.linkedin.com/in/maria-dalila-vieira/)
   - [Ricardo dos Santos Ferreira](http://www2.dpi.ufv.br/?page_id=546)
   - [Peter Jamieson](http://www.miamioh.edu/cec/academics/departments/ece/about/faculty-staff/jamieson-bio/index.html)
   - [José Augusto Nacif](https://www.linkedin.com/in/jose-augusto-nacif-b283738/)
