@@ -1,0 +1,135 @@
+
+
+================================================================
+== Vivado HLS Report for 'set_pix_fmt'
+================================================================
+* Date:           Thu Jul  2 17:35:52 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_extr_.linuxdriversvideofbdevpxa168fb.c_set_pix_fmt_with_main.c
+* Solution:       sol
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     1.119|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     195|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       0|     195|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|       0|   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +--------------------+----+-----------+-----+-----------+
+    |        Name        | LUT| Input Size| Bits| Total Bits|
+    +--------------------+----+-----------+-----+-----------+
+    |var_bits_per_pixel  |  27|          5|   32|        160|
+    |var_blue_length     |  15|          3|   32|         96|
+    |var_blue_offset     |  27|          5|   32|        160|
+    |var_green_length    |  21|          4|   32|        128|
+    |var_green_offset    |  21|          4|   32|        128|
+    |var_red_length      |  15|          3|   32|         96|
+    |var_red_offset      |  27|          5|   32|        160|
+    |var_transp_length   |  21|          4|   32|        128|
+    |var_transp_offset   |  21|          4|   32|        128|
+    +--------------------+----+-----------+-----+-----------+
+    |Total               | 195|         37|  288|       1184|
+    +--------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+--------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++---------------------------+-----+-----+------------+--------------------+--------------+
+|ap_start                   |  in |    1| ap_ctrl_hs |     set_pix_fmt    | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |     set_pix_fmt    | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |     set_pix_fmt    | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |     set_pix_fmt    | return value |
+|var_bits_per_pixel         | out |   32|   ap_vld   | var_bits_per_pixel |    pointer   |
+|var_bits_per_pixel_ap_vld  | out |    1|   ap_vld   | var_bits_per_pixel |    pointer   |
+|var_transp_offset          | out |   32|   ap_vld   |  var_transp_offset |    pointer   |
+|var_transp_offset_ap_vld   | out |    1|   ap_vld   |  var_transp_offset |    pointer   |
+|var_transp_length          | out |   32|   ap_vld   |  var_transp_length |    pointer   |
+|var_transp_length_ap_vld   | out |    1|   ap_vld   |  var_transp_length |    pointer   |
+|var_blue_offset            | out |   32|   ap_vld   |   var_blue_offset  |    pointer   |
+|var_blue_offset_ap_vld     | out |    1|   ap_vld   |   var_blue_offset  |    pointer   |
+|var_blue_length            | out |   32|   ap_vld   |   var_blue_length  |    pointer   |
+|var_blue_length_ap_vld     | out |    1|   ap_vld   |   var_blue_length  |    pointer   |
+|var_green_offset           | out |   32|   ap_vld   |  var_green_offset  |    pointer   |
+|var_green_offset_ap_vld    | out |    1|   ap_vld   |  var_green_offset  |    pointer   |
+|var_green_length           | out |   32|   ap_vld   |  var_green_length  |    pointer   |
+|var_green_length_ap_vld    | out |    1|   ap_vld   |  var_green_length  |    pointer   |
+|var_red_offset             | out |   32|   ap_vld   |   var_red_offset   |    pointer   |
+|var_red_offset_ap_vld      | out |    1|   ap_vld   |   var_red_offset   |    pointer   |
+|var_red_length             | out |   32|   ap_vld   |   var_red_length   |    pointer   |
+|var_red_length_ap_vld      | out |    1|   ap_vld   |   var_red_length   |    pointer   |
+|pix_fmt                    |  in |   32|   ap_none  |       pix_fmt      |    scalar    |
++---------------------------+-----+-----+------------+--------------------+--------------+
+

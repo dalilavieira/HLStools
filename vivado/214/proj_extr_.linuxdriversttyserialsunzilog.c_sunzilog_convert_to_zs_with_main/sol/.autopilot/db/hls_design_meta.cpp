@@ -1,0 +1,24 @@
+#include "hls_design_meta.h"
+const Port_Property HLS_Design_Meta::port_props[]={
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_start", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_done", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_idle", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_ready", 1, hls_out, -1, "", "", 1),
+	Port_Property("up_curregs_address0", 7, hls_out, 0, "ap_memory", "mem_address", 1),
+	Port_Property("up_curregs_ce0", 1, hls_out, 0, "ap_memory", "mem_ce", 1),
+	Port_Property("up_curregs_we0", 1, hls_out, 0, "ap_memory", "mem_we", 1),
+	Port_Property("up_curregs_d0", 32, hls_out, 0, "ap_memory", "mem_din", 1),
+	Port_Property("up_curregs_q0", 32, hls_in, 0, "ap_memory", "mem_dout", 1),
+	Port_Property("up_parity_mask", 32, hls_out, 1, "ap_vld", "out_data", 1),
+	Port_Property("up_parity_mask_ap_vld", 1, hls_out, 1, "ap_vld", "out_vld", 1),
+	Port_Property("up_port_read_status_mask", 32, hls_out, 2, "ap_vld", "out_data", 1),
+	Port_Property("up_port_read_status_mask_ap_vld", 1, hls_out, 2, "ap_vld", "out_vld", 1),
+	Port_Property("up_port_ignore_status_mask", 32, hls_out, 3, "ap_vld", "out_data", 1),
+	Port_Property("up_port_ignore_status_mask_ap_vld", 1, hls_out, 3, "ap_vld", "out_vld", 1),
+	Port_Property("cflag", 32, hls_in, 4, "ap_none", "in_data", 1),
+	Port_Property("iflag", 32, hls_in, 5, "ap_none", "in_data", 1),
+	Port_Property("brg", 32, hls_in, 6, "ap_none", "in_data", 1),
+};
+const char* HLS_Design_Meta::dut_name = "sunzilog_convert_to_zs";

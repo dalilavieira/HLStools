@@ -1,0 +1,4 @@
+#!/bin/sh
+lli=${LLVMINTERP-lli}
+exec $lli \
+    /home/vivado/HLStools/vivado/proj_extr_.linuxdriversttyserialsunzilog.c_sunzilog_convert_to_zs_with_main/sol/.autopilot/db/a.g.bc ${1+"$@"}

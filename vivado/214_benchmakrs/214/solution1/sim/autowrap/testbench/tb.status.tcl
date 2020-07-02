@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.darknetsrcimage.c_draw_box_with_main.c/solution1/./sim/autowrap/testbench/extr_.darknetsrcimage.c_draw_box_with_main.c_pre.c.tb.c
