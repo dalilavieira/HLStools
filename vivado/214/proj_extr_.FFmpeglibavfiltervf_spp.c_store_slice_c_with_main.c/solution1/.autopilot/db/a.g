@@ -1,4 +1,0 @@
-#!/bin/sh
-lli=${LLVMINTERP-lli}
-exec $lli \
-    /home/vivado/HLStools/vivado/214_benchmakrs/proj_extr_.FFmpeglibavfiltervf_spp.c_store_slice_c_with_main.c/solution1/.autopilot/db/a.g.bc ${1+"$@"}
