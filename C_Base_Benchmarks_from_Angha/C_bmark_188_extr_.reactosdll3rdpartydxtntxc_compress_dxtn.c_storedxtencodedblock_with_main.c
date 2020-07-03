@@ -147,7 +147,7 @@ __attribute__((used)) static void storedxtencodedblock( GLubyte *blkaddr, GLubyt
 }/* Main routine for storedxtencodedblock */
 int main() {
   GLubyte * blkaddr;
-  GLubyte (*)[4][4] srccolors;
+  GLubyte srccolors[4][4][4];
   GLubyte ** bestcolor;
   GLint numxpixels;
   GLint numypixels;

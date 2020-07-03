@@ -51,7 +51,7 @@ int main() {
   int width;
   int height;
   int log2_scale;
-  const uint8_t (*)[8] dither;
+  const uint8_t  dither [8][8];
   store_slice_c(dst, src, dst_linesize, src_linesize, width, height, log2_scale, dither);
   return 0;
 }

@@ -88,8 +88,8 @@ void make_cube_faces(
 }/* Main routine for make_cube_faces */
 int main() {
   float * data;
-  float (*)[4] ao;
-  float (*)[4] light;
+  float  ao[6][4];
+  float  light[6][4];
   int left;
   int right;
   int top;
