@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int *test(int a) {
+const int *test(int a) {
 
 	int *b;
 
