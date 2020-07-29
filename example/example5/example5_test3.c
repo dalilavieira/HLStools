@@ -5,17 +5,17 @@
 
 typedef union U1 {int dummy;} U1;
 
-const union U1 test(union U1 a, int b) {
+union U1* test(union U1 a, int b) {
 
 	a.dummy = b;
 
-	return a;
+	return &a;
 }
 
 int main() {
 
 	union U1 a;
-	union U1 c;
+	union U1 *c;
 
 	int b;
 

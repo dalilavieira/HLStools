@@ -5,10 +5,11 @@
 
 unsigned char test(int a) {
 
-	unsigned char r;
+	unsigned char *r;
 	unsigned short c;
 
-	r = c & 0xff;
+	r[0] = (a >> 8);
+	r[1] = c & 0xff;
 
 	return r;
 }
