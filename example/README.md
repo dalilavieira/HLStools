@@ -39,3 +39,49 @@ First test. The return is a pointer of type integer.
  }
  ```
  
+ ## Example2
+ 
+ This example focus in variable const initialized or not.
+ 
+ - example2_base.c
+ 
+ Code base. The variable const is initialized.
+ 
+ ``` 
+   const int a = 10; // const initialized
+	  int b = test(a);
+ ```
+
+- example2_teste1.c
+ 
+ The first test. The variable const is not initialized.
+
+ ``` 
+   const int a; // const is not initialized
+	  int b = test(a);
+ ```
+ 
+ ## Example3
+ 
+ This example test diferents type set, such as short and char.  
+ 
+ - example3_base.c
+ 
+ Code base with igual types.
+ 
+ ``` 
+   unsigned char r;
+	  unsigned char c;
+	  r = (a >> 8);
+ ```
+ 
+ - example3_teste1.c
+ 
+ Test 1, differents types (char and short).
+ 
+ ```
+   unsigned char r;
+	  unsigned short c;
+	  r = (a >> 8);
+ ``` 
+ 
