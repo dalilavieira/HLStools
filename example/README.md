@@ -2,7 +2,7 @@
 
 ## Example1
 
-There are 4 code. On each code there is a feature that describe below:
+There are 4 code, where each code makes small changes to the function's return. They can be viewed below:
 
  - example1_base.c
   
