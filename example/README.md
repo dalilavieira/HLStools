@@ -49,7 +49,7 @@ First test. The return is a pointer of type integer.
  
  ``` 
    const int a = 10; // const initialized
-	  int b = test(a);
+   int b = test(a);
  ```
 
 - example2_teste1.c
@@ -58,7 +58,7 @@ First test. The return is a pointer of type integer.
 
  ``` 
    const int a; // const is not initialized
-	  int b = test(a);
+   int b = test(a);
  ```
  
  ## Example3
@@ -71,8 +71,8 @@ First test. The return is a pointer of type integer.
  
  ``` 
    unsigned char r;
-	  unsigned char c;
-	  r = (a >> 8);
+   unsigned char c;
+   r = (a >> 8);
  ```
  
  - example3_teste1.c
