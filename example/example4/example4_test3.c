@@ -12,9 +12,12 @@ int *test(void *a) {
 
 int main() {
 
-	int *a, *b;
+	int c = 0; 
+
+	int *b;
+	int *a = &c;
 
 	b = test(a);	
 
-	return 0;
+	return (unsigned long) b;
 }

@@ -15,5 +15,5 @@ int main() {
 	const int a;  // const not initialized
 	int b = test(a);	
 
-	return 0;
+	return b;
 }

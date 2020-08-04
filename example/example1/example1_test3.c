@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-const int *test(int a) {
+int *test(int a) {
 
-	int *b;
+	int *b = 0;
 
 	return b;
 }
