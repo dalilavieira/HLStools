@@ -5,21 +5,17 @@
 
 int *test(int a) {
 
-	int b[a];
-
-	for (int i = 0; i < a; i++) {
-		b[i] = i + a;
-	}
+	int *b = 0;
 
 	return b;
 }
 
-int main() {
+int main(int argc, char **argv) {
 
 	int a = 10;
 	int *b;
 
 	b = test(a);	
 
-	return 0;
+	return *b;
 }
