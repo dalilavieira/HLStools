@@ -1,0 +1,188 @@
+{
+  "1296510208":
+  {
+    "nodes":
+    [
+      {
+        "name":"Feedback"
+        , "id":1300813616
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Write"
+            , "Variable":"Unknown variable"
+            , "Feedback FIFO Depth":"1"
+            , "Feedback FIFO Width":"1"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example2/example2.c"
+              , "line":17
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"?"
+        , "id":1301337632
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example2/example2.c"
+              , "line":17
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1300813616
+        , "to":1301337632
+        , "reverse":1
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+  , "1296510288":
+  {
+    "nodes":
+    [
+      {
+        "name":"Cluster 0"
+        , "id":1298892928
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Cluster Name":"i_sfc_s_c0_in_wt_entry_mains_c0_enter1_main0"
+            , "Cluster Type":"Stall-Enable"
+            , "Cluster Start Cycle":"1"
+            , "Cluster Latency":"0"
+          }
+        ]
+        , "type":"bb"
+        , "children":
+        [
+          {
+            "name":"Logic"
+            , "id":1298899920
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Logic Start Cycle":"1"
+                , "Cluster Logic Latency":"0"
+              }
+            ]
+            , "type":"inst"
+          }
+        ]
+      }
+      , {
+        "name":"WR"
+        , "id":1298914720
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Stream Write"
+            , "Width":"32 bits"
+            , "Depth":"0"
+            , "Stream Name":"return.main"
+            , "Stall-free":"No"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example2/example2.c"
+              , "line":24
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
+        "name":"RD"
+        , "id":1299596160
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Stream Read"
+            , "Width":"1 bit"
+            , "Depth":"0"
+            , "Stream Name":"call.main"
+            , "Stall-free":"No"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example2/example2.c"
+              , "line":17
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+    ]
+    , "links":
+    [
+      {
+        "from":1299596160
+        , "to":1298914720
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"1"
+          }
+        ]
+      }
+    ]
+  }
+}
