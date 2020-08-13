@@ -1,21 +1,23 @@
-// Example: return pointer
-#include "HLS/hls.h"
+// Example 3
+
 #include <stdlib.h>
 #include <stdio.h>
 
-int *test(int a) {
+char *test(void *a) {
 
-	int *b = 0;
+	int *b = (char *) a;
 
 	return b;
 }
 
-component int main(int argc, char **argv) {
+int main() {
 
-	int a = 10;
+	int c = 0; 
+
 	int *b;
+	int *a = &c;
 
 	b = test(a);	
 
-	return *b;
+	return (unsigned long) b;
 }

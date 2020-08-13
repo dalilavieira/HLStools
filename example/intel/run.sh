@@ -7,7 +7,7 @@ export PATH=$PATH:/opt/altera_pro/19.4/modelsim_ae/bin
 source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
 
 BENCHMARKS=(
-    example1 example2 example3 example4 example5
+    example1 example2 example3
 )
 
 #SIMULATOR=modelsim
