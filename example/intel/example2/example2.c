@@ -5,7 +5,7 @@
 
 component int *foo(int a) {
 
-	int *b = 0;
+	int *b = &a;
 
 	return b;
 }
