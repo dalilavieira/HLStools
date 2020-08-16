@@ -7,7 +7,7 @@
 #source /opt/altera_pro/19.4/hls/init_hls.sh > /tmp/trash.txt
 
 BENCHMARKS=(
-    example1 example2 example3
+    example1 example2 example3 example5
 )
 
 #SIMULATOR=modelsim
