@@ -1830,9 +1830,9 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 
 int main() {
 
- int t;
+ int t = 3;
 
- scanf("%d", &t);
+
 
  int a0 = 17, a1 = 13;
  int *b = t > 1 ? &a0 : &a1;
