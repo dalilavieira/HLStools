@@ -1,0 +1,24 @@
+example5/example5.c:17: Compiler Warning: Memory instruction with unresolved pointer may lead to bad QoR.
+
+******* Error: Assert failure at /build/psgswbuild/nightly/19.4/64/l64/p4/acl/llvm/lib/Transforms/FPGATransforms/ResolveDynamicAddrSpaces.cpp(376) *******
+AddrSpaces.size() > 0 && "Expected non-empty AS set" FAILED
+Stack dump:
+0.	Program arguments: /opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt -HLS -O3 -march=fpga -pass-remarks-output=opt.rpt.yaml --soft-elementary-math=false -board /opt/altera_pro/19.4/hls/share/models/bm/A10.xml -nocaching -noprefetching -fmax-search-upper-bound=240 fpga.linked.bc -o fpga.opt.bc 
+1.	Running pass 'Function Pass Manager' on module 'fpga.linked.bc'.
+2.	Running pass 'Replace Generic Pointers with pointers in specific addr spaces' on function '@main'
+ #0 0x00007fb67a5ce20a llvm::sys::PrintStackTrace(llvm::raw_ostream&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2320a)
+ #1 0x00007fb67a5cb87c llvm::sys::RunSignalHandlers() (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe2087c)
+ #2 0x00007fb67a5cb9cc SignalHandler(int) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xe209cc)
+ #3 0x00007fb67959f390 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x11390)
+ #4 0x00007fb677ef3428 gsignal /build/glibc-LK5gWL/glibc-2.23/signal/../sysdeps/unix/sysv/linux/raise.c:54:0
+ #5 0x00007fb677ef502a abort /build/glibc-LK5gWL/glibc-2.23/stdlib/abort.c:91:0
+ #6 0x00007fb67bcba2d7 (anonymous namespace)::PointerReplacer::generateMemAccessFor(acl::GenericMemInst&, std::set<unsigned int, std::less<unsigned int>, std::allocator<unsigned int> >&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x250f2d7)
+ #7 0x00007fb67bcbd7ad (anonymous namespace)::PointerReplacer::run() (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x25127ad)
+ #8 0x00007fb67bcbf375 (anonymous namespace)::ResolveDynamicAddrSpacesLegacyPass::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0x2514375)
+ #9 0x00007fb67a7104a6 llvm::FPPassManager::runOnFunction(llvm::Function&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf654a6)
+#10 0x00007fb67a71071c llvm::FPPassManager::runOnModule(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf6571c)
+#11 0x00007fb67a711561 llvm::legacy::PassManagerImpl::run(llvm::Module&) (/opt/altera_pro/19.4/hls/llvm/bin/../lib/libLLVM-9svn.so+0xf66561)
+#12 0x00005623063abb11 main (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2ab11)
+#13 0x00007fb677ede830 __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:325:0
+#14 0x00005623063ac6f1 _start (/opt/altera_pro/19.4/hls/linux64/bin/../../llvm/bin/aocl-opt+0x2b6f1)
+HLS Main Optimizer FAILED.
