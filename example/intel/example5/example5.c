@@ -3,16 +3,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-component int main() {
-
-	int *a;
-	int n = 5;
+component int foo(int t) {
 	
-	a = (int*)malloc(n * sizeof(int)); 
+	int *a;
+	
+	a = (int*)malloc(t * sizeof(int)); 
+	
+	for(int i = 0; i < t; i++) {
+		a[i] = i*2 + t;
+	}
+	
+	return a[2] + 1;
+}
 
-	for(int i = 0; i < n; i++) {
-		a[i] = i*2 + n;
-	}	
+int main() {
 
-	return a[2];
+	int n = 10;
+	
+	int a = foo(n);
+	
+	return a;
 }

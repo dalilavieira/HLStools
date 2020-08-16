@@ -10,15 +10,20 @@
 	int **c =  argc > 3 ? &b0 : &b1;	
 */
 
-component int main() {
-
-	int t = 3;
-	
-	//scanf("%d", &t);
-
+component int foo(int t) {
 	int a0 = 17, a1 = 13;
 	int *b = t > 1 ? &a0 : &a1;
-	int **c = &b;	
+	int **c = &b;
+	
+	return **c;	
+}
 
-	return **c;
+int main() {
+
+	int t = 10;
+	int a;
+	
+	a = foo(t);
+
+	return a;
 }

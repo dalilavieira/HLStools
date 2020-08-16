@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int *test(int a) {
+int *foo(int a) {
 
 	int *b = 0;
 
@@ -15,7 +15,7 @@ int main() {
 	int a = 10;
 	int *b;
 
-	b = test(a);	
+	b = foo(a);	
 
 	return *b;
 }

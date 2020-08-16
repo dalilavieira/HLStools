@@ -3,16 +3,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int foo(int t) {
+	
+	int *a;
+	
+	a = (int*)malloc(t * sizeof(int)); 
+	
+	for(int i = 0; i < t; i++) {
+		a[i] = i*2 + t;
+	}
+	
+	return a[2] + 1;
+}
+
 int main() {
 
-	int *a;
-	int n = 5;
+	int n = 10;
 	
-	a = (int*)malloc(n * sizeof(int)); 
-
-	for(int i = 0; i < n; i++) {
-		a[i] = i*2 + n;
-	}	
-
-	return a[2];
+	int a = foo(n);
+	
+	return a;
 }

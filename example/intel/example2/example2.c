@@ -1,21 +1,21 @@
-// Example: return pointer
+// Example 2
 #include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-int *test(int a) {
+component int *foo(int a) {
 
 	int *b = 0;
 
 	return b;
 }
 
-component int main() {
+int main() {
 
 	int a = 10;
 	int *b;
 
-	b = test(a);	
+	b = foo(a);	
 
 	return *b;
 }

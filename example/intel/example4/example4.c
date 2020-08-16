@@ -1,9 +1,9 @@
 // Example 3
-
+#include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-int foo(int t) {
+component int foo(int t) {
 	
 	if(t > 0){
 		return 1;

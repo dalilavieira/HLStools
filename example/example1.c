@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *test(void *a) {
+char *foo(void *a) {
 
-	int *b = (char *) a;
+	char *b = (char *) a;
 
 	return b;
 }
@@ -14,10 +14,10 @@ int main() {
 
 	int c = 0; 
 
-	int *b;
+	char *b;
 	int *a = &c;
 
-	b = test(a);	
+	b = foo(a);	
 
 	return (unsigned long) b;
 }
