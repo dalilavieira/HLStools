@@ -36,9 +36,8 @@ struct main : public sc_module {
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
     static const sc_logic ap_const_logic_1;
-    static const sc_lv<32> ap_const_lv32_1;
+    static const sc_lv<32> ap_const_lv32_0;
     static const sc_logic ap_const_logic_0;
-    static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_done();
     void thread_ap_idle();

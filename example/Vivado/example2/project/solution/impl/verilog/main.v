@@ -30,6 +30,6 @@ assign ap_idle = 1'b1;
 
 assign ap_ready = ap_start;
 
-assign ap_return = 32'd1;
+assign ap_return = 32'd0;
 
 endmodule //main

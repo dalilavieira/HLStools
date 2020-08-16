@@ -13,9 +13,8 @@ using namespace std;
 namespace ap_rtl {
 
 const sc_logic main::ap_const_logic_1 = sc_dt::Log_1;
-const sc_lv<32> main::ap_const_lv32_1 = "1";
+const sc_lv<32> main::ap_const_lv32_0 = "00000000000000000000000000000000";
 const sc_logic main::ap_const_logic_0 = sc_dt::Log_0;
-const bool main::ap_const_boolean_1 = true;
 
 main::main(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
@@ -28,7 +27,6 @@ main::main(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_start );
 
     SC_METHOD(thread_ap_return);
-    sensitive << ( ap_start );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_virtual_clock.pos() );
@@ -76,7 +74,7 @@ void main::thread_ap_ready() {
 }
 
 void main::thread_ap_return() {
-    ap_return = ap_const_lv32_1;
+    ap_return = ap_const_lv32_0;
 }
 
 void main::thread_hdltv_gen() {

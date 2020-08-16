@@ -20,7 +20,7 @@
               <type>0</type>
               <id>3</id>
               <name>_ln22</name>
-              <fileName>example3.c</fileName>
+              <fileName>example1.c</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>22</lineNumber>
               <contextFuncName>main</contextFuncName>
@@ -28,13 +28,13 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item class_id="8" tracking_level="0" version="0">
-                  <first>/home/canesche/HLStools/example/Vivado/example3</first>
+                  <first>/home/canesche/git/HLStools/example/Vivado/example1</first>
                   <second class_id="9" tracking_level="0" version="0">
                     <count>1</count>
                     <item_version>0</item_version>
                     <item class_id="10" tracking_level="0" version="0">
                       <first class_id="11" tracking_level="0" version="0">
-                        <first>example3.c</first>
+                        <first>example1.c</first>
                         <second>main</second>
                       </first>
                       <second>22</second>

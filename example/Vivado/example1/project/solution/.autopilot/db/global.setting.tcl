@@ -40,9 +40,9 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7k160t:-fbg484:-1
-set SourceFiles {sc {} c ../../example3.c}
+set SourceFiles {sc {} c ../../example1.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /home/canesche/HLStools/example/Vivado/example3/project/solution/solution.directive
+set DirectiveFile /home/canesche/git/HLStools/example/Vivado/example1/project/solution/solution.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

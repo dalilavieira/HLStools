@@ -6,32 +6,72 @@
 
 source /opt/xilinx/Vivado/2019.1/scripts/vivado_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running '/opt/xilinx/Vivado/2019.1/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'canesche' on host 'lesc-server' (Linux_x86_64 version 4.15.0-106-generic) on Mon Aug 10 14:00:41 UTC 2020
-INFO: [HLS 200-10] On os Ubuntu 18.04.4 LTS
-INFO: [HLS 200-10] In directory '/home/canesche/HLStools/example/Vivado/example1'
+INFO: [HLS 200-10] For user 'canesche' on host 'k40pontenova.k40.pontenova' (Linux_x86_64 version 4.4.0-179-generic) on Sun Aug 16 15:36:03 -03 2020
+INFO: [HLS 200-10] On os Ubuntu 16.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/canesche/git/HLStools/example/Vivado/example1'
 Sourcing Tcl script 'run_hls.tcl'
-INFO: [HLS 200-10] Creating and opening project '/home/canesche/HLStools/example/Vivado/example1/project'.
+INFO: [HLS 200-10] Opening and resetting project '/home/canesche/git/HLStools/example/Vivado/example1/project'.
 INFO: [HLS 200-10] Adding design file 'example1.c' to the project
-INFO: [HLS 200-10] Creating and opening solution '/home/canesche/HLStools/example/Vivado/example1/project/solution'.
+INFO: [HLS 200-10] Opening and resetting solution '/home/canesche/git/HLStools/example/Vivado/example1/project/solution'.
 INFO: [HLS 200-10] Cleaning up the solution database.
 INFO: [HLS 200-10] Setting target device to 'xc7k160t-fbg484-1'
 INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
 INFO: [HLS 200-10] Analyzing design file 'example1.c' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 832.461 ; gain = 132.133 ; free physical = 15463 ; free virtual = 32704
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 832.461 ; gain = 132.133 ; free physical = 15463 ; free virtual = 32704
+WARNING: [HLS 200-40] In file included from example1.c:1:
+example1.c:8:7: warning: incompatible pointer types initializing 'int *' with an expression of type 'char *' [-Wincompatible-pointer-types]
+ int *b = (char *) a;
+      ^   ~~~~~~~~~~
+example1.c:10:9: warning: incompatible pointer types returning 'int *' from a function with result type 'char *' [-Wincompatible-pointer-types]
+ return b;
+        ^
+example1.c:20:4: warning: incompatible pointer types assigning to 'int *' from 'char *' [-Wincompatible-pointer-types]
+ b = test(a);
+   ^ ~~~~~~~
+3 warnings generated.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21568 ; free virtual = 120194
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21568 ; free virtual = 120194
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 832.461 ; gain = 132.133 ; free physical = 15463 ; free virtual = 32704
+INFO: [XFORM 203-603] Inlining function 'test' into 'main' (example1.c:20).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21567 ; free virtual = 120193
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'test' into 'main' (example1.c:18) automatically.
-ERROR: [SYNCHK 200-11] Argument 'argv' of function 'main' has an unsynthesizable type (possible cause(s): pointer to pointer or global pointer).
-WARNING: [SYNCHK 200-77] The top function 'main' has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops.
-INFO: [SYNCHK 200-10] 1 error(s), 1 warning(s).
-ERROR: [HLS 200-70] Synthesizability check failed.
-command 'ap_source' returned error code
-    while executing
-"source run_hls.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel \#0 [list source $arg] "
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21567 ; free virtual = 120193
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21549 ; free virtual = 120174
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21549 ; free virtual = 120174
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'main' ...
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 8.87 seconds; current allocated memory: 94.214 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0 seconds; current allocated memory: 94.254 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on function 'main' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'main'.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 94.381 MB.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 826.324 ; gain = 128.000 ; free physical = 21548 ; free virtual = 120175
+INFO: [VHDL 208-304] Generating VHDL RTL for main.
+INFO: [VLOG 209-307] Generating Verilog RTL for main.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
 
-INFO: [Common 17-206] Exiting vivado_hls at Mon Aug 10 14:00:56 2020...
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/xilinx/Vivado/2019.1/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sun Aug 16 15:36:21 2020...
+INFO: [HLS 200-112] Total elapsed time: 18.69 seconds; peak allocated memory: 94.381 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sun Aug 16 15:36:21 2020...
