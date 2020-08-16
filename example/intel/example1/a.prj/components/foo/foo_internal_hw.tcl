@@ -48,6 +48,42 @@ add_fileset_file "acl_pipeline.v" SYSTEM_VERILOG PATH "ip/acl_pipeline.v"
 add_fileset_file "acl_dspba_buffer.v" SYSTEM_VERILOG PATH "ip/acl_dspba_buffer.v"
 add_fileset_file "acl_enable_sink.v" SYSTEM_VERILOG PATH "ip/acl_enable_sink.v"
 add_fileset_file "st_top.v" SYSTEM_VERILOG PATH "ip/st_top.v"
+add_fileset_file "lsu_top.v" SYSTEM_VERILOG PATH "ip/lsu_top.v"
+add_fileset_file "lsu_permute_address.v" SYSTEM_VERILOG PATH "ip/lsu_permute_address.v"
+add_fileset_file "lsu_pipelined.v" SYSTEM_VERILOG PATH "ip/lsu_pipelined.v"
+add_fileset_file "lsu_enabled.v" SYSTEM_VERILOG PATH "ip/lsu_enabled.v"
+add_fileset_file "lsu_basic_coalescer.v" SYSTEM_VERILOG PATH "ip/lsu_basic_coalescer.v"
+add_fileset_file "lsu_simple.v" SYSTEM_VERILOG PATH "ip/lsu_simple.v"
+add_fileset_file "lsu_streaming.v" SYSTEM_VERILOG PATH "ip/lsu_streaming.v"
+add_fileset_file "lsu_burst_master.v" SYSTEM_VERILOG PATH "ip/lsu_burst_master.v"
+add_fileset_file "lsu_bursting_load_stores.v" SYSTEM_VERILOG PATH "ip/lsu_bursting_load_stores.v"
+add_fileset_file "lsu_non_aligned_write.v" SYSTEM_VERILOG PATH "ip/lsu_non_aligned_write.v"
+add_fileset_file "lsu_read_cache.v" SYSTEM_VERILOG PATH "ip/lsu_read_cache.v"
+add_fileset_file "lsu_atomic.v" SYSTEM_VERILOG PATH "ip/lsu_atomic.v"
+add_fileset_file "lsu_prefetch_block.v" SYSTEM_VERILOG PATH "ip/lsu_prefetch_block.v"
+add_fileset_file "lsu_wide_wrapper.v" SYSTEM_VERILOG PATH "ip/lsu_wide_wrapper.v"
+add_fileset_file "lsu_streaming_prefetch.v" SYSTEM_VERILOG PATH "ip/lsu_streaming_prefetch.v"
+add_fileset_file "acl_aligned_burst_coalesced_lsu.v" SYSTEM_VERILOG PATH "ip/acl_aligned_burst_coalesced_lsu.v"
+add_fileset_file "acl_toggle_detect.v" SYSTEM_VERILOG PATH "ip/acl_toggle_detect.v"
+add_fileset_file "acl_debug_mem.v" SYSTEM_VERILOG PATH "ip/acl_debug_mem.v"
+add_fileset_file "lsu_burst_coalesced_pipelined_write.sv" SYSTEM_VERILOG PATH "ip/lsu_burst_coalesced_pipelined_write.sv"
+add_fileset_file "lsu_burst_coalesced_pipelined_read.sv" SYSTEM_VERILOG PATH "ip/lsu_burst_coalesced_pipelined_read.sv"
+add_fileset_file "acl_fifo_stall_valid_lookahead.sv" SYSTEM_VERILOG PATH "ip/acl_fifo_stall_valid_lookahead.sv"
+add_fileset_file "acl_parameter_assert.svh" SYSTEM_VERILOG PATH "ip/acl_parameter_assert.svh"
+add_fileset_file "hld_global_load_store.sv" SYSTEM_VERILOG PATH "ip/hld_global_load_store.sv"
+add_fileset_file "hld_lsu.sv" SYSTEM_VERILOG PATH "ip/hld_lsu.sv"
+add_fileset_file "hld_lsu_burst_coalescer.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_burst_coalescer.sv"
+add_fileset_file "hld_lsu_coalescer_dynamic_timeout.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_coalescer_dynamic_timeout.sv"
+add_fileset_file "hld_lsu_data_aligner.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_data_aligner.sv"
+add_fileset_file "hld_lsu_read_cache.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_read_cache.sv"
+add_fileset_file "hld_lsu_read_data_alignment.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_read_data_alignment.sv"
+add_fileset_file "hld_lsu_unaligned_controller.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_unaligned_controller.sv"
+add_fileset_file "hld_lsu_word_coalescer.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_word_coalescer.sv"
+add_fileset_file "hld_lsu_write_data_alignment.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_write_data_alignment.sv"
+add_fileset_file "hld_lsu_write_kernel_downstream.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_write_kernel_downstream.sv"
+add_fileset_file "acl_shift_register_no_reset.sv" SYSTEM_VERILOG PATH "ip/acl_shift_register_no_reset.sv"
+add_fileset_file "acl_full_detector.v" SYSTEM_VERILOG PATH "ip/acl_full_detector.v"
+add_fileset_file "acl_tessellated_incr_decr_decr.sv" SYSTEM_VERILOG PATH "ip/acl_tessellated_incr_decr_decr.sv"
 add_fileset_file "acl_reset_wire.v" SYSTEM_VERILOG PATH "ip/acl_reset_wire.v"
 add_fileset_file "foo_function_wrapper.sv" SYSTEM_VERILOG PATH "ip/foo_function_wrapper.sv"
 add_fileset_file "foo_function.sv" SYSTEM_VERILOG PATH "ip/foo_function.sv"
@@ -63,17 +99,32 @@ add_fileset_file "foo_B0_runOnce_merge.sv" SYSTEM_VERILOG PATH "ip/foo_B0_runOnc
 add_fileset_file "foo_bb_B1_start.sv" SYSTEM_VERILOG PATH "ip/foo_bb_B1_start.sv"
 add_fileset_file "foo_bb_B1_start_stall_region.sv" SYSTEM_VERILOG PATH "ip/foo_bb_B1_start_stall_region.sv"
 add_fileset_file "foo_B1_start_merge_reg.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_merge_reg.sv"
-add_fileset_file "foo_i_iowr_bl_return_unnamed_foo3_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iowr_bl_return_unnamed_foo3_foo0.sv"
+add_fileset_file "foo_i_iowr_bl_return_unnamed_foo4_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iowr_bl_return_unnamed_foo4_foo0.sv"
 add_fileset_file "foo_i_iord_bl_call_unnamed_foo2_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iord_bl_call_unnamed_foo2_foo0.sv"
 add_fileset_file "foo_i_sfc_s_c0_in_wt_entry_s_c0_enter1_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_s_c0_in_wt_entry_s_c0_enter1_foo0.sv"
 add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_foo0.sv"
 add_fileset_file "foo_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_foo0.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_0.sv"
 add_fileset_file "foo_i_llvm_fpga_push_i1_notexitcond_0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_push_i1_notexitcond_0.sv"
+add_fileset_file "foo_i_sfc_s_c1_in_wt_entry_s_c1_enter_foo3.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_s_c1_in_wt_entry_s_c1_enter_foo3.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo0.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entA000000Zt_foo1_full_detector.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entA000000Zt_foo1_full_detector.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo1_data_fifo.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo1_data_fifo.sv"
+add_fileset_file "foo_i_sfc_logic_s_c1_in_wt_entry_s_c1_enter_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_logic_s_c1_in_wt_entry_s_c1_enter_foo0.sv"
+add_fileset_file "foo_i_llvm_fpga_mem_unnamed_3_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_mem_unnamed_3_foo0.sv"
 add_fileset_file "foo_B1_start_branch.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_branch.sv"
 add_fileset_file "foo_B1_start_merge.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_merge.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_1_sr.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_1_sr.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv"
+add_fileset_file "acl_avm_to_ic.v" SYSTEM_VERILOG PATH "ip/acl_avm_to_ic.v"
+add_fileset_file "acl_ic_master_endpoint.v" SYSTEM_VERILOG PATH "ip/acl_ic_master_endpoint.v"
+add_fileset_file "acl_arb_intf.v" SYSTEM_VERILOG PATH "ip/acl_arb_intf.v"
+add_fileset_file "acl_ic_intf.v" SYSTEM_VERILOG PATH "ip/acl_ic_intf.v"
+add_fileset_file "acl_ic_slave_endpoint.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_endpoint.v"
+add_fileset_file "acl_ic_slave_rrp.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_rrp.v"
+add_fileset_file "acl_ic_slave_wrp.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_wrp.v"
+add_fileset_file "acl_arb2.v" SYSTEM_VERILOG PATH "ip/acl_arb2.v"
+add_fileset_file "acl_ic_to_avm.v" SYSTEM_VERILOG PATH "ip/acl_ic_to_avm.v"
 add_fileset_file "foo_internal.v" SYSTEM_VERILOG PATH "foo_internal.v"
 
 #### Simulation fileset
@@ -114,6 +165,42 @@ add_fileset_file "acl_pipeline.v" SYSTEM_VERILOG PATH "ip/acl_pipeline.v"
 add_fileset_file "acl_dspba_buffer.v" SYSTEM_VERILOG PATH "ip/acl_dspba_buffer.v"
 add_fileset_file "acl_enable_sink.v" SYSTEM_VERILOG PATH "ip/acl_enable_sink.v"
 add_fileset_file "st_top.v" SYSTEM_VERILOG PATH "ip/st_top.v"
+add_fileset_file "lsu_top.v" SYSTEM_VERILOG PATH "ip/lsu_top.v"
+add_fileset_file "lsu_permute_address.v" SYSTEM_VERILOG PATH "ip/lsu_permute_address.v"
+add_fileset_file "lsu_pipelined.v" SYSTEM_VERILOG PATH "ip/lsu_pipelined.v"
+add_fileset_file "lsu_enabled.v" SYSTEM_VERILOG PATH "ip/lsu_enabled.v"
+add_fileset_file "lsu_basic_coalescer.v" SYSTEM_VERILOG PATH "ip/lsu_basic_coalescer.v"
+add_fileset_file "lsu_simple.v" SYSTEM_VERILOG PATH "ip/lsu_simple.v"
+add_fileset_file "lsu_streaming.v" SYSTEM_VERILOG PATH "ip/lsu_streaming.v"
+add_fileset_file "lsu_burst_master.v" SYSTEM_VERILOG PATH "ip/lsu_burst_master.v"
+add_fileset_file "lsu_bursting_load_stores.v" SYSTEM_VERILOG PATH "ip/lsu_bursting_load_stores.v"
+add_fileset_file "lsu_non_aligned_write.v" SYSTEM_VERILOG PATH "ip/lsu_non_aligned_write.v"
+add_fileset_file "lsu_read_cache.v" SYSTEM_VERILOG PATH "ip/lsu_read_cache.v"
+add_fileset_file "lsu_atomic.v" SYSTEM_VERILOG PATH "ip/lsu_atomic.v"
+add_fileset_file "lsu_prefetch_block.v" SYSTEM_VERILOG PATH "ip/lsu_prefetch_block.v"
+add_fileset_file "lsu_wide_wrapper.v" SYSTEM_VERILOG PATH "ip/lsu_wide_wrapper.v"
+add_fileset_file "lsu_streaming_prefetch.v" SYSTEM_VERILOG PATH "ip/lsu_streaming_prefetch.v"
+add_fileset_file "acl_aligned_burst_coalesced_lsu.v" SYSTEM_VERILOG PATH "ip/acl_aligned_burst_coalesced_lsu.v"
+add_fileset_file "acl_toggle_detect.v" SYSTEM_VERILOG PATH "ip/acl_toggle_detect.v"
+add_fileset_file "acl_debug_mem.v" SYSTEM_VERILOG PATH "ip/acl_debug_mem.v"
+add_fileset_file "lsu_burst_coalesced_pipelined_write.sv" SYSTEM_VERILOG PATH "ip/lsu_burst_coalesced_pipelined_write.sv"
+add_fileset_file "lsu_burst_coalesced_pipelined_read.sv" SYSTEM_VERILOG PATH "ip/lsu_burst_coalesced_pipelined_read.sv"
+add_fileset_file "acl_fifo_stall_valid_lookahead.sv" SYSTEM_VERILOG PATH "ip/acl_fifo_stall_valid_lookahead.sv"
+add_fileset_file "acl_parameter_assert.svh" SYSTEM_VERILOG PATH "ip/acl_parameter_assert.svh"
+add_fileset_file "hld_global_load_store.sv" SYSTEM_VERILOG PATH "ip/hld_global_load_store.sv"
+add_fileset_file "hld_lsu.sv" SYSTEM_VERILOG PATH "ip/hld_lsu.sv"
+add_fileset_file "hld_lsu_burst_coalescer.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_burst_coalescer.sv"
+add_fileset_file "hld_lsu_coalescer_dynamic_timeout.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_coalescer_dynamic_timeout.sv"
+add_fileset_file "hld_lsu_data_aligner.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_data_aligner.sv"
+add_fileset_file "hld_lsu_read_cache.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_read_cache.sv"
+add_fileset_file "hld_lsu_read_data_alignment.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_read_data_alignment.sv"
+add_fileset_file "hld_lsu_unaligned_controller.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_unaligned_controller.sv"
+add_fileset_file "hld_lsu_word_coalescer.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_word_coalescer.sv"
+add_fileset_file "hld_lsu_write_data_alignment.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_write_data_alignment.sv"
+add_fileset_file "hld_lsu_write_kernel_downstream.sv" SYSTEM_VERILOG PATH "ip/hld_lsu_write_kernel_downstream.sv"
+add_fileset_file "acl_shift_register_no_reset.sv" SYSTEM_VERILOG PATH "ip/acl_shift_register_no_reset.sv"
+add_fileset_file "acl_full_detector.v" SYSTEM_VERILOG PATH "ip/acl_full_detector.v"
+add_fileset_file "acl_tessellated_incr_decr_decr.sv" SYSTEM_VERILOG PATH "ip/acl_tessellated_incr_decr_decr.sv"
 add_fileset_file "acl_reset_wire.v" SYSTEM_VERILOG PATH "ip/acl_reset_wire.v"
 add_fileset_file "foo_function_wrapper.sv" SYSTEM_VERILOG PATH "ip/foo_function_wrapper.sv"
 add_fileset_file "foo_function.sv" SYSTEM_VERILOG PATH "ip/foo_function.sv"
@@ -129,17 +216,32 @@ add_fileset_file "foo_B0_runOnce_merge.sv" SYSTEM_VERILOG PATH "ip/foo_B0_runOnc
 add_fileset_file "foo_bb_B1_start.sv" SYSTEM_VERILOG PATH "ip/foo_bb_B1_start.sv"
 add_fileset_file "foo_bb_B1_start_stall_region.sv" SYSTEM_VERILOG PATH "ip/foo_bb_B1_start_stall_region.sv"
 add_fileset_file "foo_B1_start_merge_reg.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_merge_reg.sv"
-add_fileset_file "foo_i_iowr_bl_return_unnamed_foo3_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iowr_bl_return_unnamed_foo3_foo0.sv"
+add_fileset_file "foo_i_iowr_bl_return_unnamed_foo4_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iowr_bl_return_unnamed_foo4_foo0.sv"
 add_fileset_file "foo_i_iord_bl_call_unnamed_foo2_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_iord_bl_call_unnamed_foo2_foo0.sv"
 add_fileset_file "foo_i_sfc_s_c0_in_wt_entry_s_c0_enter1_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_s_c0_in_wt_entry_s_c0_enter1_foo0.sv"
 add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c0_out_wt_entry_s_c0_exit_foo0.sv"
 add_fileset_file "foo_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_logic_s_c0_in_wt_entry_s_c0_enter1_foo0.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_0.sv"
 add_fileset_file "foo_i_llvm_fpga_push_i1_notexitcond_0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_push_i1_notexitcond_0.sv"
+add_fileset_file "foo_i_sfc_s_c1_in_wt_entry_s_c1_enter_foo3.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_s_c1_in_wt_entry_s_c1_enter_foo3.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo0.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entA000000Zt_foo1_full_detector.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entA000000Zt_foo1_full_detector.sv"
+add_fileset_file "foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo1_data_fifo.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_sfc_exit_s_c1_out_wt_entry_s_c1_exit_foo1_data_fifo.sv"
+add_fileset_file "foo_i_sfc_logic_s_c1_in_wt_entry_s_c1_enter_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_sfc_logic_s_c1_in_wt_entry_s_c1_enter_foo0.sv"
+add_fileset_file "foo_i_llvm_fpga_mem_unnamed_3_foo0.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_mem_unnamed_3_foo0.sv"
 add_fileset_file "foo_B1_start_branch.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_branch.sv"
 add_fileset_file "foo_B1_start_merge.sv" SYSTEM_VERILOG PATH "ip/foo_B1_start_merge.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_1_sr.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_1_sr.sv"
 add_fileset_file "foo_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv" SYSTEM_VERILOG PATH "ip/foo_i_llvm_fpga_pipeline_keep_going_1_valid_fifo.sv"
+add_fileset_file "acl_avm_to_ic.v" SYSTEM_VERILOG PATH "ip/acl_avm_to_ic.v"
+add_fileset_file "acl_ic_master_endpoint.v" SYSTEM_VERILOG PATH "ip/acl_ic_master_endpoint.v"
+add_fileset_file "acl_arb_intf.v" SYSTEM_VERILOG PATH "ip/acl_arb_intf.v"
+add_fileset_file "acl_ic_intf.v" SYSTEM_VERILOG PATH "ip/acl_ic_intf.v"
+add_fileset_file "acl_ic_slave_endpoint.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_endpoint.v"
+add_fileset_file "acl_ic_slave_rrp.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_rrp.v"
+add_fileset_file "acl_ic_slave_wrp.v" SYSTEM_VERILOG PATH "ip/acl_ic_slave_wrp.v"
+add_fileset_file "acl_arb2.v" SYSTEM_VERILOG PATH "ip/acl_arb2.v"
+add_fileset_file "acl_ic_to_avm.v" SYSTEM_VERILOG PATH "ip/acl_ic_to_avm.v"
 add_fileset_file "foo_internal.v" SYSTEM_VERILOG PATH "foo_internal.v"
 
 #### Primary clock for the component
@@ -175,7 +277,7 @@ add_interface returndata conduit source
 set_interface_property returndata associatedClock clock
 set_interface_property returndata associatedReset reset
 set_interface_assignment returndata hls.cosim.name {$returndata}
-add_interface_port returndata returndata data output 64
+add_interface_port returndata returndata data output 8
 
 #### Parameter a interface
 add_interface a conduit sink
@@ -183,6 +285,23 @@ set_interface_property a associatedClock clock
 set_interface_property a associatedReset reset
 set_interface_assignment a hls.cosim.name {a}
 add_interface_port a a data input 64
+
+#### Master interface avmm_0_rw with base address 0
+add_interface avmm_0_rw avalon start
+set_interface_property avmm_0_rw ENABLED true
+set_interface_property avmm_0_rw associatedClock clock
+set_interface_property avmm_0_rw burstOnBurstBoundariesOnly false
+set_interface_property avmm_0_rw doStreamReads false
+set_interface_property avmm_0_rw doStreamWrites false
+set_interface_property avmm_0_rw linewrapBursts false
+set_interface_property avmm_0_rw readWaitTime 0
+set_interface_property avmm_0_rw readLatency 1
+add_interface_port avmm_0_rw avmm_0_rw_address address output 64
+add_interface_port avmm_0_rw avmm_0_rw_byteenable byteenable output 8
+add_interface_port avmm_0_rw avmm_0_rw_read read output 1
+add_interface_port avmm_0_rw avmm_0_rw_readdata readdata input 64
+add_interface_port avmm_0_rw avmm_0_rw_write write output 1
+add_interface_port avmm_0_rw avmm_0_rw_writedata writedata output 64
 
 #### Quartus settings (QIP strings)
 set_qip_strings { "set_instance_assignment -entity \"%entityName%\" -library \"%libraryName%\" -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to *_NO_SHIFT_REG*"  }
