@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------
 
 // SystemVerilog created from foo_i_iord_bl_call_unnamed_foo2_foo0
-// SystemVerilog created on Sun Aug 16 18:34:24 2020
+// SystemVerilog created on Sun Aug 16 19:04:00 2020
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -91,7 +91,7 @@ module foo_i_iord_bl_call_unnamed_foo2_foo0 (
     assign iord_o_stall[0] = iord_o_stall_bitsignaltemp;
     assign iord_o_valid[0] = iord_o_valid_bitsignaltemp;
     st_read #(
-        .STAGING_CAPACITY(1),
+        .STAGING_CAPACITY(0),
         .ASYNC_RESET(1),
         .DATA_WIDTH(64),
         .EMPTY_WIDTH(0),

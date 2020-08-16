@@ -4,9 +4,9 @@
   , "debug_enabled":"true"
   , "type":"module"
   , "total_percent":
-  [0.00195904, 0.00163858, 0.000526685, 0, 0]
+  [0.0118574, 0.00643727, 0.00585206, 0, 0]
   , "total":
-  [14, 9, 0, 0, 0]
+  [35, 100, 0, 0, 1]
   , "name":"System"
   , "max_resources":
   [854400, 1708800, 2713, 1518, 42720]
@@ -17,9 +17,9 @@
       , "compute_units":1
       , "type":"function"
       , "total_percent":
-      [0.00195904, 0.00163858, 0.000526685, 0, 0]
+      [0.0118574, 0.00643727, 0.00585206, 0, 0]
       , "total_kernel_resources":
-      [14, 9, 0, 0, 0]
+      [35, 100, 0, 0, 1]
       , "details":
       [
         {
@@ -59,11 +59,11 @@
           [
             {
               "type":"text"
-              , "text":"Stream implemented 64 bits wide with a buffer size of 0 elements."
+              , "text":"Stream implemented 8 bits wide with a buffer size of 0 elements."
             }
             , {
               "type":"brief"
-              , "text":"64b wide with 0 elements."
+              , "text":"8b wide with 0 elements."
             }
           ]
         }
@@ -73,6 +73,47 @@
           , "children":
           [
             {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [2, 69, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [2, 69, 0, 0, 0]
+                }
+              ]
+            }
+            , {
               "name":"Feedback"
               , "type":"resource"
               , "data":
@@ -118,7 +159,7 @@
               "name":"Cluster logic"
               , "type":"resource"
               , "data":
-              [1, 0, 0, 0, 0]
+              [8, 5, 0, 0, 1]
               , "details":
               [
                 {
@@ -140,7 +181,7 @@
                   "name":"example1.c:6"
                   , "type":"resource"
                   , "data":
-                  [3, 0, 0, 0, 0]
+                  [1, 0, 0, 0, 0]
                   , "debug":
                   [
                     [
@@ -157,7 +198,7 @@
                       , "type":"resource"
                       , "count":1
                       , "data":
-                      [3, 0, 0, 0, 0]
+                      [1, 0, 0, 0, 0]
                     }
                   ]
                   , "replace_name":"true"
@@ -166,7 +207,7 @@
                   "name":"example1.c:10"
                   , "type":"resource"
                   , "data":
-                  [3, 2, 0, 0, 0]
+                  [17, 19, 0, 0, 0]
                   , "debug":
                   [
                     [
@@ -179,6 +220,24 @@
                   , "children":
                   [
                     {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [14, 17, 0, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined never-stall LSU"
+                        }
+                      ]
+                    }
+                    , {
                       "name":"Stream Write"
                       , "type":"resource"
                       , "count":1

@@ -1,11 +1,11 @@
 {
-  "1088313128":
+  "1489570792":
   {
     "nodes":
     [
       {
         "name":"foo.B0.runOnce"
-        , "id":1088496880
+        , "id":1489726608
         , "start":"0"
         , "end":"2"
         , "details":
@@ -19,7 +19,7 @@
         [
           {
             "name":"?"
-            , "id":1091876176
+            , "id":1493609312
             , "start":"1"
             , "end":"2"
             , "details":
@@ -47,9 +47,9 @@
       }
       , {
         "name":"foo.B1.start"
-        , "id":1088497024
+        , "id":1489726688
         , "start":"2"
-        , "end":"3"
+        , "end":"12"
         , "details":
         [
           {
@@ -61,7 +61,7 @@
         [
           {
             "name":"Cluster 0"
-            , "id":1090879744
+            , "id":1492198752
             , "start":"3"
             , "end":"3"
             , "details":
@@ -79,7 +79,7 @@
             [
               {
                 "name":"Exit"
-                , "id":1091497872
+                , "id":1495332640
                 , "start":"3"
                 , "end":"3"
                 , "details":
@@ -96,7 +96,7 @@
           }
           , {
             "name":"RD"
-            , "id":1090960016
+            , "id":1493512032
             , "start":"3"
             , "end":"3"
             , "details":
@@ -124,20 +124,87 @@
             , "type":"inst"
           }
           , {
-            "name":"WR"
-            , "id":1091205104
+            "name":"Cluster 1"
+            , "id":1492361088
             , "start":"3"
-            , "end":"3"
+            , "end":"12"
+            , "details":
+            [
+              {
+                "type":"table"
+                , "Cluster Name":"i_sfc_s_c1_in_wt_entry_foos_c1_enter_foo3"
+                , "Cluster Type":"Stall-Free"
+                , "Cluster Start Cycle":"1"
+                , "Cluster Latency":"9"
+              }
+            ]
+            , "type":"cluster"
+            , "children":
+            [
+              {
+                "name":"LD"
+                , "id":1492307952
+                , "start":"4"
+                , "end":"9"
+                , "details":
+                [
+                  {
+                    "type":"table"
+                    , "Instruction":"Load"
+                    , "Width":"8 bits"
+                    , "LSU Style":"Pipelined never-stall"
+                    , "Stall-free":"Yes"
+                    , "Global Memory":"Yes"
+                    , "Start Cycle":"2"
+                    , "Latency":"5"
+                  }
+                ]
+                , "debug":
+                [
+                  [
+                    {
+                      "filename":"example1/example1.c"
+                      , "line":10
+                    }
+                  ]
+                ]
+                , "type":"inst"
+              }
+              , {
+                "name":"Exit"
+                , "id":1492513072
+                , "start":"9"
+                , "end":"12"
+                , "details":
+                [
+                  {
+                    "type":"table"
+                    , "Exit Start Cycle":"7"
+                    , "Exit Latency":"3"
+                    , "Exit FIFO Depth":"16"
+                    , "Exit FIFO Width":"16"
+                    , "Details":"Exit FIFO depth is sized to accommodate all data that may be in-flight in the stall-free cluster; this depth will be equal to or greater than the latency of the cluster.  The width of the FIFO depends on the amount of data that needs to pass from the stall-free logic cluster to the stall-able logic below it."
+                  }
+                ]
+                , "type":"inst"
+              }
+            ]
+          }
+          , {
+            "name":"WR"
+            , "id":1494485152
+            , "start":"12"
+            , "end":"12"
             , "details":
             [
               {
                 "type":"table"
                 , "Instruction":"Stream Write"
-                , "Width":"64 bits"
+                , "Width":"8 bits"
                 , "Depth":"0"
                 , "Stream Name":"return.foo"
                 , "Stall-free":"No"
-                , "Start Cycle":"1"
+                , "Start Cycle":"10"
                 , "Latency":"0"
               }
             ]

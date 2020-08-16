@@ -67,6 +67,46 @@
             , {
               "type":"inst"
               , "id":7
+              , "name":"Load"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"example1/example1.c"
+                    , "line":10
+                  }
+                ]
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Width":"8 bits"
+                  , "Type":"Pipelined never-stall"
+                  , "Stall-free":"Yes"
+                  , "Loads from":"a"
+                  , "Start Cycle":"2"
+                  , "Latency":"4"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Reference Manual"
+                          , "link":"https://www.intel.com/content/www/us/en/programmable/documentation/ewa1462824960255.html"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"inst"
+              , "id":8
               , "name":"Stream Write"
               , "debug":
               [
@@ -81,10 +121,10 @@
               [
                 {
                   "type":"table"
-                  , "Width":"64 bits"
+                  , "Width":"8 bits"
                   , "Depth":"0"
                   , "Stall-free":"No"
-                  , "Start Cycle":"1"
+                  , "Start Cycle":"10"
                   , "Latency":"0"
                   , "Reference":
                   [
@@ -105,7 +145,7 @@
             }
             , {
               "type":"inst"
-              , "id":9
+              , "id":10
               , "name":"Loop Input"
               , "debug":
               [
@@ -122,19 +162,19 @@
                   "type":"table"
                   , "Start Cycle":"0"
                   , "Latency":"1"
-                  , "Loops To":"10"
+                  , "Loops To":"11"
                 }
               ]
             }
             , {
               "type":"inst"
-              , "id":10
+              , "id":11
               , "name":"Loop End"
               , "details":
               [
                 {
                   "type":"table"
-                  , "Start Cycle":"1"
+                  , "Start Cycle":"10"
                   , "Latency":"1"
                 }
               ]
@@ -144,12 +184,33 @@
           [
             {
               "type":"table"
-              , "Latency":"1"
+              , "Latency":"10"
               , "II":"1"
               , "Subloops":"No"
               , "Pipelined":"Yes"
               , "Fmax Bottlenecks":"No"
               , "Loop Info":""
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"memtype"
+      , "id":1
+      , "name":"System Memory"
+      , "children":
+      [
+        {
+          "type":"memsys"
+          , "id":13
+          , "name":"0"
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Number of banks":"1"
+              , "Arguments from foo":"a"
             }
           ]
         }
@@ -185,7 +246,7 @@
     }
     , {
       "type":"stream"
-      , "id":8
+      , "id":9
       , "name":"return.foo"
       , "debug":
       [
@@ -200,9 +261,9 @@
       [
         {
           "type":"table"
-          , "Width":"64 bits"
+          , "Width":"8 bits"
           , "Depth":"0"
-          , "Bits per symbol":"64 bits"
+          , "Bits per symbol":"8 bits"
           , "Uses Packets":"No"
           , "Uses Empty":"No"
           , "First symbol in high order bits":"No"
@@ -213,7 +274,7 @@
     }
     , {
       "type":"interface"
-      , "id":11
+      , "id":12
       , "name":"a"
       , "debug":
       [
@@ -249,35 +310,47 @@
       , "to":5
     }
     , {
+      "from":8
+      , "to":9
+    }
+    , {
+      "from":12
+      , "to":5
+    }
+    , {
+      "from":11
+      , "to":10
+    }
+    , {
+      "from":3
+      , "to":10
+    }
+    , {
+      "from":5
+      , "to":11
+    }
+    , {
+      "from":7
+      , "to":11
+    }
+    , {
+      "from":8
+      , "to":11
+    }
+    , {
+      "from":10
+      , "to":5
+    }
+    , {
+      "from":5
+      , "to":7
+    }
+    , {
       "from":7
       , "to":8
     }
     , {
-      "from":11
-      , "to":5
-    }
-    , {
-      "from":10
-      , "to":9
-    }
-    , {
-      "from":3
-      , "to":9
-    }
-    , {
-      "from":5
-      , "to":10
-    }
-    , {
-      "from":7
-      , "to":10
-    }
-    , {
-      "from":9
-      , "to":5
-    }
-    , {
-      "from":5
+      "from":13
       , "to":7
     }
   ]
