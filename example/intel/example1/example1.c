@@ -1,20 +1,20 @@
-// Example 1
+// Example 3
 #include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-component char *foo(void *a) {
+component char foo(void *a) {
 
 	char *b = (char *) a;
 
-	return b;
+	return *b;
 }
 
 int main() {
 
 	int c = 0; 
 
-	char *b;
+	char b;
 	int *a = &c;
 
 	b = foo(a);	
