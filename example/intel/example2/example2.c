@@ -1,5 +1,5 @@
 // Example: return pointer
-
+#include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -10,7 +10,7 @@ int *test(int a) {
 	return b;
 }
 
-int main() {
+component int main() {
 
 	int a = 10;
 	int *b;

@@ -1,5 +1,5 @@
 // Example 3 // gcc -Wall -pedantic example6_test3.c 
-
+#include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -10,7 +10,7 @@
 	int **c =  argc > 3 ? &b0 : &b1;	
 */
 
-int main() {
+component int main() {
 
 	int t;
 	

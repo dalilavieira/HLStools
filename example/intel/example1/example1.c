@@ -1,5 +1,5 @@
 // Example 3
-
+#include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -10,7 +10,7 @@ char *test(void *a) {
 	return b;
 }
 
-int main() {
+component int main() {
 
 	int c = 0; 
 
