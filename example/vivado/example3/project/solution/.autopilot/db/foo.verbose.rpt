@@ -1,0 +1,433 @@
+
+
+================================================================
+== Vivado HLS Report for 'foo'
+================================================================
+* Date:           Sun Aug 16 18:46:43 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        project
+* Solution:       solution
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.199|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      23|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       0|      23|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      650|    600|  202800|  101400|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|       0|   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |icmp_ln15_fu_40_p2  |   icmp   |      0|  0|  18|          31|           1|
+    |ap_return           |  select  |      0|  0|   5|           1|           5|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |Total               |          |      0|  0|  23|          32|           6|
+    +--------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------+-----+-----+------------+--------------+--------------+
+| RTL Ports | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-----------+-----+-----+------------+--------------+--------------+
+|ap_start   |  in |    1| ap_ctrl_hs |      foo     | return value |
+|ap_done    | out |    1| ap_ctrl_hs |      foo     | return value |
+|ap_idle    | out |    1| ap_ctrl_hs |      foo     | return value |
+|ap_ready   | out |    1| ap_ctrl_hs |      foo     | return value |
+|ap_return  | out |   32| ap_ctrl_hs |      foo     | return value |
+|t          |  in |   32|   ap_none  |       t      |    scalar    |
++-----------+-----+-----+------------+--------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 1
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.19>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %t) nounwind, !map !13"   --->   Operation 2 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @foo_str) nounwind"   --->   Operation 4 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%t_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %t) nounwind" [example3.c:13]   --->   Operation 5 'read' 't_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tmp = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %t_read, i32 1, i32 31)" [example3.c:15]   --->   Operation 6 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.54ns)   --->   "%icmp_ln15 = icmp sgt i31 %tmp, 0" [example3.c:15]   --->   Operation 7 'icmp' 'icmp_ln15' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.65ns)   --->   "%select_ln15 = select i1 %icmp_ln15, i32 17, i32 13" [example3.c:15]   --->   Operation 8 'select' 'select_ln15' <Predicate = true> <Delay = 0.65> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "ret i32 %select_ln15" [example3.c:18]   --->   Operation 9 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 1
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ t]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+specbitsmap_ln0   (specbitsmap  ) [ 00]
+specbitsmap_ln0   (specbitsmap  ) [ 00]
+spectopmodule_ln0 (spectopmodule) [ 00]
+t_read            (read         ) [ 00]
+tmp               (partselect   ) [ 00]
+icmp_ln15         (icmp         ) [ 00]
+select_ln15       (select       ) [ 00]
+ret_ln18          (ret          ) [ 00]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="t">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="t"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1001" name="const_2">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1001" name="const_4">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1001" name="const_6">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="foo_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i31.i32.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1004" name="t_read_read_fu_24">
+<pin_list>
+<pin id="25" dir="0" index="0" bw="32" slack="0"/>
+<pin id="26" dir="0" index="1" bw="32" slack="0"/>
+<pin id="27" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="t_read/1 "/>
+</bind>
+</comp>
+
+<comp id="30" class="1004" name="tmp_fu_30">
+<pin_list>
+<pin id="31" dir="0" index="0" bw="31" slack="0"/>
+<pin id="32" dir="0" index="1" bw="32" slack="0"/>
+<pin id="33" dir="0" index="2" bw="1" slack="0"/>
+<pin id="34" dir="0" index="3" bw="6" slack="0"/>
+<pin id="35" dir="1" index="4" bw="31" slack="0"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="tmp/1 "/>
+</bind>
+</comp>
+
+<comp id="40" class="1004" name="icmp_ln15_fu_40">
+<pin_list>
+<pin id="41" dir="0" index="0" bw="31" slack="0"/>
+<pin id="42" dir="0" index="1" bw="31" slack="0"/>
+<pin id="43" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln15/1 "/>
+</bind>
+</comp>
+
+<comp id="46" class="1004" name="select_ln15_fu_46">
+<pin_list>
+<pin id="47" dir="0" index="0" bw="1" slack="0"/>
+<pin id="48" dir="0" index="1" bw="32" slack="0"/>
+<pin id="49" dir="0" index="2" bw="32" slack="0"/>
+<pin id="50" dir="1" index="3" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="select_ln15/1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="28"><net_src comp="10" pin="0"/><net_sink comp="24" pin=0"/></net>
+
+<net id="29"><net_src comp="0" pin="0"/><net_sink comp="24" pin=1"/></net>
+
+<net id="36"><net_src comp="12" pin="0"/><net_sink comp="30" pin=0"/></net>
+
+<net id="37"><net_src comp="24" pin="2"/><net_sink comp="30" pin=1"/></net>
+
+<net id="38"><net_src comp="14" pin="0"/><net_sink comp="30" pin=2"/></net>
+
+<net id="39"><net_src comp="16" pin="0"/><net_sink comp="30" pin=3"/></net>
+
+<net id="44"><net_src comp="30" pin="4"/><net_sink comp="40" pin=0"/></net>
+
+<net id="45"><net_src comp="18" pin="0"/><net_sink comp="40" pin=1"/></net>
+
+<net id="51"><net_src comp="40" pin="2"/><net_sink comp="46" pin=0"/></net>
+
+<net id="52"><net_src comp="20" pin="0"/><net_sink comp="46" pin=1"/></net>
+
+<net id="53"><net_src comp="22" pin="0"/><net_sink comp="46" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+	Port: foo : t | {1 }
+  - Chain level:
+	State 1
+		icmp_ln15 : 1
+		select_ln15 : 2
+		ret_ln18 : 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------|---------|---------|
+| Operation|  Functional Unit  |    FF   |   LUT   |
+|----------|-------------------|---------|---------|
+|  select  | select_ln15_fu_46 |    0    |    32   |
+|----------|-------------------|---------|---------|
+|   icmp   |  icmp_ln15_fu_40  |    0    |    18   |
+|----------|-------------------|---------|---------|
+|   read   | t_read_read_fu_24 |    0    |    0    |
+|----------|-------------------|---------|---------|
+|partselect|     tmp_fu_30     |    0    |    0    |
+|----------|-------------------|---------|---------|
+|   Total  |                   |    0    |    50   |
+|----------|-------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
+N/A
+
+* Multiplexer (MUX) list: 
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
+
+
+
+* Summary:
++-----------+--------+--------+
+|           |   FF   |   LUT  |
++-----------+--------+--------+
+|  Function |    0   |   50   |
+|   Memory  |    -   |    -   |
+|Multiplexer|    -   |    -   |
+|  Register |    -   |    -   |
++-----------+--------+--------+
+|   Total   |    0   |   50   |
++-----------+--------+--------+

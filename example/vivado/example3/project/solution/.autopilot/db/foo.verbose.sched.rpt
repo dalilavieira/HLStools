@@ -1,0 +1,114 @@
+
+
+================================================================
+== Vivado HLS Report for 'foo'
+================================================================
+* Date:           Sun Aug 16 18:46:43 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        project
+* Solution:       solution
+* Product family: kintex7
+* Target device:  xc7k160t-fbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.199|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.19>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %t) nounwind, !map !13"   --->   Operation 2 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !19"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @foo_str) nounwind"   --->   Operation 4 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%t_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %t) nounwind" [example3.c:13]   --->   Operation 5 'read' 't_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tmp = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %t_read, i32 1, i32 31)" [example3.c:15]   --->   Operation 6 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.54ns)   --->   "%icmp_ln15 = icmp sgt i31 %tmp, 0" [example3.c:15]   --->   Operation 7 'icmp' 'icmp_ln15' <Predicate = true> <Delay = 1.54> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.65ns)   --->   "%select_ln15 = select i1 %icmp_ln15, i32 17, i32 13" [example3.c:15]   --->   Operation 8 'select' 'select_ln15' <Predicate = true> <Delay = 0.65> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.65> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "ret i32 %select_ln15" [example3.c:18]   --->   Operation 9 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.2ns
+The critical path consists of the following:
+	wire read on port 't' (example3.c:13) [5]  (0 ns)
+	'icmp' operation ('icmp_ln15', example3.c:15) [7]  (1.54 ns)
+	'select' operation ('select_ln15', example3.c:15) [8]  (0.656 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
