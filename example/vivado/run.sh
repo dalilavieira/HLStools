@@ -6,7 +6,7 @@ source /opt/xilinx/Vivado/2019.1/settings64.sh
 
 BENCH=(
 	#example1 example2 example3 example4 example5
-	example6
+	example7
 )
 
 for ((i=0; i < ${#BENCH[@]}; i++)) do
