@@ -1823,7 +1823,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 
 int *foo(int a) {
 
- int *b = 0;
+ int *b = &a;
 
  return b;
 }
