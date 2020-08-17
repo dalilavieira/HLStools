@@ -1,37 +1,11 @@
 {
-  "3858302800":
+  "1664931664":
   {
     "nodes":
     [
       {
-        "name":"?"
-        , "id":3862780480
-        , "start":"1"
-        , "end":"2"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"Feedback Read"
-            , "Variable":"Unknown variable"
-            , "Start Cycle":"1"
-            , "Latency":"1"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"example3/example3.c"
-              , "line":13
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
-      , {
         "name":"Feedback"
-        , "id":3862928064
+        , "id":1668328368
         , "start":"1"
         , "end":"2"
         , "details":
@@ -57,12 +31,38 @@
         ]
         , "type":"inst"
       }
+      , {
+        "name":"?"
+        , "id":1670120352
+        , "start":"1"
+        , "end":"2"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Feedback Read"
+            , "Variable":"Unknown variable"
+            , "Start Cycle":"1"
+            , "Latency":"1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example3/example3.c"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
     ]
     , "links":
     [
       {
-        "from":3862928064
-        , "to":3862780480
+        "from":1668328368
+        , "to":1670120352
         , "reverse":1
         , "details":
         [
@@ -74,13 +74,13 @@
       }
     ]
   }
-  , "3858302944":
+  , "1664931808":
   {
     "nodes":
     [
       {
         "name":"Cluster 0"
-        , "id":3860691024
+        , "id":1667319968
         , "start":"1"
         , "end":"1"
         , "details":
@@ -98,7 +98,7 @@
         [
           {
             "name":"Logic"
-            , "id":3860698016
+            , "id":1667326960
             , "details":
             [
               {
@@ -112,19 +112,15 @@
         ]
       }
       , {
-        "name":"RD"
-        , "id":3861176480
+        "name":"Select"
+        , "id":1667627216
         , "start":"1"
         , "end":"1"
         , "details":
         [
           {
             "type":"table"
-            , "Instruction":"Stream Read"
-            , "Width":"32 bits"
-            , "Depth":"0"
-            , "Stream Name":"call.foo"
-            , "Stall-free":"No"
+            , "Instruction":"32-bit Select"
             , "Start Cycle":"1"
             , "Latency":"0"
           }
@@ -134,7 +130,7 @@
           [
             {
               "filename":"example3/example3.c"
-              , "line":13
+              , "line":18
             }
           ]
         ]
@@ -142,7 +138,7 @@
       }
       , {
         "name":"WR"
-        , "id":3861197056
+        , "id":1667662672
         , "start":"1"
         , "end":"1"
         , "details":
@@ -170,8 +166,37 @@
         , "type":"inst"
       }
       , {
+        "name":"RD"
+        , "id":1667771504
+        , "start":"1"
+        , "end":"1"
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Instruction":"Stream Read"
+            , "Width":"32 bits"
+            , "Depth":"0"
+            , "Stream Name":"call.foo"
+            , "Stall-free":"No"
+            , "Start Cycle":"1"
+            , "Latency":"0"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"example3/example3.c"
+              , "line":13
+            }
+          ]
+        ]
+        , "type":"inst"
+      }
+      , {
         "name":"Compare"
-        , "id":3861199296
+        , "id":1668003792
         , "start":"1"
         , "end":"1"
         , "details":
@@ -194,37 +219,12 @@
         ]
         , "type":"inst"
       }
-      , {
-        "name":"Select"
-        , "id":3861199632
-        , "start":"1"
-        , "end":"1"
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Instruction":"32-bit Select"
-            , "Start Cycle":"1"
-            , "Latency":"0"
-          }
-        ]
-        , "debug":
-        [
-          [
-            {
-              "filename":"example3/example3.c"
-              , "line":18
-            }
-          ]
-        ]
-        , "type":"inst"
-      }
     ]
     , "links":
     [
       {
-        "from":3861176480
-        , "to":3861199296
+        "from":1667627216
+        , "to":1667662672
         , "details":
         [
           {
@@ -234,24 +234,24 @@
         ]
       }
       , {
-        "from":3861199296
-        , "to":3861199632
+        "from":1667771504
+        , "to":1668003792
+        , "details":
+        [
+          {
+            "type":"table"
+            , "Width":"32"
+          }
+        ]
+      }
+      , {
+        "from":1668003792
+        , "to":1667627216
         , "details":
         [
           {
             "type":"table"
             , "Width":"1"
-          }
-        ]
-      }
-      , {
-        "from":3861199632
-        , "to":3861197056
-        , "details":
-        [
-          {
-            "type":"table"
-            , "Width":"32"
           }
         ]
       }

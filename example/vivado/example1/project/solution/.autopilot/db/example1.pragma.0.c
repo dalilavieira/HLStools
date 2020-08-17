@@ -1821,18 +1821,18 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ )) ;
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 # 5 "example1.c" 2
 
-char *foo(void *a) {
+char foo(void *a) {
 
  char *b = (char *) a;
 
- return b;
+ return *b;
 }
 
 int main() {
 
  int c = 0;
 
- char *b;
+ char b;
  int *a = &c;
 
  b = foo(a);

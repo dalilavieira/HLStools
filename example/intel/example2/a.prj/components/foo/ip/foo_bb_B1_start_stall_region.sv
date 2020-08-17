@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------
 
 // SystemVerilog created from foo_bb_B1_start_stall_region
-// SystemVerilog created on Sun Aug 16 19:04:15 2020
+// SystemVerilog created on Sun Aug 16 19:18:45 2020
 
 
 (* altera_attribute = "-name AUTO_SHIFT_REGISTER_RECOGNITION OFF; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 10037; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 15400; -name MESSAGE_DISABLE 14130; -name MESSAGE_DISABLE 10036; -name MESSAGE_DISABLE 12020; -name MESSAGE_DISABLE 12030; -name MESSAGE_DISABLE 12010; -name MESSAGE_DISABLE 12110; -name MESSAGE_DISABLE 14320; -name MESSAGE_DISABLE 13410; -name MESSAGE_DISABLE 113007; -name MESSAGE_DISABLE 10958" *)
@@ -39,7 +39,7 @@ module foo_bb_B1_start_stall_region (
     );
 
     wire [0:0] GND_q;
-    wire [63:0] cpn_i32_q;
+    wire [63:0] c_i64_46133748682876518407_q;
     wire [0:0] foo_B1_start_merge_reg_out_stall_out;
     wire [0:0] foo_B1_start_merge_reg_out_valid_out;
     wire [63:0] i_iowr_bl_return_foo_unnamed_foo3_foo4_out_iowr_bl_return_foo_o_fifodata;
@@ -113,8 +113,8 @@ module foo_bb_B1_start_stall_region (
     // i_toi1_intcast_foo3_sel_x(BITSELECT,33)@1
     assign i_toi1_intcast_foo3_sel_x_b = bubble_select_i_iord_bl_call_foo_unnamed_foo2_foo1_aunroll_x_b[0:0];
 
-    // cpn_i32(CONSTANT,4)
-    assign cpn_i32_q = $unsigned(64'b0000000000000000000000000000000000000000000000000000000000000000);
+    // c_i64_46133748682876518407(CONSTANT,3)
+    assign c_i64_46133748682876518407_q = $unsigned(64'b0100000000000110000000000000000000000000000000000000000000000000);
 
     // i_iowr_bl_return_foo_unnamed_foo3_foo4(BLACKBOX,10)@1
     // in in_i_stall@20000000
@@ -122,7 +122,7 @@ module foo_bb_B1_start_stall_region (
     // out out_iowr_bl_return_foo_o_fifovalid@20000000
     // out out_o_stall@20000000
     foo_i_iowr_bl_return_unnamed_foo3_foo0 thei_iowr_bl_return_foo_unnamed_foo3_foo4 (
-        .in_i_data(cpn_i32_q),
+        .in_i_data(c_i64_46133748682876518407_q),
         .in_i_dependence(i_toi1_intcast_foo3_sel_x_b),
         .in_i_stall(SE_out_i_iowr_bl_return_foo_unnamed_foo3_foo4_backStall),
         .in_i_valid(SE_out_i_iord_bl_call_foo_unnamed_foo2_foo1_aunroll_x_V1),
