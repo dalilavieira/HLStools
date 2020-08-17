@@ -1,5 +1,5 @@
 // Example 3
-
+#include "HLS/hls.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -8,7 +8,7 @@ struct complex {
 	double *s;
 };
 
-struct complex foo(int n) {
+component struct complex foo(int n) {
 	struct complex t;
 	t.n = n;
 	t.s = (double *)&n;
