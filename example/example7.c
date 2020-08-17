@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int foo(int t) {
+int static foo(int t) {
 	return t;
 }
 
